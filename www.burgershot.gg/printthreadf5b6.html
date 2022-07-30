@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Opinion on PVars - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf5b6.html?tid=2098">Opinion on PVars</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Opinion on PVars (<em>/showthread.php?tid=2098</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Opinion on PVars</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+Hi everyone, I've gotten bored so I started writing a gamemode for fun, I want it to be a RolePlay gamemode with all of the stuff (like the NG-RP) but I want it to be smooth on bigger player base too..<br />
+<br />
+I ran some tests and those were the results<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Timing "PawnPlus list"...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mean = 480.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode = 475.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Median = 477.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp; Range = 5.00ns<br />
+Timing "Normal var"...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mean = 200.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode = 199.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Median = 200.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp; Range = 3.00ns<br />
+Timing "Pvar timings"...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mean = 483.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode = 481.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Median = 483.00ns<br />
+&nbsp;&nbsp;&nbsp;&nbsp; Range = 4.00ns</code></div></div><br />
+The code I used:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new List:pp_list[1000];<br />
+<br />
+enum E_PLAYER_DATA {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;E_PLAYER_SOME_VAR,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;E_PLAYER_SOME_VAR_2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;E_PLAYER_SOME_VAR_3<br />
+};<br />
+new PlayerData[1000][E_PLAYER_DATA];<br />
+<br />
+hook OnScriptInit()<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;for(new i = 0; i &lt; 1000; ++i) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pp_list[i] = list_new();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list_resize_var(pp_list[i], 3, VAR_NULL);&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return Y_HOOKS_CONTINUE_RETURN_1;<br />
+}<br />
+<br />
+public OnPlayerConnect(playerid)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;wait_ms(5000);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;print("A");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;RUN_TIMING("PawnPlus list")<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list_set(pp_list[playerid], 0, 10000000);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list_set(pp_list[playerid], 1, 10000000);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list_set(pp_list[playerid], 2, 10000000);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;RUN_TIMING("Normal var")<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PlayerData[playerid][E_PLAYER_SOME_VAR] = 10000000;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PlayerData[playerid][E_PLAYER_SOME_VAR_2] = 10000000;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PlayerData[playerid][E_PLAYER_SOME_VAR_3] = 10000000;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;RUN_TIMING("Pvar timings")<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetPVarInt(playerid, "key1", 10000000);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetPVarInt(playerid, "key2", 10000000);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetPVarInt(playerid, "key3", 10000000);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div><br />
+So, is it worth it?<br />
+Should I use PVars/PP lists? Does it even matter that much when the diff is 200ns?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Opinion on PVars</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+The question is incomplete. Use X for what? All 3 features have other differences, and are suited for other things. PP lists are resizable; PVars are maps (so PP maps would be better in a comparison), plus their lookup is linear so the difference will only become apparent for a larger collection.<br />
+<br />
+And the difference should be interpreted in another way. It doesn't matter at all what the absolute difference is for a single call, you should be looking at how it scales. So for 1000 calls it will be 200 µs and so on. But I don't think it matters (for this specific use case) that much since twice slower is still more or less within the same order of magnitude.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Opinion on PVars</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+Hmm, I want to store the user data so that's why I tested it this way..🧍🏻
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Opinion on PVars</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+He is just saying that your test isn't big enough.  You're only testing 3 writes to three variables, you need more like 100.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

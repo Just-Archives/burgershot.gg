@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Get coordinates where the player is looking! - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread7de5.html?tid=2093">Get coordinates where the player is looking!</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Get coordinates where the player is looking! (<em>/showthread.php?tid=2093</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Get coordinates where the player is looking!</strong> - <a href="member7077.html?action=profile&amp;uid=2975">Otakeiro</a> -  <strong>2021-06-02</strong>
+<br />
+<br />
+I intend to do something similar to the gravitygun while holding an object at 10.0 away the front of the player, but I do not know which function to use so that when the player looks up this object fluctuating following the position to where the player is looking<br />
+<br />
+What function would do that for me? Get the position where the player is looking
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get coordinates where the player is looking!</strong> - <a href="member0f88.html?action=profile&amp;uid=3381">Chessy</a> -  <strong>2021-06-04</strong>
+<br />
+<br />
+You can use something like this<br />
+new Float:angle, Float:x, Float:y, Float:z;<br />
+GetPlayerFacingAngle(playerid, angle);<br />
+GetPlayerPos(playerid, x, y, z);<br />
+<br />
+And from there calculate the coordinates, if he is looking north, you know that in north the Y coordinate increases, if he is looking west, the X coordinate decreases.<br />
+<br />
+Something like<br />
+new Float:lookingx, Float:lookingy;<br />
+if(angle == 0) // He is looking north<br />
+{    <br />
+    lookingx = x; // The already X position of the user<br />
+    lookingy = y+10; // The position on Y of the user plus 10 meters.<br />
+}<br />
+if(angle == 90) // He is looking east<br />
+{<br />
+    lookingx = x+10; // The already X position of the user plus 10 meters<br />
+    lookingy = y; // The position on Y of the user.<br />
+}<br />
+<br />
+And you'll calculate the angles with some mathematic formula.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get coordinates where the player is looking!</strong> - <a href="member0517.html?action=profile&amp;uid=3729">Schoenherr</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+If I understand what you're looking to do, maybe this could be an option: https://sampwiki.blast.hk/wiki/GetPlayerCameraPos
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get coordinates where the player is looking!</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-05, 03:31 AM)</span>Schoenherr Wrote:  <a href="showthreadf64e-3.html?pid=11392#pid11392" class="quick_jump"></a></cite>If I understand what you're looking to do, maybe this could be an option: https://sampwiki.blast.hk/wiki/GetPlayerCameraPos</blockquote>Combine that with<br />
+https://sampwiki.blast.hk/wiki/GetPlayerCameraFrontVector
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
