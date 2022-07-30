@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn add, subtract - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread4761.html?tid=2249">add, subtract</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> add, subtract (<em>/showthread.php?tid=2249</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>add, subtract</strong> - <a href="member14ef.html?action=profile&amp;uid=801">ZyZu.</a> -  <strong>2021-11-13</strong>
+<br />
+<br />
+I haven't did any coding over 4-5 years now. Anyways I decided to start working on my gamemode again. I used to have an include to add, subtract, divide, multiply stocks. Does anyone has this include? I have to find all the plugins and includes but since the main forum is down everything is hard to find. Thanks.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>subtract(cash, amount[1])</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock GivePlayerCash(playerid, amount[]) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;static cash[256];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPVarString(playerid, "pMoney", cash, 256);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(strfind(amount, "-") == 0) SetPVarString(playerid, "pMoney", subtract(cash, amount[1]));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else SetPVarString(playerid, "pMoney", add(cash, amount));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: add, subtract</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-11-15</strong>
+<br />
+<br />
+What is the name of that include? Did you google it?<br />
+Anyway if you do not find that include, create that function yourself using <a href="https://open.mp/docs/scripting/functions/strval" target="_blank" rel="noopener" class="mycode_url">strval</a>.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: add, subtract</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-11-17</strong>
+<br />
+<br />
+This is just `+`, `-`, etc.  You don't need an include for maths.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

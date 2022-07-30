@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn how to get the last digit of a player's IP - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread0a86.html?tid=2168">how to get the last digit of a player's IP</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> how to get the last digit of a player's IP (<em>/showthread.php?tid=2168</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>how to get the last digit of a player's IP</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-15</strong>
+<br />
+<br />
+hello,<br />
+<br />
+title simply says it all but i'm going to elaborate a bit. i'm trying to make an anti proxy system and so far it works. however i want to whitelist ips like 192.168.1.1 until 192.168.1.255. however, it seems like i dont know how, even though i tried so many times with different approaches such as strfind, strlen, strdel but these didnt help me out either probably because the way i did it didn't work. well here's the code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward httpResponse(playerid, response_code, data[]);<br />
+public httpResponse(playerid, response_code, data[])<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new name[MAX_PLAYERS], string[192], ipstring[64];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new ip[16];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerName(playerid, name, sizeof(name));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerIp(playerid, ip, sizeof(ip));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;format(ipstring, sizeof(string), "192.168.1.%d", strlen(ip) - 13);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(strcmp(ip, "127.0.0.1", true) == 0 || strcmp(ip, ipstring, true) == 0)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is a LAN type, therefore able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// If the site sends an OK message<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(response_code == 200)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If a player is using VPN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(data[0] == 'Y')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format(string, sizeof(string), "ANTI VPN: %s(%d) has been kicked from the server due to VPN usage.", name, playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessageToAll(COLOR_RED, string);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is not legit, therefore not able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//SetTimerEx("DelayKick", 100, false, "i", playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If not<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(data[0] == 'N')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is legit, therefore able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// OnPlayerConnect welcome messages should handle this<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Failsafe. Should not trigger<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(data[0] == 'X')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("From the site: Wrong IP format!");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("The request failed! The response code was: %d", response_code);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div><br />
+much appreciated if anyone could help, ive been trying to fix this issue for like hours.<br />
+<br />
+edit: i could do it the worst way which is: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(strcmp(ip, "192.168.1.1", true) == 0)</code></div></div> then 192.168.1.2 and so on but it sucks
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP.</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-15</strong>
+<br />
+<br />
+Easiest (and, afaik the best) way would be with sscanf:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip[] = "192.168.2.10";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part4<br />
+;<br />
+sscanf(ip, "p&lt;.&gt;dddd", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+//OR, if you (as the title suggests) really just want the last part:<br />
+sscanf(ip, "p&lt;.&gt;{ddd}d", ip_part4);<br />
+<br />
+//ip_part1 = 192<br />
+//ip_part2 = 168<br />
+//ip_part3 = 2<br />
+//ip_part4 = 10</code></div></div><br />
+I read your post after placing this.. (I did quickly go over it but didn't really read it, oops) how does strfind() not work for you? It either returns -1 (string you're looking for not found), or it returns the first character of the found string (or according to the wiki: "The number of characters before the sub string (the sub string's start position) ", so basically the same thing)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new ip[] = "192.168.1.200";<br />
+if (strfind(ip, "192.168.1") == 0) //0, because "192.168.1" should be found in "192.168.1.200".<br />
+//That found character 'has no characters before the sub string' (so, the found string started at index 0)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//OK, Accepted LAN IP<br />
+}<br />
+else<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//NOK, VPN?<br />
+}</code></div></div><br />
+To come back to the sscanf example, this would be an alternative way:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip[] = "192.168.1.200";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part4<br />
+;<br />
+sscanf(ip, "p&lt;.&gt;dddd", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+<br />
+if (ip_part1 == 192 &amp;&amp; ip_part2 == 168 &amp;&amp; ip_part3 == 1 &amp;&amp; (1 &lt;= ip_part4 &lt;= 255)) <br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//OK, Accepted LAN IP<br />
+}<br />
+else<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//NOK, VPN?<br />
+}</code></div></div>.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP.</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-15, 11:09 PM)</span>Kwarde Wrote:  <a href="showthread3290.html?pid=11663#pid11663" class="quick_jump"></a></cite><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new ip[] = "192.168.1.200";<br />
+if (strfind(ip, "192.168.1") == 0) //0, because "192.168.1" should be found in "192.168.1.200", and that found character 'has no characters before the sub string' (the found string started at index 0)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//OK, it is a LAN IP<br />
+}<br />
+else<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//NOK, it is most likely a VPN user (assuming we already checked other addresses such as 127.0.0.1)<br />
+}</code></div></div></blockquote><br />
+are you sure, that this is going to solve the problem? because what im asking is if a player's ip matches 192.168.1.(1..255) while yours as i see what it does is check if the ip variable (not player's ip) matches 192.168.1<br />
+<br />
+edit: to elaborate a bit, this is what i need <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(strcmp(ip, "127.0.0.1", true) == 0)</code></div></div> but the 192.168.1 until 255 version.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP.</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-15</strong>
+<br />
+<br />
+I editted my post while you were replying. Check out the last code, that does what you want ;-)<br />
+And indeed. The strfind() thing I posted would accept all IPs starting with "192.168.1" (I don't see how that could become an issue tho)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP.</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-15, 11:37 PM)</span>Kwarde Wrote:  <a href="showthread4b43.html?pid=11665#pid11665" class="quick_jump"></a></cite>I editted my post while you were replying. Check out the last code, that does what you want ;-)<br />
+And indeed. The strfind() thing I posted would accept all IPs starting with "192.168.1" (I don't see how that could become an issue tho)</blockquote><br />
+how did this work? i'm kinda confused from that sscanf thing, like what's that <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;.&gt;dddd</code></div></div> ? to be honest, the whole line itself: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>sscanf(ip, "p&lt;.&gt;dddd", ip_part1, ip_part2, ip_part3, ip_part4);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP.</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-15</strong>
+<br />
+<br />
+sscanf = unformat.<br />
+See this: https://github.com/Y-Less/sscanf for full documentation.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP.</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-15, 11:56 PM)</span>Kwarde Wrote:  <a href="showthread3340.html?pid=11669#pid11669" class="quick_jump"></a></cite>sscanf = unformat.<br />
+See this: https://github.com/Y-Less/sscanf for full documentation.</blockquote><br />
+strfind method worked too but what im noticing is that it doesnt care if it's player's ip in there. it just wants to know if the specific ip value is found in order to continue (send chat message, etc.) am i right? and if it does so, why tho?<br />
+<br />
+anyways, thanks for helping out! way more relieved now and im going to use strfind as it's way easier to understand.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP.</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+No idea how you treat VPN users.<br />
+Since strfind() returns -1 (not found) or the position where the string you're looking for was found. Since the piece of code I sent checks if the returned value of strfind is 0, it returns true (the statement itself) if an IP starts with "192.168.1" (without a dot at the end, "192.168.10.2" would be valid too).<br />
+<br />
+I do recommend sscanf tho. What that piece of code did was unformatting a string. So instead of:<br />
+<br />
+format(ip, sizeof(ip), "%d.%d.%d.%d", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+<br />
+It did the opposite. "p&lt;.&gt;dddd" tells the function to split the string in 4 integers (stored in the variables defined after the unformat specifiers) divided by ".". By default (without the p specifier) it splits strings by spaces. It is very widely used in commands (it replaced strtok()). You may want to consider using it anyway (efficient, fast, reliable, easy to use when you get the hang of it). Up to you though.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP.</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-16, 12:18 AM)</span>Kwarde Wrote:  <a href="showthreadee68.html?pid=11673#pid11673" class="quick_jump"></a></cite>No idea how you treat VPN users.<br />
+Since strfind() returns -1 (not found) or the position where the string you're looking for was found. Since the piece of code I sent checks if the returned value of strfind is 0, it returns true (the statement itself) if an IP starts with "192.168.1" (without a dot at the end, "192.168.10.2" would be valid too).<br />
+<br />
+I do recommend sscanf tho. What that piece of code did was unformatting a string. So instead of:<br />
+<br />
+format(ip, sizeof(ip), "%d.%d.%d.%d", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+<br />
+It did the opposite. "p&lt;.&gt;dddd" tells the function to split the string in 4 integers (stored in the variables defined after the unformat specifiers) divided by ".". By default (without the p specifier) it splits strings by spaces. It is very widely used in commands (it replaced strtok()). You may want to consider using it anyway (efficient, fast, reliable, easy to use when you get the hang of it). Up to you though.</blockquote><br />
+hmm, quite interesting. might use it in the future whe i get the hang of it as you said. and yeah about the vpn users, it's just a message to everyone and a kick since when players get banned, they want to evade it by using things such as vpn, so yeah, there we go
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+it turns out that thing doesn't work, both methods. i tested this today and it considers every ip as a lan, even public ips. <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>mems(0) IP(my public ip here) is a LAN type, therefore able to enter the server.</code></div></div><br />
+edit: i have an idea that might help with this situation, which is to put the 4 parts of a player's ip into arrays so that way we can compare them.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+Then you are still doing something wrong.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+#include &lt;sscanf2&gt;<br />
+<br />
+main()<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP_LAN[] = "192.168.1.69",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP_PUBLIC[] = "86.88.190.219",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_lan_part[4], ip_public_part[4]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(IP_LAN, "p&lt;.&gt;dddd", ip_lan_part[0], ip_lan_part[1], ip_lan_part[2], ip_lan_part[3]);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(IP_PUBLIC, "p&lt;.&gt;dddd", ip_public_part[0], ip_public_part[1], ip_public_part[2], ip_public_part[3]);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_lan_part[0] == 192 &amp;&amp; ip_lan_part[1] == 168 &amp;&amp; ip_lan_part[2] == 1 &amp;&amp; (1 &lt;= ip_lan_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_LAN: Is accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_LAN: Is NOT accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_public_part[0] == 192 &amp;&amp; ip_public_part[1] == 168 &amp;&amp; ip_public_part[2] == 1 &amp;&amp; (1 &lt;= ip_public_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_PUBLIC: Is accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_PUBLIC: Is NOT accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</code></div></div><br />
+100% guaranteed that the output is:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>IP_LAN: Is accepted LAN<br />
+IP_PUBLIC: Is NOT accepted LAN</blockquote>
+<br />
+<br />
+Is your public server home hosted? If so, when connecting to the public server's IP on the same network the server is hosted on, it will use your default gateway. If not, you still did something wrong in your script. (I confirmed the script works the first time already -- I usually test something before posting it, even if I'm already sure it would work)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-16, 07:14 PM)</span>Kwarde Wrote:  <a href="showthreadf0b9-2.html?pid=11678#pid11678" class="quick_jump"></a></cite>Then you are still doing something wrong.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+#include &lt;sscanf2&gt;<br />
+<br />
+main()<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP_LAN[] = "192.168.1.69",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP_PUBLIC[] = "86.88.190.219",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_lan_part[4], ip_public_part[4]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(IP_LAN, "p&lt;.&gt;dddd", ip_lan_part[0], ip_lan_part[1], ip_lan_part[2], ip_lan_part[3]);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(IP_PUBLIC, "p&lt;.&gt;dddd", ip_public_part[0], ip_public_part[1], ip_public_part[2], ip_public_part[3]);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_lan_part[0] == 192 &amp;&amp; ip_lan_part[1] == 168 &amp;&amp; ip_lan_part[2] == 1 &amp;&amp; (1 &lt;= ip_lan_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_LAN: Is accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_LAN: Is NOT accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_public_part[0] == 192 &amp;&amp; ip_public_part[1] == 168 &amp;&amp; ip_public_part[2] == 1 &amp;&amp; (1 &lt;= ip_public_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_PUBLIC: Is accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_PUBLIC: Is NOT accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</code></div></div><br />
+100% guaranteed that the output is:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>IP_LAN: Is accepted LAN<br />
+IP_PUBLIC: Is NOT accepted LAN</blockquote></blockquote><br />
+i believe the way to fix this is to compare the player's ip and the target ip by somehow replacing <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>IP_PUBLIC[] = "86.88.190.219",</code></div></div> with the player's ip. is it possible? because that's what i'm trying to do right now<br />
+<br />
+edit: and no my public server is hosted by ultra-h for quick tests you know<br />
+<br />
+edit 2: to remind you what im trying to do is to somehow compare the player's ip with the specific ip (192.168.1.4) for example. what you've done so far is compare a specific ip with another specific ip to see if they match which is not what i really want. i hope you understand what im saying. another idea i just thought of while making this edit is to somehow use range values like in Kotlin where you simply do: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>1..10</code></div></div> is that also possible, any library for that?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+Both IP_LAN and IP_PUBLIC represent the "Player's IP's". IP_LAN from a player who connects through LAN, and IP_PUBLIC from someone who connects from a remote system. (Thus both IP_LAN and IP_PUBLIC represent an IP which was received by using GetPlayerIP()).<br />
+To clarify, your whole script would look like (with some extra added comments):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward httpResponse(playerid, response_code, data[]); //Bad naming, by the way. Something like "OnVPNLookup" would be better<br />
+public httpResponse(playerid, response_code, data[])<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name[MAX_PLAYER_NAME + 1], //name[MAX_PLAYERS]&nbsp;&nbsp;==&gt; name[MAX_PLAYER_NAME + 1] :: Sure that was a mistake. "+ 1" for the null terminator <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string[192],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip[16],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part[4]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerName(playerid, name, MAX_PLAYER_NAME);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerIp(playerid, ip, sizeof(ip));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(ip, "p&lt;.&gt;dddd", ip_part[0], ip_part[1], ip_part[2], ip_part[3]);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_part[0] == 192 &amp;&amp; ip_part[1] == 168 &amp;&amp; ip_part[2] == 1 &amp;&amp; (1 &lt;= ip_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is a LAN type, therefore able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return; //Just 'return;': There is no need to return a value. No function is directly calling httpResponse, so that value is sent to nowhere.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// If the site sends an OK message<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(response_code == 200)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new server_response[2];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (sscanf(data, "s[2]", server_response)) //Failsafe check 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("ERROR: sscanf() failed to unformat data[] in httpResponse(). Cannot check VPN status for player %s(%d) IP: %s. Returned data[]=%s", name, playerid, ip, data);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If a player is using VPN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!strcmp(server_response, "Y"))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format(string, sizeof(string), "ANTI VPN: %s(%d) has been kicked from the server due to VPN usage.", name, playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessageToAll(COLOR_RED, string);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is not legit, therefore not able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//SetTimerEx("DelayKick", 100, false, "i", playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (!strcmp(server_response, "N"))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is legit, therefore able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else //Failsafe, should not trigger<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("ERROR: Invalid response from server in httpResponse(). Unformatted response is: %s", server_response);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("ERROR: Failed to perform VPN check on %s(%d). Server responded with: %d", name, playerid, response_code);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</code></div></div><br />
+This time I did not check the code though. Merely added a few comments to point out a thing or two (and another example of sscanf(), just for the sake of showing how simple the function can be).<br />
+The point is, that first ip check should do the trick (note that it still doesn't check for "127.0.0.1" in this code, since that's not what you're having issues with).<br />
+<br />
+<br />
+EDIT:<br />
+You editted your post:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>what you've done so far is compare a specific ip with another specific ip to see if they match which is not what i really want.</blockquote>
+Well, I was already thinking you'd think something like that. See begin of post (the part where those variables with the IPs are imitating someone's "real" IP). The comparisment code(s) I sent were mere examples.<br />
+<br />
+EDIT 2:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>another idea i just thought of while making this edit is to somehow use range values like in Kotlin where you simply do:  1..10</blockquote>
+You pretty much can:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if (1 &lt;= VARIABLE &lt;= 10) //Same as "1..10" (doesn't work PAWN tho) or, also the same as "VARIABLE &gt;= 1 &amp;&amp; VARIABLE &lt;= 10" (does work PAWN (it's a basic statement - just like the "1 &lt;= VARIABLE &lt;= 10"))</code></div></div><br />
+EDIT 3:<br />
+Created this function to make things even easier (NOTE: checks if an IP is &gt;ANY&lt; LAN IP, not just 192.168.1.{0...255}<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>/*<br />
+IsLocalIP(const ip[]):<br />
+&nbsp;&nbsp;input (string): An IPv4 address<br />
+&nbsp;&nbsp;outputs:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;true: Given IPv4 address is a local address<br />
+&nbsp;&nbsp;&nbsp;&nbsp;false: Given IPv4 is not a local address (either a remote address or an invalid IPv4 address)<br />
+*/<br />
+bool:IsLocalIP(const ip[]) //Got the LAN IPs information from: https://en.wikipedia.org/wiki/Private_network<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new ip_part[4];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (sscanf(ip, "p&lt;.&gt;dddd", ip_part[0], ip_part[1], ip_part[2], ip_part[3]))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_part[0] == 127 &amp;&amp; ip_part[1] == 0 &amp;&amp; ip_part[2] == 0 &amp;&amp; ip_part[3] == 1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if ((ip_part[0] == 10) &amp;&amp; (0 &lt;= ip_part[1] &lt;= 255) &amp;&amp; (0 &lt;= ip_part[2] &lt;= 255) &amp;&amp; (0 &lt;= ip_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if ((ip_part[0] == 172) &amp;&amp; (16 &lt;= ip_part[1] &lt;= 31) &amp;&amp; (0 &lt;= ip_part[2] &lt;= 255) &amp;&amp; (0 &lt;= ip_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if ((ip_part[0] == 192) &amp;&amp; (ip_part[1] == 168) &amp;&amp; (0 &lt;= ip_part[2] &lt;= 255) &amp;&amp; (0 &lt;= ip_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
+}<br />
+<br />
+//EXAMPLE USAGE:<br />
+hook OnPlayerConnect(playerid)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name[MAX_PLAYER_NAME + 1]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip[16]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerName(playerid, name, MAX_PLAYER_NAME);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerIp(playerid, ip, 16);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (IsLocalIP(ip))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("&gt;&gt; %s(%i) is connected via localhost or LAN!", name, playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("&gt;&gt; %s(%i) is remotely connected to the server", name, playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+i solved the problem by doing this: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>&nbsp;&nbsp;&nbsp;&nbsp;new ip[16];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerIp(playerid, ip, sizeof(ip));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part4<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(ip, "p&lt;.&gt;dddd", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_part1 == 192 &amp;&amp; ip_part2 == 168 &amp;&amp; ip_part3 == 1 &amp;&amp; (1 &lt;= ip_part4 &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{</code></div></div><br />
+i simply removed the ip[] = "192.168.1.255" variable, and replaced it with the player's ip and now it works perfectly. thanks so much once again for helping out. if i notice any problem i will update this topic.<br />
+<br />
+messages the server is currently sending: (which are correct so far)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>mems1(0) IP(my real public ip) is legit, therefore able to enter the server.<br />
+mems2(0) IP(109.201.143.77) is not legit, therefore not able to enter the server.</code></div></div> the last one is from hide.me vpn.<br />
+<br />
+edit: as for the 127.0.0.1 thing, i added this: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if ((ip_part1 == 192 || ip_part1 == 127) &amp;&amp; (ip_part2 == 168 || ip_part2 == 0) &amp;&amp; (ip_part3 == 1 || ip_part3 == 0) &amp;&amp; (1 &lt;= ip_part4 &lt;= 255 || ip_part4 == 1))</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>i simply removed the ip[] = "192.168.1.255" variable, and replaced it with the player's ip and now it works perfectly</blockquote>
+That was exactly what you should had done in the first place.. I'll make sure to explicitly mention that an eventual next time ;-).
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP</strong> - <a href="membera130.html?action=profile&amp;uid=2581">mems</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-16, 08:26 PM)</span>Kwarde Wrote:  <a href="showthread71a1.html?pid=11690#pid11690" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>i simply removed the ip[] = "192.168.1.255" variable, and replaced it with the player's ip and now it works perfectly</blockquote>
+That was exactly what you should had done in the first place.. I'll make sure to explicitly mention that an eventual next time ;-).</blockquote><br />
+agreed, should have thought a bit better about it, and ultimately, sscanf was the best solution to this problem. that function really helped and i even learned something new from it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: how to get the last digit of a player's IP</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-16</strong>
+<br />
+<br />
+You'll find sscanf being usefull in quite alot more situations. For starters, in commands.<br />
+Assume you've the command "/warn". You'll want to specify a playerid (or username) and a reason:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:warn(playerid, params[])<br />
+{<br />
+    new warned_id, reason[75];<br />
+    if (sscanf(params, "rs[75]", warned_id, reason))<br />
+    {<br />
+        return SendClientMessage(playerid, -1, "USAGE: /warn [playerid/name] [reason]");<br />
+    }<br />
+    //Rest of code (warn the user, etc)</code></div></div><br />
+Command /kick, with a kick reason being optional:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:kick(playerid, params[])<br />
+{<br />
+    new kicked_id, reason[75];<br />
+    if (sscanf(params, "rS(No reason)[75]", kicked_id, reason))<br />
+    {<br />
+      return SendClientMessage(playerid, -1, "USAGE: /kick [playerid/name] (reason. Default is 'No reason')");<br />
+    }<br />
+    //Rest of code...</code></div></div><br />
+Or fetching someone's geolocation using ip-api (csv): (eg. ip-api.com/csv/IP_HERE?fields=country,countryCode)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public on_fetch_geodata(playerid, response_code, data[])<br />
+{<br />
+    new <br />
+        country[64],<br />
+        countryCode[3]<br />
+    ;<br />
+    sscanf(data, "p&lt;,&gt;s[64]s[3]", country, countryCode);<br />
+    printf("Player %s(%i) is from %s(%s)", PlayerName(playerid), playerid, country, countryCode);<br />
+}</code></div></div><br />
+Or if you want to make a database migration system (run migrations when booting your mode to ensure database is up-to-date, without having to manually do that).<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>hook OnGameModeInit() //An OnGameModeInit() (or even OnScriptInit()) before any functions are loaded (but MySQL initialised)<br />
+{<br />
+    //Running functions to scan all files in "scriptfiles/db-migrations" (possible, using JaTochNietDan's FileManager. Code not here because purpose is sscanf example<br />
+    new<br />
+        migr_name[25], //Migration's name<br />
+        migr_v_maj, //Version (major)<br />
+        migr_v_min, //Version (minor)<br />
+        migr_v_bld //Version (build)<br />
+    ;<br />
+    //Let's assume a migration's name can be "NAME_vMaj-vMin-vBld" OR "NAME-vMaj" OR "NAME"<br />
+    if (!sscanf(file_name, "P&lt;_--&gt;s[25]ddd", migr_name, migr_v_maj, migr_v_min, migr_v_bld))<br />
+    {<br />
+        printf("Running migration '%s' from version %i.%i.%i", migr_name, migr_v_maj, migr_v_min, migr_v_bld);<br />
+        //mysql_query_file(___)<br />
+    }<br />
+    else if (!sscanf(file_name, "p&lt;-&gt;s[25]i", migr_name, migr_v_maj))<br />
+    {<br />
+        printf("Running migration '%s' from version %i", migr_name, migr_v_maj);<br />
+        //etc...<br />
+    }<br />
+    else if (!sscanf(file_name, "p&lt;-&gt;s[25]", migr_name))<br />
+    {<br />
+        printf("Running migration '%s, no version specified'", migr_name);<br />
+        //etc<br />
+    }<br />
+    else<br />
+    {<br />
+        printf("&lt;!&gt; Not running migration '%s', invalid file name", file_name);<br />
+    }<br />
+    return 1;<br />
+}</code></div></div><br />
+Or maybe some motd data was weirdy saved in an ini file (eg. "motd=Msg1:Hello world!;Msg2:This is a message in the motd!;Msg3:Check our website!")<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new LineFromIniFile[] = "motd=Msg1:Hello world!;Msg2:This is a message in the motd!;Msg3:Check our website!"; //Represent that line I mentioned above<br />
+new Msg1[35], Msg2[35], Msg3[35];<br />
+sscanf(LineFromIniFile, "P&lt;=:;:;:&gt;{s[5]s[5]}s[35]{s[5]}s[35]{s[5]}s[35]", Msg1, Msg2, Msg3);<br />
+printf("%s----%s----%s", Msg1, Msg2, Msg3); //Output: Hello world!----This is a message in the motd!----Check our website!</code></div></div><br />
+And I could go on for a while with crazier examples... but that's a bit too much (in fact, this entire post is because your answer has already been answered. Going waay off topic here).<br />
+Have a nice day :-)<br />
+<br />
+<br />
+To be more on topic, by the way:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>&amp;&amp; (1 &lt;= ip_part4 &lt;= 255 || ip_part4 == 1)</blockquote>
+If the IP is "127.0.0.1", ip_part4 will be "1". <br />
+1- "1 &lt;= ip_part4 &lt;= 255" will be true when ip_part4 is ATLEAST 1 and NO MORE THAN 255<br />
+2- "ip_part4 == 1" will be true when ip_part4 is EXACTLY 1.<br />
+<br />
+Statement is double (and thus quite unnecessary) since both checks will return true for "1". Small thing, but wanted to point it out anyway.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

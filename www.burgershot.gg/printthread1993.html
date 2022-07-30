@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Client Texture Studio doors not opening - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #F755B7;font-weight: bold;">[Client]</span> <a href="showthread1993.html?tid=1729">Texture Studio doors not opening</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #F755B7;font-weight: bold;">[Client]</span> Texture Studio doors not opening (<em>/showthread.php?tid=1729</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Texture Studio doors not opening</strong> - <a href="member1bde.html?action=profile&amp;uid=3498">Kevinas</a> -  <strong>2021-03-05</strong>
+<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Roboto;" class="mycode_font">When I rotate a door it rotates visually, but it's axis doesn't change and stays in the same position, so whenever I rotate a door it opens and closes in the same spots as before, has anyone ever encountered this?</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio doors not opening</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-03-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-05, 08:38 AM)</span>Radical Wrote:  <a href="showthread299b-2.html?pid=10093#pid10093" class="quick_jump"></a></cite>Use this function to rotate a object.<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;RotateObject</span><span style="color: #007700">(</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rotX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rotY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rotZ</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Speed</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">X</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">SpeedConverted&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">floatmul</span><span style="color: #007700">(</span><span style="color: #0000BB">Speed</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.01</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">GetObjectPos</span><span style="color: #007700">(</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Z</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SetObjectPos</span><span style="color: #007700">(</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">floatadd</span><span style="color: #007700">(</span><span style="color: #0000BB">Z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.01</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">MoveObject</span><span style="color: #007700">(</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">floatsub</span><span style="color: #007700">(</span><span style="color: #0000BB">Z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.01</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">SpeedConverted</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">rotX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">rotY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">rotZ</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div></blockquote>https://burgershot.gg/showthread.php?tid=1728
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio doors not opening</strong> - <a href="member1bde.html?action=profile&amp;uid=3498">Kevinas</a> -  <strong>2021-03-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-05, 09:23 AM)</span>Radical Wrote:  <a href="showthreadcf82-2.html?pid=10095#pid10095" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-05, 08:38 AM)</span>Radical Wrote:  <a href="showthread299b-2.html?pid=10093#pid10093" class="quick_jump"></a></cite>Use this function to rotate a object.<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;RotateObject</span><span style="color: #007700">(</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rotX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rotY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rotZ</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Speed</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">X</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">SpeedConverted&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">floatmul</span><span style="color: #007700">(</span><span style="color: #0000BB">Speed</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.01</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;GetObjectPos</span><span style="color: #007700">(</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;SetObjectPos</span><span style="color: #007700">(</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">floatadd</span><span style="color: #007700">(</span><span style="color: #0000BB">Z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.01</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;MoveObject</span><span style="color: #007700">(</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">floatsub</span><span style="color: #007700">(</span><span style="color: #0000BB">Z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.01</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">SpeedConverted</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">rotX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">rotY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">rotZ</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div></blockquote>https://burgershot.gg/showthread.php?tid=1728</blockquote><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">https://imgur.com/9aWT6bx</span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">I'm not using code, I'm using Texture Studio 1.9, the 188 id is the axis of the door, no matter how I rotate the door, the axis stays in the same position, thus not letting the door open in the way I want it to</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Login and registration without pressing spawn - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadee2b.html?tid=1831">Login and registration without pressing spawn</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Login and registration without pressing spawn (<em>/showthread.php?tid=1831</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Login and registration without pressing spawn</strong> - <a href="member09b7.html?action=profile&amp;uid=3547">YowlsGazZ</a> -  <strong>2021-04-01</strong>
+<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Courier New;" class="mycode_font"><span style="font-style: italic;" class="mycode_i"><span style="color: #000000;" class="mycode_color">[English]</span> <span style="color: #005dc2;" class="mycode_color">Good morning / afternoon / evening</span><br />
+<br />
+<span style="color: #005dc2;" class="mycode_color">Friends, today I have a question, which has invaded me a while ago, and it is how I can make the users who enter my server, either by logging in or registering, do so without pressing the "Spawn" box.</span></span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Courier New;" class="mycode_font"><span style="font-style: italic;" class="mycode_i">[i]<span style="font-size: medium;" class="mycode_size">[font=Courier New]<span style="color: #005dc2;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">PS: Your support is always appreciated</span></span></span></span></span>[/i][/font]</span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Courier New;" class="mycode_font"><span style="font-style: italic;" class="mycode_i"><span style="color: #000000;" class="mycode_color">[Spanish]</span><span style="color: #005dc2;" class="mycode_color"> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2e6c5b4b406e5d">[email&#160;protected]</a> días/tardes/noches</span></span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Courier New;" class="mycode_font"><span style="font-style: italic;" class="mycode_i"><span style="color: #005dc2;" class="mycode_color">amigos, hoy tengo una pregunta, la cual me ha invadido hace un tiempo, y es como puedo hacer que los usuarios que entren en mi servidor, ya sea logeando o registrandose lo hagan sin necesidad de presionar el recuadro de "Spawn".</span></span></span></span><br />
+<br />
+<br />
+<span style="color: #005dc2;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="font-family: Courier New;" class="mycode_font"><span style="font-style: italic;" class="mycode_i">PD: Siempre se agradece su apoyo :3</span></span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Login and registration without pressing spawn</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-04-01</strong>
+<br />
+<br />
+<span style="color: #aaaaaa;" class="mycode_color">If you mean players have to click on the spawn box to see the dialog login/register :</span><br />
+You have to show the login/register dialog on OnPlayerConnect not in OnPlayerRequestClass.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Login and registration without pressing spawn</strong> - <a href="member09b7.html?action=profile&amp;uid=3547">YowlsGazZ</a> -  <strong>2021-04-06</strong>
+<br />
+<br />
+<span style="color: #005dc2;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="font-family: Courier New;" class="mycode_font">Resumiendo el problema, lo que quiero es que cuando un usuario coloca su contraseña, inicia sesión o se genera en el servidor instantáneamente, sin tener que presionar la casilla "Spawn", ¿hay algún código para deshabilitar esa casilla?</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Login and registration without pressing spawn</strong> - <a href="member036a.html?action=profile&amp;uid=695">Banditul</a> -  <strong>2021-04-06</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-06, 04:19 AM)</span>YowlsGazZ Wrote:  <a href="showthreada24a.html?pid=10565#pid10565" class="quick_jump"></a></cite><span style="color: #005dc2;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="font-family: Courier New;" class="mycode_font">Resumiendo el problema, lo que quiero es que cuando un usuario coloca su contraseña, inicia sesión o se genera en el servidor instantáneamente, sin tener que presionar la casilla "Spawn", ¿hay algún código para deshabilitar esa casilla?</span></span></span></blockquote><br />
+You can disable those buttons by using TogglePlayerSpectating(playerid, 1) at OnPlayerConnect to make player spectate and after the player log in you can show them again using TogglePlayerSpectating(playerid, 0) or if you are not using classes you should use it before you spawn the player
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Server is closing - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadb007.html?tid=2063">Server is closing</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Server is closing (<em>/showthread.php?tid=2063</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Server is closing</strong> - <a href="member015b.html?action=profile&amp;uid=3814">robertjwx</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+I was using that samp server hosts (heavyhost) with 50 slots and my server never closes.<br />
+This week i paid a VPS put it online with 300 slots and now my server closes randomlly, the host still normal, only the samp03svr closes<br />
+What it can be?<br />
+<br />
+The logs before crashes don't looks tell a lot:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[21:09:33] [debug] #0 001c02b8 in public AtualizarRoubos () in SP.amx<br />
+<br />
+[21:09:39] Kicking ***.***.**.** because they didn't logon to the game.<br />
+<br />
+[21:10:05] [debug] Long callback execution detected (hang or performance issue)<br />
+<br />
+[21:10:05] [debug] AMX backtrace:<br />
+<br />
+[21:10:05] [debug] #0 001c15e0 in public DesaparecerWeaponDrop () in SP.amx<br />
+<br />
+[21:17:37] [debug] Long callback execution detected (hang or performance issue)<br />
+<br />
+[21:17:37] [debug] AMX backtrace:<br />
+<br />
+[21:17:37] [debug] #0 001c0354 in public AtualizarRoubos () in SP.amx</code></div></div><br />
+But there isn't much about this funciton:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#define MAX_BIZZ 5000<br />
+<br />
+enum bizinfos<br />
+<br />
+{<br />
+<br />
+    bizzID,<br />
+<br />
+    bizzName[30],<br />
+<br />
+    bizzType,<br />
+<br />
+    Float:bizzX,<br />
+<br />
+    Float:bizzY,<br />
+<br />
+    Float:bizzZ,<br />
+<br />
+    bizzOWNER,<br />
+<br />
+    bizzBank,<br />
+<br />
+    bizzProducts<br />
+<br />
+}<br />
+<br />
+new BizzInfo[MAX_BIZZ][bizinfos];<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+public AtualizarRoubos() {<br />
+<br />
+    // atualizar roubos<br />
+<br />
+    for(new bizzid = 1; bizzid &lt; sizeof(BizzInfo); bizzid++) {<br />
+<br />
+        BizzInfo[bizzid][rexaustedrobbery] -= 5;<br />
+<br />
+        if(BizzInfo[bizzid][rexaustedrobbery] &lt; 0) BizzInfo[bizzid][rexaustedrobbery] = 0;<br />
+<br />
+    }<br />
+<br />
+}</code></div></div><br />
+<br />
+Something like this could close my server?<br />
+<br />
+What should i do?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server is closing</strong> - <a href="member1452.html?action=profile&amp;uid=2841">Snow</a> -  <strong>2021-05-30</strong>
+<br />
+<br />
+That is just long callback execution. Use crashdetect plugin and then check the logs after it crashes.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server is closing</strong> - <a href="member015b.html?action=profile&amp;uid=3814">robertjwx</a> -  <strong>2021-06-04</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-30, 07:37 PM)</span>Snow Wrote:  <a href="showthread7cb0.html?pid=11321#pid11321" class="quick_jump"></a></cite>That is just long callback execution. Use crashdetect plugin and then check the logs after it crashes.</blockquote><br />
+I'm using<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;crashdetect&gt;</code></div></div><br />
+plugins:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>plugins crashdetect.so mysql.so sscanf.so streamer.so pawnraknet.so</code></div></div><br />
+<br />
+right?<br />
+i'm already using this
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server is closing</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-04</strong>
+<br />
+<br />
+Try <a href="https://github.com/Zeex/samp-plugin-crashdetect/releases/tag/v4.19.4" target="_blank" rel="noopener" class="mycode_url">CrashDetect v4.19.4</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server is closing</strong> - <a href="member015b.html?action=profile&amp;uid=3814">robertjwx</a> -  <strong>2021-06-06</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-04, 10:19 AM)</span>Radical Wrote:  <a href="showthreadc6b8-2.html?pid=11387#pid11387" class="quick_jump"></a></cite>Try <a href="https://github.com/Zeex/samp-plugin-crashdetect/releases/tag/v4.19.4" target="_blank" rel="noopener" class="mycode_url">CrashDetect v4.19.4</a></blockquote><br />
+You mean to downgrade from 4.20?<br />
+Why?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server is closing</strong> - <a href="member0517.html?action=profile&amp;uid=3729">Schoenherr</a> -  <strong>2021-06-06</strong>
+<br />
+<br />
+Did you forward AtualizarRoubos? Also, where is "rexaustedrobbery" coming from? It's not in your bizinfos enum.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

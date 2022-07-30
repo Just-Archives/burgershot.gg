@@ -1,0 +1,2095 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: showthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>how to get the last digit of a player's IP</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="syndication9896.php?type=atom1.0" />
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/EBFKVbK.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="jscripts/jquery6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/jquery.plugins.min6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/general6c6d.js?ver=1804"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/global.min.css">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/avatarep.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/global.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/css3.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/star_ratings.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/showthread.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/footer.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/custom.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/extra.min8355.css?t=1641376402" />
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+
+	var cookieDomain = ".burgershot.gg";
+	var cookiePath = "index.html";
+	var cookiePrefix = "";
+	var cookieSecureFlag = "0";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "6428f000919b5d9a18f82d476f6b077e";
+	var rootpath = "index.html";
+	var imagepath = "images/index.html";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "images/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<script>
+	$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+	$('.scrollToDown').click(function(){
+		$('html, body').animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- end: headerinclude -->
+<script type="text/javascript">
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script type="text/javascript" src="jscripts/report6c6d.js?ver=1804"></script>
+<script src="jscripts/jeditable/jeditable.min.js"></script>
+<script type="text/javascript" src="jscripts/thread6c6d.js?ver=1804"></script>
+</head>
+<body>
+	<!-- start: header -->
+<div class="haut" style="height:70px">
+	<a href="index.html" id="logo"><img style="position: absolute;left: -5px;top: 12px;" src="https://burgershot.gg/burgershot.svg" height="40px" />Burgershot</a>
+	<span class="useroptions">
+		<ul id="menu-deroulant">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="memberlist.html">Members</a></li>
+			<li><a href="showteam.html">Team</a></li>
+			<li><a href="misc0615.html?action=help">Help</a></li>
+			<li><a href="search.html">Search</a></li>
+			<!-- start: header_welcomeblock_guest -->
+<li><a href="member0ddc.html?action=register">Register</a></li>
+<li><a href="member456e.html?action=login">Login</a></li>
+<script>
+    var connected = 0;
+</script>
+<!-- end: header_welcomeblock_guest -->
+		</ul>
+	</span>
+</div>
+<div style="width: 100%; height: 70px;"></div>
+<!-- Start - Navigation menu -->
+<nav class="headerlist" style="display:none">
+<ul>
+  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li><li>
+	<a href="memberlist.html"><i class="fa fa-users"></i> Members</a></li><li>
+	<a href="misc0615.html?action=help"><i class="fa fa-support"></i> Help</a></li><li>
+	<a href="search.html"><i class="fa fa-search"></i> Search</a>
+</li></ul>
+</nav>
+<!-- End - Navigation menu -->
+<center>
+<!-- Start - Advice -->
+<div id="mobile_member">
+</div>
+<!-- End - Advice -->
+</center>
+<div id="container">
+	<a name="top" id="top"></a>
+	<div id="header">
+		<div id="content">
+			<div class="wrapper">
+				
+				
+				
+				
+				
+				
+				<!-- start: nav -->
+<div class="navigation" style="display:none;">
+          <a href="index-2.html">
+		<span id="home_bit">
+			<i class="fa fa-home"></i>
+		</span>
+	</a>
+	<span style="padding: 8px 12px;margin-left: 5px;"><!-- start: nav_bit -->
+<a href="index-2.html">Burgershot</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplaye15e.html?fid=3">SA-MP</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplayc6ed.html?fid=10">Pawn Scripting</a><!-- start: nav_dropdown -->
+
+<!-- end: nav_dropdown -->
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep_active --><!-- start: nav_bit_active -->
+<span class="active"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;how to get the last digit of a player's IP</span>
+<!-- end: nav_bit_active --></span>
+</div>
+<script>
+var page = location.pathname;
+page = page.substring(1);
+if(page != 'index.php' && page != '') {
+     $('.navigation').css('display', '');
+}
+</script>
+<!-- end: nav -->
+				<br />
+<!-- end: header -->
+	
+	
+	<table border="0" cellspacing="0" style="border-bottom:none;" cellpadding="7" class="tborder tfixed clear">
+<div>
+			<div style="font-size: 20px; background: #F6F6F6; border:none; color:#2C3E50; " class="thead">
+				
+	<div class="float_right">
+		
+	</div>
+	<!-- start: showthread_ratethread -->
+<div class="star_rating_container">
+        <script type="text/javascript" src="jscripts/rating9348.js?ver=1400"></script>
+        <div id="success_rating_2168" style="float: left; padding-top: 2px; padding-right: 10px;">&nbsp;</div>
+        <div class="inline_rating">
+
+<ul class="star_rating star_rating_notrated" id="rating_thread_2168">
+<li style="width: 0%" class="current_rating" id="current_rating_2168">0 Vote(s) - 0 Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread619f-2.html?tid=2168&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread0ba8.html?tid=2168&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread914c.html?tid=2168&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread0dee-2.html?tid=2168&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread4f4c.html?tid=2168&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+        </div>
+</div>
+<!-- end: showthread_ratethread -->
+				<div>
+					<strong><i class="fa fa-comments"></i> Pawn&nbsp;how to get the last digit of a player's IP</strong>
+				</div>
+			</div>
+</div>
+
+<tr><td id="posts_container">
+	<div id="posts">
+		<!-- start: postbit -->
+
+<a name="pid11662" id="pid11662"></a>
+<div class="post classic " id="post_11662">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread11d5.html?tid=2168&amp;pid=11662#pid11662" title="how to get the last digit of a player's IP">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-15, 09:38 PM <span class="post_edit" id="edited_by_11662"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-16, 01:06 AM by <a href="membera130.html?action=profile&amp;uid=2581">mems</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11662">
+		hello,<br />
+<br />
+title simply says it all but i'm going to elaborate a bit. i'm trying to make an anti proxy system and so far it works. however i want to whitelist ips like 192.168.1.1 until 192.168.1.255. however, it seems like i dont know how, even though i tried so many times with different approaches such as strfind, strlen, strdel but these didnt help me out either probably because the way i did it didn't work. well here's the code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward httpResponse(playerid, response_code, data[]);<br />
+public httpResponse(playerid, response_code, data[])<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new name[MAX_PLAYERS], string[192], ipstring[64];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new ip[16];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerName(playerid, name, sizeof(name));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerIp(playerid, ip, sizeof(ip));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;format(ipstring, sizeof(string), "192.168.1.%d", strlen(ip) - 13);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(strcmp(ip, "127.0.0.1", true) == 0 || strcmp(ip, ipstring, true) == 0)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is a LAN type, therefore able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// If the site sends an OK message<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(response_code == 200)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If a player is using VPN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(data[0] == 'Y')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format(string, sizeof(string), "ANTI VPN: %s(%d) has been kicked from the server due to VPN usage.", name, playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessageToAll(COLOR_RED, string);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is not legit, therefore not able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//SetTimerEx("DelayKick", 100, false, "i", playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If not<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(data[0] == 'N')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is legit, therefore able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// OnPlayerConnect welcome messages should handle this<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Failsafe. Should not trigger<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(data[0] == 'X')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("From the site: Wrong IP format!");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("The request failed! The response code was: %d", response_code);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div><br />
+much appreciated if anyone could help, ive been trying to fix this issue for like hours.<br />
+<br />
+edit: i could do it the worst way which is: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(strcmp(ip, "192.168.1.1", true) == 0)</code></div></div> then 192.168.1.2 and so on but it sucks
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11662">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplycf41.html?tid=2168&amp;replyto=11662" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11663" id="pid11663"></a>
+<div class="post classic " id="post_11663">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member90f4.html?action=profile&amp;uid=2625"><span style="color: #3c71af;">Kwarde</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member90f4.html?action=profile&amp;uid=2625"><img src="uploads/avatars/avatar_26256b93.html?dateline=1627391935" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">99</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationec31.html?uid=2625"><strong class="reputation_positive">8</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> The Netherlands</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread2003.html?tid=2168&amp;pid=11663#pid11663" title="RE: how to get the last digit of a player's IP.">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-15, 11:09 PM <span class="post_edit" id="edited_by_11663"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-15, 11:29 PM by <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11663">
+		Easiest (and, afaik the best) way would be with sscanf:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip[] = "192.168.2.10";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part4<br />
+;<br />
+sscanf(ip, "p&lt;.&gt;dddd", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+//OR, if you (as the title suggests) really just want the last part:<br />
+sscanf(ip, "p&lt;.&gt;{ddd}d", ip_part4);<br />
+<br />
+//ip_part1 = 192<br />
+//ip_part2 = 168<br />
+//ip_part3 = 2<br />
+//ip_part4 = 10</code></div></div><br />
+I read your post after placing this.. (I did quickly go over it but didn't really read it, oops) how does strfind() not work for you? It either returns -1 (string you're looking for not found), or it returns the first character of the found string (or according to the wiki: "The number of characters before the sub string (the sub string's start position) ", so basically the same thing)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new ip[] = "192.168.1.200";<br />
+if (strfind(ip, "192.168.1") == 0) //0, because "192.168.1" should be found in "192.168.1.200".<br />
+//That found character 'has no characters before the sub string' (so, the found string started at index 0)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//OK, Accepted LAN IP<br />
+}<br />
+else<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//NOK, VPN?<br />
+}</code></div></div><br />
+To come back to the sscanf example, this would be an alternative way:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip[] = "192.168.1.200";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip_part4<br />
+;<br />
+sscanf(ip, "p&lt;.&gt;dddd", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+<br />
+if (ip_part1 == 192 &amp;&amp; ip_part2 == 168 &amp;&amp; ip_part3 == 1 &amp;&amp; (1 &lt;= ip_part4 &lt;= 255)) <br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//OK, Accepted LAN IP<br />
+}<br />
+else<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//NOK, VPN?<br />
+}</code></div></div>.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11663">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://kwarde.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search6270.html?action=finduser&amp;uid=2625" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplya445.html?tid=2168&amp;replyto=11663" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11664" id="pid11664"></a>
+<div class="post classic " id="post_11664">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread3d78-2.html?tid=2168&amp;pid=11664#pid11664" title="RE: how to get the last digit of a player's IP.">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-15, 11:27 PM <span class="post_edit" id="edited_by_11664"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-15, 11:33 PM by <a href="membera130.html?action=profile&amp;uid=2581">mems</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11664">
+		<blockquote class="mycode_quote"><cite><span> (2021-07-15, 11:09 PM)</span>Kwarde Wrote:  <a href="showthread3290.html?pid=11663#pid11663" class="quick_jump"></a></cite><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new ip[] = "192.168.1.200";<br />
+if (strfind(ip, "192.168.1") == 0) //0, because "192.168.1" should be found in "192.168.1.200", and that found character 'has no characters before the sub string' (the found string started at index 0)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//OK, it is a LAN IP<br />
+}<br />
+else<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//NOK, it is most likely a VPN user (assuming we already checked other addresses such as 127.0.0.1)<br />
+}</code></div></div></blockquote><br />
+are you sure, that this is going to solve the problem? because what im asking is if a player's ip matches 192.168.1.(1..255) while yours as i see what it does is check if the ip variable (not player's ip) matches 192.168.1<br />
+<br />
+edit: to elaborate a bit, this is what i need <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(strcmp(ip, "127.0.0.1", true) == 0)</code></div></div> but the 192.168.1 until 255 version.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11664">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyea97.html?tid=2168&amp;replyto=11664" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11665" id="pid11665"></a>
+<div class="post classic " id="post_11665">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member90f4.html?action=profile&amp;uid=2625"><span style="color: #3c71af;">Kwarde</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member90f4.html?action=profile&amp;uid=2625"><img src="uploads/avatars/avatar_26256b93.html?dateline=1627391935" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">99</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationec31.html?uid=2625"><strong class="reputation_positive">8</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> The Netherlands</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread335a.html?tid=2168&amp;pid=11665#pid11665" title="RE: how to get the last digit of a player's IP.">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-15, 11:37 PM <span class="post_edit" id="edited_by_11665"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11665">
+		I editted my post while you were replying. Check out the last code, that does what you want ;-)<br />
+And indeed. The strfind() thing I posted would accept all IPs starting with "192.168.1" (I don't see how that could become an issue tho)
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11665">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://kwarde.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search6270.html?action=finduser&amp;uid=2625" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply8331.html?tid=2168&amp;replyto=11665" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11666" id="pid11666"></a>
+<div class="post classic " id="post_11666">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreaddd1e-2.html?tid=2168&amp;pid=11666#pid11666" title="RE: how to get the last digit of a player's IP.">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-15, 11:49 PM <span class="post_edit" id="edited_by_11666"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-15, 11:53 PM by <a href="membera130.html?action=profile&amp;uid=2581">mems</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11666">
+		<blockquote class="mycode_quote"><cite><span> (2021-07-15, 11:37 PM)</span>Kwarde Wrote:  <a href="showthread4b43.html?pid=11665#pid11665" class="quick_jump"></a></cite>I editted my post while you were replying. Check out the last code, that does what you want ;-)<br />
+And indeed. The strfind() thing I posted would accept all IPs starting with "192.168.1" (I don't see how that could become an issue tho)</blockquote><br />
+how did this work? i'm kinda confused from that sscanf thing, like what's that <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;.&gt;dddd</code></div></div> ? to be honest, the whole line itself: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>sscanf(ip, "p&lt;.&gt;dddd", ip_part1, ip_part2, ip_part3, ip_part4);</code></div></div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11666">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply7906.html?tid=2168&amp;replyto=11666" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11669" id="pid11669"></a>
+<div class="post classic " id="post_11669">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member90f4.html?action=profile&amp;uid=2625"><span style="color: #3c71af;">Kwarde</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member90f4.html?action=profile&amp;uid=2625"><img src="uploads/avatars/avatar_26256b93.html?dateline=1627391935" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">99</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationec31.html?uid=2625"><strong class="reputation_positive">8</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> The Netherlands</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadcbb5.html?tid=2168&amp;pid=11669#pid11669" title="RE: how to get the last digit of a player's IP.">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-15, 11:56 PM <span class="post_edit" id="edited_by_11669"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11669">
+		sscanf = unformat.<br />
+See this: https://github.com/Y-Less/sscanf for full documentation.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11669">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://kwarde.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search6270.html?action=finduser&amp;uid=2625" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply2030.html?tid=2168&amp;replyto=11669" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11671" id="pid11671"></a>
+<div class="post classic " id="post_11671">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread499d-2.html?tid=2168&amp;pid=11671#pid11671" title="RE: how to get the last digit of a player's IP.">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 12:04 AM <span class="post_edit" id="edited_by_11671"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-16, 12:14 AM by <a href="membera130.html?action=profile&amp;uid=2581">mems</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11671">
+		<blockquote class="mycode_quote"><cite><span> (2021-07-15, 11:56 PM)</span>Kwarde Wrote:  <a href="showthread3340.html?pid=11669#pid11669" class="quick_jump"></a></cite>sscanf = unformat.<br />
+See this: https://github.com/Y-Less/sscanf for full documentation.</blockquote><br />
+strfind method worked too but what im noticing is that it doesnt care if it's player's ip in there. it just wants to know if the specific ip value is found in order to continue (send chat message, etc.) am i right? and if it does so, why tho?<br />
+<br />
+anyways, thanks for helping out! way more relieved now and im going to use strfind as it's way easier to understand.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11671">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply04c5.html?tid=2168&amp;replyto=11671" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11673" id="pid11673"></a>
+<div class="post classic " id="post_11673">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member90f4.html?action=profile&amp;uid=2625"><span style="color: #3c71af;">Kwarde</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member90f4.html?action=profile&amp;uid=2625"><img src="uploads/avatars/avatar_26256b93.html?dateline=1627391935" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">99</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationec31.html?uid=2625"><strong class="reputation_positive">8</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> The Netherlands</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadcb6d.html?tid=2168&amp;pid=11673#pid11673" title="RE: how to get the last digit of a player's IP.">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 12:18 AM <span class="post_edit" id="edited_by_11673"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11673">
+		No idea how you treat VPN users.<br />
+Since strfind() returns -1 (not found) or the position where the string you're looking for was found. Since the piece of code I sent checks if the returned value of strfind is 0, it returns true (the statement itself) if an IP starts with "192.168.1" (without a dot at the end, "192.168.10.2" would be valid too).<br />
+<br />
+I do recommend sscanf tho. What that piece of code did was unformatting a string. So instead of:<br />
+<br />
+format(ip, sizeof(ip), "%d.%d.%d.%d", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+<br />
+It did the opposite. "p&lt;.&gt;dddd" tells the function to split the string in 4 integers (stored in the variables defined after the unformat specifiers) divided by ".". By default (without the p specifier) it splits strings by spaces. It is very widely used in commands (it replaced strtok()). You may want to consider using it anyway (efficient, fast, reliable, easy to use when you get the hang of it). Up to you though.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11673">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://kwarde.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search6270.html?action=finduser&amp;uid=2625" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply6fc8.html?tid=2168&amp;replyto=11673" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11674" id="pid11674"></a>
+<div class="post classic " id="post_11674">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread4d9a.html?tid=2168&amp;pid=11674#pid11674" title="RE: how to get the last digit of a player's IP.">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 12:26 AM <span class="post_edit" id="edited_by_11674"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11674">
+		<blockquote class="mycode_quote"><cite><span> (2021-07-16, 12:18 AM)</span>Kwarde Wrote:  <a href="showthreadee68.html?pid=11673#pid11673" class="quick_jump"></a></cite>No idea how you treat VPN users.<br />
+Since strfind() returns -1 (not found) or the position where the string you're looking for was found. Since the piece of code I sent checks if the returned value of strfind is 0, it returns true (the statement itself) if an IP starts with "192.168.1" (without a dot at the end, "192.168.10.2" would be valid too).<br />
+<br />
+I do recommend sscanf tho. What that piece of code did was unformatting a string. So instead of:<br />
+<br />
+format(ip, sizeof(ip), "%d.%d.%d.%d", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+<br />
+It did the opposite. "p&lt;.&gt;dddd" tells the function to split the string in 4 integers (stored in the variables defined after the unformat specifiers) divided by ".". By default (without the p specifier) it splits strings by spaces. It is very widely used in commands (it replaced strtok()). You may want to consider using it anyway (efficient, fast, reliable, easy to use when you get the hang of it). Up to you though.</blockquote><br />
+hmm, quite interesting. might use it in the future whe i get the hang of it as you said. and yeah about the vpn users, it's just a message to everyone and a kick since when players get banned, they want to evade it by using things such as vpn, so yeah, there we go
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11674">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplya13b.html?tid=2168&amp;replyto=11674" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11677" id="pid11677"></a>
+<div class="post classic " id="post_11677">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreaddc1c.html?tid=2168&amp;pid=11677#pid11677" title="RE: how to get the last digit of a player's IP">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 06:59 PM <span class="post_edit" id="edited_by_11677"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-16, 07:10 PM by <a href="membera130.html?action=profile&amp;uid=2581">mems</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11677">
+		it turns out that thing doesn't work, both methods. i tested this today and it considers every ip as a lan, even public ips. <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>mems(0) IP(my public ip here) is a LAN type, therefore able to enter the server.</code></div></div><br />
+edit: i have an idea that might help with this situation, which is to put the 4 parts of a player's ip into arrays so that way we can compare them.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11677">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply5d45.html?tid=2168&amp;replyto=11677" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11678" id="pid11678"></a>
+<div class="post classic " id="post_11678">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member90f4.html?action=profile&amp;uid=2625"><span style="color: #3c71af;">Kwarde</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member90f4.html?action=profile&amp;uid=2625"><img src="uploads/avatars/avatar_26256b93.html?dateline=1627391935" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">99</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationec31.html?uid=2625"><strong class="reputation_positive">8</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> The Netherlands</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread1039-2.html?tid=2168&amp;pid=11678#pid11678" title="RE: how to get the last digit of a player's IP">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 07:14 PM <span class="post_edit" id="edited_by_11678"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-16, 07:20 PM by <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11678">
+		Then you are still doing something wrong.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+#include &lt;sscanf2&gt;<br />
+<br />
+main()<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP_LAN[] = "192.168.1.69",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP_PUBLIC[] = "86.88.190.219",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_lan_part[4], ip_public_part[4]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(IP_LAN, "p&lt;.&gt;dddd", ip_lan_part[0], ip_lan_part[1], ip_lan_part[2], ip_lan_part[3]);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(IP_PUBLIC, "p&lt;.&gt;dddd", ip_public_part[0], ip_public_part[1], ip_public_part[2], ip_public_part[3]);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_lan_part[0] == 192 &amp;&amp; ip_lan_part[1] == 168 &amp;&amp; ip_lan_part[2] == 1 &amp;&amp; (1 &lt;= ip_lan_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_LAN: Is accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_LAN: Is NOT accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_public_part[0] == 192 &amp;&amp; ip_public_part[1] == 168 &amp;&amp; ip_public_part[2] == 1 &amp;&amp; (1 &lt;= ip_public_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_PUBLIC: Is accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_PUBLIC: Is NOT accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</code></div></div><br />
+100% guaranteed that the output is:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>IP_LAN: Is accepted LAN<br />
+IP_PUBLIC: Is NOT accepted LAN</blockquote>
+<br />
+<br />
+Is your public server home hosted? If so, when connecting to the public server's IP on the same network the server is hosted on, it will use your default gateway. If not, you still did something wrong in your script. (I confirmed the script works the first time already -- I usually test something before posting it, even if I'm already sure it would work)
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11678">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://kwarde.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search6270.html?action=finduser&amp;uid=2625" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply63be.html?tid=2168&amp;replyto=11678" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11679" id="pid11679"></a>
+<div class="post classic " id="post_11679">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread2e1f-2.html?tid=2168&amp;pid=11679#pid11679" title="RE: how to get the last digit of a player's IP">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 07:19 PM <span class="post_edit" id="edited_by_11679"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-16, 07:26 PM by <a href="membera130.html?action=profile&amp;uid=2581">mems</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11679">
+		<blockquote class="mycode_quote"><cite><span> (2021-07-16, 07:14 PM)</span>Kwarde Wrote:  <a href="showthreadf0b9-2.html?pid=11678#pid11678" class="quick_jump"></a></cite>Then you are still doing something wrong.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+#include &lt;sscanf2&gt;<br />
+<br />
+main()<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP_LAN[] = "192.168.1.69",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP_PUBLIC[] = "86.88.190.219",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_lan_part[4], ip_public_part[4]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(IP_LAN, "p&lt;.&gt;dddd", ip_lan_part[0], ip_lan_part[1], ip_lan_part[2], ip_lan_part[3]);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(IP_PUBLIC, "p&lt;.&gt;dddd", ip_public_part[0], ip_public_part[1], ip_public_part[2], ip_public_part[3]);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_lan_part[0] == 192 &amp;&amp; ip_lan_part[1] == 168 &amp;&amp; ip_lan_part[2] == 1 &amp;&amp; (1 &lt;= ip_lan_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_LAN: Is accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_LAN: Is NOT accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_public_part[0] == 192 &amp;&amp; ip_public_part[1] == 168 &amp;&amp; ip_public_part[2] == 1 &amp;&amp; (1 &lt;= ip_public_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_PUBLIC: Is accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("IP_PUBLIC: Is NOT accepted LAN");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</code></div></div><br />
+100% guaranteed that the output is:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>IP_LAN: Is accepted LAN<br />
+IP_PUBLIC: Is NOT accepted LAN</blockquote></blockquote><br />
+i believe the way to fix this is to compare the player's ip and the target ip by somehow replacing <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>IP_PUBLIC[] = "86.88.190.219",</code></div></div> with the player's ip. is it possible? because that's what i'm trying to do right now<br />
+<br />
+edit: and no my public server is hosted by ultra-h for quick tests you know<br />
+<br />
+edit 2: to remind you what im trying to do is to somehow compare the player's ip with the specific ip (192.168.1.4) for example. what you've done so far is compare a specific ip with another specific ip to see if they match which is not what i really want. i hope you understand what im saying. another idea i just thought of while making this edit is to somehow use range values like in Kotlin where you simply do: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>1..10</code></div></div> is that also possible, any library for that?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11679">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplye2c1-2.html?tid=2168&amp;replyto=11679" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11680" id="pid11680"></a>
+<div class="post classic " id="post_11680">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member90f4.html?action=profile&amp;uid=2625"><span style="color: #3c71af;">Kwarde</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member90f4.html?action=profile&amp;uid=2625"><img src="uploads/avatars/avatar_26256b93.html?dateline=1627391935" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">99</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationec31.html?uid=2625"><strong class="reputation_positive">8</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> The Netherlands</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread43b8.html?tid=2168&amp;pid=11680#pid11680" title="RE: how to get the last digit of a player's IP">#13</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 07:36 PM <span class="post_edit" id="edited_by_11680"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-16, 08:07 PM by <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11680">
+		Both IP_LAN and IP_PUBLIC represent the "Player's IP's". IP_LAN from a player who connects through LAN, and IP_PUBLIC from someone who connects from a remote system. (Thus both IP_LAN and IP_PUBLIC represent an IP which was received by using GetPlayerIP()).<br />
+To clarify, your whole script would look like (with some extra added comments):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward httpResponse(playerid, response_code, data[]); //Bad naming, by the way. Something like "OnVPNLookup" would be better<br />
+public httpResponse(playerid, response_code, data[])<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name[MAX_PLAYER_NAME + 1], //name[MAX_PLAYERS]&nbsp;&nbsp;==&gt; name[MAX_PLAYER_NAME + 1] :: Sure that was a mistake. "+ 1" for the null terminator <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string[192],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip[16],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part[4]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerName(playerid, name, MAX_PLAYER_NAME);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerIp(playerid, ip, sizeof(ip));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(ip, "p&lt;.&gt;dddd", ip_part[0], ip_part[1], ip_part[2], ip_part[3]);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_part[0] == 192 &amp;&amp; ip_part[1] == 168 &amp;&amp; ip_part[2] == 1 &amp;&amp; (1 &lt;= ip_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is a LAN type, therefore able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return; //Just 'return;': There is no need to return a value. No function is directly calling httpResponse, so that value is sent to nowhere.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// If the site sends an OK message<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(response_code == 200)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new server_response[2];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (sscanf(data, "s[2]", server_response)) //Failsafe check 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("ERROR: sscanf() failed to unformat data[] in httpResponse(). Cannot check VPN status for player %s(%d) IP: %s. Returned data[]=%s", name, playerid, ip, data);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If a player is using VPN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!strcmp(server_response, "Y"))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format(string, sizeof(string), "ANTI VPN: %s(%d) has been kicked from the server due to VPN usage.", name, playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessageToAll(COLOR_RED, string);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is not legit, therefore not able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//SetTimerEx("DelayKick", 100, false, "i", playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (!strcmp(server_response, "N"))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s(%d) IP(%s) is legit, therefore able to enter the server.", name, playerid, ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else //Failsafe, should not trigger<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("ERROR: Invalid response from server in httpResponse(). Unformatted response is: %s", server_response);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("ERROR: Failed to perform VPN check on %s(%d). Server responded with: %d", name, playerid, response_code);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</code></div></div><br />
+This time I did not check the code though. Merely added a few comments to point out a thing or two (and another example of sscanf(), just for the sake of showing how simple the function can be).<br />
+The point is, that first ip check should do the trick (note that it still doesn't check for "127.0.0.1" in this code, since that's not what you're having issues with).<br />
+<br />
+<br />
+EDIT:<br />
+You editted your post:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>what you've done so far is compare a specific ip with another specific ip to see if they match which is not what i really want.</blockquote>
+Well, I was already thinking you'd think something like that. See begin of post (the part where those variables with the IPs are imitating someone's "real" IP). The comparisment code(s) I sent were mere examples.<br />
+<br />
+EDIT 2:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>another idea i just thought of while making this edit is to somehow use range values like in Kotlin where you simply do:  1..10</blockquote>
+You pretty much can:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if (1 &lt;= VARIABLE &lt;= 10) //Same as "1..10" (doesn't work PAWN tho) or, also the same as "VARIABLE &gt;= 1 &amp;&amp; VARIABLE &lt;= 10" (does work PAWN (it's a basic statement - just like the "1 &lt;= VARIABLE &lt;= 10"))</code></div></div><br />
+EDIT 3:<br />
+Created this function to make things even easier (NOTE: checks if an IP is &gt;ANY&lt; LAN IP, not just 192.168.1.{0...255}<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>/*<br />
+IsLocalIP(const ip[]):<br />
+&nbsp;&nbsp;input (string): An IPv4 address<br />
+&nbsp;&nbsp;outputs:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;true: Given IPv4 address is a local address<br />
+&nbsp;&nbsp;&nbsp;&nbsp;false: Given IPv4 is not a local address (either a remote address or an invalid IPv4 address)<br />
+*/<br />
+bool:IsLocalIP(const ip[]) //Got the LAN IPs information from: https://en.wikipedia.org/wiki/Private_network<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new ip_part[4];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (sscanf(ip, "p&lt;.&gt;dddd", ip_part[0], ip_part[1], ip_part[2], ip_part[3]))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_part[0] == 127 &amp;&amp; ip_part[1] == 0 &amp;&amp; ip_part[2] == 0 &amp;&amp; ip_part[3] == 1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if ((ip_part[0] == 10) &amp;&amp; (0 &lt;= ip_part[1] &lt;= 255) &amp;&amp; (0 &lt;= ip_part[2] &lt;= 255) &amp;&amp; (0 &lt;= ip_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if ((ip_part[0] == 172) &amp;&amp; (16 &lt;= ip_part[1] &lt;= 31) &amp;&amp; (0 &lt;= ip_part[2] &lt;= 255) &amp;&amp; (0 &lt;= ip_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if ((ip_part[0] == 192) &amp;&amp; (ip_part[1] == 168) &amp;&amp; (0 &lt;= ip_part[2] &lt;= 255) &amp;&amp; (0 &lt;= ip_part[3] &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
+}<br />
+<br />
+//EXAMPLE USAGE:<br />
+hook OnPlayerConnect(playerid)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name[MAX_PLAYER_NAME + 1]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip[16]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerName(playerid, name, MAX_PLAYER_NAME);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerIp(playerid, ip, 16);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (IsLocalIP(ip))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("&gt;&gt; %s(%i) is connected via localhost or LAN!", name, playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("&gt;&gt; %s(%i) is remotely connected to the server", name, playerid);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11680">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://kwarde.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search6270.html?action=finduser&amp;uid=2625" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply599c.html?tid=2168&amp;replyto=11680" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11683" id="pid11683"></a>
+<div class="post classic " id="post_11683">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread73e9.html?tid=2168&amp;pid=11683#pid11683" title="RE: how to get the last digit of a player's IP">#14</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 08:17 PM <span class="post_edit" id="edited_by_11683"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-16, 08:25 PM by <a href="membera130.html?action=profile&amp;uid=2581">mems</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11683">
+		i solved the problem by doing this: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>&nbsp;&nbsp;&nbsp;&nbsp;new ip[16];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerIp(playerid, ip, sizeof(ip));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip_part4<br />
+&nbsp;&nbsp;&nbsp;&nbsp;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sscanf(ip, "p&lt;.&gt;dddd", ip_part1, ip_part2, ip_part3, ip_part4);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (ip_part1 == 192 &amp;&amp; ip_part2 == 168 &amp;&amp; ip_part3 == 1 &amp;&amp; (1 &lt;= ip_part4 &lt;= 255))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{</code></div></div><br />
+i simply removed the ip[] = "192.168.1.255" variable, and replaced it with the player's ip and now it works perfectly. thanks so much once again for helping out. if i notice any problem i will update this topic.<br />
+<br />
+messages the server is currently sending: (which are correct so far)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>mems1(0) IP(my real public ip) is legit, therefore able to enter the server.<br />
+mems2(0) IP(109.201.143.77) is not legit, therefore not able to enter the server.</code></div></div> the last one is from hide.me vpn.<br />
+<br />
+edit: as for the 127.0.0.1 thing, i added this: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if ((ip_part1 == 192 || ip_part1 == 127) &amp;&amp; (ip_part2 == 168 || ip_part2 == 0) &amp;&amp; (ip_part3 == 1 || ip_part3 == 0) &amp;&amp; (1 &lt;= ip_part4 &lt;= 255 || ip_part4 == 1))</code></div></div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11683">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply9ea0-2.html?tid=2168&amp;replyto=11683" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11690" id="pid11690"></a>
+<div class="post classic " id="post_11690">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member90f4.html?action=profile&amp;uid=2625"><span style="color: #3c71af;">Kwarde</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member90f4.html?action=profile&amp;uid=2625"><img src="uploads/avatars/avatar_26256b93.html?dateline=1627391935" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">99</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationec31.html?uid=2625"><strong class="reputation_positive">8</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> The Netherlands</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread9765-2.html?tid=2168&amp;pid=11690#pid11690" title="RE: how to get the last digit of a player's IP">#15</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 08:26 PM <span class="post_edit" id="edited_by_11690"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11690">
+		<blockquote class="mycode_quote"><cite>Quote:</cite>i simply removed the ip[] = "192.168.1.255" variable, and replaced it with the player's ip and now it works perfectly</blockquote>
+That was exactly what you should had done in the first place.. I'll make sure to explicitly mention that an eventual next time ;-).
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11690">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://kwarde.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search6270.html?action=finduser&amp;uid=2625" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply456b.html?tid=2168&amp;replyto=11690" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11691" id="pid11691"></a>
+<div class="post classic " id="post_11691">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membera130.html?action=profile&amp;uid=2581"><span style="color: #3c71af;">mems</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membera130.html?action=profile&amp;uid=2581"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation192b.html?uid=2581"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread5a95.html?tid=2168&amp;pid=11691#pid11691" title="RE: how to get the last digit of a player's IP">#16</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 08:33 PM <span class="post_edit" id="edited_by_11691"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11691">
+		<blockquote class="mycode_quote"><cite><span> (2021-07-16, 08:26 PM)</span>Kwarde Wrote:  <a href="showthread71a1.html?pid=11690#pid11690" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>i simply removed the ip[] = "192.168.1.255" variable, and replaced it with the player's ip and now it works perfectly</blockquote>
+That was exactly what you should had done in the first place.. I'll make sure to explicitly mention that an eventual next time ;-).</blockquote><br />
+agreed, should have thought a bit better about it, and ultimately, sscanf was the best solution to this problem. that function really helped and i even learned something new from it.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11691">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchae3a.html?action=finduser&amp;uid=2581" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply6317.html?tid=2168&amp;replyto=11691" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11692" id="pid11692"></a>
+<div class="post classic " id="post_11692">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member90f4.html?action=profile&amp;uid=2625"><span style="color: #3c71af;">Kwarde</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member90f4.html?action=profile&amp;uid=2625"><img src="uploads/avatars/avatar_26256b93.html?dateline=1627391935" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">99</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Sep 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationec31.html?uid=2625"><strong class="reputation_positive">8</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> The Netherlands</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadde18.html?tid=2168&amp;pid=11692#pid11692" title="RE: how to get the last digit of a player's IP">#17</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-07-16, 11:26 PM <span class="post_edit" id="edited_by_11692"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-07-16, 11:37 PM by <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11692">
+		You'll find sscanf being usefull in quite alot more situations. For starters, in commands.<br />
+Assume you've the command "/warn". You'll want to specify a playerid (or username) and a reason:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:warn(playerid, params[])<br />
+{<br />
+    new warned_id, reason[75];<br />
+    if (sscanf(params, "rs[75]", warned_id, reason))<br />
+    {<br />
+        return SendClientMessage(playerid, -1, "USAGE: /warn [playerid/name] [reason]");<br />
+    }<br />
+    //Rest of code (warn the user, etc)</code></div></div><br />
+Command /kick, with a kick reason being optional:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:kick(playerid, params[])<br />
+{<br />
+    new kicked_id, reason[75];<br />
+    if (sscanf(params, "rS(No reason)[75]", kicked_id, reason))<br />
+    {<br />
+      return SendClientMessage(playerid, -1, "USAGE: /kick [playerid/name] (reason. Default is 'No reason')");<br />
+    }<br />
+    //Rest of code...</code></div></div><br />
+Or fetching someone's geolocation using ip-api (csv): (eg. ip-api.com/csv/IP_HERE?fields=country,countryCode)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public on_fetch_geodata(playerid, response_code, data[])<br />
+{<br />
+    new <br />
+        country[64],<br />
+        countryCode[3]<br />
+    ;<br />
+    sscanf(data, "p&lt;,&gt;s[64]s[3]", country, countryCode);<br />
+    printf("Player %s(%i) is from %s(%s)", PlayerName(playerid), playerid, country, countryCode);<br />
+}</code></div></div><br />
+Or if you want to make a database migration system (run migrations when booting your mode to ensure database is up-to-date, without having to manually do that).<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>hook OnGameModeInit() //An OnGameModeInit() (or even OnScriptInit()) before any functions are loaded (but MySQL initialised)<br />
+{<br />
+    //Running functions to scan all files in "scriptfiles/db-migrations" (possible, using JaTochNietDan's FileManager. Code not here because purpose is sscanf example<br />
+    new<br />
+        migr_name[25], //Migration's name<br />
+        migr_v_maj, //Version (major)<br />
+        migr_v_min, //Version (minor)<br />
+        migr_v_bld //Version (build)<br />
+    ;<br />
+    //Let's assume a migration's name can be "NAME_vMaj-vMin-vBld" OR "NAME-vMaj" OR "NAME"<br />
+    if (!sscanf(file_name, "P&lt;_--&gt;s[25]ddd", migr_name, migr_v_maj, migr_v_min, migr_v_bld))<br />
+    {<br />
+        printf("Running migration '%s' from version %i.%i.%i", migr_name, migr_v_maj, migr_v_min, migr_v_bld);<br />
+        //mysql_query_file(___)<br />
+    }<br />
+    else if (!sscanf(file_name, "p&lt;-&gt;s[25]i", migr_name, migr_v_maj))<br />
+    {<br />
+        printf("Running migration '%s' from version %i", migr_name, migr_v_maj);<br />
+        //etc...<br />
+    }<br />
+    else if (!sscanf(file_name, "p&lt;-&gt;s[25]", migr_name))<br />
+    {<br />
+        printf("Running migration '%s, no version specified'", migr_name);<br />
+        //etc<br />
+    }<br />
+    else<br />
+    {<br />
+        printf("&lt;!&gt; Not running migration '%s', invalid file name", file_name);<br />
+    }<br />
+    return 1;<br />
+}</code></div></div><br />
+Or maybe some motd data was weirdy saved in an ini file (eg. "motd=Msg1:Hello world!;Msg2:This is a message in the motd!;Msg3:Check our website!")<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new LineFromIniFile[] = "motd=Msg1:Hello world!;Msg2:This is a message in the motd!;Msg3:Check our website!"; //Represent that line I mentioned above<br />
+new Msg1[35], Msg2[35], Msg3[35];<br />
+sscanf(LineFromIniFile, "P&lt;=:;:;:&gt;{s[5]s[5]}s[35]{s[5]}s[35]{s[5]}s[35]", Msg1, Msg2, Msg3);<br />
+printf("%s----%s----%s", Msg1, Msg2, Msg3); //Output: Hello world!----This is a message in the motd!----Check our website!</code></div></div><br />
+And I could go on for a while with crazier examples... but that's a bit too much (in fact, this entire post is because your answer has already been answered. Going waay off topic here).<br />
+Have a nice day :-)<br />
+<br />
+<br />
+To be more on topic, by the way:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>&amp;&amp; (1 &lt;= ip_part4 &lt;= 255 || ip_part4 == 1)</blockquote>
+If the IP is "127.0.0.1", ip_part4 will be "1". <br />
+1- "1 &lt;= ip_part4 &lt;= 255" will be true when ip_part4 is ATLEAST 1 and NO MORE THAN 255<br />
+2- "ip_part4 == 1" will be true when ip_part4 is EXACTLY 1.<br />
+<br />
+Statement is double (and thus quite unnecessary) since both checks will return true for "1". Small thing, but wanted to point it out anyway.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11692">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://kwarde.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search6270.html?action=finduser&amp;uid=2625" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyc2e5.html?tid=2168&amp;replyto=11692" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit -->
+	</div>
+</td></tr>
+		<tr>
+			<td class="tfoot">
+				<!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://www.burgershot.gg/search.php" method="post">
+			<input type="hidden" name="action" value="thread" />
+			<input type="hidden" name="tid" value="2168" />
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == 'Enter Keywords') { this.value = ''; }" onblur="if(this.value=='') { this.value='Enter Keywords'; }" class="textbox" size="25" />
+			<input type="submit" class="button" value="Search Thread" />
+		</form>
+	</div>
+<!-- end: showthread_search -->
+				<div style="padding:10px">
+					<strong>&laquo; <a href="showthread6285.html?tid=2168&amp;action=nextoldest">Next Oldest</a> | <a href="showthreadfd6c.html?tid=2168&amp;action=nextnewest">Next Newest</a> &raquo;</strong><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="float_left"><br>
+		
+	</div>
+	<br class="clear" />
+	
+	
+	
+	<br />
+	<div class="float_left">
+		<ul class="thread_tools">
+			<li class="printable"><a href="printthread0a86.html?tid=2168">View a Printable Version</a></li>
+			
+			<li class="subscription_add"><a href="usercp9c2e.html?action=addsubscription&amp;tid=2168&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e">Subscribe to this thread</a></li>
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://www.burgershot.gg/forumdisplay.php" method="get">
+<span class="smalltext"><strong>Forum Jump:</strong></span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="19" > General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20" >-- Chat</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21" >-- Tech</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22" >-- Life</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="48" >-- Art</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56" >-- Programming</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40" > open.mp</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="43" >-- Development Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="42" >-- Questions and Suggestions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="3" > SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6" >-- General Discussions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9" >-- Videos and Screenshots</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12" >-- Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="10" selected="selected">-- Pawn Scripting</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="37" >-- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13" >-- Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32" >---- Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31" >---- Libraries</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30" >---- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33" >---- Gamemodes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="67" >---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="69" >-- Advertisements </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23" > Other languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="24" >-- Spanish/Español</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="51" >---- Programación</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="52" >---- Discusión GTA SA Multijugador</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="53" >---- Mods</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="54" >---- Offtopic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="55" >---- Juegos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="25" >-- Portuguese/Português</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="26" >-- Russian/Русский</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="28" >-- Italian/Italiano</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29" >-- Dutch/Nederlands</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34" >-- German/Deutsch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="35" >-- Romanian/Română</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="36" >-- Ex-Yu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="38" >-- Polish/Polski</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="44" >---- Ogólne</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="45" >---- Serwery</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="46" >---- Skryptowanie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="47" >---- Filmiki i zdjęcia</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="39" >-- Lithuanian/Lietuviškas</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="49" >-- French/Français</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="50" >-- Hungarian/Magyar</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="57" >-- Hindi/Urdu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="68" >-- Turkish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="27" >-- Other</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear" />
+	<!-- start: footer -->
+    </div>
+</div>
+<footer class="footer-distributed">
+	<div class="footer-left">
+		<p style="" class="footer-links">
+			© Burgershot - Powered by our <a href="index.html" style="font-weight: bold; font-family: Noto Sans;">Community</a> and <a style="font-weight: bold; font-family: Noto Sans;" href="https://www.mybb.com/"> MyBB</a>
+            <span style="display:block;color: #9f9f9f;font-family: Noto Sans;"><small style="font-size: 12px;">Original Theme by Emerald</small></span>                                     
+	    </p>
+	</div>
+    <div style="" class="footer-right">
+        <div class="footer-icons">
+		</div>
+                
+		<!-- start: footer_themeselect -->
+<div class="theme">
+<form method="POST" action="https://www.burgershot.gg/showthread.php" id="theme_select">
+	<input type="hidden" name="pid" value="11690" />
+
+	<input type="hidden" name="my_post_key" value="6428f000919b5d9a18f82d476f6b077e" />
+	<!-- start: footer_themeselector -->
+<select name="theme" onchange="MyBB.changeTheme();">
+<optgroup label="Quick Theme Select">
+<!-- start: usercp_themeselector_option -->
+<option value="2">MyBB Default Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="3">Burgershot Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="9">--Light</option>
+<!-- end: usercp_themeselector_option -->
+</optgroup>
+</select>
+<!-- end: footer_themeselector -->
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_themeselect -->
+	</div>
+</footer>
+<script>
+	if (connected == 0) { 
+        jQuery("#mobile_member").html("<a href='member456e.html?action=login'>Login</a> - <a href='member0ddc.html?action=register'>Register</a>"); 
+    }
+	if (connected == 1) { 
+        document.getElementById("mobile_member").innerHTML = '<a title="Inbox" href="private.html">Inbox</a> - <a title="User CP" href="usercp.html">User CP</a> - <a title="Log Out" href="member2385.html?action=logout&amp;logoutkey=">Logout</a>'; 
+    }
+</script>
+<!-- end: footer -->
+	<div id="thread_modes_popup" class="popup_menu" style="display: none;"><div class="popup_item_container"><a href="showthreadbf5c.html?mode=linear&amp;tid=2168&amp;pid=11690#pid11690" class="popup_item">Linear Mode</a></div><div class="popup_item_container"><a href="showthreadfd7a-2.html?mode=threaded&amp;tid=2168&amp;pid=11690#pid11690" class="popup_item">Threaded Mode</a></div></div>
+	<script type="text/javascript">
+	// <!--
+		if(use_xmlhttprequest == "1")
+		{
+			$("#thread_modes").popupMenu();
+		}
+	// -->
+	</script>
+	<script type="text/javascript">
+		$(".author_avatar img").error(function () {
+			$(this).unbind("error").closest('.author_avatar').remove();
+		});
+	</script>
+</body>
+</html>
+<!-- end: showthread -->

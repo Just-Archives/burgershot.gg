@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Bug when player freezes - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread20cf.html?tid=1667">Bug when player freezes</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Bug when player freezes (<em>/showthread.php?tid=1667</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Bug when player freezes</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+I am developing a stealing system, in which when stealing the player is frozen [TogglePlayerControllable (playerid, false);].<br />
+However, when the player is frozen he becomes immortal, not taking any damage.<br />
+Can anyone tell me how to fix this bug?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+Why do you freeze player?<br />
+You can apply an animation instead.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-12, 08:35 PM)</span>Radical Wrote:  <a href="showthreadd2ee-2.html?pid=9787#pid9787" class="quick_jump"></a></cite>Why do you freeze player?<br />
+You can apply an animation instead.</blockquote><br />
+to also lock the player's camera. This bug occurs in any code that uses the player freeze function, as in the / freeze command for administrators
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+I really tried to analyze everything in gamemode, but I can't solve this bug
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+I think in include weapon-config, this has been fixed.<br />
+But this include, changes the damaging to player algorithm a lot...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:27 PM)</span>Radical Wrote:  <a href="showthread5927.html?pid=9791#pid9791" class="quick_jump"></a></cite>I think in include weapon-config, this has been fixed.<br />
+But this include, changes the damaging to player algorithm a lot...</blockquote><br />
+I will test this include, but in the case I wanted to solve this without resorting to includes.<br />
+Could some other include from my gamemode be causing the problem?<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include &nbsp; &nbsp;&lt;a_samp&gt;<br />#define&nbsp;FIXES_Single&nbsp;1<br />#define&nbsp;FIXES_ServerVarMsg&nbsp;0<br />//&nbsp;Redefinições&nbsp;antes&nbsp;da&nbsp;Fixes<br />#if &nbsp; &nbsp; &nbsp;defined&nbsp;MAX_PLAYERS<br />#undef &nbsp; &nbsp;MAX_PLAYERS<br />#define &nbsp;MAX_PLAYERS &nbsp;(100)<br />#endif<br />//<br />#include&nbsp;&lt;fixes&gt;<br />#include &nbsp; &nbsp;&lt;timerfix&gt;<br />#include &nbsp; &nbsp;&lt;a_mysql&gt;<br />#include &nbsp; &nbsp;&lt;foreach&gt;<br />#include &nbsp; &nbsp;&lt;zcmd&gt;<br />#include &nbsp; &nbsp;&lt;sscanf2&gt;<br />#include &nbsp; &nbsp;&lt;MV_Youtube&gt;<br />#include &nbsp; &nbsp;&lt;streamer&gt;<br />#include &nbsp; &nbsp;&lt;callbacks&gt;<br />#include &nbsp; &nbsp;&lt;mSelection&gt;<br />#define&nbsp;AUTO_SETUP<br />#include &nbsp; &nbsp;&lt;gmtime&gt;&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:34 PM)</span>RhaegarX Wrote:  <a href="showthreadc6ca.html?pid=9792#pid9792" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:27 PM)</span>Radical Wrote:  <a href="showthread5927.html?pid=9791#pid9791" class="quick_jump"></a></cite>I think in include weapon-config, this has been fixed.<br />
+But this include, changes the damaging to player algorithm a lot...</blockquote><br />
+I will test this include, but in the case I wanted to solve this without resorting to includes.<br />
+Could some other include from my gamemode be causing the problem?<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include &nbsp; &nbsp;&lt;a_samp&gt;<br />#define&nbsp;FIXES_Single&nbsp;1<br />#define&nbsp;FIXES_ServerVarMsg&nbsp;0<br />//&nbsp;Redefinições&nbsp;antes&nbsp;da&nbsp;Fixes<br />#if &nbsp; &nbsp; &nbsp;defined&nbsp;MAX_PLAYERS<br />#undef &nbsp; &nbsp;MAX_PLAYERS<br />#define &nbsp;MAX_PLAYERS &nbsp;(100)<br />#endif<br />//<br />#include&nbsp;&lt;fixes&gt;<br />#include &nbsp; &nbsp;&lt;timerfix&gt;<br />#include &nbsp; &nbsp;&lt;a_mysql&gt;<br />#include &nbsp; &nbsp;&lt;foreach&gt;<br />#include &nbsp; &nbsp;&lt;zcmd&gt;<br />#include &nbsp; &nbsp;&lt;sscanf2&gt;<br />#include &nbsp; &nbsp;&lt;MV_Youtube&gt;<br />#include &nbsp; &nbsp;&lt;streamer&gt;<br />#include &nbsp; &nbsp;&lt;callbacks&gt;<br />#include &nbsp; &nbsp;&lt;mSelection&gt;<br />#define&nbsp;AUTO_SETUP<br />#include &nbsp; &nbsp;&lt;gmtime&gt;&nbsp;<br /></span></code></div></div></div></blockquote><br />
+<br />
+I already removed all the code from OnPlayerGiveDamage and OnPlayerWeaponShot to try to find out if there was a problem with them, but the problem continued<br />
+<br />
+<img src="https://i.imgur.com/X1QTrFp.png" loading="lazy"  alt="[Image: X1QTrFp.png]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:34 PM)</span>RhaegarX Wrote:  <a href="showthreadc6ca.html?pid=9792#pid9792" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:27 PM)</span>Radical Wrote:  <a href="showthread5927.html?pid=9791#pid9791" class="quick_jump"></a></cite>I think in include weapon-config, this has been fixed.<br />
+But this include, changes the damaging to player algorithm a lot...</blockquote><br />
+I will test this include, but in the case I wanted to solve this without resorting to includes.<br />
+Could some other include from my gamemode be causing the problem?<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include &nbsp; &nbsp;&lt;a_samp&gt;<br />#define&nbsp;FIXES_Single&nbsp;1<br />#define&nbsp;FIXES_ServerVarMsg&nbsp;0<br />//&nbsp;Redefinições&nbsp;antes&nbsp;da&nbsp;Fixes<br />#if &nbsp; &nbsp; &nbsp;defined&nbsp;MAX_PLAYERS<br />#undef &nbsp; &nbsp;MAX_PLAYERS<br />#define &nbsp;MAX_PLAYERS &nbsp;(100)<br />#endif<br />//<br />#include&nbsp;&lt;fixes&gt;<br />#include &nbsp; &nbsp;&lt;timerfix&gt;<br />#include &nbsp; &nbsp;&lt;a_mysql&gt;<br />#include &nbsp; &nbsp;&lt;foreach&gt;<br />#include &nbsp; &nbsp;&lt;zcmd&gt;<br />#include &nbsp; &nbsp;&lt;sscanf2&gt;<br />#include &nbsp; &nbsp;&lt;MV_Youtube&gt;<br />#include &nbsp; &nbsp;&lt;streamer&gt;<br />#include &nbsp; &nbsp;&lt;callbacks&gt;<br />#include &nbsp; &nbsp;&lt;mSelection&gt;<br />#define&nbsp;AUTO_SETUP<br />#include &nbsp; &nbsp;&lt;gmtime&gt;&nbsp;<br /></span></code></div></div></div></blockquote><br />
+No, the problem is not with your game mode.<br />
+This function is such that the player freezes and the player can not move his camera and the player is not damaged.<br />
+<br />
+It is the same in my game mode and I saw in other servers that it does not get damaged when the player is frozen.<br />
+<br />
+I think the only way is to manually reduce the player armor and health when the player is frozen
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member0a2a.html?action=profile&amp;uid=2542">arber</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+The problem is with TogglePlayerControllable if you use this means that player cant control his character so he doesnt take damage thats how the function works
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:44 PM)</span>Radical Wrote:  <a href="showthread6172-2.html?pid=9794#pid9794" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:34 PM)</span>RhaegarX Wrote:  <a href="showthreadc6ca.html?pid=9792#pid9792" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:27 PM)</span>Radical Wrote:  <a href="showthread5927.html?pid=9791#pid9791" class="quick_jump"></a></cite>I think in include weapon-config, this has been fixed.<br />
+But this include, changes the damaging to player algorithm a lot...</blockquote><br />
+I will test this include, but in the case I wanted to solve this without resorting to includes.<br />
+Could some other include from my gamemode be causing the problem?<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include &nbsp; &nbsp;&lt;a_samp&gt;<br />#define&nbsp;FIXES_Single&nbsp;1<br />#define&nbsp;FIXES_ServerVarMsg&nbsp;0<br />//&nbsp;Redefinições&nbsp;antes&nbsp;da&nbsp;Fixes<br />#if &nbsp; &nbsp; &nbsp;defined&nbsp;MAX_PLAYERS<br />#undef &nbsp; &nbsp;MAX_PLAYERS<br />#define &nbsp;MAX_PLAYERS &nbsp;(100)<br />#endif<br />//<br />#include&nbsp;&lt;fixes&gt;<br />#include &nbsp; &nbsp;&lt;timerfix&gt;<br />#include &nbsp; &nbsp;&lt;a_mysql&gt;<br />#include &nbsp; &nbsp;&lt;foreach&gt;<br />#include &nbsp; &nbsp;&lt;zcmd&gt;<br />#include &nbsp; &nbsp;&lt;sscanf2&gt;<br />#include &nbsp; &nbsp;&lt;MV_Youtube&gt;<br />#include &nbsp; &nbsp;&lt;streamer&gt;<br />#include &nbsp; &nbsp;&lt;callbacks&gt;<br />#include &nbsp; &nbsp;&lt;mSelection&gt;<br />#define&nbsp;AUTO_SETUP<br />#include &nbsp; &nbsp;&lt;gmtime&gt;&nbsp;<br /></span></code></div></div></div></blockquote><br />
+No, the problem is not with your game mode.<br />
+This function is such that the player freezes and the player can not move his camera and the player is not damaged.<br />
+<br />
+It is the same in my game mode and I saw in other servers that it does not get damaged when the player is frozen.<br />
+<br />
+I think the only way is to manually reduce the player armor and health when the player is frozen</blockquote><br />
+<br />
+You're right! I tested it on other gamemodes and the same thing happens. Thank you for your help!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-12, 09:53 PM)</span>arber Wrote:  <a href="showthread8bf1.html?pid=9795#pid9795" class="quick_jump"></a></cite>The problem is with TogglePlayerControllable if you use this means that player cant control his character so he doesnt take damage thats how the function works</blockquote><br />
+<br />
+I realized that now. Thank you for your help!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Bug when player freezes</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-23</strong>
+<br />
+<br />
+Sorry for remembering this topic, but I need to clear up some doubts.<br />
+<br />
+I used the include weapon-config mentioned above, but I didn't like the modifications it carries with it. So I decided to develop my own solution to the problem of that topic.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">freezedPlayer</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYERS</span><span style="color: #007700">];<br />new&nbsp;</span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">canReceveidDamageFreezed</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYERS</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">TogglePlayerControllableEx</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">status</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">damage</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;canReceveidDamageFreezed</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">damage</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">status&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">freezedPlayer</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />else&nbsp;</span><span style="color: #0000BB">freezedPlayer</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">TogglePlayerControllable</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">status</span><span style="color: #007700">);<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerConnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;freezedPlayer</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">canReceveidDamageFreezed</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerSpawn</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;freezedPlayer</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;command&nbsp;is&nbsp;just&nbsp;an&nbsp;example&nbsp;of&nbsp;the&nbsp;server&nbsp;command&nbsp;itself.<br /></span><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">freeze</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">id</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"u"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">id</span><span style="color: #007700">))<br />{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_INVALID</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"USE:&nbsp;/freeze&nbsp;[id]"</span><span style="color: #007700">);<br />}<br />if&nbsp;(!</span><span style="color: #0000BB">IsPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">id</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_INVALID</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Invalid&nbsp;Player"</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;TogglePlayerControllableEx</span><span style="color: #007700">(</span><span style="color: #0000BB">id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerGiveDamage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">amount</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">weaponid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">bodypart</span><span style="color: #007700">)<br />{<br />if&nbsp;(</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br /></span><span style="color: #FF8000">//&nbsp;Corrigi&nbsp;o&nbsp;Dano&nbsp;em&nbsp;Roubo&nbsp;e&nbsp;Lavagem&nbsp;de&nbsp;Dinheiro<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">freezedPlayer</span><span style="color: #007700">[</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">canReceveidDamageFreezed</span><span style="color: #007700">[</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />if&nbsp;(</span><span style="color: #0000BB">Armour&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />{<br />if&nbsp;(</span><span style="color: #0000BB">amount&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">Armour</span><span style="color: #007700">)<br />{<br />new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">leftDamage&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">amount&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">Armour</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">newLife&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">Life&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">leftDamage</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SetPlayerArmour</span><span style="color: #007700">(</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SetPlayerHealth</span><span style="color: #007700">(</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">newLife</span><span style="color: #007700">);<br />}<br />else<br />{<br />new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">newArmour&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">Armour&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">amount</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SetPlayerArmour</span><span style="color: #007700">(</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">newArmour</span><span style="color: #007700">);<br />}<br />}<br />else<br />{<br />if&nbsp;(</span><span style="color: #0000BB">amount&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">Life</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB">CallLocalFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">"OnPlayerDeath"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"iii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">GetPlayerWeapon</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">SetPlayerHealth</span><span style="color: #007700">(</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SpawnPlayer</span><span style="color: #007700">(</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">);<br />}<br />else<br />{<br />new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">newLife&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">Life&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">amount</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SetPlayerHealth</span><span style="color: #007700">(</span><span style="color: #0000BB">damagedid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">newLife</span><span style="color: #007700">);<br />}<br />}<br />}<br /></span><span style="color: #FF8000">//<br /></span><span style="color: #007700">}<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+Pastebin: <a href="https://pastebin.com/s3Tnvipq" target="_blank" rel="noopener" class="mycode_url">Code SAMP - Pastebin.com</a><br />
+<br />
+<br />
+<br />
+That way I can control when the player can take damage or not when frozen, what I would like to know is if there is any problem with me calling OnPlayerDeath to simulate a false death as I used in the code above, instead of causing death effectively.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

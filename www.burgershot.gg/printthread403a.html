@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Samp Voice Crashing the server - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread403a.html?tid=2160">Samp Voice Crashing the server</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Samp Voice Crashing the server (<em>/showthread.php?tid=2160</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Samp Voice Crashing the server</strong> - <a href="member015b.html?action=profile&amp;uid=3814">robertjwx</a> -  <strong>2021-07-10</strong>
+<br />
+<br />
+Now with the samp voice plugin, a lot players is asking me to put this plugin to work in my server...<br />
+I put it to run in my server (running in a VPS), but it is crashing the server and closing everything...<br />
+Is anybody here had some problems like this?<br />
+<br />
+<br />
+server_log logs:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[13:43:34] [connection] incoming connection: PLAYER_IP:60365 id: 0<br />
+[13:44:22] [connection] incoming connection: PLAYER_IP:52750 id: 0<br />
+[13:44:29] [sv:dbg:network:connect] : connecting player (0) with address (PLAYER_IP) ...<br />
+[13:44:29] [sv:dbg:network:connect] : player (0) assigned key (f2b960b17e219403)<br />
+[13:44:29] [join] PLAYER_NAME has joined the server (0:PLAYER_IP)<br />
+[13:44:29] [sv:dbg:network:receive] : player (0) identified (port:60584)<br />
+[13:45:13] [sv:dbg:network:connect] : disconnecting player (0) ...<br />
+[13:45:13] [part] PLAYER_NAME has left the server (0:0)<br />
+[13:45:32] [connection] incoming connection: PLAYER_IP:49347 id: 0<br />
+[13:45:36] [sv:dbg:network:connect] : connecting player (0) with address (PLAYER_IP) ...<br />
+[13:45:36] [sv:dbg:network:connect] : player (0) assigned key (f2b960b1bd84cfcd)<br />
+[13:45:36] [join] PLAYER_NAME has joined the server (0:PLAYER_IP)<br />
+[13:45:37] [sv:dbg:network:receive] : player (0) identified (port:53049)<br />
+[13:46:07] [debug] Server crashed due to an unknown error<br />
+[13:46:07] [debug] Native backtrace:<br />
+[13:46:07] [debug] #0 f7344f7f in _Z13GetStackTraceRSt6vectorI10StackFrameSaIS0_EEPv () in plugins/crashdetect.so<br />
+[13:46:07] [debug] #1 f733d81d in _ZN11CrashDetect20PrintNativeBacktraceERSoRKN2os7ContextE () in plugins/crashdetect.so<br />
+[13:46:07] [debug] #2 f733de48 in _ZN11CrashDetect20PrintNativeBacktraceERKN2os7ContextE () in plugins/crashdetect.so<br />
+[13:46:07] [debug] #3 f733f5dc in _ZN11CrashDetect7OnCrashERKN2os7ContextE () in plugins/crashdetect.so<br />
+[13:46:07] [debug] #4 f734479f in ?? () in plugins/crashdetect.so<br />
+[13:46:07] [debug] #5 f7745cb0 in __kernel_rt_sigreturn () in linux-gate.so.1<br />
+[13:46:07] [debug] #6 0809621e in ?? () in ./samp03svr<br />
+[13:46:07] [debug] #7 f5c1372a in _ZN4Pawn34OnPlayerActivationKeyReleaseForAllEth () in plugins/sampvoice.so<br />
+[13:46:07] [debug] #8 c6f51400 in ?? ()<br />
+[13:46:07] [debug] Registers:<br />
+[13:46:07] [debug] EAX: 00000042 EBX: 39515816 ECX: 00000001 EDX: 09fe74b0<br />
+[13:46:07] [debug] ESI: 0a2eda80 EDI: 00000000 EBP: fff33fe8 ESP: fff33fe4<br />
+[13:46:07] [debug] EIP: 0809621e EFLAGS: 00010282<br />
+[13:46:07] [debug] Stack:<br />
+[13:46:07] [debug] ESP+00000000: f5d29000 fff34018 f5c1372a 09fe74b0<br />
+[13:46:07] [debug] ESP+00000020: f5ba451c 0a2edac0 00000042 f7755eeb<br />
+[13:46:07] [debug] ESP+00000040: f775c5f0 f5c136bd f5d29000 fff34068<br />
+[13:46:07] [debug] ESP+00000060: 00000042 f5d29000 f5c19ab7 003d4ed5<br />
+[13:46:07] [debug] ESP+00000080: 0000a2b2 0b3bfba0 c6f51400 0977c1d0<br />
+[13:46:07] [debug] ESP+000000a0: 08159cf3 fff34098 080d1ce2 0979d488<br />
+[13:46:07] [debug] ESP+000000c0: 3bb04ab6 fff340c8 3bb04ab6 00000005<br />
+[13:46:07] [debug] ESP+000000e0: 2be6389d fff34208 080aa13a 0979d488<br />
+[13:46:07] [debug] ESP+00000100: 00000000 f77101d0 00000000 fff3410c<br />
+[13:46:07] [debug] ESP+00000120: f775c5f0 f762138b 01003994 00010100<br />
+[13:46:07] [debug] ESP+00000140: 65646f6d f7003531 f7678910 f7711000<br />
+[13:46:07] [debug] ESP+00000160: f77121a0 08048b10 fff341b8 f776b000<br />
+[13:46:07] [debug] ESP+00000180: 00000000 00000000 00000000 00000000<br />
+[13:46:07] [debug] ESP+000001a0: 00000000 00000000 00000000 00000000<br />
+[13:46:07] [debug] ESP+000001c0: 00000000 00000000 00000000 00000000<br />
+[13:46:07] [debug] ESP+000001e0: 00000000 00000000 00000000 00000000<br />
+[13:46:07] [debug] ESP+00000200: 00000000 00000000 f739ea3b f75243dc<br />
+[13:46:07] [debug] ESP+00000220: f7524000 00000000 f7388286 00000001<br />
+[13:46:07] [debug] ESP+00000240: 00000000 f7524000 f776bc0c f776b000<br />
+[13:46:07] [debug] ESP+00000260: ba4d8b69 2dcd2778 00000000 00000000<br />
+[13:46:07] [debug] ESP+00000280: f775c5f0 f7388199 f776b000 00000001<br />
+[13:46:07] [debug] ESP+000002a0: 00000001 fff342a4 08150650 08150640<br />
+[13:46:07] [debug] ESP+000002c0: fff35e6e 00000000 fff35e7a fff35ead<br />
+[13:46:07] [debug] ESP+000002e0: fff35efc fff35f1c fff35f2f fff35f43<br />
+[13:46:07] [debug] ESP+00000300: fff35f8f fff35fd1 fff35fdf 00000000<br />
+[13:46:07] [debug] ESP+00000320: 00000010 178bfbff 00000006 00001000<br />
+[13:46:07] [debug] ESP+00000340: 00000004 00000020 00000005 00000008<br />
+[13:46:07] [debug] ESP+00000360: 00000009 0804b4c0 0000000b 00000000<br />
+[13:46:07] [debug] ESP+00000380: 0000000e 00000000 00000017 00000000<br />
+[13:46:07] [debug] ESP+000003a0: 0000000f fff343ab 00000000 00000000<br />
+[13:46:07] [debug] ESP+000003c0: 901c7bff 6933cfe7 00363836 00000000<br />
+[13:46:07] [debug] ESP+000003e0: 00000000 00000000 00000000 00000000<br />
+[13:46:07] [debug] Loaded modules:<br />
+[13:46:07] [debug] 00000000 - 00187dc3 samp03svr<br />
+[13:46:07] [debug] f7745000 - f7745e2e linux-gate.so.1<br />
+[13:46:07] [debug] f7732000 - f77349c4 /lib/i386-linux-gnu/libdl.so.2<br />
+[13:46:07] [debug] f7715000 - f773075b /lib/i386-linux-gnu/libpthread.so.0<br />
+[13:46:07] [debug] f759b000 - f771ebbf /usr/lib/i386-linux-gnu/libstdc++.so.6<br />
+[13:46:07] [debug] f7546000 - f759a120 /lib/i386-linux-gnu/libm.so.6<br />
+[13:46:07] [debug] f7528000 - f7544354 /lib/i386-linux-gnu/libgcc_s.so.1<br />
+[13:46:07] [debug] f7370000 - f752e73b /lib/i386-linux-gnu/libc.so.6<br />
+[13:46:07] [debug] f7747000 - f776b06c /lib/ld-linux.so.2<br />
+[13:46:07] [debug] f7325000 - f736d3d4 plugins/crashdetect.so<br />
+[13:46:07] [debug] f6f8f000 - f732a009 plugins/mysql.so<br />
+[13:46:07] [debug] f6f64000 - f6f8eb45 /root/sampserver/plugins/../log-core.so<br />
+[13:46:07] [debug] f6f5b000 - f6f6247c /lib/i386-linux-gnu/librt.so.1<br />
+[13:46:07] [debug] f5f46000 - f5f570d0 /lib/i386-linux-gnu/libnss_files.so.2<br />
+[13:46:07] [debug] f5f35000 - f5f449b4 plugins/sscanf.so<br />
+[13:46:07] [debug] f5d3a000 - f5dff740 plugins/streamer.so<br />
+[13:46:07] [debug] f5b8b000 - f5d444d5 plugins/sampvoice.so</code></div></div><br />
+<br />
+<br />
+samp voice code:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>// samp voice 1<br />
+#include &lt;sampvoice&gt;<br />
+<br />
+// / fim includes<br />
+<br />
+// samp voice 2<br />
+new SV_GSTREAM:gstream = SV_NULL;<br />
+new SV_LSTREAM:lstream[MAX_PLAYERS] = { SV_NULL, ... };<br />
+<br />
+public SV_VOID:OnPlayerActivationKeyPress(SV_UINT:playerid, SV_UINT:keyid) <br />
+{<br />
+    // Attach player to local stream as speaker if 'B' key is pressed<br />
+    if (keyid == 0x42 &amp;&amp; lstream[playerid]) SvAttachSpeakerToStream(lstream[playerid], playerid);<br />
+    // Attach the player to the global stream as a speaker if the 'Z' key is pressed<br />
+    if (keyid == 0x5A &amp;&amp; gstream) SvAttachSpeakerToStream(gstream, playerid);<br />
+}<br />
+<br />
+public SV_VOID:OnPlayerActivationKeyRelease(SV_UINT:playerid, SV_UINT:keyid)<br />
+{<br />
+    // Detach the player from the local stream if the 'B' key is released<br />
+    if (keyid == 0x42 &amp;&amp; lstream[playerid]) SvDetachSpeakerFromStream(lstream[playerid], playerid);<br />
+    // Detach the player from the global stream if the 'Z' key is released<br />
+    if (keyid == 0x5A &amp;&amp; gstream) SvDetachSpeakerFromStream(gstream, playerid);<br />
+}</code></div></div><br />
+public OnPlayerConnect(playerid) {<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>// samp voice 3<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// Checking for plugin availability<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (SvGetVersion(playerid) == SV_NULL)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessage(playerid, -1, "Could not find plugin sampvoice.");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// Checking for a microphone<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else if (SvHasMicro(playerid) == SV_FALSE)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessage(playerid, -1, "The microphone could not be found.");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// Create a local stream with an audibility distance of 40.0, an unlimited number of listeners<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// and the name 'Local' (the name 'Local' will be displayed in red in the players' speakerlist)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else if ((lstream[playerid] = SvCreateDLStreamAtPlayer(40.0, SV_INFINITY, playerid, 0xff0000ff, "Local")))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessage(playerid, -1, "Press Z to talk to global chat and B to talk to local chat.");<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Attach the player to the global stream as a listener<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (gstream) SvAttachListenerToStream(gstream, playerid);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Assign microphone activation keys to the player<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SvAddKey(playerid, 0x42);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SvAddKey(playerid, 0x5A);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}</code></div></div><br />
+<br />
+public OnPlayerDisconnect(playerid, reason) {<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>    // samp voice 4<br />
+    // Removing the player's local stream after disconnecting<br />
+    if (lstream[playerid])<br />
+    {<br />
+        SvDeleteStream(lstream[playerid]);<br />
+        lstream[playerid] = SV_NULL;<br />
+    }</code></div></div><br />
+public OnGameModeInit() {<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>    // samp voice 5<br />
+<br />
+    gstream = SvCreateGStream(0xffff0000, "Global");</code></div></div><br />
+public OnGameModeExit() {<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>    // samp voice 6<br />
+<br />
+    if (gstream) SvDeleteStream(gstream);</code></div></div><br />
+from: https://github.com/CyberMor/sampvoice
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Samp Voice Crashing the server</strong> - <a href="member015b.html?action=profile&amp;uid=3814">robertjwx</a> -  <strong>2021-07-15</strong>
+<br />
+<br />
+The server crashes when someone press the voice button<br />
+<br />
+I could crash the server with samp launcher, an app from playstore:<br />
+I've press the voice button to talk, then the server crashes with that logs<br />
+<br />
+What is wrong?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

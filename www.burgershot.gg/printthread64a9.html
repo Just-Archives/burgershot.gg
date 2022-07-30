@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Server crashed due to an unknown error - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread64a9.html?tid=2095">Server crashed due to an unknown error</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Server crashed due to an unknown error (<em>/showthread.php?tid=2095</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Server crashed due to an unknown error</strong> - <a href="memberfc51.html?action=profile&amp;uid=3113">israel_Oliveira</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+As the title says, can anyone help me with this error?<br />
+<br />
+crashdetect log<br />
+<br />
+[14:30:27] Server crashed due to an unknown error<br />
+[14:30:27] Native backtrace:<br />
+[14:30:27] #0 f73bbf7f in _Z13GetStackTraceRSt6vectorI10StackFrameSaIS0_EEPv () in plugins/crashdetect.so<br />
+[14:30:27] #1 f73b481d in _ZN11CrashDetect20PrintNativeBacktraceERSoRKN2os7ContextE () in plugins/crashdetect.so<br />
+[14:30:27] #2 f73b4e48 in _ZN11CrashDetect20PrintNativeBacktraceERKN2os7ContextE () in plugins/crashdetect.so<br />
+[14:30:27] #3 f73b65dc in _ZN11CrashDetect7OnCrashERKN2os7ContextE () in plugins/crashdetect.so<br />
+[14:30:27] #4 f73bb79f in ?? () in plugins/crashdetect.so<br />
+[14:30:27] #5 f7724410 in ?? ()<br />
+[14:30:27] #6 f7724430 in ?? ()<br />
+[14:30:27] #7 f7417257 in gsignal () in /lib/libc.so.6<br />
+[14:30:27] #8 f7418a93 in abort () in /lib/libc.so.6<br />
+[14:30:27] #9 f74100d7 in ?? () in /lib/libc.so.6<br />
+[14:30:27] #10 f7410187 in ?? () in /lib/libc.so.6<br />
+[14:30:27] #11 f72f42ee in ?? () in plugins/SKY.so<br />
+[14:30:27] #12 f72f8c49 in ?? () in plugins/SKY.so<br />
+[14:30:27] #13 080aed3d in ?? () in ./samp03svr<br />
+[14:30:27] #14 080aef02 in ?? () in ./samp03svr<br />
+[14:30:27] #15 080aa13a in ?? () in ./samp03svr<br />
+[14:30:27] #16 f74022d3 in __libc_start_main () in /lib/libc.so.6<br />
+[14:30:27] #17 0804b4e1 in ?? () in ./samp03svr<br />
+[14:30:27] Registers:<br />
+[14:30:27] EAX: 00000000 EBX: 00007892 ECX: 00007892 EDX: 00000006<br />
+[14:30:27] ESI: f5a21000 EDI: f75af000 EBP: fffa3998 ESP: fffa3754<br />
+[14:30:27] EIP: f7724430 EFLAGS: 00200246<br />
+[14:30:27] Stack:<br />
+[14:30:27] ESP+00000000: fffa3998 00000006 00007892 f7417257<br />
+[14:30:27] ESP+00000020: fffa3784 00000000 38343160 fffa37c0<br />
+[14:30:27] ESP+00000040: 00000000 00000000 00000000 00000000<br />
+[14:30:27] ESP+00000060: 00000000 00000000 00000000 00000000<br />
+[14:30:27] ESP+00000080: 00000000 00000000 00000000 00000000<br />
+[14:30:27] ESP+000000a0: 00000000 00000000 00000000 00000000<br />
+[14:30:27] ESP+000000c0: f75b0164 f7410eb0 00000000 1d010043<br />
+[14:30:27] ESP+000000e0: 415b711e 00019b00 00000000 fffa3820<br />
+[14:30:27] ESP+00000100: f75af420 00000088 00000001 f75af980<br />
+[14:30:27] ESP+00000120: f75ad8c0 fffa3998 00000000 00000003<br />
+[14:30:27] ESP+00000140: f5a21000 f7318978 f74100d7 00000000<br />
+[14:30:27] ESP+00000160: 00000000 f73189b4 f756815c f7318978<br />
+[14:30:27] ESP+00000180: 00000005 0c9c06c8 00001000 f75af000<br />
+[14:30:27] ESP+000001a0: f7318978 f7318950 00000094 f73189b4<br />
+[14:30:27] ESP+000001c0: f7410136 f732c000 f72f42ee f7318978<br />
+[14:30:27] ESP+000001e0: f72f42c6 f732c000 f72f8c49 09c61510<br />
+[14:30:27] ESP+00000200: 006d812b ec54f349 e6799a98 09c61510<br />
+[14:30:27] ESP+00000220: 08159db3 fffa3998 080aed3d 09c65240<br />
+[14:30:27] ESP+00000240: 08159c36 fffa39c8 080aef02 09c61510<br />
+[14:30:27] ESP+00000260: 00000000 00000000 00989680 09c37170<br />
+[14:30:27] ESP+00000280: 08159db3 00000006 08159dcd 00000000<br />
+[14:30:27] ESP+000002a0: f76fad44 f76fad40 f76a6026 f76fb838<br />
+[14:30:27] ESP+000002c0: 00001e61 00000258 0167bbb1 656d6167<br />
+[14:30:27] ESP+000002e0: f76fad44 f76fa9e0 f767bd20 f76fad44<br />
+[14:30:27] ESP+00000300: f76fade0 f76faf20 f766bdb8 080aa260<br />
+[14:30:27] ESP+00000320: 00000000 00000000 00000000 00000000<br />
+[14:30:27] ESP+00000340: 00000000 00000000 00000000 00000000<br />
+[14:30:27] ESP+00000360: 00000000 00000000 00000000 00000000<br />
+[14:30:27] ESP+00000380: 00000000 00000000 00000000 00000000<br />
+[14:30:27] ESP+000003a0: f76fc598 0815072b f75af000 00000000<br />
+[14:30:27] ESP+000003c0: fffa3ba4 fffa3bac f75ce650 00000001<br />
+[14:30:27] ESP+000003e0: f75af000 00000000 00000000 00000000<br />
+[14:30:27] Loaded modules:<br />
+[14:30:27] 00000000 - 00187f43 samp03svr<br />
+[14:30:27] f7726000 - f7726530 <br />
+[14:30:27] f7718000 - f771a6a4 /lib/libdl.so.2<br />
+[14:30:27] f76fd000 - f7716ad3 /lib/libpthread.so.0<br />
+[14:30:27] f7611000 - f7702e88 /lib/libstdc++.so.6<br />
+[14:30:27] f75cf000 - f76101f4 /lib/libm.so.6<br />
+[14:30:27] f75b3000 - f75cc6f8 /lib/libgcc_s.so.1<br />
+[14:30:27] f73e8000 - f75baa93 /lib/libc.so.6<br />
+[14:30:27] f7725000 - f7748110 /lib/ld-linux.so.2<br />
+[14:30:27] f739c000 - f73e43d4 plugins/crashdetect.so<br />
+[14:30:27] f72e5000 - f739ccdf plugins/SKY.so<br />
+[14:30:27] f771e000 - f7721310 plugins/CTime.so<br />
+[14:30:27] f7286000 - f72e4aec plugins/mysql.so<br />
+[14:30:27] f7263000 - f7284108 /home/samp/plugins/../log-core.so<br />
+[14:30:27] f7254000 - f725ad90 /lib/librt.so.1<br />
+[14:30:27] f6f6a000 - f7259168 /usr/lib/mysql/libmysqlclient.so.18<br />
+[14:30:27] f6f53000 - f6f67efc /lib/libz.so.1<br />
+[14:30:27] f6eea000 - f6f5421c /lib/libssl.so.10<br />
+[14:30:27] f6cfe000 - f6f01b10 /lib/libcrypto.so.10<br />
+[14:30:27] f6cb3000 - f6cfdbf0 /lib/libgssapi_krb5.so.2<br />
+[14:30:27] f6bdc000 - f6cba65c /lib/libkrb5.so.3<br />
+[14:30:27] f6bd7000 - f6bd973d /lib/libcom_err.so.2<br />
+[14:30:27] f6ba2000 - f6bd571c /lib/libk5crypto.so.3<br />
+[14:30:27] f6b89000 - f6ba1014 /lib/libresolv.so.2<br />
+[14:30:27] f6b79000 - f6b876cc /lib/libkrb5support.so.0<br />
+[14:30:27] f6b74000 - f6b76c38 /lib/libkeyutils.so.1<br />
+[14:30:27] f6b4d000 - f6b72ea0 /lib/libselinux.so.1<br />
+[14:30:27] f6ae8000 - f6b4b584 /lib/libpcre.so.1<br />
+[14:30:27] f5ad3000 - f5ae4748 /lib/libnss_files.so.2<br />
+[14:30:27] f5ac2000 - f5ad19b4 plugins/sscanf.so<br />
+[14:30:27] f583a000 - f58ff740 plugins/streamer.so<br />
+[14:30:27] f568b000 - f58444d5 plugins/sampvoice.so<br />
+[14:30:27] f725f000 - f7262484 plugins/mapandreas.so<br />
+[14:30:27] f5a76000 - f5a7ad34 /lib/libnss_dns.so.2
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server crashed due to an unknown error</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+Ubuntu? :)<br />
+<br />
+Use CentOS or Ubuntu 14.04<br />
+<br />
+EDIT: Doesn't have to be the problem, before trying another Ubuntu version - remove crashdetect?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server crashed due to an unknown error</strong> - <a href="memberfc51.html?action=profile&amp;uid=3113">israel_Oliveira</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-03, 06:25 PM)</span>Pinch Wrote:  <a href="showthread5160-2.html?pid=11383#pid11383" class="quick_jump"></a></cite>Ubuntu? :)<br />
+<br />
+Use CentOS or Ubuntu 14.04<br />
+<br />
+EDIT: Doesn't have to be the problem, before trying another Ubuntu version - remove crashdetect?</blockquote><br />
+CentOS 7, I activated the plugin to try to detect this crash
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server crashed due to an unknown error</strong> - <a href="member0517.html?action=profile&amp;uid=3729">Schoenherr</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-03, 06:25 PM)</span>Pinch Wrote:  <a href="showthread5160-2.html?pid=11383#pid11383" class="quick_jump"></a></cite>Ubuntu? :)<br />
+<br />
+Use CentOS or Ubuntu 14.04<br />
+<br />
+EDIT: Doesn't have to be the problem, before trying another Ubuntu version - remove crashdetect?</blockquote><br />
+I just want to chime in and say that it also works on <span style="font-weight: bold;" class="mycode_b">Ubuntu 20.04 LTS</span>!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server crashed due to an unknown error</strong> - <a href="memberfc51.html?action=profile&amp;uid=3113">israel_Oliveira</a> -  <strong>2021-06-16</strong>
+<br />
+<br />
+Can anyone help me find out why it's closing?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

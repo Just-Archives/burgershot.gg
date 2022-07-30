@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Help with DM - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread5f8f.html?tid=1294">Help with DM</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Help with DM (<em>/showthread.php?tid=1294</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help with DM</strong> - <a href="memberdd54.html?action=profile&amp;uid=2822">DaZzY</a> -  <strong>2020-10-29</strong>
+<br />
+<br />
+<span style="font-family: Arial Black;" class="mycode_font">Hello ! </span><br />
+<br />
+<span style="font-family: Arial;" class="mycode_font">I have created a DM on my Gamemode </span><br />
+<br />
+<span style="font-family: Arial;" class="mycode_font">And i have idea to add on my DM </span><br />
+<br />
+<span style="font-family: Arial;" class="mycode_font">I want a killer on DM get a  new weapon when he kill another player </span><br />
+<br />
+<span style="font-family: Arial;" class="mycode_font">Example Player have A Shotgun when he kill another player the killer get another weapon Sniper </span><br />
+<br />
+<span style="font-family: Arial;" class="mycode_font">and when he kill another again he get another weapon Sawnoff .... </span><br />
+<br />
+<span style="font-family: Arial;" class="mycode_font">I don't know how to start scripting this ... </span><br />
+<br />
+<span style="font-family: Arial;" class="mycode_font">Can someone give me just base and some explication please :)  </span><br />
+<br />
+<span style="font-family: Arial;" class="mycode_font">its easy for me to give a player weapon on DM  for second kill but hard for me to add weapon for each other kill ( thirst kill ,4 kill .... ) </span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with DM</strong> - <a href="member9b55.html?action=profile&amp;uid=11">Freaksken</a> -  <strong>2020-10-29</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Top of script:</span></span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>// Array with the order of the weapons you want<br />
+new weapons[] = {WEAPON_SHOTGUN, WEAPON_SNIPER, WEAPON_SAWEDOFF};<br />
+<br />
+// Array with the amount of kills for each player<br />
+new kills[MAX_PLAYERS] = {0, ...};</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">OnPlayerConnect:</span></span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerConnect(playerid)<br />
+{<br />
+    // Reset playerid kills on connect<br />
+    kills[playerid] = 0;<br />
+<br />
+    // Give playerid first weapon with 1000 ammo<br />
+    ResetPlayerWeapons(playerid);<br />
+    GivePlayerWeapon(playerid, weapons[0], 1000);<br />
+    return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">OnPlayerDeath:</span></span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDeath(playerid, killerid, reason)<br />
+{<br />
+    if(killerid != INVALID_PLAYER_ID) {<br />
+        // Increase killerid kills<br />
+        kills[killerid]++;<br />
+<br />
+        //Give killerid new weapon with 1000 ammo when there are more weapons, otherwise keep last weapon<br />
+        if(kills[killerid] &lt; sizeof(weapons)) {<br />
+            ResetPlayerWeapons(killerid);<br />
+            GivePlayerWeapon(killerid, weapons[kills[killerid]], 1000);<br />
+        }<br />
+    }<br />
+<br />
+    // Reset playerid kills on death<br />
+    kills[playerid] = 0;<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with DM</strong> - <a href="memberdd54.html?action=profile&amp;uid=2822">DaZzY</a> -  <strong>2020-10-29</strong>
+<br />
+<br />
+Thank You thats what i want to start :D
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with DM</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2020-10-29</strong>
+<br />
+<br />
+This one gives a totally random gun whenever the player kills someone.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDeath(playerid, killerid, reason) {<br />
+    if(killerid != INVALID_PLAYER_ID) {<br />
+            ResetPlayerWeapons(killerid);<br />
+            GivePlayerWeapon(killerid, random(15)+22, 1000);<br />
+        }<br />
+    }<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with DM</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2020-10-30</strong>
+<br />
+<br />
+You should avoid weapons that don't fire bullets like Rpg and Heat seeking rocket. IMO.<br />
+<br />
+So, random(13) ?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

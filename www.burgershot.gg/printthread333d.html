@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Group law cars - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread333d.html?tid=1037">Group law cars</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Group law cars (<em>/showthread.php?tid=1037</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Group law cars</strong> - <a href="member38a3.html?action=profile&amp;uid=558">homelessdrop</a> -  <strong>2020-04-14</strong>
+<br />
+<br />
+Hey guys, i need a help with function, where i can preserve all police vehicles id's for requirement when i can call permissions.<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>GetVehicleModel(GetPlayerVehicleID(playerid));</code></div></div><br />
+Example <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(newstate == PLAYER_STATE_DRIVER &amp;&amp; GetVehicleModel(GetPlayerVehicleID(playerid) == 596</code></div></div><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(newstate == PLAYER_STATE_DRIVER &amp;&amp; idkAllPoliceCar ...</code></div></div>Thanks.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Group law cars</strong> - <a href="memberc475.html?action=profile&amp;uid=2159">akosd127</a> -  <strong>2020-04-16</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new vehicleid = GetPlayerVehicleID(playerid);<br />
+<br />
+if(newstate == PLAYER_STATE_DRIVER &amp;&amp; isPoliceCar(vehicleid))<br />
+{<br />
+   //do something<br />
+}<br />
+<br />
+stock isPoliceCar(vehicleid)<br />
+{<br />
+<br />
+   new vehiclemodel = GetVehicleModel(vehicleid);<br />
+<br />
+   switch(vehiclemodel)<br />
+   {<br />
+   case 595: return true;<br />
+   case 596: return true;<br />
+   case 597: return true;<br />
+   case 599: return true;<br />
+   }<br />
+<br />
+   return false;<br />
+}</code></div></div><br />
+Edit:<br />
+I really forgot. Now fixed.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Group law cars</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2020-04-18</strong>
+<br />
+<br />
+You forgot to add a `vehicleid` parameter to the function.  But otherwise that.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Group law cars</strong> - <a href="member38a3.html?action=profile&amp;uid=558">homelessdrop</a> -  <strong>2020-04-19</strong>
+<br />
+<br />
+Oh..of course, thank you.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn How to save player stats in mysql? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread5188.html?tid=2116">How to save player stats in mysql?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> How to save player stats in mysql? (<em>/showthread.php?tid=2116</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How to save player stats in mysql?</strong> - <a href="memberb415.html?action=profile&amp;uid=3582">CrypticSin</a> -  <strong>2021-06-16</strong>
+<br />
+<br />
+Hi, i need help with saving player stats like kills, deaths, health etc in mysql.<br />
+<br />
+I've created columns for them on php myadmin using xampp but i dont know how to input them into code on Pawn.<br />
+<br />
+Any help would be appreciated.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to save player stats in mysql?</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-06-16</strong>
+<br />
+<br />
+You'll need a MySQL plugin to do that. https://github.com/pBlueG/SA-MP-MySQL/ - That repository comes with a wiki with all it's functions, consult it if you have any questions about the functions.<br />
+<br />
+In case you need examples, there are alot (alot alot) of scripts using MySQL. Here're two examples (note that those aren't perfect examples but atleast it's something).<br />
+<br />
+https://github.com/MichaelBelgium/MV_cPanel <br />
+https://github.com/zeelorenc/sf-cnr
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to save player stats in mysql?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-06-19</strong>
+<br />
+<br />
+stats with coordinate? https://www.youtube.com/watch?v=KNj2O6c9-uo
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to save player stats in mysql?</strong> - <a href="memberb415.html?action=profile&amp;uid=3582">CrypticSin</a> -  <strong>2021-06-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-19, 01:09 AM)</span>PutuSuhartawan Wrote:  <a href="showthreadbf7f.html?pid=11477#pid11477" class="quick_jump"></a></cite>stats with coordinate? https://www.youtube.com/watch?v=KNj2O6c9-uo</blockquote><br />
+The only thing i've done so far is creating a stock for saving user stats. <br />
+<br />
+I don't know what to do from this point after as it's still not storing the data in mysql (phpmyadmin)<br />
+<br />
+When i run the code, im not getting any errors on but im getting two warning stating: "number of arguments does not match definition"<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;SaveUserStats</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /><br />new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">z</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">GetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /><br />if(</span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pLoggedIn</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pX</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pY</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pZ</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">;<br />}<br /><br />new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[</span><span style="color: #0000BB">256</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp;strcat</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"UPDATE&nbsp;`playerinfo`&nbsp;SET&nbsp;`skin`&nbsp;=&nbsp;'%d',&nbsp;`score`&nbsp;=&nbsp;'%d',&nbsp;`money`&nbsp;=&nbsp;'%d',&nbsp;`murders`&nbsp;=&nbsp;'%d',&nbsp;`zombieskilled`&nbsp;=&nbsp;'%d',&nbsp;`health`&nbsp;=&nbsp;'%d',&nbsp;`armour`&nbsp;=&nbsp;'%d',`deaths`&nbsp;=&nbsp;'%d',&nbsp;`hunger`&nbsp;=&nbsp;'%d',&nbsp;`thirst`&nbsp;=&nbsp;'%d',&nbsp;`pX`&nbsp;=&nbsp;'%i',&nbsp;`pY`&nbsp;=&nbsp;'%i',&nbsp;`pZ`&nbsp;=&nbsp;'%i', &nbsp;WHERE&nbsp;'acc_name'&nbsp;=&nbsp;'%e'"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pSkin</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pScore</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pMoney</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pKills</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pZombiesKilled</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pHealth</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pArmour</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pDeaths</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pHunger</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pX</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pY</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pZ</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">mysql_tquery</span><span style="color: #007700">(</span><span style="color: #0000BB">handle</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

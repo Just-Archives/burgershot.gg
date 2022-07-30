@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Problem with Foreach &amp; INI - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreade857.html?tid=1224">Problem with Foreach &amp; INI</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Problem with Foreach &amp; INI (<em>/showthread.php?tid=1224</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Problem with Foreach &amp; INI</strong> - <a href="member4025.html?action=profile&amp;uid=2673">MrAsR</a> -  <strong>2020-10-09</strong>
+<br />
+<br />
+How to fix this is ?<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>F:&#92;TLOD&#92;pawno&#92;include&#92;foreach.inc(196) : error 017: undefined symbol "_FOREACH_CUR_VERSION"<br />
+F:&#92;TLOD&#92;gamemodes&#92;project.pwn(855) : error 017: undefined symbol "INI_ParseFile"<br />
+F:&#92;TLOD&#92;gamemodes&#92;project.pwn(855) : warning 215: expression has no effect<br />
+F:&#92;TLOD&#92;gamemodes&#92;project.pwn(855) : error 029: invalid expression, assumed zero<br />
+F:&#92;TLOD&#92;gamemodes&#92;project.pwn(855) : error 017: undefined symbol "extra"<br />
+F:&#92;TLOD&#92;gamemodes&#92;project.pwn(855) : fatal error 107: too many error messages on one line</code></div></div><br />
+Line 855 - 864<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>        INI_ParseFile(UserPath(playerid), "LoadUser_%s", .bExtra = true, .extra = playerid);<br />
+        if(PlayerInfo[playerid][pBanned] == 1) return ShowBan(playerid);<br />
+        ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD,""COL_WHITE"Login",""COL_WHITE"Wellcome back "COL_RED"The Land Of Death&#92;n"COL_WHITE"Please write password to login","Login","Quit");<br />
+    }<br />
+    else<br />
+    {<br />
+        ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT,""COL_WHITE"Register",""COL_WHITE"Wellcome to "COL_RED"The Land of Death&#92;n"COL_WHITE"Please register before player.","Register","Quit");<br />
+    }<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with Foreach &amp; INI</strong> - <a href="memberbbe1.html?action=profile&amp;uid=2748">Worm</a> -  <strong>2020-10-10</strong>
+<br />
+<br />
+Check your foreach.inc file and see if you have " _FOREACH_CUR_VERSION " defined or not.<br />
+If not, then try updating your file.<br />
+<br />
+Same thing goes for you Y_ini.inc file.<br />
+Check if you have "INI_ParseFile" defined or not.<br />
+If not, then update your file.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

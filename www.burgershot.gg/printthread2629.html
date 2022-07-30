@@ -1,0 +1,898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn How can I do an ini save for this tuning system using AttachObjectToVehicle? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread2629.html?tid=2150">How can I do an ini save for this tuning system using AttachObjectToVehicle?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> How can I do an ini save for this tuning system using AttachObjectToVehicle? (<em>/showthread.php?tid=2150</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How can I do an ini save for this tuning system using AttachObjectToVehicle?</strong> - <a href="member5afa.html?action=profile&amp;uid=3919">Paco_Martez</a> -  <strong>2021-07-01</strong>
+<br />
+<br />
+<span style="color: #202124;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: 'Google Sans', arial, sans-serif;" class="mycode_font">Hi, I don't know how to speak English very well, I'm from Argentina but ..., How can I save an .ini for this tuning system using AttachObjectToVehicle?</span></span></span><br />
+<br />
+<br />
+<br />
+#include &lt;a_samp&gt;<br />
+<br />
+#include &lt;zcmd&gt;<br />
+<br />
+#include &lt;sscanf2&gt;<br />
+<br />
+#include &lt;streamer&gt;<br />
+<br />
+#include &lt;mSelection&gt;<br />
+<br />
+#include &lt;YSI\y_ini&gt;<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+#define DRAWDISTANCE_DEFAULT 80<br />
+<br />
+#define SPEEDMULTIPLIER_HIGH        0.20<br />
+<br />
+#define SPEEDMULTIPLIER_LOW        0.01<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+#define MODE_NONE          0<br />
+<br />
+#define MODE_PX 1<br />
+<br />
+#define MODE_PY    2<br />
+<br />
+#define MODE_PZ            3<br />
+<br />
+#define MODE_RX            4<br />
+<br />
+#define MODE_RY            5<br />
+<br />
+#define MODE_RZ            6<br />
+<br />
+#define MAX_OBJVEH          7<br />
+<br />
+<br />
+<br />
+//Defines<br />
+<br />
+#define PlayerToPoint(%1,%2,%3,%4,%5)  IsPlayerInRangeOfPoint(%2,%1,%3,%4,%5)<br />
+<br />
+#define            Message                             SendClientMessage<br />
+<br />
+#define SendFormattedMessage(%0,%1,%2) do{new _str[128]; format(_str,128,%2); SendClientMessageEx(%0,%1,_str);}while(FALSE)<br />
+<br />
+#define GivePlayerCash GivePlayerMoney<br />
+<br />
+//Colores<br />
+<br />
+#define Blanco 5883<br />
+<br />
+#define iCOL_RED                                                                        0xFF0000FF<br />
+<br />
+//Dialogo<br />
+<br />
+//Textdraws<br />
+<br />
+<br />
+<br />
+// News<br />
+<br />
+//Catalogo<br />
+<br />
+new objetostu = mS_INVALID_LISTID;<br />
+<br />
+//Taller<br />
+<br />
+#define TG_FILE "Talleres/%d.ini"<br />
+<br />
+#define TG_OBJ        "Objetos/%d.ini"<br />
+<br />
+<br />
+<br />
+#define MAX_TUNE      5000<br />
+<br />
+#define MAX_GARAGES  5000<br />
+<br />
+<br />
+<br />
+//Dialogos<br />
+<br />
+#define DIALOG_TUNING_TALLER 8431 //Ids para evitar bugs :s<br />
+<br />
+//Enums<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+enum Attaching<br />
+<br />
+{<br />
+<br />
+ Temp,<br />
+<br />
+ bool:Saved,<br />
+<br />
+ Timer,<br />
+<br />
+ bool:Enabled,<br />
+<br />
+ Mode,<br />
+<br />
+ ModelID,<br />
+<br />
+ ObjectID,<br />
+<br />
+ VehicleID,<br />
+<br />
+ Float:P[3],<br />
+<br />
+ Float:R[3],<br />
+<br />
+ d_ObjIdInput<br />
+<br />
+};<br />
+<br />
+new Attach[MAX_PLAYERS][Attaching];<br />
+<br />
+<br />
+<br />
+enum aaa {<br />
+<br />
+ Float:Position[ 3 ],<br />
+<br />
+    Text3D:tg3D,<br />
+<br />
+    tgPickup,<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+new Talleres[ MAX_GARAGES ][ aaa ];<br />
+<br />
+<br />
+<br />
+//Stocks<br />
+<br />
+<br />
+<br />
+public OnFilterScriptInit()<br />
+<br />
+{<br />
+<br />
+<br />
+<br />
+objetostu = LoadModelSelectionMenu("objetostu.txt");<br />
+<br />
+<br />
+<br />
+  for(new i = 1; i &lt; MAX_GARAGES; i++) {<br />
+<br />
+     new file[ 50 ];<br />
+<br />
+     format( file, sizeof( file ), TG_FILE, i );<br />
+<br />
+     if( fexist( file ) ) {<br />
+<br />
+     INI_ParseFile( file, "LoadTalleres", .bExtra = true, .extra = i );<br />
+<br />
+         Talleres[ i ][ tg3D ] = Create3DTextLabel( "Usa {b9f442}/tuning {FFFFFF}para tunear tu vehículo", -1, Talleres[ i ][ Position ][ 0 ], Talleres[ i ][ Position ][ 1 ], Talleres[ i ][ Position ][ 2 ], 15.0, 0, 1 );<br />
+<br />
+ Talleres[ i ][ tgPickup ] = CreatePickup( 1239, 1, Talleres[ i ][ Position ][ 0 ], Talleres[ i ][ Position ][ 1 ], Talleres[ i ][ Position ][ 2 ], -1 );<br />
+<br />
+ }<br />
+<br />
+ }<br />
+<br />
+ return 1; //se retorna a 1.<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+public OnFilterScriptExit()<br />
+<br />
+{<br />
+<br />
+ for(new i=0; i&lt;MAX_PLAYERS; i++) { KillTimer(Attach[i][Timer]); }<br />
+<br />
+ print("\n  :C\n");<br />
+<br />
+ <br />
+<br />
+ return 1;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+public OnPlayerSpawn(playerid)<br />
+<br />
+{<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+ return 1;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+public OnPlayerConnect(playerid)<br />
+<br />
+{<br />
+<br />
+ <br />
+<br />
+    Attach[playerid][Saved] = true;<br />
+<br />
+ return true;<br />
+<br />
+ <br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+public OnPlayerModelSelection(playerid, response, listid, modelid)<br />
+<br />
+{<br />
+<br />
+if(listid == objetostu)<br />
+<br />
+ {<br />
+<br />
+ if(response)<br />
+<br />
+ {<br />
+<br />
+          Atta(playerid, modelid);<br />
+<br />
+ GivePlayerMoney(playerid, -5000); //dinero<br />
+<br />
+ SendClientMessage(playerid, 0xFFFFFFFF, "Compraste un objeto para tu vehículo.");<br />
+<br />
+ }<br />
+<br />
+ else SendClientMessage(playerid, 0xFFFFFFFF, "Has salido del catalogo de objetos.");<br />
+<br />
+ }<br />
+<br />
+ return 1;<br />
+<br />
+ }<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+public OnPlayerDisconnect(playerid, reason)<br />
+<br />
+{<br />
+<br />
+ KillTimer(Attach[playerid][Timer]);<br />
+<br />
+ Attach[playerid][Mode] = MODE_NONE;<br />
+<br />
+    Attach[playerid][Temp] = 0;<br />
+<br />
+    Attach[playerid][ModelID] = 0;<br />
+<br />
+    Attach[playerid][ObjectID] = 0;<br />
+<br />
+    Attach[playerid][VehicleID] = 0;<br />
+<br />
+    Attach[playerid][Enabled] = false;<br />
+<br />
+    for(new i=0; i&lt;3; i++) { Attach[playerid][P][i] = 0.0; Attach[playerid][R][i] = 0.0;}<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+CMD:creditostuning(playerid, params[])<br />
+<br />
+{<br />
+<br />
+SendClientMessage(playerid, -1, "Sistema Creador Por Franco Londes, Franco12 en pawnscript.");<br />
+<br />
+return 1;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+CMD:creartaller( playerid, params[] ) {<br />
+<br />
+    if( !IsPlayerAdmin( playerid ) ) return SendClientMessage( playerid,-1,  "Debes estar logeado con rcon." );<br />
+<br />
+    new i = NextIDGarage( MAX_GARAGES ), Float:Pos[ 3 ], file[ 40 ];<br />
+<br />
+ GetPlayerPos( playerid, Pos[ 0 ], Pos[ 1 ], Pos[ 2 ] );<br />
+<br />
+ format( file, sizeof( file ), TG_FILE, i );<br />
+<br />
+ if( fexist( file ) ) return SendClientMessage( playerid,-1, "Esta ID ya existe." );<br />
+<br />
+ Talleres[ i ][ Position ][ 0 ] = Pos[ 0 ];<br />
+<br />
+ Talleres[ i ][ Position ][ 1 ] = Pos[ 1 ];<br />
+<br />
+ Talleres[ i ][ Position ][ 2 ] = Pos[ 2 ];<br />
+<br />
+ Talleres[ i ][ tg3D ] = Create3DTextLabel( "Usa {b9f442}/tuning {FFFFFF}para tunear tu vehículo", -1, Talleres[ i ][ Position ][ 0 ], Talleres[ i ][ Position ][ 1 ], Talleres[ i ][ Position ][ 2 ], 15.0, 0, 1 );<br />
+<br />
+ Talleres[ i ][ tgPickup ] = CreatePickup( 1239, 1, Talleres[ i ][ Position ][ 0 ], Talleres[ i ][ Position ][ 1 ], Talleres[ i ][ Position ][ 2 ], -1 );<br />
+<br />
+ SaveTalleres( i );<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+//==============================================================================<br />
+<br />
+CMD:eliminartaller( playerid, params[] ) {<br />
+<br />
+    if( !IsPlayerAdmin( playerid ) ) return SendClientMessage( playerid, -1, "Debes estar logeado con rcon." );<br />
+<br />
+ new i = GetNearestTalleres( playerid );<br />
+<br />
+ if( i == -1 ) return SendClientMessage( playerid, -1,  "No estás en el taller (pickup)." );<br />
+<br />
+<br />
+<br />
+ Talleres[ i ][ Position ][ 0 ] = 0.0;<br />
+<br />
+ Talleres[ i ][ Position ][ 1 ] = 0.0;<br />
+<br />
+ Talleres[ i ][ Position ][ 2 ] = 0.0;<br />
+<br />
+<br />
+<br />
+ DestroyPickup( Talleres[ i ][ tgPickup ] );<br />
+<br />
+ Delete3DTextLabel( Talleres[ i ][ tg3D ] );<br />
+<br />
+<br />
+<br />
+    new file[ 50 ];<br />
+<br />
+ format( file, sizeof( file ), TG_FILE, i );<br />
+<br />
+ if( fexist( file ) ) { fremove( file ); }<br />
+<br />
+<br />
+<br />
+ SendClientMessage( playerid, -1, "Taller eliminado." );<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+CMD:tuning(playerid, params[])<br />
+<br />
+{<br />
+<br />
+ if( GetNearestTalleres( playerid ) == -1 ) return SendClientMessage( playerid, -1, "No estás en el taller de tuning." );<br />
+<br />
+ if( !IsPlayerInAnyVehicle(playerid) ) return SendClientMessage(playerid, 0xFF0000FF, "No estás en un vehículo.");<br />
+<br />
+ ShowPlayerDialog(playerid, DIALOG_TUNING_TALLER, DIALOG_STYLE_LIST, "Menu Tuning", "Comprar Objeto\nEditar Posición de Objeto\nRemover Objeto", "Seleccionar", "Cancelar");<br />
+<br />
+ return 1;<br />
+<br />
+ }<br />
+<br />
+<br />
+<br />
+CMD:4532434343(playerid, params[])<br />
+<br />
+{<br />
+<br />
+    if( !Attach[playerid][Saved] ) {<br />
+<br />
+    ShowModelSelectionMenu(playerid, objetostu, "Venta de Objetos");<br />
+<br />
+ return true;<br />
+<br />
+ }<br />
+<br />
+ new modelid;<br />
+<br />
+ Atta(playerid, modelid);<br />
+<br />
+ return true;<br />
+<br />
+ }<br />
+<br />
+  <br />
+<br />
+public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])<br />
+<br />
+{<br />
+<br />
+if(response)// Si se pulsa el primer botón.<br />
+<br />
+ {<br />
+<br />
+switch(dialogid)// Si sólo tiene un cuadro de diálogo, entonces esto no es necesario, pero es más Organizado para cuando se implementan más cuadros de diálogo.<br />
+<br />
+{<br />
+<br />
+case DIALOG_TUNING_TALLER:// Nuestro dialogo<br />
+<br />
+        {<br />
+<br />
+          switch(listitem)// Comprueba Si a Sido Seleccionado<br />
+<br />
+        {<br />
+<br />
+            case 0:// El Primer Boton Incluido<br />
+<br />
+            {<br />
+<br />
+                    ShowModelSelectionMenu(playerid, objetostu, "Venta de Objetos");<br />
+<br />
+            }<br />
+<br />
+            case 1: // Esto es el segundo boton<br />
+<br />
+            {<br />
+<br />
+ SendClientMessage(playerid, -1, "Usa /ayudatuning para editar la posición del objeto, /terminartuning para acabar");<br />
+<br />
+            }<br />
+<br />
+            case 2: // El Tercer boton<br />
+<br />
+            {<br />
+<br />
+ SendClientMessage(playerid, -1, "Has eliminado el objeto");<br />
+<br />
+ DestroyObject(Attach[playerid][ObjectID]);<br />
+<br />
+            }<br />
+<br />
+        }<br />
+<br />
+        }<br />
+<br />
+ }<br />
+<br />
+    }<br />
+<br />
+return 1;<br />
+<br />
+}<br />
+<br />
+//=========================================================================================================================================================<br />
+<br />
+<br />
+<br />
+//=====================================================================================================================================================<br />
+<br />
+GetNearestTalleres( playerid ) {<br />
+<br />
+    for(new i = 1; i &lt; MAX_GARAGES; i++) {<br />
+<br />
+        if( IsPlayerInRangeOfPoint( playerid, 10.0, Talleres[ i ][ Position ][ 0 ], Talleres[ i ][  Position ][ 1 ], Talleres[ i ][ Position ][ 2 ] ) ) { return i; }<br />
+<br />
+ }<br />
+<br />
+ return -1;<br />
+<br />
+}<br />
+<br />
+//========================================================================================================================================================<br />
+<br />
+stock NextIDGarage(const len) {<br />
+<br />
+    new id = (-1);<br />
+<br />
+    for( new loop = ( 0 ), provjera = ( -1 ), Data_[ 64 ] = "\0"; loop != len; ++ loop ) {<br />
+<br />
+      provjera = ( loop+1 );<br />
+<br />
+      format( Data_, ( sizeof Data_ ), TG_FILE, provjera );<br />
+<br />
+      if(!fexist(Data_)) {<br />
+<br />
+          id = ( provjera );<br />
+<br />
+          break; } }<br />
+<br />
+  return ( id );<br />
+<br />
+}<br />
+<br />
+//==============================================================================<br />
+<br />
+forward SaveTalleres( id );<br />
+<br />
+public SaveTalleres( id ) {<br />
+<br />
+ new iFile[ 40 ];<br />
+<br />
+    format( iFile, sizeof( iFile ), TG_FILE, id );<br />
+<br />
+ new INI:File = INI_Open( iFile );<br />
+<br />
+ INI_WriteFloat( File, "Position1", Talleres[ id ][ Position ][ 0 ] );<br />
+<br />
+ INI_WriteFloat( File, "Position2", Talleres[ id ][ Position ][ 1 ] );<br />
+<br />
+ INI_WriteFloat( File, "Position3", Talleres[ id ][ Position ][ 2 ] );<br />
+<br />
+ INI_Close( File );<br />
+<br />
+ return 1;<br />
+<br />
+}<br />
+<br />
+//==============================================================================<br />
+<br />
+forward LoadTalleres( id, name[], value[] );<br />
+<br />
+public LoadTalleres( id, name[], value[] ) {<br />
+<br />
+ INI_Float( "Position1", Talleres[ id ][ Position ][ 0 ] );<br />
+<br />
+ INI_Float( "Position2", Talleres[ id ][ Position ][ 1 ] );<br />
+<br />
+ INI_Float( "Position3", Talleres[ id ][ Position ][ 2 ] );<br />
+<br />
+    return true;<br />
+<br />
+}<br />
+<br />
+//==============================================================================<br />
+<br />
+forward Atta(playerid, modelid);<br />
+<br />
+//==============================================================<br />
+<br />
+<br />
+<br />
+public Atta(playerid, modelid)<br />
+<br />
+{<br />
+<br />
+    Attach[playerid][Timer] = SetTimerEx("OnPlayerUpdateEx", 50, true, "d", playerid);<br />
+<br />
+    <br />
+<br />
+    //==================================================================================<br />
+<br />
+<br />
+<br />
+    Attach[playerid][Mode] = MODE_NONE;<br />
+<br />
+    Attach[playerid][Temp] = 0;<br />
+<br />
+    Attach[playerid][VehicleID] = 0;<br />
+<br />
+    for(new i=0; i&lt;3; i++) { Attach[playerid][P][i] = 0.0; Attach[playerid][R][i] = 0.0;}<br />
+<br />
+    <br />
+<br />
+    //======================================================================================<br />
+<br />
+<br />
+<br />
+    Attach[playerid][Enabled] = true;<br />
+<br />
+ Attach[playerid][ModelID] = modelid;<br />
+<br />
+ Attach[playerid][ObjectID] = CreateObject(Attach[playerid][ModelID], 0, 0, -1000, 0, 0, 0, DRAWDISTANCE_DEFAULT);<br />
+<br />
+ Attach[playerid][VehicleID] = GetPlayerVehicleID(playerid);<br />
+<br />
+ AttachObjectToVehicle(Attach[playerid][ObjectID], Attach[playerid][VehicleID], 0, 0, 0, 0, 0, 0);<br />
+<br />
+    EditDynamicObject(playerid, ObjectID);<br />
+<br />
+ Attach[playerid][Saved] = false;<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+CMD:ayudatuning(playerid, params[])<br />
+<br />
+{<br />
+<br />
+SendClientMessage(playerid, -1, "Usa /posx, /posy, /posz, para cambiar la posición del objeto.");<br />
+<br />
+SendClientMessage(playerid, -1, "Usa /rotx, /roty, /rotz, para cambiar la rotación del objeto. /terminartuning para terminar.");<br />
+<br />
+return 1;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+CMD:posx(playerid, params[])<br />
+<br />
+{<br />
+<br />
+    if(!Attach[playerid][Enabled]) { SendClientMessage(playerid, 0xFF0000FF, "¡No estás en el taller de tuning!."); }<br />
+<br />
+    else { Attach[playerid][Mode] = MODE_PX; SendClientMessage(playerid, -1, "[X]Bien, usa las teclas Izquierda/Derecha para editar, /terminartuning para acabar."); }<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+CMD:posy(playerid, params[])<br />
+<br />
+{<br />
+<br />
+    if(!Attach[playerid][Enabled]) { SendClientMessage(playerid, 0xFF0000FF, "¡No estás en el taller de tuning!."); }<br />
+<br />
+    else { Attach[playerid][Mode] = MODE_PY; SendClientMessage(playerid, -1, "[Y]Bien, usa las teclas Izquierda/Derecha para editar, /terminartuning para acabar."); }<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+CMD:posz(playerid, params[])<br />
+<br />
+{<br />
+<br />
+    if(!Attach[playerid][Enabled]) { SendClientMessage(playerid, 0xFF0000FF, "¡No estás en el taller de tuning!."); }<br />
+<br />
+    else { Attach[playerid][Mode] = MODE_PZ; SendClientMessage(playerid, -1, "[Z]Bien, usa las teclas Izquierda/Derecha para editar, /terminartuning para acabar."); }<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+CMD:rotx(playerid, params[])<br />
+<br />
+{<br />
+<br />
+    if(!Attach[playerid][Enabled]) { SendClientMessage(playerid, 0xFF0000FF, "¡No estás en el taller de tuning!."); }<br />
+<br />
+    else { Attach[playerid][Mode] = MODE_RX; SendClientMessage(playerid, -1, "[RX]Bien, usa las teclas Izquierda/Derecha para editar, /terminartuning para acabar."); }<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+CMD:roty(playerid, params[])<br />
+<br />
+{<br />
+<br />
+    if(!Attach[playerid][Enabled]) { SendClientMessage(playerid, 0xFF0000FF, "¡No estás en el taller de tuning!."); }<br />
+<br />
+    else { Attach[playerid][Mode] = MODE_RY; SendClientMessage(playerid, -1, "[RY]Bien, usa las teclas Izquierda/Derecha para editar, /terminartuning para acabar."); }<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+CMD:rotz(playerid, params[])<br />
+<br />
+{<br />
+<br />
+    if(!Attach[playerid][Enabled]) { SendClientMessage(playerid, 0xFF0000FF, "¡No estás en el taller de tuning!."); }<br />
+<br />
+    else { Attach[playerid][Mode] = MODE_RZ; SendClientMessage(playerid, -1, "[RZ]Bien, usa las teclas Izquierda/Derecha para editar, /terminartuning para acabar."); }<br />
+<br />
+ return true;<br />
+<br />
+}<br />
+<br />
+CMD:terminartuning(playerid, params[])<br />
+<br />
+{<br />
+<br />
+    if(!Attach[playerid][Enabled]) { SendClientMessage(playerid, 0xFF0000FF, "¡No estás en el taller de tuning!."); }<br />
+<br />
+    else { Attach[playerid][Mode] = MODE_NONE; SendClientMessage(playerid, 0xFF00FFFF, "Tuning Finalizado."); KillTimer(Attach[playerid][Timer]); }<br />
+<br />
+    return true;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+forward OnPlayerUpdateEx(playerid);<br />
+<br />
+public OnPlayerUpdateEx(playerid)<br />
+<br />
+{<br />
+<br />
+ if(Attach[playerid][Mode] == MODE_NONE) return true;<br />
+<br />
+<br />
+<br />
+    new KEYS, UD, LR; GetPlayerKeys( playerid, KEYS, UD, LR );<br />
+<br />
+<br />
+<br />
+ new Float:SPDM = 0.1;<br />
+<br />
+<br />
+<br />
+ if(KEYS == 128) { SPDM = SPEEDMULTIPLIER_HIGH; }<br />
+<br />
+ else if (KEYS == 4) { SPDM = SPEEDMULTIPLIER_LOW; }<br />
+<br />
+<br />
+<br />
+    if(LR &gt; 0) { UpdateVObject(playerid, SPDM); }<br />
+<br />
+ else if(LR &lt; 0) { UpdateVObject(playerid, -SPDM); }<br />
+<br />
+    return 1;<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+forward UpdateVObject(playerid, Float:value);<br />
+<br />
+public UpdateVObject(playerid, Float:value)<br />
+<br />
+{<br />
+<br />
+ DestroyObject(Attach[playerid][ObjectID]);<br />
+<br />
+ Attach[playerid][ObjectID] = CreateObject(Attach[playerid][ModelID], 0, 0, 6, 0, 0, 0, DRAWDISTANCE_DEFAULT);<br />
+<br />
+<br />
+<br />
+ switch(Attach[playerid][Mode])<br />
+<br />
+ {<br />
+<br />
+     case MODE_PX: {<br />
+<br />
+         Attach[playerid][P][0] += value;<br />
+<br />
+         new string[64];<br />
+<br />
+         format(string, sizeof(string), "Editando Posicion [X]",Attach[playerid][P][0]);<br />
+<br />
+         GameTextForPlayer(playerid, string, 10000, 3);<br />
+<br />
+ }<br />
+<br />
+ case MODE_PY: {<br />
+<br />
+     Attach[playerid][P][1] += value;<br />
+<br />
+         new string[64];<br />
+<br />
+         format(string, sizeof(string), "Editando Posicion [Y]",Attach[playerid][P][1]);<br />
+<br />
+         GameTextForPlayer(playerid, string, 10000, 3);<br />
+<br />
+ }<br />
+<br />
+ case MODE_PZ: {<br />
+<br />
+     Attach[playerid][P][2] += value;<br />
+<br />
+         new string[64];<br />
+<br />
+         format(string, sizeof(string), "Editando Posicion [Z]",Attach[playerid][P][1]);<br />
+<br />
+         GameTextForPlayer(playerid, string, 10000, 3);<br />
+<br />
+ }<br />
+<br />
+ case MODE_RX: {<br />
+<br />
+         if(Attach[playerid][R][0] + value*10 &lt;= 360.0 &amp;&amp; Attach[playerid][R][0] + value*10 &gt;= 0.0) { Attach[playerid][R][0] += value*10; }<br />
+<br />
+         new string[64];<br />
+<br />
+         format(string, sizeof(string), "Editando Rotacion [X]",Attach[playerid][P][0]);<br />
+<br />
+         GameTextForPlayer(playerid, string, 10000, 3);<br />
+<br />
+ }<br />
+<br />
+ case MODE_RY: {<br />
+<br />
+     if(Attach[playerid][R][1] + value*10 &lt;= 360.0 &amp;&amp; Attach[playerid][R][1] + value*10 &gt;= 0.0) { Attach[playerid][R][1] += value*10; }<br />
+<br />
+         new string[64];<br />
+<br />
+         format(string, sizeof(string), "Editando Rotacion [Y]",Attach[playerid][R][1]);<br />
+<br />
+         GameTextForPlayer(playerid, string, 10000, 3);<br />
+<br />
+ }<br />
+<br />
+ case MODE_RZ: {<br />
+<br />
+     if(Attach[playerid][R][2] + value*10 &lt;= 360.0 &amp;&amp; Attach[playerid][R][2] + value*10 &gt;= 0.0) { Attach[playerid][R][2] += value*10; }<br />
+<br />
+         new string[64];<br />
+<br />
+         format(string, sizeof(string), "Editando Rotacion [Z]",Attach[playerid][R][2]);<br />
+<br />
+         GameTextForPlayer(playerid, string, 10000, 3);<br />
+<br />
+ }<br />
+<br />
+ }<br />
+<br />
+ AttachObjectToVehicle(Attach[playerid][ObjectID], Attach[playerid][VehicleID], Attach[playerid][P][0], Attach[playerid][P][1], Attach[playerid][P][2], Attach[playerid][R][0], Attach[playerid][R][1], Attach[playerid][R][2]);<br />
+<br />
+ return true;<br />
+<br />
+}
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

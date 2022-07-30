@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn A weird problem with includes - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadc715.html?tid=719">A weird problem with includes</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> A weird problem with includes (<em>/showthread.php?tid=719</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>A weird problem with includes</strong> - <a href="memberb3b1.html?action=profile&amp;uid=1004">mouiz</a> -  <strong>2019-07-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>#include &lt;../../gamemodes/modes/mode_robbery.pwn&gt;<br />
+#include &lt;../../gamemodes/modes/mode_dogfight.pwn&gt;</blockquote>
+<br />
+These are ^ two includes in the 'gamemodes/modes' folder.<br />
+<br />
+<br />
+If i arrange them like this: <br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>#include &lt;../../gamemodes/modes/mode_dogfight.pwn&gt;<br />
+#include &lt;../../gamemodes/modes/mode_robbery.pwn&gt;</blockquote>
+<br />
+the 'mode_dogfight' works (gets included) and the second one is ignored (it shows undefined symbol errors since the definitions of the functions are in the include)<br />
+<br />
+If i arrange them oppositely then the 'mode_robbery' works, the second one is ignore.<br />
+<br />
+How can i fix this?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A weird problem with includes</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2019-07-14</strong>
+<br />
+<br />
+Try using<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include "..."</code></div></div><br />
+instead of<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;...&gt;</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A weird problem with includes</strong> - <a href="memberb3b1.html?action=profile&amp;uid=1004">mouiz</a> -  <strong>2019-07-14</strong>
+<br />
+<br />
+Does not work either way :/
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A weird problem with includes</strong> - <a href="memberb3b1.html?action=profile&amp;uid=1004">mouiz</a> -  <strong>2019-07-14</strong>
+<br />
+<br />
+When i put the 'mode_dogfight.pwn' in the pawno &gt; include folder and change the path in the script, it works but i want it to be in the gamemodes folder...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A weird problem with includes</strong> - <a href="member9b55.html?action=profile&amp;uid=11">Freaksken</a> -  <strong>2019-07-14</strong>
+<br />
+<br />
+The updated version of the compiler fixes that problem:<br />
+https://github.com/pawn-lang/compiler/releases<br />
+<br />
+You can read more about the fix here:<br />
+https://github.com/pawn-lang/compiler/wiki/File-Inclusion#long-paths
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A weird problem with includes</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-07-14</strong>
+<br />
+<br />
+Also, use \ not /
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A weird problem with includes</strong> - <a href="memberb3b1.html?action=profile&amp;uid=1004">mouiz</a> -  <strong>2019-07-14</strong>
+<br />
+<br />
+Ok, thanks both
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A weird problem with includes</strong> - <a href="member92f7.html?action=profile&amp;uid=20">dakyskye</a> -  <strong>2019-07-17</strong>
+<br />
+<br />
+That's because you are on Windows and use wrong directory separator. On Windows, it is <span style="font-weight: bold;" class="mycode_b">\</span>  while on Unix and unix-like systems it's <span style="font-weight: bold;" class="mycode_b">/</span><br />
+A trick: always use <span style="font-weight: bold;" class="mycode_b">\</span> even while not on Windows <span style="font-weight: bold;" class="mycode_b">and</span> compile with -Z+ which is for compatibility and changes \ to / automatically on non-Windows platforms.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

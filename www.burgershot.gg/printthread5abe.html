@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Car jack/stealing detector. - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread5abe.html?tid=2184">Car jack/stealing detector.</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Car jack/stealing detector. (<em>/showthread.php?tid=2184</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Car jack/stealing detector.</strong> - <a href="memberb8bd.html?action=profile&amp;uid=3669">Ambarita</a> -  <strong>2021-07-20</strong>
+<br />
+<br />
+So I want to make an admin warning message if a player car jack/steal a vehicle that is being occupied by someone.<br />
+<br />
+Is there a function to check if the vehicle is occupied? or maybe a function that would help me make this code.<br />
+<br />
+If not, any idea that would help me?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car jack/stealing detector.</strong> - <a href="member1965.html?action=profile&amp;uid=1517">Next</a> -  <strong>2021-07-20</strong>
+<br />
+<br />
+<span style="color: #202124;" class="mycode_color"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><span style="font-size: small;" class="mycode_size">This can help:</span></span></span><br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">IsVehicleOccupied</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">for(new&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">GetPlayerPoolSize</span><span style="color: #007700">();&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">!=&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">i</span><span style="color: #007700">--)</span><span style="color: #0000BB"> <br /> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">IsPlayerInVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">GetPlayerVehicleSeat</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+can use foreach too.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car jack/stealing detector.</strong> - <a href="memberc60d.html?action=profile&amp;uid=1743">daddy.</a> -  <strong>2021-07-22</strong>
+<br />
+<br />
+There already is 'IsVehicleOccupied' native in YSF, use that one.<br />
+https://github.com/IllidanS4/YSF
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car jack/stealing detector.</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-22</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-22, 01:58 PM)</span>daddy. Wrote:  <a href="showthreada067.html?pid=11721#pid11721" class="quick_jump"></a></cite>There already is 'IsVehicleOccupied' native in YSF, use that one.<br />
+https://github.com/IllidanS4/YSF</blockquote><a href="https://github.com/IllidanS4/YSF/blob/f8a338354b77fcf92d792955e9de207e77271e24/src/natives/vehicles.cpp#L355" target="_blank" rel="noopener" class="mycode_url">...which does the exact same thing with even more checks + checks if player is either driver or passenger so they would need a extra check there :)</a><br />
+<br />
+EDIT: But for some odd reason, YSF also has <span style="font-weight: bold;" class="mycode_b">HasVehicleBeenOccupied</span> which is much more efficient check as it does not run loops, wtf Illidan XD<br />
+EDIT 2: This actually might not work, wtf xD
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car jack/stealing detector.</strong> - <a href="memberc60d.html?action=profile&amp;uid=1743">daddy.</a> -  <strong>2021-07-23</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-22, 09:13 PM)</span>Pinch Wrote:  <a href="showthreadfb04.html?pid=11724#pid11724" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-07-22, 01:58 PM)</span>daddy. Wrote:  <a href="showthreada067.html?pid=11721#pid11721" class="quick_jump"></a></cite>There already is 'IsVehicleOccupied' native in YSF, use that one.<br />
+https://github.com/IllidanS4/YSF</blockquote><a href="https://github.com/IllidanS4/YSF/blob/f8a338354b77fcf92d792955e9de207e77271e24/src/natives/vehicles.cpp#L355" target="_blank" rel="noopener" class="mycode_url">...which does the exact same thing with even more checks + checks if player is either driver or passenger so they would need a extra check there :)</a></blockquote><br />
+True, fair enough to quote :D
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

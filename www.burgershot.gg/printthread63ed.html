@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server sampctl again - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread63ed.html?tid=618">sampctl again</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> sampctl again (<em>/showthread.php?tid=618</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>sampctl again</strong> - <a href="member2767.html?action=profile&amp;uid=89">6cadilab9</a> -  <strong>2019-05-30</strong>
+<br />
+<br />
+Sorry for asking for help again, feeling like a noob, but this is my first time using this package manager,<br />
+i've managed to compile the script, i guess everything from plugins to includes is as it is supposed to be, but now when I try to start the server using<br />
+<br />
+sampctl server run<br />
+<br />
+I get<br />
+<br />
+ERROR: failed to interpret directory as Pawn package: failed to unmarshal samp.json: json: cannot unmarshal string into Go struct field Runtime.output of type bool<br />
+<br />
+Same if I try to ensure, this is samp.json<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{<br />
+"rcon_password": "hidden",<br />
+"port": 7777,<br />
+"hostname": "Balkan Underground",<br />
+"maxplayers": 32,<br />
+"entry": "balkan-underground.pwn",<br />
+"output": "balkan-underground.amx"<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl again</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-30</strong>
+<br />
+<br />
+Hi, you seem to be using an deprecated system.<br />
+<br />
+We are trying to phrase this out, as it's old and the new system works better. You can use this method still but,<br />
+you might have problems in the future when we decided to remove it entirely.<br />
+<br />
+You should use `pawn.json` for everything and use `sampctl package run` instead of `sampctl server run`<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{<br />
+   "entry": "balkan-underground.pwn",<br />
+   "output": "balkan-underground.amx"<br />
+   "local": true,<br />
+   "dependencies": [],<br />
+   "builds": [],<br />
+   "runtime": { <br />
+       "rcon_password": "hidden",<br />
+       "hostname": "Balkan Underground",      <br />
+   },<br />
+   "runtimes": [<br />
+        {<br />
+            "name": "development",<br />
+            "port": 8888,<br />
+            "maxplayers": 10              <br />
+        },<br />
+        {<br />
+            "name": "production",<br />
+            "port": 7777,<br />
+            "maxplayers": 32  <br />
+        }<br />
+    ]<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl again</strong> - <a href="member2767.html?action=profile&amp;uid=89">6cadilab9</a> -  <strong>2019-05-30</strong>
+<br />
+<br />
+Thanks, tried it with sampctl package run and it works, but now I'm getting some errors thrown which I have never seen, can't seem to get this thing running ... :/<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[00:20:28] [debug] Server crashed due to an unknown error<br />
+[00:20:28] [debug] Native backtrace:<br />
+[00:20:28] [debug] #0 f67638b6 in _Z13GetStackTraceRSt6vectorI10StackFrameSaIS0_EEPv () in plugins/crashdetect.so<br />
+[00:20:28] [debug] #1 f675b120 in _ZN18CrashDetectHandler20PrintNativeBacktraceERSoRKN2os7ContextE () in plugins/crashdetect.so<br />
+[00:20:28] [debug] #2 f675b886 in _ZN18CrashDetectHandler20PrintNativeBacktraceERKN2os7ContextE () in plugins/crashdetect.so<br />
+[00:20:28] [debug] #3 f675bf96 in _ZN18CrashDetectHandler7OnCrashERKN2os7ContextE () in plugins/crashdetect.so<br />
+[00:20:28] [debug] #4 f6762f82 in ?? () in plugins/crashdetect.so<br />
+[00:20:28] [debug] #5 f7f44010 in ?? ()<br />
+[00:20:28] [debug] #6 091b1ffd in ?? ()<br />
+[00:20:28] [debug] #7 f639d062 in ?? () in plugins/streamer.so<br />
+[00:20:28] [debug] #8 0809b463 in ?? () in samp03svr<br />
+[00:20:28] [debug] #9 080a4f1b in ?? () in samp03svr<br />
+[00:20:28] [debug] #10 080ab922 in ?? () in samp03svr<br />
+[00:20:28] [debug] #11 080aa0fd in ?? () in samp03svr<br />
+[00:20:28] [debug] #12 f7b76637 in __libc_start_main () in /lib/i386-linux-gnu/libc.so.6<br />
+[00:20:28] [debug] Registers:<br />
+[00:20:28] [debug] EAX: 091b1ff8 EBX: f642f7d4 ECX: 093164a8 EDX: ffffffff<br />
+[00:20:28] [debug] ESI: 08158ac0 EDI: f64191dd EBP: ffd18008 ESP: ffd18000<br />
+[00:20:28] [debug] EIP: 091b1ffd EFLAGS: 00010246<br />
+[00:20:28] [debug] Stack:<br />
+[00:20:28] [debug] ESP+00000000: 08158ac0 f64191dd ffd18048 f639d062<br />
+[00:20:28] [debug] ESP+00000020: 0081cdb0 000026a8 013467c8 007b0bb4<br />
+[00:20:28] [debug] ESP+00000040: 081ab7e0 00000002 ffd18068 0809b463<br />
+[00:20:28] [debug] ESP+00000060: 081ab7e0 00000002 ffd18098 080a4f1b<br />
+[00:20:28] [debug] ESP+00000080: 0815a028 00000000 00000400 091bc1b8<br />
+[00:20:28] [debug] ESP+000000a0: 093164a8 081cb540 ffd180b8 091bc1b8<br />
+[00:20:28] [debug] ESP+000000c0: 091bc1b8 00000001 00000006 08159dcd<br />
+[00:20:28] [debug] ESP+000000e0: ffd180f8 f7e96f96 f7efa000 f7e62a93<br />
+[00:20:28] [debug] ESP+00000100: 00010001 00001e61 00000032 01e62bfb<br />
+[00:20:28] [debug] ESP+00000120: f7efa000 f7efb660 f7efb7a0 f7e0814c<br />
+[00:20:28] [debug] ESP+00000140: f7f69000 080494b0 f7efb844 f7d10e00<br />
+[00:20:28] [debug] ESP+00000160: 00000000 00000000 00000000 00000000<br />
+[00:20:28] [debug] ESP+00000180: 00000000 00000000 00000000 00000000<br />
+[00:20:28] [debug] ESP+000001a0: 00000000 00000000 00000000 00000000<br />
+[00:20:28] [debug] ESP+000001c0: 00000000 00000000 00000000 00000000<br />
+[00:20:28] [debug] ESP+000001e0: f7d103dc 08048b10 0815072b 00000000<br />
+[00:20:28] [debug] ESP+00000200: 00000001 ffd18294 ffd1829c 00000000<br />
+[00:20:28] [debug] ESP+00000220: f7f69000 00000000 f7d10000 f7d10000<br />
+[00:20:28] [debug] ESP+00000240: 00000000 00000000 00000001 0804b4c0<br />
+[00:20:28] [debug] ESP+00000260: 00000001 0804b4c0 00000000 0804b4e1<br />
+[00:20:28] [debug] ESP+00000280: 08150710 f7f54880 ffd1828c f7f69918<br />
+[00:20:28] [debug] ESP+000002a0: ffd19127 ffd1913c ffd19153 ffd19165<br />
+[00:20:28] [debug] ESP+000002c0: ffd19223 ffd19237 ffd19248 ffd1925f<br />
+[00:20:28] [debug] ESP+000002e0: ffd192dd ffd19321 ffd19338 ffd19365<br />
+[00:20:28] [debug] ESP+00000300: ffd1996d ffd19987 ffd199bb ffd199e4<br />
+[00:20:28] [debug] ESP+00000320: ffd19b3b ffd19b4d ffd19b6e ffd19b8c<br />
+[00:20:28] [debug] ESP+00000340: ffd19c0c ffd19c1d ffd19c2c ffd19c62<br />
+[00:20:28] [debug] ESP+00000360: ffd19cd8 ffd19cf7 ffd19cff ffd19d1f<br />
+[00:20:28] [debug] ESP+00000380: ffd19d9b ffd19db6 ffd19dd3 ffd19ded<br />
+[00:20:28] [debug] ESP+000003a0: ffd19ec9 ffd19edc ffd19efb ffd19f06<br />
+[00:20:28] [debug] ESP+000003c0: ffd19f7d ffd19faf 00000000 00000020<br />
+[00:20:28] [debug] ESP+000003e0: bfebfbff 00000006 00001000 00000011<br />
+[00:20:28] [debug] Loaded modules:<br />
+[00:20:28] [debug] 00000000 - 00187f43 samp03svr<br />
+[00:20:28] [debug] f7f43000 - f7f441e6 <br />
+[00:20:28] [debug] f7f1b000 - f7f1da04 /lib/i386-linux-gnu/libdl.so.2<br />
+[00:20:28] [debug] f7efe000 - f7f196ef /lib/i386-linux-gnu/libpthread.so.0<br />
+[00:20:28] [debug] f7d87000 - f7f07b4b /usr/lib/i386-linux-gnu/libstdc++.so.6<br />
+[00:20:28] [debug] f7d32000 - f7d86010 /lib/i386-linux-gnu/libm.so.6<br />
+[00:20:28] [debug] f7d15000 - f7d311e4 /lib/i386-linux-gnu/libgcc_s.so.1<br />
+[00:20:28] [debug] f7b5e000 - f7d1ab6b /lib/i386-linux-gnu/libc.so.6<br />
+[00:20:28] [debug] f7f45000 - f7f689c4 /lib/ld-linux.so.2<br />
+[00:20:28] [debug] f77cb000 - f7b60eb2 plugins/mysql.so<br />
+[00:20:28] [debug] f77a7000 - f77cad32 /home/hidden/Cadilab/BU/plugins/../log-core.so<br />
+[00:20:28] [debug] f779e000 - f77a5714 /lib/i386-linux-gnu/librt.so.1<br />
+[00:20:28] [debug] f6789000 - f679a2ec /lib/i386-linux-gnu/libnss_files.so.2<br />
+[00:20:28] [debug] f6744000 - f67883ac plugins/crashdetect.so<br />
+[00:20:28] [debug] f7f2e000 - f7f3d9b4 plugins/sscanf.so<br />
+[00:20:28] [debug] f651b000 - f6602b50 plugins/pawncmd.so<br />
+[00:20:28] [debug] f7f28000 - f7f2beec plugins/mapandreas.so<br />
+[00:20:28] [debug] f6432000 - f651e778 plugins/pawnregex.so<br />
+[00:20:28] [debug] f635c000 - f64327f0 plugins/streamer.so</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl again</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-30</strong>
+<br />
+<br />
+I'm not entirely sure but it's possible this is caused by either the streamer plugin or map andreas. <br />
+<br />
+We are going to need more details about your setup, before we can make a more accurate pinpoint on the problem.<br />
+<br />
+Could you please follow this format: https://www.burgershot.gg/showthread.php?tid=609
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Help with command - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadac20.html?tid=2155">Help with command</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Help with command (<em>/showthread.php?tid=2155</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help with command</strong> - <a href="member6fd1.html?action=profile&amp;uid=3880">Pedxz</a> -  <strong>2021-07-05</strong>
+<br />
+<br />
+Welll, I update my command's permission to !IsPlayerAdmin, but now it doesn't want to work correctly, when i run the command it doesn't do anything.<br />
+<br />
+***I changed the permission because the other one was having problems<br />
+<br />
+Could you help me solve this??<br />
+<br />
+<br />
+Command:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:setar(playerid, params[])<br />
+{<br />
+if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Você não tem permissão!");<br />
+<br />
+new id, sSetar[15];<br />
+<br />
+if(sscanf(params, "ds[15]", id, sSetar)) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Uso correto: /Setar [ ID ] [ Administrador / Moderador / Ajudante ]");<br />
+if(!IsPlayerConnected(id)) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Ninguém online com esse ID!");<br />
+<br />
+if(!strcmp(sSetar, "administrador", true))<br />
+{<br />
+if(GetPlayerCargo(id) != C_ADMIN)<br />
+{<br />
+format(gStr, sizeof(gStr), "[BPL Staff] Você tornou o(a) jogador(a) %s um(a) administrador(a).", pNome(id));<br />
+SendClientMessage(playerid, COLOR_VERDECMD, gStr);<br />
+<br />
+format(gStr, sizeof(gStr), "[BPL Staff] %s tornou você um(a) administrador(a).", GetCargoMsg(playerid));<br />
+SendClientMessage(id, COLOR_VERDECMD, gStr);<br />
+<br />
+SetPVarInt(id, "pCargo", C_ADMIN), aInfo[id][Cargo] = C_ADMIN;<br />
+}<br />
+else<br />
+{<br />
+format(gStr, sizeof(gStr), "[BPL Staff] Você removeu os privilégios de administrador(a) do(a) jogador(a) %s", pNome(id));<br />
+SendClientMessage(playerid, COLOR_VERDECMD, gStr);<br />
+<br />
+format(gStr, sizeof(gStr), "[BPL Staff] %s removeu seus privilégios de administrador(a).", GetCargoMsg(playerid));<br />
+SendClientMessage(id, COLOR_VERDECMD, gStr);<br />
+<br />
+SetPVarInt(id, "pCargo", C_JOGADOR), aInfo[id][Cargo] = C_JOGADOR;<br />
+}<br />
+}<br />
+else if(!strcmp(sSetar, "moderador", true))<br />
+{<br />
+if(GetPlayerCargo(playerid) != C_MODERADOR)<br />
+{<br />
+format(gStr, sizeof(gStr), "[BPL Staff] Você tornou o(a) jogador(a) %s um(a) moderador(a).", pNome(id));<br />
+SendClientMessage(playerid, COLOR_VERDECMD, gStr);<br />
+<br />
+format(gStr, sizeof(gStr), "[BPL Staff] %s tornou você um(a) moderador(a).", GetCargoMsg(playerid));<br />
+SendClientMessage(id, COLOR_VERDECMD, gStr);<br />
+<br />
+SetPVarInt(id, "pCargo", C_MODERADOR), aInfo[id][Cargo] = C_MODERADOR;<br />
+}<br />
+else<br />
+{<br />
+format(gStr, sizeof(gStr), "[BPL Staff] Você removeu os privilégios de moderador(a) do(a) jogador(a) %s", pNome(id));<br />
+SendClientMessage(playerid, COLOR_VERDECMD, gStr);<br />
+<br />
+format(gStr, sizeof(gStr), "[BPL Staff] %s removeu seus privilégios de moderador(a).", GetCargoMsg(playerid));<br />
+SendClientMessage(id, COLOR_VERDECMD, gStr);<br />
+<br />
+SetPVarInt(id, "pCargo", C_JOGADOR), aInfo[id][Cargo] = C_JOGADOR;<br />
+}<br />
+}<br />
+else if(!strcmp(sSetar, "ajudante", true))<br />
+{<br />
+if(GetPlayerCargo(playerid) != C_AJUDANTE)<br />
+{<br />
+format(gStr, sizeof(gStr), "[BPL Staff] Você tornou o(a) jogador(a) %s um(a) ajudante.", pNome(id));<br />
+SendClientMessage(playerid, COLOR_VERDECMD, gStr);<br />
+<br />
+format(gStr, sizeof(gStr), "[BPL Staff] %s tornou você um(a) ajudante.", GetCargoMsg(playerid));<br />
+SendClientMessage(id, COLOR_VERDECMD, gStr);<br />
+<br />
+SetPVarInt(id, "pCargo", C_AJUDANTE), aInfo[id][Cargo] = C_AJUDANTE;<br />
+}<br />
+else<br />
+{<br />
+format(gStr, sizeof(gStr), "[BPL Staff] Você removeu os privilégios de ajudante do(a) jogador(a) %s", pNome(id));<br />
+SendClientMessage(playerid, COLOR_VERDECMD, gStr);<br />
+<br />
+format(gStr, sizeof(gStr), "[BPL Staff] %s removeu seus privilégios de ajudante.", GetCargoMsg(playerid));<br />
+SendClientMessage(id, COLOR_VERDECMD, gStr);<br />
+<br />
+SetPVarInt(id, "pCargo", C_JOGADOR), aInfo[id][Cargo] = C_JOGADOR;<br />
+}<br />
+}<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with command</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-07-06</strong>
+<br />
+<br />
+IsPlayerAdmin() is for RCON admin. (/rcon)<br />
+Not your custom admin system.<br />
+<br />
+So, you have to logged-in to RCON and then you can use this command.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

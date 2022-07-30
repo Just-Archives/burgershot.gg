@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server server launcher help - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadaf62.html?tid=704">server launcher help</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> server launcher help (<em>/showthread.php?tid=704</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>server launcher help</strong> - <a href="membered1a.html?action=profile&amp;uid=1356">unbelievable_10</a> -  <strong>2019-07-09</strong>
+<br />
+<br />
+i want to put in this code server password so when player connects through button that launcher (.exe) writes password for him<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[color=#000000][size=small]        private void button1_Click(object sender, EventArgs e)<br />
+        {<br />
+            System.Diagnostics.Process.Start("samp://75.127.13.245:7780");<br />
+        }</code></div></div>[/size][/color]
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2019-07-10</strong>
+<br />
+<br />
+You'll likely need a memory hook to detect and fill the password dialogue. I doubt there is a safe way to do this.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="member5f5f.html?action=profile&amp;uid=46">Toretto</a> -  <strong>2019-07-11</strong>
+<br />
+<br />
+Been able to make a custom server launcher by installing <a href="https://github.com/BigETI/sampcmd" target="_blank" rel="noopener" class="mycode_url">sampcmd</a> by BigETI to the client, then sending the command with the needed arguments. (Won't work in other systems except Windows)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="memberd985.html?action=profile&amp;uid=9">BigETI</a> -  <strong>2019-07-11</strong>
+<br />
+<br />
+There is a solution written in C# that launches GTA San Andreas and injects samp.dll to the newly created process. It can be found inside the SAMPLauncherNET aka. CSL source. sampcmd in the other hand is just a CLI tool that launches San Andreas Multiplayer without samp.exe.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

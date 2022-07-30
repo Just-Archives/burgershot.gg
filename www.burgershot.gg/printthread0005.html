@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Gamemode is not detected - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread0005.html?tid=2128">Gamemode is not detected</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Gamemode is not detected (<em>/showthread.php?tid=2128</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Gamemode is not detected</strong> - <a href="memberc2ed.html?action=profile&amp;uid=3809">fzbian</a> -  <strong>2021-06-22</strong>
+<br />
+<br />
+Sorry for my English<br />
+<br />
+I am learning Pawno however I have had a few problems when starting my server, one of those is this:<br />
+<br />
+<img src="https://media.discordapp.net/attachments/853035497961553923/856690202609057792/unknown.png?width=919&amp;height=480" loading="lazy"  alt="[Image: unknown.png?width=919&amp;height=480]" class="mycode_img" /><br />
+<br />
+I was googling this error however I did not find a concrete solution, here I leave you my gamemode and my files in case someone has the solution, I would appreciate it very much<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">My server.cfg</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>echo Executing Server Config...<br />
+lanmode 0<br />
+rcon_password asd<br />
+maxplayers 50<br />
+port 7777<br />
+hostname SA-MP 0.3 Server<br />
+gamemode0 bare<br />
+plugins pawncmd streamer<br />
+query 1<br />
+chatlogging 0<br />
+weburl www.sa-mp.com<br />
+onfoot_rate 40<br />
+incar_rate 40<br />
+weapon_rate 40<br />
+stream_distance 300.0<br />
+stream_rate 1000<br />
+maxnpc 0<br />
+logtimeformat [%H:%M:%S]<br />
+language English</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">My gamemode</span><br />
+<a href="https://pastebin.com/2yqDMZ5L" target="_blank" rel="noopener" class="mycode_url">https://pastebin.com/2yqDMZ5L</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">My plugins folder:</span><br />
+<img src="https://cdn.discordapp.com/attachments/853035497961553923/856691197854351360/unknown.png" loading="lazy"  alt="[Image: unknown.png]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Gamemode is not detected</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-22</strong>
+<br />
+<br />
+Add this to your script.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>main() { }</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Gamemode is not detected</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-06-22</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-22, 08:28 AM)</span>Radical Wrote:  <a href="showthread25e1.html?pid=11505#pid11505" class="quick_jump"></a></cite>Add this to your script.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>main() { }</code></div></div></blockquote>That would cause a "invalid entry point" runtime error.<br />
+<br />
+"File or function not found" is exactly what it sounds like. A file or a function isn't found.<br />
+You can use crashdetect to find out what function it's missing. However, I took a quick look on that script and:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native WP_Hash(buffer[], len, const str[]);</code></div></div>Whirlpool isn't included (plugin), so this is causing your issue. If the problem still exists after adding Whirlpool, you're missing another function in which case you can use crashdetect (and compile with option -d3)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

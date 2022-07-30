@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn [HELP] Weapon Skill Command - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread8227.html?tid=2204">[HELP] Weapon Skill Command</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> [HELP] Weapon Skill Command (<em>/showthread.php?tid=2204</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[HELP] Weapon Skill Command</strong> - <a href="member77d3.html?action=profile&amp;uid=3222">spyrothedragon96</a> -  <strong>2021-08-03</strong>
+<br />
+<br />
+Hello everyone.<br />
+I made 3 commands to set the skill level of the weapons, /poor, /gangster and /hitman.<br />
+The problem is that when me and the other players die / disconnect, the level goes back to the initial level, that is to the maximum, and the command I had set is not saved.<br />
+How can I do to <span style="font-weight: bold;" class="mycode_b">get it saved when one dies / disconnects</span>?<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>COMMAND:poor(playerid, params[])<br />
+{<br />
+    if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, 0xFF0000AA, "Devi loggare come RCON.");<br />
+    {<br />
+for(new i=0; i&lt;MAX_PLAYERS; i++)<br />
+{<br />
+if(IsPlayerNPC(i) || IsPlayerConnected(i))<br />
+{<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_PISTOL, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_PISTOL_SILENCED, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_DESERT_EAGLE, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_SHOTGUN, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_SAWNOFF_SHOTGUN, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_SPAS12_SHOTGUN, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_MICRO_UZI, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_MP5, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_AK47, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_M4, 1);<br />
+SetPlayerSkillLevel(i, WEAPONSKILL_SNIPERRIFLE, 1);<br />
+        }<br />
+    }<br />
+    }<br />
+return 1;<br />
+}<br />
+<br />
+COMMAND:gangster(playerid, params[])<br />
+{<br />
+    if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, 0xFF0000AA, "Devi loggare come RCON.");<br />
+    {<br />
+for(new i=0; i&lt;MAX_PLAYERS; i++)<br />
+{<br />
+if(IsPlayerNPC(i) || IsPlayerConnected(i))<br />
+{<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_PISTOL, 40);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_PISTOL_SILENCED, 500);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_DESERT_EAGLE, 200);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_SHOTGUN, 200);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_SAWNOFF_SHOTGUN, 200);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_SPAS12_SHOTGUN, 200);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_MICRO_UZI, 50);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_MP5, 250);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_AK47, 200);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_M4, 200);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_SNIPERRIFLE, 300);<br />
+        }<br />
+    }<br />
+    }<br />
+    return 1;<br />
+}<br />
+<br />
+COMMAND:hitman(playerid, params[])<br />
+{<br />
+    if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, 0xFF0000AA, "Devi loggare come RCON.");<br />
+    {<br />
+for(new i=0; i&lt;MAX_PLAYERS; i++)<br />
+{<br />
+if(IsPlayerNPC(i) || IsPlayerConnected(i))<br />
+{<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_PISTOL, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_PISTOL_SILENCED, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_DESERT_EAGLE, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_SHOTGUN, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_SAWNOFF_SHOTGUN, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_SPAS12_SHOTGUN, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_MICRO_UZI, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_MP5, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_AK47, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_M4, 999);<br />
+    SetPlayerSkillLevel(playerid, WEAPONSKILL_SNIPERRIFLE, 999);<br />
+        }<br />
+    }<br />
+    }<br />
+    return 1;<br />
+}<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"></blockquote>
+</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [HELP] Weapon Skill Command</strong> - <a href="member3092.html?action=profile&amp;uid=4027">DjSon231</a> -  <strong>2021-08-03</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock WeapSkill_Poor(playerid)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_PISTOL, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_PISTOL_SILENCED, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_DESERT_EAGLE, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_SHOTGUN, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_SAWNOFF_SHOTGUN, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_SPAS12_SHOTGUN, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_MICRO_UZI, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_MP5, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_AK47, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_M4, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerSkillLevel(playerid, WEAPONSKILL_SNIPERRIFLE, 1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}<br />
+<br />
+COMMAND:poor(playerid, params[])<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, 0xFF0000AA, "Devi loggare come RCON.");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(new i=0; i&lt;MAX_PLAYERS; i++)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!IsPlayerNPC(i) || IsPlayerConnected(i))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetPVarInt(i, "WeapSkill", 1); <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WeapSkill_Poor(i);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div><br />
+You mean, like that?<br />
+Try to set PVars - theese are the best for this problems. They are resetting after disconnecting. Define 1 as poor, 2 as gangster, 3 as hitman - and integers in PVars, like in my solution. Next, in OnPlayerSpawn, use WeapSkill_Poor function when PVar "WeapSkill" is set to 1, WeapSkill_Gangster (after you create it) if PVar is set to 2 and so one. If you need to save it after disconnect, use mysql or file manipulation system.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [HELP] Weapon Skill Command</strong> - <a href="member77d3.html?action=profile&amp;uid=3222">spyrothedragon96</a> -  <strong>2021-08-04</strong>
+<br />
+<br />
+Thank you very much!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

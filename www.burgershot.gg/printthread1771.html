@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Block/reject queries with opcode 'c' using iptables - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread1771.html?tid=807">Block/reject queries with opcode 'c' using iptables</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Block/reject queries with opcode 'c' using iptables (<em>/showthread.php?tid=807</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Block/reject queries with opcode 'c' using iptables</strong> - <a href="memberff1e.html?action=profile&amp;uid=1614">AdrianBZG</a> -  <strong>2019-09-27</strong>
+<br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Hi,</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">I have seen some servers that even tho they have less than 100 players, the players are not listed in the server browser. This is obviously a measure against UDP query flood to the server.</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">I was wondering if someone could help me or tell me how to do the exact same thing.</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Does this require to block SAMP UDP packets with a specific opcode using iptables, e.g. opcode 63 (flag c), which is the one that gives the players info? See </span></span></span><a href="https://wiki.sa-mp.com/wiki/Query_Mechanism#Opcodes" target="_blank" rel="noopener" class="mycode_url"><span style="color: #1a425f;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">https://wiki.sa-mp.com/wiki/Query_Mechanism#Opcodes</span></span></span></a><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> for info about opcodes.</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">I tried with this iptables rules, but it's not working, I still get the server info in the server browser:</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">iptables -I INPUT -p udp --dport 7777 -m string --algo kmp --hex-string '|53414d50|' -m string --algo kmp --hex-string '|611e63|' -j DROP</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">I'm not sure how to do that, please help.</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Thanks.</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn HELP! How to Make Moving, Running, Text Draw With Box ? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf834.html?tid=2126">HELP! How to Make Moving, Running, Text Draw With Box ?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> HELP! How to Make Moving, Running, Text Draw With Box ? (<em>/showthread.php?tid=2126</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-06-21</strong>
+<br />
+<br />
+Ilustration : youtube.com/watch?v=8-laOTcqCj0
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-22</strong>
+<br />
+<br />
+To update the textdraw position, you need to create and destroy it each time and increase Y.<br />
+You can do it with a timer.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">EDIT:</span><br />
+<br />
+You can also use <span style="font-style: italic;" class="mycode_i">TextDrawSetPosition</span> from <a href="https://github.com/oscar-broman/SKY" target="_blank" rel="noopener" class="mycode_url">SKY.inc</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-06-23</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-22, 08:08 AM)</span>Radical Wrote:  <a href="showthread4a31.html?pid=11503#pid11503" class="quick_jump"></a></cite>To update the textdraw position, you need to create and destroy it each time and increase Y.<br />
+You can do it with a timer.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">EDIT:</span><br />
+<br />
+You can also use <span style="font-style: italic;" class="mycode_i">TextDrawSetPosition</span> from <a href="https://github.com/oscar-broman/SKY" target="_blank" rel="noopener" class="mycode_url">SKY.inc</a></blockquote><br />
+Can i have the sample script <span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">create and destroy it each time and increase Y</span></span></span> sir?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-23</strong>
+<br />
+<br />
+Not tested.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new td_timer_id;<br />
+new Float:td_x_amount;<br />
+new Text:Textdraw;<br />
+<br />
+forward TextdrawMove();<br />
+<br />
+main() {<br />
+    Textdraw = TextDrawCreate(0.0, 430.0, "This is an example textdraw");<br />
+    td_timer_id = SetTimer("TextdrawMove", 100, true);<br />
+}<br />
+<br />
+public TextdrawMove() {<br />
+<br />
+    td_x_amount += 10.0;<br />
+<br />
+    if(td_x_amount &gt;= 644.0) <br />
+        td_x_amount = 0.0;<br />
+<br />
+    TextDrawDestroy(Textdraw);<br />
+    Textdraw = TextDrawCreate(td_x_amount, 430.0, "This is an example textdraw");<br />
+<br />
+    foreach(new i: Player) <br />
+        TextDrawShowForPlayer(i, Textdraw);<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-24</strong>
+<br />
+<br />
+SKY/YSF would be better as you are not creating/deleting things from the pool but sending the (position) update packets (which is MUCH better on O(n) / O(1) things)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-06-24</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-24, 11:16 AM)</span>Pinch Wrote:  <a href="showthreadd96a-2.html?pid=11527#pid11527" class="quick_jump"></a></cite>SKY/YSF would be better as you are not creating/deleting things from the pool but sending the (position) update packets (which is MUCH better on O(n) / O(1) things)</blockquote>Did you mean adding new plugin sir?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-25</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-24, 07:06 PM)</span>PutuSuhartawan Wrote:  <a href="showthread0065-2.html?pid=11534#pid11534" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-06-24, 11:16 AM)</span>Pinch Wrote:  <a href="showthreadd96a-2.html?pid=11527#pid11527" class="quick_jump"></a></cite>SKY/YSF would be better as you are not creating/deleting things from the pool but sending the (position) update packets (which is MUCH better on O(n) / O(1) things)</blockquote>Did you mean adding new plugin sir?</blockquote><br />
+Yes indeed, SKY/YSF adds missing functions (the functions we already were supposed to have by default) so yeah :)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-06-25</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-25, 08:22 AM)</span>Pinch Wrote:  <a href="showthreadb855.html?pid=11538#pid11538" class="quick_jump"></a></cite>Yes indeed, SKY/YSF adds missing functions (the functions we already were supposed to have by default) so yeah :)</blockquote><br />
+Can i have it at github sir?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Make Moving, Running, Text Draw With Box ?</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-26</strong>
+<br />
+<br />
+How hard is it google "YSF sa-mp site:github.com"<br />
+Anyways<br />
+https://github.com/IllidanS4/YSF<br />
+https://github.com/IllidanS4/YSF/wiki
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

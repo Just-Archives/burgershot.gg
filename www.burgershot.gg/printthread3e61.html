@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Client Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #F755B7;font-weight: bold;">[Client]</span> <a href="showthread3e61.html?tid=604">Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #F755B7;font-weight: bold;">[Client]</span> Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00) (<em>/showthread.php?tid=604</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-26</strong>
+<br />
+<br />
+My favourite crash types are those without a solution yet. I've read that it can be caused by invalid animations, but all of my animations are filtered, and they are being read from correct library. If anyone could help me with this I'd be very grateful. This crash occurs at crowded places after coming back from ALT+TAB.<br />
+<br />
+In chatlog:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00</code></div></div><br />
+Detailed crash log:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SA-MP 0.3.7-R3<br />
+Exception At Address: 0x00571A00<br />
+Base: 0x040B0000<br />
+<br />
+Registers:<br />
+EAX: 0xFFFFFFFF EBX: 0x00000000 ECX: 0x3B83126E EDX: 0xFFFFFFFF<br />
+ESI: 0x00C0B1D4 EDI: 0x00C0B1E0 EBP: 0xFFFFFFFF ESP: 0x0177F2CC<br />
+EFLAGS: 0x00010202<br />
+<br />
+Stack:<br />
++0000: 0x006083A7   0x00C0B1E0   0x14CABB28   0x14BC68A8<br />
++0010: 0x018EE750   0x00465E04   0x14BC68A8   0x00000812<br />
++0020: 0x14CABB28   0x14C92E90   0x10E1A860   0x00000812<br />
++0030: 0x0085B378   0x00000000   0x00000000   0x00000003<br />
++0040: 0x14C92E90   0x0177F300   0x0177F37C   0x00837D18<br />
++0050: 0x00000000   0x015696FB   0x00001005   0x14C92E90<br />
++0060: 0x00000812   0x00000000   0x10E1A860   0x00000812<br />
++0070: 0x00000000   0x00177D04   0x041A0F00   0x40833333<br />
++0080: 0x00001005   0x14C92E90   0x00444550   0x00000000<br />
++0090: 0x00000000   0x00000000   0x414D4F57   0x61775F4E<br />
++00A0: 0x65736B6C   0x00007978   0x00000000   0x00000000<br />
++00B0: 0x0177F538   0x00838121   0xFFFFFFFF   0x00473839<br />
++00C0: 0x00000812   0x00000000   0x00000812   0x0177F598<br />
++00D0: 0x00000000   0x00000000   0x00000000   0x0177F3BC<br />
++00E0: 0x00000000   0x00000000   0x00000000   0x00000000<br />
++00F0: 0x00000000   0x00000000   0x00000000   0x00000000<br />
++0100: 0x0177F3E4   0x00000044   0x00000037   0x0177F810<br />
++0110: 0xFFFFFFFF   0x00000000   0x0177F574   0x041124AB<br />
++0120: 0x10ED5BA9   0x40000000   0x00000003   0x0177F558<br />
++0130: 0x00000004   0x00000080   0x00000000   0x00000004<br />
++0140: 0x00000080   0x00000000   0x00000000   0x00000000<br />
++0150: 0x00000000   0x00000000   0x00000000   0x00000004<br />
++0160: 0x76FDB499   0x75464180   0x00000000   0x00000000<br />
++0170: 0x0177F45C   0x00000000   0x008E2EC0   0x00000000<br />
++0180: 0x00B5D4A0   0x0177F468   0x008229E3   0x00B5D4A0<br />
++0190: 0x0177F504   0x0177F504   0x00000000   0x0177F5B4<br />
++01A0: 0x004D395E   0x00B5D4A0   0x0177F504   0x000004EE<br />
++01B0: 0x10E1A860   0x0000FFFF   0x0048C3CE   0x00000001<br />
++01C0: 0x00000000   0x000004EE   0x0177F5B4   0x00000000<br />
++01D0: 0x00000001   0x00000000   0x00000000   0x00000000<br />
++01E0: 0x00000000   0x00000001   0x0177F605   0x1F513750<br />
++01F0: 0x04162711   0x1F513430   0x0177F604   0x00000320<br />
++0200: 0x00000001   0x15A81340   0x15A38148   0x0177FFFF<br />
++0210: 0x040CFFFF   0x040CC906   0x0177F938   0x0000002F<br />
++0220: 0x1F510808   0x000001A0   0x000001A0   0x00000198<br />
++0230: 0x0177F938   0x15A38100   0x00444550   0x00000000<br />
++0240: 0x00000000   0x00000000   0x00000001   0x00000809<br />
++0250: 0x00000030   0x00000030   0x00000028   0x0177F964<br />
++0260: 0x00000000   0x00000000   0x00000000   0x0177F588<br />
++0270: 0x0083821C   0xFFFFFFFF   0x00469EF7   0x00000812<br />
+<br />
+SCM Op: 0x812, lDbg: 1 LastRendObj: 19482<br />
+<br />
+Game Version: US 1.0<br />
+<br />
+State Information: Ped Context: 0<br />
+P0 (0,0) P1 (0,0) P2 (0,0) P3 (17,0) <br />
+P4 (0,0) P5 (17,0) P6 (17,0) P7 (0,0) <br />
+P8 (0,0) P9 (17,0) P10 (17,0) P12 (0,0) P13 (0,0) P14 (33,0) P15 (0,0) <br />
+P16 (0,0) P17 (17,0) P18 (17,0) P19 (0,0) <br />
+P20 (0,0) P21 (0,0) P22 (17,0) P23 (19,123) <br />
+P24 (17,0) P25 (33,0) P26 (0,0) P27 (17,0) <br />
+P28 (0,0) P29 (0,0) P30 (19,111) P31 (17,0) <br />
+P32 (0,0) P33 (0,0) P34 (0,0) P35 (17,0) <br />
+P36 (0,0) P37 (0,0) P38 (17,0) P39 (17,0) <br />
+P40 (17,0) P41 (0,0) P42 (17,0) P43 (0,0) <br />
+P44 (17,0) P45 (0,0) P46 (0,0) P47 (0,0) <br />
+P48 (0,0) P49 (0,0) P50 (0,0) P51 (19,40) <br />
+P52 (0,0) P53 (0,0) P54 (0,0) P55 (0,0) <br />
+P56 (0,0) P57 (0,0) P58 (0,0) P59 (0,0) <br />
+P60 (17,0) P61 (0,0) P62 (0,0) P63 (17,0) <br />
+P64 (0,0) P65 (17,0) P66 (0,0) P67 (19,70) <br />
+P68 (0,0) P69 (0,0) P70 (0,0) P71 (0,0) <br />
+P72 (0,0) P73 (33,0) P74 (0,0) P75 (17,0) <br />
+P76 (18,40) P77 (0,0) P78 (17,0) P79 (0,0) <br />
+P80 (0,0) P81 (17,0) P82 (0,0) P83 (17,0) <br />
+P84 (0,0) P85 (0,0) P86 (19,85) P87 (0,0) <br />
+P88 (0,0) P89 (0,0) P90 (0,0) P91 (17,0) <br />
+P92 (0,0) P93 (17,0) P94 (19,58) P95 (0,0) <br />
+P96 (0,0) P97 (0,0) P98 (0,0) P101 (0,0) P102 (0,0) P103 (0,0) <br />
+P104 (17,0) P106 (17,0) P108 (0,0) P112 (0,0) P118 (17,0) P122 (0,0) P123 (17,0) </code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+Bump.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+Okay, so straight up your thread's title makes no sense. Pawn is a language and can not *crash* (the Pawn Compiler can crash, but is irrelevant to the problem here).<br />
+(You are referring to the SA-MP Client, that has crashed)<br />
+<br />
+So the crashing, could be many things. <br />
+<br />
+Invalid Vehicle Mods,<br />
+Invalid Ped Skins,<br />
+Bad Mods,<br />
+etc<br />
+<br />
+I'm going to have to write a detailed format for this kind of thing, because there is a lot of information you are not providing, like is this your server you are on, what mods do you have installed (including any .als files), what where you were doing before you alt-tabbed.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberd985.html?action=profile&amp;uid=9">BigETI</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+The server can crash through a PAWN script, but this topic is absolutely not related to that.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+Where did I say that PAWN is crashing? I said the client is crashing due to the error said in the title. <br />
+<br />
+(In my view)<br />
+Client = The user who's playing on the server, he goes alt+tab, comes back and this error occurs for HIM. The server is not crashing at all.<br />
+<br />
+Edit:<br />
+If you meant by the prefix, I might have put PAWN accidentaly, sorry about that.<br />
+<br />
+Yes it's my server, people are experiencing this issue on both clean, and modded GTA San Andreas. I'm experiencing it aswell, and I have stock game without any mods. I'm validating the models the user is putting onto his car, so I highly doubt that could cause this problem, I fixed that long time ago, this gamemode wasn't ran in the past 2 years, and I have never seen this particular error code before. It happens at crowded places where people are playing animations. We have around 80-140 players most of the time, so the crash happens quite often.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+https://imgur.com/a/bef0Vbj (10-15 players around me)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+I'm filtering the animations, they are all ok, non-existent libraries are not being used based on the logging sequence.<br />
+<br />
+Players are having correct skins, neither that is causing the issue.<br />
+Vehicle mods are filtered aswell, fixed that long time ago.<br />
+Perhaps some other mapping related objects could cause this issue?<br />
+<br />
+That's my final quess.<br />
+<br />
+P.S: I even tried to upgrade my fixes.inc to the latest, which didn't fix the issue unfortunately.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-28</strong>
+<br />
+<br />
+We checked the last streamed object for the player, the crash is not caused by neither animations, and objects, we got rid of the last objects reported in the users client, and then it showed some other object ids which are valid. If anyone has a single guess, please let me know, we are desperately looking for any solution that can come up ...<br />
+<br />
+I'm hooking ApplyAnimation, and looping  through an array consist of these libraries: https://pastebin.com/ThvS2W0e, if the called library is not found within this array, it prints an error. It never printed any error so far, although the code is working because I tested it out with some invalid libs. So I'm pretty sure that it has nothing to do with animations. <br />
+<br />
+Object-wise I explained it above ^<br />
+<br />
+Crash is neither caused by tuning on the vehicles because I'm using jernel's solution (afaik, it worked perfectly so far, and it reported different opcodes, which got fixed years ago by his solution)<br />
+<br />
+- PED Animations<br />
+- Objects<br />
+- Vehicle components<br />
+Should be out.<br />
+<br />
+Some info on the other forum: https://i.imgur.com/ZmlBBsI.png<br />
+<br />
+What's the next step?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberea54.html?action=profile&amp;uid=176">MyU</a> -  <strong>2019-05-28</strong>
+<br />
+<br />
+Following the last executed opcode isn't fail-proof looking at the memory information will give you a much better view.<br />
+The game is crashing because it's trying to access invalid memory while cleaning up references.<br />
+Now this can be related to MANY things but the most common thing is the task system, which again spawns a new row of questions.<br />
+Are you sure the game is in a totally clean state? Are there actors/npcs playing animations?<br />
+<br />
+The fastest way to find out more is for you to enable WER and have a full crash dump to analyze, one quick google even pop's up with a nice description on how to do it: https://www.meziantou.net/2018/06/04/tip-automatically-create-a-crash-dump-file-on-error .<br />
+The file can be quite large, don't upload it somewhere publically, it may contain sensitive data, you can provide me the download link and i'll look into it if I find any free time.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-28</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-28, 08:56 AM)</span>MyU Wrote:  <a href="showthreadca6d.html?pid=5658#pid5658" class="quick_jump"></a></cite>Following the last executed opcode isn't fail-proof looking at the memory information will give you a much better view.<br />
+The game is crashing because it's trying to access invalid memory while cleaning up references.<br />
+Now this can be related to MANY things but the most common thing is the task system, which again spawns a new row of questions.<br />
+Are you sure the game is in a totally clean state? Are there actors/npcs playing animations?<br />
+<br />
+The fastest way to find out more is for you to enable WER and have a full crash dump to analyze, one quick google even pop's up with a nice description on how to do it: https://www.meziantou.net/2018/06/04/tip-automatically-create-a-crash-dump-file-on-error .<br />
+The file can be quite large, don't upload it somewhere publically, it may contain sensitive data, you can provide me the download link and i'll look into it if I find any free time.</blockquote><br />
+Thank you very much, I'm gonna hook it up soon and get in contact with you!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-29</strong>
+<br />
+<br />
+Some more opcodes:<br />
+Warning(opcode 0x70A): Exception 0xC0000005 at 0x571A00<br />
+Warning(opcode 0x5CD): Exception 0xC0000005 at 0x571A00
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberea54.html?action=profile&amp;uid=176">MyU</a> -  <strong>2019-05-29</strong>
+<br />
+<br />
+Any chance you're using attached objects? A full stack trace would be better though (the whole crashlog) as it's not telling much more new.<br />
+Slowly I'm getting the suspicion that you're attaching invalid models to vehicles or players or something alike.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-29</strong>
+<br />
+<br />
+I might have found the source of the issue ... There were some weird rows in my database with non-existent model ids, which are being attached to the players, since they are offline I guess this is why people are not crashing anymore (Atleast I hope so) Thank you very much, I'll let you know if the issue still persist, and if it does, I'll lend you the crash dump as you requested.<br />
+<br />
+Thank you very much MyU!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-30</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-29, 08:50 PM)</span>MyU Wrote:  <a href="showthreadc914.html?pid=5697#pid5697" class="quick_jump"></a></cite>Any chance you're using attached objects? A full stack trace would be better though (the whole crashlog) as it's not telling much more new.<br />
+Slowly I'm getting the suspicion that you're attaching invalid models to vehicles or players or something alike.</blockquote><br />
+Sent you a PM.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-30</strong>
+<br />
+<br />
+Could you maybe not use PM's for this stuff? Unless you still plan to reply here with a solution if found. It's just so others with the same issue can use this thread to help them.<br />
+<br />
+Thanks
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberb037.html?action=profile&amp;uid=703">whadez</a> -  <strong>2019-05-30</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-30, 05:30 PM)</span>JustMichael Wrote:  <a href="showthread2870.html?pid=5712#pid5712" class="quick_jump"></a></cite>Could you maybe not use PM's for this stuff? Unless you still plan to reply here with a solution if found. It's just so others with the same issue can use this thread to help them.<br />
+<br />
+Thanks</blockquote><br />
+I'll share the solution when I found it, but I had to send him the dumpfile somewhere in private.<br />
+I'm debugging every call by hooks that can be in charge of this issue. ( http://prntscr.com/nvjo1k ), but nothing outstanding so far.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Crashing when on desktop (Warning(opcode 0x812): Exception 0xC0000005 at 0x571A00)</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-30</strong>
+<br />
+<br />
+Ah, no worries then. If it's because it contains private info that's perfectly understandable :)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

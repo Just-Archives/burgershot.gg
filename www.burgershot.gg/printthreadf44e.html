@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Problems loading plugins in ubuntu - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadf44e.html?tid=1664">Problems loading plugins in ubuntu</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Problems loading plugins in ubuntu (<em>/showthread.php?tid=1664</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Problems loading plugins in ubuntu</strong> - <a href="membered1d.html?action=profile&amp;uid=3440">McZulian</a> -  <strong>2021-02-11</strong>
+<br />
+<br />
+Hi! I'm McZulian (sorry if my english is kinda bad, i'm argentinean)<br />
+I'm trying to create a SAMP plugin using an ubuntu VPS becouse the gamehost forced me to use MySQL R41 and my gamemode uses R39 and i can't update it.<br />
+I did everything, i have an ftp connection to the server, phpmyadmin running well and everything. But when i try to run the server, it runs, but my gamemode does not work. And it does not load any of the plugins i have.<br />
+This is my server log<br />
+<br />
+----------<br />
+Loaded log file: "server_log.txt".<br />
+----------<br />
+<br />
+SA-MP Dedicated Server<br />
+----------------------<br />
+v0.3.7-R2, &copy;2005-2015 SA-MP Team<br />
+<br />
+[22:20:28] filterscripts = ""  (string)<br />
+password = ""  (string)<br />
+<br />
+Server Plugins<br />
+--------------<br />
+Loading plugin: sscanf<br />
+  Failed (plugins/sscanf: cannot open shared object file: No such file or directory)<br />
+Loading plugin: mysql<br />
+  Failed (plugins/mysql: cannot open shared object file: No such file or directory)<br />
+Loading plugin: streamer<br />
+  Failed (plugins/streamer: cannot open shared object file: No such file or directory)<br />
+Loading plugin: nativechecker<br />
+  Failed (plugins/nativechecker: cannot open shared object file: No such file or directory)<br />
+Loading plugin: Whirlpool<br />
+  Failed (plugins/Whirlpool: cannot open shared object file: No such file or directory)<br />
+Loaded 0 plugins.<br />
+<br />
+<br />
+Filterscripts<br />
+---------------<br />
+  Loaded 0 filterscripts.<br />
+<br />
+Script[gamemodes/roleplay.amx]: Run time error 19: "File or function is not found"<br />
+Number of vehicle models: 0<br />
+<br />
+i'm using South Central as a base gamemode<br />
+<br />
+I did everything in my knowledge and still didn't get it to work. In my pc, using windows it works just fine, no problems there. But when i go to a linux server, everything goes to hell
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problems loading plugins in ubuntu</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-02-12</strong>
+<br />
+<br />
+Did you add ".so" to them in server.cfg?<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>plugins sscanf.so mysql.so streamer.so whirlpool.so nativechecker.so</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problems loading plugins in ubuntu</strong> - <a href="member02c6.html?action=profile&amp;uid=3448">destiezk</a> -  <strong>2021-02-15</strong>
+<br />
+<br />
+You didn't add ".so" after the plugins.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

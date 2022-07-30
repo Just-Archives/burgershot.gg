@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server How to check if you have a vehicle in position - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread0cd5.html?tid=1415">How to check if you have a vehicle in position</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> How to check if you have a vehicle in position (<em>/showthread.php?tid=1415</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How to check if you have a vehicle in position</strong> - <a href="member21cf.html?action=profile&amp;uid=786">Frajola</a> -  <strong>2020-12-09</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Hello guys, I have a problem. I'm making a garage system and I would like to know if there are any vehicles parked.<br />
+</span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">I tried that way, but the vehicle is created in the same position in the second wave, the system works perfectly until the second wave, the third time the truck is created on top of the other.</span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">My English is bad, for a better interpretation of the problem, watch the video: <span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">https://youtu.be/QOKytHFMVQQ</span></span></span></span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>enum VacancyInfo<br />
+{<br />
+    Float:posX,<br />
+    Float:posY,<br />
+    Float:posZ,<br />
+    Float:posA<br />
+}<br />
+new TruckerVacancy[MAX_TRUCKER_VACANCY][VacancyInfo] =<br />
+{<br />
+    {2788.3999000,-2484.7000000,14.8000000,90.0000000},<br />
+    {2788.3999000,-2474.3999000,14.8000000,90.0000000},<br />
+    {2788.3999000,-2464.1001000,14.8000000,90.0000000},<br />
+    {2788.3999000,-2453.8000000,14.8000000,90.0000000},<br />
+    {2788.3999000,-2443.5000000,14.8000000,90.0000000},<br />
+    {2788.3999000,-2433.2000000,14.8000000,90.0000000},<br />
+    {2788.3999000,-2422.8999000,14.8000000,90.0000000}<br />
+};<br />
+<br />
+#define IsVehicleInRangeOfPoint(%0,%1,%2,%3,%4)&#92;<br />
+    (%1 &gt;= GetVehicleDistanceFromPoint(%0, %2, %3, %4))<br />
+<br />
+stock IsVehicleFromRangePointEx(Float:range, Float:x, Float:y, Float:z)<br />
+{<br />
+    foreach(new i: Vehicle)<br />
+    {<br />
+        return IsVehicleInRangeOfPoint(i, range, x, y, z);<br />
+    }<br />
+    return 0;<br />
+}<br />
+<br />
+CMD:etruck(playerid, params[])<br />
+{<br />
+    for(new i; i &lt; MAX_TRUCKER_VACANCY; i++)<br />
+    {<br />
+        if(!IsVehicleFromRangePointEx(5.0, TruckerVacancy[i][posX],TruckerVacancy[i][posY],TruckerVacancy[i][posZ]))<br />
+        {<br />
+            CreateVehicleEx(403, TruckerVacancy[i][posX],TruckerVacancy[i][posY],TruckerVacancy[i][posZ],TruckerVacancy[i][posA], 0, 0);<br />
+            return 1;<br />
+        }<br />
+    }<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to check if you have a vehicle in position</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2020-12-09</strong>
+<br />
+<br />
+Hello<br />
+I think the problem is with the "IsVehicleFromRangePointEx" function.<br />
+<br />
+Try this:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock IsVehicleFromRangePointEx(Float:range, Float:x, Float:y, Float:z)<br />
+{<br />
+    foreach(new i: Vehicle)<br />
+    {<br />
+        if ( IsVehicleInRangeOfPoint(i, range, x, y, z) ) return 1;<br />
+    }<br />
+    return 0;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to check if you have a vehicle in position</strong> - <a href="member21cf.html?action=profile&amp;uid=786">Frajola</a> -  <strong>2020-12-09</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-12-09, 08:33 PM)</span>Radical Wrote:  <a href="showthread92c1.html?pid=8964#pid8964" class="quick_jump"></a></cite>Hello<br />
+I think the problem is with the "IsVehicleFromRangePointEx" function.<br />
+<br />
+Try this:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock IsVehicleFromRangePointEx(Float:range, Float:x, Float:y, Float:z)<br />
+{<br />
+    foreach(new i: Vehicle)<br />
+    {<br />
+        if ( IsVehicleInRangeOfPoint(i, range, x, y, z) ) return 1;<br />
+    }<br />
+    return 0;<br />
+}</code></div></div></blockquote><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Thanks, it worked</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to check if you have a vehicle in position</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-10</strong>
+<br />
+<br />
+Browhat
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

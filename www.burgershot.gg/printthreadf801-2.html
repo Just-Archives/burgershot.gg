@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Problem with OnPlayerEditDynamicObject - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadf801-2.html?tid=1226">Problem with OnPlayerEditDynamicObject</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Problem with OnPlayerEditDynamicObject (<em>/showthread.php?tid=1226</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Problem with OnPlayerEditDynamicObject</strong> - <a href="memberc3b3.html?action=profile&amp;uid=2780">morem</a> -  <strong>2020-10-10</strong>
+<br />
+<br />
+Hey,<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;" class="mycode_font">It does not call back anything.</span></span></span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerEditDynamicObject(playerid, objectid, response, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz)<br />
+{<br />
+printf("test");<br />
+}</code></div></div><br />
+<br />
+After click on the save or cancel button, nothing happens.<br />
+Version : *** Streamer Plugin v2.9.4 by Incognito loaded ***<br />
+Please help me about this ...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerEditDynamicObject</strong> - <a href="memberf87a.html?action=profile&amp;uid=1086">BoNNe</a> -  <strong>2020-10-10</strong>
+<br />
+<br />
+Salut, make sure you do everything right. I will leave you an example below.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new test_object[MAX_PLAYERS]; //a global variable<br />
+public OnPlayerConnect(playerid) {<br />
+test_object[playerid]=0;<br />
+return 1;<br />
+}<br />
+public OnPlayerDisconnect(playerid, reason) {<br />
+if(test_object[playerid]) DestroyDynamicObject(test_object[playerid]);<br />
+return 1;<br />
+}<br />
+CMD:testobj(playerid, params[]) {<br />
+new idobject;<br />
+if(sscanf(params, "i", idobject)) return SendClientMessage(playerid, COLOR_GREY, "Syntax:{FFFFFF} /editobj &lt;id object&gt;");<br />
+new Float:x, Float:y, Float:z;<br />
+GetPlayerPos(playerid, x, y, z);<br />
+if(test_object[playerid] != 0) return SendClientMessage(playerid, COLOR_AWARNING, "You already edit a object.");<br />
+//create a object putting a objectid aleatory (eg: /testobj 2943)<br />
+test_object[playerid] = CreateDynamicObject(idobject, x, y, z, 0, 0, 0);<br />
+EditDynamicObject(playerid, test_object[playerid]);<br />
+return 1;<br />
+}<br />
+public OnPlayerEditDynamicObject(playerid, STREAMER_TAG_OBJECT objectid, response, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz) {<br />
+switch(response) {<br />
+case EDIT_RESPONSE_CANCEL, EDIT_RESPONSE_FINAL: SendClientMessage(playerid, -1, "the function works");<br />
+}<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerEditDynamicObject</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2020-10-15</strong>
+<br />
+<br />
+Try to disable filterscripts, it might be called in FS first and one of em is blocking it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerEditDynamicObject</strong> - <a href="memberc3b3.html?action=profile&amp;uid=2780">morem</a> -  <strong>2020-10-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-10, 06:10 PM)</span>BoNNe Wrote:  <a href="showthreada36a.html?pid=8149#pid8149" class="quick_jump"></a></cite>Salut, make sure you do everything right. I will leave you an example below.</blockquote>I try it but not working ...<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-15, 01:15 PM)</span>Expert* Wrote:  <a href="showthreadedfd.html?pid=8244#pid8244" class="quick_jump"></a></cite>Try to disable filterscripts, it might be called in FS first and one of em is blocking it.</blockquote>My OnPlayerEditDynamicObject is in filterscript not in gamemode
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerEditDynamicObject</strong> - <a href="memberc3b3.html?action=profile&amp;uid=2780">morem</a> -  <strong>2020-10-16</strong>
+<br />
+<br />
+Problem fixed.<br />
+I tried put my filterscript on first in server.cfg filterscripts.<br />
+and<br />
+change OnPlayerEditDynamicObject in my gamemode to return 0.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn (5) warning 213: tag mismatch - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread4354.html?tid=2146">(5) warning 213: tag mismatch</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> (5) warning 213: tag mismatch (<em>/showthread.php?tid=2146</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>(5) warning 213: tag mismatch</strong> - <a href="memberac76.html?action=profile&amp;uid=3908">SAMPZA</a> -  <strong>2021-06-30</strong>
+<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">Hello guys, i need your help</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">i want to make an code easier so i create this code bellow but i got 5 warnings 213 ( problem here <span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size">[font=Tahoma, Verdana, Arial, sans-serif]PlayerInfo[playerid][AchInfo2[i][AchVar]] )</span></span></span>[/font]</span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size">[font=Tahoma, Verdana, Arial, sans-serif]do you have any ideas about this</span></span></span>[/font]</span></span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#define MAX_ACHS 2<br />
+<br />
+new verylargestr[4096];<br />
+<br />
+enum ach_info<br />
+{<br />
+AchID,<br />
+AchName[64],<br />
+AchScore,<br />
+AchNeeded,<br />
+AchVar<br />
+};<br />
+<br />
+new AchInfo2[MAX_ACHS][ach_info] = { // Here Achievements info<br />
+<br />
+{1,"Killer 1 : Kill 100 players", 10.000, 70, 15}, // 15 meaning the classement of the array of players look at enum playerinfo<br />
+{2,"Killer 2 : kill 500 players", 30.000, 500, 15}<br />
+};<br />
+<br />
+<br />
+CMD:achievements(playerid, params[])<br />
+{<br />
+new gstr[128];<br />
+    format(verylargestr, sizeof verylargestr, "");<br />
+    strcat(verylargestr, ""yellow_e"Buy Gold vip 1 time and get your reward "white"100.000 Scores&#92;n");<br />
+    strcat(verylargestr, ""yellow_e"Buy Silver vip 1 time and get your reward "white"70.000 Scores&#92;n");<br />
+    strcat(verylargestr, ""yellow_e"Buy Bronze vip 1 time and get your reward Bronze "white"30.000 Scores&#92;n");<br />
+<br />
+for(new i = 0; i &lt; sizeof(AchInfo2); i++)<br />
+{<br />
+    if(PlayerInfo[playerid][AchInfo2[i][AchVar]] &gt;= AchInfo2[i][AchNeeded])<br />
+{<br />
+format(gstr, sizeof gstr, "&#92;n{2DFF00}%d.) %d/%d %s - %d Scores",i+1, AchInfo2[i][AchNeeded],AchInfo2[i][AchNeeded],AchInfo2[i][AchName],AchInfo2[i][AchScore]);<br />
+strcat(verylargestr, gstr);<br />
+}<br />
+    else if(PlayerInfo[playerid][AchInfo2[i][AchVar]] &lt; AchInfo2[i][AchNeeded])<br />
+{<br />
+format(gstr, sizeof gstr, "&#92;n{F64B4B}%d.) %d/%d %d - %d Scores", i+1, PlayerInfo[playerid][AchInfo2[i][AchVar]], AchInfo2[i][AchNeeded],AchInfo2[i][AchName],AchInfo2[i][AchScore]);<br />
+strcat(verylargestr, gstr);<br />
+}<br />
+}<br />
+<br />
+    ShowPlayerDialog(playerid, DIALOG_ACHS, DIALOG_STYLE_MSGBOX, "Achievements List", verylargestr, "Ok", "");<br />
+    return true;<br />
+}<br />
+<br />
+enum playerinfo<br />
+{<br />
+    pID, //0<br />
+pUsername[26], //1<br />
+pPassword[128], //2<br />
+.<br />
+.<br />
+.<br />
+pKills // 15<br />
+};<br />
+<br />
+new PlayerInfo[MAX_PLAYERS][playerinfo];</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: (5) warning 213: tag mismatch</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>2,"Killer 2 : kill 500 players", 30.000, 500, 15</blockquote>
+Integer, string(array), <span style="font-weight: bold;" class="mycode_b">float</span>, integer, integer<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>AchID,<br />
+AchName[64],<br />
+AchScore,<br />
+AchNeeded,<br />
+AchVar</blockquote>
+Integer, string(array), <span style="font-weight: bold;" class="mycode_b">integer</span>, integer, integer<br />
+<br />
+<br />
+I assume that is enough information?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

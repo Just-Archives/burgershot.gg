@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server argument type mismatch (argument 4) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread348f.html?tid=741">argument type mismatch (argument 4)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> argument type mismatch (argument 4) (<em>/showthread.php?tid=741</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>argument type mismatch (argument 4)</strong> - <a href="member3774.html?action=profile&amp;uid=56">Polygon</a> -  <strong>2019-08-04</strong>
+<br />
+<br />
+So I'm using the <a href="https://github.com/pawn-lang/compiler" target="_blank" rel="noopener" class="mycode_url">community complier</a> + <a href="https://github.com/sampctl/samp-stdlib/tree/0.3.DL-R1" target="_blank" rel="noopener" class="mycode_url">stdlib</a> + <a href="https://github.com/Awsomedude/easyDialog" target="_blank" rel="noopener" class="mycode_url">easyDialog</a>, but for some reason I got an error at line 95...<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>ShowPlayerDialog(playerid, 32700, style, caption, string, button1, button2);</code></div></div><br />
+...in easyDialog.inc (argument type mismatch (argument 4)). easyDialog is const corrected, and stdlib aswell, what could be the problem? I tried with older version of the complier, also other version of stdlib but it just doesn't work.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: argument type mismatch (argument 4)</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2019-08-21</strong>
+<br />
+<br />
+It'd be useful to see how you defined all the variables you're sending there.<br />
+<br />
+Furthermore, the reason for the delayed reply is that the Support forum isn't for this - You want to use the Pawn Scripting category for this kind of questions. Cheers!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: argument type mismatch (argument 4)</strong> - <a href="member8264.html?action=profile&amp;uid=1173">George</a> -  <strong>2019-08-21</strong>
+<br />
+<br />
+https://github.com/sampctl/samp-stdlib/blob/0.3.DL-R1/a_samp.inc#L257 <br />
+<br />
+They need to be <span style="color: #3333ff;" class="mycode_color">const</span> arrays.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

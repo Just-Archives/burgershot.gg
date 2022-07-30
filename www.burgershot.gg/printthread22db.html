@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn record time - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread22db.html?tid=2248">record time</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> record time (<em>/showthread.php?tid=2248</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>record time</strong> - <a href="member72a5.html?action=profile&amp;uid=770">Zow</a> -  <strong>2021-11-12</strong>
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">main</span><span style="color: #007700">()&nbsp;{&nbsp;<br /></span><span style="color: #0000BB">SetTimer</span><span style="color: #007700">(</span><span style="color: #DD0000">"update"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">ReturnTime</span><span style="color: #007700">(</span><span style="color: #0000BB">timevariable</span><span style="color: #007700">)<br /></span><span style="color: #FF8000">//Used&nbsp;in&nbsp;the&nbsp;OnPlayerEnterRaceCheckpoint&nbsp;code.<br /></span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">milliseconds&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">timevariable</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">[</span><span style="color: #0000BB">20</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">while(</span><span style="color: #0000BB">milliseconds&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">999</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #FF8000">//Add&nbsp;to&nbsp;the&nbsp;seconds&nbsp;variable<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;milliseconds&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">milliseconds&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #FF8000">//Take&nbsp;away&nbsp;10&nbsp;from&nbsp;the&nbsp;ms&nbsp;variable<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(string),&nbsp;</span><span style="color: #DD0000">"%05d"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">milliseconds</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>00588<br />
+00589<br />
+00590<br />
+00591<br />
+00592<br />
+00593<br />
+00594<br />
+00595<br />
+00596<br />
+00597<br />
+00598<br />
+00599</blockquote>
+<br />
+I just want them to be like this https://youtu.be/v62Gt38ngzM?t=28<br />
+<img src="https://media.discordapp.net/attachments/791369434685636658/908849491862515772/unknown.png" loading="lazy"  alt="[Image: unknown.png]" class="mycode_img" /><br />
+<br />
+7.865 second<br />
+<br />
+Any help please
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: record time</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-11-18</strong>
+<br />
+<br />
+Divide by 60000 for minutes, mod by 60000 for milliseconds, divide that by 1000 for seconds.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

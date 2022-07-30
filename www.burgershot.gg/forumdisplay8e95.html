@@ -1,0 +1,1359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: forumdisplay -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Burgershot - Pawn Scripting </title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="syndication9896.php?type=atom1.0" />
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/EBFKVbK.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="jscripts/jquery6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/jquery.plugins.min6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/general6c6d.js?ver=1804"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/global.min.css">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/avatarep.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/global.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/css3.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/thread_status.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/star_ratings.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/footer.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/custom.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/extra.min8355.css?t=1641376402" />
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+
+	var cookieDomain = ".burgershot.gg";
+	var cookiePath = "index.html";
+	var cookiePrefix = "";
+	var cookieSecureFlag = "0";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "6428f000919b5d9a18f82d476f6b077e";
+	var rootpath = "index.html";
+	var imagepath = "images/index.html";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "images/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<script>
+	$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+	$('.scrollToDown').click(function(){
+		$('html, body').animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- end: headerinclude -->
+<!-- start: forumdisplay_rssdiscovery -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads in Pawn Scripting (RSS 2.0)" href="syndicationc6ed.php?fid=10" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads in Pawn Scripting (Atom 1.0)" href="syndicationa31f.php?type=atom1.0&amp;fid=10" />
+<!-- end: forumdisplay_rssdiscovery -->
+<script type="text/javascript">
+<!--
+	lang.no_new_posts = "Forum Contains No New Posts";
+	lang.click_mark_read = "Click to mark this forum as read";
+	lang.inline_edit_description = "(Click and hold to edit)";
+	lang.post_fetch_error = "There was an error fetching the posts.";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="jscripts/jeditable/jeditable.min.js"></script>
+<script type="text/javascript" src="jscripts/inline_edit6c6d.js?ver=1804"></script>
+</head>
+<body>
+<!-- start: header -->
+<div class="haut" style="height:70px">
+	<a href="index.html" id="logo"><img style="position: absolute;left: -5px;top: 12px;" src="https://burgershot.gg/burgershot.svg" height="40px" />Burgershot</a>
+	<span class="useroptions">
+		<ul id="menu-deroulant">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="memberlist.html">Members</a></li>
+			<li><a href="showteam.html">Team</a></li>
+			<li><a href="misc0615.html?action=help">Help</a></li>
+			<li><a href="search.html">Search</a></li>
+			<!-- start: header_welcomeblock_guest -->
+<li><a href="member0ddc.html?action=register">Register</a></li>
+<li><a href="member456e.html?action=login">Login</a></li>
+<script>
+    var connected = 0;
+</script>
+<!-- end: header_welcomeblock_guest -->
+		</ul>
+	</span>
+</div>
+<div style="width: 100%; height: 70px;"></div>
+<!-- Start - Navigation menu -->
+<nav class="headerlist" style="display:none">
+<ul>
+  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li><li>
+	<a href="memberlist.html"><i class="fa fa-users"></i> Members</a></li><li>
+	<a href="misc0615.html?action=help"><i class="fa fa-support"></i> Help</a></li><li>
+	<a href="search.html"><i class="fa fa-search"></i> Search</a>
+</li></ul>
+</nav>
+<!-- End - Navigation menu -->
+<center>
+<!-- Start - Advice -->
+<div id="mobile_member">
+</div>
+<!-- End - Advice -->
+</center>
+<div id="container">
+	<a name="top" id="top"></a>
+	<div id="header">
+		<div id="content">
+			<div class="wrapper">
+				
+				
+				
+				
+				
+				
+				<!-- start: nav -->
+<div class="navigation" style="display:none;">
+          <a href="index-2.html">
+		<span id="home_bit">
+			<i class="fa fa-home"></i>
+		</span>
+	</a>
+	<span style="padding: 8px 12px;margin-left: 5px;"><!-- start: nav_bit -->
+<a href="index-2.html">Burgershot</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplaye15e.html?fid=3">SA-MP</a>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep_active --><!-- start: nav_bit_active -->
+<span class="active">Pawn Scripting</span>
+<!-- end: nav_bit_active --></span>
+</div>
+<script>
+var page = location.pathname;
+page = page.substring(1);
+if(page != 'index.php' && page != '') {
+     $('.navigation').css('display', '');
+}
+</script>
+<!-- end: nav -->
+				<br />
+<!-- end: header -->
+
+
+
+<!-- start: forumdisplay_threadlist -->
+<div class="float_left">
+	<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (27):</span>
+<!-- start: multipage_prevpage -->
+<a href="forumdisplay64a6.html?fid=10&amp;page=5" class="pagination_previous">&laquo; Previous</a>
+<!-- end: multipage_prevpage --><!-- start: multipage_start -->
+<a href="forumdisplayc6ed.html?fid=10" class="pagination_first">1</a>  &hellip;
+<!-- end: multipage_start --><!-- start: multipage_page -->
+<a href="forumdisplay9941.html?fid=10&amp;page=4" class="pagination_page">4</a>
+<!-- end: multipage_page --><!-- start: multipage_page -->
+<a href="forumdisplay64a6.html?fid=10&amp;page=5" class="pagination_page">5</a>
+<!-- end: multipage_page --><!-- start: multipage_page_current -->
+ <span class="pagination_current">6</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="forumdisplaydda3.html?fid=10&amp;page=7" class="pagination_page">7</a>
+<!-- end: multipage_page --><!-- start: multipage_page -->
+<a href="forumdisplaya770.html?fid=10&amp;page=8" class="pagination_page">8</a>
+<!-- end: multipage_page --><!-- start: multipage_end -->
+&hellip;  <a href="forumdisplay33a3.html?fid=10&amp;page=27" class="pagination_last">27</a>
+<!-- end: multipage_end --><!-- start: multipage_nextpage -->
+<a href="forumdisplaydda3.html?fid=10&amp;page=7" class="pagination_next">Next &raquo;</a>
+<!-- end: multipage_nextpage --><!-- start: multipage_jump_page -->
+<div class="popup_menu drop_go_page" style="display: none;">
+	<form action="https://www.burgershot.gg/forumdisplay.php?fid=10" method="post">
+		<label for="page">Jump to page:</label> <input type="text" class="textbox" name="page" value="6" size="4" />
+		<input type="submit" class="button" value="Go" />
+	</form>
+</div>
+<a href="javascript:void(0)" class="go_page" title="Jump to page"><i class="fa fa-caret-down" alt="Jump to page"></i></a>&nbsp;
+<script type="text/javascript">
+	var go_page = 'go_page_' + $(".go_page").length;
+	$(".go_page").last().attr('id', go_page);
+	$(".drop_go_page").last().attr('id', go_page + '_popup');
+	$('#' + go_page).popupMenu(false).click(function() {
+		var drop_go_page = $(this).prev('.drop_go_page');
+		if (drop_go_page.is(':visible')) {
+			drop_go_page.find('.textbox').focus();
+		}
+	});
+</script>
+<!-- end: multipage_jump_page -->
+</div>
+<!-- end: multipage -->
+</div>
+<div style="margin-bottom:12px" class="float_right">
+	
+</div>
+<table border="0" cellspacing="0" cellpadding="7" class="tborder clear">
+	<tr>
+		<td class="thead" colspan="7">
+			<div class="float_right">
+				<span class="smalltext"><strong><a href="miscd0c4.html?action=markread&amp;fid=10">Mark this forum read</a> | <a href="usercp4828.html?action=addsubscription&amp;type=forum&amp;fid=10&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e">Subscribe to this forum</a></strong></span>
+			</div>
+			<div>
+				<strong>Pawn Scripting</strong>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="tcat" colspan="3" width="66%"><span class="smalltext"><strong><a href="forumdisplay07b3.html?fid=10&amp;page=6&amp;datecut=9999&amp;prefix=0&amp;sortby=subject&amp;order=asc">Thread</a>  / <a href="forumdisplay27b9.html?fid=10&amp;page=6&amp;datecut=9999&amp;prefix=0&amp;sortby=starter&amp;order=asc">Author</a> </strong></span></td>
+		<td id="replies" class="tcat" align="center" width="7%"><span class="smalltext"><strong><a href="forumdisplaya932.html?fid=10&amp;page=6&amp;datecut=9999&amp;prefix=0&amp;sortby=replies&amp;order=desc">Replies</a> </strong></span></td>
+		<td id="views" class="tcat" align="center" width="7%"><span class="smalltext"><strong><a href="forumdisplay0f1c.html?fid=10&amp;page=6&amp;datecut=9999&amp;prefix=0&amp;sortby=views&amp;order=desc">Views</a> </strong></span></td>
+		<!-- start: forumdisplay_threadlist_rating -->
+	<td class="tcat hide_mobile" align="center" width="80">
+		<span class="smalltext"><strong><a href="forumdisplay40e2.html?fid=10&amp;page=6&amp;datecut=9999&amp;prefix=0&amp;sortby=rating&amp;order=desc">Rating</a> </strong></span>
+		<script type="text/javascript" src="jscripts/rating12e3.js?ver=1808"></script>
+		<script type="text/javascript">
+		<!--
+			lang.stars = new Array();
+			lang.stars[1] = "1 star out of 5";
+			lang.stars[2] = "2 stars out of 5";
+			lang.stars[3] = "3 stars out of 5";
+			lang.stars[4] = "4 stars out of 5";
+			lang.stars[5] = "5 stars out of 5";
+			lang.ratings_update_error = "There was an error updating the rating.";
+		// -->
+		</script>
+	</td>
+<!-- end: forumdisplay_threadlist_rating -->
+		<td id="lastpost" class="tcat" align="right" width="20%"><span class="smalltext"><strong><a href="forumdisplay8e95.html?fid=10&amp;page=6&amp;datecut=9999&amp;prefix=0&amp;sortby=lastpost&amp;order=desc">Last Post</a> <!-- start: forumdisplay_orderarrow -->
+<span class="smalltext">[<a href="forumdisplayf0ab.html?fid=10&amp;page=6&amp;datecut=9999&amp;prefix=0&amp;sortby=lastpost&amp;order=asc">asc</a>]</span>
+<!-- end: forumdisplay_orderarrow --></strong></span></td>
+		
+	</tr>
+	
+	<!-- start: forumdisplay_announcements -->
+<tr>
+<td class="trow_sep" colspan="7">Forum Announcements</td>
+</tr>
+<!-- start: forumdisplay_announcements_announcement -->
+<tr>
+<td align="center" class="trow1 forumdisplay_announcement" width="2%"><span class="thread_status folder">&nbsp;</span></td>
+<td align="center" class="trow1 forumdisplay_announcement" width="2%">&nbsp;</td>
+<td class="trow1 forumdisplay_announcement">
+	<a href="announcementsff9a.html?aid=3" class="subject_old">New Forum!</a>
+	<div class="author smalltext"><a href="member461a.html?action=profile&amp;uid=1">Southclaws</a></div>
+</td>
+<td align="center" class="trow1 forumdisplay_announcement">-</td>
+<td align="center" class="trow1 forumdisplay_announcement">-</td>
+<!-- start: forumdisplay_announcement_rating -->
+	<td class="trow1 forumdisplay_announcement" align="center">-</td>
+<!-- end: forumdisplay_announcement_rating -->
+<td class="trow1 forumdisplay_announcement" style="white-space: nowrap; text-align: right"><span class="smalltext">2021-11-25, 05:21 PM</span></td>
+
+</tr>
+<!-- end: forumdisplay_announcements_announcement -->
+<!-- end: forumdisplay_announcements -->
+	<!-- start: forumdisplay_threads_sep -->
+<tr>
+<td class="trow_sep" colspan="7">Normal Threads</td>
+</tr>
+<!-- end: forumdisplay_threads_sep --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreadf672.html?tid=2030&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2030"><a href="showthread458b-2.html?tid=2030">[SOLVED] How Find New ID from enum for SQL with forward loop function ?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2030);">4</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">777</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_2030">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2030">
+<li style="width: 0%" class="current_rating" id="current_rating_2030">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreadac11.html?tid=2030&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread7f4e.html?tid=2030&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread46bd-2.html?tid=2030&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreaddc0e.html?tid=2030&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread0f47.html?tid=2030&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-21, 12:49 PM<br />
+		<a href="showthreadf672.html?tid=2030&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread2d21.html?tid=2038&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2038"><a href="showthreadc658-3.html?tid=2038">Help! How to get function closest object ID When click Y can be brought Attached.</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2038);">0</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">317</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_2038">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2038">
+<li style="width: 0%" class="current_rating" id="current_rating_2038">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread0429.html?tid=2038&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread783e.html?tid=2038&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethreada503.html?tid=2038&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreada404.html?tid=2038&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread0661.html?tid=2038&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-20, 04:01 AM<br />
+		<a href="showthread2d21.html?tid=2038&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreadeae5.html?tid=2036&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2036"><a href="showthread686f-2.html?tid=2036">HELP! How to get better recommend than `udb_hash()` and bcrypt system?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2036);">1</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">451</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_2036">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2036">
+<li style="width: 0%" class="current_rating" id="current_rating_2036">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreadd3d2.html?tid=2036&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread4208.html?tid=2036&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread91c9.html?tid=2036&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreadaa3b.html?tid=2036&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethreaddae6.html?tid=2036&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-19, 11:42 PM<br />
+		<a href="showthreadeae5.html?tid=2036&amp;action=lastpost">Last Post</a>: <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread1300.html?tid=2032&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2032"><a href="showthread2a12.html?tid=2032">3d iterator array</a></span></span>
+			<div class="author smalltext"><a href="memberc865.html?action=profile&amp;uid=3766">K.a.r.o.l</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2032);">1</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">495</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_2032">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2032">
+<li style="width: 0%" class="current_rating" id="current_rating_2032">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread88fd.html?tid=2032&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread31e5.html?tid=2032&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread9c62.html?tid=2032&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreadba84.html?tid=2032&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread7939.html?tid=2032&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-18, 12:05 PM<br />
+		<a href="showthread1300.html?tid=2032&amp;action=lastpost">Last Post</a>: <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreada905.html?tid=2031&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2031"><a href="showthread9823.html?tid=2031">[Solved] Get Difference Between Time Period</a></span></span>
+			<div class="author smalltext"><a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2031);">3</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">643</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_2031">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2031">
+<li style="width: 0%" class="current_rating" id="current_rating_2031">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread2513.html?tid=2031&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreada191.html?tid=2031&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread04ab.html?tid=2031&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreadab9d.html?tid=2031&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread8373.html?tid=2031&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-18, 12:03 PM<br />
+		<a href="showthreada905.html?tid=2031&amp;action=lastpost">Last Post</a>: <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread5db8.html?tid=2028&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2028"><a href="showthreada87e-2.html?tid=2028">[SOLVED] [debug] Run time error 4: &quot;Array index out of bounds&quot;</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2028);">4</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">1,043</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_2028">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2028">
+<li style="width: 0%" class="current_rating" id="current_rating_2028">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread6e85.html?tid=2028&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread0c3f.html?tid=2028&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethreadcd79.html?tid=2028&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread5960.html?tid=2028&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethreadc98c.html?tid=2028&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-17, 09:47 AM<br />
+		<a href="showthread5db8.html?tid=2028&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreadce12-2.html?tid=2020&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2020"><a href="showthreadc472.html?tid=2020">[SOLVED] How fix warning 217: loose indentation without Pragma Syntax?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2020);">2</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">691</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_2020">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2020">
+<li style="width: 0%" class="current_rating" id="current_rating_2020">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreada28a.html?tid=2020&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread7d10-2.html?tid=2020&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread5914.html?tid=2020&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreadd9b9-2.html?tid=2020&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread693f.html?tid=2020&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-15, 03:26 PM<br />
+		<a href="showthreadce12-2.html?tid=2020&amp;action=lastpost">Last Post</a>: <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread26f5-2.html?tid=2018&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2018"><a href="showthread572b.html?tid=2018">Help! How newbie fix sscanf warning: No default value found. Have System solution ?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2018);">1</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">464</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_2018">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2018">
+<li style="width: 0%" class="current_rating" id="current_rating_2018">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread91b9.html?tid=2018&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreade0cc.html?tid=2018&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread2665.html?tid=2018&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreadf0d9.html?tid=2018&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread2d3a.html?tid=2018&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-15, 09:59 AM<br />
+		<a href="showthread26f5-2.html?tid=2018&amp;action=lastpost">Last Post</a>: <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread02ef.html?tid=2019&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2019"><a href="showthread8469.html?tid=2019">Help! How to Get and Re use texture from function AddSimpleModel ?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2019);">0</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">401</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_2019">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2019">
+<li style="width: 0%" class="current_rating" id="current_rating_2019">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread49c2.html?tid=2019&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreadf3b5.html?tid=2019&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread0efe.html?tid=2019&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread843d.html?tid=2019&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread3a19.html?tid=2019&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-15, 08:04 AM<br />
+		<a href="showthread02ef.html?tid=2019&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreadfc52.html?tid=2009&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2009"><a href="showthreadf30d.html?tid=2009">[Solved] Why Game mode amx size has increased?</a></span></span>
+			<div class="author smalltext"><a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2009);">12</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">2,131</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_2009">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2009">
+<li style="width: 0%" class="current_rating" id="current_rating_2009">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread52e9.html?tid=2009&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreade29a.html?tid=2009&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread581a-2.html?tid=2009&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread0378.html?tid=2009&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread90ff.html?tid=2009&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-14, 11:48 PM<br />
+		<a href="showthreadfc52.html?tid=2009&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread4128.html?tid=2014&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2014"><a href="showthread6b58.html?tid=2014">[SOLVED] How to get learn abaout const for newbie? const belongs to what group?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2014);">2</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">448</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_2014">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2014">
+<li style="width: 0%" class="current_rating" id="current_rating_2014">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread76e3.html?tid=2014&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreadeeb8.html?tid=2014&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread5ae6-2.html?tid=2014&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreadae17.html?tid=2014&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread2820.html?tid=2014&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-14, 08:23 PM<br />
+		<a href="showthread4128.html?tid=2014&amp;action=lastpost">Last Post</a>: <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread9184.html?tid=2011&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2011"><a href="showthread4cb4.html?tid=2011">Help!  Make an NPC CREATOR oad directly on the server without them going back to edit</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2011);">0</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">705</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_2011">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2011">
+<li style="width: 0%" class="current_rating" id="current_rating_2011">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreada192.html?tid=2011&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread0d00.html?tid=2011&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread0c32.html?tid=2011&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread5e89.html?tid=2011&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread6525.html?tid=2011&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-13, 10:39 AM<br />
+		<a href="showthread9184.html?tid=2011&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreadee37-2.html?tid=2008&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2008"><a href="showthreadfaba.html?tid=2008">[SOLVED] How to detect how many players there are in same place around coordinat</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2008);">3</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">829</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_2008">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2008">
+<li style="width: 0%" class="current_rating" id="current_rating_2008">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreadcbb6.html?tid=2008&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread4723.html?tid=2008&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread4c78.html?tid=2008&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread03e2.html?tid=2008&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethreadc170.html?tid=2008&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-13, 08:54 AM<br />
+		<a href="showthreadee37-2.html?tid=2008&amp;action=lastpost">Last Post</a>: <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreadc648.html?tid=2006&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_2006"><a href="showthreadc534-2.html?tid=2006">[SOLVED] compilation results in Pawno with Sublime so different ?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(2006);">8</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">1,822</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_2006">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_2006">
+<li style="width: 0%" class="current_rating" id="current_rating_2006">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreadbff3.html?tid=2006&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreadf24d.html?tid=2006&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethreadb51f.html?tid=2006&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread004f.html?tid=2006&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethreadeac0.html?tid=2006&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-12, 02:14 AM<br />
+		<a href="showthreadc648.html?tid=2006&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread4bd9-2.html?tid=1992&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_1992"><a href="showthreada1c1.html?tid=1992">HELP ! How to set the Flatbet car parameters where the car is stored crate models ?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(1992);">1</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">560</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_1992">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_1992">
+<li style="width: 0%" class="current_rating" id="current_rating_1992">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread3988.html?tid=1992&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread7db9.html?tid=1992&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread70a6.html?tid=1992&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreadc85e.html?tid=1992&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethreadacec.html?tid=1992&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-12, 12:20 AM<br />
+		<a href="showthread4bd9-2.html?tid=1992&amp;action=lastpost">Last Post</a>: <a href="membere51c.html?action=profile&amp;uid=2867">RoBy41</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread6b6d.html?tid=1993&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_1993"><a href="showthread3c22.html?tid=1993">[Help] How make the NPC move bye CMD And also can point to other near players ?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(1993);">2</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">812</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_1993">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_1993">
+<li style="width: 0%" class="current_rating" id="current_rating_1993">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreada80a.html?tid=1993&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread7ef3.html?tid=1993&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread765e-2.html?tid=1993&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread3616.html?tid=1993&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread284b.html?tid=1993&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-10, 12:42 PM<br />
+		<a href="showthread6b6d.html?tid=1993&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreadc767.html?tid=1991&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_1991"><a href="showthread8164.html?tid=1991">[SOLVED] How can the android client enter the server version 0.3.DL ?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(1991);">2</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">984</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_1991">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_1991">
+<li style="width: 0%" class="current_rating" id="current_rating_1991">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreadc9a7.html?tid=1991&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreadcfca.html?tid=1991&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread84b6.html?tid=1991&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread407d-2.html?tid=1991&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread5cb4.html?tid=1991&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-09, 12:36 AM<br />
+		<a href="showthreadc767.html?tid=1991&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread553f.html?tid=1987&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_1987"><a href="showthreadcec5.html?tid=1987">Help! How to attach the player to the player to make it look like it is lifting up?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(1987);">0</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">388</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_1987">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_1987">
+<li style="width: 0%" class="current_rating" id="current_rating_1987">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreadde79.html?tid=1987&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreadbb6c.html?tid=1987&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread074d.html?tid=1987&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread78bf.html?tid=1987&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethreadab89.html?tid=1987&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-08, 01:48 AM<br />
+		<a href="showthread553f.html?tid=1987&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow1 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow1 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthread374c.html?tid=1977&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_1977"><a href="showthread99cb-2.html?tid=1977">[SOLVED] How make function to turn on the vehicle lights blinks like siren alarm ?</a></span></span>
+			<div class="author smalltext"><a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow1 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(1977);">4</a></td>
+	<td id="views" align="center" class="trow1 forumdisplay_regular">1,081</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow1 forumdisplay_regular hide_mobile" id="rating_table_1977">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_1977">
+<li style="width: 0%" class="current_rating" id="current_rating_1977">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread570f-2.html?tid=1977&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread4dbf.html?tid=1977&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethreadadd9.html?tid=1977&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread6d51.html?tid=1977&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread5692.html?tid=1977&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow1 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-08, 12:53 AM<br />
+		<a href="showthread374c.html?tid=1977&amp;action=lastpost">Last Post</a>: <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread --><!-- start: forumdisplay_thread -->
+<tr class="inline_row">
+	<td colspan="2" align="center" class="trow2 forumdisplay_regular" width="4%"><span style="position:relative;left:7px" class="thread_status newhotfolder" title="New posts. Hot thread.">&nbsp;</span></td>
+	<td class="trow2 forumdisplay_regular">
+		
+		<div>
+          <span> <!-- start: forumdisplay_thread_gotounread -->
+<a href="showthreadb05f.html?tid=1986&amp;action=newpost"><i style="color:black;" class="fa fa-long-arrow-right" title="Go to first unread post" /></i></a>
+<!-- end: forumdisplay_thread_gotounread --><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span>&nbsp;<span class=" subject_new" id="tid_1986"><a href="showthreadb558.html?tid=1986">Weapon-config</a></span></span>
+			<div class="author smalltext"><a href="memberfc51.html?action=profile&amp;uid=3113">israel_Oliveira</a></div>
+		</div>
+	</td>
+	<td id="replies" align="center" class="trow2 forumdisplay_regular"><a href="javascript:MyBB.whoPosted(1986);">1</a></td>
+	<td id="views" align="center" class="trow2 forumdisplay_regular">722</td>
+	<!-- start: forumdisplay_thread_rating -->
+<td align="center" class="trow2 forumdisplay_regular hide_mobile" id="rating_table_1986">
+        
+<ul class="star_rating star_rating_notrated" id="rating_thread_1986">
+<li style="width: 0%" class="current_rating" id="current_rating_1986">0 Vote(s) - 0 out of 5 in Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread901c.html?tid=1986&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread946e.html?tid=1986&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethreadbf81.html?tid=1986&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread6740.html?tid=1986&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread22d2.html?tid=1986&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+
+
+
+        
+    </td>
+<!-- end: forumdisplay_thread_rating -->
+	<td id="lastpost" class="trow2 forumdisplay_regular" style="white-space: nowrap; text-align: right;">
+		<span class="lastpost smalltext">2021-05-07, 02:47 PM<br />
+		<a href="showthreadb05f.html?tid=1986&amp;action=lastpost">Last Post</a>: <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a></span>
+	</td>
+
+</tr>
+<!-- end: forumdisplay_thread -->
+	<tr>
+		<td class="tfoot" align="right" colspan="7">
+			<form action="https://www.burgershot.gg/forumdisplay.php" method="get">
+				<input type="hidden" name="fid" value="10" />
+				<select name="sortby">
+					<option value="subject">Sort by: Subject</option>
+					<option value="lastpost" selected="selected">Sort by: Last Post</option>
+					<option value="starter">Sort by: Author</option>
+					<option value="started">Sort by: Creation Time</option>
+					<!-- start: forumdisplay_threadlist_sortrating -->
+<option value="rating" >Sort by: Rating</option>
+<!-- end: forumdisplay_threadlist_sortrating -->
+					<option value="replies">Sort by: Replies</option>
+					<option value="views">Sort by: Views</option>
+				</select>
+				<select name="order">
+					<option value="asc">Order: Ascending</option>
+					<option value="desc" selected="selected">Order: Descending</option>
+				</select>
+				<select name="datecut">
+					<option value="1">From: Today</option>
+					<option value="5">From: 5 Days Ago</option>
+					<option value="10">From: 10 Days Ago</option>
+					<option value="20">From: 20 Days Ago</option>
+					<option value="50">From: 50 Days Ago</option>
+					<option value="75">From: 75 Days Ago</option>
+					<option value="100">From: 100 Days Ago</option>
+					<option value="365">From: The Last Year</option>
+					<option value="9999" selected="selected">From: The Beginning</option>
+				</select>
+				<!-- start: forumdisplay_threadlist_prefixes -->
+<select name="prefix">
+<option value="-2">Prefix: Any Prefix</option>
+<option value="-1">Prefix: No Prefix</option>
+<option value="0" selected="selected">Prefix: Any/No Prefix</option>
+<!-- start: forumdisplay_threadlist_prefixes_prefix -->
+<option value="2">Prefix: Pawn</option>
+<!-- end: forumdisplay_threadlist_prefixes_prefix --><!-- start: forumdisplay_threadlist_prefixes_prefix -->
+<option value="1">Prefix: Plugin</option>
+<!-- end: forumdisplay_threadlist_prefixes_prefix -->
+</select>
+<!-- end: forumdisplay_threadlist_prefixes -->
+				<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+			</form>
+		</td>
+	</tr>
+</table>
+<div class="float_left">
+	<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (27):</span>
+<!-- start: multipage_prevpage -->
+<a href="forumdisplay64a6.html?fid=10&amp;page=5" class="pagination_previous">&laquo; Previous</a>
+<!-- end: multipage_prevpage --><!-- start: multipage_start -->
+<a href="forumdisplayc6ed.html?fid=10" class="pagination_first">1</a>  &hellip;
+<!-- end: multipage_start --><!-- start: multipage_page -->
+<a href="forumdisplay9941.html?fid=10&amp;page=4" class="pagination_page">4</a>
+<!-- end: multipage_page --><!-- start: multipage_page -->
+<a href="forumdisplay64a6.html?fid=10&amp;page=5" class="pagination_page">5</a>
+<!-- end: multipage_page --><!-- start: multipage_page_current -->
+ <span class="pagination_current">6</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="forumdisplaydda3.html?fid=10&amp;page=7" class="pagination_page">7</a>
+<!-- end: multipage_page --><!-- start: multipage_page -->
+<a href="forumdisplaya770.html?fid=10&amp;page=8" class="pagination_page">8</a>
+<!-- end: multipage_page --><!-- start: multipage_end -->
+&hellip;  <a href="forumdisplay33a3.html?fid=10&amp;page=27" class="pagination_last">27</a>
+<!-- end: multipage_end --><!-- start: multipage_nextpage -->
+<a href="forumdisplaydda3.html?fid=10&amp;page=7" class="pagination_next">Next &raquo;</a>
+<!-- end: multipage_nextpage --><!-- start: multipage_jump_page -->
+<div class="popup_menu drop_go_page" style="display: none;">
+	<form action="https://www.burgershot.gg/forumdisplay.php?fid=10" method="post">
+		<label for="page">Jump to page:</label> <input type="text" class="textbox" name="page" value="6" size="4" />
+		<input type="submit" class="button" value="Go" />
+	</form>
+</div>
+<a href="javascript:void(0)" class="go_page" title="Jump to page"><i class="fa fa-caret-down" alt="Jump to page"></i></a>&nbsp;
+<script type="text/javascript">
+	var go_page = 'go_page_' + $(".go_page").length;
+	$(".go_page").last().attr('id', go_page);
+	$(".drop_go_page").last().attr('id', go_page + '_popup');
+	$('#' + go_page).popupMenu(false).click(function() {
+		var drop_go_page = $(this).prev('.drop_go_page');
+		if (drop_go_page.is(':visible')) {
+			drop_go_page.find('.textbox').focus();
+		}
+	});
+</script>
+<!-- end: multipage_jump_page -->
+</div>
+<!-- end: multipage -->
+</div>
+<div class="float_right" style="margin-top: 4px;">
+	
+</div>
+<br class="clear" />
+<br />
+<div class="float_left">
+	<div class="float_left">
+		<dl class="thread_legend smalltext">
+			<dd><span class="thread_status newfolder" title="New Posts">&nbsp;</span> New Posts</dd>
+			<dd><span class="thread_status newhotfolder" title="Hot Thread (New)">&nbsp;</span> Hot Thread (New)</dd>
+			<dd><span class="thread_status hotfolder" title="Hot Thread (No New)">&nbsp;</span> Hot Thread (No New)</dd>
+		</dl>
+	</div>
+	<div class="float_left">
+		<dl class="thread_legend smalltext">
+			<dd><span class="thread_status folder" title="No New Posts">&nbsp;</span> No New Posts</dd>
+			<dd><span class="thread_status dot_folder" title="Contains Posts by You">&nbsp;</span> Contains Posts by You</dd>
+			<dd><span class="thread_status lockfolder" title="Closed Thread">&nbsp;</span> Closed Thread</dd>
+		</dl>
+	</div>
+	<br class="clear" />
+</div>
+<div class="float_right" style="text-align: right;">
+	
+	<!-- start: forumdisplay_searchforum -->
+<form action="https://www.burgershot.gg/search.php">
+	<span class="smalltext"><strong>Search this Forum:</strong></span>
+	<input type="text" class="textbox" name="keywords" /> <!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+	<input type="hidden" name="action" value="do_search" />
+	<input type="hidden" name="forums" value="10" />
+	<input type="hidden" name="postthread" value="1" />
+	</form><br />
+<!-- end: forumdisplay_searchforum -->
+	<!-- start: forumjump_advanced -->
+<form action="https://www.burgershot.gg/forumdisplay.php" method="get">
+<span class="smalltext"><strong>Forum Jump:</strong></span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="19" > General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20" >-- Chat</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21" >-- Tech</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22" >-- Life</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="48" >-- Art</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56" >-- Programming</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40" > open.mp</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="43" >-- Development Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="42" >-- Questions and Suggestions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="3" > SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6" >-- General Discussions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9" >-- Videos and Screenshots</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12" >-- Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="10" selected="selected">-- Pawn Scripting</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="37" >-- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13" >-- Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32" >---- Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31" >---- Libraries</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30" >---- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33" >---- Gamemodes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="67" >---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="69" >-- Advertisements </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23" > Other languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="24" >-- Spanish/Español</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="51" >---- Programación</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="52" >---- Discusión GTA SA Multijugador</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="53" >---- Mods</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="54" >---- Offtopic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="55" >---- Juegos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="25" >-- Portuguese/Português</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="26" >-- Russian/Русский</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="28" >-- Italian/Italiano</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29" >-- Dutch/Nederlands</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34" >-- German/Deutsch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="35" >-- Romanian/Română</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="36" >-- Ex-Yu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="38" >-- Polish/Polski</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="44" >---- Ogólne</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="45" >---- Serwery</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="46" >---- Skryptowanie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="47" >---- Filmiki i zdjęcia</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="39" >-- Lithuanian/Lietuviškas</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="49" >-- French/Français</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="50" >-- Hungarian/Magyar</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="57" >-- Hindi/Urdu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="68" >-- Turkish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="27" >-- Other</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+</div>
+<br class="clear" />
+
+<!-- end: forumdisplay_threadlist -->
+<!-- start: footer -->
+    </div>
+</div>
+<footer class="footer-distributed">
+	<div class="footer-left">
+		<p style="" class="footer-links">
+			© Burgershot - Powered by our <a href="index.html" style="font-weight: bold; font-family: Noto Sans;">Community</a> and <a style="font-weight: bold; font-family: Noto Sans;" href="https://www.mybb.com/"> MyBB</a>
+            <span style="display:block;color: #9f9f9f;font-family: Noto Sans;"><small style="font-size: 12px;">Original Theme by Emerald</small></span>                                     
+	    </p>
+	</div>
+    <div style="" class="footer-right">
+        <div class="footer-icons">
+		</div>
+                
+		<!-- start: footer_themeselect -->
+<div class="theme">
+<form method="POST" action="https://www.burgershot.gg/forumdisplay.php" id="theme_select">
+	<input type="hidden" name="fid" value="10" />
+<input type="hidden" name="page" value="6" />
+<input type="hidden" name="datecut" value="9999" />
+<input type="hidden" name="prefix" value="0" />
+<input type="hidden" name="sortby" value="lastpost" />
+<input type="hidden" name="order" value="desc" />
+
+	<input type="hidden" name="my_post_key" value="6428f000919b5d9a18f82d476f6b077e" />
+	<!-- start: footer_themeselector -->
+<select name="theme" onchange="MyBB.changeTheme();">
+<optgroup label="Quick Theme Select">
+<!-- start: usercp_themeselector_option -->
+<option value="2">MyBB Default Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="3">Burgershot Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="9">--Light</option>
+<!-- end: usercp_themeselector_option -->
+</optgroup>
+</select>
+<!-- end: footer_themeselector -->
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_themeselect -->
+	</div>
+</footer>
+<script>
+	if (connected == 0) { 
+        jQuery("#mobile_member").html("<a href='member456e.html?action=login'>Login</a> - <a href='member0ddc.html?action=register'>Register</a>"); 
+    }
+	if (connected == 1) { 
+        document.getElementById("mobile_member").innerHTML = '<a title="Inbox" href="private.html">Inbox</a> - <a title="User CP" href="usercp.html">User CP</a> - <a title="Log Out" href="member2385.html?action=logout&amp;logoutkey=">Logout</a>'; 
+    }
+</script>
+<!-- end: footer -->
+</body>
+</html>
+<!-- end: forumdisplay -->

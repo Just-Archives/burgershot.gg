@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server system for storing player data - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread021b.html?tid=1860">system for storing player data</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> system for storing player data (<em>/showthread.php?tid=1860</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>system for storing player data</strong> - <a href="member712c.html?action=profile&amp;uid=3624">Nightmare</a> -  <strong>2021-04-11</strong>
+<br />
+<br />
+i'm looking one system for stroring player data and i found the SQLite and MySQL. The both system are different each other? Or they are the same thing? What system is the for the Data Base? Thx
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: system for storing player data</strong> - <a href="member957e.html?action=profile&amp;uid=336">elite</a> -  <strong>2021-04-12</strong>
+<br />
+<br />
+Although I have no experience with MySQL or SQLite I believe they are different from eachother.<br />
+<br />
+If you have limited Pawn experience and Pawn is your first language which seems to be the case, I would recommend not trying to use any SQL dialect(?) as the 'L' stands for language.<br />
+<br />
+There are plenty of file systems that deal with the server's local scriptfiles as opposed to an external database. I'm not sure what the new kids use, but y_less' y_ini in the YSI library has plenty of advantages to make file handling at runtime pretty close to optimal.<br />
+<br />
+Even Pawn's fopen() and fclose() functions would serve you better at this stage then picking up an entirely new quarry language would while you're learning the basics of software development in general.<br />
+<br />
+From web to mobile to desktop applications, written in many languages from C to Markdown and yet still I have mostly only seen SQL use in very few places. If we're connecting to a server, unless you're expecting many tens of thousands of players or more, then the benefit from using an external database is neglegable at best. if we're peer-to-peer then GG; save it on the local machine. BTW I'm not saying SQL doesn't have it's place, but don't commit to something you will never use when the time could be better spent on the path you want to take and not getting confusred in the first place.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

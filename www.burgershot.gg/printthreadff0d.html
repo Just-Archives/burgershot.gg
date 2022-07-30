@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Gamemode does not compile using YSI includes - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadff0d.html?tid=1616">Gamemode does not compile using YSI includes</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Gamemode does not compile using YSI includes (<em>/showthread.php?tid=1616</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Gamemode does not compile using YSI includes</strong> - <a href="member21cf.html?action=profile&amp;uid=786">Frajola</a> -  <strong>2021-01-29</strong>
+<br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">Hello guys, I'm developing my gamemode in module, and recently I decided to implement YSI includes to use y_iterate and y_hooks. </span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">However when adding YSI includes, declare y_iterate and remove the foreach my gamemode does not compile, it doesn't display any errors, it just doesn't compile.</span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">I'm just using the player loop in my scripts: "foreach (new i: Player)"</span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">The only thing I did was install the latest version (5.4.102) of YSI includes, remove the include foreach declaration: "#include &lt;foreach&gt;", and declare the new one, which is y_iterate: "#include &lt;YSI_Data \ y_iterate&gt; ". only that.</span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Gamemode does not compile using YSI includes</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2021-01-30</strong>
+<br />
+<br />
+You must use the community compiler in order to use YSI5<br />
+<br />
+https://github.com/pawn-lang/compiler/
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Gamemode does not compile using YSI includes</strong> - <a href="member21cf.html?action=profile&amp;uid=786">Frajola</a> -  <strong>2021-01-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-30, 12:09 AM)</span>Markski Wrote:  <a href="showthreadf28f-2.html?pid=9622#pid9622" class="quick_jump"></a></cite>You must use the community compiler in order to use YSI5<br />
+<br />
+https://github.com/pawn-lang/compiler/</blockquote><br />
+<br />
+It worked, but it gave me several problems with const, but everything is already solved. thank you.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Gamemode does not compile using YSI includes</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-02-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-31, 09:46 PM)</span>Frajola Wrote:  <a href="showthread6bf9.html?pid=9649#pid9649" class="quick_jump"></a></cite>It worked, but it gave me several problems with const, but everything is already solved. thank you.</blockquote>Actually, this was already there. The stock compiler however just never "realised" that (the community compiler does); https://github.com/pawn-lang/compiler/wiki/Const-Correctness
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

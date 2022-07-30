@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server How to get the exacly pos where a bomb drops? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadf7da.html?tid=1926">How to get the exacly pos where a bomb drops?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> How to get the exacly pos where a bomb drops? (<em>/showthread.php?tid=1926</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How to get the exacly pos where a bomb drops?</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-04-20</strong>
+<br />
+<br />
+I want to make a server with a good PvP like CS-GO<br />
+For that i need to make good granades: like smoke,flash,molotov<br />
+The effect i can manage to do by using textdraws, create explosion, drunk effect...<br />
+<br />
+But there is only a thing i need someone with more expirience to help me:<br />
+<span style="font-weight: bold;" class="mycode_b">How to get the exacly position where bombs when players throw?</span><br />
+To create that flashbang,smoke,molotov effect...<br />
+<br />
+How to get it?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to get the exacly pos where a bomb drops?</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-20</strong>
+<br />
+<br />
+SA:MP dont have function for detect bomb/grenade position, 3DTryg library has a callback that estimates such positions for grenades<br />
+You can use this script with ColAndreas for get flashbang, smoke, molotov effect. C4 bomb not suported.<br />
+https://www.burgershot.gg/showthread.php?tid=1908
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to get the exacly pos where a bomb drops?</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-04-21</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-20, 02:58 PM)</span>AbyssMorgan Wrote:  <a href="showthread3189.html?pid=10777#pid10777" class="quick_jump"></a></cite>SA:MP dont have function for detect bomb/grenade position, 3DTryg library has a callback that estimates such positions for grenades<br />
+You can use this script with ColAndreas for get flashbang, smoke, molotov effect. C4 bomb not suported.<br />
+https://www.burgershot.gg/showthread.php?tid=1908</blockquote><br />
+Hmmm ty... so this [color=#be2026][size=small][font=Roboto]<a href="https://adm.ct8.pl/cloud/Libs/3DTryg/3DTryg.inc" target="_blank" rel="noopener" class="mycode_url">3DTryg.inc</a> do the stuff?<br />
+<br />
+I don't want all that stuff...<br />
+How can i get just the pos?<br />
+<br />
+Like this:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDroppingGrenade(playerid,weaponid,Float:x,Float:y,Float:z){<br />
+&nbsp;&nbsp;new string[128];<br />
+&nbsp;&nbsp;format(string, sizeof string, "playerid[%i],weaponid[%i],x[%f],y[%f],z[%f]", playerid,weaponid,x,y,z);<br />
+&nbsp;&nbsp;SendClientMessage(playerid, COLOR_LIGHTBLUE, string);<br />
+&nbsp;&nbsp;return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to get the exacly pos where a bomb drops?</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-04-26</strong>
+<br />
+<br />
+My bad, i didn't saw that i have to use the hole ExtendedGrenade lib...<br />
+<br />
+How to use this?<br />
+How to when player throw the gun 17 and smoketype[playerid]<br />
+if it is 1, effect X<br />
+if it is 2, effect Y<br />
+<br />
+How to create those effects there?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to get the exacly pos where a bomb drops?</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-27</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-26, 08:38 AM)</span>annety Wrote:  <a href="showthread5c21.html?pid=10865#pid10865" class="quick_jump"></a></cite>My bad, i didn't saw that i have to use the hole ExtendedGrenade lib...<br />
+<br />
+How to use this?<br />
+How to when player throw the gun 17 and smoketype[playerid]<br />
+if it is 1, effect X<br />
+if it is 2, effect Y<br />
+<br />
+How to create those effects there?</blockquote><br />
+Manual usage:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Grenade::CreateGrenadeEffect(special_weaponid,effectid,Float:x,Float:y,Float:z,worldid,interiorid,playerid,Float:streamdistance,Float:damage,Float:veh_damage,active_time=25,byplayerid=INVALID_PLAYER_ID);</code></div></div><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">active_time in seconds</span></span></span><br />
+<br />
+special_weaponid<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>GRENADE_SPECIAL_WEAPON_NONE<br />
+GRENADE_SPECIAL_WEAPON_GRENADE<br />
+GRENADE_SPECIAL_WEAPON_TEARGAS<br />
+GRENADE_SPECIAL_WEAPON_MOLTOV</code></div></div><br />
+effectid<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>GRENADE_EFFECT_CLUSTER_BOMB_1<br />
+GRENADE_EFFECT_CLUSTER_BOMB_2<br />
+GRENADE_EFFECT_CLUSTER_BOMB_3<br />
+GRENADE_EFFECT_CLUSTER_BOMB_4<br />
+GRENADE_EFFECT_BANG_GRENADE<br />
+<br />
+GRENADE_EFFECT_SMALL_SMOKE<br />
+GRENADE_EFFECT_HUGE_SMOKE_1<br />
+GRENADE_EFFECT_HUGE_SMOKE_2<br />
+GRENADE_EFFECT_HUGE_SMOKE_3<br />
+<br />
+GRENADE_EFFECT_NAPALM</code></div></div><br />
+You still can use internal functions for set player special weapon<br />
+https://www.burgershot.gg/showthread.php?tid=1908
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

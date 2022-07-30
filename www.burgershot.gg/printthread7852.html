@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Help with tables - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread7852.html?tid=2148">Help with tables</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Help with tables (<em>/showthread.php?tid=2148</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help with tables</strong> - <a href="member6fd1.html?action=profile&amp;uid=3880">Pedxz</a> -  <strong>2021-07-01</strong>
+<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">Well, I downloaded a GM and it didn't come with the SQL import file, so it can be uploaded to phpmyadmin! I would like to know if you can help me with some tables, some I created myself, but others, I'm having difficulties, because they are created, but they don't save anything! </span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">Sample code from a table that is occurring what I said:</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock CarregarFileMySQL(playerid)<br />
+[/font][/size][/color]<br />
+{<br />
+<br />
+new TmpInt;<br />
+<br />
+<br />
+<br />
+format(gStr, sizeof(gStr), "SELECT * FROM `"TABLE_CONTAS"` WHERE `Nick` = BINARY '%s'", pNome(playerid));<br />
+<br />
+mysql_query(IDConexao, gStr);<br />
+<br />
+<br />
+<br />
+if(cache_num_rows() == 0)<br />
+<br />
+{<br />
+<br />
+format(gstring, sizeof(gstring), "INSERT INTO `"TABLE_CONTAS"` (`Nick`, `ÚltimoLogin`, `Data Registro`, `IP`) VALUES ('%s', '%d', '%d', '%s')", pNome(playerid), gettime(), gettime(), GetPlayerIP(playerid));<br />
+<br />
+mysql_query(IDConexao, gstring, false);<br />
+<br />
+<br />
+<br />
+format(gStr, sizeof(gStr), "SELECT * FROM `"TABLE_CONTAS"` WHERE `Nick` = BINARY '%s'", pNome(playerid));<br />
+<br />
+mysql_query(IDConexao, gStr);<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+cache_get_value_name(0, "CorBarraStatus", pInfo[playerid][BarraCor]);<br />
+<br />
+cache_get_value_name_int(0, "ID", pInfo[playerid][PlayerID]);<br />
+<br />
+cache_get_value_name_int(0, "Cargo", aInfo[playerid][Cargo]);<br />
+<br />
+cache_get_value_name_int(0, "Espião", aInfo[playerid][Espiao]);<br />
+<br />
+cache_get_value_name_int(0, "ÚltimoLogin", pInfo[playerid][UltimoLogin]);<br />
+<br />
+cache_get_value_name_int(0, "TipoVIP", pInfo[playerid][TipoVIP]);<br />
+<br />
+cache_get_value_name_int(0, "TempoVIP", pInfo[playerid][TempoVIP]);<br />
+<br />
+cache_get_value_name_int(0, "Fome", pInfo[playerid][Fome]);<br />
+<br />
+cache_get_value_name_int(0, "Sede", pInfo[playerid][Sede]);<br />
+<br />
+cache_get_value_name_int(0, "SegundosUP", pInfo[playerid][SegundosUP]);<br />
+<br />
+cache_get_value_name_int(0, "Exp", pInfo[playerid][Exp]);<br />
+<br />
+cache_get_value_name_int(0, "Saldo", pInfo[playerid][Saldo]);<br />
+<br />
+<br />
+<br />
+// ----- //<br />
+<br />
+<br />
+<br />
+cache_get_value_name_int(0, "RUP_Possui", pInfo[playerid][RUP_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "RUP_Ligado", pInfo[playerid][RUP_Ligado]);<br />
+<br />
+cache_get_value_name(0, "RUP_Cor", pInfo[playerid][RUP_Cor]);<br />
+<br />
+cache_get_value_name_int(0, "LCL_Possui", pInfo[playerid][LCL_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "VFC_Possui", pInfo[playerid][VFC_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "SGR_Possui", pInfo[playerid][SGR_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "CPT_Possui", pInfo[playerid][CPT_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "CPT_Modelo", pInfo[playerid][CPT_Modelo]);<br />
+<br />
+cache_get_value_name_int(0, "CVN_Possui", pInfo[playerid][CVN_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "CTB_Possui", pInfo[playerid][CTB_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "CEL_Possui", pInfo[playerid][CEL_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "CEL_SMS", pInfo[playerid][CEL_SMS]);<br />
+<br />
+cache_get_value_name_int(0, "YTP_Possui", pInfo[playerid][YTP_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "GPSC_Possui", pInfo[playerid][GPSC_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "GPSC_Status", pInfo[playerid][GPSC_Status]);<br />
+<br />
+cache_get_value_name_int(0, "GPSL_Possui", pInfo[playerid][GPSL_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "GPSL_Status", pInfo[playerid][GPSL_Status]);<br />
+<br />
+cache_get_value_name_int(0, "KIT_Possui", pInfo[playerid][KIT_Possui]);<br />
+<br />
+cache_get_value_name_int(0, "KITF_Possui", pInfo[playerid][KITF_Possui]);<br />
+<br />
+<br />
+<br />
+// ----- //<br />
+<br />
+<br />
+<br />
+cache_get_value_name_int(0, "Moedas", TmpInt);<br />
+<br />
+GivePlayerMoedas(playerid, TmpInt);<br />
+<br />
+<br />
+<br />
+cache_get_value_name_int(0, "pLevel", TmpInt);<br />
+<br />
+SetPlayerScore(playerid, TmpInt);<br />
+<br />
+<br />
+<br />
+cache_get_value_name_int(0, "Dinheiro", TmpInt);<br />
+<br />
+GivePlayerCash(playerid, TmpInt);<br />
+<br />
+<br />
+<br />
+cache_get_value_name_int(0, "Procurado", TmpInt);<br />
+<br />
+SetPlayerWantedLevel(playerid, TmpInt);<br />
+<br />
+<br />
+<br />
+// --------------------- //<br />
+<br />
+<br />
+<br />
+if(GetPlayerCargo(playerid) &gt;= C_MODERADOR) aInfo[playerid][BloqueadoR] = true;<br />
+<br />
+if(pInfo[playerid][TipoVIP] != -1 || GetPlayerCargo(playerid) &gt;= C_MODERADOR) ChatVIP[playerid] = true;<br />
+<br />
+<br />
+<br />
+SetPVarInt(playerid, "pID", pInfo[playerid][PlayerID]);<br />
+<br />
+SetPVarInt(playerid, "pCargo", aInfo[playerid][Cargo]);<br />
+<br />
+<br />
+<br />
+// ------------------------------------------ //<br />
+<br />
+<br />
+<br />
+format(gstring, sizeof(gstring), "UPDATE `"TABLE_CONTAS"` SET `ÚltimoLogin` = %d, `IP` = '%s' WHERE `ID` = %d", gettime(), GetPlayerIP(playerid), pInfo[playerid][PlayerID]);<br />
+<br />
+mysql_query(IDConexao, gstring, false);<br />
+<br />
+<br />
+<br />
+// ------------------------------------------ //<br />
+<br />
+<br />
+<br />
+// blogins<br />
+<br />
+format(gStr, sizeof(gStr), "INSERT INTO `"TABLE_LOGINS"` (`Jogador_ID`, `TS_Logou`) VALUES (%d, %d)", pInfo[playerid][PlayerID], gettime());<br />
+<br />
+mysql_query(IDConexao, gStr);<br />
+<br />
+<br />
+<br />
+pInfo[playerid][SessaoID] = cache_insert_id();<br />
+<br />
+pInfo[playerid][TimeLogou] = gettime();<br />
+<br />
+pInfo[playerid][LevelLogou] = pInfo[playerid][Level];<br />
+<br />
+<br />
+<br />
+// ------------------------------------------ //<br />
+<br />
+<br />
+<br />
+pInfo[playerid][Logado] = true;<br />
+<br />
+<br />
+<br />
+// ------------------------------------------ //<br />
+<br />
+<br />
+<br />
+format(gstring, sizeof(gstring), "[ %s - %s ] %s logou no servidor. [ IP: %s | Level: %d | Saldo: %d | Grana: %d | Moedas: %d | Frag: %d / %d ]",<br />
+<br />
+Gdata(), Ghora(), pNome(playerid), GetPlayerIP(playerid), pInfo[playerid][Level], pInfo[playerid][Saldo], GetPlayerCash(playerid), GetPlayerMoedas(playerid), pInfo[playerid][fMatou], pInfo[playerid][fMorreu]);<br />
+<br />
+<br />
+<br />
+LogLogins(gstring);<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]}</code></div></div></span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

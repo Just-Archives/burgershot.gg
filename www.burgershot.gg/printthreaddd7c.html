@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Server crashed due to an unknown error - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreaddd7c.html?tid=437">Server crashed due to an unknown error</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Server crashed due to an unknown error (<em>/showthread.php?tid=437</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Server crashed due to an unknown error</strong> - <a href="member0747.html?action=profile&amp;uid=808">Luciano</a> -  <strong>2019-04-22</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[21:53:16] [debug] Server crashed due to an unknown error<br />
+[21:53:16] [debug] Native backtrace:<br />
+[21:53:16] [debug] #0 f73478b6 in _Z13GetStackTraceRSt6vectorI10StackFrameSaIS0_EEPv () in plugins/crashdetect.so<br />
+[21:53:16] [debug] #1 f733f120 in _ZN18CrashDetectHandler20PrintNativeBacktraceERSoRKN2os7ContextE () in plugins/crashdetect.so<br />
+[21:53:16] [debug] #2 f733f886 in _ZN18CrashDetectHandler20PrintNativeBacktraceERKN2os7ContextE () in plugins/crashdetect.so<br />
+[21:53:16] [debug] #3 f733ff96 in _ZN18CrashDetectHandler7OnCrashERKN2os7ContextE () in plugins/crashdetect.so<br />
+[21:53:16] [debug] #4 f7346f82 in ?? () in plugins/crashdetect.so<br />
+[21:53:16] [debug] #5 f772fb20 in __kernel_rt_sigreturn () in linux-gate.so.1<br />
+[21:53:16] [debug] #6 081e1298 in ?? ()<br />
+[21:53:16] [debug] #7 080ad0c8 in ?? () in ./sampsvr-port_2734<br />
+[21:53:16] [debug] #8 080aee47 in ?? () in ./sampsvr-port_2734<br />
+[21:53:16] [debug] #9 080aef02 in ?? () in ./sampsvr-port_2734<br />
+[21:53:16] [debug] #10 080aa13a in ?? () in ./sampsvr-port_2734<br />
+[21:53:16] [debug] #11 f7389a63 in __libc_start_main () in /lib/i386-linux-gnu/i686/cmov/libc.so.6<br />
+[21:53:16] [debug] Registers:<br />
+[21:53:16] [debug] EAX: f5d995f4 EBX: f5bb3008 ECX: 08292d30 EDX: 081e0400<br />
+[21:53:16] [debug] ESI: 00000002 EDI: 087f4ba8 EBP: ffb64d18 ESP: ffb64d10<br />
+[21:53:16] [debug] EIP: 081e1298 EFLAGS: 00010282<br />
+[21:53:16] [debug] Stack:<br />
+[21:53:16] [debug] ESP+00000000: f2544e00 ffb64e00 ffb64f38 080ad0c8<br />
+[21:53:16] [debug] ESP+00000020: 090222a0 f76fb000 b972e6a9 00027388<br />
+[21:53:16] [debug] ESP+00000040: 0825f3a0 08b8de30 f7519420 00639566<br />
+[21:53:16] [debug] ESP+00000060: be827efe bf778b9b 00000000 f76396fd<br />
+[21:53:16] [debug] ESP+00000080: 081d2bd0 081d2b78 ffb64f48 f75f4438<br />
+[21:53:16] [debug] ESP+000000a0: fe0100c0 9bbe827e 00bf778b 9b000000<br />
+[21:53:16] [debug] ESP+000000c0: 44c4f794 88415cdf 5e3d0c7a 0cbb56b8<br />
+[21:53:16] [debug] ESP+000000e0: 44447a00 00000063 67000000 081d2bd0<br />
+[21:53:16] [debug] ESP+00000100: 08f39b00 08a4822c ffb64e8c 08a482b4<br />
+[21:53:16] [debug] ESP+00000120: 6f6e6e61 65636e75 ffb64ee8 f7519000<br />
+[21:53:16] [debug] ESP+00000140: 00000001 ffb64eb8 00000001 00000000<br />
+[21:53:16] [debug] ESP+00000160: f72ae48c f5e00588 f770aa60 f6fcc417<br />
+[21:53:16] [debug] ESP+00000180: 081e1298 08159db3 ffb64f38 f5d24d2d<br />
+[21:53:16] [debug] ESP+000001a0: 000003e7 f5cd23e6 f5d249bb f5cf0c7a<br />
+[21:53:16] [debug] ESP+000001c0: ffb64eec 00000000 0000000b 0829cc88<br />
+[21:53:16] [debug] ESP+000001e0: 00000001 ffb64f20 ffb64f48 f6f92da7<br />
+[21:53:16] [debug] ESP+00000200: 000a873d 010ad37c 00000000 ffb64f48<br />
+[21:53:16] [debug] ESP+00000220: 081e1298 08159db3 ffb64f58 080aee47<br />
+[21:53:16] [debug] ESP+00000240: 081e1298 08159c36 ffb64f88 080aef02<br />
+[21:53:16] [debug] ESP+00000260: 081a29f4 00000000 00000000 004c4b40<br />
+[21:53:16] [debug] ESP+00000280: 081e1298 08159db3 00000006 08159dcd<br />
+[21:53:16] [debug] ESP+000002a0: ffb64fcc f7693b66 f76fb000 f765ee63<br />
+[21:53:16] [debug] ESP+000002c0: 00010100 000022b8 0000000f 0165f1fb<br />
+[21:53:16] [debug] ESP+000002e0: f76fb000 f76fb000 f76fc5c0 f7607a05<br />
+[21:53:16] [debug] ESP+00000300: 080494b0 f76fc7a4 f7519d84 f76fc460<br />
+[21:53:16] [debug] ESP+00000320: 00000000 00000000 00000000 00000000<br />
+[21:53:16] [debug] ESP+00000340: 00000000 00000000 00000000 00000000<br />
+[21:53:16] [debug] ESP+00000360: 00000000 00000000 00000000 00000000<br />
+[21:53:16] [debug] ESP+00000380: 00000000 00000000 00000000 00000000<br />
+[21:53:16] [debug] ESP+000003a0: f75193c4 f7751000 0815072b f7519000<br />
+[21:53:16] [debug] ESP+000003c0: 00000001 ffb65164 ffb6516c f773f33a<br />
+[21:53:16] [debug] ESP+000003e0: 080494b0 f7519000 00000000 00000000<br />
+[21:53:16] [debug] Loaded modules:<br />
+[21:53:16] [debug] 00000000 - 00187f43 sampsvr-port_2734<br />
+[21:53:16] [debug] f772f000 - f772fc5a linux-gate.so.1<br />
+[21:53:16] [debug] f771c000 - f771e81b /lib/i386-linux-gnu/i686/cmov/libdl.so.2<br />
+[21:53:16] [debug] f76ff000 - f7719d2b /lib/i386-linux-gnu/i686/cmov/libpthread.so.0<br />
+[21:53:16] [debug] f7580000 - f77094e8 /usr/lib/i386-linux-gnu/libstdc++.so.6<br />
+[21:53:16] [debug] f753a000 - f757eb43 /lib/i386-linux-gnu/i686/cmov/libm.so.6<br />
+[21:53:16] [debug] f751d000 - f75393c4 /lib/i386-linux-gnu/libgcc_s.so.1<br />
+[21:53:16] [debug] f7370000 - f752522f /lib/i386-linux-gnu/i686/cmov/libc.so.6<br />
+[21:53:16] [debug] f7730000 - f77514e0 /lib/ld-linux.so.2<br />
+[21:53:16] [debug] f7328000 - f736c3ac plugins/crashdetect.so<br />
+[21:53:16] [debug] f6f97000 - f732ceb2 plugins/mysqlR41.so<br />
+[21:53:16] [debug] f6f69000 - f6f8cd32 /usr/lib/log-core.so<br />
+[21:53:16] [debug] f7721000 - f772809f /lib/i386-linux-gnu/i686/cmov/librt.so.1<br />
+[21:53:16] [debug] f5f5a000 - f5f653ef /lib/i386-linux-gnu/i686/cmov/libnss_files.so.2<br />
+[21:53:16] [debug] f6f90000 - f6f95e70 plugins/timerfix.so<br />
+[21:53:16] [debug] f5d9b000 - f5dffe6e plugins/regex.so<br />
+[21:53:16] [debug] f5f49000 - f5f589b4 plugins/sscanf.so<br />
+[21:53:16] [debug] f5caa000 - f5d9b803 plugins/YSF.so<br />
+[21:53:16] [debug] f5be4000 - f5ca9740 plugins/streamer.so<br />
+[21:53:16] [debug] f5f38000 - f5f3c97b /lib/i386-linux-gnu/i686/cmov/libnss_dns.so.2<br />
+[21:53:16] [debug] f5f20000 - f5f382fb /lib/i386-linux-gnu/i686/cmov/libresolv.so.2</code></div></div><br />
+<br />
+This has never happened before, and I don't know what to look for in this debug info. The plugins I have are: <br />
+crashdetect mysqlR41 timerfix regex sscanf YSF streamer<br />
+<br />
+<br />
+Server is 0.3.7.<br />
+All the plugins are up to date with their latest versions. I've started using YSF since yesterday (version is the newest R20-RC4), so maybe that can be the problem. Is it possible to know for sure what has caused this crash?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Server crashed due to an unknown error</strong> - <a href="memberbdfa.html?action=profile&amp;uid=90">JonasP</a> -  <strong>2019-04-27</strong>
+<br />
+<br />
+RC4 is a release candidate, so I assume it might not be exactly stable yet? Or at least the new functionality might not be fully working.<br />
+Try going with the latest stable release (R19 I think?) and see if that helps.<br />
+<br />
+When does the crash occur? Instantly after starting the server or after some time, etc.? Did you add any updates recently? Especially those related to YSF. See if anything could be problematic.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

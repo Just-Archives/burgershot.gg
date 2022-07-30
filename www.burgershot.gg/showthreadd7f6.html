@@ -1,0 +1,2101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: showthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Problem with GetTickCount</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="syndication9896.php?type=atom1.0" />
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/EBFKVbK.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="jscripts/jquery6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/jquery.plugins.min6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/general6c6d.js?ver=1804"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/global.min.css">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/avatarep.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/global.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/css3.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/star_ratings.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/showthread.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/footer.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/custom.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/extra.min8355.css?t=1641376402" />
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+
+	var cookieDomain = ".burgershot.gg";
+	var cookiePath = "index.html";
+	var cookiePrefix = "";
+	var cookieSecureFlag = "0";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "6428f000919b5d9a18f82d476f6b077e";
+	var rootpath = "index.html";
+	var imagepath = "images/index.html";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "images/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<script>
+	$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+	$('.scrollToDown').click(function(){
+		$('html, body').animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- end: headerinclude -->
+<script type="text/javascript">
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script type="text/javascript" src="jscripts/report6c6d.js?ver=1804"></script>
+<script src="jscripts/jeditable/jeditable.min.js"></script>
+<script type="text/javascript" src="jscripts/thread6c6d.js?ver=1804"></script>
+</head>
+<body>
+	<!-- start: header -->
+<div class="haut" style="height:70px">
+	<a href="index.html" id="logo"><img style="position: absolute;left: -5px;top: 12px;" src="https://burgershot.gg/burgershot.svg" height="40px" />Burgershot</a>
+	<span class="useroptions">
+		<ul id="menu-deroulant">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="memberlist.html">Members</a></li>
+			<li><a href="showteam.html">Team</a></li>
+			<li><a href="misc0615.html?action=help">Help</a></li>
+			<li><a href="search.html">Search</a></li>
+			<!-- start: header_welcomeblock_guest -->
+<li><a href="member0ddc.html?action=register">Register</a></li>
+<li><a href="member456e.html?action=login">Login</a></li>
+<script>
+    var connected = 0;
+</script>
+<!-- end: header_welcomeblock_guest -->
+		</ul>
+	</span>
+</div>
+<div style="width: 100%; height: 70px;"></div>
+<!-- Start - Navigation menu -->
+<nav class="headerlist" style="display:none">
+<ul>
+  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li><li>
+	<a href="memberlist.html"><i class="fa fa-users"></i> Members</a></li><li>
+	<a href="misc0615.html?action=help"><i class="fa fa-support"></i> Help</a></li><li>
+	<a href="search.html"><i class="fa fa-search"></i> Search</a>
+</li></ul>
+</nav>
+<!-- End - Navigation menu -->
+<center>
+<!-- Start - Advice -->
+<div id="mobile_member">
+</div>
+<!-- End - Advice -->
+</center>
+<div id="container">
+	<a name="top" id="top"></a>
+	<div id="header">
+		<div id="content">
+			<div class="wrapper">
+				
+				
+				
+				
+				
+				
+				<!-- start: nav -->
+<div class="navigation" style="display:none;">
+          <a href="index-2.html">
+		<span id="home_bit">
+			<i class="fa fa-home"></i>
+		</span>
+	</a>
+	<span style="padding: 8px 12px;margin-left: 5px;"><!-- start: nav_bit -->
+<a href="index-2.html">Burgershot</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplaye15e.html?fid=3">SA-MP</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplay696f.html?fid=12">Support</a><!-- start: nav_dropdown -->
+
+<!-- end: nav_dropdown -->
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep_active --><!-- start: nav_bit_active -->
+<span class="active"><span style="color: #1097FF;font-weight: bold;">[Server]</span>&nbsp;Problem with GetTickCount</span>
+<!-- end: nav_bit_active --></span>
+</div>
+<script>
+var page = location.pathname;
+page = page.substring(1);
+if(page != 'index.php' && page != '') {
+     $('.navigation').css('display', '');
+}
+</script>
+<!-- end: nav -->
+				<br />
+<!-- end: header -->
+	
+	
+	<table border="0" cellspacing="0" style="border-bottom:none;" cellpadding="7" class="tborder tfixed clear">
+<div>
+			<div style="font-size: 20px; background: #F6F6F6; border:none; color:#2C3E50; " class="thead">
+				
+	<div class="float_right">
+		
+	</div>
+	<!-- start: showthread_ratethread -->
+<div class="star_rating_container">
+        <script type="text/javascript" src="jscripts/rating9348.js?ver=1400"></script>
+        <div id="success_rating_1753" style="float: left; padding-top: 2px; padding-right: 10px;">&nbsp;</div>
+        <div class="inline_rating">
+
+<ul class="star_rating star_rating_notrated" id="rating_thread_1753">
+<li style="width: 0%" class="current_rating" id="current_rating_1753">0 Vote(s) - 0 Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread52eb.html?tid=1753&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread8498.html?tid=1753&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread3eb4.html?tid=1753&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread79a8.html?tid=1753&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread8c61.html?tid=1753&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+        </div>
+</div>
+<!-- end: showthread_ratethread -->
+				<div>
+					<strong><i class="fa fa-comments"></i> Server&nbsp;Problem with GetTickCount</strong>
+				</div>
+			</div>
+</div>
+
+<tr><td id="posts_container">
+	<div id="posts">
+		<!-- start: postbit -->
+
+<a name="pid10185" id="pid10185"></a>
+<div class="post classic " id="post_10185">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread8a6f.html?tid=1753&amp;pid=10185#pid10185" title="Problem with GetTickCount">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 12:55 PM <span class="post_edit" id="edited_by_10185"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-03-11, 12:57 PM by <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10185">
+		I made an anti flood command script for my gamemode, in which the player can only type commands every 2 seconds. Everything worked fine, until yesterday I realized that this script had bugged, any command typed by the player regardless of the time between them is classified as spam.<br />
+<br />
+<img src="https://i.imgur.com/xr701iO.png" loading="lazy"  alt="[Image: xr701iO.png]" class="mycode_img" /><br />
+<br />
+So I decided to do a type of debugging, to see what value the GetTickCount was returning, and it is returning very large negative values.<br />
+<img src="https://i.imgur.com/Palr2LS.png" loading="lazy"  alt="[Image: Palr2LS.png]" class="mycode_img" /><br />
+<br />
+The amazing thing about this problem is that it only occurs on my computer, on my notebook and on the gamemode host this problem does not occur everything works correctly. Does anyone have any idea what this is? Maybe some problem with some windows dll? I do not believe it is a gamemode problem, because as I mentioned in other places it works normally, only on my computer this problem occurs.<br />
+<br />
+Here are the plugins / includes I use and the anti flood code snippet<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include &nbsp; &nbsp;&lt;a_samp&gt;<br />#define&nbsp;FIXES_Single&nbsp;1<br />#define&nbsp;FIXES_ServerVarMsg&nbsp;0<br />#define&nbsp;LOCAL_HOST&nbsp;true<br />//&nbsp;Redefinições&nbsp;antes&nbsp;da&nbsp;Fixes<br />#if &nbsp; &nbsp; &nbsp;defined&nbsp;MAX_PLAYERS<br />#undef &nbsp; &nbsp;MAX_PLAYERS<br />#if&nbsp;LOCAL_HOST&nbsp;==&nbsp;true<br />#define &nbsp;MAX_PLAYERS &nbsp;(100)<br />#else<br />#define &nbsp;MAX_PLAYERS &nbsp;(30)<br />#endif<br />#endif<br />//<br />#include&nbsp;&lt;fixes&gt;<br />#include&nbsp;&lt;crashdetect&gt;<br />#include &nbsp; &nbsp;&lt;timerfix&gt;<br />#include &nbsp; &nbsp;&lt;a_mysql&gt;<br />#include &nbsp; &nbsp;&lt;foreach&gt;<br />#include &nbsp; &nbsp;&lt;izcmd&gt;<br />#include &nbsp; &nbsp;&lt;sscanf2&gt;<br />#include &nbsp; &nbsp;&lt;MV_Youtube&gt;<br />#include &nbsp; &nbsp;&lt;streamer&gt;<br />#include &nbsp; &nbsp;&lt;callbacks&gt;<br />#include &nbsp; &nbsp;&lt;mSelection&gt;<br />#define&nbsp;AUTO_SETUP<br />#include &nbsp; &nbsp;&lt;gmtime&gt;<br /><br /><br /></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerCommandReceived</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cmdtext</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">IsPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_INVALID</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;are&nbsp;not&nbsp;connected."</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br />if&nbsp;(</span><span style="color: #0000BB">GetTickCount</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_GRAD1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Wait&nbsp;2&nbsp;seconds&nbsp;to&nbsp;retype&nbsp;a&nbsp;command!"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">GetTickCount</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+plugins crashdetect fixchars sscanf mysql streamer timerfix gmtime SAMPSON<br />
+<br />
+And this problem has occurred with any code that uses the native GetTickCount.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10185">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyb7cf-2.html?tid=1753&amp;replyto=10185" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10189" id="pid10189"></a>
+<div class="post classic " id="post_10189">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberbd8e.html?action=profile&amp;uid=3486"><span style="color: #3c71af;">Virsenas</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberbd8e.html?action=profile&amp;uid=3486"><img src="uploads/avatars/avatar_34864b2d.html?dateline=1614213911" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">47</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2021</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation8eca.html?uid=3486"><strong class="reputation_positive">6</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread588f.html?tid=1753&amp;pid=10189#pid10189" title="RE: Problem with GetTickCount">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 08:12 PM <span class="post_edit" id="edited_by_10189"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10189">
+		Do you keep your computer on at all times?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10189">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchf9ba.html?action=finduser&amp;uid=3486" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply8c07.html?tid=1753&amp;replyto=10189" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10192" id="pid10192"></a>
+<div class="post classic " id="post_10192">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member2dfc.html?action=profile&amp;uid=3098"><span style="color: #3c71af;">Radical</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member2dfc.html?action=profile&amp;uid=3098"><img src="uploads/avatars/avatar_30986a2f.jpg?dateline=1658595873" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">148</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">21</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Dec 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0a5c.html?uid=3098"><strong class="reputation_positive">16</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread245a.html?tid=1753&amp;pid=10192#pid10192" title="RE: Problem with GetTickCount">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 08:31 PM <span class="post_edit" id="edited_by_10192"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-03-11, 08:31 PM by <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10192">
+		I have no idea about GetTickCount() but you can use gettime() instead.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerCommandReceived</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cmdtext</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">IsPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_INVALID</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;are&nbsp;not&nbsp;connected."</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br />if&nbsp;(</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">])<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_GRAD1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Wait&nbsp;2&nbsp;seconds&nbsp;to&nbsp;retype&nbsp;a&nbsp;command!"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()+</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10192">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search056a.html?action=finduser&amp;uid=3098" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply9553.html?tid=1753&amp;replyto=10192" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10193" id="pid10193"></a>
+<div class="post classic " id="post_10193">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread7c65.html?tid=1753&amp;pid=10193#pid10193" title="RE: Problem with GetTickCount">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 08:53 PM <span class="post_edit" id="edited_by_10193"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10193">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:12 PM)</span>Virsenas Wrote:  <a href="showthread0717.html?pid=10189#pid10189" class="quick_jump"></a></cite>Do you keep your computer on at all times?</blockquote><br />
+No. I usually use it for my daily tasks and then hang up. literally, overnight this problem appeared and what intrigues me the most is that it only happens on the computer.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10193">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyec34.html?tid=1753&amp;replyto=10193" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10194" id="pid10194"></a>
+<div class="post classic " id="post_10194">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberbd8e.html?action=profile&amp;uid=3486"><span style="color: #3c71af;">Virsenas</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberbd8e.html?action=profile&amp;uid=3486"><img src="uploads/avatars/avatar_34864b2d.html?dateline=1614213911" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">47</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2021</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation8eca.html?uid=3486"><strong class="reputation_positive">6</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread8426.html?tid=1753&amp;pid=10194#pid10194" title="RE: Problem with GetTickCount">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 08:55 PM <span class="post_edit" id="edited_by_10194"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10194">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:53 PM)</span>RhaegarX Wrote:  <a href="showthread7924.html?pid=10193#pid10193" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:12 PM)</span>Virsenas Wrote:  <a href="showthread0717.html?pid=10189#pid10189" class="quick_jump"></a></cite>Do you keep your computer on at all times?</blockquote><br />
+No. I usually use it for my daily tasks and then hang up. literally, overnight this problem appeared and what intrigues me the most is that it only happens on the computer.</blockquote><br />
+Do you get the same results without using timerfix and gmtime?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10194">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchf9ba.html?action=finduser&amp;uid=3486" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyb028.html?tid=1753&amp;replyto=10194" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10195" id="pid10195"></a>
+<div class="post classic " id="post_10195">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread3ff8-2.html?tid=1753&amp;pid=10195#pid10195" title="RE: Problem with GetTickCount">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 08:55 PM <span class="post_edit" id="edited_by_10195"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10195">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:31 PM)</span>Radical Wrote:  <a href="showthreadda22-2.html?pid=10192#pid10192" class="quick_jump"></a></cite>I have no idea about GetTickCount() but you can use gettime() instead.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerCommandReceived</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cmdtext</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">IsPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_INVALID</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;are&nbsp;not&nbsp;connected."</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br />if&nbsp;(</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">])<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_GRAD1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Wait&nbsp;2&nbsp;seconds&nbsp;to&nbsp;retype&nbsp;a&nbsp;command!"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()+</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div></blockquote><br />
+It is an option too, but on other devices with GetTickCount it works perfectly. And since this function returns the time in seconds since the server was turned on, there is a problem with that, as it is returning a negative time. I wanted to understand why this problem arose
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10195">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply3685.html?tid=1753&amp;replyto=10195" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10196" id="pid10196"></a>
+<div class="post classic " id="post_10196">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadca23.html?tid=1753&amp;pid=10196#pid10196" title="RE: Problem with GetTickCount">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 08:57 PM <span class="post_edit" id="edited_by_10196"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10196">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:55 PM)</span>Virsenas Wrote:  <a href="showthread013a-3.html?pid=10194#pid10194" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:53 PM)</span>RhaegarX Wrote:  <a href="showthread7924.html?pid=10193#pid10193" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:12 PM)</span>Virsenas Wrote:  <a href="showthread0717.html?pid=10189#pid10189" class="quick_jump"></a></cite>Do you keep your computer on at all times?</blockquote><br />
+No. I usually use it for my daily tasks and then hang up. literally, overnight this problem appeared and what intrigues me the most is that it only happens on the computer.</blockquote><br />
+Do you get the same results without using timerfix and gmtime?</blockquote><br />
+I haven’t tested by removing these plugins, I’ll test it now and I’ll give you the answer shortly
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10196">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply93d3.html?tid=1753&amp;replyto=10196" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10197" id="pid10197"></a>
+<div class="post classic " id="post_10197">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread92aa.html?tid=1753&amp;pid=10197#pid10197" title="RE: Problem with GetTickCount">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 09:08 PM <span class="post_edit" id="edited_by_10197"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-03-11, 09:14 PM by <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10197">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:55 PM)</span>Virsenas Wrote:  <a href="showthread013a-3.html?pid=10194#pid10194" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:53 PM)</span>RhaegarX Wrote:  <a href="showthread7924.html?pid=10193#pid10193" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:12 PM)</span>Virsenas Wrote:  <a href="showthread0717.html?pid=10189#pid10189" class="quick_jump"></a></cite>Do you keep your computer on at all times?</blockquote><br />
+No. I usually use it for my daily tasks and then hang up. literally, overnight this problem appeared and what intrigues me the most is that it only happens on the computer.</blockquote><br />
+Do you get the same results without using timerfix and gmtime?</blockquote><br />
+I removed the plugins and the problem still persists.<br />
+OnPlayerText also has the same system using GetTickCount and the problem is exactly the same as well.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10197">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplycc1b-2.html?tid=1753&amp;replyto=10197" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10198" id="pid10198"></a>
+<div class="post classic " id="post_10198">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadbddc.html?tid=1753&amp;pid=10198#pid10198" title="RE: Problem with GetTickCount">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 09:31 PM <span class="post_edit" id="edited_by_10198"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10198">
+		I ran the gettickcount, on my computer and notebook at the same time to see what results would be obtained, below is the data:<br />
+<br />
+Computer:<br />
+<img src="https://i.imgur.com/vAZXpD9.png" loading="lazy"  alt="[Image: vAZXpD9.png]" class="mycode_img" /><br />
+<br />
+Notebook:<br />
+<img src="https://i.imgur.com/H4v0Uym.png" loading="lazy"  alt="[Image: H4v0Uym.png]" class="mycode_img" />
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10198">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyc3b4.html?tid=1753&amp;replyto=10198" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10199" id="pid10199"></a>
+<div class="post classic " id="post_10199">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread5685-2.html?tid=1753&amp;pid=10199#pid10199" title="RE: Problem with GetTickCount">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 09:38 PM <span class="post_edit" id="edited_by_10199"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-03-11, 09:42 PM by <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10199">
+		folks I found the following information on the open mp wiki that talks about gettickcount uptime problems.<br />
+<br />
+<img src="https://i.imgur.com/6aNz0a2.png" loading="lazy"  alt="[Image: 6aNz0a2.png]" class="mycode_img" /><br />
+<br />
+This is my computer's uptime<br />
+<img src="https://i.imgur.com/yUFZzGZ.png" loading="lazy"  alt="[Image: yUFZzGZ.png]" class="mycode_img" /><br />
+<br />
+EDIT: I tested the include indicated on the wiki and it didn't work.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10199">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyc913.html?tid=1753&amp;replyto=10199" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10200" id="pid10200"></a>
+<div class="post classic " id="post_10200">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread5850.html?tid=1753&amp;pid=10200#pid10200" title="RE: Problem with GetTickCount">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 09:57 PM <span class="post_edit" id="edited_by_10200"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10200">
+		I found the source of the problem, the GetTickCount () actually has problems with long periods of the connected server.  I searched on some forums and windows 10 has a fastboot system that keeps some data saved in memory, such as uptime even after the computer is turned off.  the computer is only actually "turned off" when you restart it.  when restarting my computer my uptime reset and the function started working again.  So, I think it's really better to use gettime (), rather than GetTickCount () to avoid problems.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10200">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply825f.html?tid=1753&amp;replyto=10200" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10201" id="pid10201"></a>
+<div class="post classic " id="post_10201">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberbd8e.html?action=profile&amp;uid=3486"><span style="color: #3c71af;">Virsenas</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberbd8e.html?action=profile&amp;uid=3486"><img src="uploads/avatars/avatar_34864b2d.html?dateline=1614213911" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">47</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2021</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation8eca.html?uid=3486"><strong class="reputation_positive">6</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadd7f6.html?tid=1753&amp;pid=10201#pid10201" title="RE: Problem with GetTickCount">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 10:02 PM <span class="post_edit" id="edited_by_10201"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10201">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-11, 09:38 PM)</span>RhaegarX Wrote:  <a href="showthreadfbb1.html?pid=10199#pid10199" class="quick_jump"></a></cite>folks I found the following information on the open mp wiki that talks about gettickcount uptime problems.<br />
+<br />
+<img src="https://i.imgur.com/6aNz0a2.png" loading="lazy"  alt="[Image: 6aNz0a2.png]" class="mycode_img" /><br />
+<br />
+This is my computer's uptime<br />
+<img src="https://i.imgur.com/yUFZzGZ.png" loading="lazy"  alt="[Image: yUFZzGZ.png]" class="mycode_img" /><br />
+<br />
+EDIT: I tested the include indicated on the wiki and it didn't work.</blockquote><br />
+I thought I asked if you shut down your computer regularly.<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Do you keep your computer on at all times?</blockquote>
+<br />
+I guess I didn't.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10201">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchf9ba.html?action=finduser&amp;uid=3486" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply6787.html?tid=1753&amp;replyto=10201" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10202" id="pid10202"></a>
+<div class="post classic " id="post_10202">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadc5b5.html?tid=1753&amp;pid=10202#pid10202" title="RE: Problem with GetTickCount">#13</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 10:06 PM <span class="post_edit" id="edited_by_10202"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-03-11, 10:08 PM by <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10202">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-11, 10:02 PM)</span>Virsenas Wrote:  <a href="showthread6cfe.html?pid=10201#pid10201" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 09:38 PM)</span>RhaegarX Wrote:  <a href="showthreadfbb1.html?pid=10199#pid10199" class="quick_jump"></a></cite>folks I found the following information on the open mp wiki that talks about gettickcount uptime problems.<br />
+<br />
+<img src="https://i.imgur.com/6aNz0a2.png" loading="lazy"  alt="[Image: 6aNz0a2.png]" class="mycode_img" /><br />
+<br />
+This is my computer's uptime<br />
+<img src="https://i.imgur.com/yUFZzGZ.png" loading="lazy"  alt="[Image: yUFZzGZ.png]" class="mycode_img" /><br />
+<br />
+EDIT: I tested the include indicated on the wiki and it didn't work.</blockquote><br />
+I thought I asked if you shut down your computer regularly.<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Do you keep your computer on at all times?</blockquote>
+<br />
+I guess I didn't.</blockquote><br />
+I turn off the computer during the night, but I keep it connected to power, as there is no use.  But this windows fastboot system does not reset the computer uptime even when it is turned off (I believe that if you remove the computer from the power outlet it will reset)<br />
+<br />
+https://social.technet.microsoft.com/Forums/windows/en-US/3a6a2ed8-c6e2-4941-a31c-f1ca5b2a450c/why-shutdown-doesnt-reset-the-quotup-timequot-counter?forum=win10itprogeneral
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10202">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplya82d.html?tid=1753&amp;replyto=10202" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10205" id="pid10205"></a>
+<div class="post classic " id="post_10205">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread8a11.html?tid=1753&amp;pid=10205#pid10205" title="RE: Problem with GetTickCount">#14</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-11, 11:18 PM <span class="post_edit" id="edited_by_10205"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10205">
+		The wiki is sort of correct, but the solution is very very wrong.  You just need to use a subtraction.<br />
+<br />
+While the code might look like this before:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if (newTime &lt; oldTime + 2000)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// Flooding.<br />
+}</code></div></div><br />
+The solution is amazingly simple - just rearrange the formula<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if (newTime - oldTime &lt; 2000)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// Flooding.<br />
+}</code></div></div><br />
+That will totally account for all wrap-around and negative numbers (I'm not going to prove it mathematically here though).
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10205">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyae7e.html?tid=1753&amp;replyto=10205" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10207" id="pid10207"></a>
+<div class="post classic " id="post_10207">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6420.html?action=profile&amp;uid=2931"><span style="color: #3c71af;">RhaegarX</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6420.html?action=profile&amp;uid=2931"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">66</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">12</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0efd.html?uid=2931"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread839b.html?tid=1753&amp;pid=10207#pid10207" title="RE: Problem with GetTickCount">#15</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-12, 01:17 AM <span class="post_edit" id="edited_by_10207"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10207">
+		Thank you all for your help!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10207">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbbf9.html?action=finduser&amp;uid=2931" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply178f.html?tid=1753&amp;replyto=10207" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10210" id="pid10210"></a>
+<div class="post classic " id="post_10210">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member8633.html?action=profile&amp;uid=42"><span style="color: #3c71af;">Pinch</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member8633.html?action=profile&amp;uid=42"><img src="uploads/avatars/avatar_42f0ee.html?dateline=1622914585" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">391</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">19</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation5f34.html?uid=42"><strong class="reputation_positive">22</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Belgrade, Serbia</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadb9ce.html?tid=1753&amp;pid=10210#pid10210" title="RE: Problem with GetTickCount">#16</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-12, 11:51 AM <span class="post_edit" id="edited_by_10210"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-03-12, 11:52 AM by <a href="member8633.html?action=profile&amp;uid=42">Pinch</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10210">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-12, 01:17 AM)</span>RhaegarX Wrote:  <a href="showthread1e70.html?pid=10207#pid10207" class="quick_jump"></a></cite>Thank you all for your help!</blockquote>You can (and should) use <span style="font-weight: bold;" class="mycode_b">tickcount()</span> as it's same as <span style="font-weight: bold;" class="mycode_b">GetTickCount()</span> except it's the time since THE SERVER is running, not THE COMPUTER.<br />
+<br />
+https://open.mp/docs/scripting/functions/Tickcount
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b">Using Pawn.CMD?</span><br />
+If you're doing so, this is the very first sign that you absolutely shouldn't utilize your all powerful P-Code knowledge in any of the scripting discussion topics.</div> 
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_10210">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://cluckin-bell.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searchb6de.html?action=finduser&amp;uid=42" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply083f.html?tid=1753&amp;replyto=10210" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10220" id="pid10220"></a>
+<div class="post classic " id="post_10220">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member0a9c.html?action=profile&amp;uid=687"><span style="color: #3c71af;">rasheed</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member0a9c.html?action=profile&amp;uid=687"><img src="uploads/avatars/avatar_6871f2e.html?dateline=1556469763" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">11</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">1</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationce5a.html?uid=687"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread7b50.html?tid=1753&amp;pid=10220#pid10220" title="RE: Problem with GetTickCount">#17</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-13, 08:40 AM <span class="post_edit" id="edited_by_10220"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10220">
+		You can also use this: https://github.com/ScavengeSurvive/tick-difference
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10220">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchf143.html?action=finduser&amp;uid=687" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyb9bc.html?tid=1753&amp;replyto=10220" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10223" id="pid10223"></a>
+<div class="post classic " id="post_10223">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread90f1.html?tid=1753&amp;pid=10223#pid10223" title="RE: Problem with GetTickCount">#18</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-13, 02:25 PM <span class="post_edit" id="edited_by_10223"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10223">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-12, 11:51 AM)</span>Pinch Wrote:  <a href="showthreadf826.html?pid=10210#pid10210" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-12, 01:17 AM)</span>RhaegarX Wrote:  <a href="showthread1e70.html?pid=10207#pid10207" class="quick_jump"></a></cite>Thank you all for your help!</blockquote>You can (and should) use <span style="font-weight: bold;" class="mycode_b">tickcount()</span> as it's same as <span style="font-weight: bold;" class="mycode_b">GetTickCount()</span> except it's the time since THE SERVER is running, not THE COMPUTER.<br />
+<br />
+https://open.mp/docs/scripting/functions/Tickcount</blockquote><br />
+It makes no difference if you use the correct code (i.e. the code I posted).<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-13, 08:40 AM)</span>rasheed Wrote:  <a href="showthread70b7-2.html?pid=10220#pid10220" class="quick_jump"></a></cite>You can also use this: https://github.com/ScavengeSurvive/tick-difference</blockquote><br />
+No, you shouldn't.  It makes the same mistake as I mentioned earlier.  Well, not quite mistake - the result is eventually correct, but in an extremely round-about manner.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10223">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply0576.html?tid=1753&amp;replyto=10223" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10224" id="pid10224"></a>
+<div class="post classic " id="post_10224">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member8633.html?action=profile&amp;uid=42"><span style="color: #3c71af;">Pinch</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member8633.html?action=profile&amp;uid=42"><img src="uploads/avatars/avatar_42f0ee.html?dateline=1622914585" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">391</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">19</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation5f34.html?uid=42"><strong class="reputation_positive">22</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Belgrade, Serbia</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread5283.html?tid=1753&amp;pid=10224#pid10224" title="RE: Problem with GetTickCount">#19</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-13, 03:02 PM <span class="post_edit" id="edited_by_10224"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2021-03-13, 03:03 PM by <a href="member8633.html?action=profile&amp;uid=42">Pinch</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10224">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-13, 02:25 PM)</span>Y_Less Wrote:  <a href="showthread9d59-2.html?pid=10223#pid10223" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-12, 11:51 AM)</span>Pinch Wrote:  <a href="showthreadf826.html?pid=10210#pid10210" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-12, 01:17 AM)</span>RhaegarX Wrote:  <a href="showthread1e70.html?pid=10207#pid10207" class="quick_jump"></a></cite>Thank you all for your help!</blockquote>You can (and should) use <span style="font-weight: bold;" class="mycode_b">tickcount()</span> as it's same as <span style="font-weight: bold;" class="mycode_b">GetTickCount()</span> except it's the time since THE SERVER is running, not THE COMPUTER.<br />
+<br />
+https://open.mp/docs/scripting/functions/Tickcount</blockquote><br />
+It makes no difference if you use the correct code (i.e. the code I posted).</blockquote><br />
+Bench it.<br />
+<br />
+Ik it has no difference tho (the formula)
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b">Using Pawn.CMD?</span><br />
+If you're doing so, this is the very first sign that you absolutely shouldn't utilize your all powerful P-Code knowledge in any of the scripting discussion topics.</div> 
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_10224">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://cluckin-bell.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searchb6de.html?action=finduser&amp;uid=42" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplye211.html?tid=1753&amp;replyto=10224" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10226" id="pid10226"></a>
+<div class="post classic " id="post_10226">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread0fa7.html?tid=1753&amp;pid=10226#pid10226" title="RE: Problem with GetTickCount">#20</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-13, 05:36 PM <span class="post_edit" id="edited_by_10226"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10226">
+		Yeah I'm not talking about performance, nor do I care about the performance of a single simple native - and neither should you.  Whatever your code, that won't be the bottleneck and you should spend your time improving something else.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10226">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyd899.html?tid=1753&amp;replyto=10226" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10227" id="pid10227"></a>
+<div class="post classic " id="post_10227">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberbd8e.html?action=profile&amp;uid=3486"><span style="color: #3c71af;">Virsenas</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberbd8e.html?action=profile&amp;uid=3486"><img src="uploads/avatars/avatar_34864b2d.html?dateline=1614213911" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">47</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2021</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation8eca.html?uid=3486"><strong class="reputation_positive">6</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreaddb65.html?tid=1753&amp;pid=10227#pid10227" title="RE: Problem with GetTickCount">#21</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-13, 05:46 PM <span class="post_edit" id="edited_by_10227"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10227">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-13, 05:36 PM)</span>Y_Less Wrote:  <a href="showthread8515.html?pid=10226#pid10226" class="quick_jump"></a></cite>Yeah I'm not talking about performance, nor do I care about the performance of a single simple native - and neither should you.  Whatever your code, that won't be the bottleneck and you should spend your time improving something else.</blockquote><br />
+Agreed. Should never over do things with optimizations, become obsessed with it and pay attention to even smallest things. That is exactly how relationships are ruined ...
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_10227">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchf9ba.html?action=finduser&amp;uid=3486" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply1038.html?tid=1753&amp;replyto=10227" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid10229" id="pid10229"></a>
+<div class="post classic " id="post_10229">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member8633.html?action=profile&amp;uid=42"><span style="color: #3c71af;">Pinch</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member8633.html?action=profile&amp;uid=42"><img src="uploads/avatars/avatar_42f0ee.html?dateline=1622914585" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">391</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">19</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation5f34.html?uid=42"><strong class="reputation_positive">22</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Belgrade, Serbia</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadf632.html?tid=1753&amp;pid=10229#pid10229" title="RE: Problem with GetTickCount">#22</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-03-13, 06:22 PM <span class="post_edit" id="edited_by_10229"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_10229">
+		<blockquote class="mycode_quote"><cite><span> (2021-03-13, 05:36 PM)</span>Y_Less Wrote:  <a href="showthread8515.html?pid=10226#pid10226" class="quick_jump"></a></cite>Yeah I'm not talking about performance, nor do I care about the performance of a single simple native - and neither should you.  Whatever your code, that won't be the bottleneck and you should spend your time improving something else.</blockquote>Nawh I was just interested, didn't say it means a lot :D
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b">Using Pawn.CMD?</span><br />
+If you're doing so, this is the very first sign that you absolutely shouldn't utilize your all powerful P-Code knowledge in any of the scripting discussion topics.</div> 
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_10229">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://cluckin-bell.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searchb6de.html?action=finduser&amp;uid=42" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplybd92.html?tid=1753&amp;replyto=10229" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit -->
+	</div>
+</td></tr>
+		<tr>
+			<td class="tfoot">
+				<!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://www.burgershot.gg/search.php" method="post">
+			<input type="hidden" name="action" value="thread" />
+			<input type="hidden" name="tid" value="1753" />
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == 'Enter Keywords') { this.value = ''; }" onblur="if(this.value=='') { this.value='Enter Keywords'; }" class="textbox" size="25" />
+			<input type="submit" class="button" value="Search Thread" />
+		</form>
+	</div>
+<!-- end: showthread_search -->
+				<div style="padding:10px">
+					<strong>&laquo; <a href="showthread7033.html?tid=1753&amp;action=nextoldest">Next Oldest</a> | <a href="showthreadec35.html?tid=1753&amp;action=nextnewest">Next Newest</a> &raquo;</strong><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="float_left"><br>
+		
+	</div>
+	<br class="clear" />
+	
+	
+	
+	<br />
+	<div class="float_left">
+		<ul class="thread_tools">
+			<li class="printable"><a href="printthread1ba9.html?tid=1753">View a Printable Version</a></li>
+			
+			<li class="subscription_add"><a href="usercp29ce.html?action=addsubscription&amp;tid=1753&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e">Subscribe to this thread</a></li>
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://www.burgershot.gg/forumdisplay.php" method="get">
+<span class="smalltext"><strong>Forum Jump:</strong></span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="19" > General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20" >-- Chat</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21" >-- Tech</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22" >-- Life</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="48" >-- Art</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56" >-- Programming</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40" > open.mp</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="43" >-- Development Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="42" >-- Questions and Suggestions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="3" > SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6" >-- General Discussions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9" >-- Videos and Screenshots</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12" selected="selected">-- Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="10" >-- Pawn Scripting</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="37" >-- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13" >-- Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32" >---- Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31" >---- Libraries</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30" >---- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33" >---- Gamemodes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="67" >---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="69" >-- Advertisements </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23" > Other languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="24" >-- Spanish/Español</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="51" >---- Programación</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="52" >---- Discusión GTA SA Multijugador</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="53" >---- Mods</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="54" >---- Offtopic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="55" >---- Juegos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="25" >-- Portuguese/Português</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="26" >-- Russian/Русский</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="28" >-- Italian/Italiano</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29" >-- Dutch/Nederlands</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34" >-- German/Deutsch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="35" >-- Romanian/Română</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="36" >-- Ex-Yu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="38" >-- Polish/Polski</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="44" >---- Ogólne</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="45" >---- Serwery</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="46" >---- Skryptowanie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="47" >---- Filmiki i zdjęcia</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="39" >-- Lithuanian/Lietuviškas</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="49" >-- French/Français</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="50" >-- Hungarian/Magyar</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="57" >-- Hindi/Urdu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="68" >-- Turkish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="27" >-- Other</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear" />
+	<!-- start: footer -->
+    </div>
+</div>
+<footer class="footer-distributed">
+	<div class="footer-left">
+		<p style="" class="footer-links">
+			© Burgershot - Powered by our <a href="index.html" style="font-weight: bold; font-family: Noto Sans;">Community</a> and <a style="font-weight: bold; font-family: Noto Sans;" href="https://www.mybb.com/"> MyBB</a>
+            <span style="display:block;color: #9f9f9f;font-family: Noto Sans;"><small style="font-size: 12px;">Original Theme by Emerald</small></span>                                     
+	    </p>
+	</div>
+    <div style="" class="footer-right">
+        <div class="footer-icons">
+		</div>
+                
+		<!-- start: footer_themeselect -->
+<div class="theme">
+<form method="POST" action="https://www.burgershot.gg/showthread.php" id="theme_select">
+	<input type="hidden" name="tid" value="1753" />
+<input type="hidden" name="pid" value="10201" />
+
+	<input type="hidden" name="my_post_key" value="6428f000919b5d9a18f82d476f6b077e" />
+	<!-- start: footer_themeselector -->
+<select name="theme" onchange="MyBB.changeTheme();">
+<optgroup label="Quick Theme Select">
+<!-- start: usercp_themeselector_option -->
+<option value="2">MyBB Default Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="3">Burgershot Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="9">--Light</option>
+<!-- end: usercp_themeselector_option -->
+</optgroup>
+</select>
+<!-- end: footer_themeselector -->
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_themeselect -->
+	</div>
+</footer>
+<script>
+	if (connected == 0) { 
+        jQuery("#mobile_member").html("<a href='member456e.html?action=login'>Login</a> - <a href='member0ddc.html?action=register'>Register</a>"); 
+    }
+	if (connected == 1) { 
+        document.getElementById("mobile_member").innerHTML = '<a title="Inbox" href="private.html">Inbox</a> - <a title="User CP" href="usercp.html">User CP</a> - <a title="Log Out" href="member2385.html?action=logout&amp;logoutkey=">Logout</a>'; 
+    }
+</script>
+<!-- end: footer -->
+	<div id="thread_modes_popup" class="popup_menu" style="display: none;"><div class="popup_item_container"><a href="showthread455c-2.html?mode=linear&amp;tid=1753&amp;pid=10201#pid10201" class="popup_item">Linear Mode</a></div><div class="popup_item_container"><a href="showthread7dc0-2.html?mode=threaded&amp;tid=1753&amp;pid=10201#pid10201" class="popup_item">Threaded Mode</a></div></div>
+	<script type="text/javascript">
+	// <!--
+		if(use_xmlhttprequest == "1")
+		{
+			$("#thread_modes").popupMenu();
+		}
+	// -->
+	</script>
+	<script type="text/javascript">
+		$(".author_avatar img").error(function () {
+			$(this).unbind("error").closest('.author_avatar').remove();
+		});
+	</script>
+</body>
+</html>
+<!-- end: showthread -->

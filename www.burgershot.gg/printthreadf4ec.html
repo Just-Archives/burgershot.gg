@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Compile stack size - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadf4ec.html?tid=1779">Compile stack size</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Compile stack size (<em>/showthread.php?tid=1779</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Compile stack size</strong> - <a href="memberc9eb.html?action=profile&amp;uid=3455">Paulthas01</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+I would like to understand what that means, it is appearing outside the -d3 compilation parameters.<br />
+<br />
+As far as I know, it shouldn't happen.<br />
+<br />
+Pawn compiler 3.10.10              Copyright &copy; 1997-2006, ITB CompuPhase<br />
+<br />
+Header size:          58400 bytes<br />
+Code size:          5920252 bytes<br />
+Data size:         25992156 bytes<br />
+Stack/heap size:      16384 bytes; estimated max. usage=130285 cells (521140 bytes)<br />
+Total requirements:31987192 bytes<br />
+<br />
+[Finished in 7.2s]<br />
+<br />
+In my gamemode, I use a lot of 2d / 3d arrays, the size of the .amx is 26MB.<br />
+<br />
+Does this affect server performance? Causes shutdown?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+Did you revert to an older YSI version and see what happens when you compile?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberc9eb.html?action=profile&amp;uid=3455">Paulthas01</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+It compiles normal, the problem is not the YSI version, but the stack of my gamemode that looks like I am using more cells than it was to use.<br />
+<br />
+My question is to understand what it means what I wrote in the topic, stack size
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-17, 11:39 AM)</span>Paulthas01 Wrote:  <a href="showthread8a90.html?pid=10294#pid10294" class="quick_jump"></a></cite>This happened after I put the updated YSI from Y_Less.</blockquote><br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-17, 01:11 PM)</span>Paulthas01 Wrote:  <a href="showthreada72f.html?pid=10296#pid10296" class="quick_jump"></a></cite>It compiles normal, the problem is not the YSI version</blockquote><br />
+Then why did you mention YSI assuming it was the problem when it had nothing to do with your problem ...?<br />
+<br />
+26MB for an .amx file is not normal. And you already said yourself what is the problem. Your arrays.<br />
+<br />
+And when you expect people to help you, you need to show something with which they can work with (in this situation is code). Can someone fix a car without having a look at it? We are not magicians or mind readers and can not get inside your head and see the code you see. At least show one of the bigger arrays and tell how you want to use them.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberc9eb.html?action=profile&amp;uid=3455">Paulthas01</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+I agree that the problem is my matrices, I only mentioned YSI because before updating it, when compiling without the -d3 parameter it did not show the stack size information.<br />
+<br />
+My doubt is what this means:<br />
+<br />
+Pawn compiler 3.10.10 Copyright © 1997-2006, ITB CompuPhase<br />
+<br />
+Header size: 58400 bytes<br />
+Code size: 5920252 bytes<br />
+Data size: 25992156 bytes<br />
+Stack / heap size: 16384 bytes; estimated max. usage = 130285 cells (521140 bytes)<br />
+Total requirements: 31987192 bytes<br />
+<br />
+[Finished in 7.2s]
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+https://letmegooglethat.com/?q=pawno+compiler+parameters
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberc9eb.html?action=profile&amp;uid=3455">Paulthas01</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+Does this current stack size cause gamemode to shutdown or crash?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-17, 01:32 PM)</span>Paulthas01 Wrote:  <a href="showthread80ef.html?pid=10298#pid10298" class="quick_jump"></a></cite>when compiling without the -d3 parameter it did not show the stack size information.</blockquote><br />
+Or, to put it another way:<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>when I enable more information I get more information</blockquote>
+<br />
+You are seeing this message because you explicitly asked for this message by enabling `-d3`.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberc9eb.html?action=profile&amp;uid=3455">Paulthas01</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+I am seeing the message even without enabling the -d3 parameter.<br />
+<br />
+I would like to understand what this message means exactly because I still don't know 100% and how I can solve it.<br />
+<br />
+The size of my .amx is 26MB so I find it very strange
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="member0a2a.html?action=profile&amp;uid=2542">arber</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+the message is showing you header, code, data stack/heap size thats what it means and 26mb isnt strange if your gamemode is 26mb
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberc9eb.html?action=profile&amp;uid=3455">Paulthas01</a> -  <strong>2021-03-17</strong>
+<br />
+<br />
+It is this size because I use a lot of 2D / 3D arrays, my question is not why it is this size.<br />
+<br />
+My question is what does the message that actually appears mean?<br />
+<br />
+- Is there something wrong with the game mode?<br />
+- Am I using more cells than allowed?<br />
+- Does this cause some kind of server crash or shutdown?<br />
+<br />
+Those are my doubts<br />
+<br />
+NOTE: This message appears even without enabling the -d3 parameter at the time of compilation.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-18</strong>
+<br />
+<br />
+No, the message is a message.  It is information.  A message can't cause your mode to crash.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberc9eb.html?action=profile&amp;uid=3455">Paulthas01</a> -  <strong>2021-03-18</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-18, 05:24 PM)</span>Y_Less Wrote:  <a href="showthread811c.html?pid=10321#pid10321" class="quick_jump"></a></cite>No, the message is a message.  It is information.  A message can't cause your mode to crash.</blockquote><br />
+As I understand it, Y_Less, I'm using more memory than I should...<br />
+I'm is what I'm asking if it causes any crashes.<br />
+<br />
+If I got it wrong, could you explain it to me?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-18</strong>
+<br />
+<br />
+The problem is probably loads of local arrays.  But again, this message isn't a warning, it's just a report.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile stack size</strong> - <a href="memberc9eb.html?action=profile&amp;uid=3455">Paulthas01</a> -  <strong>2021-03-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-18, 08:57 PM)</span>Y_Less Wrote:  <a href="showthreada7d6.html?pid=10327#pid10327" class="quick_jump"></a></cite>The problem is probably loads of local arrays.  But again, this message isn't a warning, it's just a report.</blockquote><br />
+Can this cause any future problems?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Map Dynamic Object Invisible Problem - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread947a.html?tid=2005">Map Dynamic Object Invisible Problem</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Map Dynamic Object Invisible Problem (<em>/showthread.php?tid=2005</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Map Dynamic Object Invisible Problem</strong> - <a href="membereddb.html?action=profile&amp;uid=2066">LinesinRows</a> -  <strong>2021-05-10</strong>
+<br />
+<br />
+Hello,<br />
+ When I created dynamic object for map (In filter-script), some objects doesn't seem for player. What's the problem in this case?<br />
+  Thanks in advance.<br />
+<br />
+Some code in map;<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">tmpobjid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">CreateDynamicObject</span><span style="color: #007700">(</span><span style="color: #0000BB">19450</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">164.765304</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1937.607055</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">530.600891</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.000000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.000000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">90.000000</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">300.00</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">300.00</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SetDynamicObjectMaterial</span><span style="color: #007700">(</span><span style="color: #0000BB">tmpobjid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">18646</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"matcolours"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"grey-70-percent"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0x00000000</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Problem img;<br />
+https://ibb.co/y04czJT
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Map Dynamic Object Invisible Problem</strong> - <a href="membereddb.html?action=profile&amp;uid=2066">LinesinRows</a> -  <strong>2021-05-10</strong>
+<br />
+<br />
+Problem solved<br />
+In OnGameModeInit() -&gt; add<br />
+// For disappear obj<br />
+Streamer_SetVisibleItems(STREAMER_TYPE_OBJECT, 995);
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

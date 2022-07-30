@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Help!Restrict player chat - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread31e8.html?tid=2181">Help!Restrict player chat</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Help!Restrict player chat (<em>/showthread.php?tid=2181</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help!Restrict player chat</strong> - <a href="membera5d5.html?action=profile&amp;uid=3974">Jian_han</a> -  <strong>2021-07-18</strong>
+<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">such as</span></span></span><br />
+Players are forbidden to send a message containing fu’k<br />
+Not sent fuck, but included ‘f’ck‘. I will thank you very much,<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">I am noob,pls Please give me a complete document </span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">I very need it!!!! </span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">thank you</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help!Restrict player chat</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-07-18</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Insults[][] = {<br />
+    {"Word"},<br />
+    {"Word"},<br />
+    {"Word"}<br />
+}<br />
+<br />
+IsTextContainsInsults(const text[]) {<br />
+    for(new i; i &lt; sizeof Insults; i++)<br />
+        if(strfind(text, Insults[i], true) != -1) return 1;<br />
+<br />
+    return 0;<br />
+}<br />
+<br />
+public OnPlayerText(playerid, text[]) {<br />
+<br />
+    if(IsTextContainsInsults(text)) {<br />
+        SendClientMessage(playerid, -1, "Your text has been blocked due to contains insults.");<br />
+    return 0;<br />
+    }<br />
+<br />
+    return 1;<br />
+}</code></div></div><br />
+This is a simple example of blocking words. <br />
+You have to block those words yourself.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help!Restrict player chat</strong> - <a href="membera5d5.html?action=profile&amp;uid=3974">Jian_han</a> -  <strong>2021-07-18</strong>
+<br />
+<br />
+thank
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

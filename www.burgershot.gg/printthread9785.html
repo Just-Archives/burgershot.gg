@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn QUESTION about MYSQL - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread9785.html?tid=2099">QUESTION about MYSQL</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> QUESTION about MYSQL (<em>/showthread.php?tid=2099</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>QUESTION about MYSQL</strong> - <a href="member97d3.html?action=profile&amp;uid=3745">redex</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+hi , i was wonder which one is better to use for getting player data from database when he logged-in , i have about +4k user in my data base and i have to select user from this amount of users , currently i use something like this :<br />
+<br />
+pInfo[playerid][score] = mysql_get ...<br />
+pInfo[playerid][skinid] = mysql_get ...<br />
+pInfo[playerid][money] = mysql_get ...<br />
+<br />
+i mean i have 1 query per item! and i think this will make server LAG , should i get all items in a SELECT * query and then put them in variables? does it make any diffrent to avoid lag ? sorry i know my english is AWFUL but i guess i made my point!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: QUESTION about MYSQL</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+One query for per item makes lag.<br />
+Get all in one query.<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-05, 11:35 AM)</span>redex Wrote:  <a href="showthreaddf04.html?pid=11403#pid11403" class="quick_jump"></a></cite>does it make any diffrent to avoid lag?</blockquote>Yes.<br />
+<br />
+Also upgrade to the latest version of <a href="https://github.com/pBlueG/SA-MP-MySQL/releases/tag/R41-4" target="_blank" rel="noopener" class="mycode_url">MySQL (r41-4)</a> if you are still using the older version.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: QUESTION about MYSQL</strong> - <a href="member97d3.html?action=profile&amp;uid=3745">redex</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-05, 12:39 PM)</span>Radical Wrote:  <a href="showthreadfeed.html?pid=11404#pid11404" class="quick_jump"></a></cite>One query for per item makes lag.<br />
+Get all in one query.</blockquote><br />
+and if i am not wrong its just related to select right? i mean only select have cache i dont use cache in others (like insert, delete or ...) so on that cases it will not make such a lag right? i mean its a little bit to hard to save the account in one query, i do the saving on player disconnect and all his stats will save there and there are a lot items that need to be saved, so its hard to put them all in one single query
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

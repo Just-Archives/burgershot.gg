@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn I cannot find the erorr here! - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadfd8d.html?tid=2197">I cannot find the erorr here!</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> I cannot find the erorr here! (<em>/showthread.php?tid=2197</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>I cannot find the erorr here!</strong> - <a href="memberc4ba.html?action=profile&amp;uid=4011">Scylla</a> -  <strong>2021-07-30</strong>
+<br />
+<br />
+I have been getting this error and I don't know where this is happening. This error was really long time ago so I stopped coding. Now I want to continue it, and still I'm getting this error and it sucks.<br />
+Error:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>&#92;CF.pwn(125) : error 010: invalid function or declaration<br />
+&#92;CF.pwn(483) : error 017: undefined symbol "DIALOG_LOGIN"<br />
+&#92;CF.pwn(487) : error 017: undefined symbol "DIALOG_REGISTER"<br />
+&#92;CF.pwn(1105) : error 017: undefined symbol "DIALOG_REGISTER"<br />
+&#92;CF.pwn(1110) : error 017: undefined symbol "DIALOG_REGISTER"<br />
+&#92;CF.pwn(1126) : error 017: undefined symbol "DIALOG_LOGIN"<br />
+&#92;CF.pwn(1138) : error 017: undefined symbol "DIALOG_LOGIN"<br />
+Pawn compiler 3.2.3664 Copyright (c) 1997-2006, ITB CompuPhase<br />
+7 Errors.</code></div></div><br />
+Line 125 - 129:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>enum<br />
+{<br />
+       DIALOG_REGISTER = 0,<br />
+       DIALOG_LOGIN,<br />
+};</code></div></div><br />
+Line 483:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>ShowPlayerDialogEx(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{FFFF00}Login to proceed", "{FFFFFF}This account is registered... Please login to continue with your account.", "Enter", "Close");</code></div></div><br />
+My includes:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &nbsp;&nbsp;&nbsp;&nbsp;"a_samp"<br />
+#include &nbsp;&nbsp;&nbsp;&nbsp;"YSI&#92;y_ini"<br />
+#include &nbsp;&nbsp;&nbsp;&nbsp;"YSI&#92;y_timers"<br />
+#include&nbsp;&nbsp;&nbsp;&nbsp;"sscanf2"<br />
+#include&nbsp;&nbsp; "progress"<br />
+#include&nbsp;&nbsp; "zcmd"<br />
+#include&nbsp;&nbsp;"mSelection"<br />
+#include&nbsp;&nbsp;"weapon-config"<br />
+#include&nbsp;&nbsp;"streamer"<br />
+#include&nbsp;&nbsp;"foreach"</code></div></div><br />
+Please help!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: I cannot find the erorr here!</strong> - <a href="member036a.html?action=profile&amp;uid=695">Banditul</a> -  <strong>2021-07-30</strong>
+<br />
+<br />
+Delete the comma , after DIALOG_LOGIN in enum<br />
+<br />
+Edit: Last value in enum doesn't need a comma
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: I cannot find the erorr here!</strong> - <a href="memberc4ba.html?action=profile&amp;uid=4011">Scylla</a> -  <strong>2021-07-30</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-30, 09:23 AM)</span>Banditul Wrote:  <a href="showthread36ba.html?pid=11765#pid11765" class="quick_jump"></a></cite>Delete the comma , after DIALOG_LOGIN in enum</blockquote><br />
+I tried, still give the same error. Y_Less said it has to do something before the line. And I cant really find it. Here is my code before line 125 - 129.<br />
+<a href="https://pastebin.com/G7p3ZTfM" target="_blank" rel="noopener" class="mycode_url">https://pastebin.com/G7p3ZTfM</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: I cannot find the erorr here!</strong> - <a href="memberc4ba.html?action=profile&amp;uid=4011">Scylla</a> -  <strong>2021-07-30</strong>
+<br />
+<br />
+I fixed it guys turns out there was some invalid words on line 12. Thanks. Im stupid.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

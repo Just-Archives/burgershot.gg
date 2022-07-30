@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server sampctl crashes - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread7690.html?tid=619">sampctl crashes</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> sampctl crashes (<em>/showthread.php?tid=619</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>sampctl crashes</strong> - <a href="member2767.html?action=profile&amp;uid=89">6cadilab9</a> -  <strong>2019-05-31</strong>
+<br />
+<br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font"><span style="color: #ff33cc;" class="mycode_color">Type:</span> Server</span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font"><span style="color: #ff33cc;" class="mycode_color">Operating System:</span> Ubuntu 16.04 desktop</span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font"><span style="color: #ff33cc;" class="mycode_color">Server Version:</span> 0.3.7</span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font"><span style="color: #ff33cc;" class="mycode_color">Plugins Installed:</span> Yes</span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font"><span style="color: #ff33cc;" class="mycode_color">Plugins (If above is yes): <a href="https://hastebin.com/vaqapukoju.json" target="_blank" rel="noopener" class="mycode_url"><a href="https://pastebin.com/jrJL1Z2V" target="_blank" rel="noopener" class="mycode_url">https://pastebin.com/jrJL1Z2V</a></a></span></span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font"><span style="color: #ff33cc;" class="mycode_color">YSI Included:</span> Yes 3.1</span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font"><span style="color: #ff33cc;" class="mycode_color">Output (Logs): <a href="https://hastebin.com/oyeciturik.nginx" target="_blank" rel="noopener" class="mycode_url"><a href="https://pastebin.com/Tnex5cwd" target="_blank" rel="noopener" class="mycode_url">https://pastebin.com/Tnex5cwd</a></a></span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl crashes</strong> - <a href="member2767.html?action=profile&amp;uid=89">6cadilab9</a> -  <strong>2019-05-31</strong>
+<br />
+<br />
+Sorry for the non working hastebin, updated now.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl crashes</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-31</strong>
+<br />
+<br />
+It's possibly an issue with either the streamer or map andreas plugin. I also noticed you use the timerfix plugin, but your logs don't show it meaning loaded?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl crashes</strong> - <a href="member2767.html?action=profile&amp;uid=89">6cadilab9</a> -  <strong>2019-05-31</strong>
+<br />
+<br />
+Yeah, got it working after uninstalling <br />
+<br />
+https://github.com/udan11/samp-plugin-timerfix<br />
+<br />
+Not sure why but that plugin doesn't load and I'm not getting any errors while installing it
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl crashes</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-31</strong>
+<br />
+<br />
+I'll take a look at it tomorrow ,and see if I can get it to work
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl crashes</strong> - <a href="member2767.html?action=profile&amp;uid=89">6cadilab9</a> -  <strong>2019-06-03</strong>
+<br />
+<br />
+Have you tried it, or is there a way i could include a legacy plugin without using it as a sampctl dependency?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl crashes</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-06-04</strong>
+<br />
+<br />
+Take a look at this one: https://github.com/ziggi/samp-plugin-timerfix
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sampctl crashes</strong> - <a href="member2767.html?action=profile&amp;uid=89">6cadilab9</a> -  <strong>2019-06-05</strong>
+<br />
+<br />
+I couldn't find that one, but it does the job, thanks!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Problem with GetTickCount - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread1ba9.html?tid=1753">Problem with GetTickCount</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Problem with GetTickCount (<em>/showthread.php?tid=1753</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+I made an anti flood command script for my gamemode, in which the player can only type commands every 2 seconds. Everything worked fine, until yesterday I realized that this script had bugged, any command typed by the player regardless of the time between them is classified as spam.<br />
+<br />
+<img src="https://i.imgur.com/xr701iO.png" loading="lazy"  alt="[Image: xr701iO.png]" class="mycode_img" /><br />
+<br />
+So I decided to do a type of debugging, to see what value the GetTickCount was returning, and it is returning very large negative values.<br />
+<img src="https://i.imgur.com/Palr2LS.png" loading="lazy"  alt="[Image: Palr2LS.png]" class="mycode_img" /><br />
+<br />
+The amazing thing about this problem is that it only occurs on my computer, on my notebook and on the gamemode host this problem does not occur everything works correctly. Does anyone have any idea what this is? Maybe some problem with some windows dll? I do not believe it is a gamemode problem, because as I mentioned in other places it works normally, only on my computer this problem occurs.<br />
+<br />
+Here are the plugins / includes I use and the anti flood code snippet<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include &nbsp; &nbsp;&lt;a_samp&gt;<br />#define&nbsp;FIXES_Single&nbsp;1<br />#define&nbsp;FIXES_ServerVarMsg&nbsp;0<br />#define&nbsp;LOCAL_HOST&nbsp;true<br />//&nbsp;Redefinições&nbsp;antes&nbsp;da&nbsp;Fixes<br />#if &nbsp; &nbsp; &nbsp;defined&nbsp;MAX_PLAYERS<br />#undef &nbsp; &nbsp;MAX_PLAYERS<br />#if&nbsp;LOCAL_HOST&nbsp;==&nbsp;true<br />#define &nbsp;MAX_PLAYERS &nbsp;(100)<br />#else<br />#define &nbsp;MAX_PLAYERS &nbsp;(30)<br />#endif<br />#endif<br />//<br />#include&nbsp;&lt;fixes&gt;<br />#include&nbsp;&lt;crashdetect&gt;<br />#include &nbsp; &nbsp;&lt;timerfix&gt;<br />#include &nbsp; &nbsp;&lt;a_mysql&gt;<br />#include &nbsp; &nbsp;&lt;foreach&gt;<br />#include &nbsp; &nbsp;&lt;izcmd&gt;<br />#include &nbsp; &nbsp;&lt;sscanf2&gt;<br />#include &nbsp; &nbsp;&lt;MV_Youtube&gt;<br />#include &nbsp; &nbsp;&lt;streamer&gt;<br />#include &nbsp; &nbsp;&lt;callbacks&gt;<br />#include &nbsp; &nbsp;&lt;mSelection&gt;<br />#define&nbsp;AUTO_SETUP<br />#include &nbsp; &nbsp;&lt;gmtime&gt;<br /><br /><br /></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerCommandReceived</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cmdtext</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">IsPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_INVALID</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;are&nbsp;not&nbsp;connected."</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br />if&nbsp;(</span><span style="color: #0000BB">GetTickCount</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_GRAD1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Wait&nbsp;2&nbsp;seconds&nbsp;to&nbsp;retype&nbsp;a&nbsp;command!"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">GetTickCount</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+plugins crashdetect fixchars sscanf mysql streamer timerfix gmtime SAMPSON<br />
+<br />
+And this problem has occurred with any code that uses the native GetTickCount.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+Do you keep your computer on at all times?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+I have no idea about GetTickCount() but you can use gettime() instead.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerCommandReceived</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cmdtext</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">IsPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_INVALID</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;are&nbsp;not&nbsp;connected."</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br />if&nbsp;(</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">])<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_GRAD1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Wait&nbsp;2&nbsp;seconds&nbsp;to&nbsp;retype&nbsp;a&nbsp;command!"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()+</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:12 PM)</span>Virsenas Wrote:  <a href="showthread0717.html?pid=10189#pid10189" class="quick_jump"></a></cite>Do you keep your computer on at all times?</blockquote><br />
+No. I usually use it for my daily tasks and then hang up. literally, overnight this problem appeared and what intrigues me the most is that it only happens on the computer.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:53 PM)</span>RhaegarX Wrote:  <a href="showthread7924.html?pid=10193#pid10193" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:12 PM)</span>Virsenas Wrote:  <a href="showthread0717.html?pid=10189#pid10189" class="quick_jump"></a></cite>Do you keep your computer on at all times?</blockquote><br />
+No. I usually use it for my daily tasks and then hang up. literally, overnight this problem appeared and what intrigues me the most is that it only happens on the computer.</blockquote><br />
+Do you get the same results without using timerfix and gmtime?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:31 PM)</span>Radical Wrote:  <a href="showthreadda22-2.html?pid=10192#pid10192" class="quick_jump"></a></cite>I have no idea about GetTickCount() but you can use gettime() instead.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerCommandReceived</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cmdtext</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">IsPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_INVALID</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;are&nbsp;not&nbsp;connected."</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br />if&nbsp;(</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">])<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br />return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_GRAD1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Wait&nbsp;2&nbsp;seconds&nbsp;to&nbsp;retype&nbsp;a&nbsp;command!"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB">timeUsedCommand</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()+</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div></blockquote><br />
+It is an option too, but on other devices with GetTickCount it works perfectly. And since this function returns the time in seconds since the server was turned on, there is a problem with that, as it is returning a negative time. I wanted to understand why this problem arose
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:55 PM)</span>Virsenas Wrote:  <a href="showthread013a-3.html?pid=10194#pid10194" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:53 PM)</span>RhaegarX Wrote:  <a href="showthread7924.html?pid=10193#pid10193" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:12 PM)</span>Virsenas Wrote:  <a href="showthread0717.html?pid=10189#pid10189" class="quick_jump"></a></cite>Do you keep your computer on at all times?</blockquote><br />
+No. I usually use it for my daily tasks and then hang up. literally, overnight this problem appeared and what intrigues me the most is that it only happens on the computer.</blockquote><br />
+Do you get the same results without using timerfix and gmtime?</blockquote><br />
+I haven’t tested by removing these plugins, I’ll test it now and I’ll give you the answer shortly
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:55 PM)</span>Virsenas Wrote:  <a href="showthread013a-3.html?pid=10194#pid10194" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:53 PM)</span>RhaegarX Wrote:  <a href="showthread7924.html?pid=10193#pid10193" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:12 PM)</span>Virsenas Wrote:  <a href="showthread0717.html?pid=10189#pid10189" class="quick_jump"></a></cite>Do you keep your computer on at all times?</blockquote><br />
+No. I usually use it for my daily tasks and then hang up. literally, overnight this problem appeared and what intrigues me the most is that it only happens on the computer.</blockquote><br />
+Do you get the same results without using timerfix and gmtime?</blockquote><br />
+I removed the plugins and the problem still persists.<br />
+OnPlayerText also has the same system using GetTickCount and the problem is exactly the same as well.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+I ran the gettickcount, on my computer and notebook at the same time to see what results would be obtained, below is the data:<br />
+<br />
+Computer:<br />
+<img src="https://i.imgur.com/vAZXpD9.png" loading="lazy"  alt="[Image: vAZXpD9.png]" class="mycode_img" /><br />
+<br />
+Notebook:<br />
+<img src="https://i.imgur.com/H4v0Uym.png" loading="lazy"  alt="[Image: H4v0Uym.png]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+folks I found the following information on the open mp wiki that talks about gettickcount uptime problems.<br />
+<br />
+<img src="https://i.imgur.com/6aNz0a2.png" loading="lazy"  alt="[Image: 6aNz0a2.png]" class="mycode_img" /><br />
+<br />
+This is my computer's uptime<br />
+<img src="https://i.imgur.com/yUFZzGZ.png" loading="lazy"  alt="[Image: yUFZzGZ.png]" class="mycode_img" /><br />
+<br />
+EDIT: I tested the include indicated on the wiki and it didn't work.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+I found the source of the problem, the GetTickCount () actually has problems with long periods of the connected server.  I searched on some forums and windows 10 has a fastboot system that keeps some data saved in memory, such as uptime even after the computer is turned off.  the computer is only actually "turned off" when you restart it.  when restarting my computer my uptime reset and the function started working again.  So, I think it's really better to use gettime (), rather than GetTickCount () to avoid problems.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 09:38 PM)</span>RhaegarX Wrote:  <a href="showthreadfbb1.html?pid=10199#pid10199" class="quick_jump"></a></cite>folks I found the following information on the open mp wiki that talks about gettickcount uptime problems.<br />
+<br />
+<img src="https://i.imgur.com/6aNz0a2.png" loading="lazy"  alt="[Image: 6aNz0a2.png]" class="mycode_img" /><br />
+<br />
+This is my computer's uptime<br />
+<img src="https://i.imgur.com/yUFZzGZ.png" loading="lazy"  alt="[Image: yUFZzGZ.png]" class="mycode_img" /><br />
+<br />
+EDIT: I tested the include indicated on the wiki and it didn't work.</blockquote><br />
+I thought I asked if you shut down your computer regularly.<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Do you keep your computer on at all times?</blockquote>
+<br />
+I guess I didn't.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 10:02 PM)</span>Virsenas Wrote:  <a href="showthread6cfe.html?pid=10201#pid10201" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-11, 09:38 PM)</span>RhaegarX Wrote:  <a href="showthreadfbb1.html?pid=10199#pid10199" class="quick_jump"></a></cite>folks I found the following information on the open mp wiki that talks about gettickcount uptime problems.<br />
+<br />
+<img src="https://i.imgur.com/6aNz0a2.png" loading="lazy"  alt="[Image: 6aNz0a2.png]" class="mycode_img" /><br />
+<br />
+This is my computer's uptime<br />
+<img src="https://i.imgur.com/yUFZzGZ.png" loading="lazy"  alt="[Image: yUFZzGZ.png]" class="mycode_img" /><br />
+<br />
+EDIT: I tested the include indicated on the wiki and it didn't work.</blockquote><br />
+I thought I asked if you shut down your computer regularly.<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Do you keep your computer on at all times?</blockquote>
+<br />
+I guess I didn't.</blockquote><br />
+I turn off the computer during the night, but I keep it connected to power, as there is no use.  But this windows fastboot system does not reset the computer uptime even when it is turned off (I believe that if you remove the computer from the power outlet it will reset)<br />
+<br />
+https://social.technet.microsoft.com/Forums/windows/en-US/3a6a2ed8-c6e2-4941-a31c-f1ca5b2a450c/why-shutdown-doesnt-reset-the-quotup-timequot-counter?forum=win10itprogeneral
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+The wiki is sort of correct, but the solution is very very wrong.  You just need to use a subtraction.<br />
+<br />
+While the code might look like this before:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if (newTime &lt; oldTime + 2000)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// Flooding.<br />
+}</code></div></div><br />
+The solution is amazingly simple - just rearrange the formula<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if (newTime - oldTime &lt; 2000)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// Flooding.<br />
+}</code></div></div><br />
+That will totally account for all wrap-around and negative numbers (I'm not going to prove it mathematically here though).
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-12</strong>
+<br />
+<br />
+Thank you all for your help!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-12, 01:17 AM)</span>RhaegarX Wrote:  <a href="showthread1e70.html?pid=10207#pid10207" class="quick_jump"></a></cite>Thank you all for your help!</blockquote>You can (and should) use <span style="font-weight: bold;" class="mycode_b">tickcount()</span> as it's same as <span style="font-weight: bold;" class="mycode_b">GetTickCount()</span> except it's the time since THE SERVER is running, not THE COMPUTER.<br />
+<br />
+https://open.mp/docs/scripting/functions/Tickcount
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member0a9c.html?action=profile&amp;uid=687">rasheed</a> -  <strong>2021-03-13</strong>
+<br />
+<br />
+You can also use this: https://github.com/ScavengeSurvive/tick-difference
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-12, 11:51 AM)</span>Pinch Wrote:  <a href="showthreadf826.html?pid=10210#pid10210" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-12, 01:17 AM)</span>RhaegarX Wrote:  <a href="showthread1e70.html?pid=10207#pid10207" class="quick_jump"></a></cite>Thank you all for your help!</blockquote>You can (and should) use <span style="font-weight: bold;" class="mycode_b">tickcount()</span> as it's same as <span style="font-weight: bold;" class="mycode_b">GetTickCount()</span> except it's the time since THE SERVER is running, not THE COMPUTER.<br />
+<br />
+https://open.mp/docs/scripting/functions/Tickcount</blockquote><br />
+It makes no difference if you use the correct code (i.e. the code I posted).<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-13, 08:40 AM)</span>rasheed Wrote:  <a href="showthread70b7-2.html?pid=10220#pid10220" class="quick_jump"></a></cite>You can also use this: https://github.com/ScavengeSurvive/tick-difference</blockquote><br />
+No, you shouldn't.  It makes the same mistake as I mentioned earlier.  Well, not quite mistake - the result is eventually correct, but in an extremely round-about manner.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-13, 02:25 PM)</span>Y_Less Wrote:  <a href="showthread9d59-2.html?pid=10223#pid10223" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-12, 11:51 AM)</span>Pinch Wrote:  <a href="showthreadf826.html?pid=10210#pid10210" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-12, 01:17 AM)</span>RhaegarX Wrote:  <a href="showthread1e70.html?pid=10207#pid10207" class="quick_jump"></a></cite>Thank you all for your help!</blockquote>You can (and should) use <span style="font-weight: bold;" class="mycode_b">tickcount()</span> as it's same as <span style="font-weight: bold;" class="mycode_b">GetTickCount()</span> except it's the time since THE SERVER is running, not THE COMPUTER.<br />
+<br />
+https://open.mp/docs/scripting/functions/Tickcount</blockquote><br />
+It makes no difference if you use the correct code (i.e. the code I posted).</blockquote><br />
+Bench it.<br />
+<br />
+Ik it has no difference tho (the formula)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-13</strong>
+<br />
+<br />
+Yeah I'm not talking about performance, nor do I care about the performance of a single simple native - and neither should you.  Whatever your code, that won't be the bottleneck and you should spend your time improving something else.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-13, 05:36 PM)</span>Y_Less Wrote:  <a href="showthread8515.html?pid=10226#pid10226" class="quick_jump"></a></cite>Yeah I'm not talking about performance, nor do I care about the performance of a single simple native - and neither should you.  Whatever your code, that won't be the bottleneck and you should spend your time improving something else.</blockquote><br />
+Agreed. Should never over do things with optimizations, become obsessed with it and pay attention to even smallest things. That is exactly how relationships are ruined ...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with GetTickCount</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-13, 05:36 PM)</span>Y_Less Wrote:  <a href="showthread8515.html?pid=10226#pid10226" class="quick_jump"></a></cite>Yeah I'm not talking about performance, nor do I care about the performance of a single simple native - and neither should you.  Whatever your code, that won't be the bottleneck and you should spend your time improving something else.</blockquote>Nawh I was just interested, didn't say it means a lot :D
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

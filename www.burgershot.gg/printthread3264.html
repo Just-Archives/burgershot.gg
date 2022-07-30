@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin help with mysql plugin error - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthread3264.html?tid=2149">help with mysql plugin error</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> help with mysql plugin error (<em>/showthread.php?tid=2149</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>help with mysql plugin error</strong> - <a href="memberd467.html?action=profile&amp;uid=2705">Lyonkrs</a> -  <strong>2021-07-01</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">The error log</span><br />
+<span style="font-weight: bold;" class="mycode_b"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>cache_delete: invalid cache id '0'</code></div></div></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">This is my Pawn Code:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:actorlist(playerid, params[])<br />
+{<br />
+new list[1024], skin, Float:AcX, Float:AcY, Float:AcZ, id, Descriptions[48];<br />
+new query[1024];<br />
+new Cache: actorlist;<br />
+mysql_format(SQLHandle, query, sizeof(query), "SELECT * FROM `actor`");<br />
+mysql_query(SQLHandle, query);<br />
+new rows = cache_num_rows();<br />
+if(rows)<br />
+{ <br />
+format(list, sizeof(list), "ID&#92;tSkin&#92;tDescriptions&#92;tDistance&#92;n");<br />
+for(new i; i &lt; rows; ++i)<br />
+{<br />
+cache_get_value_name_int(i, "ID", id);<br />
+cache_get_value_name_int(i, "SkinID", skin);<br />
+cache_get_value_name_float(i,"X", AcX);<br />
+cache_get_value_name_float(i,"Y", AcY);<br />
+cache_get_value_name_float(i,"Z", AcZ);<br />
+cache_get_value_name(i,"Descriptions", Descriptions);<br />
+new Float: distance = GetPlayerDistanceFromPoint(playerid, AcX, AcY, AcZ);<br />
+format(list, sizeof(list), "%s%d&#92;t%d&#92;t%s&#92;t%.2f&#92;n", list, id, skin, Descriptions, distance);<br />
+}<br />
+ShowPlayerDialog(playerid, DIALOG_ACTOR_LIST, DIALOG_STYLE_TABLIST_HEADERS, "Actor List Manager", list, "Manage", "Close");<br />
+} <br />
+else<br />
+{<br />
+SendClientMessage(playerid, COLOR_GREY, "ERROR: There's no Actor list on server");<br />
+return 1;<br />
+}<br />
+cache_delete(actorlist);<br />
+return 1;<br />
+}</code></div></div><br />
+<br />
+The system is works perfectly but why it's giving error?</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: help with mysql plugin error</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-01</strong>
+<br />
+<br />
+It's not working perfectly because you're not deleting the cache.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>actorlist = mysql_query(SQLHandle, query);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: help with mysql plugin error</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-03</strong>
+<br />
+<br />
+What Pinch said.<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>cache_delete: invalid cache id '0'</blockquote>
+Invalid cache occurs when the cache doesn't exist. This can be because a wrong cache id was used (which is so in your case, because you never set the cache id to variable "actorlist") or if there is are no results from your query.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

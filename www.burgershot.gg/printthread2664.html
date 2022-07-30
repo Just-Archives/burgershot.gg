@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server MySQL Query ~ Which one is the most efficiency? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread2664.html?tid=1549">MySQL Query ~ Which one is the most efficiency?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> MySQL Query ~ Which one is the most efficiency? (<em>/showthread.php?tid=1549</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>MySQL Query ~ Which one is the most efficiency?</strong> - <a href="membereddb.html?action=profile&amp;uid=2066">LinesinRows</a> -  <strong>2021-01-19</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>"UPDATE `players` SET q = %d, w= %d, e = %d, r = %d, t = %d, y = %d, u = %d, o = %d, a = %d, s = %d WHERE userid = %d", q, w, e...<br />
+mysql_tquery(blabla);<br />
+<br />
+vs<br />
+<br />
+"UPDATE `players` SET q = %d, w = %d, e = %d, r = %d, t = %d WHERE userid = %d", q, w, e...<br />
+mysql_tquery(blabla);<br />
+"UPDATE `players` SET y= %d, u = %d, o = %d, a = %d, s = %d WHERE userid = %d", y, u, o...<br />
+mysql_tquery(blabla);</code></div></div><br />
+  Which one and why? <br />
+  Thanks for now.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MySQL Query ~ Which one is the most efficiency?</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-01-19</strong>
+<br />
+<br />
+Neither;<br />
+<br />
+Read about MULTI STATEMENTS
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

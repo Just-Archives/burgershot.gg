@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn [SOLVED] How to Use Pragma ? From #Pragma tabsize 0 - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf1b7-2.html?tid=2013">[SOLVED] How to Use Pragma ? From #Pragma tabsize 0</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> [SOLVED] How to Use Pragma ? From #Pragma tabsize 0 (<em>/showthread.php?tid=2013</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+<span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">SOLUTION:</span></span><br />
+That's probably because the new scripter using the old includes as well. Please get the updated ones here:<br />
+<br />
+<a href="https://github.com/pawn-lang/pawn-stdlib" target="_blank" rel="noopener" class="mycode_url">https://github.com/pawn-lang/pawn-stdlib</a><br />
+<br />
+The reason didn't remove the warning code system is because it really cares about the learning scripter. A lot of recommendations to make question before the compiler success. Now sir you can find a solution. As the best developer, the basics are usually based on the strength of the solutions created. And asking for a profit before build a new resolver system.<br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">PROBLEM:</span><br />
+<br />
+I often see Pragma script designs, but I never had the knowledge to relate to this #pragma system. Is this pragma really from pawn?<br />
+i just have source #pragma warning<br />
+This directive comes in two forms:<ul class="mycode_list"><li>#pragma warning (enable|disable) XXX<br />
+Enable or disable a warning by its number.<br />
+Useful for hiding unwanted warnings that otherwise cannot be fixed.<br />
+</li>
+<li>#pragma warning (push|pop)<br />
+Save or restore the list of currently disabled warnings.<br />
+This can be used in conjuction with the previous form to toggle warnings<br />
+for a piece of code:<br />
+#pragma warning push<br />
+#pragma warning disable XXX<br />
+// some code here<br />
+Put Error code after vairable option warning disable, Sample:<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#pragma warning disable 239#pragma warning disable 217#pragma warning disable 219#pragma warning disable 203</code></div></div><blockquote class="mycode_quote"><cite>Quote:</cite>From Radical solution, You can also:<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#pragma warning disable 239, 217, 219, 203</code></div></div></blockquote>
+#pragma warning pophttps://github.com/compuphase/pawn/issues/24</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+What's the question?  Most of these are documented in pawn-lang.pdf.  `#pragma warning` is in the SA:MP and official compilers, but have different implementations since we forked.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-14, 10:12 AM)</span>PutuSuhartawan Wrote:  <a href="showthreadc543.html?pid=11108#pid11108" class="quick_jump"></a></cite><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">SOLUTION:</span></span><br />
+Put Error code after vairable warning disable, Sample:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#pragma warning disable 239<br />
+#pragma warning disable 217<br />
+#pragma warning disable 219<br />
+#pragma warning disable 203</code></div></div></blockquote><br />
+You can also:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#pragma warning disable 239, 217, 219, 203</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+The real question is why are you disabling so many warnings?  They are important.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-14, 09:01 PM)</span>Y_Less Wrote:  <a href="showthread6d38-2.html?pid=11120#pid11120" class="quick_jump"></a></cite>The real question is why are you disabling so many warnings?  They are important.</blockquote><br />
+It gets a lot of warnings when using Zeex compiler.<br />
+It's a resaon why I am disabled some warnings even those important.<br />
+<br />
+Warnings:<br />
+<br />
+239: literal array/string passed to a non-const parameter<br />
+<br />
+214: possibly a "const" array
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-14, 09:59 PM)</span>Radical Wrote:  <a href="showthreadece4-2.html?pid=11123#pid11123" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-14, 09:01 PM)</span>Y_Less Wrote:  <a href="showthread6d38-2.html?pid=11120#pid11120" class="quick_jump"></a></cite>The real question is why are you disabling so many warnings?  They are important.</blockquote><br />
+It gets a lot of warnings when using Zeex compiler.<br />
+It's a resaon why I am disabled some warnings even those important.<br />
+<br />
+Warnings:<br />
+<br />
+239: literal array/string passed to a non-const parameter<br />
+<br />
+214: possibly a "const" array</blockquote><br />
+You are very intelligent. <span style="color: #72ff84;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">Respect ++</span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size">The reason I didn't display the warning code is because it really annoys the learning scripter. A lot of complaints came out during the compiler. But never realized to find a solution. As the best developer, the basics are usually based on the strength of the solutions created.</span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-14, 09:59 PM)</span>Radical Wrote:  <a href="showthreadece4-2.html?pid=11123#pid11123" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-14, 09:01 PM)</span>Y_Less Wrote:  <a href="showthread6d38-2.html?pid=11120#pid11120" class="quick_jump"></a></cite>The real question is why are you disabling so many warnings?  They are important.</blockquote><br />
+It gets a lot of warnings when using Zeex compiler.<br />
+It's a resaon why I am disabled some warnings even those important.<br />
+<br />
+Warnings:<br />
+<br />
+239: literal array/string passed to a non-const parameter<br />
+<br />
+214: possibly a "const" array</blockquote><br />
+That means your code is bad.  Hiding issues doesn't solve them, it just means you're ignoring the bugs.  I'm going to delete this topic soon, because you're advocating terrible coding practices.  Like most things, we can't stop you doing them, but we can stop you spreading your terrible practices to other people and can help them learn correctly instead.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-05-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-15, 09:57 AM)</span>Y_Less Wrote:  <a href="showthreadd34b.html?pid=11137#pid11137" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-14, 09:59 PM)</span>Radical Wrote:  <a href="showthreadece4-2.html?pid=11123#pid11123" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-14, 09:01 PM)</span>Y_Less Wrote:  <a href="showthread6d38-2.html?pid=11120#pid11120" class="quick_jump"></a></cite>The real question is why are you disabling so many warnings?  They are important.</blockquote><br />
+It gets a lot of warnings when using Zeex compiler.<br />
+It's a resaon why I am disabled some warnings even those important.<br />
+<br />
+Warnings:<br />
+<br />
+239: literal array/string passed to a non-const parameter<br />
+<br />
+214: possibly a "const" array</blockquote><br />
+That means your code is bad.  Hiding issues doesn't solve them, it just means you're ignoring the bugs.  I'm going to delete this topic soon, because you're advocating terrible coding practices.  Like most things, we can't stop you doing them, but we can stop you spreading your terrible practices to other people and can help them learn correctly instead.</blockquote><br />
+let me tell you before deleting this topic.<br />
+<br />
+If I compile the following codes with Zeex compiler:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SetTimer("OneSecTimer", 1000, 1);<br />
+SetPVarInt(playerid, "Var", int_value);<br />
+SetPVarFloat(playerid, "varname", float_value);<br />
+SetPVarString(playerid, "varname", "string");<br />
+ShowPlayerDialog(playerid, dialogid, style, "Caption", "Info", "Button 1", "Button 2");<br />
+TextDrawSetString(globaltextid, "string");<br />
+PlayerTextDrawSetString(playerid, playertextid, "string");<br />
+ApplyAnimation(playerid, "animlib", "animname", 4.1, 0, 0, 0, 0, 0, 0);<br />
+SendRconCommand("hostname name");</code></div></div><br />
+I get the following warnings: <br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//SetTimer<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//SetPVarInt<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//SetPVarFloat<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//SetPVarString<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//SetPVarString<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//ShowPlayerDialog<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//ShowPlayerDialog<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//ShowPlayerDialog<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//ShowPlayerDialog<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//TextDrawSetString<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//PlayerTextDrawSetString<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//ApplyAnimation<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//ApplyAnimation<br /></span><span style="color: #0000BB">warning&nbsp;239</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">literal&nbsp;</span><span style="color: #007700">array/</span><span style="color: #0000BB">string&nbsp;passed&nbsp;to&nbsp;a&nbsp;non</span><span style="color: #007700">-const&nbsp;</span><span style="color: #0000BB">parameter&nbsp;</span><span style="color: #FF8000">//SendRconCommand&nbsp;<br /></span></code></div></div></div><br />
+Is my code bad?<br />
+<br />
+There was another topic about this - https://burgershot.gg/showthread.php?tid=1556
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-15</strong>
+<br />
+<br />
+That's probably because you're using the old includes as well.  Get the updated ones here:<br />
+<br />
+https://github.com/pawn-lang/pawn-stdlib<br />
+https://github.com/pawn-lang/samp-stdlib
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-15, 02:02 PM)</span>Y_Less Wrote:  <a href="showthread0246-2.html?pid=11144#pid11144" class="quick_jump"></a></cite>That's probably because you're using the old includes as well.  Get the updated ones here:<br />
+<br />
+https://github.com/pawn-lang/pawn-stdlib</blockquote><br />
+Thanks sir.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-15</strong>
+<br />
+<br />
+And use regex to replace non-constants lol
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-15</strong>
+<br />
+<br />
+How can a regex know which parameter should be `const` and which shouldn't?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-15, 08:24 PM)</span>Y_Less Wrote:  <a href="showthread879c.html?pid=11150#pid11150" class="quick_jump"></a></cite>How can a regex know which parameter should be `const` and which shouldn't?</blockquote>In most cases (at least for me) it did the job, it's much easier to remove const than add it on thousands of places where it isn't needed..
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-16, 09:41 AM)</span>Pinch Wrote:  <a href="showthread46be.html?pid=11163#pid11163" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-15, 08:24 PM)</span>Y_Less Wrote:  <a href="showthread879c.html?pid=11150#pid11150" class="quick_jump"></a></cite>How can a regex know which parameter should be `const` and which shouldn't?</blockquote>In most cases (at least for me) it did the job, it's much easier to remove const than add it on thousands of places where it isn't needed..</blockquote>How to use  regex? and why regex just better than const sir?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-16, 09:41 AM)</span>Pinch Wrote:  <a href="showthread46be.html?pid=11163#pid11163" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-15, 08:24 PM)</span>Y_Less Wrote:  <a href="showthread879c.html?pid=11150#pid11150" class="quick_jump"></a></cite>How can a regex know which parameter should be `const` and which shouldn't?</blockquote>In most cases (at least for me) it did the job, it's much easier to remove const than add it on thousands of places where it isn't needed..</blockquote><br />
+Yeah that's fair.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to Use Pragma ? From #Pragma tabsize 0</strong> - <a href="member14ef.html?action=profile&amp;uid=801">ZyZu.</a> -  <strong>2021-06-07</strong>
+<br />
+<br />
+This is a very useful thread, please do not delete. I had the same issue with Zeex's Compiller! Warnings fixed after updating my include files.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

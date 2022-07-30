@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Which timerfix plugin to use? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread43b3.html?tid=542">Which timerfix plugin to use?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Which timerfix plugin to use? (<em>/showthread.php?tid=542</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Which timerfix plugin to use?</strong> - <a href="member0747.html?action=profile&amp;uid=808">Luciano</a> -  <strong>2019-05-09</strong>
+<br />
+<br />
+There's various timerfix plugins made by Dan, KashCherry, Slice and there's fixes2.<br />
+<br />
+I'm asking this question because I'm currently encountering an error with KashCherry's plugin (version 1.0.8): <br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[timerfix.plugin] cannot execute callback with name "Malloc_SolidifyTimer"</code></div></div><br />
+YSI version is 5.03.0689, server 0.3.7.<br />
+<br />
+Should I switch to another plugin or keep using this one, despite the error? I was unable to find a fix for it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Which timerfix plugin to use?</strong> - <a href="member7f3f.html?action=profile&amp;uid=23">hual</a> -  <strong>2019-05-09</strong>
+<br />
+<br />
+You should go with fixes2 as it also has good y_timers support IIRC. Also to keep in mind, open.mp will have timers that don't need fixing!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Which timerfix plugin to use?</strong> - <a href="member0747.html?action=profile&amp;uid=808">Luciano</a> -  <strong>2019-05-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-09, 10:20 PM)</span>hual Wrote:  <a href="showthread0e52.html?pid=5104#pid5104" class="quick_jump"></a></cite>You should go with fixes2 as it also has good y_timers support IIRC. Also to keep in mind, open.mp will have timers that don't need fixing!</blockquote>Should I use this one? https://forum.sa-mp.com/showthread.php?t=571505<br />
+I couldn't find any other links.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Which timerfix plugin to use?</strong> - <a href="member7f3f.html?action=profile&amp;uid=23">hual</a> -  <strong>2019-05-12</strong>
+<br />
+<br />
+Actually it seems like Dan's is the most reliable one: https://github.com/udan11/samp-plugin-timerfix
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Which timerfix plugin to use?</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-05-12</strong>
+<br />
+<br />
+I've used Dan's but nothing is as good as KashCherry's, if you've issues, it's better to get them resolved by making an issue at the repo. That's the right practice.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Which timerfix plugin to use?</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-05-13</strong>
+<br />
+<br />
+I have raised this issue with them so many times.  The problem is that that plugin doesn't correctly support 0ms timers, which execute code as soon as possible after the current callback.  It's a perfectly valid trick, and used in a whole load of places.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Which timerfix plugin to use?</strong> - <a href="member0747.html?action=profile&amp;uid=808">Luciano</a> -  <strong>2019-05-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-13, 12:06 PM)</span>Y_Less Wrote:  <a href="showthread79fd.html?pid=5189#pid5189" class="quick_jump"></a></cite>I have raised this issue with them so many times.  The problem is that that plugin doesn't correctly support 0ms timers, which execute code as soon as possible after the current callback.  It's a perfectly valid trick, and used in a whole load of places.</blockquote><br />
+If the developer cannot fix the issue with his plugin, is there anything I can do about 0ms timers in YSI? Edit the files and change them to 1ms maybe? Directly call the functions?<br />
+Are there any negative effects of this error?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

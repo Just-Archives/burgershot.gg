@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server MYSQL R41-4 - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread10ef.html?tid=1959">MYSQL R41-4</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> MYSQL R41-4 (<em>/showthread.php?tid=1959</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>MYSQL R41-4</strong> - <a href="memberfc51.html?action=profile&amp;uid=3113">israel_Oliveira</a> -  <strong>2021-04-28</strong>
+<br />
+<br />
+Good afternoon, I am using the mysql plugin and I have this problem.<br />
+<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[/font][/size][/color]<br />
+[04/28/21 11:14:16] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 11:14:16] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 11:14:16] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 11:14:16] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 11:14:16] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 11:14:16] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 11:14:23] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 11:14:23] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 11:14:24] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 11:14:24] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 11:16:48] [ERROR] error #1064 while executing query "er Logs:{ffffff} ComandoLog<br />
+": You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'er Logs:{ffffff} ComandoLog' at line 1</code></div></div><br />
+<br />
+My server and linux and I'm using another windows vps with xampp to use the database<br />
+I've managed to make the connection but I can't add or consult anything in the database<br />
+<br />
+Can someone help me?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MYSQL R41-4</strong> - <a href="member0f88.html?action=profile&amp;uid=3381">Chessy</a> -  <strong>2021-04-28</strong>
+<br />
+<br />
+To see where those errors are coming from you have to put at the top of the OnGamemodeInit callback the function "mysql_log(ALL);" so in logs &gt; mysql &gt; mysql.log you can see what query it was<br />
+<br />
+And i recommend you to see the github code breaker mysql thing in the page of it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MYSQL R41-4</strong> - <a href="memberfc51.html?action=profile&amp;uid=3113">israel_Oliveira</a> -  <strong>2021-04-28</strong>
+<br />
+<br />
+I changed to R41-3<br />
+<br />
+[04/28/21 14:36:15] [DEBUG] CConnection::CConnection(this=0xec67c008, host='IP', user='USER', passw='PASS', db='logs_servidor', options=0x97ede98)<br />
+[04/28/21 14:36:15] [DEBUG] CConnection::CConnection - new connection = 0x9888af8<br />
+[04/28/21 14:36:15] [DEBUG] CThreadedConnection::CThreadedConnection(this=0xec67c008, connection=0xec67c008)<br />
+[04/28/21 14:36:15] [DEBUG] CThreadedConnection::WorkerFunc(this=0xec67c008, connection=0xec67c008)<br />
+[04/28/21 14:36:15] [INFO] Connection handle with id '1' successfully created.<br />
+[04/28/21 14:36:15] [DEBUG] CHandleManager::Create - new handle = 0x97a2758<br />
+[04/28/21 14:36:15] [DEBUG] mysql_connect: return value: '1'<br />
+<br />
+[04/28/21 14:42:26] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 14:42:26] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 14:42:26] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 14:42:26] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 14:42:29] [ERROR] error #1064 while executing query "er Logs:{ffffff} ComandoLog<br />
+": You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'er Logs:{ffffff} ComandoLog' at line 1<br />
+<br />
+I am not able to find the error, only that the version of mysql server is different
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MYSQL R41-4</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-04-30</strong>
+<br />
+<br />
+on localhost on the linux vps itself the code works normally?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MYSQL R41-4</strong> - <a href="member0f88.html?action=profile&amp;uid=3381">Chessy</a> -  <strong>2021-04-30</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-28, 05:47 PM)</span>israel_Oliveira Wrote:  <a href="showthreadeeed.html?pid=10896#pid10896" class="quick_jump"></a></cite>I changed to R41-3<br />
+<br />
+[04/28/21 14:36:15] [DEBUG] CConnection::CConnection(this=0xec67c008, host='IP', user='USER', passw='PASS', db='logs_servidor', options=0x97ede98)<br />
+[04/28/21 14:36:15] [DEBUG] CConnection::CConnection - new connection = 0x9888af8<br />
+[04/28/21 14:36:15] [DEBUG] CThreadedConnection::CThreadedConnection(this=0xec67c008, connection=0xec67c008)<br />
+[04/28/21 14:36:15] [DEBUG] CThreadedConnection::WorkerFunc(this=0xec67c008, connection=0xec67c008)<br />
+[04/28/21 14:36:15] [INFO] Connection handle with id '1' successfully created.<br />
+[04/28/21 14:36:15] [DEBUG] CHandleManager::Create - new handle = 0x97a2758<br />
+[04/28/21 14:36:15] [DEBUG] mysql_connect: return value: '1'<br />
+<br />
+[04/28/21 14:42:26] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 14:42:26] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 14:42:26] [ERROR] mysql_format: invalid connection handle '0'<br />
+[04/28/21 14:42:26] [ERROR] error #1065 while executing query "": Query was empty<br />
+[04/28/21 14:42:29] [ERROR] error #1064 while executing query "er Logs:{ffffff} ComandoLog<br />
+": You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'er Logs:{ffffff} ComandoLog' at line 1<br />
+<br />
+I am not able to find the error, only that the version of mysql server is different</blockquote><br />
+[04/28/21 14:42:26] [ERROR] mysql_format: invalid connection handle '0'<br />
+<br />
+It says that you are using a wrong connection handle in your MySQL Format.<br />
+<br />
+You are using something like mysql_format(<span style="font-weight: bold;" class="mycode_b">0</span>, query, sizeof(query), "INSERT INTO..." instead of mysql_format(<span style="font-weight: bold;" class="mycode_b">Dtabase</span>, query, sizeof(query), "INSERT INTO..."<br />
+<br />
+And how you define Database?<br />
+<br />
+Well, using it in the mysql_connect at the OnGamemodeInit.<br />
+<br />
+new MySQL: Database; // This is going at the start of the gamemode.<br />
+<br />
+new MySQLOpt: option_id = mysql_init_options(); // This, in GamemodeInit as the two below this one.<br />
+mysql_set_option(option_id, AUTO_RECONNECT, true); // We will set that option to automatically reconnect on timeouts.<br />
+Database = mysql_connect(IP_SQL, USER_SQL, PASSWORD_SQL, DATABASE_SQL, option_id);
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MYSQL R41-4</strong> - <a href="memberfc51.html?action=profile&amp;uid=3113">israel_Oliveira</a> -  <strong>2021-04-30</strong>
+<br />
+<br />
+Thanks to everyone, I had already solved the problem but I ended up not commenting here, it was a simple syntax error
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MYSQL R41-4</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-05-21</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-30, 04:59 PM)</span>israel_Oliveira Wrote:  <a href="showthread23ba-2.html?pid=10913#pid10913" class="quick_jump"></a></cite>Thanks to everyone, I had already solved the problem but I ended up not commenting here, it was a simple syntax error</blockquote>There was indeed a syntax error in the logs. However:<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>[04/28/21 14:36:15] [INFO] Connection handle with id '1' successfully created.</blockquote>
+A connection with id 1 was created (as literally stated in the logs). But then there's this log:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>[04/28/21 11:14:16] [ERROR] mysql_format: invalid connection handle '0'</blockquote>
+That has nothing to do with a syntax error. When you create a variable without a value, it's initial value will be 0. It is quite possible you used a wrong variable or created a new one (or the value of the variable with the MySQL connection ID was set to 0) for the connection handle:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>//Global variable:<br />
+new MySQL:dbHandle;<br />
+<br />
+//In your script initialisation:<br />
+dbHandle = mysql_connect(...);<br />
+<br />
+//In the script that says "invalid connection handle '0'"<br />
+new MySQL:somethingElse;<br />
+mysql_format(somethingElse, ...);<br />
+//Correct: mysql_format(dbHandle, ...);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

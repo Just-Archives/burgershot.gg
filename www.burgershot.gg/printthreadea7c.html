@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Duplicate CallBack call - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadea7c-2.html?tid=1786">Duplicate CallBack call</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Duplicate CallBack call (<em>/showthread.php?tid=1786</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Duplicate CallBack call</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-19</strong>
+<br />
+<br />
+In my gamemode I use mysql as a data saving system. Most of the player data I will save the moment it is changed to avoid problems in case of server crash or crash, and I also save the player data when restarting the server (/ gmx).<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerDisconnect</span><span style="color: #007700">()<br />{<br /></span><span style="color: #0000BB">Player_DestroyAllVehicles</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Player_SaveRanking</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Player_SaveConfig</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Player_SaveMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;Player_SaveData</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;Player_ClearVars</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Player_ClearAcessories</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Player_ClearInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Inventory_Reset</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnGameModeExit</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(new&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">Player</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Player_DestroyAllVehicles</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Player_SaveRanking</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Player_SaveConfig</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Player_SaveMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Player_SaveData</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Player_ClearVars</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Player_ClearAcessories</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Player_ClearInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Inventory_Reset</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DestroyAllDynamicMapIcons</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DestroyAllDynamic3DTextLabels</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DestroyAllDynamicPickups</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">ConexaoSQL</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<br />
+What I noticed is that when I restart the server, OnGameModeExit is saved and OnPlayerDisconnect is saved, doubling each player's save. For example: when I restart the server (/ gmx) the player's money is saved in OnGameModeExit and OnPlayerDisconnect, being saved 2 times without need.<br />
+How do I avoid this duplication of calls? Do I need to save player data on OnGameModeExit or just OnPlayerDisconnect?<br />
+Is OnPlayerDisconnect called by default by OnGameModeExit?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="memberbae0.html?action=profile&amp;uid=3523">Kodokushi</a> -  <strong>2021-03-19</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeExit() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ON_GAMEMODE_EXIT_SAVE = true;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// ..SAVE<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return true<br />
+}<br />
+<br />
+public OnPlayerDisconnect(playerid, reason) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(ON_GAMEMODE_EXIT_SAVE == true)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// ..SAVE<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+}</code></div></div><br />
+<br />
+I don't know if the values of the variables are kept after gmx, I never used that<br />
+If they are, you will have to modify the variable in OnGamemodeInit setting as 'false'.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-19, 05:02 PM)</span>Kodokushi Wrote:  <a href="showthreaddace-2.html?pid=10342#pid10342" class="quick_jump"></a></cite><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeExit() {<br />
+    ON_GAMEMODE_EXIT_SAVE = true;<br />
+<br />
+    // ..SAVE<br />
+    return true<br />
+}<br />
+<br />
+public OnPlayerDisconnect(playerid, reason) {<br />
+    if(ON_GAMEMODE_EXIT_SAVE == true)<br />
+        return false;<br />
+<br />
+    // ..SAVE<br />
+    return true;<br />
+}</code></div></div><br />
+<br />
+I don't know if the values of the variables are kept after gmx, I never used that<br />
+If they are, you will have to modify the variable in OnGamemodeInit setting as 'false'.</blockquote><br />
+When the player disconnects I save the data and reset the variables.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-19</strong>
+<br />
+<br />
+For starters, dont use /gmx as it's unstable af<br />
+<br />
+Use /rcon exit than start the server again.<br />
+<br />
+Also, try on blank gm if the OPDC is called when you do /rcon gmx or /rcon exit, ion remember
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-19, 05:47 PM)</span>Pinch Wrote:  <a href="showthread352d.html?pid=10345#pid10345" class="quick_jump"></a></cite>For starters, dont use /gmx as it's unstable af<br />
+<br />
+Use /rcon exit than start the server again.<br />
+<br />
+Also, try on blank gm if the OPDC is called when you do /rcon gmx or /rcon exit, ion remember</blockquote><br />
+Yes. I tested it on an empty gamemode and OnPlayerDisconnect is also being called when OnGameModeExit and / rcon gmx is called<br />
+<br />
+<img src="https://i.imgur.com/hdDlyns.png" loading="lazy"  alt="[Image: hdDlyns.png]" class="mycode_img" /><br />
+<br />
+<img src="https://i.imgur.com/bhBfw7k.png" loading="lazy"  alt="[Image: bhBfw7k.png]" class="mycode_img" /><br />
+<br />
+<img src="https://i.imgur.com/1wNbZAh.png" loading="lazy"  alt="[Image: 1wNbZAh.png]" class="mycode_img" /><br />
+<br />
+Would that make saving on OnGameModeExit useless?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-19, 06:06 PM)</span>RhaegarX Wrote:  <a href="showthread9485-2.html?pid=10346#pid10346" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-19, 05:47 PM)</span>Pinch Wrote:  <a href="showthread352d.html?pid=10345#pid10345" class="quick_jump"></a></cite>For starters, dont use /gmx as it's unstable af<br />
+<br />
+Use /rcon exit than start the server again.<br />
+<br />
+Also, try on blank gm if the OPDC is called when you do /rcon gmx or /rcon exit, ion remember</blockquote><br />
+Yes. I tested it on an empty gamemode and OnPlayerDisconnect is also being called when OnGameModeExit and / rcon gmx is called<br />
+<br />
+<img src="https://i.imgur.com/hdDlyns.png" loading="lazy"  alt="[Image: hdDlyns.png]" class="mycode_img" /><br />
+<br />
+<img src="https://i.imgur.com/bhBfw7k.png" loading="lazy"  alt="[Image: bhBfw7k.png]" class="mycode_img" /><br />
+<br />
+<img src="https://i.imgur.com/1wNbZAh.png" loading="lazy"  alt="[Image: 1wNbZAh.png]" class="mycode_img" /><br />
+<br />
+Would that make saving on OnGameModeExit useless?</blockquote>Yes, don't save anything player-related OnGameModeExit then.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-20</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-19, 09:56 PM)</span>Pinch Wrote:  <a href="showthread4bf3.html?pid=10349#pid10349" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-19, 06:06 PM)</span>RhaegarX Wrote:  <a href="showthread9485-2.html?pid=10346#pid10346" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-03-19, 05:47 PM)</span>Pinch Wrote:  <a href="showthread352d.html?pid=10345#pid10345" class="quick_jump"></a></cite>For starters, dont use /gmx as it's unstable af<br />
+<br />
+Use /rcon exit than start the server again.<br />
+<br />
+Also, try on blank gm if the OPDC is called when you do /rcon gmx or /rcon exit, ion remember</blockquote><br />
+Yes. I tested it on an empty gamemode and OnPlayerDisconnect is also being called when OnGameModeExit and / rcon gmx is called<br />
+<br />
+<img src="https://i.imgur.com/hdDlyns.png" loading="lazy"  alt="[Image: hdDlyns.png]" class="mycode_img" /><br />
+<br />
+<img src="https://i.imgur.com/bhBfw7k.png" loading="lazy"  alt="[Image: bhBfw7k.png]" class="mycode_img" /><br />
+<br />
+<img src="https://i.imgur.com/1wNbZAh.png" loading="lazy"  alt="[Image: 1wNbZAh.png]" class="mycode_img" /><br />
+<br />
+Would that make saving on OnGameModeExit useless?</blockquote>Yes, don't save anything player-related OnGameModeExit then.</blockquote><br />
+Yes. I removed the save made on OnGameModeExit and everything works perfectly, OPDC is called when restarting the server and without duplicating the save
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-20</strong>
+<br />
+<br />
+Still, I don't recommend usage of /rcon gmx, fresh start is always my go-to
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-21</strong>
+<br />
+<br />
+There's nothing wrong with gmx.  Someone was claiming that on discord the other day as well with no proof or explanation.  I don't know where these rumors come from, nor why people are so quick to believe them.  If you think you've found a bug, document it reproducibly, otherwise stop spreading misinformation.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Duplicate CallBack call</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-21</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-21, 12:16 PM)</span>Y_Less Wrote:  <a href="showthreadff6b.html?pid=10365#pid10365" class="quick_jump"></a></cite>There's nothing wrong with gmx.  Someone was claiming that on discord the other day as well with no proof or explanation.  I don't know where these rumors come from, nor why people are so quick to believe them.  If you think you've found a bug, document it reproducibly, otherwise stop spreading misinformation.</blockquote>Oh, sorry, someone very "knowledgeable" told me that actually so that's why I believed, like Illidan or someone like that idk
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

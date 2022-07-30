@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn How can I position the camera in front of the vehicle? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf88b.html?tid=2183">How can I position the camera in front of the vehicle?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> How can I position the camera in front of the vehicle? (<em>/showthread.php?tid=2183</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How can I position the camera in front of the vehicle?</strong> - <a href="member1965.html?action=profile&amp;uid=1517">Next</a> -  <strong>2021-07-18</strong>
+<br />
+<br />
+<span style="color: #202124;" class="mycode_color"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">I'm trying to make a system where I need to position the camera in front of the vehicle so that it "points" to the vehicle without setting the coordinates in an array, having a "radius" using a GetVehicleModelInfo function.</span></span></span><br />
+<br />
+<br />
+<br />
+<span style="font-size: medium;" class="mycode_size">I managed to do a function where I can get the front of the vehicle using some calculations. But I can't point the camera at the vehicle at the right angle.</span><br />
+<br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">GetVehicleFront</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">fSize</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;GetVehiclePos</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;GetVehicleZAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;GetVehicleModelInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">GetVehicleModel</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">VEHICLE_MODEL_INFO_SIZE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">fSize</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">fSize</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">fSize</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]);<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;x&nbsp;</span><span style="color: #007700">+=&nbsp;(</span><span style="color: #FF8000">/*&nbsp;radius&nbsp;using&nbsp;fSize?&nbsp;(about&nbsp;7.5)&nbsp;*/&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">floatsin</span><span style="color: #007700">(-</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">degrees</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;y&nbsp;</span><span style="color: #007700">+=&nbsp;(</span><span style="color: #FF8000">/*&nbsp;radius&nbsp;using&nbsp;fSize?&nbsp;(about&nbsp;7.5)&nbsp;*/&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">floatcos</span><span style="color: #007700">(-</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">degrees</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #202124;" class="mycode_color"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">btw, is this function correct? </span></span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How can I position the camera in front of the vehicle?</strong> - <a href="memberc737.html?action=profile&amp;uid=2734">JR_Junior</a> -  <strong>2021-07-30</strong>
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;Float</span><span style="color: #007700">:</span><span style="color: #0000BB">GetPosInFrontOfVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">distance</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;GetVehiclePos</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;GetVehicleZAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;x&nbsp;</span><span style="color: #007700">+=&nbsp;(</span><span style="color: #0000BB">distance&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">floatsin</span><span style="color: #007700">(-</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">degrees</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;y&nbsp;</span><span style="color: #007700">+=&nbsp;(</span><span style="color: #0000BB">distance&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">floatcos</span><span style="color: #007700">(-</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">degrees</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">GetVehiclePos</span><span style="color: #007700">(</span><span style="color: #0000BB">GetPlayerVehicleID</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">SetPlayerCameraLookAt</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">GetPosInFrontOfVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">GetPlayerVehicleID</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">7.0</span><span style="color: #007700">);</span><span style="color: #FF8000">//If&nbsp;you&nbsp;want&nbsp;the&nbsp;camera&nbsp;to&nbsp;stay&nbsp;behind&nbsp;the&nbsp;vehicle,&nbsp;just&nbsp;put&nbsp;a&nbsp;negative&nbsp;value,&nbsp;for&nbsp;example:&nbsp;-7.0<br /></span><span style="color: #0000BB">SetPlayerCameraPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]+</span><span style="color: #0000BB">2.0</span><span style="color: #007700">);</span><span style="color: #FF8000">//Here&nbsp;you&nbsp;adjust&nbsp;the&nbsp;height&nbsp;of&nbsp;the&nbsp;camera,&nbsp;example:&nbsp;+2.0&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How can I position the camera in front of the vehicle?</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2021-07-30</strong>
+<br />
+<br />
+Do you want the camera to be in front of the vehicle, and look at the vehicle?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

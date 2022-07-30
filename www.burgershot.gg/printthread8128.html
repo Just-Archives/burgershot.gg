@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server FCNPC created in 0 vw and interior when it shouldn't - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread8128-2.html?tid=1027">FCNPC created in 0 vw and interior when it shouldn't</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> FCNPC created in 0 vw and interior when it shouldn't (<em>/showthread.php?tid=1027</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>FCNPC created in 0 vw and interior when it shouldn't</strong> - <a href="membera70a.html?action=profile&amp;uid=2201">Fairuz</a> -  <strong>2020-04-01</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock CreateCivilianNpc( name[ ], skinId[ ], clerkId, animlib[ 16 ], animname[ 16 ], const Float: position[ 4 ], worldid = -1, interior = -1, bool: hostile = true, numSkins = sizeof( skinId ) ) <br />
+{ <br />
+    new <br />
+        szBotName[ MAX_PLAYER_NAME ]; <br />
+<br />
+    format( szBotName, sizeof( szBotName ), "%s", name ); <br />
+    strreplacechar( szBotName, ' ', '&#92;0' ); <br />
+    strreplacechar( szBotName, '/', '&#92;0' ); <br />
+<br />
+    new <br />
+        civilianid = Iter_Free(CivilianNpc); <br />
+<br />
+    if ( civilianid != ITER_NONE ) <br />
+    { <br />
+        new <br />
+            randomSkin = random( numSkins ); <br />
+<br />
+        Iter_Add(CivilianNpc, civilianid); <br />
+<br />
+        format( g_civilianNpcData[ civilianid ] [ E_ANIM_LIB ], 16, "%s", animlib ); <br />
+        format( g_civilianNpcData[ civilianid ] [ E_ANIM_NAME ], 16, "%s", animname ); <br />
+        format( g_civilianNpcData[ civilianid ] [ E_NPC_NAME ], MAX_PLAYER_NAME, "%s", name ); <br />
+        CreateDynamic3DTextLabel( sprintf( "%s", name ), 0xFFFFFF25, position[ 0 ], position[ 1 ], position[ 2 ], 25.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, .testlos = 0, .worldid = worldid ); <br />
+        g_civilianNpcData[ civilianid ] [ E_NPC_ID ] = FCNPC_Create( worldid != -1 ? sprintf( "[BOT]%s%d", szBotName, civilianid ) : sprintf( "[BOT]%s", szBotName ) ); <br />
+        //g_civilianNpcData[ civilianid ] [ E_WORLD ] = worldid == -1 ? 0 : worldid; <br />
+        //g_civilianNpcData[ civilianid ] [ E_INTERIOR ] = interior == -1 ? 0 : interior; <br />
+        g_civilianNpcData[ civilianid ] [ E_WORLD ] = worldid; <br />
+        g_civilianNpcData[ civilianid ] [ E_INTERIOR ] = interior; <br />
+        g_civilianNpcData[ civilianid ] [ E_CLERK_ID ] = clerkId; <br />
+        g_civilianNpcData[ civilianid ] [ E_HOSTILE ] = hostile; <br />
+        FCNPC_Spawn( g_civilianNpcData[ civilianid ] [ E_NPC_ID ], skinId[ randomSkin ], position[ 0 ], position[ 1 ], position[ 2 ] ); <br />
+        FCNPC_SetAngle( g_civilianNpcData[ civilianid ] [ E_NPC_ID ], ( g_civilianNpcData[ civilianid ] [ E_RZ ] = position[ 3 ] ) ); <br />
+    } <br />
+    else print( "[ERROR] Civilian cannot be added due to small limit, please raise." ); <br />
+} </code></div></div><br />
+<blockquote class="mycode_quote"><cite>Quote:</cite><span style="color: #d4d4d4;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Consolas,;" class="mycode_font"><span style="color: #d4d4d4;" class="mycode_color">                </span></span></span></span><br />
+CreateCivilianNpc( "Triad", { 117, 118, 121, 122, 123 }, clerkid, "INT_HOUSE", "wash_up", drugDealerPositions[ 0 ] [ random( sizeof( drugDealerPositions[ ] ) ) ], worldid, .interior = 6 );  </blockquote>
+<blockquote class="mycode_quote"><cite>Quote:</cite><span style="color: #d4d4d4;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Consolas,;" class="mycode_font"><span style="color: #d4d4d4;" class="mycode_color">           </span>            </span></span></span><br />
+            FCNPC_SetVirtualWorld( npcid, g_civilianNpcData[ civilianid ] [ E_WORLD ] );<br />
+<br />
+            FCNPC_SetInterior( npcid, g_civilianNpcData[ civilianid ] [ E_INTERIOR ] ); </blockquote>
+<br />
+The value is zero, why ? how do I fix this?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

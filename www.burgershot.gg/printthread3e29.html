@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Help with Damage System - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread3e29.html?tid=2059">Help with Damage System</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Help with Damage System (<em>/showthread.php?tid=2059</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help with Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+Dear <span style="font-weight: bold;" class="mycode_b">Community</span><br />
+<br />
+I wanna ask to you how can I make any damage system without using <span style="font-style: italic;" class="mycode_i">includes </span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">I mean</span> if there is a possibility to make a different damage system, that a weapon will lower more life or that less life <span style="font-style: italic;" class="mycode_i">without using</span> external plugins or includes?<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Example - </span>I need the <span style="font-weight: bold;" class="mycode_b">sawn-off weapon</span> to make <span style="color: #2ecc40;" class="mycode_color">-60</span> of damage from the player who receives the shots, is that possible to do without using the above?<br />
+<br />
+If you guys can guide/help me and show me some examples with code please<br />
+<br />
+NOTE: I'm using the callback called <span style="font-weight: bold;" class="mycode_b"><span style="color: #00369b;" class="mycode_color">OnPlayerTakeDamage(</span></span><span style="color: #00369b;" class="mycode_color">parameters</span><span style="color: #00369b;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">) </span></span><span style="color: #000000;" class="mycode_color">but i dont have anything of this </span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member5eaa.html?action=profile&amp;uid=3812">ImFlanny</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+If you write your problem in &gt;&gt;other languages ​&gt;&gt;​Spanish,<br />
+&gt;&gt;programming I can help you
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+You can use the <span style="font-weight: bold;" class="mycode_b">weapon-config</span><br />
+https://github.com/oscar-broman/samp-weapon-config
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member1452.html?action=profile&amp;uid=2841">Snow</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-29, 11:18 AM)</span>Pinch Wrote:  <a href="showthreadd88d-3.html?pid=11299#pid11299" class="quick_jump"></a></cite>You can use the <span style="font-weight: bold;" class="mycode_b">weapon-config</span><br />
+https://github.com/oscar-broman/samp-weapon-config</blockquote><br />
+The op clearly mentioned he does not want to use any includes/fs.<br />
+You can modify the damage under OnPlayerTakeDamage &amp; OnPlayerGiveDamage. Like this<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(weaponid == 26)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerHealth(playerid/issuerid, -60.0);&nbsp;&nbsp;&nbsp;&nbsp;<br />
+}</code></div></div>This will remove 60% of the player's health. Use issuer/player id accordingly to the callback.<br />
+But I'd still recommend you to use the weapon-config as that's pretty much better than configuring each and everything on your own.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-31</strong>
+<br />
+<br />
+Why?  Includes are there for a reason - to save you time and provide stable tested code for free.  You might want to look up "Not Invented Here".
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-05-31</strong>
+<br />
+<br />
+it would be nice if I knew how to install the SKY plugin to use that include, I need help with that too...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-29, 08:40 PM)</span>Snow Wrote:  <a href="showthreada569.html?pid=11311#pid11311" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-29, 11:18 AM)</span>Pinch Wrote:  <a href="showthreadd88d-3.html?pid=11299#pid11299" class="quick_jump"></a></cite>You can use the <span style="font-weight: bold;" class="mycode_b">weapon-config</span><br />
+https://github.com/oscar-broman/samp-weapon-config</blockquote><br />
+The op clearly mentioned he does not want to use any includes/fs.<br />
+You can modify the damage under OnPlayerTakeDamage &amp; OnPlayerGiveDamage. Like this<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(weaponid == 26)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerHealth(playerid/issuerid, -60.0);&nbsp;&nbsp;&nbsp;&nbsp;<br />
+}</code></div></div>This will remove 60% of the player's health. Use issuer/player id accordingly to the callback.<br />
+But I'd still recommend you to use the weapon-config as that's pretty much better than configuring each and everything on your own.</blockquote>The op clearly opened 3 threads on 3 different languages (he didn't mention that he didn't want to use WC, quite the opposite in other ones) and sent me PMs of asking how to install SKY too.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member1452.html?action=profile&amp;uid=2841">Snow</a> -  <strong>2021-05-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-31, 03:22 PM)</span>icecoldkangaroo12 Wrote:  <a href="showthreadfc41-2.html?pid=11333#pid11333" class="quick_jump"></a></cite>it would be nice if I knew how to install the SKY plugin to use that include, I need help with that too...</blockquote><br />
+Download it from <a href="https://github.com/oscar-broman/SKY/releases/tag/2.3.0" target="_blank" rel="noopener" class="mycode_url">here</a> and put it in the plugins folder? Is that hard?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-29, 02:42 AM)</span>ImFlanny Wrote:  <a href="showthread052a.html?pid=11290#pid11290" class="quick_jump"></a></cite>If you write your problem in &gt;&gt;other languages &gt;&gt;Spanish,<br />
+&gt;&gt;programming I can help you</blockquote><br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-31, 11:31 PM)</span>Snow Wrote:  <a href="showthread1c01-3.html?pid=11341#pid11341" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-31, 03:22 PM)</span>icecoldkangaroo12 Wrote:  <a href="showthreadfc41-2.html?pid=11333#pid11333" class="quick_jump"></a></cite>it would be nice if I knew how to install the SKY plugin to use that include, I need help with that too...</blockquote><br />
+Download it from <a href="https://github.com/oscar-broman/SKY/releases/tag/2.3.0" target="_blank" rel="noopener" class="mycode_url">here</a> and put it in the plugins folder? Is that hard?</blockquote><br />
+Tell me, it's an include or plugin? because i see .inc not .dll or .so
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-03, 03:38 AM)</span>icecoldkangaroo12 Wrote:  <a href="showthread898c-2.html?pid=11373#pid11373" class="quick_jump"></a></cite>Tell me, it's an include or plugin? because i see .inc not .dll or .so</blockquote><br />
+Download sky.inc from https://github.com/oscar-broman/SKY<br />
+<br />
+Download sky.dll from https://github.com/oscar-broman/SKY/releases<br />
+(If your os Linux or Ubuntu, download .so)<br />
+<br />
+Put <span style="font-style: italic;" class="mycode_i">sky.inc</span> to following folder:<br />
+../pawno/includes<br />
+<br />
+Put <span style="font-style: italic;" class="mycode_i">sky.dll</span> or <span style="font-style: italic;" class="mycode_i">sky.so</span> to following folder:<br />
+../plugins
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-03, 07:15 AM)</span>Radical Wrote:  <a href="showthreadfd15-2.html?pid=11375#pid11375" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-06-03, 03:38 AM)</span>icecoldkangaroo12 Wrote:  <a href="showthread898c-2.html?pid=11373#pid11373" class="quick_jump"></a></cite>Tell me, it's an include or plugin? because i see .inc not .dll or .so</blockquote><br />
+Download sky.inc from https://github.com/oscar-broman/SKY<br />
+<br />
+Download sky.dll from https://github.com/oscar-broman/SKY/releases<br />
+(If your os Linux or Ubuntu, download .so)<br />
+<br />
+Put <span style="font-style: italic;" class="mycode_i">sky.inc</span> to following folder:<br />
+../pawno/includes<br />
+<br />
+Put <span style="font-style: italic;" class="mycode_i">sky.dll</span> or <span style="font-style: italic;" class="mycode_i">sky.so</span> to following folder:<br />
+../plugins</blockquote><br />
+I got some errors:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>include&#92;weapon-config.inc(1817) : warning 202: number of arguments does not match definition<br />
+include&#92;weapon-config.inc(1815) : warning 203: symbol is never used: "addsiren"<br />
+include&#92;weapon-config.inc(2327) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(2737) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(2903) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(3690) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(3734) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(3908) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(3974) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(4245) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(4364) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(5286) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(5301) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+weapon-config.inc(5552) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+include&#92;weapon-config.inc(5566) : error 017: undefined symbol "GetPlayerPoolSize"<br />
+gamemodes&#92;t1q_cwtg.pwn(1591) : error 017: undefined symbol "weaponid"<br />
+Pawn compiler 3.2.3664 Copyright (c) 1997-2006, ITB CompuPhase</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i.ibb.co/yqgY62M/image.png" loading="lazy"  alt="[Image: image.png]" class="mycode_img" /></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-03, 09:53 AM)</span>Pinch Wrote:  <a href="showthread2822.html?pid=11380#pid11380" class="quick_jump"></a></cite><div style="text-align: center;" class="mycode_align"><img src="https://i.ibb.co/yqgY62M/image.png" loading="lazy"  alt="[Image: image.png]" class="mycode_img" /></div></blockquote><br />
+And? where I found or I put that
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+ah...sa-mp.com download 0.3.7R2 server
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-06-12</strong>
+<br />
+<br />
+Thanks a lot! finally I've installed this include succesfully, but anyone can gimme one example how to make a simple new damage system with it, I've followed the documentation of this repository (weapon-config) all is a-ok but when I start my server I have like infinite health and I cannot infring nothing of damage, anyone know how to make a good damage system example with this include, if it yes, reply here please and sorry xD
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

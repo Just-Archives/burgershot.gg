@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn CGEN_MEMORY problem - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf5ce.html?tid=2162">CGEN_MEMORY problem</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> CGEN_MEMORY problem (<em>/showthread.php?tid=2162</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>CGEN_MEMORY problem</strong> - <a href="member05e7.html?action=profile&amp;uid=3949">Neckiysa</a> -  <strong>2021-07-11</strong>
+<br />
+<br />
+So, I just installed YSI and when I want to start my server I get this message like 50 times: "*** YSI Fatal Error: Out of code generation (CGen) space.  The current value of `CGEN_MEMORY` is `10000`, please recompile with a higher value (approximately 13342).". Now, I've read that I need to define CGEN_MEMORY to a bigger number but I don't know where. I've looked in y_ini and y_commands but I can't find it. When I try to define it in my main script I get an error that says I'm redefining it. Can somebody please tell me where I need to define CGEN_MEMORY? Thanks!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: CGEN_MEMORY problem</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-11</strong>
+<br />
+<br />
+You define that before you include YSI. Don't touch the YSI library itself.<br />
+Also, might wanna consider using visual studio code or something similar.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: CGEN_MEMORY problem</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-11</strong>
+<br />
+<br />
+#define CGEN_MEMORY 14000<br />
+// INCLUDE YSI
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

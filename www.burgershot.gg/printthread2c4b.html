@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server SRV Record - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread2c4b.html?tid=1658">SRV Record</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> SRV Record (<em>/showthread.php?tid=1658</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>SRV Record</strong> - <a href="member9128.html?action=profile&amp;uid=2495">Torque</a> -  <strong>2021-02-09</strong>
+<br />
+<br />
+Hi guys, I'm trying to use a domain name to connect to the server, but I'm no expert with this stuff. I know I need to set up an SRV record but not entirely sure what I'm meant to put for it to work with SAMP.<br />
+<br />
+If anybody can help me out that'd be great. Thanks!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SRV Record</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2021-02-09</strong>
+<br />
+<br />
+point your domain to your server address with an "A record"
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SRV Record</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-02-13</strong>
+<br />
+<br />
+You need an A record that points a domain to an IP. Assuming you already have that (since you are asking for a SRV record), here is more info: https://en.wikipedia.org/wiki/SRV_record<br />
+For SAMP your record could look like something like this (assuming in this example it is called mydomain.com and you are using subdomain samp.mydomain.com to refer to your samp server):<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>_samp._udp.mydomain.com 60 IN SRV 100 5 7777 samp.mydomain.com</code></div></div><br />
+Example:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[<a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="abded8ced9ebc3c4d8df">[email&#160;protected]</a>: ~] &#36; dig _samp._udp.kwarde.com srv +nostats +nocomments<br />
+<br />
+; &lt;&lt;&gt;&gt; DiG 9.16.18 &lt;&lt;&gt;&gt; _samp._udp.kwarde.com srv +nostats +nocomments<br />
+;; global options: +cmd<br />
+;_samp._udp.kwarde.com.        IN      SRV<br />
+_samp._udp.kwarde.com.  59      IN      SRV    101 5 7777 samp.kwarde.com.<br />
+_samp._udp.kwarde.com.  59      IN      SRV    101 5 7779 samp.kwarde.com.<br />
+_samp._udp.kwarde.com.  59      IN      SRV    101 5 7778 samp.kwarde.com.<br />
+_samp._udp.kwarde.com.  59      IN      SRV    101 5 7780 samp.kwarde.com.</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SRV Record</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-26</strong>
+<br />
+<br />
+THIS POST SHOULD BE DELETED
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Extended vehicle rotation - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreade233.html?tid=2133">Extended vehicle rotation</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Extended vehicle rotation (<em>/showthread.php?tid=2133</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Extended vehicle rotation</strong> - <a href="member7077.html?action=profile&amp;uid=2975">Otakeiro</a> -  <strong>2021-06-23</strong>
+<br />
+<br />
+Is there any way to set/get the vehicle rotation like we do with objects?<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Example:</span><br />
+  - SetObjectRot(objectid, Float:RotX, Float:RotY, Float:RotZ);<br />
+  - GetObjectPos(objectid, &amp;Float:X, &amp;Float:Y, &amp;Float:Z);<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Expectation:</span><br />
+  - SetVehicleRot(vehicleid, Float:RotX, Float:RotY, Float:RotZ);<br />
+  - GetVehicleRot(vehicleid, &amp;Float:X, &amp;Float:Y, &amp;Float:Z);<br />
+<br />
+I know that 3DTryg has this function but I reject the idea of adding an npc to do this, so any workaround or plugin that meets my expectations I would appreciate it if you share it!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Extended vehicle rotation</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-24</strong>
+<br />
+<br />
+uh, this?<br />
+https://open.mp/docs/scripting/functions/GetVehicleRotationQuat<br />
+<br />
+https://sampwiki.blast.hk/wiki/GetVehicleRotation
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Extended vehicle rotation</strong> - <a href="member0ffe.html?action=profile&amp;uid=2996">Leonardo</a> -  <strong>2021-06-26</strong>
+<br />
+<br />
+https://github.com/Leonardo541/matrix<br />
+<br />
+Functions:<br />
+- GetVehicleRot<br />
+- SetVehicleRot<br />
+<br />
+Functions in matrix_example.inc, requires <span style="font-weight: bold;" class="mycode_b"><a href="https://github.com/Zeex/amx_assembly" target="_blank" rel="noopener" class="mycode_url">amx_assembly</a></span> and <span style="font-weight: bold;" class="mycode_b"><a href="https://github.com/katursis/Pawn.RakNet" target="_blank" rel="noopener" class="mycode_url">Pawn.RakNet</a></span>. Compatible with v0.3.7-R2, v0.3.7-R3 and v0.3DL-R1.<br />
+<br />
+Works with unoccupied vehicles and with driver / passengers. To work, there needs to be at least 2 players connected, but that is solved by creating 1 fake npc. Check matrix_example.inc and matrix_example2.pwn files.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

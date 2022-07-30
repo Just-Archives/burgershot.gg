@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Open Game Panel - Problem - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread8ae2.html?tid=635">Open Game Panel - Problem</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Open Game Panel - Problem (<em>/showthread.php?tid=635</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Open Game Panel - Problem</strong> - <a href="member9a05.html?action=profile&amp;uid=1179">Sean17</a> -  <strong>2019-06-06</strong>
+<br />
+<br />
+IDK if this is the right board for this but sorry in advance<br />
+<br />
+So I was hosting my Att/Def GM in Ultra-H and it's working well. When I transfer all my files to OGP the server crash always. I tried using the default grandlarc and it showed this<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Unable to start server on port: 7780. Port in use?</code></div></div><br />
+<br />
+I don't know how to fix this. I tried changing the port in Server Config but after restart the port will go back to 7780.<br />
+<br />
+BTW The error on the Att/Def Gamemode is this<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[16:32:50] [debug] Server crashed due to an unknown error<br />
+[16:32:50] [debug] Native backtrace:<br />
+[16:32:50] [debug] #0 f21a7180 in _Z13GetStackTraceRSt6vectorI10StackFrameSaIS0_EEPv () from plugins/crashdetect.so<br />
+[16:32:50] [debug] #1 f219f064 in _ZN11CrashDetect20PrintNativeBacktraceERSoRKN2os7ContextE () from plugins/crashdetect.so<br />
+[16:32:50] [debug] #2 f219fd64 in _ZN11CrashDetect20PrintNativeBacktraceERKN2os7ContextE () from plugins/crashdetect.so<br />
+[16:32:50] [debug] #3 f21a1cdb in _ZN11CrashDetect7OnCrashERKN2os7ContextE () from plugins/crashdetect.so<br />
+[16:32:50] [debug] #4 f21a64d5 in ?? () from plugins/crashdetect.so<br />
+[16:32:50] [debug] #5 f25bd410 in ?? ()<br />
+[16:32:50] [debug] #6 080a1145 in ?? () from ./samp03svr<br />
+[16:32:50] [debug] #7 080ab601 in ?? () from ./samp03svr<br />
+[16:32:50] [debug] #8 080aba0b in ?? () from ./samp03svr<br />
+[16:32:50] [debug] #9 080aa0fd in ?? () from ./samp03svr<br />
+[16:32:50] [debug] #10 f21e7637 in __libc_start_main () from /lib/i386-linux-gnu/libc.so.6<br />
+[16:32:50] [debug] #11 0804b4e1 in ?? () from ./samp03svr<br />
+[16:32:50] [debug] Registers:<br />
+[16:32:50] [debug] EAX: 0000001b EBX: 0ad665f8 ECX: 7fffffe8 EDX: 00000000<br />
+[16:32:50] [debug] ESI: 00000000 EDI: 00000000 EBP: fdc9b308 ESP: fdc9b1d0<br />
+[16:32:50] [debug] EIP: 080a1145 EFLAGS: 00010246<br />
+[16:32:50] [debug] Stack:<br />
+[16:32:50] [debug] ESP+00000000: fdc9b1f0 081594f5 0ad665f8 f22ae13b</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open Game Panel - Problem</strong> - <a href="member1d95.html?action=profile&amp;uid=699">Hyder</a> -  <strong>2019-06-09</strong>
+<br />
+<br />
+Check the script
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open Game Panel - Problem</strong> - <a href="memberdfb6.html?action=profile&amp;uid=270">Proxy</a> -  <strong>2019-06-09</strong>
+<br />
+<br />
+I think i know what's going on, open the server.cfg file, check if there is a line that start with "bind", if yes, delete it then start your server.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open Game Panel - Problem</strong> - <a href="membera2c4.html?action=profile&amp;uid=1271">SynTacs</a> -  <strong>2019-06-14</strong>
+<br />
+<br />
+Hey Bud! One important detail do you own the OGP or is it still hosted by Ultra-H? I have not tried having a server in Ultra-H, so I don't know...<br />
+<br />
+It only means that port is being used by another, if you own the OGP and has a VPS, then you may try to find which software or program is using that port, if it is in use... change port to another port, avoiding default used ports...<br />
+<br />
+If you don't own the OGP then asked the staff about it.<br />
+<br />
+People here can help but we are limited to how you create your question...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

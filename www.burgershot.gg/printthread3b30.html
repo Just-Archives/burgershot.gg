@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Problem with OnPlayerDeath - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread3b30.html?tid=1754">Problem with OnPlayerDeath</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Problem with OnPlayerDeath (<em>/showthread.php?tid=1754</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Problem with OnPlayerDeath</strong> - <a href="member02c6.html?action=profile&amp;uid=3448">destiezk</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+Dear everyone,<br />
+<br />
+I've been facing this issue for almost 2-3 months which I can NOT solve by myself.<br />
+The problem is that OnPlayerDeath is not really running correctly. I have a modified hitbox on my server which modifies the damage, and idk if it could be the problem.<br />
+The problem is: Randomly when you die, an irritating bug appears which is after you die, your character can stand up and shoot finely for like 1-2 seconds, and then dies, but the funniest is that my code at OnPlayerDeath runs correctly, just suddenly this appears.<br />
+I tried to solve it multiple ways, like putting a check if the player is ONFOOT at the end of OnPlayerDeath, but didn't seem to fix my issue, and been stuck with this as I already mentioned for months.<br />
+Anyone faced this before?<br />
+<br />
+Thank you in advance!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerDeath</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+I saw this but did not decide to fix it and ignored it. This problem is only seen in lagshot. <br />
+<br />
+You can fix this problem by playing the death animation when the player dies.<br />
+Also if you want, you can use weapon-config include to solve it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerDeath</strong> - <a href="member02c6.html?action=profile&amp;uid=3448">destiezk</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 08:17 PM)</span>Radical Wrote:  <a href="showthread2292.html?pid=10190#pid10190" class="quick_jump"></a></cite>I saw this but did not decide to fix it and ignored it. This problem is only seen in lagshot. <br />
+<br />
+You can fix this problem by playing the death animation when the player dies.<br />
+Also if you want, you can use weapon-config include to solve it.</blockquote><br />
+I'm not using lagshot, but it still appears.<br />
+<br />
+I'll try the death-animation when the player dies, thank you so much :-)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerDeath</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-11</strong>
+<br />
+<br />
+If the problem appeared 2-3 months ago, revert your code to a version from 4 months ago and bisect from there.  Once you've found the commit that the bug was introduced in, then you have a much better idea of what caused it and we can help you go from there.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerDeath</strong> - <a href="member02c6.html?action=profile&amp;uid=3448">destiezk</a> -  <strong>2021-03-25</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-11, 11:20 PM)</span>Y_Less Wrote:  <a href="showthreadbcb7.html?pid=10206#pid10206" class="quick_jump"></a></cite>If the problem appeared 2-3 months ago, revert your code to a version from 4 months ago and bisect from there.  Once you've found the commit that the bug was introduced in, then you have a much better idea of what caused it and we can help you go from there.</blockquote><br />
+It's because of my custom hitbox, but I have no clue why
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
