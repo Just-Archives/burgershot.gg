@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Dynamically loading / unloading plugins - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthread203b-2.html?tid=602">Dynamically loading / unloading plugins</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Dynamically loading / unloading plugins (<em>/showthread.php?tid=602</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Dynamically loading / unloading plugins</strong> - <a href="memberfaa7.html?action=profile&amp;uid=829">XeroX</a> -  <strong>2019-05-25</strong>
+<br />
+<br />
+Hi,<br />
+not sure if this is already on your suggestion(s) list but would be nice to be able to (un)load plugins on the fly while the server is running.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Dynamically loading / unloading plugins</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-25</strong>
+<br />
+<br />
+This is possible, but might require a workaround for older plugns that are not written to be hot reloaded (some have memory leakes). Either that or they would need to be re-written/re-compiled with fixes.<br />
+<br />
+It's really a question of whether older plugin should be supported for hot reload.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Dynamically loading / unloading plugins</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-05-25</strong>
+<br />
+<br />
+I see no point in this feature being a thing. Why would you even want to hot swap plugins?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Dynamically loading / unloading plugins</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-25</strong>
+<br />
+<br />
+Yeah I don't see a reason for this, other then for development of the plugin itself.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Dynamically loading / unloading plugins</strong> - <a href="membercba7.html?action=profile&amp;uid=660">ohmios</a> -  <strong>2019-05-25</strong>
+<br />
+<br />
+Faster plugin development by not having to reload the whole server is already a great feature. Also big server will probably thank live security plugin updates, or even live open.mp server updates.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Dynamically loading / unloading plugins</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-05-26</strong>
+<br />
+<br />
+Hot loading can come handy in case you want to load a certain thing without restarting your serve - this might be more work but should be added, this can come handy in a way that you can load all your plugins depending on the includes you've in your script, you can just do a small define to check whether the library is included or not and then load the respective plugin for it. This is just an idea, because I really hate to set up SA-MP servers.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Dynamically loading / unloading plugins</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-05-26</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-25, 11:56 PM)</span>ohmios Wrote:  <a href="showthread381b-2.html?pid=5595#pid5595" class="quick_jump"></a></cite>Faster plugin development by not having to reload the whole server is already a great feature. Also big server will probably thank live security plugin updates, or even live open.mp server updates.</blockquote><br />
+Plugin development would 90% of the time adding more natives. In which you would have to recompile your script and restart either way. <br />
+The other 10% are bug fixes, that would be useful to have for "hot swapping" but I don't think that's worth the time in my opinion.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Dynamically loading / unloading plugins</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-26</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-26, 12:54 PM)</span>Gravityfalls Wrote:  <a href="showthread8a2d.html?pid=5605#pid5605" class="quick_jump"></a></cite>Hot loading can come handy in case you want to load a certain thing without restarting your serve - this might be more work but should be added, this can come handy in a way that you can load all your plugins depending on the includes you've in your script, you can just do a small define to check whether the library is included or not and then load the respective plugin for it. This is just an idea, because I really hate to set up SA-MP servers.</blockquote><br />
+The huge problem with this, is that a plugin could get updated and add/change natives and then your server wouldn't function correctly since it would be trying to call natives that no longer exists or have changed and give an unexpected output.<br />
+<br />
+This would be seriously bad, and I don't recommend this approach at all.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
