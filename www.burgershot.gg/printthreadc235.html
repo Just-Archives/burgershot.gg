@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadc235.html?tid=433">OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: General Discussions (<i>https://www.burgershot.gg/forumdisplay.php?fid=6</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin? (<em>/showthread.php?tid=433</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="member93a1.html?action=profile&amp;uid=329">Dev86</a> -  <strong>2019-04-22</strong>
+<br />
+<br />
+If you play minecraft and know how servers/plugins works there, you might be familiar with <span style="font-weight: bold;" class="mycode_b">EssentialsX</span>.<br />
+<br />
+Ok so basically, EssentialsX is just a bunch of very useful commands (which already includes moderation/administration commands) in one script/minecraft plugin. Many minecraft servers use this. It has alot of commands such as /nick (where you'd have a nickname that can be colorized), /me (you know what this is), and many more. Not just that but they also have in-plugin features such as an economy system and stuff. And they assign these commands to specific ranks so that not every rank can use it. You can read more at their website. (not linking it, but you can search it up on google.)<br />
+<br />
+I started off trying to remake this thing, but only the necessary commands for SAMP or Open MP. this script of mine that i'm making (could) help new scripters. It would work like this:<br />
+there would be 2 parts of this whole script, the ranks, and the individual commands and features.<br />
+<br />
+So for the first part of the script, the "ranks" part, makes it easy to assign commands for people.<br />
+<br />
+lets say for example you have want a rank called "monstaX" (yikes)<br />
+<br />
+<br />
+so most servers would make a variable like: pInfo[playerid][pRank] = "monstaX"<br />
+and under every command you make you need to add if statements such as: if(pInfo[playerid][pRank] == "monstaX") {<br />
+<br />
+<br />
+but in this script im developing, you create ranks within the script (or a config, idk might make a config.ini file or similar ye xzcmz)<br />
+and assign commands/features to the ranks you made within the script/config aswell.<br />
+<br />
+lets say for example you made the monstaX rank, you assign commands within a config (im not sure how im gonna make it yet so these are just assumptions). Like so:<br />
+<br />
+note(again): this COULD be the config syntax, but im not sure, it would most probably change and be very different from what i type under here, it is just a visualization of what i am trying to say.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>monstaX:<br />
+   permissions:<br />
+       - /me<br />
+       - /pay<br />
+       - /feed</code></div></div><br />
+again this is just a visualization.<br />
+<br />
+so for the second part, the commands and features, this is where other scripters can do their part.<br />
+<br />
+so here, lets say we have this command:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:ah(playerid, params[]) return callcmd::adminhelp(playerid, params);<br />
+CMD:ahelp(playerid, params[]) return callcmd::adminhelp(playerid, params);<br />
+CMD:adminhelp(playerid, params[])<br />
+{<br />
+if(!PlayerInfo[playerid][pAdmin] &amp;&amp; !IsPlayerAdmin(playerid) &amp;&amp; !PlayerInfo[playerid][pFormerAdmin])<br />
+{<br />
+   return SCM(playerid, COLOR_RED, "[!]{ffffff} You are not authorized to use this command.");<br />
+}<br />
+if(PlayerInfo[playerid][pAdmin] &gt;= 1)<br />
+{<br />
+SCM(playerid, COLOR_WHITE, "{000000}Secret Admin:{FFFFFF} /a, /skick, /sban, /sjail, /pinfo, /spec, /reports, /admins, /flag, /removeflag");<br />
+SCM(playerid, COLOR_WHITE, "{000000}Secret Admin:{FFFFFF} /ocheck, /oflag, /listflagged /(am)egaphone /listflags, /check, /dm");<br />
+}<br />
+if(PlayerInfo[playerid][pAdmin] &gt;= 2)<br />
+{<br />
+SCM(playerid, COLOR_LIGHTGREEN, "[JA]{FFFFFF} /aduty, /adminname, /kick, /ban, /warn, /slap, /ar, /tr, /rr, /cr, /getip, /iplookup, /ogetip, /setint, /setvw");<br />
+SCM(playerid, COLOR_LIGHTGREEN, "[JA]{FFFFFF} /setskin, /revive, /heject, /goto, /gethere, /gotocar, /getcar, /gotocoords, /gotoint, /listen, /jetpack, /sendto");<br />
+SCM(playerid, COLOR_LIGHTGR---...........</code></div></div><br />
+<br />
+so instead of having this, and manually having to put similar if statements for every new rank you want:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(!PlayerInfo[playerid][pAdmin] &amp;&amp; !IsPlayerAdmin(playerid) &amp;&amp; !PlayerInfo[playerid][pFormerAdmin])<br />
+{<br />
+  return SCM(playerid, COLOR_RED, "[!]{ffffff} You are not authorized to use this command.");<br />
+}</code></div></div><br />
+the script changes it to this:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(!xPermissions[PlayerInfo[playerid][pRank]][ahelp])<br />
+{<br />
+  return SCM(playerid, COLOR_RED, "[!]{ffffff} You are not authorized to use this command.");<br />
+}</code></div></div><br />
+more simple, right? <br />
+<br />
+And this variable i made is what is gonna be assigned for each rank.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">You can ask questions and clarrifications. </span>I've wrote this very late and i'm tired.<br />
+-<br />
+<br />
+Question: If i release this script, will you use it?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="memberf21f.html?action=profile&amp;uid=596">Reeves</a> -  <strong>2019-04-22</strong>
+<br />
+<br />
+pretty sure i know a couple of scripts that use a flag system so "admin flag" then it just checks if you can use admin command "developer flag" can use dev cmds but its an interesting concept to user it from a players point of view i guess
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="memberd54a.html?action=profile&amp;uid=85">nize</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+Pawn.CMD, the command processor I believe you are using right now, does have a flag system<br />
+<br />
+https://forum.sa-mp.com/showthread.php?t=647389<br />
+https://github.com/urShadow/Pawn.CMD
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+This is what y_commands and y_groups has done for years.  Never mind a single flag, or even excess code within a command:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">Group_SetCommandGlobal</span><span style="color: #007700">(</span><span style="color: #0000BB">YCMD</span><span style="color: #007700">:</span><span style="color: #0000BB">promote</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;Disable&nbsp;this&nbsp;command&nbsp;for&nbsp;everyone.<br /></span><span style="color: #0000BB">Group_SetCommand</span><span style="color: #007700">(</span><span style="color: #0000BB">gAdminGroup</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">YCMD</span><span style="color: #007700">:</span><span style="color: #0000BB">promote</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;Enable&nbsp;it&nbsp;for&nbsp;admins.&nbsp;<br /></span></code></div></div></div><br />
+No need for checking in the command at all, and a great deal more flexibility with that.<br />
+<br />
+It doesn't actually read those permissions from a file currently, but doing so is trivial, since they are already dynamic.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="member966e.html?action=profile&amp;uid=617">Cada</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+i think it`s good idea.<br />
+<br />
+in minecraft, most server have not developed their plugins like teleporter something themselves, but using uploaded plugins. <br />
+it makes many people can open their server easily even though they don`t know about scripting.<br />
+<br />
+if this applied at OpenMP, more people can come into contact with OpenMP easily like minecraft.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-23, 03:18 PM)</span>Cada Wrote:  <a href="showthreadf394.html?pid=4360#pid4360" class="quick_jump"></a></cite>i think it`s good idea.<br />
+<br />
+in minecraft, most server have not developed their plugins like teleporter something themselves, but using uploaded plugins. <br />
+it makes many people can open their server easily even though they don`t know about scripting.<br />
+<br />
+if this applied at OpenMP, more people can come into contact with OpenMP easily like minecraft.</blockquote><br />
+Both of the mods are entirely different, don't compare them.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+And we have that - we have includes/modes/plugins already!  You're saying the ability to download and install things is a good idea - we agree, that's why its existed for 10+ years.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2019-04-27</strong>
+<br />
+<br />
+y_**** is cool, but it's not included by default ( YSI included in open mp when ? ), and for people who will be using this it might be too hard to update it in the future.<br />
+Will i be using it ? No, but i can see a lot of people who would, so DO IT.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="member93a1.html?action=profile&amp;uid=329">Dev86</a> -  <strong>2019-04-28</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-27, 11:15 PM)</span>Expert* Wrote:  <a href="showthreadf977.html?pid=4647#pid4647" class="quick_jump"></a></cite>y_**** is cool, but it's not included by default ( YSI included in open mp when ? ), and for people who will be using this it might be too hard to update it in the future.<br />
+Will i be using it ? No, but i can see a lot of people who would, so DO IT.</blockquote><br />
+<br />
+very inspirational there xd
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-04-30</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-27, 11:15 PM)</span>Expert* Wrote:  <a href="showthreadf977.html?pid=4647#pid4647" class="quick_jump"></a></cite>y_**** is cool, but it's not included by default ( YSI included in open mp when ? ), and for people who will be using this it might be too hard to update it in the future.<br />
+Will i be using it ? No, but i can see a lot of people who would, so DO IT.</blockquote><br />
+I'm not sure what your point is.  This thread was about some large system lots of people can use.  One already exists in YSI, of course people don't have to use that, but if they don't use that why would another one be any different?  If porting to YSI was too hard, porting to anything else would surely be just as hard?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2019-05-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-30, 02:15 PM)</span>Y_Less Wrote:  <a href="showthread2014.html?pid=4765#pid4765" class="quick_jump"></a></cite>I'm not sure what your point is.  This thread was about some large system lots of people can use.  One already exists in YSI, of course people don't have to use that, but if they don't use that why would another one be any different?  If porting to YSI was too hard, porting to anything else would surely be just as hard?</blockquote><br />
+Changes in YSI could brake it, what if i need YSI 4.0 for system A and YSI 6.2 for system B ? ( assuming that sys b is no longer maintained )<br />
+People who will be using this more likely than not will be beginners - someone who might not be able to upgrade. His solution is simple, no external library required.<br />
+<br />
+I had some bad experiences with mysql in the past, upgrading from older version to newer just to go back to older one because it was broken on linux. And upgrading to R39, when R40 came out just couple months later with changes that broke my code again.<br />
+I just don't like to use someone else's code if i can make my own.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: OpenMP/SAMP version of Jenkins EssentialsX Minercaft Plugin?</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-05-02</strong>
+<br />
+<br />
+His suggestion literally is a library. A library just as prone to breaking as any other.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
