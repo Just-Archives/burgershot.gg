@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: misc_help_helpdoc -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Burgershot - Help Documents</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="syndication9896.php?type=atom1.0" />
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/EBFKVbK.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="jscripts/jquery6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/jquery.plugins.min6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/general6c6d.js?ver=1804"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/global.min.css">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/avatarep.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/global.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/css3.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/footer.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/custom.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/extra.min8355.css?t=1641376402" />
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+
+	var cookieDomain = ".burgershot.gg";
+	var cookiePath = "index.html";
+	var cookiePrefix = "";
+	var cookieSecureFlag = "0";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "6428f000919b5d9a18f82d476f6b077e";
+	var rootpath = "index.html";
+	var imagepath = "images/index.html";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "images/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<script>
+	$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+	$('.scrollToDown').click(function(){
+		$('html, body').animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- end: headerinclude -->
+</head>
+<body>
+<!-- start: header -->
+<div class="haut" style="height:70px">
+	<a href="index.html" id="logo"><img style="position: absolute;left: -5px;top: 12px;" src="https://burgershot.gg/burgershot.svg" height="40px" />Burgershot</a>
+	<span class="useroptions">
+		<ul id="menu-deroulant">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="memberlist.html">Members</a></li>
+			<li><a href="showteam.html">Team</a></li>
+			<li><a href="misc0615.html?action=help">Help</a></li>
+			<li><a href="search.html">Search</a></li>
+			<!-- start: header_welcomeblock_guest -->
+<li><a href="member0ddc.html?action=register">Register</a></li>
+<li><a href="member456e.html?action=login">Login</a></li>
+<script>
+    var connected = 0;
+</script>
+<!-- end: header_welcomeblock_guest -->
+		</ul>
+	</span>
+</div>
+<div style="width: 100%; height: 70px;"></div>
+<!-- Start - Navigation menu -->
+<nav class="headerlist" style="display:none">
+<ul>
+  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li><li>
+	<a href="memberlist.html"><i class="fa fa-users"></i> Members</a></li><li>
+	<a href="misc0615.html?action=help"><i class="fa fa-support"></i> Help</a></li><li>
+	<a href="search.html"><i class="fa fa-search"></i> Search</a>
+</li></ul>
+</nav>
+<!-- End - Navigation menu -->
+<center>
+<!-- Start - Advice -->
+<div id="mobile_member">
+</div>
+<!-- End - Advice -->
+</center>
+<div id="container">
+	<a name="top" id="top"></a>
+	<div id="header">
+		<div id="content">
+			<div class="wrapper">
+				
+				
+				
+				
+				
+				
+				<!-- start: nav -->
+<div class="navigation" style="display:none;">
+          <a href="index-2.html">
+		<span id="home_bit">
+			<i class="fa fa-home"></i>
+		</span>
+	</a>
+	<span style="padding: 8px 12px;margin-left: 5px;"><!-- start: nav_bit -->
+<a href="index-2.html">Burgershot</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="misc0615.html?action=help">Help Documents</a>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep_active --><!-- start: nav_bit_active -->
+<span class="active">MyCode</span>
+<!-- end: nav_bit_active --></span>
+</div>
+<script>
+var page = location.pathname;
+page = page.substring(1);
+if(page != 'index.php' && page != '') {
+     $('.navigation').css('display', '');
+}
+</script>
+<!-- end: nav -->
+				<br />
+<!-- end: header -->
+<table border="0" cellspacing="0" cellpadding="7" class="tborder tfixed">
+<tr>
+<td class="thead"><strong>MyCode</strong></td>
+</tr>
+<tr>
+<td class="trow1 scaleimages">You can use MyCode, also known as BB Codes to add effects or formatting to your posts. MyCodes are a simplified version of HTML and is used in a similar format to HTML tags which you may already be familiar with.
+<br /><br />The table below is a quick guide of the MyCodes available:
+<br /><br />
+<table class="tborder" cellspacing="0" cellpadding="5" border="0" style="width:90%">
+<tbody>
+<tr>
+<td class="tcat" style="width:55%"><span class="smalltext"><strong>Input</strong></span></td>
+<td class="tcat" style="width:35%"><span class="smalltext"><strong>Output</strong></span></td>
+<td class="tcat" style="width:10%"><span class="smalltext"><strong>Notes</strong></span></td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[b]</span>This text is bold<span style="font-weight: bold; color: #ff0000;">[/b]</span></td>
+<td class="trow1"><span style="font-weight: bold;" class="mycode_b">This text is bold</span></td>
+<td class="trow1"></td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[i]</span>This text is italicized<span style="font-weight: bold; color: #ff0000;">[/i]</span></td>
+<td class="trow2"><span style="font-style: italic;" class="mycode_i">This text is italicized</span></td>
+<td class="trow2"></td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[u]</span>This text is underlined<span style="font-weight: bold; color: #ff0000;">[/u]</span></td>
+<td class="trow1"><span style="text-decoration: underline;" class="mycode_u">This text is underlined</span></td>
+<td class="trow1"></td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[s]</span>This text is struck out<span style="font-weight: bold; color: #ff0000;">[/s]</span></td>
+<td class="trow2"><span style="text-decoration: line-through;" class="mycode_s">This text is struck out</span></td>
+<td class="trow2"></td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[url]</span>http://www.example.com/<span style="font-weight: bold; color: #ff0000;">[/url]</span></td>
+<td class="trow1"><a href="http://www.example.com/" class="mycode_url" rel="nofollow">http://www.example.com/</a></td>
+<td class="trow1">URLs will auto-link if proper protocol is included (vaild protocols are http, https, ftp, news, irc, ircs and irc6).</td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[url=http://www.example.com/]</span>Example.com<span style="font-weight: bold; color: #ff0000;">[/url]</span></td>
+<td class="trow2"><a href="http://www.example.com/" class="mycode_url" rel="nofollow">Example.com</a></td>
+<td class="trow2"></td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[email]</span><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f4918c9599849891b4918c9599849891da979b99">[email&#160;protected]</a><span style="font-weight: bold; color: #ff0000;">[/email]</span></td>
+<td class="trow1"><a href="cdn-cgi/l/email-protection.html#0e6b766f637e626b4e6b766f637e626b206d6163" class="mycode_email"><span class="__cf_email__" data-cfemail="45203d242835292005203d24283529206b262a28">[email&#160;protected]</span></a></td>
+<td class="trow1"></td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[<a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ee8b838f8782d38b968f839e828bae8b968f839e828bc08d8183">[email&#160;protected]</a>]</span>E-mail Me!<span style="font-weight: bold; color: #ff0000;">[/email]</span></td>
+<td class="trow2"><a href="cdn-cgi/l/email-protection.html#2e4b564f435e424b6e4b564f435e424b004d4143" class="mycode_email">E-mail Me!</a></td>
+<td class="trow2">A subject can be included by adding <strong>?subject=Subject Here</strong> after the email address.</td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[quote]</span>Quoted text will be here<span style="font-weight: bold; color: #ff0000;">[/quote]</span></td>
+<td class="trow1"><blockquote class="mycode_quote"><cite>Quote:</cite>Quoted text will be here</blockquote></td>
+<td class="trow1"></td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[quote='Admin' pid='1' dateline='946684800']</span>Quoted text will be here<span style="font-weight: bold; color: #ff0000;">[/quote]</span></td>
+<td class="trow2"><blockquote class="mycode_quote"><cite><span> (01-01-2000, 12:00 AM)</span>Admin Wrote:  <a href="http://www.example.com/showthread.php?pid=1#pid1" class="quick_jump" rel="nofollow"></a></cite>Quoted text will be here</blockquote></td>
+<td class="trow2">This format is used when quoting posts. <strong>pid</strong> links to a post, <strong>dateline</strong> is a <a href="https://www.unixtimestamp.com/">UNIX timestamp</a>.</td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[code]</span>Text with preserved formatting<span style="font-weight: bold; color: #ff0000;">[/code]</span></td>
+<td class="trow1"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Text with preserved formatting</code></div></div></td>
+<td class="trow1"></td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[php]</span>&lt;?php echo "Hello world!";?&gt;<span style="font-weight: bold; color: #ff0000;">[/php]</span></td>
+<td class="trow2"><div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;world!"</span><span style="color: #007700">;</span><span style="color: #0000BB">?&gt;</span></code></div></div></div></div></td>
+<td class="trow2"></td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[img]</span>https://secure.php.net/images/php.gif<span style="font-weight: bold; color: #ff0000;">[/img]</span></td>
+<td class="trow1"><img src="https://secure.php.net/images/php.gif" class="mycode_img"></td>
+<td class="trow1"></td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[img=50x50]</span>https://secure.php.net/images/php.gif<span style="font-weight: bold; color: #ff0000;">[/img]</span></td>
+<td class="trow2"><img src="https://secure.php.net/images/php.gif" width="50" height="50" class="mycode_img"></td>
+<td class="trow2">Format is width x height</td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[color=red]</span>This text is red<span style="font-weight: bold; color: #ff0000;">[/color]</span></td>
+<td class="trow1"><span style="color: red;" class="mycode_color">This text is red</span></td>
+<td class="trow1">Can use either <a href="https://www.w3schools.com/cssref/css_colors.asp">CSS color name</a> or HEX code.</td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[size=large]</span>This text is large<span style="font-weight: bold; color: #ff0000;">[/size]</span></td>
+<td class="trow2"><span style="font-size: large" class="mycode_size">This text is large</span></td>
+<td class="trow2">Acceptable values: xx-small, x-small, small, medium, large, x-large, xx-large</td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[size=30]</span>This text is 30px<span style="font-weight: bold; color: #ff0000;">[/size]</span></td>
+<td class="trow1"><span style="font-size: 30px" class="mycode_size">This text is 30px</span></td>
+<td class="trow1">Accepts number from 1 to 50</td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[font=Impact]</span>This font is Impact<span style="font-weight: bold; color: #ff0000;">[/font]</span></td>
+<td class="trow2"><span style="font-family: Impact;" class="mycode_font">This font is Impact</span></td>
+<td class="trow2">Font must be installed on your computer</td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[align=center]</span>This is centered<span style="font-weight: bold; color: #ff0000;">[/align]</span></td>
+<td class="trow1"><div style="text-align: center;" class="mycode_align">This is centered</div></td>
+<td class="trow1">Acceptable values: left, center, right, justify</td>
+</tr>
+<tr>
+<td class="trow2"><span style="font-weight: bold; color: #ff0000;">[list]</span><br />[*]List Item #1<br />[*]List Item #2<br />[*]List Item #3<br /><span style="font-weight: bold; color: #ff0000;">[/list]</span></td>
+<td class="trow2"><ul class="mycode_list"><li>List item #1</li><li>List item #2</li><li>List Item #3</li></ul></td>
+<td class="trow2"></td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[list=1]</span><br />[*]List Item #1<br />[*]List Item #2<br />[*]List Item #3<br /><span style="font-weight: bold; color: #ff0000;">[/list]</span></td>
+<td class="trow1"><ol class="mycode_list" type="1"><li>List item #1</li><li>List item #2</li><li>List Item #3</li></ol></td>
+<td class="trow1"><strong>1</strong> can be used for a numbered list, <strong>a</strong> can be used for an alphabetical list, <strong>i</strong> for a roman numerals list.</td>
+</tr>
+<tr>
+<td class="trow2">A line that<span style="font-weight: bold; color: #ff0000;">[hr]</span>divides</td>
+<td class="trow2">A line that<hr class="mycode_hr">divides</td>
+<td class="trow2"></td>
+</tr>
+<tr>
+<td class="trow1"><span style="font-weight: bold; color: #ff0000;">[video=youtube]</span>https://www.youtube.com/watch?v=dQw4w9WgXcQ<span style="font-weight: bold; color: #ff0000;">[/video]</span></td>
+<td class="trow1"><iframe src="http://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen="" width="460" height="255" frameborder="0"></iframe></td>
+<td class="trow1">Currently accepts Dailymotion, Facebook, LiveLeak, Metacafe, Mixer, MySpace TV, Twitch, Vimeo, Yahoo Videos and YouTube.</td>
+</tr>
+</tbody></table>
+<br /><br />In addition, administrators may have created more MyCodes for use. Please contact an administrator to find out if there are any and on how to use them.</td>
+</tr>
+</table>
+<!-- start: footer -->
+    </div>
+</div>
+<footer class="footer-distributed">
+	<div class="footer-left">
+		<p style="" class="footer-links">
+			© Burgershot - Powered by our <a href="index.html" style="font-weight: bold; font-family: Noto Sans;">Community</a> and <a style="font-weight: bold; font-family: Noto Sans;" href="https://www.mybb.com/"> MyBB</a>
+            <span style="display:block;color: #9f9f9f;font-family: Noto Sans;"><small style="font-size: 12px;">Original Theme by Emerald</small></span>                                     
+	    </p>
+	</div>
+    <div style="" class="footer-right">
+        <div class="footer-icons">
+		</div>
+                
+		<!-- start: footer_themeselect -->
+<div class="theme">
+<form method="POST" action="https://www.burgershot.gg/misc.php" id="theme_select">
+	<input type="hidden" name="action" value="help" />
+<input type="hidden" name="hid" value="7" />
+
+	<input type="hidden" name="my_post_key" value="6428f000919b5d9a18f82d476f6b077e" />
+	<!-- start: footer_themeselector -->
+<select name="theme" onchange="MyBB.changeTheme();">
+<optgroup label="Quick Theme Select">
+<!-- start: usercp_themeselector_option -->
+<option value="2">MyBB Default Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="3">Burgershot Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="9">--Light</option>
+<!-- end: usercp_themeselector_option -->
+</optgroup>
+</select>
+<!-- end: footer_themeselector -->
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_themeselect -->
+	</div>
+</footer>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+	if (connected == 0) { 
+        jQuery("#mobile_member").html("<a href='member456e.html?action=login'>Login</a> - <a href='member0ddc.html?action=register'>Register</a>"); 
+    }
+	if (connected == 1) { 
+        document.getElementById("mobile_member").innerHTML = '<a title="Inbox" href="private.html">Inbox</a> - <a title="User CP" href="usercp.html">User CP</a> - <a title="Log Out" href="member2385.html?action=logout&amp;logoutkey=">Logout</a>'; 
+    }
+</script>
+<!-- end: footer -->
+</body>
+</html>
+<!-- end: misc_help_helpdoc -->
