@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Blog Post Scripting API blog post discussion - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #FF00C1;font-weight: bold;">[Blog Post]</span> <a href="showthreadd28d.html?tid=1036">Scripting API blog post discussion</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Development Updates (<i>https://www.burgershot.gg/forumdisplay.php?fid=43</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #FF00C1;font-weight: bold;">[Blog Post]</span> Scripting API blog post discussion (<em>/showthread.php?tid=1036</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Scripting API blog post discussion</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2020-04-14</strong>
+<br />
+<br />
+This topic is for feedback on the latest blog post, found here:<br />
+<br />
+https://www.open.mp/blog/scripting-api<br />
+<br />
+Please read that, then feel free to comment on anything it brings up.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: API blog post discussion</strong> - <a href="member5658.html?action=profile&amp;uid=2233">dreftas</a> -  <strong>2020-04-14</strong>
+<br />
+<br />
+Hey. Everything you're doing, and everything you will do in the future with this new GTA:SA Multiplayer modification is so good and thats what everyone was waiting for all these years.<br />
+<br />
+I quit scripting SA-MP a long time ago, but as I'm reading yours blog post about scripting, I like this thing:<br />
+Object_GetRotation<br />
+Vehicle_GetRotation<br />
+I mean the naming [entity]_GetRotation, [entity]_SetRotation, it's good to see scripting like this, I've always wanted this type of function names back then in SA-MP :)<br />
+<br />
+As for invalid id's, as a some kind of programmer, I would agree with -1, because as you said yourself:<br />
+"<span style="font-weight: bold;" class="mycode_b">Programmers start counting at 0, so it should be valid and something outside the realm of positive integers should be invalid.</span>"<br />
+<br />
+Keep it up with this mod :)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: API blog post discussion</strong> - <a href="member3774.html?action=profile&amp;uid=56">Polygon</a> -  <strong>2020-04-15</strong>
+<br />
+<br />
+Took me a solid one and a half hour to read through the whole thing, and to understand whats going on as a beginner but damn, appriceate the hard work. Favourite "change" is the per-player stuff for sure. Thank you!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: API blog post discussion</strong> - <a href="member7b6b.html?action=profile&amp;uid=65">Riddick</a> -  <strong>2020-04-15</strong>
+<br />
+<br />
+So here's my statement:<br />
+<br />
+I really appreciate the tags that are making appearance in the API. That way we're going to solve many common problems across Scriptwriters. They'll be forced to always provide correct information for the functions. That's a great start.<br />
+<br />
+Another great thing is the naming convention. Sometimes noun "Player" didn't match with the feature that function provided. It's a better approach with underscores. C# OOP has . (dot) sign to follow up its members, C++ has its pointers and we will have underscores. The only matter of thing I have on my mind is to create open.mp syntax and make it downloadable in VS Code extensions store. So all the function names, parameters are going to be automatically provided while typing (as suggestions).<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">So that's a first suggestion</span> I have: open.mp API syntax and suggestions gathering via VS Code extensions.<br />
+<br />
+Another good thing about what you do is using boolean parameter for displaying an entity. It's better to pass that by param. instead of doing `if-else` condition since you can implement that condition in parameter.<br />
+<br />
+I mean that example:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if (var) Checkpoint_Show(cpid, playerid);<br />
+else Checkpoint_Hide(cpid, playerid);</code></div></div><br />
+If possible, make all new functions appear the way as:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>X_Toggle/Display(entity, forEntity, bool:display)</code></div></div><br />
+One thing that always bothered me is variable names and parameter names in pawn language. But that's probably because I'm used to C# too much. I always specify my variables as " playerId " instead of " playerid " - but that's a minor issue (and a personal one more rather).<br />
+<br />
+---<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>// Just get `z`.<br />
+z = Player_GetRotation(playerid);</code></div></div><br />
+That's a great thing! It's so simple yet so useful! Can't remember how many times I was so annoyed by having getting all x, y, z to simply just get z of player's position OR facing angle. Good! And also retrieving the value by returning it from the function and not passing it by reference is also great thing. Thanks for that.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">About your issue with invalid IDs returning..</span> I never liked that SA-MP's functions returned `1` as first valid objectId (from CreateObject), vehicleId (from CreateVehicle) etc. Valid items ID should always start from `0` and invalid one should return `-1`.<br />
+<br />
+I'm happy to see everything is progressing, I'm just waiting for the initial release. I'm planning on migrating my The Last of Us (SA-MP) Project and call it The Last of Us (open.mp) Project for once... I will make an official <span style="font-weight: bold;" class="mycode_b">live-stream migration process</span> of the gamemode I have created (once open.mp is ready server-wise).<br />
+<br />
+Another thing I really want to see in open.mp is provided features of:<br />
+<br />
+- streamer plugin<br />
+- YSF<br />
+- and maybe some other (?)<br />
+<br />
+internally. Basically server-sided plugins could be easily managed by default and provided in the package already instead of having to download dependencies separately (but then, what's the point of sampctl right?).<br />
+<br />
+Anyway. Waiting for more, I wanna script in open.mp API already and try migrating my project.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Scripting API blog post discussion</strong> - <a href="member8264.html?action=profile&amp;uid=1173">George</a> -  <strong>2020-04-16</strong>
+<br />
+<br />
+I like the use of tags and the naming scheme. I agree that using <span style="font-weight: bold;" class="mycode_b">-1</span> as invalid value is a better choice.<br />
+<br />
+I myself started using this naming conversation for the gamemode I am writing and I wonder if it will conflict with open.mp scripting API. For example, I have extra parameter to know if I have to update the database or not. I hope I will not have to convert the whole gamemode in the future.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Player_SetWeather(playerid, weatherid, bool: update_db)</code></div></div><br />
+I also noticed few mistakes:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Eample</code></div></div><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>but found but found none ("_")</code></div></div><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>// Just set `z`.<br />
+Vehicle_GetRotation(vehicleid, z);<br />
+// Set x, y, and z Euler angles.<br />
+Vehicle_GetRotation(vehicleid, x, y, z);<br />
+// Set w, x, y, and z quaternion angles.<br />
+Vehicle_GetRotation(vehicleid, w, x, y, z);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Scripting API blog post discussion</strong> - <a href="member9b3a.html?action=profile&amp;uid=1735">EOussama</a> -  <strong>2020-04-28</strong>
+<br />
+<br />
+Reading this really gets me more excited about the project, best of luck.<br />
+Side note: there is a small typo under the <span style="font-weight: bold;" class="mycode_b">Building</span> section. “<span style="font-style: italic;" class="mycode_i">Eample</span>”.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Scripting API blog post discussion</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2020-04-29</strong>
+<br />
+<br />
+Is GetPlayerVehicleID Player_ or Vehicle_ module ?<br />
+And how about SetVehicleParamsForPlayer, IsPlayerInAnyVehicle, IsPlayerInVehicle or SetVehicleParamsForPlayer ?<br />
+<br />
+Vehicle_IsPlayerInside works fine, but Vehicle_IsPlayerInAny doesn't sound right.<br />
+Maybe we could use the first parameter to guess the moduel type when possible ?<br />
+<br />
+And how about consistency ?<br />
+If we dont want to shorten names SetPlayerPos becomes Player_SetPosition, and i've used 'Pos' so many times that it just doesn't sound right.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Scripting API blog post discussion</strong> - <a href="member9c2a.html?action=profile&amp;uid=883">EvilShadeZ</a> -  <strong>2020-04-29</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-04-29, 02:16 PM)</span>Expert* Wrote:  <a href="showthread967d.html?pid=7515#pid7515" class="quick_jump"></a></cite>Is GetPlayerVehicleID Player_ or Vehicle_ module ?<br />
+And how about SetVehicleParamsForPlayer, IsPlayerInAnyVehicle, IsPlayerInVehicle or SetVehicleParamsForPlayer ?<br />
+<br />
+Vehicle_IsPlayerInside works fine, but Vehicle_IsPlayerInAny doesn't sound right.<br />
+Maybe we could use the first parameter to guess the moduel type when possible ?<br />
+<br />
+And how about consistency ?<br />
+If we dont want to shorten names SetPlayerPos becomes Player_SetPosition, and i've used 'Pos' so many times that it just doesn't sound right.</blockquote><br />
+You need to find out who is the 'subject' for the function to find out which to use.<br />
+<br />
+1. Player_GetVehicle sound's much better because you care more about the player being in a vehicle, not vehicle having that player in it.<br />
+2. Vehicle_SetParams (ForPlayer) (Whether it is merged or not is up to devs, but you are more interested about VEHICLE having these parameters, not player.)<br />
+<br />
+<br />
+Shortened names are not that good idea tbh. Yes, it is convenient saying Pos instead of position, but at the same time, it can easily turn into weird abbreviations that are non-descriptive.  <br />
+"SCM" and "SCMF" are some of the worst I have seen. It pretty much boils down to lazyness of typing a few more characters. If you wanna shorten it, you can always make your own macros, but I don't advise it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Scripting API blog post discussion</strong> - <a href="member63da.html?action=profile&amp;uid=372">Jarnokai</a> -  <strong>2021-01-07</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-04-29, 02:16 PM)</span>Expert* Wrote:  <a href="showthread967d.html?pid=7515#pid7515" class="quick_jump"></a></cite>Vehicle_IsPlayerInside works fine, but Vehicle_IsPlayerInAny doesn't sound right.</blockquote><br />
+<br />
+I think the latter function simply looks more like a player function, as it isn't related to any specific vehicle.<br />
+Player_IsInVehicle, Player_InVehicle, Player_InAnyVehicle...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Scripting API blog post discussion</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2021-01-07</strong>
+<br />
+<br />
+Correct, that would be a Player module function. Being as it is related to the player only, not dependent on a vehicle.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Scripting API blog post discussion</strong> - <a href="member25bf.html?action=profile&amp;uid=3780">h3ckphy</a> -  <strong>2021-05-26</strong>
+<br />
+<br />
+Y_Less, please, replace Turf_Create and Turf_Destroy with <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0e5a7b7c684e4d7c6b6f7a6b">[email&#160;protected]</a> and <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f1a5848397b1b5948285839e88">[email&#160;protected]</a> respectively here:<br />
+https://open.mp/blog/turfs-formerly-gangzones-module
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->
