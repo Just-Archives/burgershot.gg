@@ -1,0 +1,5 @@
+*.tmp
+cookies.txt
+hts-cache
+hts-log.txt
+hts-in_progress.lock
