@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Whitelist System - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadfdeb.html?tid=1795">Whitelist System</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: General Discussions (<i>https://www.burgershot.gg/forumdisplay.php?fid=6</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Whitelist System (<em>/showthread.php?tid=1795</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Whitelist System</strong> - <a href="member9881.html?action=profile&amp;uid=3566">Genon_May</a> -  <strong>2021-03-23</strong>
+<br />
+<br />
+Hey, im wondering does anyone know where i can find a whitelist system for samp. There used to be a few on the samp forums but cant reach them right now since they are down. If anyone knows where i can find one (english version) i would be very grateful
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Whitelist System</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-23</strong>
+<br />
+<br />
+I don't have one, you can check the old forum's web archive but why don't you just create one yourself? It's like 7-8 minutes max (including time it takes to create a table)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Whitelist System</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-23</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-23, 08:42 AM)</span>Genon_May Wrote:  <a href="showthreada437.html?pid=10394#pid10394" class="quick_jump"></a></cite>Hey, im wondering does anyone know where i can find a whitelist system for samp. There used to be a few on the samp forums but cant reach them right now since they are down. If anyone knows where i can find one (english version) i would be very grateful</blockquote><br />
+If you use MySQL, the initial logic of the system would be this:<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerConnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[</span><span style="color: #0000BB">60</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">[</span><span style="color: #0000BB">16</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;</span><span style="color: #FF8000">// SQL&nbsp;query&nbsp;that&nbsp;checks&nbsp;if&nbsp;the&nbsp;player's&nbsp;IP&nbsp;is&nbsp;in&nbsp;the&nbsp;whitelist&nbsp;table<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;  GetPlayerIp</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">str</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;mysql_format</span><span style="color: #007700">(</span><span style="color: #0000BB">ConexaoSQL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;`*`&nbsp;FROM&nbsp;`whitelist`&nbsp;WHERE&nbsp;`ip`&nbsp;=&nbsp;'%s'"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;mysql_tquery</span><span style="color: #007700">(</span><span style="color: #0000BB">ConexaoSQL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"OnVerifiedWhiteList"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">forward&nbsp;OnVerifiedWhiteList</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />public&nbsp;</span><span style="color: #0000BB">OnVerifiedWhiteList</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;if&nbsp;the&nbsp;player&nbsp;is&nbsp;on&nbsp;the&nbsp;whitelist<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">cache_num_rows</span><span style="color: #007700">()&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;Player&nbsp;Login<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;if&nbsp;the&nbsp;player&nbsp;is&nbsp;not&nbsp;on&nbsp;the&nbsp;whitelist<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">else<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;Kick</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Whitelist System</strong> - <a href="member9881.html?action=profile&amp;uid=3566">Genon_May</a> -  <strong>2021-03-23</strong>
+<br />
+<br />
+Hey thanks for trying to help me i really appreciate it. I found one already today after 1 hour of googling xd, already implemented on my server, sorry for the incovenience.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
