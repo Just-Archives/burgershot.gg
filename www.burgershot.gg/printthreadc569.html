@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn mysql - invalid row index '0' - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadc569.html?tid=950">mysql - invalid row index '0'</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> mysql - invalid row index '0' (<em>/showthread.php?tid=950</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>mysql - invalid row index '0'</strong> - <a href="member8a4e.html?action=profile&amp;uid=1951">Demo</a> -  <strong>2019-12-13</strong>
+<br />
+<br />
+Hello everyone,<br />
+<br />
+i created a similar mysql login/register system now like this example here: <a href="https://github.com/pBlueG/SA-MP-MySQL/blob/master/example_scripts/login_system-cache.pwn" target="_blank" rel="noopener" class="mycode_url">https://github.com/pBlueG/SA-MP-MySQL/blob/master/example_scripts/login_system-cache.pwn</a><br />
+<br />
+The only thing i changed is: i dont assign default values after registering server side. I want to get them from db, since i added it there as defaults if a new player registers an account.<br />
+How i did this is: if we assume the functions are all the same as the example above, i called <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>AssignPlayerData(playerid)</code></div></div> in <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerRegister(playerid)</code></div></div>.<br />
+<br />
+<br />
+Login works fine, but if trying to "AssignPlayerData" after registration i get this error for every data i want to to get.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[plugins/mysql] cache_get_value_name_int: invalid row index '0' (number of rows: '0')</code></div></div><br />
+If im thinking right, this is because the entire query to get data is in OnPlayerConnect, and if account does not exists we have no row for that player. So do i need to do the same query again after registering the player and before "AssignPlayerData" ? Is this the right way, or is there a cleaner way?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: mysql - invalid row index '0'</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-12-14</strong>
+<br />
+<br />
+Show us the code for registration, else you can't really give you the right help.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: mysql - invalid row index '0'</strong> - <a href="member8a4e.html?action=profile&amp;uid=1951">Demo</a> -  <strong>2019-12-14</strong>
+<br />
+<br />
+Check out the example i posted, it’s exactly the same
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: mysql - invalid row index '0'</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-12-14</strong>
+<br />
+<br />
+it's quite clear what the issue is, you are trying to access the data returned from the query, when it doesn't exist.<br />
+<br />
+You are either missing a check, or you are calling `cache_get_value_name_int` too early.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
