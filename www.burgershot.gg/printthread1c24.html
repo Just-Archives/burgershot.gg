@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Filterscript Magic Wand - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> <a href="showthread1c24-2.html?tid=1911">Magic Wand</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Filterscripts (<i>https://www.burgershot.gg/forumdisplay.php?fid=30</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> Magic Wand (<em>/showthread.php?tid=1911</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Magic Wand</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-18</strong>
+<br />
+<br />
+Hello, I would like to present you the Magic Wand Script<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Video:</span><br />
+<a href="https://www.youtube.com/watch?v=aaHfVz-UxR8" target="_blank" rel="noopener" class="mycode_url">https://www.youtube.com/watch?v=aaHfVz-UxR8</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Download:</span><br />
+<a href="https://adm.ct8.pl/cloud/Libs/Magic/Magic.inc" target="_blank" rel="noopener" class="mycode_url">Magic.inc</a><br />
+<a href="https://adm.ct8.pl/cloud/Libs/3DTryg/3DTryg.inc" target="_blank" rel="noopener" class="mycode_url">3DTryg.inc</a><br />
+<a href="showthread681c.html?tid=175" target="_blank" rel="noopener" class="mycode_url">ColAndreas Plugin</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Installation:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;colandreas&gt;<br />
+#include &lt;3DTryg&gt;<br />
+#include &lt;Magic&gt;</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Functions:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Magic::ToggleUseTeam(bool:toggle);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//default: false<br />
+Magic::IsToggleUseTeam();<br />
+Magic::ToggleForAll(bool:toggle);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //default: false<br />
+Magic::IsToggleForAll();<br />
+Magic::ToggleForPlayer(playerid,bool:toggle); //default: false<br />
+Magic::IsToggleForPlayer(playerid);<br />
+Magic::GetDamage(playerid);<br />
+Magic::SetDamage(playerid,Float:amount);<br />
+Magic::GetSpeed(playerid);<br />
+Magic::SetSpeed(playerid,Float:speed);<br />
+Magic::GetRange(playerid);<br />
+Magic::SetRange(playerid,Float:range);<br />
+Magic::GetAmmo(playerid);<br />
+Magic::SetAmmo(playerid,ammo);<br />
+Magic::TogglePoisoning(playerid,bool:toggle);<br />
+Magic::IsTogglePoisoning(playerid);<br />
+Magic::GetPoisoningTime(playerid);<br />
+Magic::SetPoisoningTime(playerid,seconds);<br />
+Magic::GetPoisoningDamage(playerid);<br />
+Magic::SetPoisoningDamage(playerid,Float:damage);<br />
+Magic::SetProjectile(playerid,modelid=18693,Float:rx=90.0,Float:ry=0.0,Float:rz=0.0,Float:offx=0.0,Float:offy=0.0,Float:offz=0.0);<br />
+Magic::GetProjectile(playerid,&amp;modelid,&amp;Float:rx=0.0,&amp;Float:ry=0.0,&amp;Float:rz=0.0,&amp;Float:offx=0.0,&amp;Float:offy=0.0,&amp;Float:offz=0.0);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Callbacks:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerRequestMagicShot(playerid,targetid); //return 0 - prevent to use magic shoot (this callback is called also if ammo is 0)</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Definitions:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>MAGIC_SPEED<br />
+MAGIC_MAX_RADIUS<br />
+MAGIC_REFRESH_ACTION<br />
+MAGIC_DAMAGE<br />
+MAGIC_DOT_POISONING<br />
+MAGIC_POISONING_TIME<br />
+MAGIC_WEAPON_AMMO_INFINITY<br />
+<br />
+WEAPON_MAGIC_BULLET<br />
+WEAPON_MAGIC_POISONING</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Activation:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Weapon: Fist<br />
+Left Mouse Button</code></div></div><br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Notice:</span><br />
+Filterscript not exist because filterscripts have <span style="font-weight: bold;" class="mycode_b">limits.</span><br />
+This has been replaced by include, having <span style="font-weight: bold;" class="mycode_b">automatic installation</span>, efficient GameMode/FilterScript.</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Magic Wand</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-27</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Update v1.3.0:</span><br />
+<br />
+- General functions renamed<br />
+<br />
+- Updated for Knife.inc standard<br />
+<br />
+- Added functions:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Magic::TogglePoisoning(playerid,bool:toggle);<br />
+Magic::IsTogglePoisoning(playerid);<br />
+Magic::GetPoisoningTime(playerid);<br />
+Magic::SetPoisoningTime(playerid,seconds);<br />
+Magic::GetPoisoningDamage(playerid);<br />
+Magic::SetPoisoningDamage(playerid,Float:damage);</code></div></div><br />
+- Added death reasons:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>WEAPON_MAGIC_BULLET<br />
+WEAPON_MAGIC_POISONING</code></div></div><br />
+- Added definitions:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>MAGIC_DOT_POISONING<br />
+MAGIC_POISONING_TIME</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

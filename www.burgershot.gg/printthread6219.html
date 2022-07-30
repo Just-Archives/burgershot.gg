@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Filterscript SA-MP Anti Sobeit - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> <a href="showthread6219.html?tid=2185">SA-MP Anti Sobeit</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Filterscripts (<i>https://www.burgershot.gg/forumdisplay.php?fid=30</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> SA-MP Anti Sobeit (<em>/showthread.php?tid=2185</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>SA-MP Anti Sobeit</strong> - <a href="member26a7.html?action=profile&amp;uid=3675">Hata</a> -  <strong>2021-07-20</strong>
+<br />
+<br />
+This anti sobeit is quotation from russian forum. I tested with Johnny Project and didn't come across any errors but the result of anti sobeit is never certain. These codes scan the d3d9.dll and may detect it as sobeit for enb modes. <br />
+<br />
+Codes;<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+<br />
+forward OnClientCheckResponse(playerid, actionid, memaddr, retndata);<br />
+native SendClientCheck(playerid, actionid, memaddr, memOffset, bytesCount);<br />
+enum(&lt;&lt;= 1)<br />
+{<br />
+        NULL = 0,<br />
+SOBEIT = 0x5E8606<br />
+};<br />
+public OnPlayerSpawn(playerid)<br />
+{<br />
+        SendClientCheck(playerid, 72, 0, 0, 2);<br />
+        SetTimerEx("sobeitcontrol", 100, true, "i", playerid);<br />
+        return 1;<br />
+}<br />
+<br />
+public OnClientCheckResponse(playerid, actionid, memaddr, retndata)<br />
+{<br />
+        if (retndata != 192 &amp;&amp; actionid != 72)<br />
+        {<br />
+            Kick(playerid);<br />
+        }<br />
+<br />
+        return 1;<br />
+}<br />
+public sobeitcontrol(playerid)<br />
+{<br />
+    new actionid = 0x5, memaddr = SOBEIT, retndata = 0x4;<br />
+    SendClientCheck(playerid, actionid, memaddr, NULL, retndata);<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SA-MP Anti Sobeit</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2021-07-20</strong>
+<br />
+<br />
+Looks weird but I'll bite. How does this work?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SA-MP Anti Sobeit</strong> - <a href="member0f98.html?action=profile&amp;uid=197">Ezio_Auditore</a> -  <strong>2021-07-20</strong>
+<br />
+<br />
+What about that endless timer?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SA-MP Anti Sobeit</strong> - <a href="member26a7.html?action=profile&amp;uid=3675">Hata</a> -  <strong>2021-07-21</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-20, 08:24 PM)</span>Ezio_Auditore Wrote:  <a href="showthread530b.html?pid=11719#pid11719" class="quick_jump"></a></cite>What about that endless timer?</blockquote>So they can't inject d3d9.dll using injector.<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-20, 06:17 PM)</span>Awide Wrote:  <a href="showthreadd92e.html?pid=11718#pid11718" class="quick_jump"></a></cite>Looks weird but I'll bite. How does this work?</blockquote>It scans some data of the player, if there is d3d9.dll it sends a different data.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

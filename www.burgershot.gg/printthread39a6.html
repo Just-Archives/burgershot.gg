@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Library Advanced Model Selection Menu (eSelection) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #9D17FF;font-weight: bold;">[Library]</span> <a href="showthread39a6.html?tid=1403">Advanced Model Selection Menu (eSelection)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Libraries (<i>https://www.burgershot.gg/forumdisplay.php?fid=31</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #9D17FF;font-weight: bold;">[Library]</span> Advanced Model Selection Menu (eSelection) (<em>/showthread.php?tid=1403</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Advanced Model Selection Menu (eSelection)</strong> - <a href="member9259.html?action=profile&amp;uid=22">TommyB</a> -  <strong>2020-12-02</strong>
+<br />
+<br />
+<span style="color: #FF4700;" class="mycode_color"><span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">eSelection</span></span></span><br />
+<br />
+<a href="https://github.com/TommyB123/eSelection" target="_blank" rel="noopener" class="mycode_url"><img src="https://img.shields.io/badge/sampctl-eSelection-2f2f2f.svg?style=for-the-badge" loading="lazy"  alt="[Image: sampctl-eSelection-2f2f2f.svg?style=for-the-badge]" class="mycode_img" /></a><br />
+<br />
+This library adds the ability to create dynamic model selection menus in your SA-MP gamemodes. It's an edit of the original eSelection include created by the developers of the Interactive Roleplay SA-MP server back in 2013. I've been using it in my own server for many years and made countless adjustments, fixes, optimizations and feature changes to it. After a bit of consideration, I decided to open source the changes I've made.<br />
+<br />
+This edit (well, it's closer to a rewrite) makes use of dynamic PawnPlus containers, adds in an improved API, descriptive text per model preview and also adds the ability to call task-based menu responses, which will be demonstrated below.<br />
+<br />
+<img src="https://i.imgur.com/wDal7si.png" loading="lazy"  alt="[Image: wDal7si.png]" class="mycode_img" /> <img src="https://i.imgur.com/kvkg8t8.png" loading="lazy"  alt="[Image: kvkg8t8.png]" class="mycode_img" /><br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Installation</span></span></span><br />
+<br />
+Simply install to your project:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>sampctl package install TommyB123/eSelection</code></div></div><br />
+Include in your code and begin using the library:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include&nbsp;&lt;eSelection&gt;&nbsp;<br /></span></code></div></div></div><br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Functions</span></span></span><br />
+<br />
+Adds a new model to a model selection list. Descriptive text and preview rotations are supported as optional arguments.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">AddModelMenuItem</span><span style="color: #007700">(List:</span><span style="color: #0000BB">menulist</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">modelid</span><span style="color: #007700">,&nbsp;const&nbsp;</span><span style="color: #0000BB">text</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">usingrotation&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rotx&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">roty&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rotz&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">zoom&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1.0</span><span style="color: #007700">)&nbsp;<br /></span></code></div></div></div><br />
+Shows a model selection menu to a player. <span style="font-family: courier new;" class="mycode_font">OnModelSelectionResponse</span> will be called when using this function.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">ShowModelSelectionMenu</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;const&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">extraid</span><span style="color: #007700">,&nbsp;List:</span><span style="color: #0000BB">items</span><span style="color: #007700">)&nbsp;<br /></span></code></div></div></div><br />
+Shows a model selection menu to a player. Requires waiting for a PawnPlus task to receive the response results.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">Task</span><span style="color: #007700">:</span><span style="color: #0000BB">ShowAsyncModelSelectionMenu</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;const&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">[],&nbsp;List:</span><span style="color: #0000BB">items</span><span style="color: #007700">)&nbsp;<br /></span></code></div></div></div><br />
+Non-task-based model selection menu responses are handled via the callback below.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnModelSelectionResponse</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">extraid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">index</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">modelid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">response</span><span style="color: #007700">)&nbsp;<br /></span></code></div></div></div><br />
+<span style="font-family: courier new;" class="mycode_font">extraid</span> is the ID of the model menu provided in <span style="font-family: courier new;" class="mycode_font">ShowModelSelectionMenu</span>. This functionality is similar to the dialog ID argument in <span style="font-family: courier new;" class="mycode_font">ShowPlayerDialog</span>.<br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">index</span> is the list index of the model that was clicked. If the first model in a menu is clicked, <span style="font-family: courier new;" class="mycode_font">index</span> will 0. If the second model is clicked, <span style="font-family: courier new;" class="mycode_font">index</span> will be 1. You get the point, I hope.<br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">modelid</span> is the model ID that was clicked. If a player clicks on skin ID 5 in a model menu, this variable would also be 5.<br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Relevant constants</span></span></span><br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">MODEL_RESPONSE_CANCEL</span> - Response value when a player cancels a model menu.<br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">MODEL_RESPONSE_SELECT</span> - Response value when a player clicks on a model inside of a model menu.<br />
+<br />
+The following constants are used in the array response when handling a task-based model menu response.<br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">E_MODEL_SELECTION_RESPONSE</span> - The response value to be compared with the constants described above. Equiavelent to the <span style="font-family: courier new;" class="mycode_font">response</span> argument in <span style="font-family: courier new;" class="mycode_font">OnModelSelectionResponse</span><br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">E_MODEL_SELECTION_INDEX</span> - The index of the model selection menu response. Equivalent to the <span style="font-family: courier new;" class="mycode_font">index</span> argument in <span style="font-family: courier new;" class="mycode_font">OnModelSelectionResponse</span><br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">E_MODEL_SELECTION_MODELID</span> - The model ID of the model selection menu response. Equivalent to the <span style="font-family: courier new;" class="mycode_font">modelid</span> argument in <span style="font-family: courier new;" class="mycode_font">OnModelSelectionResponse</span><br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Usage</span></span></span><br />
+<br />
+Example of a traditional model selection response when using <span style="font-family: courier new;" class="mycode_font">ShowModelSelectionMenu</span><br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">//&nbsp;define&nbsp;an&nbsp;ID&nbsp;for&nbsp;the&nbsp;model&nbsp;selection&nbsp;menu&nbsp;below<br />#define&nbsp;MODEL_SELECTION_SKIN_MENU&nbsp;(0)<br /><br /></span><span style="color: #0000BB">ShowSkinModelMenu</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;dynamic&nbsp;PawnPlus&nbsp;list&nbsp;to&nbsp;populate&nbsp;with&nbsp;models.<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;you&nbsp;don't&nbsp;need&nbsp;to&nbsp;worry&nbsp;about&nbsp;deleting&nbsp;this&nbsp;list,&nbsp;it's&nbsp;handled&nbsp;by&nbsp;the&nbsp;include&nbsp;once&nbsp;it's&nbsp;passed&nbsp;to&nbsp;it<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;List:</span><span style="color: #0000BB">skins&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">list_new</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;add&nbsp;skin&nbsp;IDs&nbsp;0,&nbsp;1,&nbsp;29&nbsp;and&nbsp;60&nbsp;with&nbsp;"cool&nbsp;people&nbsp;only"&nbsp;text&nbsp;above&nbsp;skin&nbsp;ID&nbsp;29.<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;AddModelMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">skins</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;AddModelMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">skins</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;AddModelMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">skins</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">29</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Cool&nbsp;people&nbsp;only"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;AddModelMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">skins</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">60</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;show&nbsp;the&nbsp;menu&nbsp;to&nbsp;the&nbsp;player<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;ShowModelSelectionMenu</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Skins"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MODEL_SELECTION_SKIN_MENU</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">skins</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;model&nbsp;selection&nbsp;response<br /></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnModelSelectionResponse</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">extraid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">index</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">modelid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">response</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;make&nbsp;sure&nbsp;the&nbsp;extraid&nbsp;matches&nbsp;the&nbsp;skin&nbsp;menu&nbsp;ID<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">extraid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">MODEL_SELECTION_SKIN_MENU</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;make&nbsp;sure&nbsp;the&nbsp;player&nbsp;actually&nbsp;clicked&nbsp;on&nbsp;a&nbsp;model&nbsp;and&nbsp;not&nbsp;the&nbsp;close&nbsp;button<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">response&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">MODEL_RESPONSE_SELECT</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;assign&nbsp;the&nbsp;player&nbsp;the&nbsp;skin&nbsp;of&nbsp;their&nbsp;choosing<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">modelid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br />}&nbsp;<br /></span></code></div></div></div><br />
+Example of waiting for a task-based model selection menu response with <span style="font-family: courier new;" class="mycode_font">ShowAsyncModelSelectionMenu</span><br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">//&nbsp;enable&nbsp;the&nbsp;"await"&nbsp;syntax&nbsp;from&nbsp;PawnPlus&nbsp;before&nbsp;including&nbsp;it<br />#define&nbsp;PP_SYNTAX_AWAIT<br /><br /></span><span style="color: #0000BB">ShowSkinModelMenu</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;dynamic&nbsp;PawnPlus&nbsp;list&nbsp;to&nbsp;populate&nbsp;with&nbsp;models.<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;you&nbsp;don't&nbsp;need&nbsp;to&nbsp;worry&nbsp;about&nbsp;deleting&nbsp;this&nbsp;list,&nbsp;it's&nbsp;handled&nbsp;by&nbsp;the&nbsp;include&nbsp;once&nbsp;it's&nbsp;passed&nbsp;to&nbsp;it<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;List:</span><span style="color: #0000BB">skins&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">list_new</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;add&nbsp;skin&nbsp;IDs&nbsp;0,&nbsp;1,&nbsp;29&nbsp;and&nbsp;60&nbsp;with&nbsp;"cool&nbsp;people&nbsp;only"&nbsp;text&nbsp;above&nbsp;skin&nbsp;ID&nbsp;29.<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;AddModelMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">skins</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;AddModelMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">skins</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;AddModelMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">skins</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">29</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Cool&nbsp;people&nbsp;only"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;AddModelMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">skins</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">60</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;declare&nbsp;an&nbsp;array&nbsp;that&nbsp;will&nbsp;be&nbsp;populated&nbsp;with&nbsp;the&nbsp;model&nbsp;selection&nbsp;menu&nbsp;response&nbsp;data<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">response</span><span style="color: #007700">[</span><span style="color: #0000BB">E_MODEL_SELECTION_INFO</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;use&nbsp;await_arr&nbsp;and&nbsp;set&nbsp;the&nbsp;response&nbsp;array&nbsp;to&nbsp;the&nbsp;model&nbsp;selection&nbsp;menu&nbsp;result<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;await_arr</span><span style="color: #007700">(</span><span style="color: #0000BB">response</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">ShowAsyncModelSelectionMenu</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Skins"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">skins</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;make&nbsp;sure&nbsp;the&nbsp;player&nbsp;actually&nbsp;clicked&nbsp;on&nbsp;a&nbsp;model&nbsp;and&nbsp;not&nbsp;the&nbsp;close&nbsp;button<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">response</span><span style="color: #007700">[</span><span style="color: #0000BB">E_MODEL_SELECTION_RESPONSE</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">MODEL_RESPONSE_SELECT</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;assign&nbsp;the&nbsp;player&nbsp;the&nbsp;skin&nbsp;of&nbsp;their&nbsp;choosing<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">response</span><span style="color: #007700">[</span><span style="color: #0000BB">E_MODEL_SELECTION_MODELID</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br />}&nbsp;<br /></span></code></div></div></div><br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Credits</span></span></span><br />
+<br />
+Interactive Roleplay Developer(s) - Original authors of this library<br />
+<br />
+Me - Numerous feature updates, housekeeping, etc
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Advanced Model Selection Menu (eSelection)</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-02</strong>
+<br />
+<br />
+Big <span style="font-weight: bold;" class="mycode_b">P</span>awn<span style="font-weight: bold;" class="mycode_b">P</span>lus energy indeed.<br />
+Design could be a bit better but it's still 10/10
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Advanced Model Selection Menu (eSelection)</strong> - <a href="membere9f0.html?action=profile&amp;uid=3039">Toxic</a> -  <strong>2020-12-04</strong>
+<br />
+<br />
+Didn't try it myself but looks pretty useful
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Advanced Model Selection Menu (eSelection)</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-05</strong>
+<br />
+<br />
+This library stopped/crashed the compiler for me. <br />
+https://pasteboard.co/K5cVApH.png<br />
+Why?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

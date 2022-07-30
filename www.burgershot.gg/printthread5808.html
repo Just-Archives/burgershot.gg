@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Compile GM with VSCODE on Linux - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread5808.html?tid=1832">Compile GM with VSCODE on Linux</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Compile GM with VSCODE on Linux (<em>/showthread.php?tid=1832</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Compile GM with VSCODE on Linux</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-04-02</strong>
+<br />
+<br />
+Is anybody compile a SAMP gamemode with VSCODE on Linux?<br />
+If anybody know how to do, pls post here
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2021-04-03</strong>
+<br />
+<br />
+sampctl p build --platform linux
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-04-10</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-03, 09:55 AM)</span>Awide Wrote:  <a href="showthread3b0e.html?pid=10524#pid10524" class="quick_jump"></a></cite>sampctl p build --platform linux</blockquote><br />
+should i install a whole lib just to compile my gm on vscode on linux?<br />
+there is no other way? without sampctl?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2021-04-10</strong>
+<br />
+<br />
+Well if you are going to script many new features I totally recommend sampctl, because it will help greatly in the long run. I use it to compile on Linux successfully.<br />
+<br />
+You should be able to compile without sampctl though. Check out this: https://github.com/pawn-lang/compiler
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-04-20</strong>
+<br />
+<br />
+I've create a new folder pawno with the includes and that files from https://github.com/pawn-lang/compiler/releases/tag/v3.10.10<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>ls pawno<br />
+bin&nbsp;&nbsp;include&nbsp;&nbsp;lib&nbsp;&nbsp;pawnc-3.10.10-linux (1).tar.gz</code></div></div><br />
+ls pawno/bin<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>pawncc&nbsp;&nbsp;pawndisasm</code></div></div><br />
+ls pawno/lib<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>libpawnc.so</code></div></div><br />
+---<br />
+<br />
+<br />
+So i tried:<br />
+keybindings.json<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{ "key": "f5", "command": "workbench.action.tasks.build" }</code></div></div><br />
+sampserver/.vscode/task.json<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{<br />
+&nbsp;&nbsp;"version": "1.0.0",<br />
+&nbsp;&nbsp;"tasks": [<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"label": "build",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "shell",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"command": "&#36;{workspaceRoot}/pawno/bin/pawncc",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": [<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&#36;{file}",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"-D&#36;{workspaceRoot}/gamemodes",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"-i&#36;{workspaceRoot}/pawno/include",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"'-;+'",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"'-(+'",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"'-d3'"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"group": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kind": "build",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isDefault": true<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isBackground": false,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"presentation": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"reveal": "always",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"panel": "dedicated"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"problemMatcher": "&#36;pawncc"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;]<br />
+}</code></div></div><br />
+---<br />
+<br />
+but when i try to press F5 in new.pwn:<br />
+<br />
+it shows this:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>&gt; Executing task: /home/anty/Documents/sampserver/pawno/bin/pawncc /home/anty/Documents/sampserver/gamemodes/new.pwn -D/home/anty/Documents/sampserver/gamemodes -i/home/anty/Documents/sampserver/pawno/include '-;+' '-(+' '-d3' &lt;<br />
+<br />
+Pawn compiler 3.10.20150531&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright (c) 1997-2006, ITB CompuPhase<br />
+<br />
+Usage:&nbsp;&nbsp; pawncc &lt;filename&gt; [filename...] [options]<br />
+<br />
+Options:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -A&lt;num&gt;&nbsp;&nbsp;alignment in bytes of the data segment and the stack<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output assembler code<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -C[+/-]&nbsp;&nbsp;compact encoding for output file (default=+)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -c&lt;name&gt; codepage name or number; e.g. 1252 for Windows Latin-1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -d&lt;num&gt;&nbsp;&nbsp;debugging level (default=-d1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;no symbolic information, no run-time checks<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;run-time checks, no symbolic information<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;full debug information and dynamic checking<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;same as -d2, but implies -O0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -e&lt;name&gt; set name of error file (quiet compile)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -i&lt;name&gt; path for include files<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; create list file (preprocess only)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -o&lt;name&gt; set base name of (P-code) output file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -O&lt;num&gt;&nbsp;&nbsp;optimization level (default=-O1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;no optimization<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;JIT-compatible optimizations only<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;full optimizations<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -p&lt;name&gt; set name of "prefix" file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -r[name] write cross reference report to console or to specified file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -S&lt;num&gt;&nbsp;&nbsp;stack/heap size in cells (default=4096)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -s&lt;num&gt;&nbsp;&nbsp;skip lines from the input file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -t&lt;num&gt;&nbsp;&nbsp;TAB indent size (in character positions, default=8)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -v&lt;num&gt;&nbsp;&nbsp;verbosity level; 0=quiet, 1=normal, 2=verbose (default=1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -w&lt;num&gt;&nbsp;&nbsp;disable a specific warning by its number<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -X&lt;num&gt;&nbsp;&nbsp;abstract machine size limit in bytes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -XD&lt;num&gt; abstract machine data/stack size limit in bytes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Z[+/-]&nbsp;&nbsp;run in compatibility mode (default=-)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&#92;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; use '&#92;' for escape characters<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; use '^' for escape characters<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -;[+/-]&nbsp;&nbsp;require a semicolon to end each statement (default=-)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -([+/-]&nbsp;&nbsp;require parantheses for function invocation (default=-)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sym=val&nbsp;&nbsp;define constant "sym" with value "val"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sym=&nbsp;&nbsp;&nbsp;&nbsp; define constant "sym" with value 0<br />
+<br />
+Options with a value may optionally separate the value from the option letter<br />
+with a colon (":") or an equal sign ("="). That is, the options "-d0", "-d=0"<br />
+and "-d:0" are all equivalent.<br />
+The terminal process terminated with exit code: 3<br />
+<br />
+Terminal will be reused by tasks, press any key to close it.</code></div></div><br />
+what i'm doing wrong?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-04-28</strong>
+<br />
+<br />
+bump!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-06-17</strong>
+<br />
+<br />
+bumpp
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-17</strong>
+<br />
+<br />
+The f**k y'all with this useless spam..<br />
+<br />
+Install Southclaw's Pawn Tools (code extension) and hit CTRL SHIFT B and choose sampctl<br />
+<br />
+Edit: Or u can create a new build system, also ctrl shift b
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member584a.html?action=profile&amp;uid=3520">annety</a> -  <strong>2021-06-20</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-17, 10:08 PM)</span>Pinch Wrote:  <a href="showthread409f.html?pid=11469#pid11469" class="quick_jump"></a></cite>The f**k y'all with this useless spam..<br />
+<br />
+Install Southclaw's Pawn Tools (code extension) and hit CTRL SHIFT B and choose sampctl<br />
+<br />
+Edit: Or u can create a new build system, also ctrl shift b</blockquote><br />
+<br />
+I'm trying:<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><blockquote class="mycode_quote"><cite><span> (2021-04-20, 06:20 AM)</span>annety Wrote:  <a href="showthread84b7.html?pid=10772#pid10772" class="quick_jump"></a></cite></span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">I've create a new folder pawno with the includes and that files from https://github.com/pawn-lang/compiler/releases/tag/v3.10.10</span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]ls pawno[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]bin  include  lib  pawnc-3.10.10-linux (1).tar.gz[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]</code></div></div></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">ls pawno/bin</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]pawncc  pawndisasm[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]</code></div></div></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">ls pawno/lib</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]libpawnc.so[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]</code></div></div></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">---</span></span></span><br />
+<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">So i tried:</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">keybindings.json</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]{ "key": "f5", "command": "workbench.action.tasks.build" }[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]</code></div></div></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">sampserver/.vscode/task.json</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]{[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]  "version": "1.0.0",[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]  "tasks": [[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]    {[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      "label": "build",[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      "type": "shell",[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      "command": "&#36;{workspaceRoot}/pawno/bin/pawncc",[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      "args": [<br />
+        "&#36;{file}",<br />
+        "-D&#36;{workspaceRoot}/gamemodes",<br />
+        "-i&#36;{workspaceRoot}/pawno/include",<br />
+        "'-;+'",<br />
+        "'-(+'",<br />
+        "'-d3'"<br />
+      ],[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      "group": {[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        "kind": "build",[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        "isDefault": true[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      },[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      "isBackground": false,[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      "presentation": {[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        "reveal": "always",[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        "panel": "dedicated"[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      },[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      "problemMatcher": "&#36;pawncc"[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]    }[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]  ][/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]}[/font][/size][/color]<br />
+<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]</code></div></div></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">---</span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">but when i try to press F5 in new.pwn:</span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">it shows this:</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]&gt; Executing task: /home/anty/Documents/sampserver/pawno/bin/pawncc /home/anty/Documents/sampserver/gamemodes/new.pwn -D/home/anty/Documents/sampserver/gamemodes -i/home/anty/Documents/sampserver/pawno/include '-;+' '-(+' '-d3' &lt;[/font][/size][/color]<br />
+<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]Pawn compiler 3.10.20150531                    Copyright (c) 1997-2006, ITB CompuPhase[/font][/size][/color]<br />
+<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]Usage:  pawncc &lt;filename&gt; [filename...] [options][/font][/size][/color]<br />
+<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]Options:[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -A&lt;num&gt;  alignment in bytes of the data segment and the stack[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -a      output assembler code[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -C[+/-]  compact encoding for output file (default=+)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -c&lt;name&gt; codepage name or number; e.g. 1252 for Windows Latin-1[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -d&lt;num&gt;  debugging level (default=-d1)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]            0    no symbolic information, no run-time checks[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]            1    run-time checks, no symbolic information[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]            2    full debug information and dynamic checking[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]            3    same as -d2, but implies -O0[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -e&lt;name&gt; set name of error file (quiet compile)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -i&lt;name&gt; path for include files[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -l      create list file (preprocess only)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -o&lt;name&gt; set base name of (P-code) output file[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -O&lt;num&gt;  optimization level (default=-O1)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]            0    no optimization[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]            1    JIT-compatible optimizations only[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]            2    full optimizations[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -p&lt;name&gt; set name of "prefix" file[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -r[name] write cross reference report to console or to specified file[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -S&lt;num&gt;  stack/heap size in cells (default=4096)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -s&lt;num&gt;  skip lines from the input file[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -t&lt;num&gt;  TAB indent size (in character positions, default=8)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -v&lt;num&gt;  verbosity level; 0=quiet, 1=normal, 2=verbose (default=1)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -w&lt;num&gt;  disable a specific warning by its number[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -X&lt;num&gt;  abstract machine size limit in bytes[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -XD&lt;num&gt; abstract machine data/stack size limit in bytes[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -Z[+/-]  run in compatibility mode (default=-)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -&#92;      use '&#92;' for escape characters[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -^      use '^' for escape characters[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -;[+/-]  require a semicolon to end each statement (default=-)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        -([+/-]  require parantheses for function invocation (default=-)[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        sym=val  define constant "sym" with value "val"[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]        sym=    define constant "sym" with value 0[/font][/size][/color]<br />
+<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]Options with a value may optionally separate the value from the option letter[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]with a colon (":") or an equal sign ("="). That is, the options "-d0", "-d=0"[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]and "-d:0" are all equivalent.[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]The terminal process terminated with exit code: 3[/font][/size][/color]<br />
+<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]Terminal will be reused by tasks, press any key to close it.[/font][/size][/color]<br />
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]</code></div></div></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">what i'm doing wrong?</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"></blockquote></span></span></span><br />
+<br />
+<br />
+But i'm doing something wrong and idk what to do, but i bet u don't do too<br />
+Thats why i'm asking to someone with more experience to help
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-06-20</strong>
+<br />
+<br />
+For starters, I believe you have to escape the semicolon and bracket.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-10</strong>
+<br />
+<br />
+Double posting here, but I started using pawncc on my Linux distro again (last time it wouldn't work, no idea why (multilib was on)).<br />
+This is what I'm using:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// See https://go.microsoft.com/fwlink/?LinkId=733558<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// for the documentation about the tasks.json format<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"version": "2.0.0",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"tasks": [<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"label": "build",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "shell",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"command": "/usr/bin/pawncc",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": ["&#36;{file}", "&#92;"-;+&#92;"", "&#92;"-(+&#92;"", "-i&#92;"/home/kevin/.pawno/includes/&#92;""],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"group": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kind": "build",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isDefault": true<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isBackground": false,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"presentation":{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"reveal": "silent",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clear": false,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"panel": "dedicated"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"problemMatcher": [<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"base":"&#36;pawncc",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fileLocation": "relative"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;]<br />
+}</code></div></div><br />
+Note that you should change:<br />
+- Path to your pawncc binary (although you really should place it in /usr/bin, thus you should not actually change this here)<br />
+- Path to your includes directory<br />
+- Eventual extra compile parameters. My script handles all the other parameters (depening on what environment it's being compiled on)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-09-29</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-10, 09:47 AM)</span>Kwarde Wrote:  <a href="showthreadeae0.html?pid=11630#pid11630" class="quick_jump"></a></cite>Double posting here, but I started using pawncc on my Linux distro again (last time it wouldn't work, no idea why (multilib was on)).<br />
+This is what I'm using:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{<br />
+    // See https://go.microsoft.com/fwlink/?LinkId=733558<br />
+    // for the documentation about the tasks.json format<br />
+    "version": "2.0.0",<br />
+    "tasks": [<br />
+        {<br />
+            "label": "build",<br />
+            "type": "shell",<br />
+            "command": "/usr/bin/pawncc",<br />
+            "args": ["&#36;{file}", "&#92;"-;+&#92;"", "&#92;"-(+&#92;"", "-i&#92;"/home/kevin/.pawno/includes/&#92;""],<br />
+            "group": {<br />
+                "kind": "build",<br />
+                "isDefault": true<br />
+            },<br />
+            "isBackground": false,<br />
+            "presentation":{<br />
+                "reveal": "silent",<br />
+                "clear": false,<br />
+                "panel": "dedicated"<br />
+            },<br />
+            "problemMatcher": [<br />
+                {<br />
+                    "base":"&#36;pawncc",<br />
+                    "fileLocation": "relative"<br />
+                }<br />
+            ]<br />
+        }<br />
+    ]<br />
+}</code></div></div><br />
+Note that you should change:<br />
+- Path to your pawncc binary (although you really should place it in /usr/bin, thus you should not actually change this here)<br />
+- Path to your includes directory<br />
+- Eventual extra compile parameters. My script handles all the other parameters (depening on what environment it's being compiled on)</blockquote><br />
+I've tried to use your task<br />
+but in the output shows:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Error: the description can't be converted into a problem matcher:<br />
+{<br />
+    "base": "&#36;pawncc",<br />
+    "fileLocation": "relative"<br />
+}</code></div></div><br />
+And when i try to compile it shows<br />
+in the terminal it shows<br />
+3811 Warnings.<br />
+<br />
+but it had only 5 before :O<br />
+<br />
+some warnings are too strange<br />
+<br />
+like this:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>warning 239: literal array/string passed to a non-const parameter</code></div></div><br />
+on this line<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SetTimerEx("SalveHome", 10, false, "i", id);</code></div></div><br />
+form this function<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public SalveHome(houseid) {</code></div></div><br />
+and it is not creating the GM.amx<br />
+<br />
+i'm doing something wrong?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-09-29</strong>
+<br />
+<br />
+See: https://github.com/pawn-lang/compiler/wiki/Const-Correctness<br />
+Appearantly those warnings were disabled by -however/wherever you compiled before-.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-10-02</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-09-29, 07:22 PM)</span>Kwarde Wrote:  <a href="showthread8880.html?pid=11853#pid11853" class="quick_jump"></a></cite>See: https://github.com/pawn-lang/compiler/wiki/Const-Correctness<br />
+Appearantly those warnings were disabled by -however/wherever you compiled before-.</blockquote><br />
+I'll take a look<br />
+<br />
+But its not even creating the .amx<br />
+Or this is creating in somewhere else?<br />
+<br />
+About the warning<br />
+It's giving the warning <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>warning 239: literal array/string passed to a non-const parameter</code></div></div>In lines like:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SendRconCommand("password 0");<br />
+<br />
+ApplyAnimation(playerid, "PED", "handsup", 4.1, 0, 0, 0, 1, 0, 1);</code></div></div>Shouldn't i somehow put the compiler to ignore this specific warning?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-10-06</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-10-02, 12:27 PM)</span>hiwyn Wrote:  <a href="showthread8126.html?pid=11855#pid11855" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-09-29, 07:22 PM)</span>Kwarde Wrote:  <a href="showthread8880.html?pid=11853#pid11853" class="quick_jump"></a></cite>See: https://github.com/pawn-lang/compiler/wiki/Const-Correctness<br />
+Appearantly those warnings were disabled by -however/wherever you compiled before-.</blockquote><br />
+I'll take a look<br />
+<br />
+But its not even creating the .amx<br />
+Or this is creating in somewhere else?<br />
+<br />
+About the warning<br />
+It's giving the warning <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>warning 239: literal array/string passed to a non-const parameter</code></div></div>In lines like:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SendRconCommand("password 0");<br />
+<br />
+ApplyAnimation(playerid, "PED", "handsup", 4.1, 0, 0, 0, 1, 0, 1);</code></div></div>Shouldn't i somehow put the compiler to ignore this specific warning?</blockquote><br />
+bump
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-10-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-10-06, 11:39 AM)</span>hiwyn Wrote:  <a href="showthread9be9.html?pid=11865#pid11865" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-10-02, 12:27 PM)</span>hiwyn Wrote:  <a href="showthread8126.html?pid=11855#pid11855" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-09-29, 07:22 PM)</span>Kwarde Wrote:  <a href="showthread8880.html?pid=11853#pid11853" class="quick_jump"></a></cite>See: https://github.com/pawn-lang/compiler/wiki/Const-Correctness<br />
+Appearantly those warnings were disabled by -however/wherever you compiled before-.</blockquote><br />
+I'll take a look<br />
+<br />
+But its not even creating the .amx<br />
+Or this is creating in somewhere else?<br />
+<br />
+About the warning<br />
+It's giving the warning <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>warning 239: literal array/string passed to a non-const parameter</code></div></div>In lines like:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SendRconCommand("password 0");<br />
+<br />
+ApplyAnimation(playerid, "PED", "handsup", 4.1, 0, 0, 0, 1, 0, 1);</code></div></div>Shouldn't i somehow put the compiler to ignore this specific warning?</blockquote><br />
+bump</blockquote><br />
+You can ignore this warning by disabling that.<br />
+<span style="font-style: italic;" class="mycode_i">#pragma warning disable 239</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-10-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-10-11, 03:22 PM)</span>Radical Wrote:  <a href="showthreada413.html?pid=11874#pid11874" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-10-06, 11:39 AM)</span>hiwyn Wrote:  <a href="showthread9be9.html?pid=11865#pid11865" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-10-02, 12:27 PM)</span>hiwyn Wrote:  <a href="showthread8126.html?pid=11855#pid11855" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-09-29, 07:22 PM)</span>Kwarde Wrote:  <a href="showthread8880.html?pid=11853#pid11853" class="quick_jump"></a></cite>See: https://github.com/pawn-lang/compiler/wiki/Const-Correctness<br />
+Appearantly those warnings were disabled by -however/wherever you compiled before-.</blockquote><br />
+I'll take a look<br />
+<br />
+But its not even creating the .amx<br />
+Or this is creating in somewhere else?<br />
+<br />
+About the warning<br />
+It's giving the warning <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>warning 239: literal array/string passed to a non-const parameter</code></div></div>In lines like:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SendRconCommand("password 0");<br />
+<br />
+ApplyAnimation(playerid, "PED", "handsup", 4.1, 0, 0, 0, 1, 0, 1);</code></div></div>Shouldn't i somehow put the compiler to ignore this specific warning?</blockquote><br />
+bump</blockquote><br />
+You can ignore this warning by disabling that.<br />
+<span style="font-style: italic;" class="mycode_i">#pragma warning disable 239</span></blockquote><br />
+How to do this?<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>      "args": [<br />
+        "&#36;{file}",<br />
+        "&#92;"-;+&#92;"",<br />
+        "&#92;"-(+&#92;"",<br />
+        "-i&#92;"/home/hiwyn/Documents/sampserver/include/&#92;"",<br />
+        "#pragma warning disable 239"<br />
+      ],</code></div></div>Not work:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#pragma warning disable 239.p(0) : fatal error 100: cannot read from file: "#pragma warning disable 239.p"</code></div></div><br />
+Why its not generating .amx?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-10-18</strong>
+<br />
+<br />
+bump help
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-10-20</strong>
+<br />
+<br />
+anybody knows?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member036a.html?action=profile&amp;uid=695">Banditul</a> -  <strong>2021-10-21</strong>
+<br />
+<br />
+If you want to use the #pragma warning disable 239 you need to put it preferably on top of your .pwn file not inside the compiler configuration
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-10-22</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-10-21, 05:52 AM)</span>Banditul Wrote:  <a href="showthread2faf.html?pid=11893#pid11893" class="quick_jump"></a></cite>If you want to use the #pragma warning disable 239 you need to put it preferably on top of your .pwn file not inside the compiler configuration</blockquote><br />
+Oh thank you!<br />
+Now its everything like it was...<br />
+<br />
+But one last problem <span style="font-weight: bold;" class="mycode_b">i couldn't find the .amx </span>looks like its compiling but sending the .amx to somewhere else, right?<br />
+There is something i need to change on my tasks.json?<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>{<br />
+  // See https://go.microsoft.com/fwlink/?LinkId=733558<br />
+  // for the documentation about the tasks.json format<br />
+  "version": "2.0.0",<br />
+  "tasks": [<br />
+    {<br />
+      "label": "build",<br />
+      "type": "shell",<br />
+      "command": "/usr/bin/pawncc",<br />
+      "args": [<br />
+        "&#36;{file}",<br />
+        "\"-;+\"",<br />
+        "\"-(+\"",<br />
+        "-i\"/home/hiwyn/Documents/sampserver/include/\""<br />
+      ],<br />
+      "group": {<br />
+        "kind": "build",<br />
+        "isDefault": true<br />
+      },<br />
+      "isBackground": false,<br />
+      "presentation": {<br />
+        "reveal": "silent",<br />
+        "clear": false,<br />
+        "panel": "dedicated"<br />
+      },<br />
+      "problemMatcher": [<br />
+        {<br />
+          "base": "&#36;pawncc",<br />
+          "fileLocation": "relative"<br />
+        }<br />
+      ]<br />
+    }<br />
+  ]<br />
+}</blockquote>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Compile GM with VSCODE on Linux</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-10-25</strong>
+<br />
+<br />
+I've found out that is creating the .amx in /home/hiwyn/Documents/sampserver<br />
+there i did `code .`<br />
+is it possible to change to /home/hiwyn/Documents/sampserver/gamemodes<br />
+there the GM is?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

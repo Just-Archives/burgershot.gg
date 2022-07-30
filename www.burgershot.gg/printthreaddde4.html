@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn MySQL Query - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreaddde4.html?tid=2273">MySQL Query</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> MySQL Query (<em>/showthread.php?tid=2273</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>MySQL Query</strong> - <a href="memberd778.html?action=profile&amp;uid=3078">Slade</a> -  <strong>2022-01-24</strong>
+<br />
+<br />
+So basically i've done so many scripts using MySQL, but never had this problem and simply not finding way to solve it because i don't even understand why it happens.<br />
+<br />
+I will explain here, I don't really need to post code since my other scripts with literally same code works great, I also tried to google it, but no luck.<br />
+<br />
+So this is case: I've switched House system on old gamemode from Dini to MySQL. I've switched data by loading with Dini, saving with MySQL. Then i created loading. First I have used TQuery with callback, and got this errors:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[01/24/22 17:50:46] [plugins/mysql] cache_get_value_name_float: no active cache (C:&#92;Users&#92;llc&#92;Documents&#92;GM&#92;gamemodes&#92;YUBGM.pwn:24580)<br />
+[01/24/22 17:50:46] [plugins/mysql] cache_get_value_name_float: no active cache (C:&#92;Users&#92;llc&#92;Documents&#92;GM&#92;gamemodes&#92;YUBGM.pwn:24581)<br />
+[01/24/22 17:50:46] [plugins/mysql] cache_get_value_name_float: no active cache (C:&#92;Users&#92;llc&#92;Documents&#92;GM&#92;gamemodes&#92;YUBGM.pwn:24582)</code></div></div><br />
+This happens for every row in every iteration of cache num rows, table has around 1100 houses.<br />
+<br />
+I've done it also with mysql_query and cache variable, same error appears.<br />
+Updated MySQL to latest version.<br />
+Changed variable names from <span style="font-weight: bold;" class="mycode_b">cache_get_value_name_float to cache_get_value_float </span>but still the same.<br />
+<br />
+Important thing is: I printed second row after every iteration and cache function, and first 2 rows are getting loaded, and all others are not.<br />
+So yes i got 2 first selected rows loaded, others are literally ignored in loop.<br />
+<br />
+Any possible solutions ?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MySQL Query</strong> - <a href="memberd778.html?action=profile&amp;uid=3078">Slade</a> -  <strong>2022-01-24</strong>
+<br />
+<br />
+Fixed, it was label that had integrated function that included cache_delete.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

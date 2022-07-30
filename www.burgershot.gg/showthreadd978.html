@@ -1,0 +1,1422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: showthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>A Proper Way to Store Passwords</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="syndication9896.php?type=atom1.0" />
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/EBFKVbK.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="jscripts/jquery6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/jquery.plugins.min6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/general6c6d.js?ver=1804"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/global.min.css">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/avatarep.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/global.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/css3.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/star_ratings.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/showthread.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/footer.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/custom.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/extra.min8355.css?t=1641376402" />
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+
+	var cookieDomain = ".burgershot.gg";
+	var cookiePath = "index.html";
+	var cookiePrefix = "";
+	var cookieSecureFlag = "0";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "6428f000919b5d9a18f82d476f6b077e";
+	var rootpath = "index.html";
+	var imagepath = "images/index.html";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "images/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<script>
+	$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+	$('.scrollToDown').click(function(){
+		$('html, body').animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- end: headerinclude -->
+<script type="text/javascript">
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script type="text/javascript" src="jscripts/report6c6d.js?ver=1804"></script>
+<script src="jscripts/jeditable/jeditable.min.js"></script>
+<script type="text/javascript" src="jscripts/thread6c6d.js?ver=1804"></script>
+</head>
+<body>
+	<!-- start: header -->
+<div class="haut" style="height:70px">
+	<a href="index.html" id="logo"><img style="position: absolute;left: -5px;top: 12px;" src="https://burgershot.gg/burgershot.svg" height="40px" />Burgershot</a>
+	<span class="useroptions">
+		<ul id="menu-deroulant">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="memberlist.html">Members</a></li>
+			<li><a href="showteam.html">Team</a></li>
+			<li><a href="misc0615.html?action=help">Help</a></li>
+			<li><a href="search.html">Search</a></li>
+			<!-- start: header_welcomeblock_guest -->
+<li><a href="member0ddc.html?action=register">Register</a></li>
+<li><a href="member456e.html?action=login">Login</a></li>
+<script>
+    var connected = 0;
+</script>
+<!-- end: header_welcomeblock_guest -->
+		</ul>
+	</span>
+</div>
+<div style="width: 100%; height: 70px;"></div>
+<!-- Start - Navigation menu -->
+<nav class="headerlist" style="display:none">
+<ul>
+  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li><li>
+	<a href="memberlist.html"><i class="fa fa-users"></i> Members</a></li><li>
+	<a href="misc0615.html?action=help"><i class="fa fa-support"></i> Help</a></li><li>
+	<a href="search.html"><i class="fa fa-search"></i> Search</a>
+</li></ul>
+</nav>
+<!-- End - Navigation menu -->
+<center>
+<!-- Start - Advice -->
+<div id="mobile_member">
+</div>
+<!-- End - Advice -->
+</center>
+<div id="container">
+	<a name="top" id="top"></a>
+	<div id="header">
+		<div id="content">
+			<div class="wrapper">
+				
+				
+				
+				
+				
+				
+				<!-- start: nav -->
+<div class="navigation" style="display:none;">
+          <a href="index-2.html">
+		<span id="home_bit">
+			<i class="fa fa-home"></i>
+		</span>
+	</a>
+	<span style="padding: 8px 12px;margin-left: 5px;"><!-- start: nav_bit -->
+<a href="index-2.html">Burgershot</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplaye15e.html?fid=3">SA-MP</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplay2487.html?fid=37">Tutorials</a>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep_active --><!-- start: nav_bit_active -->
+<span class="active">A Proper Way to Store Passwords</span>
+<!-- end: nav_bit_active --></span>
+</div>
+<script>
+var page = location.pathname;
+page = page.substring(1);
+if(page != 'index.php' && page != '') {
+     $('.navigation').css('display', '');
+}
+</script>
+<!-- end: nav -->
+				<br />
+<!-- end: header -->
+	
+	
+	<table border="0" cellspacing="0" style="border-bottom:none;" cellpadding="7" class="tborder tfixed clear">
+<div>
+			<div style="font-size: 20px; background: #F6F6F6; border:none; color:#2C3E50; " class="thead">
+				
+	<div class="float_right">
+		
+	</div>
+	<!-- start: showthread_ratethread -->
+<div class="star_rating_container">
+        <script type="text/javascript" src="jscripts/rating9348.js?ver=1400"></script>
+        <div id="success_rating_493" style="float: left; padding-top: 2px; padding-right: 10px;">&nbsp;</div>
+        <div class="inline_rating">
+
+<ul class="star_rating star_rating_notrated" id="rating_thread_493">
+<li style="width: 100%" class="current_rating" id="current_rating_493">2 Vote(s) - 5 Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread8f53.html?tid=493&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread8cd6.html?tid=493&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread2314.html?tid=493&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethreadc602.html?tid=493&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread89de.html?tid=493&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+        </div>
+</div>
+<!-- end: showthread_ratethread -->
+				<div>
+					<strong><i class="fa fa-comments"></i> A Proper Way to Store Passwords</strong>
+				</div>
+			</div>
+</div>
+
+<tr><td id="posts_container">
+	<div id="posts">
+		<!-- start: postbit -->
+
+<a name="pid4756" id="pid4756"></a>
+<div class="post classic " id="post_4756">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member81f8.html?action=profile&amp;uid=340"><span style="color: #3c71af;">Sasino97</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member81f8.html?action=profile&amp;uid=340"><img src="uploads/avatars/avatar_340ead5.html?dateline=1599691558" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Software Developer<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">108</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation6d3e.html?uid=340"><strong class="reputation_positive">7</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Tampa, FL</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread68dd.html?tid=493&amp;pid=4756#pid4756" title="A Proper Way to Store Passwords">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-04-30, 07:50 AM <span class="post_edit" id="edited_by_4756"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-06-11, 07:04 AM by <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a>.<!-- start: postbit_editedby_editreason -->
+ <em>Edit Reason: Changed SA-MP Forum links to Burgershot links</em>
+<!-- end: postbit_editedby_editreason -->)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4756">
+		Passwords<br />
+<hr class="mycode_hr" />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: xx-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font"><span style="color: #339933;" class="mycode_color">A Proper Way to Store Passwords</span></span></span></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="color: #336633;" class="mycode_color">By Sasinosoft</span></div>
+<br />
+<span style="font-size: x-small;" class="mycode_size">This is an edited version of my SA-MP forums article about storing passwords the most secure way.</span><br />
+<br />
+<span style="font-size: x-large;" class="mycode_size"><span style="color: #339933;" class="mycode_color"><span style="font-family: Impact;" class="mycode_font">Introduction</span></span></span><br />
+The first thing we must be aware of when programming anything that will ask the user to enter a password, is that the user is giving us their trust. It is our duty to keep their password as safe as possible, so that in case of attack to our servers, the attacker will not be able to read their password. <br />
+<br />
+You might think, in the case of San Andreas Multiplayer, that <span style="font-style: italic;" class="mycode_i">"it is just a game"</span>, so the security of the game accounts is not to be taken seriously. However, a poll showed that 59% of people use the same password everywhere or almost everywhere.<span style="font-size: xx-small;" class="mycode_size"> <a href="https://hotforsecurity.bitdefender.com/blog/59-of-people-use-the-same-password-everywhere-poll-finds-19851.html" target="_blank" rel="noopener" class="mycode_url">[source]</a> </span><br />
+<br />
+If the attacker gets access to your game data base, he will most likely obtain all your users' nicknames and passwords, and if they are not properly hashed, then congratulations: you have just made his work easier. After getting this information, the attacker will proceed to check for each user if he is registered on the main websites, such as Google, Microsoft, mail providers, using the passwords and user names he just stole, and this creates high security risks, including the possibility of stealing payment information.<br />
+<br />
+Here you are a few tips to make his work harder.<br />
+<br />
+<br />
+<span style="color: #339933;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font">Do not store passwords in plain text</span></span></span><br />
+It is believed that at least <span style="font-weight: bold;" class="mycode_b">30% of the websites store the passwords in plain text</span>. <a href="http://plaintextoffenders.com/about/" target="_blank" rel="noopener" class="mycode_url"><span style="font-size: xx-small;" class="mycode_size">[source]</span></a> This is really a shame, and it must come to an end. If any website emails your password back in plain text, then it is likely storing your password as such, and compromising your security in all the websites that you used the same password. <br />
+<br />
+You must never do so. In the case of a San Andreas Multiplayer server, as soon as you receive the user password in the inputtext parameter of OnDialogResponse, you must one-way hash it. Fortunately, the developers of SA-MP added the SHA256_PassHash function in version 0.3.7 R2-1, so there is no more excuse for those who don't like to use external plugins. <span style="font-size: xx-small;" class="mycode_size"><a href="http://forum.sa-mp.com/showthread.php?t=581336" target="_blank" rel="noopener" class="mycode_url">[great tutorial]</a></span><br />
+Said that, I also add that there are better algorithms than SHA-256, such as <span style="font-weight: bold;" class="mycode_b">bcrypt</span>. On the Burgershot forums you can find at least two plugins for bcrypt <span style="font-size: xx-small;" class="mycode_size"><a href="showthread74a7.html?tid=136" target="_blank" rel="noopener" class="mycode_url">[SyS's SampBcrypt]</a> <a href="showthreadd96e.html?tid=219" target="_blank" rel="noopener" class="mycode_url">[Bork's samp-crypto]</a>.</span><br />
+<br />
+<span style="font-size: x-large;" class="mycode_size"><span style="color: #339933;" class="mycode_color"><span style="font-family: Impact;" class="mycode_font">Do not simply hash the password and store it</span></span></span><br />
+Why? Just hashing the password and storing it, adds very little security; most users' passwords are simple words or numbers which can be found in dictionaries. If this is the case, the attacker will easily detect the password of the user, simply by searching the hash in rainbow tables; these are per-algorithm tables which already contain the hashes of the most common passwords and more, and they are publicly available on the internet. <a href="http://project-rainbowcrack.com/table.htm" target="_blank" rel="noopener" class="mycode_url"><span style="font-size: xx-small;" class="mycode_size">[example]</span></a><br />
+<br />
+To avoid this problem, and force the attacker to use brute-force attacks, thus wasting his time, money and energy, thus reducing his intentions to get the passwords, you must put salt on them.<br />
+<br />
+The salt is a value that is concatenated to the password before hashing it, and there are different ways to do this, and different opinions about how this should be done. <a href="http://forum.sa-mp.com/showthread.php?t=350664" target="_blank" rel="noopener" class="mycode_url"><span style="font-size: xx-small;" class="mycode_size">[tutorial for SA-MP - Whirlpool]</span></a> The salt is unique for each user, and it is not intended to be secret: its value is stored in plain text into the database at the moment of registration, and it is read by your program when the user attempts to log in.<br />
+<br />
+<br />
+<span style="font-size: x-large;" class="mycode_size"><span style="color: #339933;" class="mycode_color"><span style="font-family: Impact;" class="mycode_font">Do not use usernames as salt</span></span></span><br />
+If your SA-MP Server does this, and another website that your user is registered on with the same username and the same password does the same, both databases will contain the same password hash for the user. If the attacker, after getting a copy of your database and that of the other website, notices this coincidence, then he will most likely focus on this particular user. <br />
+<br />
+Also, if you implemented a system to let the user change his password, you would then going to hash it with the same salt as before: you usually want to avoid this.<br />
+The best practice is to generate a random string the first time the user registers, and to store it into the database in a separate column. When the user wants to change his password, your program will generate a new random string, and update the value in the database.<br />
+<br />
+<br />
+<span style="color: #339933;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font">Avoid writing your own hashing algorithm</span></span></span><br />
+<br />
+While it may seem a good idea to write your own algorithm so that there are no pre-made attacks against it, it's not. Real motivated hackers will simply analyze it and then they will crack it. Do not do this, unless you work for the NSA and your algorithm has been tested for years. Do not do this even if you have studied cryptography and security. This is because, even if you think that your algorithm is strong enough, it has not been tested enough against all the possible kinds of attack. Do not risk, and if you have written one, just keep it as your personal project.<br />
+<br />
+<span style="color: #339933;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font">Use bcrypt</span></span></span><br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i0.wp.com/wptavern.com/wp-content/uploads/2016/03/passwords.jpg?ssl=1http://http://" loading="lazy"  alt="[Image: http:]" class="mycode_img" /></div>
+<br />
+In this post I mentioned different hashing algorithms whose implementations are also available for SA-MP Servers. I must also say that the best option you have is to use bcrypt <a href="showthread74a7.html?tid=136" target="_blank" rel="noopener" class="mycode_url"><span style="font-size: xx-small;" class="mycode_size">[SyS's SampBcrypt]</span></a><span style="font-size: xx-small;" class="mycode_size"> </span><span style="font-size: xx-small;" class="mycode_size"><a href="showthreadd96e.html?tid=219" target="_blank" rel="noopener" class="mycode_url">[Bork's samp-crypto]</a>.</span><br />
+The primary advantage is that bcrypt, unlike the other algorithms mentioned here, aims at being slow to execute, especially on GPUs. When we are computing our hash during user registration or login, we don't care if it takes 1 second or more, because most likely the user will not notice it, instead we really care about the attacker being as slow as possible at brute/dictionary attacking our hashed password. SHA and Whirlpool are aimed at being as fast as possible to execute, and while this means that the user's password is checked in the blink of an eye, it also means that the attacker is able to crack the password in fewer time (with the appropriate equipment).<br />
+By using bcrypt, we make almost impossible for an attacker to crack the password, definitely not worth it for him.<br />
+Among the advantages, I have to mention that bcrypt will generate the salt for you and put it in the same string as the hash, so you will just need one data base column.<br />
+We hope that the open.mp team will implement native support for bcrypt in the API.<br />
+<br />
+<span style="color: #339933;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font">Bonus tips</span></span></span><ul class="mycode_list"><li>Also put pepper. Pepper is another value that is added to the algorithm before the final hash, but instead of being a different value for each user, it is a single constant string which is used for every hash, and it is secretly hardcoded in your code. Of course, after your first user is registered, you must never change it again.<br />
+</li>
+<li>Force the user to use a password of a certain minimum length, and made of multiple words.<br />
+</li>
+<li>In your register dialog, tell the user not to use the same password as other websites or SA-MP Servers, and not to tell his password to anyone.<br />
+</li>
+<li>Ask the user to input his password twice during registration and password changing procedure.<br />
+</li>
+<li>Kick the user and prevent him from logging in again for a certain time if he fails to log in for a certain number of times. This makes unpractical using direct brute force attacks to your server.<br />
+</li>
+<li>Implement a system to change the password, and encourage your users to change it when they feel it is compromised.<br />
+</li>
+</ul>
+
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_4756">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://www.sasinosoft.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searchfadc.html?action=finduser&amp;uid=340" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyd158.html?tid=493&amp;replyto=4756" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid4772" id="pid4772"></a>
+<div class="post classic " id="post_4772">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberf3df.html?action=profile&amp;uid=5"><span style="color: #e15239;"><strong>JustMichael</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberf3df.html?action=profile&amp;uid=5"><img src="uploads/avatars/avatar_5ba88.html?dateline=1550954393" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Forum Manager<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">189</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation5729.html?uid=5"><strong class="reputation_positive">17</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> England</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadfd52.html?tid=493&amp;pid=4772#pid4772" title="RE: A Proper Way to Store Passwords">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-04-30, 03:21 PM <span class="post_edit" id="edited_by_4772"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4772">
+		Absolutely brilliant tutorial.<br />
+<br />
+This is very well written and explained, you clearly done your homework :)<br />
+<br />
+I'm glad tutorials like this exist, I will be making this topic sticky, as it's a common issue most servers fail to implement.
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+Remember to always refer to J0sh as `J0sh...`<br />
+<br />
+<span style="color: #ff3366;" class="mycode_color">@ Networks/Servers</span><br />
+San Andreas Gaming Network (Owner/Founder)<br />
+San Andreas Gaming (Owner/Founder)<br />
+Grand Theft Cop's n Robber's (Owner)<br />
+Britannia Roleplay (Owner/Founder)<br />
+Alpine RP (Owner/Founder)<br />
+Aluminium Network (Maintainer)<br />
+AlphaDM (Tech Support)<br />
+<br />
+<span style="color: #9966ff;" class="mycode_color"># Services</span><br />
+Burgershot.gg (Forum Manager)<br />
+open.mp (Member)<br />
+<br />
+<span style="color: #ff3399;" class="mycode_color">~ Languages/Frameworks</span><br />
+Pawn, C, C++, C#, Javascript, Typescript, Lua, Python, Go, Rust, PHP, SQL,<br />
+Angular, React, Vue, Svelte, Laravel, Rocket
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_4772">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="index.html" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search04e3.html?action=finduser&amp;uid=5" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyfb54.html?tid=493&amp;replyto=4772" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid4779" id="pid4779"></a>
+<div class="post classic " id="post_4779">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member262c.html?action=profile&amp;uid=359"><span style="color: #5492e7;"><strong>hiddos</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member262c.html?action=profile&amp;uid=359"><img src="uploads/avatars/avatar_3596ffe.html?dateline=1555248046" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				open.mp Developer<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">19</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationef41.html?uid=359"><strong class="reputation_positive">1</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreada62f-2.html?tid=493&amp;pid=4779#pid4779" title="RE: A Proper Way to Store Passwords">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-04-30, 05:42 PM <span class="post_edit" id="edited_by_4779"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4779">
+		Is forcing the attacker to go for a brute-force option the only reason why salts are used?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_4779">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search3235.html?action=finduser&amp;uid=359" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyadd4.html?tid=493&amp;replyto=4779" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid4783" id="pid4783"></a>
+<div class="post classic " id="post_4783">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberea60.html?action=profile&amp;uid=535"><span style="color: #3c71af;"><span class="__cf_email__" data-cfemail="234e4a404b42464f6341464f444a564e">[email&#160;protected]</span></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberea60.html?action=profile&amp;uid=535"><img src="uploads/avatars/avatar_5356ac7.html?dateline=1555341882" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">17</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation1693.html?uid=535"><strong class="reputation_positive">2</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadbf41-2.html?tid=493&amp;pid=4783#pid4783" title="RE: A Proper Way to Store Passwords">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-04-30, 07:05 PM <span class="post_edit" id="edited_by_4783"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-04-30, 07:06 PM by <a href="memberea60.html?action=profile&amp;uid=535"><span class="__cf_email__" data-cfemail="7b161218131a1e173b191e171c120e16">[email&#160;protected]</span></a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4783">
+		<blockquote class="mycode_quote"><cite>Quote:</cite>If any website emails your password back in plain text, then he is surely storing your password as such</blockquote>
+<br />
+Not really. You can't know that. You could just hash a temporary plain password, save it in the database, and send the plain pass to the user
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<a href="https://github.com/MichaelBelgium" target="_blank" rel="noopener" class="mycode_url"><img src="https://shields.southcla.ws/badge/GitHub-michaelbelgium-000000.svg?style=for-the-badge" loading="lazy"  alt="[Image: GitHub-michaelbelgium-000000.svg?style=for-the-badge]" class="mycode_img" /></a><br />
+
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_4783">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchb144.html?action=finduser&amp;uid=535" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply12f5.html?tid=493&amp;replyto=4783" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid4801" id="pid4801"></a>
+<div class="post classic " id="post_4801">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread0421.html?tid=493&amp;pid=4801#pid4801" title="RE: A Proper Way to Store Passwords">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-01, 09:46 AM <span class="post_edit" id="edited_by_4801"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4801">
+		<blockquote class="mycode_quote"><cite><span> (2019-04-30, 07:05 PM)</span><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="177a7e747f76727b5775727b707e627a">[email&#160;protected]</a> Wrote:  <a href="showthread06f9.html?pid=4783#pid4783" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>If any website emails your password back in plain text, then he is surely storing your password as such</blockquote>
+<br />
+Not really. You can't know that. You could just hash a temporary plain password, save it in the database, and send the plain pass to the user</blockquote><br />
+I think the key word there is "your".  It is perfectly fine to send a random temporary password, not the user's original password.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_4801">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply1d9c-2.html?tid=493&amp;replyto=4801" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid4823" id="pid4823"></a>
+<div class="post classic " id="post_4823">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member7f3f.html?action=profile&amp;uid=23"><span style="color: #5492e7;"><strong>hual</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member7f3f.html?action=profile&amp;uid=23"><img src="uploads/avatars/avatar_23111f.html?dateline=1555072142" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				King<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">106</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationd5c0.html?uid=23"><strong class="reputation_positive">7</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Bulgaria</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread37c8.html?tid=493&amp;pid=4823#pid4823" title="RE: A Proper Way to Store Passwords">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-01, 02:18 PM <span class="post_edit" id="edited_by_4823"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4823">
+		<blockquote class="mycode_quote"><cite><span> (2019-04-30, 05:42 PM)</span>anesthesia Wrote:  <a href="showthreadd978.html?pid=4779#pid4779" class="quick_jump"></a></cite>Is forcing the attacker to go for a brute-force option the only reason why salts are used?</blockquote><br />
+Salts prevent dictionary attacks and rainbow tables.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_4823">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchca95.html?action=finduser&amp;uid=23" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply761f.html?tid=493&amp;replyto=4823" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid4856" id="pid4856"></a>
+<div class="post classic " id="post_4856">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreade9e9-2.html?tid=493&amp;pid=4856#pid4856" title="RE: A Proper Way to Store Passwords">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-02, 09:44 AM <span class="post_edit" id="edited_by_4856"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4856">
+		And it means you need to crack every password separately.  Without a salt two identical passwords would hash to the same thing.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_4856">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply6dbd.html?tid=493&amp;replyto=4856" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5023" id="pid5023"></a>
+<div class="post classic " id="post_5023">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member1768.html?action=profile&amp;uid=315"><span style="color: #3c71af;">Gravityfalls</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member1768.html?action=profile&amp;uid=315"><img src="uploads/avatars/avatar_315b553.html?dateline=1556475498" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">105</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">7</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0825.html?uid=315"><strong class="reputation_positive">2</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadb8e3.html?tid=493&amp;pid=5023#pid5023" title="RE: A Proper Way to Store Passwords">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-08, 08:46 AM <span class="post_edit" id="edited_by_5023"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5023">
+		Been peppering passwords since always xd good tutorial btw. 10/10.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5023">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search3e80.html?action=finduser&amp;uid=315" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyf55b.html?tid=493&amp;replyto=5023" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5029" id="pid5029"></a>
+<div class="post classic " id="post_5029">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere4c9.html?action=profile&amp;uid=43"><span style="color: #3c71af;">SyS</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere4c9.html?action=profile&amp;uid=43"><img src="uploads/avatars/avatar_4316d2.html?dateline=1621865610" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">37</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">5</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationb636.html?uid=43"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadb615.html?tid=493&amp;pid=5029#pid5029" title="RE: A Proper Way to Store Passwords">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-08, 01:20 PM <span class="post_edit" id="edited_by_5029"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5029">
+		Nice!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5029">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://github.com/sreyas-sreelal" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search8492.html?action=finduser&amp;uid=43" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply83b4.html?tid=493&amp;replyto=5029" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5292" id="pid5292"></a>
+<div class="post classic " id="post_5292">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member81f8.html?action=profile&amp;uid=340"><span style="color: #3c71af;">Sasino97</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member81f8.html?action=profile&amp;uid=340"><img src="uploads/avatars/avatar_340ead5.html?dateline=1599691558" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Software Developer<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">108</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation6d3e.html?uid=340"><strong class="reputation_positive">7</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Tampa, FL</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadc4a9.html?tid=493&amp;pid=5292#pid5292" title="RE: A Proper Way to Store Passwords">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-17, 08:30 AM <span class="post_edit" id="edited_by_5292"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5292">
+		Hello, thank you for all your replies, I appreciate it. If you have any suggestion to<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-30, 07:05 PM)</span><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3f52565c575e5a537f5d5a5358564a52">[email&#160;protected]</a> Wrote:  <a href="showthread06f9.html?pid=4783#pid4783" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>If any website emails your password back in plain text, then he is surely storing your password as such</blockquote>
+<br />
+Not really. You can't know that. You could just hash a temporary plain password, save it in the database, and send the plain pass to the user</blockquote><br />
+You are right because it is possible that they are emailing it from memory and not from the DB, I will change 'surely' with 'likely' (also 'he' with 'it').
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5292">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://www.sasinosoft.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searchfadc.html?action=finduser&amp;uid=340" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply9484.html?tid=493&amp;replyto=5292" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5312" id="pid5312"></a>
+<div class="post classic " id="post_5312">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberc385.html?action=profile&amp;uid=41"><span style="color: #8ebc4f;"><strong>Markski</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberc385.html?action=profile&amp;uid=41"><img src="uploads/avatars/avatar_4182a6.html?dateline=1555019377" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Clerk<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">127</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">6</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation4ef8.html?uid=41"><strong class="reputation_positive">5</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> La Plata, Argentina</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreade55d.html?tid=493&amp;pid=5312#pid5312" title="RE: A Proper Way to Store Passwords">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-17, 06:47 PM <span class="post_edit" id="edited_by_5312"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5312">
+		<blockquote class="mycode_quote"><cite><span> (2019-04-30, 07:05 PM)</span><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="412c28222920242d0123242d2628342c">[email&#160;protected]</a> Wrote:  <a href="showthread06f9.html?pid=4783#pid4783" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>If any website emails your password back in plain text, then he is surely storing your password as such</blockquote>
+<br />
+Not really. You can't know that. You could just hash a temporary plain password, save it in the database, and send the plain pass to the user</blockquote><br />
+That's still a terrible red flag. Password hashing shouldn't be reversible. And there should be no plaintext passwords anywhere for absolutely no reason (other than in memory when a log-in or register is being executed, in which case it must be properly trashed inmediatly after the operaton is complete)
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><a href="https://markski.ar/" target="_blank" rel="noopener" class="mycode_url">Website</a></div>
+
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_5312">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="http://www.mrks.cf/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searchf1dc.html?action=finduser&amp;uid=41" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply3aa2.html?tid=493&amp;replyto=5312" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid11342" id="pid11342"></a>
+<div class="post classic " id="post_11342">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member17ae.html?action=profile&amp;uid=3819"><span style="color: #3c71af;">GCheredre</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member17ae.html?action=profile&amp;uid=3819"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">3</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">1</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2021</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation272e.html?uid=3819"><strong class="reputation_positive">1</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Brazil</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread90f6.html?tid=493&amp;pid=11342#pid11342" title="RE: A Proper Way to Store Passwords">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2021-06-01, 03:25 AM <span class="post_edit" id="edited_by_11342"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_11342">
+		Great Tutorial champ, lots of people should take a read at it, it was pretty useful for me too. thanks for sharing this with us
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_11342">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchd635.html?action=finduser&amp;uid=3819" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply4466.html?tid=493&amp;replyto=11342" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit -->
+	</div>
+</td></tr>
+		<tr>
+			<td class="tfoot">
+				<!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://www.burgershot.gg/search.php" method="post">
+			<input type="hidden" name="action" value="thread" />
+			<input type="hidden" name="tid" value="493" />
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == 'Enter Keywords') { this.value = ''; }" onblur="if(this.value=='') { this.value='Enter Keywords'; }" class="textbox" size="25" />
+			<input type="submit" class="button" value="Search Thread" />
+		</form>
+	</div>
+<!-- end: showthread_search -->
+				<div style="padding:10px">
+					<strong>&laquo; <a href="showthreadf1bc.html?tid=493&amp;action=nextoldest">Next Oldest</a> | <a href="showthreade5a5.html?tid=493&amp;action=nextnewest">Next Newest</a> &raquo;</strong><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="float_left"><br>
+		
+	</div>
+	<br class="clear" />
+	
+	
+	
+	<br />
+	<div class="float_left">
+		<ul class="thread_tools">
+			<li class="printable"><a href="printthreadd412.html?tid=493">View a Printable Version</a></li>
+			
+			<li class="subscription_add"><a href="usercp6187.html?action=addsubscription&amp;tid=493&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e">Subscribe to this thread</a></li>
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://www.burgershot.gg/forumdisplay.php" method="get">
+<span class="smalltext"><strong>Forum Jump:</strong></span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="19" > General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20" >-- Chat</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21" >-- Tech</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22" >-- Life</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="48" >-- Art</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56" >-- Programming</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40" > open.mp</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="43" >-- Development Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="42" >-- Questions and Suggestions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="3" > SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6" >-- General Discussions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9" >-- Videos and Screenshots</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12" >-- Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="10" >-- Pawn Scripting</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="37" selected="selected">-- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13" >-- Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32" >---- Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31" >---- Libraries</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30" >---- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33" >---- Gamemodes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="67" >---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="69" >-- Advertisements </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23" > Other languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="24" >-- Spanish/Español</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="51" >---- Programación</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="52" >---- Discusión GTA SA Multijugador</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="53" >---- Mods</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="54" >---- Offtopic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="55" >---- Juegos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="25" >-- Portuguese/Português</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="26" >-- Russian/Русский</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="28" >-- Italian/Italiano</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29" >-- Dutch/Nederlands</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34" >-- German/Deutsch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="35" >-- Romanian/Română</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="36" >-- Ex-Yu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="38" >-- Polish/Polski</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="44" >---- Ogólne</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="45" >---- Serwery</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="46" >---- Skryptowanie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="47" >---- Filmiki i zdjęcia</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="39" >-- Lithuanian/Lietuviškas</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="49" >-- French/Français</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="50" >-- Hungarian/Magyar</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="57" >-- Hindi/Urdu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="68" >-- Turkish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="27" >-- Other</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear" />
+	<!-- start: footer -->
+    </div>
+</div>
+<footer class="footer-distributed">
+	<div class="footer-left">
+		<p style="" class="footer-links">
+			© Burgershot - Powered by our <a href="index.html" style="font-weight: bold; font-family: Noto Sans;">Community</a> and <a style="font-weight: bold; font-family: Noto Sans;" href="https://www.mybb.com/"> MyBB</a>
+            <span style="display:block;color: #9f9f9f;font-family: Noto Sans;"><small style="font-size: 12px;">Original Theme by Emerald</small></span>                                     
+	    </p>
+	</div>
+    <div style="" class="footer-right">
+        <div class="footer-icons">
+		</div>
+                
+		<!-- start: footer_themeselect -->
+<div class="theme">
+<form method="POST" action="https://www.burgershot.gg/showthread.php" id="theme_select">
+	<input type="hidden" name="pid" value="4779" />
+
+	<input type="hidden" name="my_post_key" value="6428f000919b5d9a18f82d476f6b077e" />
+	<!-- start: footer_themeselector -->
+<select name="theme" onchange="MyBB.changeTheme();">
+<optgroup label="Quick Theme Select">
+<!-- start: usercp_themeselector_option -->
+<option value="2">MyBB Default Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="3">Burgershot Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="9">--Light</option>
+<!-- end: usercp_themeselector_option -->
+</optgroup>
+</select>
+<!-- end: footer_themeselector -->
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_themeselect -->
+	</div>
+</footer>
+<script>
+	if (connected == 0) { 
+        jQuery("#mobile_member").html("<a href='member456e.html?action=login'>Login</a> - <a href='member0ddc.html?action=register'>Register</a>"); 
+    }
+	if (connected == 1) { 
+        document.getElementById("mobile_member").innerHTML = '<a title="Inbox" href="private.html">Inbox</a> - <a title="User CP" href="usercp.html">User CP</a> - <a title="Log Out" href="member2385.html?action=logout&amp;logoutkey=">Logout</a>'; 
+    }
+</script>
+<!-- end: footer -->
+	<div id="thread_modes_popup" class="popup_menu" style="display: none;"><div class="popup_item_container"><a href="showthread0bba-2.html?mode=linear&amp;tid=493&amp;pid=4779#pid4779" class="popup_item">Linear Mode</a></div><div class="popup_item_container"><a href="showthread1dc9.html?mode=threaded&amp;tid=493&amp;pid=4779#pid4779" class="popup_item">Threaded Mode</a></div></div>
+	<script type="text/javascript">
+	// <!--
+		if(use_xmlhttprequest == "1")
+		{
+			$("#thread_modes").popupMenu();
+		}
+	// -->
+	</script>
+	<script type="text/javascript">
+		$(".author_avatar img").error(function () {
+			$(this).unbind("error").closest('.author_avatar').remove();
+		});
+	</script>
+</body>
+</html>
+<!-- end: showthread -->

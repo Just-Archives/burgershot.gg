@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Run sa-mp server in android terminal - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread14d4.html?tid=2131">Run sa-mp server in android terminal</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Run sa-mp server in android terminal (<em>/showthread.php?tid=2131</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Run sa-mp server in android terminal</strong> - <a href="member7077.html?action=profile&amp;uid=2975">Otakeiro</a> -  <strong>2021-06-23</strong>
+<br />
+<br />
+I tried to find out more, found that I can use a terminal to run programs.<br />
+<br />
+My idea is to use a mobile terminal for tests with mobile devices, if it is functional it will be handy for those who travel or cannot afford to have a computer at home (just like me).<br />
+<br />
+The terminal I decided to use is called 'Termux', it serves some purposes well, is there any way to run a server using it?<br />
+<br />
+I have been trying, this is the limit of what I know about the subject, I need a light!<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>wget http://files.sa-mp.com/samp037svr_R2-1.tar.gz<br />
+tar -zxf samp03 *.tar.gz<br />
+cd samp03<br />
+chmod 700 *<br />
+./samp03svr</code></div></div><span style="font-weight: bold;" class="mycode_b">Obs:</span> in the middle of that i change the rcon password***
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Run sa-mp server in android terminal</strong> - <a href="member036a.html?action=profile&amp;uid=695">Banditul</a> -  <strong>2021-06-24</strong>
+<br />
+<br />
+The sole reason why you will not be able to run the server on a mobile device(assuming we are talking about android devices as Termux i see is an app for this OS) is because they are running on ARM based CPUs and samp server is not compiled to be used on this arhitecture. Some years back i also asked about running on Raspberry Pi which also uses ARM based CPUs and i faced same issue. <br />
+<br />
+Hopefully open.mp as it will be open source at some point someone will make a build for ARM too.<br />
+<br />
+Edit: Maybe there is a way to emulate the x86-64 software (as samp server) inside android (ofc this will impact a bit the performance). If someone knows please do tell.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Run sa-mp server in android terminal</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-06-25</strong>
+<br />
+<br />
+Even if you could run a server on an android, there's no way it could actually host players, so you'll need a real server anyway.  Plus, since you can only play on PC just use that one to host.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Run sa-mp server in android terminal</strong> - <a href="member7077.html?action=profile&amp;uid=2975">Otakeiro</a> -  <strong>2021-07-02</strong>
+<br />
+<br />
+After a long search I found what I wanted.<br />
+https://youtu.be/GWWJIA3t2ok<br />
+Yes, it is possible to run on termux, thanks to Banditul and Y_Less for having answered beforehand
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

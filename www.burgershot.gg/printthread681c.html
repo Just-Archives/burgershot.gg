@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin ColAndreas - Collision Detection and Raytracing - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthread681c.html?tid=175">ColAndreas - Collision Detection and Raytracing</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> ColAndreas - Collision Detection and Raytracing (<em>/showthread.php?tid=175</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>ColAndreas - Collision Detection and Raytracing</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+<img src="https://i.imgur.com/in7FgoQ.gif" loading="lazy" alt="[Image: in7FgoQ.gif]" class="mycode_img" /><br />
+<span style="color: DimGray;" class="mycode_color">____________________________________________________________________________________________________ </span><br />
+<br />
+<span style="font-size: large;" class="mycode_size"><span style="color: MediumTurquoise;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">Developers:</span></span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Initial Developers:</span><br />
+[uL]Slice<br />
+[uL]Chris420<br />
+[uL]Pottus<br />
+<span style="font-weight: bold;" class="mycode_b">Latest Developers:</span><br />
+uint32 (new developer ?) (Where'd ya go?) - This guy fixed some major shit, including the initial SA-MP object thing.<br />
+Crayder<br />
+Codectile<br />
+<span style="color: DimGray;" class="mycode_color">____________________________________________________________________________________________________ </span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #6666ff;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="text-decoration: underline;" class="mycode_u">Download today!</span></span></span></span><br />
+<span style="color: DimGray;" class="mycode_color">____________________________________________________________________________________________________ </span><br />
+<br />
+<span style="font-size: large;" class="mycode_size"><span style="color: MediumTurquoise;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">Installation Instructions:</span></span></span><br />
+<ol type="1" class="mycode_list"><li>Navigate to the github repository's release section (link above) and download the latest version.<br />
+</li>
+<li>If you don't need the source just download the wizard, the plugin, and include.<br />
+</li>
+<li>Run the binary builder application. This will generate a binary in which ColAndreas load data from.<br />
+</li>
+<li>Create a folder in your scriptfiles called "colandreas" and place the binary file there.<br />
+</li>
+<li>Add ColAndreas to your server.cfg.<br />
+</li>
+</ol>
+<span style="color: DimGray;" class="mycode_color">____________________________________________________________________________________________________ </span><br />
+<br />
+<span style="font-size: large;" class="mycode_size"><span style="color: MediumTurquoise;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">Current Functions:</span></span></span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CA_ContactTest(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz)<br />
+CA_CreateDynamicObject_DC(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, vw = -1, interior = -1, playerid = -1, Float:streamdist = 300.0, Float:drawdist = 300.0)<br />
+CA_CreateDynamicObject_SC(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, vw = -1, interior = -1, playerid = -1, Float:streamdist = 300.0, Float:drawdist = 300.0)<br />
+CA_CreateDynamicObjectEx_DC(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, Float:drawdistance = 0.0, Float:streamdistance = 200.0, worlds[] = { -1 }, interiors[] = { -1 }, players[] = { -1 }, maxworlds = sizeof worlds, maxinteriors = sizeof interiors, maxplayers = sizeof players)<br />
+CA_CreateDynamicObjectEx_SC(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, Float:drawdistance = 0.0, Float:streamdistance = 200.0, worlds[] = { -1 }, interiors[] = { -1 }, players[] = { -1 }, maxworlds = sizeof worlds, maxinteriors = sizeof interiors, maxplayers = sizeof players)<br />
+CA_CreateObject(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, bool:add = false)<br />
+CA_CreateObject_DC(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, Float:drawdistance = 300.0)<br />
+CA_CreateObject_SC(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, Float:drawdistance = 300.0)<br />
+CA_DestroyAllObjects_DC()<br />
+CA_DestroyObject(index)<br />
+CA_DestroyObject_DC(index)<br />
+CA_EulerToQuat(Float:rx, Float:ry, Float:rz, &amp;Float:x, &amp;Float:y, &amp;Float:z, &amp;Float:w)<br />
+CA_FindZ_For2DCoord(Float:x, Float:y, &amp;Float:z)<br />
+CA_GetModelBoundingBox(modelid, &amp;Float:minx, &amp;Float:miny, &amp;Float:minz, &amp;Float:maxx, &amp;Float:maxy, &amp;Float:maxz)<br />
+CA_GetModelBoundingSphere(modelid, &amp;Float:offx, &amp;Float:offy, &amp;Float:offz, &amp;Float:radius)<br />
+CA_GetObjectExtraID(index, type)<br />
+CA_Init()<br />
+CA_IsPlayerBlocked(playerid, Float:dist=1.5, Float:height=0.5)<br />
+CA_IsPlayerInWater(playerid, &amp;Float:depth, &amp;Float:playerdepth)<br />
+CA_IsPlayerNearWater(playerid, Float:dist=3.0, Float:height=3.0)<br />
+CA_IsPlayerOnSurface(playerid, Float:tolerance=1.5)<br />
+CA_QuatToEuler(Float:x, Float:y, Float:z, Float:w, &amp;Float:rx, &amp;Float:ry, &amp;Float:rz)<br />
+CA_RayCastLine(Float:StartX, Float:StartY, Float:StartZ, Float:EndX, Float:EndY, Float:EndZ, &amp;Float:x, &amp;Float:y, &amp;Float:z)<br />
+CA_RayCastLineAngle(Float:StartX, Float:StartY, Float:StartZ, Float:EndX, Float:EndY, Float:EndZ, &amp;Float:x, &amp;Float:y, &amp;Float:z, &amp;Float:rx, &amp;Float:ry, &amp;Float:rz)<br />
+CA_RayCastLineAngleEx(Float:StartX, Float:StartY, Float:StartZ, Float:EndX, Float:EndY, Float:EndZ, &amp;Float:x, &amp;Float:y, &amp;Float:z, &amp;Float:rx, &amp;Float:ry, &amp;Float:rz, &amp;Float:ocx, &amp;Float:ocy, &amp;Float:ocz, &amp;Float:orx, &amp;Float:ory, &amp;Float:orz)<br />
+CA_RayCastLineExtraID(type, Float:StartX, Float:StartY, Float:StartZ, Float:EndX, Float:EndY, Float:EndZ, &amp;Float:x, &amp;Float:y, &amp;Float:z)<br />
+CA_RayCastLineEx(Float:StartX, Float:StartY, Float:StartZ, Float:EndX, Float:EndY, Float:EndZ, &amp;Float:x, &amp;Float:y, &amp;Float:z, &amp;Float:rx, &amp;Float:ry, &amp;Float:rz, &amp;Float:rw, &amp;Float:cx, &amp;Float:cy, &amp;Float:cz)<br />
+CA_RayCastLineID(Float:StartX, Float:StartY, Float:StartZ, Float:EndX, Float:EndY, Float:EndZ, &amp;Float:x, &amp;Float:y, &amp;Float:z)<br />
+CA_RayCastLineNormal(Float:startx, Float:starty, Float:startz, Float:endx, Float:endy, Float:endz, &amp;Float:x, &amp;Float:y, &amp;Float:z, &amp;Float:nx, &amp;Float:ny, &amp;Float:nz)<br />
+CA_RayCastMultiLine(Float:StartX, Float:StartY, Float:StartZ, Float:EndX, Float:EndY, Float:EndZ, Float:retx[], Float:rety[], Float:retz[], Float:retdist[], ModelIDs[], size = sizeof(retx))<br />
+CA_RayCastReflectionVector(Float:startx, Float:starty, Float:startz, Float:endx, Float:endy, Float:endz, &amp;Float:x, &amp;Float:y, &amp;Float:z, &amp;Float:nx, &amp;Float:ny, &amp;Float:nz)<br />
+CA_RemoveBarriers()<br />
+CA_RemoveBreakableBuildings()<br />
+CA_RemoveBuilding(modelid, Float:x, Float:y, Float:z, Float:radius)<br />
+CA_SetObjectExtraID(index, type, data)<br />
+CA_SetObjectPos(index, Float:x, Float:y, Float:z)<br />
+CA_SetObjectPos_DC(index, Float:x, Float:y, Float:z)<br />
+CA_SetObjectRot(index, Float:rx, Float:ry, Float:rz)<br />
+CA_SetObjectRot_DC(index, Float:rx, Float:ry, Float:rz)<br />
+Float:CA_GetRoomHeight(Float:x, Float:y, Float:z)</code></div></div><span style="color: DimGray;" class="mycode_color">____________________________________________________________________________________________________ </span><br />
+<br />
+<span style="font-size: large;" class="mycode_size"><span style="color: MediumTurquoise;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">Loading ColAndreas:</span></span></span><br />
+<br />
+We recommend using a filterscript to help organize your objects. There is a specific order of operations required to load successfully.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnFilterScriptInit()<br />
+{<br />
+// Add any remove buildings (This only works once)<br />
+CA_RemoveBuilding();<br />
+<br />
+// Initialize the collision world (This creates San Andreas, the entire map, excluding removed buildings)<br />
+CA_Init();<br />
+<br />
+// Create objects<br />
+CA_CreateDynamicObject_SC();<br />
+<br />
+return 1;<br />
+}</code></div></div><span style="color: DimGray;" class="mycode_color">____________________________________________________________________________________________________ </span><br />
+<br />
+<span style="font-size: large;" class="mycode_size"><span style="color: MediumTurquoise;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">Capability Demo:</span></span></span><br />
+[Video: <a href="https://www.youtube.com/watch?v=aSabQWqQBkI" target="_blank" rel="noopener" class="mycode_url">http://www.youtube.com/watch?v=aSabQWqQBkI</a>]<br />
+<span style="color: DimGray;" class="mycode_color">____________________________________________________________________________________________________ </span><br />
+<br />
+<span style="font-size: large;" class="mycode_size"><span style="color: MediumTurquoise;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">Known Issues:</span></span></span><ul class="mycode_list"><li>There is no virtual world / interior support (there may never be).<br />
+</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ColAndreas - Collision Detection and Raytracing</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+https://github.com/Pottus/ColAndreas/wiki<br />
+<br />
+The wiki has been updated. Installation and usage should be much easier now! Let me know if you have any further questions, inquiries, or issues.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ColAndreas - Collision Detection and Raytracing</strong> - <a href="memberfab5.html?action=profile&amp;uid=278">Mugsy</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+good thread
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ColAndreas - Collision Detection and Raytracing</strong> - <a href="member3c83.html?action=profile&amp;uid=69">adri1</a> -  <strong>2019-08-03</strong>
+<br />
+<br />
+does this works with 0.3.DL custom objects?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ColAndreas - Collision Detection and Raytracing</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-09-27</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-08-03, 03:59 PM)</span>adri1 Wrote:  <a href="showthreada589.html?pid=6507#pid6507" class="quick_jump"></a></cite>does this works with 0.3.DL custom objects?</blockquote><br />
+It does now, thanks to iAmir
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ColAndreas - Collision Detection and Raytracing</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-09-27</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-09-27, 08:17 PM)</span>Crayder Wrote:  <a href="showthread9ef5.html?pid=6676#pid6676" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-08-03, 03:59 PM)</span>adri1 Wrote:  <a href="showthreada589.html?pid=6507#pid6507" class="quick_jump"></a></cite>does this works with 0.3.DL custom objects?</blockquote><br />
+It does now, thanks to iAmir</blockquote><br />
+thank me too
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ColAndreas - Collision Detection and Raytracing</strong> - <a href="member4136.html?action=profile&amp;uid=733">Jackins</a> -  <strong>2019-11-27</strong>
+<br />
+<br />
+Not working on Debian9
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ColAndreas - Collision Detection and Raytracing</strong> - <a href="member124e.html?action=profile&amp;uid=823">JustMe.77</a> -  <strong>2021-01-03</strong>
+<br />
+<br />
+I'm having these Errors if I try to compile my gamemode:<br />
+<br />
+<br />
+../Modules/Server/tpgun.pwn(108) : warning 202: number of arguments does not match definition<br />
+../Modules/Server/tpgun.pwn(108) : warning 202: number of arguments does not match definition<br />
+../Modules/Server/tpgun.pwn(108) : warning 202: number of arguments does not match definition<br />
+../Modules/Server/tpgun.pwn(108) : warning 202: number of arguments does not match definition<br />
+../Modules/Server/tpgun.pwn(108) : warning 202: number of arguments does not match definition<br />
+../Modules/Server/tpgun.pwn(114) : error 017: undefined symbol "CA_CreateDynamicObjectEx_SC"<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+  // Objects need to be removed BEFORE calling CA_Init<br />
+CA_RemoveBuilding(); //Line 108<br />
+<br />
+  // Load the SA map<br />
+CA_Init();<br />
+<br />
+// Create objects and add them to the simulation<br />
+CA_CreateDynamicObjectEx_SC();<br />
+<br />
+#if defined tpgun_OnGameModeInit<br />
+    return tpgun_OnGameModeInit();<br />
+    #else<br />
+    return 1;<br />
+    #endif<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ColAndreas - Collision Detection and Raytracing</strong> - <a href="member1824.html?action=profile&amp;uid=3227">DanMas</a> -  <strong>2021-01-06</strong>
+<br />
+<br />
+it will be very useful, if you add function like CA_IsPlayerInWater, who shows depth and playerdepth to the water, but for the ground. Or i can do it somehow in my own scripts?<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-03, 03:55 PM)</span>JustMe.77 Wrote:  <a href="showthread8e45.html?pid=9227#pid9227" class="quick_jump"></a></cite>..</blockquote>and you need to look arguments in colandreas.inc for functions. CA_RemoveBuilding like same RemoveBuildingForPlayer, but without playerid, and CA_CreateDynamicObjectEx_SC, its CreateDynamicObjectEx extension from streamer plugin, who also adds collision as i know ( read more wiki ). You can keep only CA_Init(); and map will be loaded if you have colandreas.cadb
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

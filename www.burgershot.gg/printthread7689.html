@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin SampSharp - Write game modes in .NET Core - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthread7689.html?tid=1193">SampSharp - Write game modes in .NET Core</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> SampSharp - Write game modes in .NET Core (<em>/showthread.php?tid=1193</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>SampSharp - Write game modes in .NET Core</strong> - <a href="member75eb.html?action=profile&amp;uid=846">tim</a> -  <strong>2020-09-28</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><img src="https://raw.githubusercontent.com/ikkentim/SampSharp/master/sampsharp.png" loading="lazy"  alt="[Image: sampsharp.png]" class="mycode_img" /></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">SampSharp</span></span></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><a href="https://github.com/ikkentim/SampSharp/stargazers" target="_blank" rel="noopener" class="mycode_url"><img src="https://img.shields.io/github/stars/ikkentim/SampSharp.svg" loading="lazy"  alt="[Image: SampSharp.svg]" class="mycode_img" /></a><a href="https://github.com/ikkentim/SampSharp/network" target="_blank" rel="noopener" class="mycode_url"> <img src="https://img.shields.io/github/forks/ikkentim/SampSharp.svg" loading="lazy"  alt="[Image: SampSharp.svg]" class="mycode_img" /></a><a href="https://github.com/ikkentim/SampSharp/issues" target="_blank" rel="noopener" class="mycode_url"> <img src="https://img.shields.io/github/issues/ikkentim/SampSharp.svg" loading="lazy"  alt="[Image: SampSharp.svg]" class="mycode_img" /></a><a href="https://github.com/ikkentim/SampSharp/releases" target="_blank" rel="noopener" class="mycode_url"> <img src="https://img.shields.io/github/downloads/ikkentim/SampSharp/total.svg" loading="lazy"  alt="[Image: total.svg]" class="mycode_img" /><br />
+</a></div>
+<div style="text-align: center;" class="mycode_align"><a href="https://discord.gg/gwcHpqp" target="_blank" rel="noopener" class="mycode_url"><span style="color: #0074D9;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: medium;" class="mycode_size">Join us on Discord</span></span></span></a></div>
+<br />
+SampSharp is a plugin and library which allows you to write SA-MP game modes in C#. The plugin works both on Linux and Windows. The library contains various classes for every type of resource available in SA-MP (players, vehicles, textdraws, etc). Aside from this wrapper around native functions, the library also contains a good structure to build your gamemode on. This plugin was initially released in 2014, and has received a good ever since and I'm still available for any questions related to this plugin.<br />
+<br />
+SampSharp provides two structures for developing game modes. SampSharp.GameMode and SampSharp.Entities.<br />
+<br />
+SampSharp.GameMode provides a simple object-oriented structure for developing your game mode. All callbacks are forwarded to the implementation of BaseMode and vanilla callbacks are forwarded as events to the related instances (eg. OnPlayerText fires the PlayerText event on the related Player instance). A simple code sample can be found below.<br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;class&nbsp;</span><span style="color: #0000BB">GameMode&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">BaseMode<br /></span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">protected&nbsp;</span><span style="color: #0000BB">override&nbsp;void&nbsp;OnPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">BasePlayer&nbsp;player</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">EventArgs&nbsp;e</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;base</span><span style="color: #007700">.</span><span style="color: #0000BB">OnPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">player</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">e</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;player</span><span style="color: #007700">.</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(&#36;</span><span style="color: #DD0000">"Welcome&nbsp;{player.Name},&nbsp;to&nbsp;a&nbsp;whole&nbsp;new&nbsp;world!"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">[</span><span style="color: #0000BB">Command</span><span style="color: #007700">(</span><span style="color: #DD0000">"spawn"</span><span style="color: #007700">)]<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;</span><span style="color: #0000BB">void&nbsp;VehicleCommand</span><span style="color: #007700">(</span><span style="color: #0000BB">BasePlayer&nbsp;player</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">VehicleModelType&nbsp;model</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;Console</span><span style="color: #007700">.</span><span style="color: #0000BB">WriteLine</span><span style="color: #007700">(&#36;</span><span style="color: #DD0000">"Spawning&nbsp;a&nbsp;{model}&nbsp;for&nbsp;{player.Name}"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">var&nbsp;</span><span style="color: #0000BB">vehicle&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">GtaVehicle</span><span style="color: #007700">.</span><span style="color: #0000BB">Create</span><span style="color: #007700">(</span><span style="color: #0000BB">model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">player</span><span style="color: #007700">.</span><span style="color: #0000BB">Position&nbsp;</span><span style="color: #007700">+&nbsp;new&nbsp;</span><span style="color: #0000BB">Vector3</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.5f</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">player</span><span style="color: #007700">.</span><span style="color: #0000BB">Rotation</span><span style="color: #007700">.</span><span style="color: #0000BB">Z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;player</span><span style="color: #007700">.</span><span style="color: #0000BB">PutInVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicle</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;player</span><span style="color: #007700">.</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">Color</span><span style="color: #007700">.</span><span style="color: #0000BB">GreenYellow</span><span style="color: #007700">,&nbsp;&#36;</span><span style="color: #DD0000">"You&nbsp;have&nbsp;spawned&nbsp;a&nbsp;{model}!"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br />}&nbsp;<br /></span></code></div></div></div><br />
+SampSharp.Entities (only available since early 2020) provides an Entity-Component-System structure with full dependency injection support for developing your game mode. SampSharp.Entities is still in active development but is already stable and usable. Below, a similar code sample can be found:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">public&nbsp;class&nbsp;</span><span style="color: #0000BB">SampleSystem&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">ISystem<br /> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">[</span><span style="color: #0000BB">Event</span><span style="color: #007700">]<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">void&nbsp;OnPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">Player&nbsp;player</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;player</span><span style="color: #007700">.</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(&#36;</span><span style="color: #DD0000">"Welcome&nbsp;{player.Name},&nbsp;to&nbsp;a&nbsp;whole&nbsp;new&nbsp;world!"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">[</span><span style="color: #0000BB">PlayerCommand</span><span style="color: #007700">(</span><span style="color: #DD0000">"spawn"</span><span style="color: #007700">)]<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;</span><span style="color: #0000BB">void&nbsp;VehicleCommand</span><span style="color: #007700">(</span><span style="color: #0000BB">Player&nbsp;player</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">VehicleModelType&nbsp;model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IWorldService&nbsp;worldService</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Console</span><span style="color: #007700">.</span><span style="color: #0000BB">WriteLine</span><span style="color: #007700">(&#36;</span><span style="color: #DD0000">"Spawning&nbsp;a&nbsp;{model}&nbsp;for&nbsp;{player.Name}"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">var&nbsp;</span><span style="color: #0000BB">vehicle&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">worldService</span><span style="color: #007700">.</span><span style="color: #0000BB">CreateVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">player</span><span style="color: #007700">.</span><span style="color: #0000BB">Position&nbsp;</span><span style="color: #007700">+&nbsp;new&nbsp;</span><span style="color: #0000BB">Vector3</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.5f</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">player</span><span style="color: #007700">.</span><span style="color: #0000BB">Rotation</span><span style="color: #007700">.</span><span style="color: #0000BB">Z</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;player</span><span style="color: #007700">.</span><span style="color: #0000BB">PutInVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicle</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;player</span><span style="color: #007700">.</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">Color</span><span style="color: #007700">.</span><span style="color: #0000BB">GreenYellow</span><span style="color: #007700">,&nbsp;&#36;</span><span style="color: #DD0000">"You&nbsp;have&nbsp;spawned&nbsp;a&nbsp;{model}!"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}&nbsp;<br /></span></code></div></div></div><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Download</span></span><br />
+<br />
+Stable version: <a href="https://github.com/ikkentim/SampSharp/releases" target="_blank" rel="noopener" class="mycode_url"><img src="https://img.shields.io/github/release/ikkentim/SampSharp.svg" loading="lazy"  alt="[Image: SampSharp.svg]" class="mycode_img" /> <img src="https://img.shields.io/github/downloads/ikkentim/SampSharp/latest/total.svg" loading="lazy"  alt="[Image: total.svg]" class="mycode_img" /></a><br />
+Unstable version: <a href="https://github.com/ikkentim/SampSharp/releases" target="_blank" rel="noopener" class="mycode_url"><img src="https://img.shields.io/github/tag/ikkentim/SampSharp.svg" loading="lazy"  alt="[Image: SampSharp.svg]" class="mycode_img" /></a><br />
+<br />
+<a href="https://github.com/ikkentim/SampSharp/releases" target="_blank" rel="noopener" class="mycode_url">https://github.com/ikkentim/SampSharp/releases</a><br />
+<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Documentation</span></span><br />
+<br />
+Our documentation website is still in development and some vital documentation is still lacking. If you need any assistance, feel free to join our Discord server!<br />
+<br />
+<a href="https://sampsharp.net/" target="_blank" rel="noopener" class="mycode_url">https://sampsharp.net</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SampSharp - Write game modes in .NET Core</strong> - <a href="member75eb.html?action=profile&amp;uid=846">tim</a> -  <strong>2020-09-28</strong>
+<br />
+<br />
+Ugh the formatting is totally ruined, every time I edit the posts it adds more line breaks after every line :cry:<br />
+<br />
+edit: manged to fix it
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SampSharp - Write game modes in .NET Core</strong> - <a href="membere2ca.html?action=profile&amp;uid=3339">Rique_FTW</a> -  <strong>2021-01-28</strong>
+<br />
+<br />
+Tim, is there any way to do a “hook”?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SampSharp - Write game modes in .NET Core</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2021-01-29</strong>
+<br />
+<br />
+⭐⭐⭐⭐⭐<br />
+<br />
+This is by far the best SA-MP plugin after Incognito's Streamer.<br />
+It's incredible how well made the C# API is, and how familiar it feels if you're already a C# programmer.<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-28, 02:39 PM)</span>Rique_FTW Wrote:  <a href="showthread9a7a.html?pid=9606#pid9606" class="quick_jump"></a></cite>Tim, is there any way to do a “hook”?</blockquote><br />
+If by hooking you mean handling multiple time the same event in different parts of your code, e.g. OnPlayerConnect, you can do so by attaching multiple handlers to the `Connected` event of your `BasePlayer` class, or the `PlayerConnected` event of your `BaseMode` class.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SampSharp - Write game modes in .NET Core</strong> - <a href="membere2ca.html?action=profile&amp;uid=3339">Rique_FTW</a> -  <strong>2021-02-10</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[Event]<br />
+public void OnPlayerConnect(Player player) {<br />
+    player.SendClientMessage(&#36;"» {player.Name} (ID: {player.Id}) connected.");<br />
+}</code></div></div>player.Id not found.<br />
+<br />
+One more doubt. I can't use accentuation (I'm Brazilian).<br />
+Example:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Input code: Queda de conexão<br />
+Output server: Queda de conex?o</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SampSharp - Write game modes in .NET Core</strong> - <a href="member036a.html?action=profile&amp;uid=695">Banditul</a> -  <strong>2021-02-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-10, 12:42 AM)</span>Rique_FTW Wrote:  <a href="showthreada395.html?pid=9764#pid9764" class="quick_jump"></a></cite><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[Event]<br />
+public void OnPlayerConnect(Player player) {<br />
+    player.SendClientMessage(&#36;"» {player.Name} (ID: {player.Id}) connected.");<br />
+}</code></div></div>player.Id not found.<br />
+<br />
+One more doubt. I can't use accentuation (I'm Brazilian).<br />
+Example:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Input code: Queda de conexão<br />
+Output server: Queda de conex?o</code></div></div></blockquote><br />
+@Rique_FTW<br />
+I see you are using the ECS (.Entity) and to get player id you need to use <div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">player</span><span style="color: #007700">.</span><span style="color: #0000BB">Entity</span><span style="color: #007700">.</span><span style="color: #0000BB">Handle&nbsp;<br /></span></code></div></div></div><br />
+As for accents and that sort of things add <div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">.</span><span style="color: #0000BB">UseEncodingCodePage</span><span style="color: #007700">(</span><span style="color: #DD0000">"cp860"</span><span style="color: #007700">)&nbsp;<br /></span></code></div></div></div> to your gamemode builder (Program.cs) and specify the code page for portuguese  language uses. I assume that is the cp860 but not sure <br />
+<br />
+I recommend you to join discord server for faster help regarding S#
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: SampSharp - Write game modes in .NET Core</strong> - <a href="membere2ca.html?action=profile&amp;uid=3339">Rique_FTW</a> -  <strong>2021-02-16</strong>
+<br />
+<br />
+Thank you very much. It worked perfectly &lt;3
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

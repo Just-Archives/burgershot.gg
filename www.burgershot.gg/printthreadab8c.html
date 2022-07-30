@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Pawn compiler for Android - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadab8c.html?tid=656">Pawn compiler for Android</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Pawn compiler for Android (<em>/showthread.php?tid=656</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Pawn compiler for Android</strong> - <a href="member0747.html?action=profile&amp;uid=808">Luciano</a> -  <strong>2019-06-15</strong>
+<br />
+<br />
+I'm running Prime OS on my main PC, which is an Android-based operating system for desktop computers.<br />
+Is there a way to make the Pawn compiler work with any existing Android app?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Pawn compiler for Android</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-06-15</strong>
+<br />
+<br />
+You could try compile it yourself, it is open-source:<br />
+<br />
+https://github.com/pawn-lang/compiler<br />
+<br />
+I don't think anyone has yet ported it to that OS, but I'm sure it is possible.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Pawn compiler for Android</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-06-18</strong>
+<br />
+<br />
+The software of PrimeOS is 100% Android, no matter that it is made for desktop computers. The same applies to RemixOS, PhoenixOS and Androidx86. <br />
+Android is based on Linux, and it can run Linux programs if they are recompiled against the NDK (Native Development Kit), which uses the Bionic C library instead of the usual GNU C library, and could require some modifications to the code.<br />
+Once you successfully compile it, you can either call it from the command line, which is your best option if you already have a code editor which supports custom commands, or you could make an editor app with a GUI using the normal Android APIs (in Java, Kotlin, C# with Xamarin or other languages).<br />
+<br />
+Useful links:<br />
+https://developer.android.com/ndk/guides<br />
+https://software.intel.com/en-us/articles/building-an-android-command-line-application-using-the-ndk-build-tools<br />
+https://corochann.com/build-executable-file-with-android-ndk-after-lollipop-android-api-21-388.html<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Edit:</span><br />
+After a few hours trying, I've been able to build the Pawn compiler for Android, but with one small edit to the source: in amx.c at line 493 the line <br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>assert_static(sizeof(f)&lt;=sizeof(cell));</code></div></div> <br />
+won't compile with the NDK, so I temporarily commented it until I find a solution. <br />
+<br />
+Here's what to do to build libpawnc.so, pawncc, pawndisasm and pawnruns into Android binaries (using Windows, in my case, but you can probably do it on Android itself, Linux or MacOS):<ul class="mycode_list"><li>Download Android NDK (~2.6 GB when decompressed on disk) and extract it somewhere (<a href="https://developer.android.com/ndk/downloads" target="_blank" rel="noopener" class="mycode_url">https://developer.android.com/ndk/downloads</a>)<br />
+</li>
+<li>Download and install CMake (<a href="https://cmake.org/download/" target="_blank" rel="noopener" class="mycode_url">https://cmake.org/download/</a>)<br />
+</li>
+<li>Clone or download the pawn compiler source code (<a href="https://github.com/pawn-lang/compiler" target="_blank" rel="noopener" class="mycode_url">https://github.com/pawn-lang/compiler</a>)<br />
+</li>
+<li>Create a batch or Powershell script containing the cmake command with its arguments (more on this later)<br />
+</li>
+<li>Apply the temporary workaround to the assert_static compile error<br />
+</li>
+<li>Run the CMake script<br />
+</li>
+<li>In case it gives you an error about "-lpthread" you can comment the line <span style="font-style: italic;" class="mycode_i">link_libraries(pthread) </span>in CMakeLists.txt<br />
+</li>
+<li>Run the following:<br />
+</li>
+</ul>
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>cmake --build .</code></div></div><br />
+Here's my CMake command script:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>cmake -G "MinGW Makefiles" ^<br />
+   -DCMAKE_TOOLCHAIN_FILE=C:/android-ndk-r20/build/cmake/android.toolchain.cmake ^<br />
+   -DANDROID_NDK=C:/android-ndk-r20 ^<br />
+   -DANDROID_ABI=arm64-v8a ^<br />
+   -DANDROID_PLATFORM=android-29 ^<br />
+   -DANDROID_STL=c++_static ^<br />
+   -DCMAKE_BUILD_TYPE=Release ^<br />
+   -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=./bin ^<br />
+   -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=./bin ^<br />
+   -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=./bin ./compiler/source/compiler</code></div></div><br />
+Set DCMAKE_TOOLCHAIN_FILE to your android Cmake toolchain's path (comes together with the NDK)<br />
+Set DANDROID_NDK to your android NDK's path<br />
+Set DANDROID_ABI to the target CPU architecture<br />
+Set DANDROID_PLATFORM to the target Android API level<br />
+Finally, replace ./compiler/source/compiler to the path to the compiler source code, where the CMakeLists.txt file is located.<br />
+<br />
+Here is how I ran it on my rooted Android device (in my case it's an Android 9.0 Pie smartphone, but it should be the same in <span style="font-weight: bold;" class="mycode_b">PrimeOS</span>):<ul class="mycode_list"><li>Download and install a terminal emulator app (my favorite is Material Terminal), and a file manager that takes advantage of root functions (my favorite is FX File Manager)<br />
+</li>
+<li>Move the compiled binaries to any directory whose partition is not mounted <span style="font-style: italic;" class="mycode_i">noexec.</span> The sdcard partition (aka storage/emulated/) is always mounted with the noexec param, so you can't add execute privileges to the binaries. In my case, I put the binaries in /data/local/pawncc (requires root access)<br />
+</li>
+<li>Give execute permissions to the files<br />
+</li>
+<li>Run the terminal emulator and change directory to where you put the binaries<br />
+</li>
+<li>Set the environment variable "LD_LIBRARY_PATH" to the same directory (or wherever you chose to put libpawnc.so)<br />
+</li>
+<li>Create a test pawn file and run the compiler (if you are in /data/local be sure to become root first using the <span style="font-style: italic;" class="mycode_i">su </span>command)<br />
+</li>
+</ul>
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>./pawncc file.pwn -ofile.amx</code></div></div><br />
+In my case the pawn script was simply:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native printf(string[]);<br />
+main()<br />
+{<br />
+   printf("Hello World");<br />
+}</code></div></div><br />
+And it correctly compiled to a 67 Bytes AMX file. And of course I couldn't test it yet because it requires you to also build an AMX host, or at least the test AMX host which I didn't yet. If I do I will update this post.<br />
+<br />
+This approach however is not the best because Android doesn't let you put arbitrary binary files in executable-enabled locations unless you are root. The best thing you could do in my opinion is to build a small code editor using the Android API in Java/Kotlin or if you prefer in Xamarin C#, and then using a JNI wrapper you can embed the pawncc as a shared library in your application, and even an AMX host to test the scripts (not SA-MP Server scripts obviously).
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Pawn compiler for Android</strong> - <a href="membered25.html?action=profile&amp;uid=3698">Chakib Chemso</a> -  <strong>2021-05-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-06-18, 06:40 AM)</span>Sasino97 Wrote:  <a href="showthreadba49.html?pid=6056#pid6056" class="quick_jump"></a></cite>The software of PrimeOS is 100% Android, no matter that it is made for desktop computers. The same applies to RemixOS, PhoenixOS and Androidx86. <br />
+Android is based on Linux, and it can run Linux programs if they are recompiled against the NDK (Native Development Kit), which uses the Bionic C library instead of the usual GNU C library, and could require some modifications to the code.<br />
+Once you successfully compile it, you can either call it from the command line, which is your best option if you already have a code editor which supports custom commands, or you could make an editor app with a GUI using the normal Android APIs (in Java, Kotlin, C# with Xamarin or other languages).<br />
+<br />
+Useful links:<br />
+https://developer.android.com/ndk/guides<br />
+https://software.intel.com/en-us/articles/building-an-android-command-line-application-using-the-ndk-build-tools<br />
+https://corochann.com/build-executable-file-with-android-ndk-after-lollipop-android-api-21-388.html<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Edit:</span><br />
+After a few hours trying, I've been able to build the Pawn compiler for Android, but with one small edit to the source: in amx.c at line 493 the line <br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>assert_static(sizeof(f)&lt;=sizeof(cell));</code></div></div> <br />
+won't compile with the NDK, so I temporarily commented it until I find a solution. <br />
+<br />
+Here's what to do to build libpawnc.so, pawncc, pawndisasm and pawnruns into Android binaries (using Windows, in my case, but you can probably do it on Android itself, Linux or MacOS):<ul class="mycode_list"><li>Download Android NDK (~2.6 GB when decompressed on disk) and extract it somewhere (<a href="https://developer.android.com/ndk/downloads" target="_blank" rel="noopener" class="mycode_url">https://developer.android.com/ndk/downloads</a>)<br />
+</li>
+<li>Download and install CMake (<a href="https://cmake.org/download/" target="_blank" rel="noopener" class="mycode_url">https://cmake.org/download/</a>)<br />
+</li>
+<li>Clone or download the pawn compiler source code (<a href="https://github.com/pawn-lang/compiler" target="_blank" rel="noopener" class="mycode_url">https://github.com/pawn-lang/compiler</a>)<br />
+</li>
+<li>Create a batch or Powershell script containing the cmake command with its arguments (more on this later)<br />
+</li>
+<li>Apply the temporary workaround to the assert_static compile error<br />
+</li>
+<li>Run the CMake script<br />
+</li>
+<li>In case it gives you an error about "-lpthread" you can comment the line <span style="font-style: italic;" class="mycode_i">link_libraries(pthread) </span>in CMakeLists.txt<br />
+</li>
+<li>Run the following:<br />
+</li>
+</ul>
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>cmake --build .</code></div></div><br />
+Here's my CMake command script:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>cmake -G "MinGW Makefiles" ^<br />
+   -DCMAKE_TOOLCHAIN_FILE=C:/android-ndk-r20/build/cmake/android.toolchain.cmake ^<br />
+   -DANDROID_NDK=C:/android-ndk-r20 ^<br />
+   -DANDROID_ABI=arm64-v8a ^<br />
+   -DANDROID_PLATFORM=android-29 ^<br />
+   -DANDROID_STL=c++_static ^<br />
+   -DCMAKE_BUILD_TYPE=Release ^<br />
+   -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=./bin ^<br />
+   -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=./bin ^<br />
+   -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=./bin ./compiler/source/compiler</code></div></div><br />
+Set DCMAKE_TOOLCHAIN_FILE to your android Cmake toolchain's path (comes together with the NDK)<br />
+Set DANDROID_NDK to your android NDK's path<br />
+Set DANDROID_ABI to the target CPU architecture<br />
+Set DANDROID_PLATFORM to the target Android API level<br />
+Finally, replace ./compiler/source/compiler to the path to the compiler source code, where the CMakeLists.txt file is located.<br />
+<br />
+Here is how I ran it on my rooted Android device (in my case it's an Android 9.0 Pie smartphone, but it should be the same in <span style="font-weight: bold;" class="mycode_b">PrimeOS</span>):<ul class="mycode_list"><li>Download and install a terminal emulator app (my favorite is Material Terminal), and a file manager that takes advantage of root functions (my favorite is FX File Manager)<br />
+</li>
+<li>Move the compiled binaries to any directory whose partition is not mounted <span style="font-style: italic;" class="mycode_i">noexec.</span> The sdcard partition (aka storage/emulated/) is always mounted with the noexec param, so you can't add execute privileges to the binaries. In my case, I put the binaries in /data/local/pawncc (requires root access)<br />
+</li>
+<li>Give execute permissions to the files<br />
+</li>
+<li>Run the terminal emulator and change directory to where you put the binaries<br />
+</li>
+<li>Set the environment variable "LD_LIBRARY_PATH" to the same directory (or wherever you chose to put libpawnc.so)<br />
+</li>
+<li>Create a test pawn file and run the compiler (if you are in /data/local be sure to become root first using the <span style="font-style: italic;" class="mycode_i">su </span>command)<br />
+</li>
+</ul>
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>./pawncc file.pwn -ofile.amx</code></div></div><br />
+In my case the pawn script was simply:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native printf(string[]);<br />
+main()<br />
+{<br />
+   printf("Hello World");<br />
+}</code></div></div><br />
+And it correctly compiled to a 67 Bytes AMX file. And of course I couldn't test it yet because it requires you to also build an AMX host, or at least the test AMX host which I didn't yet. If I do I will update this post.<br />
+<br />
+This approach however is not the best because Android doesn't let you put arbitrary binary files in executable-enabled locations unless you are root. The best thing you could do in my opinion is to build a small code editor using the Android API in Java/Kotlin or if you prefer in Xamarin C#, and then using a JNI wrapper you can embed the pawncc as a shared library in your application, and even an AMX host to test the scripts (not SA-MP Server scripts obviously).</blockquote><br />
+Can u send me link to download i canr compile it i just needed the binaries to execute them on Android or any linux environment installed
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Pawn compiler for Android</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-01, 04:52 AM)</span>Chakib Chemso Wrote:  <a href="showthread72f8.html?pid=10922#pid10922" class="quick_jump"></a></cite>Can u send me link to download i canr compile it i just needed the binaries to execute them on Android or any linux environment installed</blockquote><br />
+The guy just gave you an incredible in-depth explanation of everything that's going on. spent probably longer explaining it than it will take you to compile it, and your response is STILL "just do it for me"?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Pawn compiler for Android</strong> - <a href="membered25.html?action=profile&amp;uid=3698">Chakib Chemso</a> -  <strong>2021-05-09</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-03, 07:09 PM)</span>Y_Less Wrote:  <a href="showthreadd6c9.html?pid=10982#pid10982" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-01, 04:52 AM)</span>Chakib Chemso Wrote:  <a href="showthread72f8.html?pid=10922#pid10922" class="quick_jump"></a></cite>Can u send me link to download i canr compile it i just needed the binaries to execute them on Android or any linux environment installed</blockquote><br />
+The guy just gave you an incredible in-depth explanation of everything that's going on. spent probably longer explaining it than it will take you to compile it, and your response is STILL "just do it for me"?</blockquote><br />
+hi ofc no i wasnt able to access any pc at that moment, but ye that seemed a little cringe, sorry<br />
+im trying to compile it anyway thx everyone here, im not disrespecting anyone's work
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

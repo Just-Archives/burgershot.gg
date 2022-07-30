@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [MySQL] Problema con registro de datos - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread497b.html?tid=2307">[MySQL] Problema con registro de datos</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  [MySQL] Problema con registro de datos (<em>/showthread.php?tid=2307</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[MySQL] Problema con registro de datos</strong> - <a href="member11e9.html?action=profile&amp;uid=782">GARS</a> -  <strong>2022-07-19</strong>
+<br />
+<br />
+Hola, tengo un problema con MySQL al registrar nuevos datos, mi servidor era SQLite y lo pase a MySQL pero al registrar un nuevo dato (registrar cuenta) en la base de datos esta no me figura/registra la el ID de forma ascendiente, me explico, en la tabla solo me registra como ID 0, así:<br />
+<br />
+<img src="https://i.imgur.com/2UtuvbC.png" loading="lazy"  alt="[Image: 2UtuvbC.png]" class="mycode_img" /><br />
+<br />
+Y cuando quiero volver a registrar otros datos(cuenta) no registra.<br />
+<br />
+Acá como está la DB:<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CREATE TABLE `cuenta` (<br />
+  `ID` int(11) NOT NULL,<br />
+  `IP` varchar(16) DEFAULT NULL,<br />
+  `NAME` varchar(24) DEFAULT NULL,<br />
+  `EMAIL` varchar(32) DEFAULT NULL,<br />
+  `PASS` varchar(65) DEFAULT NULL,<br />
+  `CONNECTED` int(11) NOT NULL<br />
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<br />
+<br />
+ALTER TABLE `cuenta`<br />
+<br />
+  ADD PRIMARY KEY (`ID`);</code></div></div><br />
+Y en la gamemode así<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>RegisterNP(playerid)<br />
+{<br />
+new DB_Query[500];<br />
+format(DB_Query, sizeof DB_Query,<br />
+"&#92;<br />
+INSERT INTO `CUENTA`&#92;<br />
+(&#92;<br />
+`IP`, `NAME`, `EMAIL`, `PASS`, `CONNECTED`&#92;<br />
+)&#92;<br />
+VALUES&#92;<br />
+(&#92;<br />
+'%q', '%q', '%q', '%q', '1'&#92;<br />
+);&#92;<br />
+", INFO_AC[playerid][iac_IP], INFO_AC[playerid][iac_NAME], INFO_AC[playerid][iac_EMAIL], INFO_AC[playerid][iac_PASS]);<br />
+mysql_tquery(DATABASE, DB_Query, "LoadRegisterNP", "i", playerid);<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

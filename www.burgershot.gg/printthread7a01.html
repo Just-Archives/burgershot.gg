@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Burgershot Outage Post-mortem - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread7a01.html?tid=336">Burgershot Outage Post-mortem</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Tech (<i>https://www.burgershot.gg/forumdisplay.php?fid=21</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Burgershot Outage Post-mortem (<em>/showthread.php?tid=336</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Burgershot Outage Post-mortem</strong> - <a href="member461a.html?action=profile&amp;uid=1">Southclaws</a> -  <strong>2019-04-18</strong>
+<br />
+<br />
+Hey everyone!<br />
+<br />
+This is a post-mortem of the forum outage. This was reported 2019-04-17 at 21:28 GMT+1 and resolved 2019-04-18 at 00:56 GMT+1.<br />
+<br />
+The outage was caused by a disk filling up with logs from another service running on the same machine.<br />
+<br />
+Cause of why the logs of this service reached 335237897538 bytes are currently unknown. It seems that Docker does not rotate logs for services that run indefinitely. The service in question has been online since October 2018 and log output has built up substantially.<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>-rw-r-----  1 root root 335237897538 Apr 17 23:45 384a7fd0aff65a82d3dfb406767edcbf5a16d321404a5b1848cfdc3ead95f624-json.log</code></div></div><br />
+The node is configured with the default logging driver: https://docs.docker.com/config/containers/logging/json-file/<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Steps to Prevent</span><br />
+<br />
+So, to prevent this happening again I am going to do something I have been meaning to do for a long time and move logging aggregation to an external service. This is yet to be decided but I should have some time before this happens again.<br />
+<br />
+In the meantime, I will be configuring AlertManager (Prometheus) to properly alert me (and potentially other staff members) of these issues ahead of time so we can mitigate these events before they happen.<br />
+<br />
+-<br />
+<br />
+Thank you for your understanding, we live and learn!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

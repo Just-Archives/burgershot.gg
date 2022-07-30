@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn insert line as much as the amount. - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadfb59.html?tid=2294">insert line as much as the amount.</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> insert line as much as the amount. (<em>/showthread.php?tid=2294</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>insert line as much as the amount.</strong> - <a href="member44f1.html?action=profile&amp;uid=3616">Axitz</a> -  <strong>2022-05-11</strong>
+<br />
+<br />
+hi,<br />
+<br />
+for now, this line is inserting only 1 by 1 since i used People++; but I want to multiply it by the amount.<br />
+<br />
+so when i put like /test 10<br />
+it will create 10 lines.<br />
+<br />
+example code as below.<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>COMMAND:test(playerid, params[])<br />
+{<br />
+new  iAmount;<br />
+if( sscanf ( params, "d", iAmount)) return SendClientMessage(playerid,-1, "[amount]");<br />
+new PlayerName[MAX_PLAYER_NAME];<br />
+GetPlayerName(playerid, PlayerName, sizeof(PlayerName));<br />
+People++;<br />
+Pool+=LOTTERY_PRICE;<br />
+dini_IntSet("lottery.ini", "money", Pool);<br />
+GivePlayerMoney(playerid, -LOTTERY_PRICE);<br />
+new string[128];<br />
+format(string, sizeof(string), "%d", People);<br />
+dini_Set("lottery.ini", string, PlayerName);<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: insert line as much as the amount.</strong> - <a href="member44f1.html?action=profile&amp;uid=3616">Axitz</a> -  <strong>2022-05-13</strong>
+<br />
+<br />
+bump.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

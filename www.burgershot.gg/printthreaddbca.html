@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Library Missile (Missile Launcher) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #9D17FF;font-weight: bold;">[Library]</span> <a href="showthreaddbca.html?tid=1917">Missile (Missile Launcher)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Libraries (<i>https://www.burgershot.gg/forumdisplay.php?fid=31</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #9D17FF;font-weight: bold;">[Library]</span> Missile (Missile Launcher) (<em>/showthread.php?tid=1917</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Missile (Missile Launcher)</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-18</strong>
+<br />
+<br />
+Hi I would like to present include for Missile Launcher.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Video:</span><br />
+- <a href="https://www.youtube.com/watch?v=ZCThAi3FKyU" target="_blank" rel="noopener" class="mycode_url">Sniper Missile</a><br />
+- <a href="https://www.youtube.com/watch?v=Pd5HmlL8uXw" target="_blank" rel="noopener" class="mycode_url">Vehicle Missile (MapAndreas Version)</a><br />
+- <a href="https://www.youtube.com/watch?v=HTHinI1IGhY" target="_blank" rel="noopener" class="mycode_url">Vehicle Missile (ColAndreas Update)</a><br />
+- <a href="https://www.youtube.com/watch?v=B4pfX39bIwM" target="_blank" rel="noopener" class="mycode_url">Marica Mortar V1</a><br />
+- <a href="https://www.youtube.com/watch?v=0FlZwi34wIA" target="_blank" rel="noopener" class="mycode_url">Heavy Marica Mortar</a><br />
+- <a href="https://www.youtube.com/watch?v=bS6jnEebJR4" target="_blank" rel="noopener" class="mycode_url">Missile Launcher Aim Player</a><br />
+- <a href="https://www.youtube.com/watch?v=Fxp-BDCQ94U" target="_blank" rel="noopener" class="mycode_url">Congreve Rocket</a><br />
+- <a href="https://www.youtube.com/watch?v=lYS-ryk7n4E" target="_blank" rel="noopener" class="mycode_url">Marica Mortar V2</a><br />
+- <a href="https://www.youtube.com/watch?v=NDWkGCxCJuA" target="_blank" rel="noopener" class="mycode_url">New Vehicle Missile</a><br />
+- <a href="https://www.youtube.com/watch?v=qQ1T2NszDkc" target="_blank" rel="noopener" class="mycode_url">Flares</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Functions:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Missile::Launch(type,Float:detection_range,Float:explode_radius,Float:speed,Float:x,Float:y,Float:z,worldid,interiorid,playerid,Float:streamdistance,missile_object,Float:tx,Float:ty,Float:tz,byplayerid=INVALID_PLAYER_ID,teamid=ANY_TEAM,bool:remote=false,remote_count=MAX_MISSILE_REMOTE_TARGET,remote_height=1.0,Float:arc_roll=0.0,Float:damage=-1.0,Float:vehicle_damage=-1.0);<br />
+<br />
+type - explosion type //https://wiki.sa-mp.com/wiki/Explosion_List<br />
+Float:detection_range - detection range player/vehicle<br />
+Float:explode_radius - the explosion range (the same as in CreateExplosion)<br />
+Float:speed - projectile speed<br />
+Float:x, Float:y, Float:z - Starting position<br />
+worldid, interiorid, playerid, Float:streamdistance - the same as in CreateDynamicObject<br />
+missile_object: MISSILE_OBJECT_NORMAL / MISSILE_OBJECT_BIG / MISSILE_OBJECT_HYDRA / MISSILE_OBJECT_BOMB / MISSILE_OBJECT_BOMB_STATIC / MISSILE_OBJECT_FLARE<br />
+Float:tx, Float:ty, Float:tz - Target position<br />
+byplayerid - selected player will be immune to detection range<br />
+teamid - player team will be immune to detection range<br />
+remote - enable remote targeting (for Vehicle Missile Mortar)<br />
+remote_count - number of remote targeting 1 - 32<br />
+remote_height - arc height<br />
+arc_roll - rotation Y axis<br />
+Float:damage - player damage on explosion created<br />
+Float:vehicle_damage - vehicle damage on explosion created<br />
+<br />
+Rotation: Auto!<br />
+<br />
+Missile::LaunchAimPlayer(targetid,type,Float:detection_range,Float:explode_radius,Float:speed,Float:x,Float:y,Float:z,worldid,interiorid,playerid,Float:streamdistance,missile_object,Float:tx,Float:ty,Float:tz,byplayerid=INVALID_PLAYER_ID,teamid=ANY_TEAM,Float:damage=-1.0,Float:vehicle_damage=-1.0);<br />
+<br />
+Missile::StopAimPlayer(mobid);<br />
+Missile::Destroy(mobid,type,playerid); <br />
+Missile::RemoteTarget(mobid,Float:tx,Float:ty,Float:tz,Float:speed = 0.0); <br />
+Missile::GetExplodeVisibility(); <br />
+Missile::SetExplodeVisibility(Float:explode_stream); <br />
+Missile::DisableAllAim(playerid);<br />
+<br />
+Misile::GetObject(mobid);<br />
+Misile::GetArea(mobid);<br />
+Misile::GetType(mobid);<br />
+Misile::GetExplode(mobid);<br />
+Misile::GetPlayer(mobid);<br />
+Misile::GetTeamID(mobid);<br />
+Misile::GetVehicle(mobid);<br />
+Misile::GetRemoteCount(mobid);<br />
+Misile::GetRemoteID(mobid);<br />
+Misile::GetSpeed(mobid);<br />
+Misile::GetTargetID(mobid);<br />
+Misile::GetDamage(mobid);<br />
+Misile::GetVehicleDamage(mobid);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Callbacks:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnMissileDestroy(mobid,Float:x,Float:y,Float:z,type,killerid,byplayerid);<br />
+<br />
+types:<br />
+MISSILE_DESTROY_TYPE_TARGET  //When rocket reaches its destination (always killerid=INVALID_PLAYER_ID)<br />
+MISSILE_DESTROY_TYPE_DETECT  //When rocket has been destroyed by detection range<br />
+MISSILE_DESTROY_TYPE_KILL    //When rocket has been destroyed by player<br />
+<br />
+OnMissileDetectPlayer(playerid,killerid); //called when a player is within range of detection range<br />
+<br />
+OnMissileRequestLaunch(Float:x,Float:y,Float:z,playerid,targetid);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Example Code:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ){<br />
+if(weaponid == 34){<br />
+new Float:x, Float:y, Float:z,<br />
+Float:tx, Float:ty, Float:tz,<br />
+Float:rx, Float:rz,<br />
+vw, int, Float:dist;<br />
+<br />
+GetPlayerPos(playerid,x,y,z);<br />
+GetRotationFor2Point3D(x,y,z,fX,fY,fZ,rx,rz);<br />
+<br />
+dist = GetDistanceBetweenPoints3D(x,y,z,fX,fY,fZ);<br />
+vw = GetPlayerVirtualWorld(playerid);<br />
+int = GetPlayerInterior(playerid);<br />
+<br />
+GetPointInFront3D(x,y,z,rx,rz,4.0,tx,ty,tz);<br />
+Missile::Launch(MISSILE_TYPE_EXPLODE_HUGE,4.0,25.0,35.0,tx,ty,tz,vw,int,-1,300.0,MISSILE_OBJECT_HYDRA,fX,fY,fZ,playerid,.damage=100.0,.vehicle_damage=1000.0);<br />
+<br />
+GetPointInFront3D(x,y,z,rx,rz,3.0,tx,ty,tz);<br />
+Missile::Launch(MISSILE_TYPE_EXPLODE_HUGE,4.0,25.0,35.0,tx,ty,tz+3.0,vw,int,-1,300.0,MISSILE_OBJECT_HYDRA,fX,fY,fZ+3.0,playerid,.damage=100.0,.vehicle_damage=1000.0);<br />
+Missile::Launch(MISSILE_TYPE_EXPLODE_HUGE,4.0,25.0,35.0,tx,ty,tz-3.0,vw,int,-1,300.0,MISSILE_OBJECT_HYDRA,fX,fY,fZ-3.0,playerid,.damage=100.0,.vehicle_damage=1000.0);<br />
+<br />
+GetPointInFront3D(tx,ty,tz,rx,rz+90.0,3.0,x,y,z);<br />
+GetPointInFront3D(x,y,z,rx,rz,dist,fX,fY,fZ);<br />
+Missile::Launch(MISSILE_TYPE_EXPLODE_HUGE,4.0,25.0,35.0,x,y,z,vw,int,-1,300.0,MISSILE_OBJECT_HYDRA,fX,fY,fZ,playerid,.damage=100.0,.vehicle_damage=1000.0);<br />
+GetPointInFront3D(tx,ty,tz,rx,rz-90.0,3.0,x,y,z);<br />
+GetPointInFront3D(x,y,z,rx,rz,dist,fX,fY,fZ);<br />
+Missile::Launch(MISSILE_TYPE_EXPLODE_HUGE,4.0,25.0,35.0,x,y,z,vw,int,-1,300.0,MISSILE_OBJECT_HYDRA,fX,fY,fZ,playerid,.damage=100.0,.vehicle_damage=1000.0);<br />
+<br />
+}<br />
+return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Bullet example:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Missile::Launch(MISSILE_TYPE_EXPLODE_NONE,1.0,1.0,20.0,Float:x,Float:y,Float:z,worldid,interiorid,playerid,Float:streamdistance,MISSILE_OBJECT_BULLET,Float:tx,Float:ty,Float:tz,byplayerid=INVALID_PLAYER_ID,teamid=ANY_TEAM,.damage=5.0,.vehicle_damage=25.0);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">How to check is player kill by missile (this is not required if you using custom missile damage):</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>enums:<br />
+last_missile_shot<br />
+last_missile_player<br />
+<br />
+public OnMissileDestroy(mobid,Float:x,Float:y,Float:z,type,killerid,byplayerid){<br />
+if(type == MISSILE_DESTROY_TYPE_DETECT &amp;&amp; killerid != INVALID_PLAYER_ID){<br />
+PlayerInfo[killerid][last_missile_shot] = GetTickCount();<br />
+PlayerInfo[killerid][last_missile_player] = byplayerid;<br />
+}<br />
+return 1;<br />
+}<br />
+<br />
+public OnMissileDetectPlayer(playerid,killerid){<br />
+if(killerid != INVALID_PLAYER_ID){<br />
+PlayerInfo[playerid][last_missile_shot] = GetTickCount();<br />
+PlayerInfo[playerid][last_missile_player] = killerid;<br />
+}<br />
+    return 1;<br />
+}<br />
+<br />
+public OnPlayerDeath(playerid, killerid, reason){<br />
+if(PlayerInfo[playerid][last_missile_player] != INVALID_PLAYER_ID &amp;&amp; reason &gt; 46 &amp;&amp; playerid != killerid){<br />
+if(GetTickCount()-PlayerInfo[playerid][last_missile_shot] &lt; 2000){<br />
+killerid = PlayerInfo[playerid][last_missile_player];<br />
+reason = 51;<br />
+}<br />
+}<br />
+<br />
+//your code<br />
+return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Download:</span><br />
+<a href="https://adm.ct8.pl/cloud/Libs/Missile/Missile.inc" target="_blank" rel="noopener" class="mycode_url">Missile.inc</a><br />
+<a href="https://adm.ct8.pl/cloud/Libs/3DTryg/3DTryg.inc" target="_blank" rel="noopener" class="mycode_url">3DTryg.inc</a><br />
+<a href="showthread681c.html?tid=175" target="_blank" rel="noopener" class="mycode_url">ColAndreas Plugin</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

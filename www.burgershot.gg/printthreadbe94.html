@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn AttachDynamicObjectToObject - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadbe94.html?tid=2296">AttachDynamicObjectToObject</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> AttachDynamicObjectToObject (<em>/showthread.php?tid=2296</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>AttachDynamicObjectToObject</strong> - <a href="memberd6b1.html?action=profile&amp;uid=2844">Davee52</a> -  <strong>2022-05-30</strong>
+<br />
+<br />
+Hi. I tried to use AttachDynamicObjectToObject, but failed, the object doesn't attach. Any ideas?<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new id,p;<br />
+stock CreateATM(Float:PX,Float:PY,Float:PZ,Float:PRX, Float:PRY, Float:PRZ){<br />
+id= CreateDynamicObject(19526, PX,PY,PZ, PRX,PRY,PRZ, -1, -1, -1, 10.00, 10.00);<br />
+SetDynamicObjectMaterial(id, 0, 2942, "kmb_atmx", "kmb_atm", 0x00000000);<br />
+SetDynamicObjectMaterial(id, 2, 14708, "labig1int2", "ab_mottleGrey", 0x00000000);<br />
+SetDynamicObjectMaterial(id, 3, 2942, "kmb_atmx", "kmb_atm_sign", 0x00000000);<br />
+SetDynamicObjectMaterial(id, 5, 1252, "barrelexpos", "atm", 0x00000000);<br />
+p = CreateDynamicObject(19483, PX+0.2123, PY+0.12836, PZ+1.1343, 0.000000, -48.300056, -90.000053, -1, -1, -1, 10.00, 10.00);<br />
+SetDynamicObjectMaterialText(p, 0, "{ffffff}CASH", 130, "Ariel", 20, 1, 0x00000000, 0x00000000, 1);<br />
+AttachDynamicObjectToObject(p,id,0.2123,0.12836,1.1343,0.000000, -48.300056, -90.000053,1);<br />
+}</code></div></div><br />
+P.S: It does work correctly when I convert it to default Create Object and AttachObjectToObject.. But i'm using streamer plugin
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

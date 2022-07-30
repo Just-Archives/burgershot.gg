@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Nombre menor de 3 caracteres en SA:MP - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread5e28.html?tid=746">Nombre menor de 3 caracteres en SA:MP</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  Nombre menor de 3 caracteres en SA:MP (<em>/showthread.php?tid=746</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Nombre menor de 3 caracteres en SA:MP</strong> - <a href="member2baa.html?action=profile&amp;uid=816">Chaff</a> -  <strong>2019-08-07</strong>
+<br />
+<br />
+Tengo la duda si existe algún plugin o include que permita tener menos de 3 caracteres en tu nickname y mayor a 24
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Nombre menor de 3 caracteres en SA:MP</strong> - <a href="member5eaa.html?action=profile&amp;uid=3812">ImFlanny</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+Si te refieres al launcher de poder ingresar a un servidor/tu servidor, creo que no hay o personalmente no he visto ningún usuario con nombres asi
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Nombre menor de 3 caracteres en SA:MP</strong> - <a href="member0ffe.html?action=profile&amp;uid=2996">Leonardo</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+Para tener menos de 3 caracteres, puedes parchar el ejecutable del servidor con algún editor hexadecimal.<br />
+<br />
+Para windows, sería buscar lo siguiente:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>8A 44 24 1F 3C 03 (npcs)<br />
+8A 44 24 1E 3C 03 (players)</code></div></div>y reemplazar el 03 por el número mínimo de caracteres.<br />
+<br />
+Para linux, sería buscar lo siguiente:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>0F B6 85 82 FC FF FF 3C 02 (npcs)<br />
+0F B6 85 92 ED FF FF 3C 02 (players)</code></div></div>y reemplazar el 02 por el número mínimo de caracteres.<br />
+<br />
+En windows se calcula de la siguiente manera:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(length &lt; 3)<br />
+{<br />
+// error length<br />
+}</code></div></div><br />
+Mientras que en linux se calcula de la siguiente manera:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(length &lt;= 2)<br />
+{<br />
+// error length<br />
+}</code></div></div><br />
+Es algo a tener en cuenta. También se puede parchar desde un plugin o desde un include usando <a href="https://github.com/Zeex/amx_assembly" target="_blank" rel="noopener" class="mycode_url">amx_assembly</a>.<br />
+<br />
+No es posible tener más de 24 caracteres.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

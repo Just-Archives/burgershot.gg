@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Weapon Saving MySQL - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadf966.html?tid=1201">Weapon Saving MySQL</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Tutorials (<i>https://www.burgershot.gg/forumdisplay.php?fid=37</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Weapon Saving MySQL (<em>/showthread.php?tid=1201</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Weapon Saving MySQL</strong> - <a href="memberbf1c.html?action=profile&amp;uid=2339">XoMoX</a> -  <strong>2020-10-02</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: large;" class="mycode_size">Originated From Vince</span></div>
+<div style="text-align: left;" class="mycode_align"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u"><span style="color: #1e92f7;" class="mycode_color">Weapon Information</span></span></span></span></div>
+<br />
+<span style="color: #000000;" class="mycode_color">There are 13 different weapon slots and thus a player can theoretically hold up to 13 different weapons. In practice, though, this is usually more like 4 or 5.</span><br />
+<span style="color: #000000;" class="mycode_color"><br />
+<img src="https://puu.sh/7Y1My.png" loading="lazy" alt="[Image: 7Y1My.png]" class="mycode_img" /><br />
+<br />
+This structure allows for a more compact view and allows for the use of aggregate functions such as COUNT(). This allows me to find out how many weapons each player has, how many players have an M4 or even the total amount of ammo currently circulating (for a specific weapon). This may all seem trivial but it is difficult, if not impossible, to achieve with your average non-normalized "weapon1, ammo1 ... weapon13, ammo13" approach.</span><br />
+<br />
+From the above screenshot we can deduct that the player 1 has 3 weapons: a nite stick (id 3) with 1 ammo, a desert eagle (id 24) with 21 ammo and an M4 (id 31) with 266 ammo.<br />
+<br />
+<span style="color: #1e92f7;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Creating The Table</span></span></span><br />
+<span style="color: #44b8ff;" class="mycode_color">userid </span>is a reference to the player's unique ID which is stored in another table, along with their name, password, etc. Notice that phpMyAdmin conveniently makes the userid clickable if a foreign key exists. <span style="color: #44b8ff;" class="mycode_color">weaponid </span>is simply the weaponid as is returned from functions like GetPlayerWeapon and GetPlayerWeaponData. <span style="color: #44b8ff;" class="mycode_color">ammo </span>holds the ammunition associated with aforementioned weaponid.<br />
+<br />
+<img src="https://i.imgur.com/4m11mSS.png" loading="lazy"  alt="[Image: 4m11mSS.png]" class="mycode_img" /><br />
+<br />
+The options you need to edit are marked in yellow. Note that the type and attributes of the userid may differ in your case: this field needs to be declared with the exact same definition as your main userid. This may mean that you do not need to set that field to unsigned. The userid does need to be declared as an index though. It is neither a primary key, nor an unique key. For the weaponid we choose an unsigned tinyint since we're only dealing with non-negative numbers up to 46. The ammo is declared unsigned as well since there's no such thing as negative ammunition. Lastly, don't forget to set the engine to InnoDB. Click Save to create the table.<br />
+<br />
+<span style="color: #1e92f7;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Setting Limits</span></span></span><br />
+You should've been brought to the structures tab of the table you just created. Navigate there if this isn't the case.<br />
+Before continuing, we will first impose some extra limits to avoid cluttering the table with useless data later on. Each player (userid) can only hold exactly one specific weapon (weaponid) at once. This is a PRIMARY property (Everytable needs to have a PRIMARY key). Therefore, tick the checkboxes in front of userid and weaponid. Then click on the UNIQUE button underneath the table.<br />
+<br />
+<img src="https://imgur.com/lROnnYA.png" loading="lazy"  alt="[Image: lROnnYA.png]" class="mycode_img" /><br />
+<br />
+<span style="color: #1e92f7;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Creating the foreign key<br />
+</span></span></span><br />
+You should've been brought back to the structures tab. Navigate there if this isn't the case. Underneath the structure definition you should see a link titled Relation view. Click this to be brought to the "relation creator".<br />
+<br />
+<img src="https://i.imgur.com/76QZOqP.png" loading="lazy" alt="[Image: 76QZOqP.png]" class="mycode_img" /><br />
+<br />
+I'm creating a link to the <span style="font-style: italic;" class="mycode_i">id </span>field in the table <span style="font-style: italic;" class="mycode_i">playerinfo </span>in the database <span style="font-style: italic;" class="mycode_i">vcnr</span>. Your table and database will be called differently. Select the proper ID. Note that for fields to show up in this list, they need to be defined as a key! We also want any changes made in the main table to be CASCADED into this table. Click Save. This concludes the table creation part in phpMyAdmin. Now back to Pawn.<br />
+<br />
+<span style="color: #1e92f7;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Saving</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color">For this table, we will only use SELECT, INSERT and DELETE queries. There will be no real UPDATE queries. Instead, we will only use a special insert query:</span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>INSERT INTO ... ON DUPLICATE KEY UPDATE ...</code></div></div></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color">This query will try to insert the data as normal. If this fails because the data already exists (duplicate key) it will instead perform an update. In our context this means that we will merely update the ammo if a weaponid is already present for a specific user.</span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[/color]<br />
+new<br />
+    weaponid,<br />
+    ammo;<br />
+    <br />
+for(new i; i &lt; 13; i++) // looping through all weapon slots (0 - 12)<br />
+{<br />
+    GetPlayerWeaponData(playerid, i, weaponid, ammo); // get weaponid and ammo<br />
+<br />
+    if(!weaponid) continue; // don't insert if there's no weapon in this slot<br />
+    <br />
+    mysql_format(userDB, mysqlquery, sizeof(mysqlquery), "INSERT INTO player_weapons VALUES (%d, %d, %d) ON DUPLICATE KEY UPDATE ammo = %d;", PlayerInfo[playerid][pSQLID], weaponid, ammo, ammo);<br />
+    mysql_pquery(userDB, mysqlquery); // parallel queries<br />
+}<br />
+<br />
+[color=#000000]}</code></div></div></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color">The above snippet will insert or update all the weapons the player currently has. I am using parallel queries for speed: the order in which the inserts are performed isn't at all important. You will need to substitute the userid variable with your own. The same query can also be used stand-alone in other places. You can, for example, write a hook for GivePlayerWeapon which immediately performs an insert as soon as the weapon is given.</span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u"><span style="color: #1e92f7;" class="mycode_color">Loading</span></span></span><br />
+<br />
+Now to retrieve this data and give the players their weapons back. Our standard select query;<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SELECT weaponid, ammo FROM player_weapons WHERE userid = %d;</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnLoadPlayerWeapons(playerid)<br />
+{<br />
+    <br />
+new<br />
+        rows,<br />
+        weaponid,<br />
+        ammo;<br />
+    cache_get_row_count(rows);<br />
+    for(new i; i &lt; rows; i++) // loop through all the rows that were found<br />
+    {<br />
+        cache_get_value_name_int(i, "weaponid", weaponid);<br />
+        cache_get_value_name_int(i, "ammo", ammo;<br />
+        if(!(0 &lt;= weaponid &lt;= 46)) // check if weapon is valid (should be)<br />
+        {<br />
+            printf("[info] Warning: OnLoadPlayerWeapons - Unknown weaponid '%d'. Skipping.", weaponid);<br />
+            continue;<br />
+        }<br />
+        <br />
+        GivePlayerWeapon(playerid, weaponid, ammo); <br />
+    }<br />
+    return;<br />
+<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u"><span style="color: #1e92f7;" class="mycode_color">Purging obsolete data</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color">Whenever a weapon is taken away, do not forget to delete it from the database otherwise it will be returned to the player when they next join. You could write a hook for ResetPlayerWeapons. It may also be possible that weapons that have no ammo are left behind in the table. This doesn't affect anything in-game and can be cleaned up with a query (delete where ammo = 0) when the server starts, or on a cron job.</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Weapon Saving MySQL</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+Scamaz<br />
+<br />
+<img src="https://i.imgur.com/UMCyZZC.png" loading="lazy"  alt="[Image: UMCyZZC.png]" class="mycode_img" /><br />
+<br />
+You should explain more about Type, Lenght and Attributes (UNSIGNED). This is the first time i've seen it used in samp so some ppl might get confused about that.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Weapon Saving MySQL</strong> - <a href="memberbf1c.html?action=profile&amp;uid=2339">XoMoX</a> -  <strong>2020-10-27</strong>
+<br />
+<br />
+Hmm yes, i forgot to not include my lengths but yes weaponids use TINYINT and i will explain in the next tutorial about Types (SQL) and Lengths (For pawn and SQL)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

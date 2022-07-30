@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin PawnPlus - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthread3c04.html?tid=96">PawnPlus</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> PawnPlus (<em>/showthread.php?tid=96</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>PawnPlus</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: large;" class="mycode_size"><a href="https://github.com/IllidanS4/PawnPlus" target="_blank" rel="noopener" class="mycode_url">PawnPlus v1.1</a></span><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: small;" class="mycode_size"><a href="https://github.com/IllidanS4/PawnPlus/releases/" target="_blank" rel="noopener" class="mycode_url">Download</a></span></span><br />
+<span style="font-size: small;" class="mycode_size"><a href="https://github.com/IllidanS4/PawnPlus/wiki" target="_blank" rel="noopener" class="mycode_url">Tutorials</a></span></div>
+<span style="font-weight: bold;" class="mycode_b">What is this about?</span><br />
+<span style="font-style: italic;" class="mycode_i">PawnPlus</span> is a multi-purpose plugin enhancing the capabilities of Pawn with features like asynchronous programming, dynamic containers and strings, threads, public and native functions hooks, and various other things.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Dynamic strings</span><br />
+Standard strings in Pawn are bound to an array allocated within the AMX. <span style="font-style: italic;" class="mycode_i">PawnPlus</span> introduces dynamically allocated mutable strings which are not bound to any AMX instance, so they can be shared between scripts without copying, and offers a wide range of functions to manipulate them.<br />
+<br />
+Using <span style="font-style: italic;" class="mycode_i">PawnPlus</span> strings leads to better memory management (because you don't need to worry about the buffer size) and could increase the efficiency of some functions (because the length of the string is always known). <span style="font-style: italic;" class="mycode_i">PawnPlus</span> strings can also store the null character without issues.<br />
+<br />
+Moreover, <span style="font-style: italic;" class="mycode_i">any</span> native function can be adapted to accept a dynamic string instead of a normal one. This transformation is very simple:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native SendClientMessageStr(playerid, color, AmxString:message) = SendClientMessage;<br />
+<br />
+SendClientMessageStr(playerid, -1, str_new_static("Hello, id ") + str_val(playerid));</code></div></div><br />
+<span style="font-style: italic;" class="mycode_i">PawnPlus</span> strings are garbage-collected, so you don't need to worry about their lifetime much.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Asynchronous programming</span><br />
+The usual way of handling events in Pawn is via a callback, even if the event is directly caused by the script. You may use inline functions from YSI, but the code is still scattered over multiple functions, despite the simple flow of actions.<br />
+<br />
+In <span style="font-style: italic;" class="mycode_i">PawnPlus</span>, you can represent an action that takes time using a <span style="font-style: italic;" class="mycode_i">task</span>. In your code, you can call <span style="font-family: Courier New;" class="mycode_font">task_await</span> which pauses the execution of the current functions (returning to the caller and not blocking the main thread) and resumes the code in the moment the task is completed.<br />
+<br />
+A task can represent a MySQL query, the selection of an item from a dialog, a time interval or any time-based action you wish. You can create tasks, await them in one part of code and set the result in another, and the code resumes with the original variables preserved.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SendClientMessage(playerid, -1, "Loading...");<br />
+task_await(LoadPlayerAsync(playerid));<br />
+SendClientMessage(playerid, -1, "Loaded!");</code></div></div><br />
+<span style="font-family: Courier New;" class="mycode_font">task_await</span> can be used on any task object, and if the task completes successfully, it returns the result. Tasks can also store AMX errors which you can use to signal exceptional results.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Dynamic containers</span><br />
+<span style="font-style: italic;" class="mycode_i">PawnPlus</span> offers new efficient container types for use from Pawn: list (vector), linked list, and map. These containers can store values or arrays of any tag, which is stored together with the element as well. This allows for type-safe operations on these collections. You can even use strings as keys in a map.<br />
+<br />
+Variant is another data type introduced in this plugin, which is used as the element type of dynamic collections. In containers, the variant has no identity (only value), but you can extract it from a collection without having to know its tag, and store it in another. Variants are also garbage collected.<br />
+<br />
+All collections can be iterated using iterator objects. Iterators are objects pointing to a specific place in a collection, which can be used to access a single element in it, or to traverse the collection in a simple way. These iterators are safe to use even if the underlying collection is modified or deleted.<br />
+<br />
+All collections are also available to be used as generic containers, restricting the type of values that are stored within. This feature is completely compile-time.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Tags</span><br />
+<span style="font-style: italic;" class="mycode_i">PawnPlus</span> also extends the Pawn tag system with universally accessible tags, tag operations and tag inheritance. You can create a new dynamic tag, configure its operations, and set it as a tag of a variant, which allows you to call custom code when operations on the variant are performed. You can even override value copy and destruction, allowing you to introduce smart resource management.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Guards</span><br />
+Guards are special objects used to guard other values and destroy them when required. A guarded value will be destroyed when the context in which the guard was created terminates, freeing all resources that were associated with the value. You can set your own destructor via the tag system, and you'll never have to worry about freeing intermediate values ever again.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Threading</span><br />
+<span style="font-style: italic;" class="mycode_i">PawnPlus</span> allows you to execute any piece of code in a new thread, parallel to the main one. Usually, the new thread will not allow other code to run in the same script (since AMX is not made for parallel execution), but together with forking, it is possible to clone the current script (preserving a specific selection of data) and execute a completely parallel code within it.<br />
+<br />
+This can be combined with tasks to offload a time-consuming action to another thread, and provide a thread-safe method of retrieving the result.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Hooking</span><br />
+<span style="font-style: italic;" class="mycode_i">PawnPlus</span> offers hooks of callbacks and native functions.<br />
+<br />
+Any callback can be dynamically hooked with a new handler which is called when the original callback is called, and you can even modify the arguments or the return value. Combined with the task system, you can adapt any event-based code to task-based code with this approach.<br />
+<br />
+Any native function can be hooked from your script, even affecting other scripts and plugins. Your code will be called every time when the original function is called, and you are free to modify the arguments or the return value in the same handler. You can even decide to hook a function only to modify some of its arguments and ignore the others, (via input filters), or to modify the return value only (via output filters).<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Syntax shortcuts</span><br />
+Several functions can be used from new special pieces of syntax. For example, <span style="font-family: Courier New;" class="mycode_font">@</span> can be used as an alias for <span style="font-family: Courier New;" class="mycode_font">str_new_static</span>, <span style="font-family: Courier New;" class="mycode_font">@@</span> can be used for <span style="font-family: Courier New;" class="mycode_font">str_val</span>, <span style="font-family: Courier New;" class="mycode_font">await</span> instead of <span style="font-family: Courier New;" class="mycode_font">task_await</span> or <span style="font-family: Courier New;" class="mycode_font">yield</span> instead of <span style="font-family: Courier New;" class="mycode_font">task_yield</span>. New for loops are also provided for all collections, and there is special syntax for forked or threaded blocks.<br />
+<br />
+All new syntax features are disabled by default because of to possible conflicts with other includes. You can enable them individually, or all of them by defining <span style="font-family: Courier New;" class="mycode_font">PP_SYNTAX</span>.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Other stuff</span><br />
+You can obtain the list of all arguments given to the function, dynamically invoke natives or public functions, share variables in your script with other scripts, raise errors, catch errors, allocate memory on the heap, and fork the script (to protect its state from errors, for example, or to wait for a task locally without pausing the other code).<br />
+<br />
+<br />
+All these features are described in great detail on the GitHub <a href="https://github.com/IllidanS4/PawnPlus/wiki" target="_blank" rel="noopener" class="mycode_url">wiki</a>.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member138d.html?action=profile&amp;uid=7">Graber</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+best plugin
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member9259.html?action=profile&amp;uid=22">TommyB</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+this plugin is a fucking lifechanger. i recommend it to anyone who runs a server!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member396e.html?action=profile&amp;uid=300">ThePez</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Great, nice job!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member06af.html?action=profile&amp;uid=2">spacemud</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+9 out of 10 doctors recommend taking your daily dose of PawnPlus
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member4c0d.html?action=profile&amp;uid=16">kristo</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+i love PP
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member0e0d.html?action=profile&amp;uid=538">Salesman</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+its really helpfull saves time really good! I recommend using it !
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2019-04-20</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u"><a href="https://github.com/IllidanS4/PawnPlus/releases/tag/v1.0.0" target="_blank" rel="noopener" class="mycode_url">PawnPlus v1.0.0</a></span> released!</span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size">Miscellaneous</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">pp_version</span>, <span style="font-family: Courier New;" class="mycode_font">pp_version_string</span>, <span style="font-family: Courier New;" class="mycode_font">pp_raise_error</span>, <span style="font-family: Courier New;" class="mycode_font">pp_module_name</span>.<br />
+</li>
+<li>Locale-specific functions can be configured with <span style="font-family: Courier New;" class="mycode_font">pp_locale</span> (affects things like <span style="font-family: Courier New;" class="mycode_font">str_to_upper</span> and regex).<br />
+</li>
+<li>AMX subhook variables are no longer exported.<br />
+</li>
+<li>All natives that take an address inside the AMX check its validity.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Handles</span><ul class="mycode_list"><li>Several new functions to control the activity of handles.<br />
+</li>
+<li>Handles are now immutable.<br />
+</li>
+<li>All GC-objects can provide their lifetime handle.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Pawn API</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">pawn_nameof</span> macro can be used to convert a symbol or a tag name to a string (with checking).<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">pawn_cast</span> macro (invokes implicit tag conversion operator).<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">pawn_try_call_native</span> and <span style="font-family: Courier New;" class="mycode_font">pawn_try_call_public</span> (suppress and return errors).<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">pawn_native_exists</span>, <span style="font-family: Courier New;" class="mycode_font">pawn_native_imported</span>, <span style="font-family: Courier New;" class="mycode_font">pawn_public_exists</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">AMX API</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">amx_tailcall</span> can replace the caller stack frame with the current stack frame.<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">amx_handle</span> to control the lifetime of an AMX instance.<br />
+</li>
+<li>A function can be called in any AMX instance via <span style="font-family: Courier New;" class="mycode_font">amx_call_native</span>/<span style="font-family: Courier New;" class="mycode_font">amx_call_public</span>.<br />
+</li>
+<li>Additional support for native and public functions inspection.<br />
+</li>
+<li>Public and native functions names can be encoded in a two-cell packed string via <span style="font-family: Courier New;" class="mycode_font">amx_encode_public_name</span> and <span style="font-family: Courier New;" class="mycode_font">amx_encode_native_name</span> for faster calling. Custom values can also be specified.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Errors</span><ul class="mycode_list"><li>Unhandled C++ exceptions in natives will be caught and reported.<br />
+</li>
+<li>Fixed several bugs related to error handling and conflicts with SAMPGDK.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Strings</span><ul class="mycode_list"><li>Regular expressions (match, extraction, replacement).<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">str_format</span> upgraded with new specifiers and syntax for positional arguments.<br />
+</li>
+<li>All functions now accept packed strings as well.<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">ConstAmxString</span> added.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Variants</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">var_addr</span> can be used for interop with native functions, similarly to <span style="font-family: Courier New;" class="mycode_font">str_addr</span>.<br />
+</li>
+<li>Empty array variants are now recognized and produced instead of null variants.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Debug API</span><ul class="mycode_list"><li>A multitude of functions to access the debug information produced by the Pawn compiler (at least <span style="font-family: Courier New;" class="mycode_font">-d2</span> is necessary).<br />
+</li>
+<li>Allows inspecing all variables and functions. Can be used to set variables (local or global) or to call any Pawn function.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Containers</span><ul class="mycode_list"><li>Reduced unnecessary copying of objects.<br />
+</li>
+<li>Functions like <span style="font-family: Courier New;" class="mycode_font">list_new_args</span> now store all the tags correctly.<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">list_resize</span>, <span style="font-family: Courier New;" class="mycode_font">list_find</span>, <span style="font-family: Courier New;" class="mycode_font">list_find_last</span>, <span style="font-family: Courier New;" class="mycode_font">list_sort</span>.<br />
+</li>
+<li>Variants and iterators have functions for both single-dimensional and multi-dimensional access to stored arrays.<br />
+</li>
+<li>Simple iterators: <span style="font-family: Courier New;" class="mycode_font">iter_range</span>, <span style="font-family: Courier New;" class="mycode_font">iter_repeat</span>, <span style="font-family: Courier New;" class="mycode_font">var_iter</span>.<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">*_remove_deep</span> and <span style="font-family: Courier New;" class="mycode_font">iter_erase_deep</span> (removes the element and releases the object).<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">iter_swap</span>, <span style="font-family: Courier New;" class="mycode_font">iter_can_reset</span>, <span style="font-family: Courier New;" class="mycode_font">iter_can_insert</span>, and <span style="font-family: Courier New;" class="mycode_font">iter_can_erase</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Tasks</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">task_detach</span> useful for fire-and-forget calls. Creates a new context, so inner asynchronous calls will not pause the caller functions.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Threads</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">thread_fix</span> to synchronise the function with the main thread, if called from another. Useful for code called from RCON or console.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Math API</span><ul class="mycode_list"><li>Functions for signed and unsigned arithmetics (with overflow checks). <span style="font-family: Courier New;" class="mycode_font">signed:</span> and <span style="font-family: Courier New;" class="mycode_font">unsigned:</span> tags for simple usage.<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">math_random</span>, <span style="font-family: Courier New;" class="mycode_font">math_random_float</span>, <span style="font-family: Courier New;" class="mycode_font">math_round</span>, <span style="font-family: Courier New;" class="mycode_font">math_floor</span>, <span style="font-family: Courier New;" class="mycode_font">math_ceiling</span>, <span style="font-family: Courier New;" class="mycode_font">math_truncate</span><br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">C API</span><ul class="mycode_list"><li>A simple mechanism for manipulating <span style="font-style: italic;" class="mycode_i">PawnPlus</span> from other plugins.<br />
+</li>
+<li>Supports addons, tags, strings, variants, lists, linked lists, and maps.<br />
+</li>
+<li>Include <span style="font-style: italic;" class="mycode_i">ppcommon.h</span>.<br />
+</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2019-08-09</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><a href="https://github.com/IllidanS4/PawnPlus/releases/tag/v1.11" target="_blank" rel="noopener" class="mycode_url">PawnPlus v1.1</a> released!</span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size">Additions</span><br />
+<span style="font-size: small;" class="mycode_size"><a href="https://github.com/IllidanS4/PawnPlus/wiki/Pools" target="_blank" rel="noopener" class="mycode_url">Pools</a></span><ul class="mycode_list"><li>A new type of collection providing support for efficient storage of data using reusable integer indices.<br />
+</li>
+<li>When an element is added to a pool, it gets assigned an index which is then used to refer to the element.<br />
+</li>
+<li>Pools come in two versions with the same API – ordered (new indices are assigned in a specific order), and unordered. Ordered pools will always assign the lowest unused index to a newly added element.<br />
+</li>
+<li>A pool can grow to any size if there are no unused slots for new elements.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size"><a href="https://github.com/IllidanS4/PawnPlus/wiki/Expressions" target="_blank" rel="noopener" class="mycode_url">Expressions</a></span><ul class="mycode_list"><li>Dynamic run-time representations of operations.<br />
+</li>
+<li>Can be constructed from components in a tree-like manner, or parsed from string with <span style="font-family: Courier New;" class="mycode_font">expr_parse</span>.<br />
+</li>
+<li>The parser supports all standard Pawn operators and some <span style="font-style: italic;" class="mycode_i">PawnPlus</span>-specific ones. It can also find and use non-public Pawn variables (via the debug API).<br />
+</li>
+<li>Expressions can be used in collections and new types of iterators to easily perform queries on multiple elements.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Async</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">async</span> pseudo-attribute for functions using the async pattern (together with <span style="font-family: Courier New;" class="mycode_font">return async</span>).<br />
+</li>
+<li>The <span style="font-family: Courier New;" class="mycode_font">await</span> macro has an alternative definition supporting multiline expression, but requires additional configuration for all tags (enabled via <span style="font-family: Courier New;" class="mycode_font">PP_MULTILINE_AWAIT</span>).<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">await_arr</span> and <span style="font-family: Courier New;" class="mycode_font">await_var</span> added.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Collections</span><ul class="mycode_list"><li>The API is now more unified, so all collections have roughly the same functions with the same semantics.<br />
+</li>
+<li>The capacity of the underlying container can be obtained.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Strings</span><ul class="mycode_list"><li>If <span style="font-family: Courier New;" class="mycode_font">{<span style="font-style: italic;" class="mycode_i">…</span>}</span> is used in <span style="font-family: Courier New;" class="mycode_font">str_format</span> and it doesn't correspond to a color code or a parameter selector, it is parsed and executed as a piece of code.<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">%f</span> in <span style="font-family: Courier New;" class="mycode_font">str_format</span> accepts a width parameter.<br />
+</li>
+<li><span style="font-family: Courier New;" class="mycode_font">str_append_format</span> added.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Pawn and AMX</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">pawn_create_callback</span> can be used to create a new callback/public function and attach it to the current script. The function consists of an expression that is executed every time the public function is called.<br />
+</li>
+<li>Declarational initializers and finalizers added. Any public function whose name starts with <span style="font-family: Courier New;" class="mycode_font"><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="81def1f1c1eeef">[email&#160;protected]</a><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6b340205021f2b">[email&#160;protected]</a></span> will be called first before every other function, when the script is loaded. Any function whose name starts with <span style="font-family: Courier New;" class="mycode_font"><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="722d0202321d1c">[email&#160;protected]</a><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b3ecd6cbdac7f3">[email&#160;protected]</a></span> will be called last after all other functions, when the script is unloaded. Macros <span style="font-family: Courier New;" class="mycode_font">pawn_on_init</span> and <span style="font-family: Courier New;" class="mycode_font">pawn_on_exit</span> can be used for easy creation of these functions.<br />
+</li>
+<li>AMX guards introduced. While a Pawn guard protects the object for the duration of the current context (analogous to a local variable), an AMX guard protects it for the duration of the script (analogous to a global/static local variable).<br />
+</li>
+<li>Handling public function index incompatibility with SAMPGDK can be resolved by <span style="font-family: Courier New;" class="mycode_font">pp_public_min_index</span> or <span style="font-family: Courier New;" class="mycode_font">pp_use_funcidx</span>. Callback handlers can be registered for negative indices.<br />
+</li>
+<li>Captured arguments (in <span style="font-family: Courier New;" class="mycode_font">pawn_register_callback</span> or <span style="font-family: Courier New;" class="mycode_font">pawn_add_hook</span>) now accept <span style="font-family: Courier New;" class="mycode_font">v</span>, <span style="font-family: Courier New;" class="mycode_font">h</span>, and <span style="font-family: Courier New;" class="mycode_font">x</span> as new types of values. <span style="font-family: Courier New;" class="mycode_font">v</span> corresponds to a <span style="font-family: Courier New;" class="mycode_font">Variant:</span> argument which is copied to the closure and loaded when it is restored, <span style="font-family: Courier New;" class="mycode_font">h</span> corresponds to a <span style="font-family: Courier New;" class="mycode_font">Handle:</span> argument which is prolonged by the closure (so the underlying object is not destroyed) and whose value is loaded when the closure is restored, and <span style="font-family: Courier New;" class="mycode_font">x</span> corresponds to an <span style="font-family: Courier New;" class="mycode_font">Expression:</span> argument containing an expression which is executed every time the argument is restored.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Error handling</span><ul class="mycode_list"><li>Dynamically called external natives that raise a system error/signal do not crash the server, but are handled and reported via <span style="font-style: italic;" class="mycode_i">PawnPlus</span> errors.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">C API</span><ul class="mycode_list"><li>Support for errors and serialization.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Changes</span><br />
+<span style="font-size: small;" class="mycode_size">Error handling</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">pp_on_error</span> is only called for a native called directly by the script. Errors in internally called natives are handled or propagated by the code that called them. <span style="font-family: Courier New;" class="mycode_font">pawn_try_call_native</span> never invokes <span style="font-family: Courier New;" class="mycode_font">pp_on_error</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Collections</span><ul class="mycode_list"><li>Iterators are invalidated on addition only when necessary (when the underlying buffer needs to be reallocated).<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Variants</span><ul class="mycode_list"><li>Calling operations on variables that are incompatible (different tags or sizes) now produces an error (used to return null).<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Math</span><ul class="mycode_list"><li>Dynamically called operations on <span style="font-family: Courier New;" class="mycode_font">signed:</span> and <span style="font-family: Courier New;" class="mycode_font">unsigned:</span> values can raise an error.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Pawn and AMX</span><ul class="mycode_list"><li>Incorrect public function index caused by SAMPGDK is detected and warned about.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size">Fixes</span><br />
+<span style="font-size: small;" class="mycode_size">Variants</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">collect</span> operation is now correctly called in some places.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Async</span><ul class="mycode_list"><li>When a context is stored after a call to an asynchronous function, <span style="font-family: Courier New;" class="mycode_font">reset_stk</span> and <span style="font-family: Courier New;" class="mycode_font">reset_hea</span> are now used to correctly restore the original values of <span style="font-family: Courier New;" class="mycode_font">stk</span> and <span style="font-family: Courier New;" class="mycode_font">hea</span>, fixing a memory leak that happened when a public function with parameters was stored (because the parameters were not taken into account when <span style="font-family: Courier New;" class="mycode_font">stk</span> was restored).<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Math</span><ul class="mycode_list"><li><span style="font-family: Courier New;" class="mycode_font">signed:</span> and <span style="font-family: Courier New;" class="mycode_font">unsigned:</span> subtraction fixed.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Error handling</span><ul class="mycode_list"><li>Allocation of more data than the script supports is prevented.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: small;" class="mycode_size">Pawn and AMX</span><ul class="mycode_list"><li>Removing a hook handler when it is running will not crash the server.<br />
+</li>
+</ul>
+<br />
+<span style="font-size: large;" class="mycode_size">Examples</span><br />
+<span style="font-size: x-small;" class="mycode_size">Format expressions</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new val1 = 5, val2 = 10;<br />
+print_s(str_format("the sum of {val1} and {val2} is {val1 + val2}"));</code></div></div><br />
+<span style="font-size: x-small;" class="mycode_size">Queries</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Map:m = map_new();<br />
+map_add(m, 1, 10);<br />
+map_add(m, 2, 21);<br />
+map_add(m, 3, 30);<br />
+map_add(m, 4, 41);<br />
+map_add(m, 5, 50);<br />
+   <br />
+map_remove_if(m, expr_parse("10*&#36;key != &#36;value")); //removes 2 and 4</code></div></div><br />
+<span style="font-size: x-small;" class="mycode_size">Caching expressions</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>static Expression:expr;<br />
+if(!expr)<br />
+{<br />
+   expr = expr_parse("&#36;value*&#36;value");<br />
+   amx_guard(expr);<br />
+}</code></div></div><br />
+<span style="font-size: x-small;" class="mycode_size">Declarational callback handler</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>pawn_on_init[callback1]<br />
+{<br />
+   new id = pawn_create_callback("OnPlayerConnect", expr_const(0));<br />
+   pawn_register_callback(amx_encode_public(id), "MyOnPlayerConnect");<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="membera62c.html?action=profile&amp;uid=1558">DonutXD</a> -  <strong>2019-09-11</strong>
+<br />
+<br />
+I can use dynamic containers as a replacement for pawn_memory.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="membereb3f.html?action=profile&amp;uid=1668">BitchLasagna</a> -  <strong>2019-10-22</strong>
+<br />
+<br />
+Nicee!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member9b3a.html?action=profile&amp;uid=1735">EOussama</a> -  <strong>2020-04-25</strong>
+<br />
+<br />
+This is just so amazing that OpenMP should have something similar.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: PawnPlus</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2020-04-30</strong>
+<br />
+<br />
+<a href="https://github.com/IllidanS4/PawnPlus/releases/tag/v1.3" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">PawnPlus v1.3 released!</span></a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->

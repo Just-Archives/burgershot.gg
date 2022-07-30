@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Car Hacking - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread9f1f.html?tid=1202">Car Hacking</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Car Hacking (<em>/showthread.php?tid=1202</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Car Hacking</strong> - <a href="member1bb4.html?action=profile&amp;uid=2613">yukie</a> -  <strong>2020-10-02</strong>
+<br />
+<br />
+Does anyone how to detect this kind of hack??<br />
+<br />
+https://youtu.be/zbYB6rD-A0s
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="memberf87a.html?action=profile&amp;uid=1086">BoNNe</a> -  <strong>2020-10-03</strong>
+<br />
+<br />
+In order for this solution to work, the cheater will need at least two vehicles for which to act the cheat.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new ac_ouvu_js[MAX_PLAYERS], ac_ouvu_vid[MAX_PLAYERS], ac_ouvu_tick[MAX_PLAYERS];<br />
+public OnPlayerConnect(playerid) {<br />
+ac_ouvu_vid[playerid]=INVALID_VEHICLE_ID;<br />
+ac_ouvu_tick[playerid]=0;<br />
+ac_ouvu_js[playerid]=0;<br />
+return 1;<br />
+}<br />
+public OnVehicleStreamIn(vehicleid, forplayerid) {<br />
+ac_ouvu_js[forplayerid]=gettime();<br />
+return 1;<br />
+}<br />
+public OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, Float:new_x, Float:new_y, Float:new_z, Float:vel_x, Float:vel_y, Float:vel_z) {<br />
+if(ac_ouvu_vid[playerid] != vehicleid &amp;&amp; GetTickCount()-ac_ouvu_tick[playerid] &gt; 100 &amp;&amp; gettime()-ac_ouvu_js[playerid] &gt; 3) Kick(playerid); //99% use troll-hack <br />
+ac_ouvu_vid[playerid]=vehicleid;<br />
+ac_ouvu_tick[playerid]=GetTickCount();<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="member1bb4.html?action=profile&amp;uid=2613">yukie</a> -  <strong>2020-10-04</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-03, 09:47 PM)</span>BoNNe Wrote:  <a href="showthreadf92b.html?pid=8047#pid8047" class="quick_jump"></a></cite>In order for this solution to work, the cheater will need at least two vehicles for which to act the cheat.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new ac_ouvu_js[MAX_PLAYERS], ac_ouvu_vid[MAX_PLAYERS], ac_ouvu_tick[MAX_PLAYERS];<br />
+public OnPlayerConnect(playerid) {<br />
+ac_ouvu_vid[playerid]=INVALID_VEHICLE_ID;<br />
+ac_ouvu_tick[playerid]=0;<br />
+ac_ouvu_js[playerid]=0;<br />
+return 1;<br />
+}<br />
+public OnVehicleStreamIn(vehicleid, forplayerid) {<br />
+ac_ouvu_js[forplayerid]=gettime();<br />
+return 1;<br />
+}<br />
+public OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, Float:new_x, Float:new_y, Float:new_z, Float:vel_x, Float:vel_y, Float:vel_z) {<br />
+if(ac_ouvu_vid[playerid] != vehicleid &amp;&amp; GetTickCount()-ac_ouvu_tick[playerid] &gt; 100 &amp;&amp; server_gettime-ac_ouvu_js[playerid] &gt; 3) Kick(playerid); //99% use troll-hack <br />
+ac_ouvu_vid[playerid]=vehicleid;<br />
+ac_ouvu_tick[playerid]=GetTickCount();<br />
+return 1;<br />
+}</code></div></div></blockquote><br />
+There was an error and it says "Undefine symbol server_gettime"
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="memberf87a.html?action=profile&amp;uid=1086">BoNNe</a> -  <strong>2020-10-04</strong>
+<br />
+<br />
+Try now.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="member1bb4.html?action=profile&amp;uid=2613">yukie</a> -  <strong>2020-10-04</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:20 AM)</span>BoNNe Wrote:  <a href="showthread2bca.html?pid=8055#pid8055" class="quick_jump"></a></cite>Try now.</blockquote><br />
+Yeah Sure
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="member1bb4.html?action=profile&amp;uid=2613">yukie</a> -  <strong>2020-10-04</strong>
+<br />
+<br />
+Thank man! You're life saver!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="member1bb4.html?action=profile&amp;uid=2613">yukie</a> -  <strong>2020-10-04</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:29 AM)</span>yukie Wrote:  <a href="showthreadd9f0.html?pid=8059#pid8059" class="quick_jump"></a></cite>Thank man! You're life saver!! +REP</blockquote>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="member1bb4.html?action=profile&amp;uid=2613">yukie</a> -  <strong>2020-10-04</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:20 AM)</span>BoNNe Wrote:  <a href="showthread2bca.html?pid=8055#pid8055" class="quick_jump"></a></cite>Try now.</blockquote><br />
+Sir there was a little bug.. every time I relog, i always kick with the detector even im not using the cheat how do I fix this
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="memberf87a.html?action=profile&amp;uid=1086">BoNNe</a> -  <strong>2020-10-04</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-04, 10:40 AM)</span>yukie Wrote:  <a href="showthread0722-2.html?pid=8062#pid8062" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:20 AM)</span>BoNNe Wrote:  <a href="showthread2bca.html?pid=8055#pid8055" class="quick_jump"></a></cite>Try now.</blockquote><br />
+Sir there was a little bug.. every time I relog, i always kick with the detector even im not using the cheat how do I fix this</blockquote><br />
+Be sure you did everything I told you. Inclusive "OnPlayerConnect"
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="member1bb4.html?action=profile&amp;uid=2613">yukie</a> -  <strong>2020-10-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:40 PM)</span>BoNNe Wrote:  <a href="showthread2f2f.html?pid=8078#pid8078" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 10:40 AM)</span>yukie Wrote:  <a href="showthread0722-2.html?pid=8062#pid8062" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:20 AM)</span>BoNNe Wrote:  <a href="showthread2bca.html?pid=8055#pid8055" class="quick_jump"></a></cite>Try now.</blockquote><br />
+Sir there was a little bug.. every time I relog, i always kick with the detector even im not using the cheat how do I fix this</blockquote><br />
+Be sure you did everything I told you. Inclusive "OnPlayerConnect"</blockquote><br />
+I did everything but still kicking me out of game
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="memberf87a.html?action=profile&amp;uid=1086">BoNNe</a> -  <strong>2020-10-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-05, 06:37 AM)</span>yukie Wrote:  <a href="showthread8a56.html?pid=8084#pid8084" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:40 PM)</span>BoNNe Wrote:  <a href="showthread2f2f.html?pid=8078#pid8078" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 10:40 AM)</span>yukie Wrote:  <a href="showthread0722-2.html?pid=8062#pid8062" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:20 AM)</span>BoNNe Wrote:  <a href="showthread2bca.html?pid=8055#pid8055" class="quick_jump"></a></cite>Try now.</blockquote><br />
+Sir there was a little bug.. every time I relog, i always kick with the detector even im not using the cheat how do I fix this</blockquote><br />
+Be sure you did everything I told you. Inclusive "OnPlayerConnect"</blockquote><br />
+I did everything but still kicking me out of game</blockquote>It doesn't happen for me. I have tested many times.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="member1bb4.html?action=profile&amp;uid=2613">yukie</a> -  <strong>2020-10-08</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-05, 06:53 PM)</span>BoNNe Wrote:  <a href="showthread0bf4.html?pid=8089#pid8089" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-05, 06:37 AM)</span>yukie Wrote:  <a href="showthread8a56.html?pid=8084#pid8084" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:40 PM)</span>BoNNe Wrote:  <a href="showthread2f2f.html?pid=8078#pid8078" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 10:40 AM)</span>yukie Wrote:  <a href="showthread0722-2.html?pid=8062#pid8062" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-10-04, 09:20 AM)</span>BoNNe Wrote:  <a href="showthread2bca.html?pid=8055#pid8055" class="quick_jump"></a></cite>Try now.</blockquote><br />
+Sir there was a little bug.. every time I relog, i always kick with the detector even im not using the cheat how do I fix this</blockquote><br />
+Be sure you did everything I told you. Inclusive "OnPlayerConnect"</blockquote><br />
+I did everything but still kicking me out of game</blockquote>It doesn't happen for me. I have tested many times.</blockquote><br />
+maybe I installed it on my pc thats why I got kick everytime I join in game
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Car Hacking</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2022-05-16</strong>
+<br />
+<br />
+its not working, i got kicked by using this script and i don't even have the hack installed!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

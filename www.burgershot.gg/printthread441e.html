@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [include] Matrix Functions (Topic en Español) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread441e.html?tid=1602">[include] Matrix Functions (Topic en Español)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  [include] Matrix Functions (Topic en Español) (<em>/showthread.php?tid=1602</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[include] Matrix Functions (Topic en Español)</strong> - <a href="member0ffe.html?action=profile&amp;uid=2996">Leonardo</a> -  <strong>2021-01-27</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: xx-large;" class="mycode_size">Matrix Functions</span></span></div>
+<br />
+Estas son funciones matrix, que se pueden usar para obtener la rotación de euler de un vehículo, o calcular el offset para usarlo en AttachObjectToVehicle/Player, también para crear un DetachObjectFromVehicle/Player, etc. <br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Functions:</span><br />
+<ul class="mycode_list"><li>native Vector(Float:x, Float:y, Float:z);<br />
+</li>
+<li>native Matrix(const right[VECTOR], const front[VECTOR], const up[VECTOR], const pos[VECTOR]);<br />
+</li>
+<li>native Matrix_Invert(const matrix[MATRIX]);<br />
+</li>
+<li>native Matrix_BuildUp(matrix[MATRIX]);<br />
+</li>
+<li>native Matrix_SetRotation(matrix[MATRIX], Float:rx, Float:ry, Float:rz);<br />
+</li>
+<li>native Float:Matrix_GetRotationX(const matrix[MATRIX]);<br />
+</li>
+<li>native Float:Matrix_GetRotationY(const matrix[MATRIX]);<br />
+</li>
+<li>native Float:Matrix_GetRotationZ(const matrix[MATRIX]);<br />
+</li>
+<li>native Matrix_GetRotation(const matrix[MATRIX]);<br />
+</li>
+<li>native Matrix_Multiply3x3(const matrix[MATRIX], const vector[VECTOR]);<br />
+</li>
+<li>native Matrix_Multiply4x4(const matrix1[MATRIX], const matrix2[MATRIX]);<br />
+</li>
+<li>native Matrix_GetOffsetPosition(const matrix[MATRIX], const vector[VECTOR]);<br />
+</li>
+<li>native Matrix_GetOffsetRotation(const matrix[MATRIX], const vector[VECTOR], bool:invert = true);<br />
+</li>
+</ul>
+<span style="font-weight: bold;" class="mycode_b">Video</span><br />
+<br />
+Éste es un video del filterscript de pruebas:<br />
+<br />
+[Video: <a href="https://youtu.be/vSZyMilgcuU" target="_blank" rel="noopener" class="mycode_url">https://youtu.be/vSZyMilgcuU</a>]<br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Código fuente</span><br />
+<br />
+https://github.com/Leonardo541/matrix
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

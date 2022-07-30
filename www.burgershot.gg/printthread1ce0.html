@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [Ayuda] Damage System - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread1ce0.html?tid=2060">[Ayuda] Damage System</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  [Ayuda] Damage System (<em>/showthread.php?tid=2060</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Ayuda] Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+Buenas <span style="font-weight: bold;" class="mycode_b">comunidad.</span><br />
+<br />
+Necesito ayuda respecto a un <span style="font-weight: bold;" class="mycode_b">sistema de daño</span> me refiero a un sistema de daño infringido por armas<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Me refiero -  </span>fNecesito modificar el daño que haga un arma en mi servidor pero lo quiero hacer sin utilizar includes o plugins que hagan este trabajo y aquí voy a lo que lleve a crear este post, ¿se pueden modificar el daño de un arma sin utilizar por ejemplo &lt;<span style="font-weight: bold;" class="mycode_b">weapon-config</span>&gt;?<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Ejemplo:  </span>Necesito que el arma 'sawn-off' al jugador le quite -60 de vida por ejemplo o -50 o el valor que yo especifique, como llego a eso? hay alguna manera manual de hacerlo? si es así necesito una respuesta y un ejemplo de como podria hacerlo porfavor :) <br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">NOTA - </span>Estoy utilizando el callback <span style="font-weight: bold;" class="mycode_b"><span style="color: #005dc2;" class="mycode_color">OnPlayerTakeDamage(</span></span><span style="color: #005dc2;" class="mycode_color">parameters</span><span style="color: #005dc2;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">)</span></span><br />
+<br />
+Si me podrian dar una solución o algunos ejemplos se los agradecería.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] Damage System</strong> - <a href="member5eaa.html?action=profile&amp;uid=3812">ImFlanny</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">Puedes utilizar este codigo en caso de que quieras definir el daño de varias armas recuerda que</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">el uso de switches es mucho mas optimo que usar varios "if s"</span></span><br />
+<br />
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite><span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">public OnPlayerTakeDamage(playerid, issuerid, Float: amount, weaponid)</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">{</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    switch(weaponid)</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    {</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">        case <span style="color: #202124;" class="mycode_color">0</span>: SetPlayerHealth(playerid, -5);//Cada case seria el WeaponID SetPlayerHealth(playerid,-5); en este caso el puño te bajaría -5 de vida</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">        case <span style="color: #202124;" class="mycode_color">26</span>: SetPlayerHealth(playerid, -60);//lo mismo pero con la "<span style="color: #333333;" class="mycode_color"><span style="color: #3a3a3a;" class="mycode_color">Sawnoff Shotgun</span>"</span></span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">}</span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">}</span></span></blockquote>
+<br />
+<span style="font-family: Arial;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">O tambien puedes utilizar esto codigo únicamente para la escopeta o otra arma <br />
+</span></span><br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite><span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">public OnPlayerTakeDamage(playerid, issuerid, Float: amount, weaponid, bodypart)<br />
+</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">if(issuerid != INVALID_PLAYER_ID &amp;&amp; weaponid == 26)    //Weaponid es el id de la arma</span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    {</span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    SetPlayerHealth(playerid, -60);//Lo mismo del codigo anterior  </span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    </span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    }</span></span></blockquote>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-29, 03:48 AM)</span>ImFlanny Wrote:  <a href="showthreada35d.html?pid=11297#pid11297" class="quick_jump"></a></cite><span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">Puedes utilizar este codigo en caso de que quieras definir el daño de varias armas recuerda que</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">el uso de switches es mucho mas optimo que usar varios "if s"</span></span><br />
+<br />
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite><span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">public OnPlayerTakeDamage(playerid, issuerid, Float: amount, weaponid)</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">{</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    switch(weaponid)</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    {</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">        case <span style="color: #202124;" class="mycode_color">0</span>: SetPlayerHealth(playerid, -5);//Cada case seria el WeaponID SetPlayerHealth(playerid,-5); en este caso el puño te bajaría -5 de vida</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">        case <span style="color: #202124;" class="mycode_color">26</span>: SetPlayerHealth(playerid, -60);//lo mismo pero con la "<span style="color: #333333;" class="mycode_color"><span style="color: #3a3a3a;" class="mycode_color">Sawnoff Shotgun</span>"</span></span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">}</span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">}</span></span></blockquote>
+<br />
+<span style="font-family: Arial;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">O tambien puedes utilizar esto codigo únicamente para la escopeta o otra arma <br />
+</span></span><br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite><span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">public OnPlayerTakeDamage(playerid, issuerid, Float: amount, weaponid, bodypart)<br />
+</span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">if(issuerid != INVALID_PLAYER_ID &amp;&amp; weaponid == 26)    //Weaponid es el id de la arma</span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    {</span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    SetPlayerHealth(playerid, -60);//Lo mismo del codigo anterior  </span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    </span></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Arial;" class="mycode_font">    }</span></span></blockquote></blockquote><br />
+Muchas gracias amigo, pero ¿qué diferencia hay entre usar un include para modificar el daño de un arma a este metodo? lamentablemente yo no puedo utilizar el include que me permitirá hacerlo de forma mas didáctica por lo tanto me ayudaste a ver una forma mas manual, si no, hubiera utilizado el include, pero me sirve, gracias!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] Damage System</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+Why is it so fucking hard for all of you the read the damn documentation?<br />
+<br />
+<img src="https://i.ibb.co/s377zbx/IMG-20210529-132721.jpg" loading="lazy"  alt="[Image: IMG-20210529-132721.jpg]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] Damage System</strong> - <a href="member5eaa.html?action=profile&amp;uid=3812">ImFlanny</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+Reply:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Muchas gracias amigo, pero ¿Qué diferencia hay entre usar un include para modificar el daño de un arma a este metodo? lamentablemente yo no puedo utilizar el include que me permitirá hacerlo de forma mas didáctica por lo tanto me ayudaste a ver una forma mas manual, si no, hubiera utilizado el include, pero me sirve, gracias!!</blockquote>
+<br />
+Personalmente me gusta mas manual ya que puedes jugar con las variables por ejemplo puedes crear "balas de titanio" o algo asi donde puedas matar de un tiro o anexarle un sistema de niveles como por ejemplo, si el jugador es nivel 1 hará menos daño etc, etc, aun que viéndolo bien tambien puedes hacerlo con el include supongo que practica y a lo mejor velocidad normalmente un include para esas cosas son mas óptimos al momento de usarlos
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+¿Alguno de ustedes sabría como instalar ese tal include? el include lo obtuve, pero este requiere un plugin llamado SKY que básicamente no lo he encontrado.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] Damage System</strong> - <a href="memberc364.html?action=profile&amp;uid=2172">xbruno1000x</a> -  <strong>2021-06-02</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-29, 11:49 PM)</span>icecoldkangaroo12 Wrote:  <a href="showthread2a14.html?pid=11314#pid11314" class="quick_jump"></a></cite>¿Alguno de ustedes sabría como instalar ese tal include? el include lo obtuve, pero este requiere un plugin llamado SKY que básicamente no lo he encontrado.</blockquote><br />
+Sky Plugin -&gt; https://github.com/oscar-broman/SKY/releases/tag/2.3.0
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] Damage System</strong> - <a href="member1f97.html?action=profile&amp;uid=3810">icecoldkangaroo12</a> -  <strong>2021-06-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-02, 07:24 PM)</span>xbruno1000x Wrote:  <a href="showthreadf0a9.html?pid=11369#pid11369" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-29, 11:49 PM)</span>icecoldkangaroo12 Wrote:  <a href="showthread2a14.html?pid=11314#pid11314" class="quick_jump"></a></cite>¿Alguno de ustedes sabría como instalar ese tal include? el include lo obtuve, pero este requiere un plugin llamado SKY que básicamente no lo he encontrado.</blockquote><br />
+Sky Plugin -&gt; https://github.com/oscar-broman/SKY/releases/tag/2.3.0</blockquote><br />
+Bien, pero como se instala, porque solo aparece un archivo que sería tipo include
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server How to compile a GM on linux? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread0fbe.html?tid=2214">How to compile a GM on linux?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> How to compile a GM on linux? (<em>/showthread.php?tid=2214</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How to compile a GM on linux?</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-09-18</strong>
+<br />
+<br />
+How to compile a GM on linux?<br />
+Is it possible to do on VSCODE?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to compile a GM on linux?</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-09-21</strong>
+<br />
+<br />
+is it possible to compile on terminal or something?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to compile a GM on linux?</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-09-22</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>How to compile a GM on linux?</blockquote>
+With pawncc like usually: https://github.com/pawn-lang/compiler/releases<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Is it possible to do on VSCODE?</blockquote>
+Yes<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>is it possible to compile on terminal or something?</blockquote>
+Yes.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to compile a GM on linux?</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2021-09-22</strong>
+<br />
+<br />
+You can also use sampctl on linux.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to compile a GM on linux?</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-09-28</strong>
+<br />
+<br />
+i've download:<br />
+https://github.com/pawn-lang/compiler/releases<br />
+3.10.10<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>cd ~/Downloads/pawnc-3.10.10-linux/bin<br />
+sudo mv pawncc /usr/bin<br />
+sudo mv pawndisasm /usr/bin<br />
+sudo mv libpawnc.so /usr/lib</code></div></div><br />
+<br />
+but now, how to use it?<br />
+<br />
+i don't get with <br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="10787967697e5078677e">[email&#160;protected]</a>:~/Documents/sampserver&#36; pawncc</code></div></div><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>pawncc<br />
+Pawn compiler 3.10.10&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Copyright (c) 1997-2006, ITB CompuPhase<br />
+<br />
+Usage:&nbsp;&nbsp; pawncc &lt;filename&gt; [filename...] [options]<br />
+<br />
+Options:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -A&lt;num&gt;&nbsp;&nbsp;alignment in bytes of the data segment and the stack<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output assembler code<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -C[+/-]&nbsp;&nbsp;compact encoding for output file (default=+)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -c&lt;name&gt; codepage name or number; e.g. 1252 for Windows Latin-1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Dpath&nbsp;&nbsp; active directory path<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -d&lt;num&gt;&nbsp;&nbsp;debugging level (default=-d1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;no symbolic information, no run-time checks<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;run-time checks, no symbolic information<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;full debug information and dynamic checking<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;same as -d2, but implies -O0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -e&lt;name&gt; set name of error file (quiet compile)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -i&lt;name&gt; path for include files<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; create list file (preprocess only)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -o&lt;name&gt; set base name of (P-code) output file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -O&lt;num&gt;&nbsp;&nbsp;optimization level (default=-O1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;no optimization<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;JIT-compatible optimizations only<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;full optimizations<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -p&lt;name&gt; set name of "prefix" file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -R[+/-]&nbsp;&nbsp;add detailed recursion report with call chains (default=-)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -r[name] write cross reference report to console or to specified file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -S&lt;num&gt;&nbsp;&nbsp;stack/heap size in cells (default=4096)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -s&lt;num&gt;&nbsp;&nbsp;skip lines from the input file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -t&lt;num&gt;&nbsp;&nbsp;TAB indent size (in character positions, default=8)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -v&lt;num&gt;&nbsp;&nbsp;verbosity level; 0=quiet, 1=normal, 2=verbose (default=1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -w&lt;num&gt;&nbsp;&nbsp;disable a specific warning by its number<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -X&lt;num&gt;&nbsp;&nbsp;abstract machine size limit in bytes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -XD&lt;num&gt; abstract machine data/stack size limit in bytes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Z[+/-]&nbsp;&nbsp;run in compatibility mode (default=-)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -E[+/-]&nbsp;&nbsp;turn warnings in to errors<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&#92;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; use '&#92;' for escape characters<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; use '^' for escape characters<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -;[+/-]&nbsp;&nbsp;require a semicolon to end each statement (default=-)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -([+/-]&nbsp;&nbsp;require parantheses for function invocation (default=-)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sym=val&nbsp;&nbsp;define constant "sym" with value "val"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sym=&nbsp;&nbsp;&nbsp;&nbsp; define constant "sym" with value 0<br />
+<br />
+Options with a value may optionally separate the value from the option letter<br />
+with a colon (":") or an equal sign ("="). That is, the options "-d0", "-d=0"<br />
+and "-d:0" are all equivalent.</code></div></div><br />
+cd gamemodes &amp;&amp; pawncc new.pwn<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Pawn compiler 3.10.10&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Copyright (c) 1997-2006, ITB CompuPhase<br />
+<br />
+new.pwn(1) : fatal error 100: cannot read from file: "a_samp"<br />
+<br />
+Compilation aborted.<br />
+<br />
+<br />
+1 Error.</code></div></div><br />
+how should i put where is my libs?<br />
+how should i make it to work in vscode?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->

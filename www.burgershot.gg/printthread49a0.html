@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Animation problems - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread49a0.html?tid=2205">Animation problems</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Animation problems (<em>/showthread.php?tid=2205</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Animation problems</strong> - <a href="member3092.html?action=profile&amp;uid=4027">DjSon231</a> -  <strong>2021-08-03</strong>
+<br />
+<br />
+Hi!<br />
+<br />
+I have some trouble with setting animations to actors. I'm using 0.3.7-R2 server, with Y_ISI streamer plugin.<br />
+How can I set animations like that: [Video: <a href="https://www.youtube.com/watch?v=WrBxmP28FIg" target="_blank" rel="noopener" class="mycode_url">https://www.youtube.com/watch?v=WrBxmP28FIg</a>]<br />
+Everytime I preload and load animation, like in the video, my actor is not moving. Is just playing animation tho. There's no difference between "CreateActor" and "CreateDynamicActor". What am I supposed to do?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Animation problems</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-08-03</strong>
+<br />
+<br />
+I don't think they are actors, they are NPCs.<br />
+Use <a href="https://github.com/ziggi/FCNPC" target="_blank" rel="noopener" class="mycode_url">FCNPC</a> and you will no longer have problems with animation apply.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Animation problems</strong> - <a href="member3092.html?action=profile&amp;uid=4027">DjSon231</a> -  <strong>2021-08-03</strong>
+<br />
+<br />
+Yes, these are actors. I saw whole bunch of videos, where people could control actors animations, as they could walk around, not staying in one place.Yes, these are actors. I saw whole bunch of videos, where people could greatly control actors animations, as they could walk around, not staying in one place. But the main question is - how?<br />
+<br />
+Moreover, video creator posted his code in pastebin.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Animation problems</strong> - <a href="member06e6.html?action=profile&amp;uid=2887">Telzin2k</a> -  <strong>2021-08-06</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">If you use "CreateActor", you must animate your actor using "ApplyActorAnimation". But if you use "CreateDynamicActor", you must animate your actor using "ApplyDynamicActorAnimation".</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Animation problems</strong> - <a href="member3092.html?action=profile&amp;uid=4027">DjSon231</a> -  <strong>2021-08-07</strong>
+<br />
+<br />
+Allright, but I'm using it. Animations are applied correctly, but are being played like this:<br />
+<br />
+ [Video: <a href="https://www.youtube.com/watch?v=xpcd7iFPpwA" target="_blank" rel="noopener" class="mycode_url">https://www.youtube.com/watch?v=xpcd7iFPpwA</a>]
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Animation problems</strong> - <a href="memberd778.html?action=profile&amp;uid=3078">Slade</a> -  <strong>2022-01-21</strong>
+<br />
+<br />
+Are you keeping lockx and locky at value 0? If set 0, actor will return to it's orginal position. On 1 it will remain in same position when animation ends.<br />
+<br />
+Edit: Tested it, doesnt work, maybe it is SA-MP version?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Animation problems</strong> - <a href="member9c11.html?action=profile&amp;uid=309">ForT</a> -  <strong>2022-01-22</strong>
+<br />
+<br />
+If you want your Actor to move with animations, create your actor with the invulnerable parameter as false (in streamer) or use the SetActorInvulnerable 0 function after CreateActor.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Tool denNorske's SA-MP Query Cache Proxy - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1d1e22;font-weight: bold;">[Tool]</span> <a href="showthreadba24.html?tid=138">denNorske's SA-MP Query Cache Proxy</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1d1e22;font-weight: bold;">[Tool]</span> denNorske's SA-MP Query Cache Proxy (<em>/showthread.php?tid=138</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>denNorske's SA-MP Query Cache Proxy</strong> - <a href="member8587.html?action=profile&amp;uid=173">denNorske</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: x-large;" class="mycode_size">SA-MP Query Cache Proxy</span></span><br />
+(Made in python3.7)<br />
+<br />
+Hosted tab servers are facing a massive spam of spoofed UDP packets. The servers simply have no chance to respond to all the fake query requests, and becomes <span style="font-style: italic;" class="mycode_i">overworked</span>. This ends up with servers not appearing online in the samp client, and if they appear, lots of information don't appear. <br />
+<span style="font-style: italic;" class="mycode_i">UPDATE: Attack has calmed down (14th of april 2019)</span><br />
+<br />
+This package will take all the "shit" from the fake packages and respond with a cached response from the samp server. The proxy sends a request to the samp server every few second to cache latest info, which it so sends further to the client that requests it. This shields the samp server and makes it appear normally in everyone's clients. It has been tested on my community and some other servers, and the effect is very noticeable. <br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Why python? </span><br />
+Well, python was the only other language besides PAWN and C# that I knew in 2019, and it was the only contribution I could make together with my friend Nick. Now that I also know a bit of C++, Javascript and such, but considering it works so well, it's fair enough to say that it may remain using python.<br />
+<br />
+This project is written by frxstrem, nick and me, and everyone's welcome to contribute with better solutions by creating pull requests from separate branches. It has been tested under load of a UDP spam on approximately 3500 pps. It takes up one entire thread of a CPU on a I7-8700k.<br />
+<br />
+Unfortunately, this method will only work on VPS's/VDS's where you have full access to the host system. Python code requires iptables rules to be applied.<br />
+<br />
+<br />
+<br />
+How to run the python script in background; <br />
+1: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>python3 pack-scan.py &amp;</code></div></div>2:Then use: <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>detach</code></div></div> to avoid it closing with the terminal, when you leave the SSH session, or close the terminal.<br />
+<br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Disclaimer</span>: I am in no way responsible for misconfigurations or changes done by you. You should understand what iptables do and what my code do before you use it.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Query Mechanism information:</span> <a href="https://sampwiki.blast.hk/wiki/Query_Mechanism" target="_blank" rel="noopener" class="mycode_url">Click here</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">READ ME:</span> <a href="https://github.com/dennorske/samp-packet-proxy/blob/master/README.md" target="_blank" rel="noopener" class="mycode_url">https://github.com/dennorske/samp-packet-proxy/blob/master/README.md</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Known issues</span>: <ul class="mycode_list"><li><span style="text-decoration: line-through;" class="mycode_s">Under load, script tends to stop working after approximately a week. You can set up a simple bash script to restart it automatically</span><span style="color: #17b529;" class="mycode_color"> (Fixed March 19th 2021)</span><br />
+</li>
+<li>game-state and SACNR monitor queries are not responded correctly, causing graphs to not show or show incorrectly.<br />
+</li>
+</ul>
+<br />
+Visual of the Query mechanism with the script running (Assuming iptables works correctly) :<br />
+<img src="https://camo.githubusercontent.com/d58f13170da00082ad256c095d149919c1a47037b0f598e29479afdc50f5c2d8/68747470733a2f2f706963732e6475636b792e726f636b732f696d616765732f323032302f30342f32302f556e7469746c65642d4469616772616d2d322e706e67" loading="lazy"  alt="[Image: 68747470733a2f2f706963732e6475636b792e72...322e706e67]" class="mycode_img" /><br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">LINK TO REPOSITORY/Download</span> <a href="https://github.com/dennorske/samp-packet-proxy" target="_blank" rel="noopener" class="mycode_url">https://github.com/dennorske/samp-packet-proxy</a><br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Disabling the cache/removing IPtable rules:</span><br />
+In order to remove the rules you've added from IPtables, please replace "-A" or "-I", with "-D" in the commands.<br />
+You need to make sure you write the exact same commands, else it will fail. (if you changed ports, use those ports, and replace -A with -D for example)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: den's SA-MP Query Cache Proxy</strong> - <a href="memberfab5.html?action=profile&amp;uid=278">Mugsy</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+I'm going to try this right now, wonderful.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: den's SA-MP Query Cache Proxy</strong> - <a href="member8ead.html?action=profile&amp;uid=509">iChiwi_.</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+did u do that yourself? that nice drawing?<br />
+<br />
+i'm just wanna inform u that ur handwriting is ugly af..<br />
+<br />
+anyways nice project, +1 rep.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: den's SA-MP Query Cache Proxy</strong> - <a href="member8587.html?action=profile&amp;uid=173">denNorske</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 12:02 PM)</span>iChiwi_. Wrote:  <a href="showthreadd6eb.html?pid=2266#pid2266" class="quick_jump"></a></cite>did u do that yourself? that nice drawing?<br />
+<br />
+i'm just wanna inform u that ur handwriting is ugly af..<br />
+<br />
+anyways nice project, +1 rep.</blockquote><br />
+Aw you suck too ;) Thanks for the nice words &lt;3<br />
+<br />
+My ugly handwriting is at least scaring away all them ugly packets!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: den's SA-MP Query Cache Proxy</strong> - <a href="memberdf3e.html?action=profile&amp;uid=666">bratva</a> -  <strong>2019-04-17</strong>
+<br />
+<br />
+Thank you!!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: den's SA-MP Query Cache Proxy</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2019-04-17</strong>
+<br />
+<br />
+A truly fantastic application, saved our ass and those of many others.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: den's SA-MP Query Cache Proxy</strong> - <a href="member8587.html?action=profile&amp;uid=173">denNorske</a> -  <strong>2019-04-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-17, 05:23 PM)</span>Markski Wrote:  <a href="showthread5840.html?pid=3237#pid3237" class="quick_jump"></a></cite>A truly fantastic application, saved our ass and those of many others.</blockquote><br />
+Thanks, I am glad it did help you!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: den's SA-MP Query Cache Proxy</strong> - <a href="member0952.html?action=profile&amp;uid=205">Atom</a> -  <strong>2019-04-17</strong>
+<br />
+<br />
+wonderful, I'll use it, thanks!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: den's SA-MP Query Cache Proxy</strong> - <a href="member8587.html?action=profile&amp;uid=173">denNorske</a> -  <strong>2021-03-20</strong>
+<br />
+<br />
+Hi all!<br />
+<br />
+There's a new update to fix a few pretty fundamental issue.<br />
+<br />
+When your server reached a certain playercount, the script would freeze. <br />
+This is now sorted. If you had issues with the script and that it stopped working after a while, this update should take care of that for you. No need to restart the script every few days anymore.<br />
+<br />
+I've also added some even spacing between the querythread packets (between the server and the script), as sending all 4 simultaneously would just result in socket timeouts.<br />
+<br />
+Let me know if you find any other issues. <br />
+I might release a new update soon to help you automate the iptables setup and removal upon start and stop, using systemd.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

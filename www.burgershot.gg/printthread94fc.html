@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Texture Studio Guide - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread94fc.html?tid=991">Texture Studio Guide</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Tutorials (<i>https://www.burgershot.gg/forumdisplay.php?fid=37</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Texture Studio Guide (<em>/showthread.php?tid=991</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Texture Studio Guide</strong> - <a href="member2ce8.html?action=profile&amp;uid=2088">Uproar</a> -  <strong>2020-02-15</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u"><span style="font-size: large;" class="mycode_size">Texture Studio - A Basic Guide</span></span></span></div>
+<br />
+A texture studio guide with basic commands and tips.<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Installation</span></div>
+Click <a href="https://github.com/Pottus/Texture-Studio/releases" target="_blank" rel="noopener" class="mycode_url">here</a> to see all versions of Texture Studio. I recommend 1.9c but it's upto you. Then click on the <a href="https://i.imgur.com/gpPZnH6.png" target="_blank" rel="noopener" class="mycode_url">Source Code (.zip)</a>. Once downloaded, unzip it to a folder you want, I use Documents. Then download the <a href="http://files.sa-mp.com/samp037_svr_R2-1-1_win32.zip" target="_blank" rel="noopener" class="mycode_url">Windows Server</a>. The provided link is for 0.3.7 R2. If you wish to get the 0.3.DL R1 server, click <a href="http://forum.sa-mp.com/files/03DL/samp03DL_svr_R1_win32.zip" target="_blank" rel="noopener" class="mycode_url">here</a>.<br />
+Make a new folder in your documents with any name, and unzip the server.zip download to there. Open the folder, copy the samp-server.exe and paste it in your texture studio folder.<br />
+Done.<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Launching Texture Studio</span></div>
+To launch texture studio, you need a working SAMP version which matches your server.zip download.<br />
+Go to Texture Studio folder, double click and open the samp-server.exe. It is the backbone of your texture studio server! Do not close it while mapping. Now open your SAMP client, and click 'Add Server'. Enter the IP as <span style="font-weight: bold;" class="mycode_b">localhost</span> and if this doesn't work, delete and add a server with IP <span style="font-weight: bold;" class="mycode_b">127.0.0.1</span>. This should work. It should show up like <a href="https://i.imgur.com/1mYbo3J.png" target="_blank" rel="noopener" class="mycode_url">this</a>. Connect to the server.<br />
+And you should be in-game now with Texture Studio loaded!<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Creating a Map</span></div>
+To create a new map, once you go in-game, type <span style="font-weight: bold;" class="mycode_b">/newmap</span>. Enter the shortest name that comes into your mind. For example, I'd name <span style="font-style: italic;" class="mycode_i">San Andreas State Police HeadQuarter Map</span> as <span style="font-style: italic;" class="mycode_i">sasphq</span>. As simple as that. <br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Placing, Selecting and Editing Objects</span></div>
+To create a new object, use <span style="font-weight: bold;" class="mycode_b">/cobject</span>. Either fetch object IDs from <a href="https://dev.prineside.com/en/gtasa_samp_model_id/" target="_blank" rel="noopener" class="mycode_url">here</a> or you can do it the other way where you don't need to use /cobject. <br />
+In this method, use <span style="font-weight: bold;" class="mycode_b">/osearch</span>. Don't enter the full name of the object you're searching. Like for 'pipe', use 'pip' instead for more results, some objects are named weirdly. Now a list of search results should pop up on the left side. Click on each of them to see a preview and click <span style="font-weight: bold;" class="mycode_b">Create</span> when you find the appropriate object!.<br />
+<br />
+For selecting, use <span style="font-weight: bold;" class="mycode_b">/sel</span> followed by the Index. Then use <span style="font-weight: bold;" class="mycode_b">/editobject</span> to edit it. To clone/duplicate the object, press <span style="font-weight: bold;" class="mycode_b">Left ALT</span> when the /editobject GUI is open. For proper rotations and movement, use <span style="font-weight: bold;" class="mycode_b">/rx, /ry, /rz</span> and <span style="font-weight: bold;" class="mycode_b">/ox, /oy, /oz</span> respectively followed by rotation/movement value. <br />
+For example, I want to rotate a wall by 90 degrees. I'll use /sel to select it then I'll use <span style="font-style: italic;" class="mycode_i">/rz 90</span>. <a href="https://imgur.com/K3eXCoQ" target="_blank" rel="noopener" class="mycode_url">Here</a> is a small demonstration of me using it.<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Tiling</span></div>
+Tiling is an important part. Select an object with /sel and then type <span style="font-weight: bold;" class="mycode_b">/sindex</span>. There will be several numbers shown. Each number indicates one tile. An object can have innumerable number of tiles. 1, 2, 3, etc.. You need to focus on the one you're using. /mtcolor and /mtset depends on this.<br />
+To reset the tile labels, use <span style="font-weight: bold;" class="mycode_b">/rindex</span><br />
+Each object has unique tiling. Now while I was making a floor with the man_parquet texture (3840), tiling held a lot of importance.<br />
+Look at the images below. Different objects, same texture. Notice the difference? <br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i.imgur.com/ce1Tfvpl.png" loading="lazy"  alt="[Image: ce1Tfvpl.png]" class="mycode_img" /></div>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">You're right, different tiling! Look at their tiling:-</span><br />
+<br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i.imgur.com/bQF0rYFl.png" loading="lazy"  alt="[Image: bQF0rYFl.png]" class="mycode_img" /></div>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Groups</span></div>
+To add objects to a group, use <span style="font-weight: bold;" class="mycode_b">/gadd</span> followed by the object Index. To edit the group, use <span style="font-weight: bold;" class="mycode_b">/editgroup</span>. Again, you can always use the rotation and movement commands which are <span style="font-weight: bold;" class="mycode_b">/grx, /gry, /grz</span> and <span style="font-weight: bold;" class="mycode_b">/gox, /goy, /goz</span> respectively. Refer to the above paragraph for more information.<br />
+<br />
+Use <span style="font-weight: bold;" class="mycode_b">/grem</span> to remove a particular object from the group or use <span style="font-weight: bold;" class="mycode_b">/gclear</span> to clear the whole group selection. If you wish to delete all the objects in the group, use <span style="font-weight: bold;" class="mycode_b">/gdelete</span> and use <span style="font-weight: bold;" class="mycode_b">/gclone</span> to clone all the objects in the group.<br />
+<br />
+Use <span style="font-weight: bold;" class="mycode_b">/gmtset</span> to set a texture for all of the objects in the group and use <span style="font-weight: bold;" class="mycode_b">/gmtcolor</span> to set the color.<br />
+<br />
+I'll tell how /gmtcolor and /mtcolor works, in the next section.<br />
+<br />
+Below is a demonstration of a few of them.<br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i.imgur.com/xkZvmK4.gifl" loading="lazy"  alt="[Image: xkZvmK4.gifl]" class="mycode_img" /></div>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Texturing</span></div>
+Use <span style="font-weight: bold;" class="mycode_b">/mtextures</span> to open the texture pallete. Scroll through the pallet using <span style="font-weight: bold;" class="mycode_b">Y and H</span>. Use <span style="font-weight: bold;" class="mycode_b">Numpad 4 and Numpad 6</span> to change texture pages. Use <span style="font-weight: bold;" class="mycode_b">Left ALT</span> to apply a texture. Did a mistake? Use <span style="font-weight: bold;" class="mycode_b">/mtset 0 0</span>. 0 is the default texture for any object, every object has its own unique one. <br />
+Use <span style="font-weight: bold;" class="mycode_b">/tsearch</span> to search for a texture and click on the one you want. You'll see the texture index on the bottom right of your screen. Use <span style="font-weight: bold;" class="mycode_b">/mtset 0 [Texture ID]</span> where the 0 is the tile ID and Texture ID is the Index.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">/mtcolor</span> and <span style="font-weight: bold;" class="mycode_b">/gmtcolor</span> use the same format.<br />
+/mtcolor 0 0xFFFF0000 is what I used in the demonstration above.<br />
+Here, I divided it for you.<br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i.imgur.com/hurLtxwl.png" loading="lazy"  alt="[Image: hurLtxwl.png]" class="mycode_img" /></div>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Site used to fetch color hexcodes:</span> <a href="http://www.colorpicker.com/" target="_blank" rel="noopener" class="mycode_url">http://www.colorpicker.com/</a><br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Lighting and Shadows</span></div>
+The default GTA lighting and textures are horrible sometimes. Either too dark or too bright. There's a way to fix it.<br />
+I've just explained /mtcolor above. Understand it then read further in this section.<br />
+<br />
+Okay so now that you know what /mtcolor exactly does, you can use it to fix the lighting. <br />
+Type <span style="font-weight: bold;" class="mycode_b">/mtcolor 0 0xFFFFFFFF</span>. It'll set a uniform shadow/highlight value to all indexes/tiles of the object.<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Text</span></div>
+Use <span style="font-weight: bold;" class="mycode_b">/sel</span> to select an object and then use <span style="font-weight: bold;" class="mycode_b">/text</span> to edit text.<br />
+Firstly, set <span style="font-weight: bold;" class="mycode_b">Font Bold to "On"</span> because thin fonts look bad.<br />
+Then set alignment to <span style="font-weight: bold;" class="mycode_b">Center</span><br />
+Then set <span style="font-weight: bold;" class="mycode_b">Font Size to 512x128 or 512x256 or 512x512</span>. Just keep in mind that these numbers (like 512, 128, etc.) indicate the number of pixels. So, more the number of pixels, clearer is your text.<br />
+I'd suggest <span style="font-weight: bold;" class="mycode_b">Ariel or Calibri Font for a modern themed text</span>. Go for <span style="font-weight: bold;" class="mycode_b">Engravers if it's an old-styled map</span>.<br />
+Then <span style="font-weight: bold;" class="mycode_b">Click on Edit Font</span>. A box will pop up.<br />
+Enter your text in the format shown below.<br />
+In the end, set <span style="font-weight: bold;" class="mycode_b">Font to "On'</span>.<br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i.imgur.com/tACVjHz.pngl" loading="lazy"  alt="[Image: tACVjHz.pngl]" class="mycode_img" /></div>
+<br />
+<br />
+For using text, I'd suggest using the <a href="https://dev.prineside.com/en/gtasa_samp_model_id/search/?q=Plane00" target="_blank" rel="noopener" class="mycode_url">plane</a> objects. They don't have collision and are good for using text. I also use the <a href="https://dev.prineside.com/en/gtasa_samp_model_id/model/11737-RockstarMat1/" target="_blank" rel="noopener" class="mycode_url">Rockstar Mat</a> object sometimes. <br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Handling Default GTA Objects</span></div>
+The default GTA mapping may seem weird sometimes or maybe you want to remove some default objects to make a map there. Or do you want to change the texture and placement of the default objects?<br />
+Use <span style="font-weight: bold;" class="mycode_b">/gtaobjects </span>to have texture studio show you all GTA objects. Then you'll see the index in the first line.<br />
+To remove the object, type <span style="font-weight: bold;" class="mycode_b">/remobject</span>.<br />
+To either bring it back or to simply swap a non removed GTA object into a texture studio object, type <span style="font-weight: bold;" class="mycode_b">/swapbuilding</span>.<br />
+Keep in mind, if you remove a default object then swap it to a texture studio object and then if you delete your object, you can only bring it back via <span style="font-weight: bold;" class="mycode_b">/undo</span><br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="text-decoration: underline;" class="mycode_u">Exporting</span></div>
+To export your map as a filterscript, use <span style="font-weight: bold;" class="mycode_b">/exportallmap</span>. Put draw distance more than 500.0, always. It'll be saved in Texture Studio Folder &gt; scriptfiles &gt; ExportMaps.<br />
+To import it as filterscript, first open the .pwn export in pawno and press F5 to compile. Then put .amx file in your filterscripts folder.<br />
+To export your map as simple .txt file, use <span style="font-weight: bold;" class="mycode_b">/exportmap</span>. Again, draw distance 500.0 or above.<br />
+Select the type of code you want, CreateObject or CreateDynamicObject then click Export. It'll be saved as a .txt file in Texture Studio Folder &gt; scriptfiles &gt; ExportMaps.<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u"><span style="font-size: medium;" class="mycode_size">Texture Studio Common Bug Fixes</span></span></span></div>
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b">Some commands not working-</span> Quit SAMP, close and re-open samp-server.exe<br />
+</li>
+<li><span style="font-weight: bold;" class="mycode_b">The Co-Ordinates are messed up-</span> Sometimes rotating along one axis rotates it along another, the object is bugged. Delete the object, restart SAMP and samp-server.exe<br />
+</li>
+<li><span style="font-weight: bold;" class="mycode_b">No commands work-</span> Your Texture Studio download must be incomplete. Delete all of the files and re-install it once again.<br />
+</li>
+</ul>
+<br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i.imgur.com/YoAM8rR.png" loading="lazy"  alt="[Image: YoAM8rR.png]" class="mycode_img" /></div>
+<br />
+<div style="text-align: center;" class="mycode_align">I hope you liked the guide.</div>
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b">Ask in a reply below if you have any questions.</span></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio Guide</strong> - <a href="member2ce8.html?action=profile&amp;uid=2088">Uproar</a> -  <strong>2020-02-15</strong>
+<br />
+<br />
+Reserved for future edits.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

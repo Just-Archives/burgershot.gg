@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [HELP] Changing the skin when OnPlayerConnect - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread79c1.html?tid=1857">[HELP] Changing the skin when OnPlayerConnect</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  [HELP] Changing the skin when OnPlayerConnect (<em>/showthread.php?tid=1857</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[HELP] Changing the skin when OnPlayerConnect</strong> - <a href="member3180.html?action=profile&amp;uid=3627">romanstti</a> -  <strong>2021-04-10</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><hr class="mycode_hr" />
+<br />
+<span style="font-family: Sans-serif;" class="mycode_font"><span style="color: #9A00B2;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: #419DC1;" class="mycode_color">Hello there!</span></span></span></span></span></div>
+<div style="text-align: center;" class="mycode_align"><span style="color: #419DC1;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b"><span style="font-family: Sans-serif;" class="mycode_font">First of all, good morning, it is <span style="text-decoration: underline;" class="mycode_u">11:11 here already</span>.</span></span></span></span></span><br />
+<br />
+<hr class="mycode_hr" />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #9A00B2;" class="mycode_color"><span style="font-family: Sans-serif;" class="mycode_font">I would like to <span style="text-decoration: underline;" class="mycode_u"><span style="font-style: italic;" class="mycode_i"><span style="color: #C10300;" class="mycode_color">clarify</span></span></span> that I am ALL NEW on this Pawn scripting thing... I spent the whole night reading documents of variables and strings...</span></span><span style="color: #9A00B2;" class="mycode_color"><br />
+<span style="font-family: Sans-serif;" class="mycode_font">I still can <span style="font-style: italic;" class="mycode_i">not</span> figure out what am I doing wrong!</span><br />
+<span style="font-family: Sans-serif;" class="mycode_font">Maybe someone here can help?</span></span></span><br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b"><span style="color: #00369B;" class="mycode_color"><span style="font-family: Sans-serif;" class="mycode_font">So, I will explain you what I am trying to do, because it is probably one of the most easiest things in Pawn scripting and if you take the time to *explain* me what I am doing wrong and how to apply it as it should, then I will be one of the happiest person alive!</span></span></span></span><br />
+<br />
+<hr class="mycode_hr" />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #008E02;" class="mycode_color"><span style="font-family: Sans-serif;" class="mycode_font">I am trying to change the skin automatically only if the name of the player connected is equal to: "<span style="color: #C19E00;" class="mycode_color">Luna_Beaule</span>"</span></span></span><br />
+<br />
+<span style="color: #008E02;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: small;" class="mycode_size"><span style="font-family: Sans-serif;" class="mycode_font">I have some custom skins added to the server, and I am trying to figure out how to change them if the </span></span></span></span><span style="font-size: large;" class="mycode_size"><span style="font-family: Arial Black;" class="mycode_font">X</span></span><span style="color: #008E02;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: small;" class="mycode_size"><span style="font-family: Sans-serif;" class="mycode_font"> (<span style="text-decoration: underline;" class="mycode_u"><span style="font-style: italic;" class="mycode_i">GetPlayerName</span></span> I GUESS!?!?!?) is the same as: <span style="color: #C19E00;" class="mycode_color">Luna_Beaule<span style="color: #008E02;" class="mycode_color">.</span></span></span></span></span></span></div>
+<div style="text-align: center;" class="mycode_align">
+<br />
+<hr class="mycode_hr" />
+<br />
+<span style="color: #B20080;" class="mycode_color"><span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b"><span style="font-family: Sans-serif;" class="mycode_font">I'll leave below the code I wrote *so wrong, please do not laugh, thank you*:</span></span></span></span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerConnect(playerid)<br />
+ {<br />
+SendClientMessage (playerid, -1, "Servidor oficial de pruebas.");<br />
+<br />
+return 1;<br />
+}<br />
+if (GetPlayerName(playerid, name) == Luna_Beaule) return SetPlayerSkin(playerid, 20003);<br />
+<br />
+return 1;<br />
+}</code></div></div></div>
+<div style="text-align: center;" class="mycode_align">
+<br />
+<hr class="mycode_hr" />
+</div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [HELP] Changing the skin when OnPlayerConnect</strong> - <a href="member0f92.html?action=profile&amp;uid=2551">robertocaribbean</a> -  <strong>2021-04-10</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-10, 02:31 PM)</span>romanstti Wrote:  <a href="showthread548a.html?pid=10617#pid10617" class="quick_jump"></a></cite>...</blockquote><br />
+There is a couple of things that I think is wrong with your code:<br />
+<br />
+- I think you only need the "return 1" at the end of the public function.<br />
+<br />
+- GetPlayerName it's being used wrong. You should create a variable and store in it the Skin ID of the player:<br />
+https://open.mp/docs/scripting/functions/GetPlayerName (here is how to use it).<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));<br /><br />if&nbsp;(</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"Luna_Beaule"</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp;SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20003</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+- OnPlayerConnect is called when a player connects to the server, so you can't change their skin because the player is not in the game yet.<br />
+You probably should use this code in OnPlayerSpawn: <br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));<br /><br />if&nbsp;(</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"Luna_Beaule"</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp;SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20003</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+instead of:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">Luna_Beaule</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20003</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+I mean the logic it's good, but you need to change how you use GetPlayerName and where you are using SetPlayerSkin. You can't change the player's skin if the player is not spawned in the game before.<br />
+<br />
+- Luna_Beaule needs to go between quotation marks: "Luna_Beaule"<br />
+<br />
+Full code should be:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerConnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp;SendClientMessage&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Servidor&nbsp;oficial&nbsp;de&nbsp;pruebas."</span><span style="color: #007700">);<br />&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerSpawn</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB"> &nbsp;GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"Luna_Beaule"</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB">   &nbsp;SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20003</span><span style="color: #007700">);<br />&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+I hope this helps to you, regards!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [HELP] Changing the skin when OnPlayerConnect</strong> - <a href="member1452.html?action=profile&amp;uid=2841">Snow</a> -  <strong>2021-04-10</strong>
+<br />
+<br />
+If you're using a login/registration system, Save the player skin in a variable and load it when player logs in, This will set his skin to the saved skin when he enters the password.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [HELP] Changing the skin when OnPlayerConnect</strong> - <a href="member6ca5.html?action=profile&amp;uid=3449">ImOver</a> -  <strong>2021-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-10, 04:00 PM)</span>robertocaribbean Wrote:  <a href="showthreadf99a.html?pid=10618#pid10618" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-04-10, 02:31 PM)</span>romanstti Wrote:  <a href="showthread548a.html?pid=10617#pid10617" class="quick_jump"></a></cite>...</blockquote><br />
+There is a couple of things that I think is wrong with your code:<br />
+<br />
+- I think you only need the "return 1" at the end of the public function.<br />
+<br />
+- GetPlayerName it's being used wrong. You should create a variable and store in it the Skin ID of the player:<br />
+https://open.mp/docs/scripting/functions/GetPlayerName (here is how to use it).<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));<br /><br />if&nbsp;(</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"Luna_Beaule"</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp;SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20003</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+- OnPlayerConnect is called when a player connects to the server, so you can't change their skin because the player is not in the game yet.<br />
+You probably should use this code in OnPlayerSpawn: <br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));<br /><br />if&nbsp;(</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"Luna_Beaule"</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp;SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20003</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+instead of:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">Luna_Beaule</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20003</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+I mean the logic it's good, but you need to change how you use GetPlayerName and where you are using SetPlayerSkin. You can't change the player's skin if the player is not spawned in the game before.<br />
+<br />
+- Luna_Beaule needs to go between quotation marks: "Luna_Beaule"<br />
+<br />
+Full code should be:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerConnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp;SendClientMessage&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Servidor&nbsp;oficial&nbsp;de&nbsp;pruebas."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerSpawn</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB"> &nbsp;GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"Luna_Beaule"</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB">   &nbsp;SetPlayerSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20003</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+I hope this helps to you, regards!</blockquote><br />
+<br />
+That's completely wrong. You can't directly compare strings like that. You need to use a built-in native/function that is called "strcmp". String-Compare. <a href="https://open.mp/docs/scripting/functions/strcmp" target="_blank" rel="noopener" class="mycode_url">https://open.mp/docs/scripting/functions/strcmp</a> . You firstly store the player name in a variable using "GetPlayerName". It takes two arguments. The first one is the playerid whom you want to get his name. The second argument is where you want to store the player name. (Of course it'll be a variable). Third argument isn't necessary and it's the size of the variable. Then you can check names and set the player skin.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: showthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>How to Create Basic Commands</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="syndication9896.php?type=atom1.0" />
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/EBFKVbK.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="jscripts/jquery6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/jquery.plugins.min6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/general6c6d.js?ver=1804"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/global.min.css">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/avatarep.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/global.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/css3.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/star_ratings.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/showthread.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/footer.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/custom.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/extra.min8355.css?t=1641376402" />
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+
+	var cookieDomain = ".burgershot.gg";
+	var cookiePath = "index.html";
+	var cookiePrefix = "";
+	var cookieSecureFlag = "0";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "6428f000919b5d9a18f82d476f6b077e";
+	var rootpath = "index.html";
+	var imagepath = "images/index.html";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "images/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<script>
+	$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+	$('.scrollToDown').click(function(){
+		$('html, body').animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- end: headerinclude -->
+<script type="text/javascript">
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script type="text/javascript" src="jscripts/report6c6d.js?ver=1804"></script>
+<script src="jscripts/jeditable/jeditable.min.js"></script>
+<script type="text/javascript" src="jscripts/thread6c6d.js?ver=1804"></script>
+</head>
+<body>
+	<!-- start: header -->
+<div class="haut" style="height:70px">
+	<a href="index.html" id="logo"><img style="position: absolute;left: -5px;top: 12px;" src="https://burgershot.gg/burgershot.svg" height="40px" />Burgershot</a>
+	<span class="useroptions">
+		<ul id="menu-deroulant">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="memberlist.html">Members</a></li>
+			<li><a href="showteam.html">Team</a></li>
+			<li><a href="misc0615.html?action=help">Help</a></li>
+			<li><a href="search.html">Search</a></li>
+			<!-- start: header_welcomeblock_guest -->
+<li><a href="member0ddc.html?action=register">Register</a></li>
+<li><a href="member456e.html?action=login">Login</a></li>
+<script>
+    var connected = 0;
+</script>
+<!-- end: header_welcomeblock_guest -->
+		</ul>
+	</span>
+</div>
+<div style="width: 100%; height: 70px;"></div>
+<!-- Start - Navigation menu -->
+<nav class="headerlist" style="display:none">
+<ul>
+  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li><li>
+	<a href="memberlist.html"><i class="fa fa-users"></i> Members</a></li><li>
+	<a href="misc0615.html?action=help"><i class="fa fa-support"></i> Help</a></li><li>
+	<a href="search.html"><i class="fa fa-search"></i> Search</a>
+</li></ul>
+</nav>
+<!-- End - Navigation menu -->
+<center>
+<!-- Start - Advice -->
+<div id="mobile_member">
+</div>
+<!-- End - Advice -->
+</center>
+<div id="container">
+	<a name="top" id="top"></a>
+	<div id="header">
+		<div id="content">
+			<div class="wrapper">
+				
+				
+				
+				
+				
+				
+				<!-- start: nav -->
+<div class="navigation" style="display:none;">
+          <a href="index-2.html">
+		<span id="home_bit">
+			<i class="fa fa-home"></i>
+		</span>
+	</a>
+	<span style="padding: 8px 12px;margin-left: 5px;"><!-- start: nav_bit -->
+<a href="index-2.html">Burgershot</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplaye15e.html?fid=3">SA-MP</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplay2487.html?fid=37">Tutorials</a>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep_active --><!-- start: nav_bit_active -->
+<span class="active">How to Create Basic Commands</span>
+<!-- end: nav_bit_active --></span>
+</div>
+<script>
+var page = location.pathname;
+page = page.substring(1);
+if(page != 'index.php' && page != '') {
+     $('.navigation').css('display', '');
+}
+</script>
+<!-- end: nav -->
+				<br />
+<!-- end: header -->
+	
+	
+	<table border="0" cellspacing="0" style="border-bottom:none;" cellpadding="7" class="tborder tfixed clear">
+<div>
+			<div style="font-size: 20px; background: #F6F6F6; border:none; color:#2C3E50; " class="thead">
+				
+	<div class="float_right">
+		
+	</div>
+	<!-- start: showthread_ratethread -->
+<div class="star_rating_container">
+        <script type="text/javascript" src="jscripts/rating9348.js?ver=1400"></script>
+        <div id="success_rating_341" style="float: left; padding-top: 2px; padding-right: 10px;">&nbsp;</div>
+        <div class="inline_rating">
+
+<ul class="star_rating star_rating_notrated" id="rating_thread_341">
+<li style="width: 0%" class="current_rating" id="current_rating_341">0 Vote(s) - 0 Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread3838.html?tid=341&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreaddc49.html?tid=341&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread8024.html?tid=341&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread98d1.html?tid=341&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread540b.html?tid=341&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+        </div>
+</div>
+<!-- end: showthread_ratethread -->
+				<div>
+					<strong><i class="fa fa-comments"></i> How to Create Basic Commands</strong>
+				</div>
+			</div>
+</div>
+
+<tr><td id="posts_container">
+	<div id="posts">
+		<!-- start: postbit -->
+
+<a name="pid3327" id="pid3327"></a>
+<div class="post classic " id="post_3327">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member165f.html?action=profile&amp;uid=99"><span style="color: #3c71af;">DTV</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member165f.html?action=profile&amp;uid=99"><img src="uploads/avatars/avatar_99795f.html?dateline=1555179405" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				The dude<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">45</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">4</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation79b0.html?uid=99"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread1140.html?tid=341&amp;pid=3327#pid3327" title="How to Create Basic Commands">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-04-18, 01:50 AM <span class="post_edit" id="edited_by_3327"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-04-18, 06:45 PM by <a href="member165f.html?action=profile&amp;uid=99">DTV</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3327">
+		<span style="font-family: Verdana;" class="mycode_font"><span style="font-size: x-small;" class="mycode_size">Note: I'm by no means a professional at scripting but what I'm going to tell is what I've learned through the years. I'm going to explain it how I understand it so apologizes if how I describe something isn't correct. This also won't be using sampctl for obtaining the proper include/plugin files, I've simply haven't learned it yet so please don't haze me for not using it here.</span><br />
+</span><br />
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-family: Verdana;" class="mycode_font"><span style="color: #33ccff;" class="mycode_color"><span style="font-size: xx-large;" class="mycode_size">How to Create Basic Commands</span></span></span></div>
+<div style="text-align: center;" class="mycode_align"><span style="font-family: Verdana;" class="mycode_font">Last Updated: 17/04/19</span></div>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-family: Verdana;" class="mycode_font">This tutorial is aimed at beginners who have little experience with coding. It will go over what you'll need, how to create a command, what you can do within a command, etc. </span></div>
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font"><span style="color: #33ccff;" class="mycode_color"><span style="font-size: large;" class="mycode_size">I. Requirements</span></span></span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">- <a href="https://github.com/YashasSamaga/I-ZCMD" target="_blank" rel="noopener" class="mycode_url">Improved ZCMD</a></span><br />
+<span style="font-family: Verdana;" class="mycode_font">- <a href="https://github.com/maddinat0r/sscanf/releases" target="_blank" rel="noopener" class="mycode_url">sscanf</a></span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font"><span style="color: #33ccff;" class="mycode_color"><span style="font-size: large;" class="mycode_size">II. Getting started</span></span></span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">First thing you'll need to do is get your script ready. If you use the default IDE that comes with the SA-MP server package, you can press “New” and it will create this for you. However, the following will work as well:</span><br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include&nbsp;&lt;a_samp&gt;<br /><br /><br /></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnGameModeInit</span><span style="color: #007700">()<br />{<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}<br /><br /><br />public&nbsp;</span><span style="color: #0000BB">OnGameModeExit</span><span style="color: #007700">()<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">The first thing we'll need to do is add I-ZCMD and sscanf to our script so that we can access their functions. We do this by typing </span><span style="font-family: Courier New;" class="mycode_font">#include &lt;include_name_here&gt;</span><span style="font-family: Verdana;" class="mycode_font"> at the top of your script. It should look something like this:</span><br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include&nbsp;&lt;a_samp&gt;&nbsp;//any&nbsp;native&nbsp;samp&nbsp;includes&nbsp;should&nbsp;be&nbsp;above&nbsp;all&nbsp;user-made&nbsp;includes<br />#include&nbsp;&lt;izcmd&gt;<br />#include&nbsp;&lt;sscanf2&gt;&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">Now you should compile the script to make sure no errors occur. If done right, you should have no errors or warnings. Next step is creating the commands.</span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font"><span style="color: #33ccff;" class="mycode_color"><span style="font-size: large;" class="mycode_size">III. Creating a Command</span></span></span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">Creating a command in the early days of SA-MP required use of </span><span style="font-family: Courier New;" class="mycode_font"><span style="color: #3333ff;" class="mycode_color">public </span>OnPlayerCommandText(playerid, cmdtext[])</span><span style="font-family: Verdana;" class="mycode_font"> along with using strcmp and strtok to understand what commands were being typed and to gather command parameters that the player typed alongside the command. This is no longer used by most scripters as its been shown time and time again to be very inefficient compared to other command processors made today. We'll be using izcmd as our command processor as its (or the original zcmd) the one that most scripters use today. We create a command by doing the following:</span><br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">examplecmd</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">The example above is one of the common ways scripters will create a command, however izcmd allows you to create a command a few more ways such as:</span><br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">COMMAND</span><span style="color: #007700">:</span><span style="color: #0000BB">examplecmd</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">command</span><span style="color: #007700">(</span><span style="color: #0000BB">examplecmd</span><span style="color: #007700">,</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">cmd</span><span style="color: #007700">(</span><span style="color: #0000BB">examplecmd</span><span style="color: #007700">,</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">For the rest of the tutorial, we'll be using the first example. Commands can be placed anywhere in the script below the </span><span style="font-family: Courier New;" class="mycode_font">#include</span><span style="font-family: Verdana;" class="mycode_font"> lines. Now when a player types in /examplecmd, it won't do anything as there's no code to go along with it however the script will recognize it as a command. Let's made this command send out a simple message:</span><br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">examplecmd</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">“Hello&nbsp;world</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">I&nbsp;made&nbsp;a&nbsp;command</span><span style="color: #007700">!</span><span style="color: #0000BB">”</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//sends&nbsp;a&nbsp;message&nbsp;to&nbsp;the&nbsp;client&nbsp;(the&nbsp;player)<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">Now when a player types /examplecmd, it will show them the message “Hello world, I made a command!”. This is a very simple command however, so let's make it give the player full health and armour:</span><br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">examplecmd</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">“Hello&nbsp;world</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">I&nbsp;made&nbsp;a&nbsp;command</span><span style="color: #007700">!</span><span style="color: #0000BB">”</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//sends&nbsp;a&nbsp;message&nbsp;to&nbsp;the&nbsp;client&nbsp;(the&nbsp;player)<br /></span><span style="color: #0000BB"> &nbsp;  SetPlayerHealth</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100.0</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//sets&nbsp;the&nbsp;player's&nbsp;health&nbsp;value&nbsp;to&nbsp;100&nbsp;(full&nbsp;health)<br /></span><span style="color: #0000BB"> &nbsp;  SetPlayerArmour</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100.0</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//sets&nbsp;the&nbsp;player's&nbsp;armor&nbsp;value&nbsp;to&nbsp;100&nbsp;(full&nbsp;armour)<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">Now when the player types /examplecmd, it will set the player's health and armour values to 100 along with sending them a message. Now, making commands like this will work fine but what if a player needs to type in additional information that the command requires from the player?</span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font"><span style="color: #33ccff;" class="mycode_color"><span style="font-size: large;" class="mycode_size">IV: Dealing with parameters</span></span></span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">Parameters are what the player will type after the command so that the script can use them. Not all commands will require parameters but when they do, you'll need something to discern if the player's typed any parameters after the command, what those parameters are, how many there are, etc. This is what sscanf will help us do. Here's an example command where the player needs to type in a number to set their health to a specific value:</span><br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">sethealth</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  new&nbsp;Float</span><span style="color: #007700">:</span><span style="color: #0000BB">hp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//we&nbsp;declare&nbsp;a&nbsp;float&nbsp;variable&nbsp;that&nbsp;will&nbsp;hold&nbsp;the&nbsp;specific&nbsp;value&nbsp;typed&nbsp;by&nbsp;the&nbsp;player&nbsp;along&nbsp;with&nbsp;a&nbsp;string&nbsp;variable&nbsp;that'll&nbsp;be&nbsp;used&nbsp;to&nbsp;display&nbsp;a&nbsp;formatted&nbsp;message<br /></span><span style="color: #0000BB"> &nbsp;  if</span><span style="color: #007700">(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,</span><span style="color: #0000BB">”f”</span><span style="color: #007700">,</span><span style="color: #0000BB">hp</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//here,&nbsp;sscanf&nbsp;is&nbsp;used&nbsp;to&nbsp;tell&nbsp;the&nbsp;script&nbsp;the&nbsp;values&nbsp;it&nbsp;should&nbsp;expect&nbsp;from&nbsp;the&nbsp;player.&nbsp;In&nbsp;this&nbsp;case,&nbsp;its&nbsp;checking&nbsp;if&nbsp;anything&nbsp;besides&nbsp;the&nbsp;command&nbsp;name&nbsp;was&nbsp;typed&nbsp;or&nbsp;if&nbsp;the&nbsp;value&nbsp;provided&nbsp;will&nbsp;work&nbsp;(i.e.&nbsp;if&nbsp;a&nbsp;letter&nbsp;was&nbsp;typed&nbsp;in&nbsp;place&nbsp;of&nbsp;a&nbsp;number)<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp;   &nbsp;  return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">“Syntax</span><span style="color: #007700">:&nbsp;/</span><span style="color: #0000BB">sethealth&nbsp;</span><span style="color: #007700">[</span><span style="color: #0000BB">value</span><span style="color: #007700">]</span><span style="color: #0000BB">”</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//this&nbsp;is&nbsp;where&nbsp;you&nbsp;tell&nbsp;the&nbsp;player&nbsp;how&nbsp;to&nbsp;use&nbsp;the&nbsp;command&nbsp;properly<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp;  SetPlayerHealth</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">hp</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//assuming&nbsp;that&nbsp;sscanf&nbsp;found&nbsp;nothing&nbsp;wrong&nbsp;with&nbsp;the&nbsp;value&nbsp;the&nbsp;player&nbsp;provided,&nbsp;it&nbsp;will&nbsp;store&nbsp;that&nbsp;value&nbsp;in&nbsp;our&nbsp;`hp`&nbsp;variable,&nbsp;ready&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;our&nbsp;command&nbsp;here.<br /></span><span style="color: #0000BB"> &nbsp;  format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(string),</span><span style="color: #0000BB">”You&nbsp;have&nbsp;set&nbsp;your&nbsp;health&nbsp;value&nbsp;to&nbsp;</span><span style="color: #007700">%</span><span style="color: #0000BB">f</span><span style="color: #007700">.</span><span style="color: #0000BB">”</span><span style="color: #007700">,</span><span style="color: #0000BB">hp</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//format&nbsp;is&nbsp;used&nbsp;here&nbsp;to&nbsp;have&nbsp;the&nbsp;string&nbsp;variable&nbsp;store&nbsp;a&nbsp;message&nbsp;where&nbsp;the&nbsp;message&nbsp;needs&nbsp;additional&nbsp;information&nbsp;to&nbsp;finish,&nbsp;in&nbsp;this&nbsp;case&nbsp;the&nbsp;value&nbsp;the&nbsp;player&nbsp;typed&nbsp;in&nbsp;for&nbsp;the&nbsp;command<br /></span><span style="color: #0000BB"> &nbsp;  SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//instead&nbsp;of&nbsp;typing&nbsp;a&nbsp;message,&nbsp;we&nbsp;put&nbsp;our&nbsp;`string`&nbsp;variable&nbsp;in&nbsp;place&nbsp;as&nbsp;its&nbsp;already&nbsp;storing&nbsp;a&nbsp;message&nbsp;to&nbsp;be&nbsp;used<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">When the player types /sethealth, the script will see that no parameters have been typed in and will give a message to the player on how to use the command. The same will happen if the player was to type something like `/sethealth f` as its looking for a decimal number. Once the player types in a number, the script will see that and (assuming there's no other parameters to deal with) continue with the command with the information given by the player. If the player typed `/sethealth 100`, it will set their health to 100, if they typed `/sethealth 1`, it will set their health to 1 and so on.</span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font"><span style="color: #33ccff;" class="mycode_color"><span style="font-size: large;" class="mycode_size">V: Further Examples</span></span></span><br />
+<br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">For the final section, I'm going to leave a few basic commands that do various things to give an idea of how creating a command goes. If there's something I'm doing that I haven't covered earlier, it will be mentioned in the examples.</span><br />
+<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Verdana;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b">a.</span> /freezeplayer</span></span><br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">freezeplayer</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  new&nbsp;targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//name&nbsp;string&nbsp;is&nbsp;to&nbsp;store&nbsp;player's&nbsp;name,&nbsp;the&nbsp;+1&nbsp;is&nbsp;to&nbsp;account&nbsp;for&nbsp;null&nbsp;character<br /></span><span style="color: #0000BB"> &nbsp;  if</span><span style="color: #007700">(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,</span><span style="color: #0000BB">”r”</span><span style="color: #007700">,</span><span style="color: #0000BB">targetid</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//”r”&nbsp;specifier&nbsp;tells&nbsp;sscanf&nbsp;to&nbsp;look&nbsp;for&nbsp;a&nbsp;playerid.&nbsp;Some&nbsp;will&nbsp;tell&nbsp;you&nbsp;to&nbsp;use&nbsp;“u”&nbsp;but&nbsp;that&nbsp;looks&nbsp;for&nbsp;both&nbsp;players&nbsp;AND&nbsp;npcs,&nbsp;either&nbsp;way&nbsp;it&nbsp;will&nbsp;work&nbsp;but&nbsp;if&nbsp;you&nbsp;don't&nbsp;want&nbsp;npcs&nbsp;to&nbsp;be&nbsp;included,&nbsp;use&nbsp;“r”&nbsp;for&nbsp;playerid&nbsp;parameters<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp;   &nbsp;  return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">“Syntax</span><span style="color: #007700">:</span><span style="color: #0000BB"> </span><span style="color: #007700">/</span><span style="color: #0000BB">freezeplayer&nbsp;</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">/</span><span style="color: #0000BB">name</span><span style="color: #007700">]</span><span style="color: #0000BB">”</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp;  TogglePlayerControllable</span><span style="color: #007700">(</span><span style="color: #0000BB">targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//this&nbsp;function&nbsp;will&nbsp;toggle&nbsp;the&nbsp;player's&nbsp;ability&nbsp;to&nbsp;move,&nbsp;depending&nbsp;on&nbsp;whether&nbsp;its&nbsp;toggled&nbsp;true&nbsp;or&nbsp;false&nbsp;(1&nbsp;or&nbsp;0)<br /></span><span style="color: #0000BB"> &nbsp;  GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//this&nbsp;is&nbsp;used&nbsp;to&nbsp;get&nbsp;the&nbsp;player's&nbsp;name&nbsp;and&nbsp;store&nbsp;it&nbsp;in&nbsp;the&nbsp;`name`&nbsp;variable<br /></span><span style="color: #0000BB"> &nbsp;  format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(string),&nbsp;</span><span style="color: #0000BB">”You&nbsp;have&nbsp;frozen&nbsp;</span><span style="color: #007700">%</span><span style="color: #0000BB">s</span><span style="color: #007700">.</span><span style="color: #0000BB">”</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Verdana;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b">b.</span> /givedeagle</span></span><br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">givedeagle</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  new&nbsp;targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ammo</span><span style="color: #007700">,</span><span style="color: #0000BB">string</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">],</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp;  if</span><span style="color: #007700">(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,</span><span style="color: #0000BB">”rd”</span><span style="color: #007700">,</span><span style="color: #0000BB">targetid</span><span style="color: #007700">,</span><span style="color: #0000BB">ammo</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//the&nbsp;“d”&nbsp;specifier&nbsp;is&nbsp;meant&nbsp;for&nbsp;integers,&nbsp;you&nbsp;can&nbsp;use&nbsp;“i”&nbsp;in&nbsp;place&nbsp;of&nbsp;it&nbsp;as&nbsp;well<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp;   &nbsp;  return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">“Syntax</span><span style="color: #007700">:</span><span style="color: #0000BB"> </span><span style="color: #007700">/</span><span style="color: #0000BB">givedeagle&nbsp;</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">/</span><span style="color: #0000BB">name</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">ammo</span><span style="color: #007700">]</span><span style="color: #0000BB">”</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp;  GivePlayerWeapon</span><span style="color: #007700">(</span><span style="color: #0000BB">targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">WEAPON_DEAGLE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ammo</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//gives&nbsp;the&nbsp;targetid&nbsp;a&nbsp;desert&nbsp;eagle&nbsp;with&nbsp;the&nbsp;ammo&nbsp;the&nbsp;player&nbsp;specified&nbsp;(you&nbsp;can&nbsp;use&nbsp;24&nbsp;in&nbsp;place&nbsp;of&nbsp;WEAPON_DEAGLE&nbsp;and&nbsp;it&nbsp;will&nbsp;work&nbsp;the&nbsp;same).<br /></span><span style="color: #0000BB"> &nbsp;  GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"> &nbsp;  format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(string),&nbsp;</span><span style="color: #0000BB">“You&nbsp;have&nbsp;given&nbsp;</span><span style="color: #007700">%</span><span style="color: #0000BB">s&nbsp;a&nbsp;Desert&nbsp;Eagle&nbsp;with&nbsp;</span><span style="color: #007700">%</span><span style="color: #0000BB">d&nbsp;ammo</span><span style="color: #007700">.</span><span style="color: #0000BB">”</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ammo</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Verdana;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b">c.</span> /setserverhour</span></span><br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">setserverhour</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  new&nbsp;hour</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp;  if</span><span style="color: #007700">(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,</span><span style="color: #0000BB">”d”</span><span style="color: #007700">,</span><span style="color: #0000BB">hour</span><span style="color: #007700">))&nbsp;<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp;   &nbsp;  return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">“Syntax</span><span style="color: #007700">:</span><span style="color: #0000BB"> </span><span style="color: #007700">/</span><span style="color: #0000BB">setserverhour&nbsp;</span><span style="color: #007700">[</span><span style="color: #0000BB">hour</span><span style="color: #007700">]</span><span style="color: #0000BB">”</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp;  if</span><span style="color: #007700">(</span><span style="color: #0000BB">hour&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">hour&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">23</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//checking&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;hour&nbsp;inputted&nbsp;is&nbsp;either&nbsp;below&nbsp;0&nbsp;or&nbsp;above&nbsp;23<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp;   &nbsp;  return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">“You&nbsp;can&nbsp;only&nbsp;set&nbsp;the&nbsp;server&nbsp;hour&nbsp;between&nbsp;0&nbsp;to&nbsp;23.”</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp;  SetWorldTime</span><span style="color: #007700">(</span><span style="color: #0000BB">hour</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//this&nbsp;is&nbsp;used&nbsp;to&nbsp;set&nbsp;the&nbsp;server's&nbsp;time&nbsp;and&nbsp;thus&nbsp;whether&nbsp;its&nbsp;day&nbsp;or&nbsp;night,&nbsp;it&nbsp;only&nbsp;accepts&nbsp;an&nbsp;hour&nbsp;parameter<br /></span><span style="color: #0000BB"> &nbsp;  format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(string),&nbsp;</span><span style="color: #0000BB">“You&nbsp;have&nbsp;set&nbsp;the&nbsp;server&nbsp;hour&nbsp;to&nbsp;</span><span style="color: #007700">%</span><span style="color: #0000BB">d</span><span style="color: #007700">.</span><span style="color: #0000BB">”</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">hour</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-family: Verdana;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b">d.</span> /setmoney</span></span><br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">setmoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp;  new&nbsp;amount</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp;  if</span><span style="color: #007700">(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,</span><span style="color: #0000BB">”d”</span><span style="color: #007700">,</span><span style="color: #0000BB">amount</span><span style="color: #007700">))<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp;   &nbsp;  return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">“Syntax</span><span style="color: #007700">:</span><span style="color: #0000BB"> </span><span style="color: #007700">/</span><span style="color: #0000BB">setmoney&nbsp;</span><span style="color: #007700">[</span><span style="color: #0000BB">amount</span><span style="color: #007700">]</span><span style="color: #0000BB">”</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp;  ResetPlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//resets&nbsp;any&nbsp;money&nbsp;the&nbsp;player&nbsp;has&nbsp;to&nbsp;0<br /></span><span style="color: #0000BB"> &nbsp;  GivePlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">amount</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//gives&nbsp;the&nbsp;player&nbsp;the&nbsp;amount&nbsp;of&nbsp;money&nbsp;they&nbsp;specify<br /></span><span style="color: #0000BB"> &nbsp;  format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(string),&nbsp;</span><span style="color: #0000BB">“You&nbsp;have&nbsp;set&nbsp;your&nbsp;money&nbsp;to&nbsp;</span><span style="color: #007700">&#36;%</span><span style="color: #0000BB">d</span><span style="color: #007700">.</span><span style="color: #0000BB">”</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">amount</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<span style="font-family: Verdana;" class="mycode_font">This concludes the tutorial. I've never really written anything like this so feedback is appreciated, I hope one of you learns something from this!</span>
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><span style="color: #66cccc;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="font-family: Trebuchet MS;" class="mycode_font">Stoned Ape</span></span></span></div>
+
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_3327">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search042f.html?action=finduser&amp;uid=99" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplye736-2.html?tid=341&amp;replyto=3327" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid3366" id="pid3366"></a>
+<div class="post classic " id="post_3366">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member1768.html?action=profile&amp;uid=315"><span style="color: #3c71af;">Gravityfalls</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member1768.html?action=profile&amp;uid=315"><img src="uploads/avatars/avatar_315b553.html?dateline=1556475498" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">105</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">7</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0825.html?uid=315"><strong class="reputation_positive">2</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread72bc.html?tid=341&amp;pid=3366#pid3366" title="RE: How to Create Basic Commands">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-04-18, 08:05 AM <span class="post_edit" id="edited_by_3366"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-04-18, 08:08 AM by <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3366">
+		The code looks worse the way you write it because you use brackets just for a single "return" statement and leave absolutely no spacing in between.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">freezeplayer</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYER_NAME</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//name&nbsp;string&nbsp;is&nbsp;to&nbsp;store&nbsp;player's&nbsp;name,&nbsp;the&nbsp;+1&nbsp;is&nbsp;to&nbsp;account&nbsp;for&nbsp;null&nbsp;character<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"r"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">targetid</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//”r”&nbsp;specifier&nbsp;tells&nbsp;sscanf&nbsp;to&nbsp;look&nbsp;for&nbsp;a&nbsp;playerid.&nbsp;Some&nbsp;will&nbsp;tell&nbsp;you&nbsp;to&nbsp;use&nbsp;“u”&nbsp;but&nbsp;that&nbsp;looks&nbsp;for&nbsp;both&nbsp;players&nbsp;AND&nbsp;npcs,&nbsp;either&nbsp;way&nbsp;it&nbsp;will&nbsp;work&nbsp;but&nbsp;if&nbsp;you&nbsp;don't&nbsp;want&nbsp;npcs&nbsp;to&nbsp;be&nbsp;included,&nbsp;use&nbsp;“r”&nbsp;for&nbsp;playerid&nbsp;parameters<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF0000FF</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Syntax:&nbsp;{FFFFFF}/freezeplayer&nbsp;[playerid/name]"</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">targetid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF0000FF</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Error:&nbsp;{FFFFFF}The&nbsp;specified&nbsp;player&nbsp;is&nbsp;not&nbsp;connected&nbsp;or&nbsp;is&nbsp;a&nbsp;NPC."</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof&nbsp;name</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//this&nbsp;is&nbsp;used&nbsp;to&nbsp;get&nbsp;the&nbsp;player's&nbsp;name&nbsp;and&nbsp;store&nbsp;it&nbsp;in&nbsp;the&nbsp;`name`&nbsp;variable<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof&nbsp;string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You've&nbsp;frozen&nbsp;%s."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF0000FF</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">TogglePlayerControllable</span><span style="color: #007700">(</span><span style="color: #0000BB">targetid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//this&nbsp;function&nbsp;will&nbsp;toggle&nbsp;the&nbsp;player's&nbsp;ability&nbsp;to&nbsp;move,&nbsp;depending&nbsp;on&nbsp;whether&nbsp;its&nbsp;toggled&nbsp;true&nbsp;or&nbsp;false&nbsp;(1&nbsp;or&nbsp;0)<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3366">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search3e80.html?action=finduser&amp;uid=315" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply519b-2.html?tid=341&amp;replyto=3366" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid3464" id="pid3464"></a>
+<div class="post classic " id="post_3464">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member4c0d.html?action=profile&amp;uid=16"><span style="color: #3c71af;">kristo</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member4c0d.html?action=profile&amp;uid=16"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">47</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">10</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa59e.html?uid=16"><strong class="reputation_positive">7</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Estonia</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread0a59.html?tid=341&amp;pid=3464#pid3464" title="RE: How to Create Basic Commands">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-04-18, 12:56 PM <span class="post_edit" id="edited_by_3464"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-04-18, 01:09 PM by <a href="member4c0d.html?action=profile&amp;uid=16">kristo</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3464">
+		<blockquote class="mycode_quote"><cite><span> (2019-04-18, 08:05 AM)</span>Alaska Wrote:  <a href="showthread5c6e-2.html?pid=3366#pid3366" class="quick_jump"></a></cite>The code looks worse the way you write it because you use brackets just for a single "return" statement and leave absolutely no spacing in between.</blockquote><br />
+From a post I wrote a while back:<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Not using braces around single line statements is a bad habit that can make your code more prone to human errors. You might be interested in reading about <a href="https://embeddedgurus.com/barr-code/2014/03/apples-gotofail-ssl-security-bug-was-easily-preventable/" target="_blank" rel="noopener" class="mycode_url">Apple's gotofail bug</a>. The <a href="https://github.com/TradeWars/gamemode/blob/master/docs/Style-Guide.md" target="_blank" rel="noopener" class="mycode_url">PAWN style guide</a> by Southclaws states the following: <br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Blocks must always use braces, even if only a single line of code exists within a block. This applies to all levels including functions.</blockquote>
+<br />
+This style guide is indeed unofficial, but is approved by many reputable scripters in these forums and is the closest what we have to generally accepted and/or official code standards at the moment. It is based on years worth of knowledge in other programming languages, as well as their standards. Barr Group's Embedded C Coding Standard book, which can still be a good reference here due to PAWN being a language with a C-like syntax, states pretty much the same as the PAWN style guide:<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Braces shall always surround the blocks of code (a.k.a., compound statements), following if, else, switch, while, do, and for statements; single statements and empty statements following these keywords shall also always be surrounded by braces.</blockquote></blockquote>
+<br />
+However you are correct about having no spacing, I'm a sucker for whitespace myself. The tutorial itself... tl;dr for now, but it seems okay at the first glance. You might want to use [php] tags instead of [code] tags and use <span style="font-family: Courier New;" class="mycode_font">Courier New</span> font for inline code instead of surrounding them with backticks (``) though.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3464">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search64c3.html?action=finduser&amp;uid=16" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyc900.html?tid=341&amp;replyto=3464" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid3554" id="pid3554"></a>
+<div class="post classic " id="post_3554">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member165f.html?action=profile&amp;uid=99"><span style="color: #3c71af;">DTV</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member165f.html?action=profile&amp;uid=99"><img src="uploads/avatars/avatar_99795f.html?dateline=1555179405" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				The dude<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">45</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">4</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation79b0.html?uid=99"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadae30.html?tid=341&amp;pid=3554#pid3554" title="RE: How to Create Basic Commands">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-04-18, 06:49 PM <span class="post_edit" id="edited_by_3554"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3554">
+		I updated the thread, thanks for the feedback :)
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><span style="color: #66cccc;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="font-family: Trebuchet MS;" class="mycode_font">Stoned Ape</span></span></span></div>
+
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_3554">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search042f.html?action=finduser&amp;uid=99" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply17e6.html?tid=341&amp;replyto=3554" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit -->
+	</div>
+</td></tr>
+		<tr>
+			<td class="tfoot">
+				<!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://www.burgershot.gg/search.php" method="post">
+			<input type="hidden" name="action" value="thread" />
+			<input type="hidden" name="tid" value="341" />
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == 'Enter Keywords') { this.value = ''; }" onblur="if(this.value=='') { this.value='Enter Keywords'; }" class="textbox" size="25" />
+			<input type="submit" class="button" value="Search Thread" />
+		</form>
+	</div>
+<!-- end: showthread_search -->
+				<div style="padding:10px">
+					<strong>&laquo; <a href="showthreadd379.html?tid=341&amp;action=nextoldest">Next Oldest</a> | <a href="showthread9d40.html?tid=341&amp;action=nextnewest">Next Newest</a> &raquo;</strong><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="float_left"><br>
+		
+	</div>
+	<br class="clear" />
+	
+	
+	
+	<br />
+	<div class="float_left">
+		<ul class="thread_tools">
+			<li class="printable"><a href="printthreadbeab.html?tid=341">View a Printable Version</a></li>
+			
+			<li class="subscription_add"><a href="usercpa313.html?action=addsubscription&amp;tid=341&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e">Subscribe to this thread</a></li>
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://www.burgershot.gg/forumdisplay.php" method="get">
+<span class="smalltext"><strong>Forum Jump:</strong></span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="19" > General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20" >-- Chat</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21" >-- Tech</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22" >-- Life</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="48" >-- Art</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56" >-- Programming</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40" > open.mp</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="43" >-- Development Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="42" >-- Questions and Suggestions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="3" > SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6" >-- General Discussions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9" >-- Videos and Screenshots</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12" >-- Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="10" >-- Pawn Scripting</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="37" selected="selected">-- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13" >-- Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32" >---- Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31" >---- Libraries</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30" >---- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33" >---- Gamemodes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="67" >---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="69" >-- Advertisements </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23" > Other languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="24" >-- Spanish/Español</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="51" >---- Programación</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="52" >---- Discusión GTA SA Multijugador</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="53" >---- Mods</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="54" >---- Offtopic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="55" >---- Juegos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="25" >-- Portuguese/Português</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="26" >-- Russian/Русский</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="28" >-- Italian/Italiano</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29" >-- Dutch/Nederlands</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34" >-- German/Deutsch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="35" >-- Romanian/Română</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="36" >-- Ex-Yu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="38" >-- Polish/Polski</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="44" >---- Ogólne</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="45" >---- Serwery</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="46" >---- Skryptowanie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="47" >---- Filmiki i zdjęcia</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="39" >-- Lithuanian/Lietuviškas</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="49" >-- French/Français</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="50" >-- Hungarian/Magyar</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="57" >-- Hindi/Urdu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="68" >-- Turkish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="27" >-- Other</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear" />
+	<!-- start: footer -->
+    </div>
+</div>
+<footer class="footer-distributed">
+	<div class="footer-left">
+		<p style="" class="footer-links">
+			© Burgershot - Powered by our <a href="index.html" style="font-weight: bold; font-family: Noto Sans;">Community</a> and <a style="font-weight: bold; font-family: Noto Sans;" href="https://www.mybb.com/"> MyBB</a>
+            <span style="display:block;color: #9f9f9f;font-family: Noto Sans;"><small style="font-size: 12px;">Original Theme by Emerald</small></span>                                     
+	    </p>
+	</div>
+    <div style="" class="footer-right">
+        <div class="footer-icons">
+		</div>
+                
+		<!-- start: footer_themeselect -->
+<div class="theme">
+<form method="POST" action="https://www.burgershot.gg/showthread.php" id="theme_select">
+	<input type="hidden" name="mode" value="linear" />
+<input type="hidden" name="tid" value="341" />
+<input type="hidden" name="pid" value="3554" />
+
+	<input type="hidden" name="my_post_key" value="6428f000919b5d9a18f82d476f6b077e" />
+	<!-- start: footer_themeselector -->
+<select name="theme" onchange="MyBB.changeTheme();">
+<optgroup label="Quick Theme Select">
+<!-- start: usercp_themeselector_option -->
+<option value="2">MyBB Default Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="3">Burgershot Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="9">--Light</option>
+<!-- end: usercp_themeselector_option -->
+</optgroup>
+</select>
+<!-- end: footer_themeselector -->
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_themeselect -->
+	</div>
+</footer>
+<script>
+	if (connected == 0) { 
+        jQuery("#mobile_member").html("<a href='member456e.html?action=login'>Login</a> - <a href='member0ddc.html?action=register'>Register</a>"); 
+    }
+	if (connected == 1) { 
+        document.getElementById("mobile_member").innerHTML = '<a title="Inbox" href="private.html">Inbox</a> - <a title="User CP" href="usercp.html">User CP</a> - <a title="Log Out" href="member2385.html?action=logout&amp;logoutkey=">Logout</a>'; 
+    }
+</script>
+<!-- end: footer -->
+	<div id="thread_modes_popup" class="popup_menu" style="display: none;"><div class="popup_item_container"><a href="showthreadae9a.html?mode=linear&amp;tid=341&amp;pid=3554#pid3554" class="popup_item">Linear Mode</a></div><div class="popup_item_container"><a href="showthreadaee7.html?mode=threaded&amp;tid=341&amp;pid=3554#pid3554" class="popup_item">Threaded Mode</a></div></div>
+	<script type="text/javascript">
+	// <!--
+		if(use_xmlhttprequest == "1")
+		{
+			$("#thread_modes").popupMenu();
+		}
+	// -->
+	</script>
+	<script type="text/javascript">
+		$(".author_avatar img").error(function () {
+			$(this).unbind("error").closest('.author_avatar').remove();
+		});
+	</script>
+</body>
+</html>
+<!-- end: showthread -->

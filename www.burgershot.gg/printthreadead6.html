@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Post your code snippets here - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadead6.html?tid=218">Post your code snippets here</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Post your code snippets here (<em>/showthread.php?tid=218</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Post your code snippets here</strong> - <a href="member165f.html?action=profile&amp;uid=99">DTV</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+I remember seeing a thread like this on SA-MP forums so it'd be nice to share with each other little tricks to making our lives easier with pawn, I'll start:<br />
+<br />
+Actually don't know what this is formally called, but you can use it to skip parts of code when needed (good in a situation where the ending part of code is always the same but you don't need to copy/paste that code in every if/switch statement)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>someFunc(params) {<br />
+<br />
+    if(params) {<br />
+<br />
+        SendClientMessage(playerid,-1,"Not skipped!");<br />
+        return 1;<br />
+    }<br />
+<br />
+    else { goto skipBlock; } //this is how you'd call for the code to skip to `skipBlock`<br />
+<br />
+    skipBlock: //this is how you'd create it<br />
+<br />
+    SendClientMessage(playerid,-1,"Skipped!");<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+I believe I've read somewhere that go-to statements (loops?) are actually slower. Not sure but I'll let others comment about that.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="memberebec.html?action=profile&amp;uid=155">iSpark</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+I'd rather use function than a go-to
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member165f.html?action=profile&amp;uid=99">DTV</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+I didn't post it to say "this is faster than blah blah", its there because others might not know about it and maybe could get a use out of it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="membercae1.html?action=profile&amp;uid=208">BlackBank</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+I prefer more a while loop, then the go-to way. Since you can also achieve this in a while loop.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member847a.html?action=profile&amp;uid=64">Codeah</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new vehicleComponentPrices[] =<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;400, 550, 200, 250, 100, 150, 80, 500, 500, 200, 1000, 220, 250, 100, 400, 500,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;200, 500, 350, 300, 250, 200, 150, 350, 50, 1000, 480, 480, 770, 680, 370, 370,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;170, 120, 790, 150, 500, 690, 190, 390, 500, 390, 1000, 500, 500, 510, 710, 670,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;530, 810, 620, 670, 530, 130, 210, 230, 520, 430, 620, 720, 530, 180, 550, 430,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;830, 850, 750, 250, 200, 550, 450, 550, 450, 1100, 1030, 980, 1560, 1620, 1200,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1030, 900, 1230, 820, 1560, 1350, 770, 100, 1500, 150, 650, 450, 100, 750, 350,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;450, 350, 1000, 620, 1140, 1000, 940, 780, 830, 3250, 1610, 1540, 780, 780, 780,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1610, 1540, 0, 0, 3340, 3250, 2130, 2050, 2040, 780, 940, 780, 940, 780, 860, 780,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1120, 3340, 3250, 3340, 1650, 3380, 3290, 1590, 830, 800, 1500, 1000, 800, 580, 470,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;870, 980, 150, 150, 100, 100, 490, 600, 890, 1000, 1090, 840, 910, 1200, 1030, 1030,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;920, 930, 550, 1050, 1050, 950, 650, 450, 550, 850, 950, 850, 950, 970, 880, 990,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;900, 950, 1000, 900, 1000, 900, 2050, 2150, 2130, 2050, 2130, 2040, 2150, 2040, 2095,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2175, 2080, 2200, 1200, 1040, 940, 1100<br />
+};<br />
+<br />
+stock GetVehicleComponentCost(componentid)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return vehicleComponentPrices[componentid - 1000];<br />
+}</code></div></div><br />
+I remember spending many hours manually getting all of these component prices. <br />
+https://gist.github.com/thecodeah/354a67c603bdd8eb6956aeadaa947591
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member7b6b.html?action=profile&amp;uid=65">Riddick</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+Animations data:<br />
+<ul class="mycode_list"><li>Library<br />
+</li>
+<li>Name<br />
+</li>
+<li><span style="font-weight: bold;" class="mycode_b">Index</span><br />
+</li>
+</ul>
+I find that really useful to determine if player uses specific animation with <a href="https://wiki.sa-mp.com/wiki/GetPlayerAnimationIndex" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">GetPlayerAnimationIndex</span></a> function (better than using string comparison for animation names).<br />
+Additionally useful for <a href="https://github.com/ziggi/FCNPC/wiki/Natives#animations" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">FCNPC_SetAnimation</span></a> function from FCNPC (which requires animation index).<br />
+<br />
+Data:<br />
+https://pastebin.com/raw/eqrJX5KD
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-14, 11:04 PM)</span>DTV Wrote:  <a href="showthread312d.html?pid=1882#pid1882" class="quick_jump"></a></cite>I remember seeing a thread like this on SA-MP forums so it'd be nice to share with each other little tricks to making our lives easier with pawn, I'll start:<br />
+<br />
+Actually don't know what this is formally called, but you can use it to skip parts of code when needed (good in a situation where the ending part of code is always the same but you don't need to copy/paste that code in every if/switch statement)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>someFunc(params) {<br />
+<br />
+    if(params) {<br />
+<br />
+        SendClientMessage(playerid,-1,"Not skipped!");<br />
+        return 1;<br />
+    }<br />
+<br />
+    else { goto skipBlock; } //this is how you'd call for the code to skip to `skipBlock`<br />
+<br />
+    skipBlock: //this is how you'd create it<br />
+<br />
+    SendClientMessage(playerid,-1,"Skipped!");<br />
+    return 1;<br />
+}</code></div></div></blockquote><br />
+I'm not quite sure why this is trying to do.  It would be exactly the same without the majority of this code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>someFunc(params) {<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if(params) {<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessage(playerid,-1,"Not skipped!");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessage(playerid,-1,"Skipped!");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div><br />
+The "return" ends the function early, so only code that passes your first check prints "Skipped".
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member6323.html?action=profile&amp;uid=193">KJason</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+a function i use to return the current time like: 2019-04-16 16:13:28<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">ReturnTime</span><span style="color: #007700">(</span><span style="color: #0000BB">dest</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">max_len&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">dest</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB"> &nbsp;  new&nbsp;get</span><span style="color: #007700">[</span><span style="color: #0000BB">6</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;getdate</span><span style="color: #007700">(</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;gettime</span><span style="color: #007700">(</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">4</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">5</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;format</span><span style="color: #007700">(</span><span style="color: #0000BB">dest</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">max_len</span><span style="color: #007700">,</span><span style="color: #DD0000">"%d-%02d-%02d&nbsp;%02d:%02d:%02d"</span><span style="color: #007700">,</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">4</span><span style="color: #007700">],</span><span style="color: #0000BB">get</span><span style="color: #007700">[</span><span style="color: #0000BB">5</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member4c0d.html?action=profile&amp;uid=16">kristo</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+Something I wrote for TommyB for getting the world positions of vehicle components. Does not take X and Y rotations into account.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;GetVehiclePartAbsolutePos</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">partX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">partY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">partZ</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">z</span><span style="color: #007700">)&nbsp;{<br />&nbsp;</span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(!</span><span style="color: #0000BB">IsValidVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">))&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; return&nbsp;0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;Float</span><span style="color: #007700">:</span><span style="color: #0000BB">a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; GetVehiclePos</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; GetVehicleZAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; x&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">partX&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">floatcos</span><span style="color: #007700">(</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">degrees</span><span style="color: #007700">)&nbsp;+&nbsp;</span><span style="color: #0000BB">partY&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">floatsin</span><span style="color: #007700">(-</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">degrees</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; y&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">partX&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">floatsin</span><span style="color: #007700">(</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">degrees</span><span style="color: #007700">)&nbsp;+&nbsp;</span><span style="color: #0000BB">paryY&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">floatcos</span><span style="color: #007700">(-</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">degrees</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; z&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">partZ</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;1</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;boot:<br /></span><span style="color: #0000BB">GetVehicleModelInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">GetVehicleModel</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">VEHICLE_MODEL_INFO_SIZE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">GetVehiclePartAbsolutePos</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">y&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">2.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;bonnet:<br /></span><span style="color: #0000BB">GetVehicleModelInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">GetVehicleModel</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">VEHICLE_MODEL_INFO_SIZE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">GetVehiclePartAbsolutePos</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">2.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;front&nbsp;right&nbsp;tire:<br /></span><span style="color: #0000BB">GetVehicleModelInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">GetVehicleModel</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">VEHICLE_MODEL_INFO_WHEELSFRONT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">GetVehiclePartAbsolutePos</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;front&nbsp;left&nbsp;tire:<br /></span><span style="color: #0000BB">GetVehicleModelInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">GetVehicleModel</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">VEHICLE_MODEL_INFO_WHEELSFRONT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">GetVehiclePartAbsolutePos</span><span style="color: #007700">(</span><span style="color: #0000BB">vehicleid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member165f.html?action=profile&amp;uid=99">DTV</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-16, 11:23 AM)</span>Y_Less Wrote:  <a href="showthread0232.html?pid=2736#pid2736" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-04-14, 11:04 PM)</span>DTV Wrote:  <a href="showthread312d.html?pid=1882#pid1882" class="quick_jump"></a></cite>I remember seeing a thread like this on SA-MP forums so it'd be nice to share with each other little tricks to making our lives easier with pawn, I'll start:<br />
+<br />
+Actually don't know what this is formally called, but you can use it to skip parts of code when needed (good in a situation where the ending part of code is always the same but you don't need to copy/paste that code in every if/switch statement)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>-snip-</code></div></div></blockquote><br />
+I'm not quite sure why this is trying to do.  It would be exactly the same without the majority of this code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>-snip-</code></div></div><br />
+The "return" ends the function early, so only code that passes your first check prints "Skipped".</blockquote><br />
+I couldn't come up with a better example off the top of my head without pulling out code that I can't show to everyone here.  The code I made wouldn't (hopefully) be a real life example of how you'd use but it was just to show "this is how you create it, this is how you use it, etc." rather than "this is a example of how you'd use it practically".
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="memberfad1.html?action=profile&amp;uid=653">Mike</a> -  <strong>2019-04-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-14, 11:04 PM)</span>DTV Wrote:  <a href="showthread312d.html?pid=1882#pid1882" class="quick_jump"></a></cite>snip</blockquote><br />
+https://en.wikipedia.org/wiki/Spaghetti_code
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member165f.html?action=profile&amp;uid=99">DTV</a> -  <strong>2019-04-29</strong>
+<br />
+<br />
+Simple snippet that will make a M4 leave an explosion wherever its last shot lands:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerWeaponShot</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">weaponid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">hittype</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">hitid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">fX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">fY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">fZ</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp;  if</span><span style="color: #007700">(</span><span style="color: #0000BB">weaponid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">WEAPON_M4</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;  new&nbsp;Float</span><span style="color: #007700">:</span><span style="color: #0000BB">dummy_float</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">fHitPosX</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">fHitPosY</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">fHitPosZ</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;  GetPlayerLastShotVectors</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">dummy_float</span><span style="color: #007700">,</span><span style="color: #0000BB">dummy_float</span><span style="color: #007700">,</span><span style="color: #0000BB">dummy_float</span><span style="color: #007700">,</span><span style="color: #0000BB">fHitPosX</span><span style="color: #007700">,</span><span style="color: #0000BB">fHitPosY</span><span style="color: #007700">,</span><span style="color: #0000BB">fHitPosZ</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;  CreateExplosion</span><span style="color: #007700">(</span><span style="color: #0000BB">fHitPosX</span><span style="color: #007700">,</span><span style="color: #0000BB">fHitPosY</span><span style="color: #007700">,</span><span style="color: #0000BB">fHitPosZ</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">10.0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;  </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="member165f.html?action=profile&amp;uid=99">DTV</a> -  <strong>2020-01-03</strong>
+<br />
+<br />
+Simple way to do basic chance based outcomes:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if(!</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//50%<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//25%<br /></span><span style="color: #007700">if(</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//75%<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//10%<br /></span><span style="color: #007700">if(</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//90%<br />//etc&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2020-10-18</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-01-03, 06:33 PM)</span>DTV Wrote:  <a href="showthread060c.html?pid=7148#pid7148" class="quick_jump"></a></cite>Simple way to do basic chance based outcomes:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if(!</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//50%<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//25%<br /></span><span style="color: #007700">if(</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//75%<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//10%<br /></span><span style="color: #007700">if(</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//90%<br />//etc&nbsp;<br /></span></code></div></div></div></blockquote><br />
+These are pretty nice!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="memberd5c4.html?action=profile&amp;uid=2846">Grate Maharlika</a> -  <strong>2020-10-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-16, 11:23 AM)</span>Y_Less Wrote:  <a href="showthread0232.html?pid=2736#pid2736" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-04-14, 11:04 PM)</span>DTV Wrote:  <a href="showthread312d.html?pid=1882#pid1882" class="quick_jump"></a></cite>I remember seeing a thread like this on SA-MP forums so it'd be nice to share with each other little tricks to making our lives easier with pawn, I'll start:<br />
+<br />
+Actually don't know what this is formally called, but you can use it to skip parts of code when needed (good in a situation where the ending part of code is always the same but you don't need to copy/paste that code in every if/switch statement)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>someFunc(params) {<br />
+<br />
+    if(params) {<br />
+<br />
+        SendClientMessage(playerid,-1,"Not skipped!");<br />
+        return 1;<br />
+    }<br />
+<br />
+    else { goto skipBlock; } //this is how you'd call for the code to skip to `skipBlock`<br />
+<br />
+    skipBlock: //this is how you'd create it<br />
+<br />
+    SendClientMessage(playerid,-1,"Skipped!");<br />
+    return 1;<br />
+}</code></div></div></blockquote><br />
+I'm not quite sure why this is trying to do.  It would be exactly the same without the majority of this code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>someFunc(params) {<br />
+<br />
+    if(params) {<br />
+<br />
+        SendClientMessage(playerid,-1,"Not skipped!");<br />
+        return 1;<br />
+    }<br />
+<br />
+    SendClientMessage(playerid,-1,"Skipped!");<br />
+    return 1;<br />
+}</code></div></div><br />
+The "return" ends the function early, so only code that passes your first check prints "Skipped".</blockquote><br />
+removed
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+As far as i can remember use of goto is considered to be a bad practise, because it can lead to "spaghetti" code.<br />
+<br />
+One useful way to use it is to get out of nested loops.<br />
+<br />
+Also it's naming convention is Ex: skip_loop_block. ? ( with _     after_each_word )<br />
+<br />
+<br />
+I'm not sure if that is correct, i never had a need to use it or learn how to use it so...<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new sometext[ 10 ][ 20 ][ 128 ];<br />
+// ...<br />
+public OnGameModeInit( playerid )<br />
+{<br />
+// ...<br />
+<br />
+    format( sometext[ 1 ][ 2 ], 63, "Print this one" );<br />
+    format( sometext[ 2 ][ 4 ], 63, "Print this one too." );<br />
+    format( sometext[ 3 ][ 8 ], 63, "Print, print, print!" );<br />
+    format( sometext[ 4 ][ 16 ], 63, "End nested loop NOW!" );<br />
+    format( sometext[ 5 ][ 19 ], 63, "This one will not be printed!" );<br />
+<br />
+for( new i; i &lt; 10; i++ )<br />
+{<br />
+for( new j; j &lt; 20; j++ )<br />
+{<br />
+    if( !isnull( sometext[ i ][ j ] ) )<br />
+    {<br />
+    if( strcmp( "End nested loop NOW!", sometext[ i ][ j ], false ) == 0 )<br />
+    {<br />
+    goto skip_loop_block; // we don't have to break; 2 loops now!<br />
+    }<br />
+    else printf( "%s", sometext[ i ][ j ] );<br />
+    }<br />
+}<br />
+}<br />
+<br />
+printf( "This one will not be printed if we use goto!" );<br />
+<br />
+skip_loop_block:<br />
+<br />
+print( "Done" );<br />
+<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-02-26</strong>
+<br />
+<br />
+SetPlayerFacePlayer function. Function was not created by me. I think it was created by a mad german scientist whose name I can't remember.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SetPlayerFacePlayer(playerid, faceplayerid)<br />
+{<br />
+    new Float:x1, Float:y1, Float: a1;<br />
+    GetPlayerPos(playerid, x1, y1, a1);<br />
+    new Float:fpX, Float:fpY, Float: fpZ;<br />
+    GetPlayerPos(faceplayerid, fpX, fpY, fpZ);<br />
+    a1 = floatabs(atan((fpY-y1)/(fpX-x1)));<br />
+    if(fpX &lt;= x1 &amp;&amp; fpY &gt;= y1) a1 = floatsub(180, a1);<br />
+    else if(fpX &lt; x1 &amp;&amp; fpY &lt; y1) a1 = floatadd(a1, 180);<br />
+    else if(fpX &gt;= x1 &amp;&amp; fpY &lt;= y1) a1 = floatsub(360.0, a1);<br />
+    a1 = floatsub(a1, 90.0);<br />
+    if(a1 &gt;= 360.0) a1 = floatsub(a1, 360.0);<br />
+    if(!IsPlayerInAnyVehicle(playerid)) SetPlayerFacingAngle(playerid, a1);<br />
+    else SetVehicleZAngle(GetPlayerVehicleID(playerid), a1);<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Post your code snippets here</strong> - <a href="memberbf62.html?action=profile&amp;uid=1608">Tama</a> -  <strong>2021-10-27</strong>
+<br />
+<br />
+IsValidRoleplayName without regex.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;IsValidRoleplayName</span><span style="color: #007700">(const&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">short_name_len&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;len&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">),<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;underscore_pos&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strfind</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"_"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;The&nbsp;name&nbsp;is&nbsp;empty<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">isnull</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;Underscore&nbsp;not&nbsp;found<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">underscore_pos&nbsp;</span><span style="color: #007700">==&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;<br /> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;Firstname&nbsp;and&nbsp;lastname&nbsp;is&nbsp;not&nbsp;capital<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">#define&nbsp;isupper(%0)&nbsp;(%0&nbsp;!=&nbsp;(%0&nbsp;|&nbsp;0x20))<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">isupper</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">])&nbsp;||&nbsp;!</span><span style="color: #0000BB">isupper</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">underscore_pos&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">]))&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;Firstname&nbsp;is&nbsp;too&nbsp;short<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">underscore_pos&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">short_name_len</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;Lastname&nbsp;is&nbsp;too&nbsp;short<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(((</span><span style="color: #0000BB">len&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">underscore_pos</span><span style="color: #007700">)&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">short_name_len</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;Invalid&nbsp;characters<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">for&nbsp;(new&nbsp;</span><span style="color: #0000BB">i</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #0000BB">len</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">++)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">i</span><span style="color: #007700">])&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">case&nbsp;</span><span style="color: #DD0000">'A'</span><span style="color: #007700">..</span><span style="color: #DD0000">'Z'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">..</span><span style="color: #DD0000">'z'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'_'</span><span style="color: #007700">:&nbsp;continue;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">default:&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+IsValidRoleplayName with regex (PawnPlus)<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;IsValidRoleplayName</span><span style="color: #007700">(const&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">String</span><span style="color: #007700">:</span><span style="color: #0000BB">tmp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">str_format</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">str_match</span><span style="color: #007700">(</span><span style="color: #0000BB">tmp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"^[A-Z]{1}[a-z]{2,12}_[A-Z]{1}[a-z]{2,12}&#36;"</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+No Colors/Remove color format<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;NoColors</span><span style="color: #007700">(</span><span style="color: #0000BB">str</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">startPos&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'{'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">len&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">for&nbsp;(new&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">str</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">len</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">++)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">str</span><span style="color: #007700">[</span><span style="color: #0000BB">i</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">startPos</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">str</span><span style="color: #007700">[</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">len&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #DD0000">'}'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">IsValidHex</span><span style="color: #007700">(</span><span style="color: #0000BB">str</span><span style="color: #007700">[</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">len&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">]))&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pass</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">for&nbsp;(new&nbsp;</span><span style="color: #0000BB">j&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">j&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">len&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">j&nbsp;</span><span style="color: #007700">++)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">IsValidHex</span><span style="color: #007700">(</span><span style="color: #0000BB">str</span><span style="color: #007700">[</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">j</span><span style="color: #007700">]))&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pass&nbsp;</span><span style="color: #007700">++;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">pass&nbsp;</span><span style="color: #007700">&gt;=&nbsp;</span><span style="color: #0000BB">len&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;strdel</span><span style="color: #007700">(</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">i</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">len</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pass&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

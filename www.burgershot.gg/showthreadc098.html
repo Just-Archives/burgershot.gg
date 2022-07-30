@@ -1,0 +1,2911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: showthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Timers module</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="syndication9896.php?type=atom1.0" />
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/EBFKVbK.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="jscripts/jquery6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/jquery.plugins.min6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/general6c6d.js?ver=1804"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/global.min.css">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/avatarep.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/global.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/css3.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/star_ratings.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/showthread.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/footer.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/custom.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/extra.min8355.css?t=1641376402" />
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+
+	var cookieDomain = ".burgershot.gg";
+	var cookiePath = "index.html";
+	var cookiePrefix = "";
+	var cookieSecureFlag = "0";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "6428f000919b5d9a18f82d476f6b077e";
+	var rootpath = "index.html";
+	var imagepath = "images/index.html";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "images/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<script>
+	$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+	$('.scrollToDown').click(function(){
+		$('html, body').animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- end: headerinclude -->
+<script type="text/javascript">
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script type="text/javascript" src="jscripts/report6c6d.js?ver=1804"></script>
+<script src="jscripts/jeditable/jeditable.min.js"></script>
+<script type="text/javascript" src="jscripts/thread6c6d.js?ver=1804"></script>
+</head>
+<body>
+	<!-- start: header -->
+<div class="haut" style="height:70px">
+	<a href="index.html" id="logo"><img style="position: absolute;left: -5px;top: 12px;" src="https://burgershot.gg/burgershot.svg" height="40px" />Burgershot</a>
+	<span class="useroptions">
+		<ul id="menu-deroulant">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="memberlist.html">Members</a></li>
+			<li><a href="showteam.html">Team</a></li>
+			<li><a href="misc0615.html?action=help">Help</a></li>
+			<li><a href="search.html">Search</a></li>
+			<!-- start: header_welcomeblock_guest -->
+<li><a href="member0ddc.html?action=register">Register</a></li>
+<li><a href="member456e.html?action=login">Login</a></li>
+<script>
+    var connected = 0;
+</script>
+<!-- end: header_welcomeblock_guest -->
+		</ul>
+	</span>
+</div>
+<div style="width: 100%; height: 70px;"></div>
+<!-- Start - Navigation menu -->
+<nav class="headerlist" style="display:none">
+<ul>
+  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li><li>
+	<a href="memberlist.html"><i class="fa fa-users"></i> Members</a></li><li>
+	<a href="misc0615.html?action=help"><i class="fa fa-support"></i> Help</a></li><li>
+	<a href="search.html"><i class="fa fa-search"></i> Search</a>
+</li></ul>
+</nav>
+<!-- End - Navigation menu -->
+<center>
+<!-- Start - Advice -->
+<div id="mobile_member">
+</div>
+<!-- End - Advice -->
+</center>
+<div id="container">
+	<a name="top" id="top"></a>
+	<div id="header">
+		<div id="content">
+			<div class="wrapper">
+				
+				
+				
+				
+				
+				
+				<!-- start: nav -->
+<div class="navigation" style="display:none;">
+          <a href="index-2.html">
+		<span id="home_bit">
+			<i class="fa fa-home"></i>
+		</span>
+	</a>
+	<span style="padding: 8px 12px;margin-left: 5px;"><!-- start: nav_bit -->
+<a href="index-2.html">Burgershot</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplayd33c.html?fid=40">open.mp</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplayf3ef.html?fid=43">Development Updates</a>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep_active --><!-- start: nav_bit_active -->
+<span class="active">Timers module</span>
+<!-- end: nav_bit_active --></span>
+</div>
+<script>
+var page = location.pathname;
+page = page.substring(1);
+if(page != 'index.php' && page != '') {
+     $('.navigation').css('display', '');
+}
+</script>
+<!-- end: nav -->
+				<br />
+<!-- end: header -->
+	
+	
+	<table border="0" cellspacing="0" style="border-bottom:none;" cellpadding="7" class="tborder tfixed clear">
+<div>
+			<div style="font-size: 20px; background: #F6F6F6; border:none; color:#2C3E50; " class="thead">
+				
+	<div class="float_right">
+		
+	</div>
+	<!-- start: showthread_ratethread -->
+<div class="star_rating_container">
+        <script type="text/javascript" src="jscripts/rating9348.js?ver=1400"></script>
+        <div id="success_rating_583" style="float: left; padding-top: 2px; padding-right: 10px;">&nbsp;</div>
+        <div class="inline_rating">
+
+<ul class="star_rating star_rating_notrated" id="rating_thread_583">
+<li style="width: 100%" class="current_rating" id="current_rating_583">3 Vote(s) - 5 Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethreade8b8.html?tid=583&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethreadcc1b.html?tid=583&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethreadb7e9.html?tid=583&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread9309.html?tid=583&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethreadbd1d.html?tid=583&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+        </div>
+</div>
+<!-- end: showthread_ratethread -->
+				<div>
+					<strong><i class="fa fa-comments"></i> Timers module</strong>
+				</div>
+			</div>
+</div>
+
+<tr><td id="posts_container">
+	<div id="posts">
+		<!-- start: postbit -->
+
+<a name="pid5444" id="pid5444"></a>
+<div class="post classic " id="post_5444">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread0004.html?tid=583&amp;pid=5444#pid5444" title="Timers module">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-22, 03:15 PM <span class="post_edit" id="edited_by_5444"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-05-22, 03:20 PM by <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5444">
+		This is a sneak-peek at one of the improved modules we've done, for timers in open.mp:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">native&nbsp;SetTimer</span><span style="color: #007700">(const&nbsp;</span><span style="color: #0000BB">func</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">msInterval</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">repeat</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">SetTimerEx</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">native&nbsp;SetTimerEx</span><span style="color: #007700">(const&nbsp;</span><span style="color: #0000BB">func</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">msInterval</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">repeat</span><span style="color: #007700">,&nbsp;const&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">GLOBAL_TAG_TYPES</span><span style="color: #007700">:...);<br /></span><span style="color: #0000BB">native&nbsp;KillTimer</span><span style="color: #007700">(</span><span style="color: #0000BB">timer</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">Timer_Kill</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;CreateTimer<br /></span><span style="color: #0000BB">native&nbsp;Timer</span><span style="color: #007700">:</span><span style="color: #0000BB">Timer_Create</span><span style="color: #007700">(const&nbsp;</span><span style="color: #0000BB">func</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">usDelay</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">usInterval</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">repeatCount</span><span style="color: #007700">,&nbsp;const&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">GLOBAL_TAG_TYPES</span><span style="color: #007700">:...);<br /><br /></span><span style="color: #FF8000">//&nbsp;KillTimer<br /></span><span style="color: #0000BB">native&nbsp;bool</span><span style="color: #007700">:</span><span style="color: #0000BB">Timer_Kill</span><span style="color: #007700">(</span><span style="color: #0000BB">Timer</span><span style="color: #007700">:</span><span style="color: #0000BB">timer</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Return&nbsp;time&nbsp;till&nbsp;next&nbsp;call.<br /></span><span style="color: #0000BB">native&nbsp;Timer_GetTimeRemaining</span><span style="color: #007700">(</span><span style="color: #0000BB">Timer</span><span style="color: #007700">:</span><span style="color: #0000BB">timer</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;number&nbsp;of&nbsp;calls&nbsp;left&nbsp;to&nbsp;make&nbsp;(0&nbsp;for&nbsp;unlimited).<br /></span><span style="color: #0000BB">native&nbsp;Timer_GetCallsRemaining</span><span style="color: #007700">(</span><span style="color: #0000BB">Timer</span><span style="color: #007700">:</span><span style="color: #0000BB">timer</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;`repeatCount`&nbsp;parameter.<br /></span><span style="color: #0000BB">native&nbsp;Timer_GetTotalCalls</span><span style="color: #007700">(</span><span style="color: #0000BB">Timer</span><span style="color: #007700">:</span><span style="color: #0000BB">timer</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp; Get&nbsp;`usInterval`&nbsp;parameter.<br /></span><span style="color: #0000BB">native&nbsp;Timer_GetInterval</span><span style="color: #007700">(</span><span style="color: #0000BB">Timer</span><span style="color: #007700">:</span><span style="color: #0000BB">timer</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Reset&nbsp;time&nbsp;remaining&nbsp;till&nbsp;next&nbsp;call&nbsp;to&nbsp;`usInterval`.<br /></span><span style="color: #0000BB">native&nbsp;bool</span><span style="color: #007700">:</span><span style="color: #0000BB">Timer_Restart</span><span style="color: #007700">(</span><span style="color: #0000BB">Timer</span><span style="color: #007700">:</span><span style="color: #0000BB">timer</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+The first two are just for backwards-compatibility, the rest are the improved API:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">native&nbsp;Timer</span><span style="color: #007700">:</span><span style="color: #0000BB">Timer_Create</span><span style="color: #007700">(const&nbsp;</span><span style="color: #0000BB">func</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">usDelay</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">usInterval</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">repeatCount</span><span style="color: #007700">,&nbsp;const&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">GLOBAL_TAG_TYPES</span><span style="color: #007700">:...);&nbsp;<br /></span></code></div></div></div><ul class="mycode_list"><li>`func` - Fairly obvious; what to call.<br />
+</li>
+<li>`usDelay` - Again obvious, the delay before the call (in microseconds).<br />
+</li>
+<li>`usInterval` - What to reset `usDelay` to after the first call.  So if you wanted a timer on the hour every hour, but it was 8:47am right now, the call would be `Timer_Create("OnTheHour", 780 SECONDS, 3600 SECONDS, 0);`<br />
+</li>
+<li>`repeatCount` - Unlike the old functions, which are just "once" or "forever", this instead takes the number of times to call the function.  "once" would be `1`, `500` would stop after 500 calls, and (backwards from the old API) `0` means "forever".<br />
+</li>
+<li>`GLOBAL_TAG_TYPES` - Like `{Float, ...}`, but with more tags.<br />
+</li>
+</ul>
+
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5444">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyded0.html?tid=583&amp;replyto=5444" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5445" id="pid5445"></a>
+<div class="post classic " id="post_5445">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberf3df.html?action=profile&amp;uid=5"><span style="color: #e15239;"><strong>JustMichael</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberf3df.html?action=profile&amp;uid=5"><img src="uploads/avatars/avatar_5ba88.html?dateline=1550954393" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Forum Manager<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">189</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation5729.html?uid=5"><strong class="reputation_positive">17</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> England</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadfe0e.html?tid=583&amp;pid=5445#pid5445" title="RE: Timers module">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-22, 03:18 PM <span class="post_edit" id="edited_by_5445"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5445">
+		It's so pretty uwu<br />
+<br />
+I definitely prefer this over how timers are handled in SA-MP. Even the little things can make a big difference.
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+Remember to always refer to J0sh as `J0sh...`<br />
+<br />
+<span style="color: #ff3366;" class="mycode_color">@ Networks/Servers</span><br />
+San Andreas Gaming Network (Owner/Founder)<br />
+San Andreas Gaming (Owner/Founder)<br />
+Grand Theft Cop's n Robber's (Owner)<br />
+Britannia Roleplay (Owner/Founder)<br />
+Alpine RP (Owner/Founder)<br />
+Aluminium Network (Maintainer)<br />
+AlphaDM (Tech Support)<br />
+<br />
+<span style="color: #9966ff;" class="mycode_color"># Services</span><br />
+Burgershot.gg (Forum Manager)<br />
+open.mp (Member)<br />
+<br />
+<span style="color: #ff3399;" class="mycode_color">~ Languages/Frameworks</span><br />
+Pawn, C, C++, C#, Javascript, Typescript, Lua, Python, Go, Rust, PHP, SQL,<br />
+Angular, React, Vue, Svelte, Laravel, Rocket
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_5445">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="index.html" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search04e3.html?action=finduser&amp;uid=5" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply9ee6.html?tid=583&amp;replyto=5445" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5446" id="pid5446"></a>
+<div class="post classic " id="post_5446">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member2739.html?action=profile&amp;uid=1066"><span style="color: #3c71af;">Freeze</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member2739.html?action=profile&amp;uid=1066"><img src="uploads/avatars/avatar_10660506.html?dateline=1557861239" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">21</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">1</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation8ad5.html?uid=1066"><strong class="reputation_positive">2</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Brazil</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread3e75.html?tid=583&amp;pid=5446#pid5446" title="RE: Timers module">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-22, 03:48 PM <span class="post_edit" id="edited_by_5446"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5446">
+		Very good!<br />
+I'm looking forward to what's coming soon
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5446">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchda7a.html?action=finduser&amp;uid=1066" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyfe24.html?tid=583&amp;replyto=5446" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5452" id="pid5452"></a>
+<div class="post classic " id="post_5452">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member4b48.html?action=profile&amp;uid=200"><span style="color: #3c71af;">Afisiado</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member4b48.html?action=profile&amp;uid=200"><img src="uploads/avatars/avatar_200cea7.html?dateline=1555248524" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">15</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation60b8.html?uid=200"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread0d88.html?tid=583&amp;pid=5452#pid5452" title="RE: Timers module">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-22, 05:23 PM <span class="post_edit" id="edited_by_5452"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5452">
+		Finally, decent functions with timers!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5452">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search0e84.html?action=finduser&amp;uid=200" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyc22a.html?tid=583&amp;replyto=5452" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5462" id="pid5462"></a>
+<div class="post classic " id="post_5462">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member2eaf.html?action=profile&amp;uid=556"><span style="color: #3c71af;">CRHStudios</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member2eaf.html?action=profile&amp;uid=556"><img src="uploads/avatars/avatar_556fbd8.html?dateline=1555355317" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">3</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationf06f.html?uid=556"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread755e.html?tid=583&amp;pid=5462#pid5462" title="RE: Timers module">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-22, 11:28 PM <span class="post_edit" id="edited_by_5462"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5462">
+		Pretty good features and improvements with the timers.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5462">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search48f2.html?action=finduser&amp;uid=556" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplydec2.html?tid=583&amp;replyto=5462" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5472" id="pid5472"></a>
+<div class="post classic " id="post_5472">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member0319.html?action=profile&amp;uid=1105"><span style="color: #3c71af;">2PAC_</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member0319.html?action=profile&amp;uid=1105"><img src="uploads/avatars/avatar_11054339.html?dateline=1558440365" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">6</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa165.html?uid=1105"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Istanbul, Turkey</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread8722.html?tid=583&amp;pid=5472#pid5472" title="RE: Timers module">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 10:13 AM <span class="post_edit" id="edited_by_5472"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5472">
+		Very nice, good job!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5472">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search1cf9.html?action=finduser&amp;uid=1105" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyb7b3.html?tid=583&amp;replyto=5472" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5482" id="pid5482"></a>
+<div class="post classic " id="post_5482">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member1016.html?action=profile&amp;uid=1123"><span style="color: #3c71af;">Max_Andolini</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member1016.html?action=profile&amp;uid=1123"><img src="uploads/avatars/avatar_11235db4.html?dateline=1558573192" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">3</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation8075.html?uid=1123"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Turkey</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread5428.html?tid=583&amp;pid=5482#pid5482" title="RE: Timers module">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 02:06 PM <span class="post_edit" id="edited_by_5482"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5482">
+		This is great!!!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5482">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search9da8.html?action=finduser&amp;uid=1123" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply54b1.html?tid=583&amp;replyto=5482" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5483" id="pid5483"></a>
+<div class="post classic " id="post_5483">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member4410.html?action=profile&amp;uid=325"><span style="color: #3c71af;">Verc</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member4410.html?action=profile&amp;uid=325"><img src="uploads/avatars/avatar_3254679.html?dateline=1555335102" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">11</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">1</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation7f73.html?uid=325"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread5363.html?tid=583&amp;pid=5483#pid5483" title="RE: Timers module">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 03:11 PM <span class="post_edit" id="edited_by_5483"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5483">
+		What a great news!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5483">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search221b.html?action=finduser&amp;uid=325" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyf60c.html?tid=583&amp;replyto=5483" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5485" id="pid5485"></a>
+<div class="post classic " id="post_5485">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberb09f.html?action=profile&amp;uid=1117"><span style="color: #3c71af;">Koplan</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberb09f.html?action=profile&amp;uid=1117"><img src="uploads/avatars/avatar_11177feb.html?dateline=1558507211" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">3</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation290f.html?uid=1117"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Portugal</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadaf31-2.html?tid=583&amp;pid=5485#pid5485" title="RE: Timers module">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 05:49 PM <span class="post_edit" id="edited_by_5485"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5485">
+		Good Job!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5485">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search772d.html?action=finduser&amp;uid=1117" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply0ec7.html?tid=583&amp;replyto=5485" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5488" id="pid5488"></a>
+<div class="post classic " id="post_5488">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member901a.html?action=profile&amp;uid=924"><span style="color: #3c71af;">Hawkins</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member901a.html?action=profile&amp;uid=924"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">2</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation8188.html?uid=924"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Russia</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread40a4.html?tid=583&amp;pid=5488#pid5488" title="RE: Timers module">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 06:47 PM <span class="post_edit" id="edited_by_5488"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5488">
+		Continue in the same spirit
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5488">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search0bd9.html?action=finduser&amp;uid=924" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply1de7.html?tid=583&amp;replyto=5488" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5489" id="pid5489"></a>
+<div class="post classic " id="post_5489">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberc8dd.html?action=profile&amp;uid=221"><span style="color: #3c71af;">Manyula</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberc8dd.html?action=profile&amp;uid=221"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">52</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">5</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationf931.html?uid=221"><strong class="reputation_positive">5</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Germany</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadd970.html?tid=583&amp;pid=5489#pid5489" title="RE: Timers module">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 06:56 PM <span class="post_edit" id="edited_by_5489"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-05-23, 06:59 PM by <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5489">
+		Absolutely love the new API, great job! Not really a fan of the prefixing of the functions, though. Is that scheme gonna be applied to all of the new API?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5489">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchfe6a.html?action=finduser&amp;uid=221" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyb8df.html?tid=583&amp;replyto=5489" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5490" id="pid5490"></a>
+<div class="post classic " id="post_5490">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberd985.html?action=profile&amp;uid=9"><span style="color: #5492e7;"><strong>BigETI</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberd985.html?action=profile&amp;uid=9"><img src="uploads/avatars/avatar_9c6db.html?dateline=1550581290" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				open.mp Developer<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">107</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">5</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationcacf.html?uid=9"><strong class="reputation_positive">12</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Germany</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreade5b8.html?tid=583&amp;pid=5490#pid5490" title="RE: Timers module">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 06:59 PM <span class="post_edit" id="edited_by_5490"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-05-23, 07:00 PM by <a href="memberd985.html?action=profile&amp;uid=9">BigETI</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5490">
+		Think it having two names: The prefix is the library or module the function is from and the suffix is the actual function name. The underscore just seperates both names.
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<a href="https://github.com/BigETI" target="_blank" rel="noopener" class="mycode_url"><img src="https://bigeti.de/images/github-samp-icon.png" loading="lazy"  alt="[Image: github-samp-icon.png]" class="mycode_img" /></a>
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_5490">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://bigeti.de/about/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search7e98.html?action=finduser&amp;uid=9" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply1c42.html?tid=583&amp;replyto=5490" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5491" id="pid5491"></a>
+<div class="post classic " id="post_5491">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberf3df.html?action=profile&amp;uid=5"><span style="color: #e15239;"><strong>JustMichael</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberf3df.html?action=profile&amp;uid=5"><img src="uploads/avatars/avatar_5ba88.html?dateline=1550954393" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Forum Manager<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">189</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">3</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation5729.html?uid=5"><strong class="reputation_positive">17</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> England</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread8b3a.html?tid=583&amp;pid=5491#pid5491" title="RE: Timers module">#13</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 07:01 PM <span class="post_edit" id="edited_by_5491"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-05-24, 10:08 AM by <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5491">
+		<blockquote class="mycode_quote"><cite><span> (2019-05-23, 06:59 PM)</span>BigETI Wrote:  <a href="showthread05cb.html?pid=5490#pid5490" class="quick_jump"></a></cite>Think it having two names: The prefix is the library or module the function is from and the suffix is the actual function name. The underscore just seperates both names.</blockquote><br />
+Well said, sir. Have a box of cookies :)<br />
+<br />
+I do prefer this to how SA-MP does it, and I wouldn't want to have mixed casing.
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+Remember to always refer to J0sh as `J0sh...`<br />
+<br />
+<span style="color: #ff3366;" class="mycode_color">@ Networks/Servers</span><br />
+San Andreas Gaming Network (Owner/Founder)<br />
+San Andreas Gaming (Owner/Founder)<br />
+Grand Theft Cop's n Robber's (Owner)<br />
+Britannia Roleplay (Owner/Founder)<br />
+Alpine RP (Owner/Founder)<br />
+Aluminium Network (Maintainer)<br />
+AlphaDM (Tech Support)<br />
+<br />
+<span style="color: #9966ff;" class="mycode_color"># Services</span><br />
+Burgershot.gg (Forum Manager)<br />
+open.mp (Member)<br />
+<br />
+<span style="color: #ff3399;" class="mycode_color">~ Languages/Frameworks</span><br />
+Pawn, C, C++, C#, Javascript, Typescript, Lua, Python, Go, Rust, PHP, SQL,<br />
+Angular, React, Vue, Svelte, Laravel, Rocket
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_5491">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="index.html" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search04e3.html?action=finduser&amp;uid=5" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply95ff.html?tid=583&amp;replyto=5491" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5492" id="pid5492"></a>
+<div class="post classic " id="post_5492">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberc8dd.html?action=profile&amp;uid=221"><span style="color: #3c71af;">Manyula</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberc8dd.html?action=profile&amp;uid=221"><img src="images/default_avatar.png" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">52</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">5</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationf931.html?uid=221"><strong class="reputation_positive">5</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Germany</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread797c.html?tid=583&amp;pid=5492#pid5492" title="RE: Timers module">#14</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 07:11 PM <span class="post_edit" id="edited_by_5492"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5492">
+		I understand that the prefix is there to be able to quickly identify the module it belongs to, but imho I don't think that's necessary. But then again, I think this comes down to personal taste.<br />
+<br />
+One more thing: I think some of the timer functions lack a certain consistency in terms of naming.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native Timer_Get[b]Time[/b][i]Remaining[/i](Timer:timer);<br />
+native Timer_Get[b]Calls[/b][i]Remaining[/i](Timer:timer);</code></div></div><br />
+should be...<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native Timer_Get[i]Remaining[/i][b]Time[/b](Timer:timer);<br />
+native Timer_Get[i]Remaining[/i][b]Calls[/b](Timer:timer);</code></div></div><br />
+to be in line with...<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native Timer_GetTotalCalls(Timer:timer);</code></div></div><br />
+as the latter sounds more natural.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5492">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchfe6a.html?action=finduser&amp;uid=221" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplya4df-2.html?tid=583&amp;replyto=5492" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5496" id="pid5496"></a>
+<div class="post classic " id="post_5496">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberd985.html?action=profile&amp;uid=9"><span style="color: #5492e7;"><strong>BigETI</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberd985.html?action=profile&amp;uid=9"><img src="uploads/avatars/avatar_9c6db.html?dateline=1550581290" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				open.mp Developer<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">107</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">5</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationcacf.html?uid=9"><strong class="reputation_positive">12</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Germany</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread6bcb-2.html?tid=583&amp;pid=5496#pid5496" title="RE: Timers module">#15</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 07:31 PM <span class="post_edit" id="edited_by_5496"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5496">
+		The naming of the functions is more a convention we are going to use rather than personal taste. (I personally don't like it)
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<a href="https://github.com/BigETI" target="_blank" rel="noopener" class="mycode_url"><img src="https://bigeti.de/images/github-samp-icon.png" loading="lazy"  alt="[Image: github-samp-icon.png]" class="mycode_img" /></a>
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_5496">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://bigeti.de/about/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search7e98.html?action=finduser&amp;uid=9" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply5d8f.html?tid=583&amp;replyto=5496" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5498" id="pid5498"></a>
+<div class="post classic " id="post_5498">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member3401.html?action=profile&amp;uid=799"><span style="color: #3c71af;">NexoR</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member3401.html?action=profile&amp;uid=799"><img src="uploads/avatars/avatar_799a08f.html?dateline=1555949020" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">15</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">4</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation26eb.html?uid=799"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Turkey</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadc098.html?tid=583&amp;pid=5498#pid5498" title="RE: Timers module">#16</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-23, 09:09 PM <span class="post_edit" id="edited_by_5498"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5498">
+		Good job.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5498">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searchbf39.html?action=finduser&amp;uid=799" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyf9af.html?tid=583&amp;replyto=5498" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5504" id="pid5504"></a>
+<div class="post classic " id="post_5504">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadfb38.html?tid=583&amp;pid=5504#pid5504" title="RE: Timers module">#17</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-24, 01:23 AM <span class="post_edit" id="edited_by_5504"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5504">
+		<blockquote class="mycode_quote"><cite><span> (2019-05-23, 07:11 PM)</span>Manyula Wrote:  <a href="showthread4196.html?pid=5492#pid5492" class="quick_jump"></a></cite>I understand that the prefix is there to be able to quickly identify the module it belongs to, but imho I don't think that's necessary. But then again, I think this comes down to personal taste.<br />
+<br />
+One more thing: I think some of the timer functions lack a certain consistency in terms of naming.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native Timer_Get[b]Time[/b][i]Remaining[/i](Timer:timer);<br />
+native Timer_Get[b]Calls[/b][i]Remaining[/i](Timer:timer);</code></div></div><br />
+should be...<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native Timer_Get[i]Remaining[/i][b]Time[/b](Timer:timer);<br />
+native Timer_Get[i]Remaining[/i][b]Calls[/b](Timer:timer);</code></div></div><br />
+to be in line with...<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native Timer_GetTotalCalls(Timer:timer);</code></div></div><br />
+as the latter sounds more natural.</blockquote><br />
+You're right about the mixed verb/noun order, I'll fix that.<br />
+<br />
+As for module prefixes, that's now quite well established.  It gives a nice consistent naming scheme, and there's a longer-term goal you'll have to wait for to see...
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5504">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply57b2.html?tid=583&amp;replyto=5504" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5523" id="pid5523"></a>
+<div class="post classic " id="post_5523">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member1768.html?action=profile&amp;uid=315"><span style="color: #3c71af;">Gravityfalls</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member1768.html?action=profile&amp;uid=315"><img src="uploads/avatars/avatar_315b553.html?dateline=1556475498" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">105</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">7</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation0825.html?uid=315"><strong class="reputation_positive">2</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread53fc.html?tid=583&amp;pid=5523#pid5523" title="RE: Timers module">#18</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-24, 10:48 AM <span class="post_edit" id="edited_by_5523"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5523">
+		Amazing.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5523">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search3e80.html?action=finduser&amp;uid=315" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplybf15.html?tid=583&amp;replyto=5523" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5689" id="pid5689"></a>
+<div class="post classic " id="post_5689">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member7b6b.html?action=profile&amp;uid=65"><span style="color: #8ebc4f;"><strong>Riddick</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member7b6b.html?action=profile&amp;uid=65"><img src="uploads/avatars/avatar_651c4e.html?dateline=1586939806" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Moderator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">31</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">6</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation09ba.html?uid=65"><strong class="reputation_positive">5</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Poland</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreaddcc3.html?tid=583&amp;pid=5689#pid5689" title="RE: Timers module">#19</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-29, 05:44 AM <span class="post_edit" id="edited_by_5689"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5689">
+		This seems to be all right. Is it PAWN limitation or bad SA-MP's SetTimer(Ex) functions coding that we are not allowed to pass strings in it? (or we are but it didn't work correctly - I can't remember now).<br />
+<br />
+---<br />
+I still wish here for "IsValidTimer" function. I know that IDs could be assigned to a new timer where the other timer has finished its job and it doesn't guarantee that the timer in a give slot is still the same, but some internal IDs should be assigned once maybe? I guess maybe use versioned timer IDs?<br />
+<br />
+Unless you are not going for it.
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><a href="https://discord.gg/5AByAG7" target="_blank" rel="noopener" class="mycode_url"><img src="https://discordapp.com/api/guilds/325961519810478080/widget.png?style=banner2" loading="lazy"  alt="[Image: widget.png?style=banner2]" class="mycode_img" /></a><br />
+</div>
+
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_5689">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search3fe9.html?action=finduser&amp;uid=65" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply64bc.html?tid=583&amp;replyto=5689" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5694" id="pid5694"></a>
+<div class="post classic " id="post_5694">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread58d5.html?tid=583&amp;pid=5694#pid5694" title="RE: Timers module">#20</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-29, 12:01 PM <span class="post_edit" id="edited_by_5694"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5694">
+		It's a bug in the native, not a pawn limitation.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5694">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply9d7a.html?tid=583&amp;replyto=5694" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5721" id="pid5721"></a>
+<div class="post classic " id="post_5721">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberaad5.html?action=profile&amp;uid=620"><span style="color: #3c71af;">Expert*</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberaad5.html?action=profile&amp;uid=620"><img src="uploads/avatars/avatar_620cbf0.html?dateline=1587567394" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">61</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationbbcb.html?uid=620"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadf286.html?tid=583&amp;pid=5721#pid5721" title="RE: Timers module">#21</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-30, 08:18 PM <span class="post_edit" id="edited_by_5721"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-05-30, 08:22 PM by <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5721">
+		I use module prefixes for fixed/protected/new functions so i love it. What i don't love is extra work to ensure compatibility.<br />
+<br />
+global func: Player_SetSkin<br />
+static func: player_setskin<br />
+call: PLAYER_RequestSpawn
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5721">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search5f3b.html?action=finduser&amp;uid=620" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply9d8c.html?tid=583&amp;replyto=5721" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5723" id="pid5723"></a>
+<div class="post classic " id="post_5723">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread1b47.html?tid=583&amp;pid=5723#pid5723" title="RE: Timers module">#22</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-30, 09:20 PM <span class="post_edit" id="edited_by_5723"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5723">
+		I'm not sure what that last line is.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5723">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply0c12.html?tid=583&amp;replyto=5723" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5733" id="pid5733"></a>
+<div class="post classic " id="post_5733">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberaad5.html?action=profile&amp;uid=620"><span style="color: #3c71af;">Expert*</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberaad5.html?action=profile&amp;uid=620"><img src="uploads/avatars/avatar_620cbf0.html?dateline=1587567394" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">61</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationbbcb.html?uid=620"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread1b4c.html?tid=583&amp;pid=5733#pid5733" title="RE: Timers module">#23</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-31, 06:41 AM <span class="post_edit" id="edited_by_5733"><!-- start: postbit_editedby -->
+<span class="edited_post">(This post was last modified: 2019-05-31, 06:57 AM by <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a>.)</span>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5733">
+		Callback, starts with uppercase letters ( PLAYER_, VEHICLE_ ) ex: PLAYER_EnterVehicle.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5733">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search5f3b.html?action=finduser&amp;uid=620" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply22bf.html?tid=583&amp;replyto=5733" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5739" id="pid5739"></a>
+<div class="post classic " id="post_5739">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="membere2a3.html?action=profile&amp;uid=6"><span style="color: #e15239;"><strong>Y_Less</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="membere2a3.html?action=profile&amp;uid=6"><img src="uploads/avatars/avatar_6fce6.html?dateline=1550230282" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Administrator<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">323</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Feb 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationa158.html?uid=6"><strong class="reputation_positive">90</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread62f2.html?tid=583&amp;pid=5739#pid5739" title="RE: Timers module">#24</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-05-31, 02:24 PM <span class="post_edit" id="edited_by_5739"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5739">
+		Callbacks start with "On".
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5739">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search7f42.html?action=finduser&amp;uid=6" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyc2b8.html?tid=583&amp;replyto=5739" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5795" id="pid5795"></a>
+<div class="post classic " id="post_5795">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberaad5.html?action=profile&amp;uid=620"><span style="color: #3c71af;">Expert*</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberaad5.html?action=profile&amp;uid=620"><img src="uploads/avatars/avatar_620cbf0.html?dateline=1587567394" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">61</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationbbcb.html?uid=620"><strong class="reputation_positive">4</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadfc77.html?tid=583&amp;pid=5795#pid5795" title="RE: Timers module">#25</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-06-03, 08:35 PM <span class="post_edit" id="edited_by_5795"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5795">
+		*that's how i prefer to name my callbacks*<br />
+I started to name them like this because "OnPlayerLogin" was taken by y_users.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5795">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search5f3b.html?action=finduser&amp;uid=620" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyf191.html?tid=583&amp;replyto=5795" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5823" id="pid5823"></a>
+<div class="post classic " id="post_5823">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member6b36.html?action=profile&amp;uid=1104"><span style="color: #3c71af;">Roth</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member6b36.html?action=profile&amp;uid=1104"><img src="uploads/avatars/avatar_1104dda6.html?dateline=1558439303" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">16</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation571c.html?uid=1104"><strong class="reputation_positive">7</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadcf7c.html?tid=583&amp;pid=5823#pid5823" title="RE: Timers module">#26</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-06-06, 02:47 AM <span class="post_edit" id="edited_by_5823"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5823">
+		Incredible, very good job.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5823">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="index.html" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searcha496.html?action=finduser&amp;uid=1104" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyfb2b.html?tid=583&amp;replyto=5823" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5870" id="pid5870"></a>
+<div class="post classic " id="post_5870">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberf87a.html?action=profile&amp;uid=1086"><span style="color: #3c71af;">BoNNe</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberf87a.html?action=profile&amp;uid=1086"><img src="uploads/avatars/avatar_1086d760.html?dateline=1561229536" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">14</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationef99.html?uid=1086"><strong class="reputation_positive">1</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Bucharest</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadb331.html?tid=583&amp;pid=5870#pid5870" title="RE: Timers module">#27</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-06-07, 06:17 PM <span class="post_edit" id="edited_by_5870"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5870">
+		great job
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5870">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search6419.html?action=finduser&amp;uid=1086" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply6fa5.html?tid=583&amp;replyto=5870" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5922" id="pid5922"></a>
+<div class="post classic " id="post_5922">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member571d.html?action=profile&amp;uid=917"><span style="color: #3c71af;">TroyST</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member571d.html?action=profile&amp;uid=917"><img src="uploads/avatars/avatar_9177348.html?dateline=1556709939" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">1</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> May 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationd883.html?uid=917"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Albania</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread43ab.html?tid=583&amp;pid=5922#pid5922" title="RE: Timers module">#28</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-06-09, 02:13 PM <span class="post_edit" id="edited_by_5922"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5922">
+		Well done wise man!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5922">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="index.html" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="search2fd4.html?action=finduser&amp;uid=917" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply193a.html?tid=583&amp;replyto=5922" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5940" id="pid5940"></a>
+<div class="post classic " id="post_5940">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member81f8.html?action=profile&amp;uid=340"><span style="color: #3c71af;">Sasino97</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member81f8.html?action=profile&amp;uid=340"><img src="uploads/avatars/avatar_340ead5.html?dateline=1599691558" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Software Developer<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">108</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">16</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation6d3e.html?uid=340"><strong class="reputation_positive">7</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Tampa, FL</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadf71b.html?tid=583&amp;pid=5940#pid5940" title="RE: Timers module">#29</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-06-11, 06:40 AM <span class="post_edit" id="edited_by_5940"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5940">
+		I hope this one to work when passing strings as parameters, lol.<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-23, 06:59 PM)</span>BigETI Wrote:  <a href="showthread05cb.html?pid=5490#pid5490" class="quick_jump"></a></cite>Think it having two names: The prefix is the library or module the function is from and the suffix is the actual function name. The underscore just seperates both names.</blockquote><br />
+That is how it should be :D<br />
+Then I will <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#define Timer. Timer_<br />
+<br />
+Timer.Create(...);</code></div></div> and pretend to be using some high level OO programming language, like I always do.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_5940">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="https://www.sasinosoft.com/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searchfadc.html?action=finduser&amp;uid=340" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply1910.html?tid=583&amp;replyto=5940" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid5969" id="pid5969"></a>
+<div class="post classic " id="post_5969">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberc385.html?action=profile&amp;uid=41"><span style="color: #8ebc4f;"><strong>Markski</strong></span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberc385.html?action=profile&amp;uid=41"><img src="uploads/avatars/avatar_4182a6.html?dateline=1555019377" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Clerk<br />
+				<i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><i style="color:#F3D646" class="fa fa-star"></i><br />
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">127</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">6</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation4ef8.html?uid=41"><strong class="reputation_positive">5</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> La Plata, Argentina</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread8217.html?tid=583&amp;pid=5969#pid5969" title="RE: Timers module">#30</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-06-11, 11:06 PM <span class="post_edit" id="edited_by_5969"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_5969">
+		This is really good. Just some days ago I was considering making an include (based on samp-precise-timers) for functions to have a limited loop lifetime without needing to have such logic to kill the timer on each public. Glad to see this is being done for the OG native.
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><a href="https://markski.ar/" target="_blank" rel="noopener" class="mycode_url">Website</a></div>
+
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_5969">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_www -->
+<a href="http://www.mrks.cf/" target="_blank" title="Visit this user's website" class="postbit_website"><i class="fa fa-globe"></i></a>
+<!-- end: postbit_www --><!-- start: postbit_find -->
+<a href="searchf1dc.html?action=finduser&amp;uid=41" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply08a3.html?tid=583&amp;replyto=5969" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid6690" id="pid6690"></a>
+<div class="post classic " id="post_6690">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member7079.html?action=profile&amp;uid=850"><span style="color: #3c71af;">[SF]kAn3</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member7079.html?action=profile&amp;uid=850"><img src="uploads/avatars/avatar_8509880.png?dateline=1634558876" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">26</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">7</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputationb28c.html?uid=850"><strong class="reputation_positive">2</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Italia</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadae1e.html?tid=583&amp;pid=6690#pid6690" title="RE: Timers module">#31</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2019-10-02, 12:05 PM <span class="post_edit" id="edited_by_6690"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_6690">
+		So should I stop using y_timers?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_6690">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search074a.html?action=finduser&amp;uid=850" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply49b6.html?tid=583&amp;replyto=6690" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid7471" id="pid7471"></a>
+<div class="post classic " id="post_7471">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member88ff.html?action=profile&amp;uid=2309"><span style="color: #3c71af;">2KY</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member88ff.html?action=profile&amp;uid=2309"><img src="uploads/avatars/avatar_23095c78.html?dateline=1587769807" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">1</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">0</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation3827.html?uid=2309"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> United States</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread9e56.html?tid=583&amp;pid=7471#pid7471" title="RE: Timers module">#32</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2020-04-24, 11:07 PM <span class="post_edit" id="edited_by_7471"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_7471">
+		Very nice improvements to the code. Thanks!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_7471">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search1340.html?action=finduser&amp;uid=2309" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplyba80.html?tid=583&amp;replyto=7471" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit --><!-- start: postbit -->
+
+<a name="pid7478" id="pid7478"></a>
+<div class="post classic " id="post_7478">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="member9c2a.html?action=profile&amp;uid=883"><span style="color: #3c71af;">EvilShadeZ</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="member9c2a.html?action=profile&amp;uid=883"><img src="uploads/avatars/avatar_88345b2.html?dateline=1587023468" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">21</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">5</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Apr 2019</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation09e5.html?uid=883"><strong class="reputation_positive">2</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthreadd117.html?tid=583&amp;pid=7478#pid7478" title="RE: Timers module">#33</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2020-04-25, 11:35 AM <span class="post_edit" id="edited_by_7478"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_7478">
+		I think this module is missing Timer_SetCallsRemaining(Timer:timer,calls);<br />
+This would be very useful for adjusting how many calls are left. Useful for shortening / extending repeating timers.<br />
+<br />
+Absolutely loving timers in microseconds. How accurate are they compared to SA-MP timers?
+	</div>
+	
+	<!-- start: postbit_signature -->
+<div class="signature scaleimages">
+<div style="text-align: center;" class="mycode_align"><a href="http://reloadedserver.com/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.imgur.com/qPwh60X.png" loading="lazy" alt="[Image: qPwh60X.png]" class="mycode_img" /></a></div>
+
+</div>
+<!-- end: postbit_signature -->
+	<div class="post_meta" id="post_meta_7478">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="searcha6e4.html?action=finduser&amp;uid=883" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreplydfd6.html?tid=583&amp;replyto=7478" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit -->
+	</div>
+</td></tr>
+		<tr>
+			<td class="tfoot">
+				<!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://www.burgershot.gg/search.php" method="post">
+			<input type="hidden" name="action" value="thread" />
+			<input type="hidden" name="tid" value="583" />
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == 'Enter Keywords') { this.value = ''; }" onblur="if(this.value=='') { this.value='Enter Keywords'; }" class="textbox" size="25" />
+			<input type="submit" class="button" value="Search Thread" />
+		</form>
+	</div>
+<!-- end: showthread_search -->
+				<div style="padding:10px">
+					<strong>&laquo; <a href="showthread7f38.html?tid=583&amp;action=nextoldest">Next Oldest</a> | <a href="showthread1dfd.html?tid=583&amp;action=nextnewest">Next Newest</a> &raquo;</strong><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="float_left"><br>
+		
+	</div>
+	<br class="clear" />
+	
+	
+	
+	<br />
+	<div class="float_left">
+		<ul class="thread_tools">
+			<li class="printable"><a href="printthreadbacd.html?tid=583">View a Printable Version</a></li>
+			
+			<li class="subscription_add"><a href="usercp0238.html?action=addsubscription&amp;tid=583&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e">Subscribe to this thread</a></li>
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://www.burgershot.gg/forumdisplay.php" method="get">
+<span class="smalltext"><strong>Forum Jump:</strong></span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="19" > General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20" >-- Chat</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21" >-- Tech</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22" >-- Life</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="48" >-- Art</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56" >-- Programming</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40" > open.mp</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="43" selected="selected">-- Development Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="42" >-- Questions and Suggestions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="3" > SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6" >-- General Discussions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9" >-- Videos and Screenshots</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12" >-- Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="10" >-- Pawn Scripting</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="37" >-- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13" >-- Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32" >---- Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31" >---- Libraries</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30" >---- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33" >---- Gamemodes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="67" >---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="69" >-- Advertisements </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23" > Other languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="24" >-- Spanish/Español</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="51" >---- Programación</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="52" >---- Discusión GTA SA Multijugador</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="53" >---- Mods</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="54" >---- Offtopic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="55" >---- Juegos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="25" >-- Portuguese/Português</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="26" >-- Russian/Русский</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="28" >-- Italian/Italiano</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29" >-- Dutch/Nederlands</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34" >-- German/Deutsch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="35" >-- Romanian/Română</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="36" >-- Ex-Yu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="38" >-- Polish/Polski</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="44" >---- Ogólne</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="45" >---- Serwery</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="46" >---- Skryptowanie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="47" >---- Filmiki i zdjęcia</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="39" >-- Lithuanian/Lietuviškas</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="49" >-- French/Français</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="50" >-- Hungarian/Magyar</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="57" >-- Hindi/Urdu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="68" >-- Turkish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="27" >-- Other</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear" />
+	<!-- start: footer -->
+    </div>
+</div>
+<footer class="footer-distributed">
+	<div class="footer-left">
+		<p style="" class="footer-links">
+			© Burgershot - Powered by our <a href="index.html" style="font-weight: bold; font-family: Noto Sans;">Community</a> and <a style="font-weight: bold; font-family: Noto Sans;" href="https://www.mybb.com/"> MyBB</a>
+            <span style="display:block;color: #9f9f9f;font-family: Noto Sans;"><small style="font-size: 12px;">Original Theme by Emerald</small></span>                                     
+	    </p>
+	</div>
+    <div style="" class="footer-right">
+        <div class="footer-icons">
+		</div>
+                
+		<!-- start: footer_themeselect -->
+<div class="theme">
+<form method="POST" action="https://www.burgershot.gg/showthread.php" id="theme_select">
+	<input type="hidden" name="tid" value="583" />
+<input type="hidden" name="pid" value="5498" />
+
+	<input type="hidden" name="my_post_key" value="6428f000919b5d9a18f82d476f6b077e" />
+	<!-- start: footer_themeselector -->
+<select name="theme" onchange="MyBB.changeTheme();">
+<optgroup label="Quick Theme Select">
+<!-- start: usercp_themeselector_option -->
+<option value="2">MyBB Default Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="3">Burgershot Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="9">--Light</option>
+<!-- end: usercp_themeselector_option -->
+</optgroup>
+</select>
+<!-- end: footer_themeselector -->
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_themeselect -->
+	</div>
+</footer>
+<script>
+	if (connected == 0) { 
+        jQuery("#mobile_member").html("<a href='member456e.html?action=login'>Login</a> - <a href='member0ddc.html?action=register'>Register</a>"); 
+    }
+	if (connected == 1) { 
+        document.getElementById("mobile_member").innerHTML = '<a title="Inbox" href="private.html">Inbox</a> - <a title="User CP" href="usercp.html">User CP</a> - <a title="Log Out" href="member2385.html?action=logout&amp;logoutkey=">Logout</a>'; 
+    }
+</script>
+<!-- end: footer -->
+	<div id="thread_modes_popup" class="popup_menu" style="display: none;"><div class="popup_item_container"><a href="showthread9836.html?mode=linear&amp;tid=583&amp;pid=5498#pid5498" class="popup_item">Linear Mode</a></div><div class="popup_item_container"><a href="showthread1af0.html?mode=threaded&amp;tid=583&amp;pid=5498#pid5498" class="popup_item">Threaded Mode</a></div></div>
+	<script type="text/javascript">
+	// <!--
+		if(use_xmlhttprequest == "1")
+		{
+			$("#thread_modes").popupMenu();
+		}
+	// -->
+	</script>
+	<script type="text/javascript">
+		$(".author_avatar img").error(function () {
+			$(this).unbind("error").closest('.author_avatar').remove();
+		});
+	</script>
+</body>
+</html>
+<!-- end: showthread -->

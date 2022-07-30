@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Как помочь? (перевод) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread02d1.html?tid=361">Как помочь? (перевод)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Russian/Русский (<i>https://www.burgershot.gg/forumdisplay.php?fid=26</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Как помочь? (перевод) (<em>/showthread.php?tid=361</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Как помочь? (перевод)</strong> - <a href="member2750.html?action=profile&amp;uid=704">Daniel_Cortez</a> -  <strong>2019-04-18</strong>
+<br />
+<br />
+Перевод сообщения Y_Less'а (оригинал: https://www.burgershot.gg/showthread.php?tid=99 ).<br />
+<hr class="mycode_hr" />
+<br />
+Прямо сейчас многое происходит - я абсолютно перегружен сообщениями и я ценю каждое из них! Спасибо вам за вашу поддержку. Тем не менее, у меня уходит много времени на то, чтобы перебрать их, поэтому я искренне извиняюсь, если пропустил ваше сообщение!<br />
+<br />
+Пока что самый частый вопрос - как я могу помочь? Поэтому я отвечу здесь:<br />
+<br />
+1) Продолжайте распространять новость. Говорите всем и каждому. Пригласите владельцев своих любимых серверов, своих друзей и кланы на этот форум. Самая большая опасность перед нами - это то, что всё утихнет и вернётся к прежнему статус-кво. Поэтому, пока мы решаем проблемы и организуемся, нам нужно сохранять активность.<br />
+<br />
+2) По той же причине, что и выше - используйте этот форум. Публикуйте фотографии своих котиков (и собак, наверное, тоже, если вы больше по собакам), задавайте вопросы по скриптингу, публикуйте заново свои скрипты и инклуды, постите скриншоты и видео (можете даже использовать YouTube). Иными словами, начните использовать этот форум для всего, что вы делали раньше на официальном форуме SA:MP. Но самое главное - постите фотки котиков!<br />
+<br />
+3) Никого не оскорбляйте. У нас могли быть проблемы с организацией раньше, но это не значит, что нужно переходить на личности.<br />
+<br />
+4) Нам нужен список багов SA:MP, хороший и подробный. Начинайте документировать баги, иначе как мы узнаем, что исправили их? Я подниму свой багтрекер - или это мог бы сделать ещё кто-нибудь, нужно исправить ошибку, которую выдаёт Bugzilla:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Encode version 2.87 required--this is only version 2.60 at /usr/share/perl5/Email/MIME/ContentType.pm line 7.<br />
+BEGIN failed--compilation aborted at /usr/share/perl5/Email/MIME/ContentType.pm line 7.<br />
+Compilation failed in require at /usr/share/perl5/Email/MIME.pm line 13.<br />
+BEGIN failed--compilation aborted at /usr/share/perl5/Email/MIME.pm line 13.<br />
+Compilation failed in require at /usr/share/perl/5.20/parent.pm line 20.<br />
+BEGIN failed--compilation aborted at Bugzilla/MIME.pm line 14.<br />
+Compilation failed in require at Bugzilla/Mailer.pm line 20.<br />
+BEGIN failed--compilation aborted at Bugzilla/Mailer.pm line 20.<br />
+Compilation failed in require at Bugzilla/Auth.pm line 22.<br />
+BEGIN failed--compilation aborted at Bugzilla/Auth.pm line 22.<br />
+Compilation failed in require at Bugzilla.pm line 23.<br />
+BEGIN failed--compilation aborted at Bugzilla.pm line 23.<br />
+Compilation failed in require at /var/www/bugs.y-less.com/index.cgi line 15.<br />
+BEGIN failed--compilation aborted at /var/www/bugs.y-less.com/index.cgi line 15.</code></div></div>Уверен, это несложно, но у меня тут 2 часа ночи.<br />
+<br />
+5) Связано с вышеупомянутым - тесты, чтобы мы могли удостовериться, что баги исправлены. Используйте https://github.com/pawn-lang/YSI-Includes/blob/5.x/YSI_Core/y_testing.md , чтобы написать их (погуглите, как пишутся юнит-тесты) и смотрите примеры здесь: https://github.com/pawn-lang/YSI-Includes/blob/5.x/YSI_Core/y_core/y_cell_tests.inc#L218-L227<br />
+<br />
+6) Ещё один важный аспект, над которым мы усиленно трудимся - это код. В этом плане нам нужно больше всего помощи, хотя процесс разработки и без того идёт. Тем не менее, на данный момент проект ещё не находится в состоянии, пригодном для релиза. Если вы заинтересованы и знаете C++, свяжитесь с нами и мы сможем это обсудить.<br />
+<br />
+7) Я плохо разбираюсь в дизайне. У нас уже есть графика, но больше рекламного материала не помешало бы.<br />
+<br />
+8) Небольшие моды и примеры, которые идут в комплекте с сервером. Нам нужны свои собственные скрипты.<br />
+<br />
+Как я и сказал, это всё те небольшие задачи, с которыми нам нужна помощь, пока мы будем организовываться и решать более крупные проблемы в течение следующих нескольких дней.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member847a.html?action=profile&amp;uid=64">Codeah</a> -  <strong>2019-04-18</strong>
+<br />
+<br />
+Хорошая работа)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member2750.html?action=profile&amp;uid=704">Daniel_Cortez</a> -  <strong>2019-04-18</strong>
+<br />
+<br />
+To the mods: since the original thread is pinned, you'll probably want to pin this one in the same manner.<br />
+Модераторам: поскольку тема-оригинал закреплена, возможно, стоит закрепить и эту тему тоже.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member847a.html?action=profile&amp;uid=64">Codeah</a> -  <strong>2019-04-18</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-18, 04:13 PM)</span>Daniel_Cortez Wrote:  <a href="showthreadfedc-2.html?pid=3506#pid3506" class="quick_jump"></a></cite>To the mods: since the original thread is pinned, you'll probably want to pin this one in the same manner.<br />
+Модераторам: поскольку тема-оригинал закреплена, возможно, стоит закрепить и эту тему тоже.</blockquote><br />
+Сделано!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member83fa.html?action=profile&amp;uid=764">Rasimka</a> -  <strong>2019-04-20</strong>
+<br />
+<br />
+Грядут большие перемены!!  И это очень радует)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="membere86e.html?action=profile&amp;uid=819">Woozie_Cross</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+Ждем)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member3576.html?action=profile&amp;uid=875">#Gromov</a> -  <strong>2019-04-28</strong>
+<br />
+<br />
+Ждем скорейшего выхода
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="membera86f.html?action=profile&amp;uid=456">shpatel</a> -  <strong>2019-05-01</strong>
+<br />
+<br />
+понял принял обработал
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member3501.html?action=profile&amp;uid=434">vacvnt gaze</a> -  <strong>2019-05-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-01, 10:13 AM)</span>shpatel Wrote:  <a href="showthread134c.html?pid=4807#pid4807" class="quick_jump"></a></cite>понял принял обработал</blockquote><br />
+Это что за позерство о.оо
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member31e9.html?action=profile&amp;uid=1061">Nicked</a> -  <strong>2019-05-14</strong>
+<br />
+<br />
+Отлично, ждем )<br />
+<br />
+<img src="http://itd1.mycdn.me/image?id=833882880843&amp;t=20&amp;plc=WEB&amp;tkn=*BD5jYeYJY71CcCNf82tPgQXnvyQ" loading="lazy"  alt="[Image: image?id=833882880843&amp;t=20&amp;plc=WEB&amp;tkn=*...2tPgQXnvyQ]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member8f96.html?action=profile&amp;uid=3057">#Dark</a> -  <strong>2020-12-02</strong>
+<br />
+<br />
+Я могу помочь с интро сайтом и форумом(в движке Xenforo), так-же я дизайнер для тематики игр свяжитесь со мной через телеграм. Мой ник : @yousher
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Как помочь? (перевод)</strong> - <a href="member9c73.html?action=profile&amp;uid=3404">Huntez</a> -  <strong>2021-02-05</strong>
+<br />
+<br />
+Здравствуйте, я из России. Могу ли я помочь локализовать мультиплеер, если вы хотите перевести его на язык данной страны
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

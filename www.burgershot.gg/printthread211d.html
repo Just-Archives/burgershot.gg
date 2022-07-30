@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Filterscript Sistema de ban textdraw - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> <a href="showthread211d.html?tid=2163">Sistema de ban textdraw</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Filterscripts (<i>https://www.burgershot.gg/forumdisplay.php?fid=30</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> Sistema de ban textdraw (<em>/showthread.php?tid=2163</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Sistema de ban textdraw</strong> - <a href="member8213.html?action=profile&amp;uid=3109">Nikolay_Staggs</a> -  <strong>2021-07-12</strong>
+<br />
+<br />
+Es un simple sistema de Baneo<br />
+<br />
+file:///C:/Users/pc/Documents/GTA%20San%20Andreas%20User%20Files/SAMP/screens/sa-mp-029.png<br />
+file:///C:/Users/pc/Documents/GTA%20San%20Andreas%20User%20Files/SAMP/screens/sa-mp-030.png<br />
+file:///C:/Users/pc/Documents/GTA%20San%20Andreas%20User%20Files/SAMP/screens/sa-mp-035.png<br />
+file:///C:/Users/pc/Documents/GTA%20San%20Andreas%20User%20Files/SAMP/screens/sa-mp-036.png<br />
+file:///C:/Users/pc/Documents/GTA%20San%20Andreas%20User%20Files/SAMP/screens/sa-mp-037.png<br />
+<br />
+Code:<br />
+<br />
+/* Créditos Nikolay Staggs se puede modificar*/<br />
+<br />
+#include &lt;a_samp&gt;<br />
+#include &lt;dof2&gt;<br />
+#include &lt;zcmd&gt;<br />
+#include &lt;sscanf2&gt;<br />
+<br />
+#define BanPlayer "Bans/Player/%s.ini"<br />
+<br />
+#define ban 1<br />
+main()<br />
+{<br />
+print("\n----------------------------------");<br />
+print(" Blank Gamemode by your name here");<br />
+print("----------------------------------\n");<br />
+}<br />
+<br />
+new PlayerBaner[MAX_PLAYERS];<br />
+new PlayerBanerDays[MAX_PLAYERS];<br />
+new PlayerBanerRazon[MAX_PLAYERS][65];<br />
+<br />
+new PlayerText:TextDraw_BAN_Player[MAX_PLAYERS][6];<br />
+<br />
+CMD:ban(playerid, params[])<br />
+{<br />
+new razon[150], id, Days, Name[24], str[50];<br />
+if(sscanf(params, "iis[150]", id, Days, razon)) return SendClientMessage(playerid, -1, "USE: /ban [id] [dias] [razon]");<br />
+GetPlayerName(id, Name, sizeof(Name));<br />
+format(str, sizeof(str), BanPlayer, Name);<br />
+<br />
+DOF2_CreateFile(str);<br />
+DOF2_SetInt(str, "Dias", gettime() + (60*60*24*Days));<br />
+DOF2_SetInt(str, "Ban", ban);<br />
+DOF2_SetString(str, "Razon", razon);<br />
+DOF2_SaveFile();<br />
+PlayerBaner[id] = 1;<br />
+<br />
+format(str, sizeof(str), "Fuiste baneado %i %s Razon %s", Days, Days == 1 ? ("dia") : ("dias"), razon);<br />
+SendClientMessage(id, -1, str);<br />
+return 1;<br />
+}<br />
+<br />
+public OnFilterScriptInit()<br />
+{<br />
+print("\n--------------------------------------");<br />
+print(" Blank Filterscript by your name here");<br />
+print("--------------------------------------\n");<br />
+return 1;<br />
+}<br />
+<br />
+public OnFilterScriptExit()<br />
+{<br />
+    DOF2_Exit();<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerConnect(playerid)<br />
+{<br />
+    CargarTextDraw(playerid);<br />
+<br />
+new str[100], Name[24];<br />
+GetPlayerName(playerid, Name, sizeof(Name));<br />
+format(str, sizeof(str), BanPlayer, Name);<br />
+if(IsPlayer(playerid))<br />
+{<br />
+PlayerBanerDays[playerid] = DOF2_GetInt(str, "Dias");<br />
+if(gettime() &gt;= PlayerBanerDays[playerid])<br />
+{<br />
+SendClientMessage(playerid, -1, "..................");<br />
+PlayerBaner[playerid] = 0;<br />
+DOF2_RemoveFile(str);<br />
+}<br />
+else<br />
+{<br />
+PlayerBaner[playerid] = DOF2_GetInt(str, "Ban");<br />
+<br />
+if(PlayerBaner[playerid])<br />
+{<br />
+PlayerBanerDays[playerid] = DOF2_GetInt(str, "Dias");<br />
+strmid(PlayerBanerRazon[playerid],DOF2_GetString(str,"Razon"),0,strlen(DOF2_GetString(str,"Razon")),255);<br />
+new strs[128];<br />
+format(strs, sizeof strs, "te_ha_baneado~y~_razon~w~:~r~_%s_~w~%s", PlayerBanerRazon[playerid], ConvertTime(PlayerBanerDays[playerid] - gettime()));<br />
+PlayerTextDrawSetString(playerid, TextDraw_BAN_Player[playerid][5], strs);<br />
+PlayerTextDrawShow(playerid, TextDraw_BAN_Player[playerid][0]);<br />
+PlayerTextDrawShow(playerid, TextDraw_BAN_Player[playerid][1]);<br />
+PlayerTextDrawShow(playerid, TextDraw_BAN_Player[playerid][2]);<br />
+PlayerTextDrawShow(playerid, TextDraw_BAN_Player[playerid][3]);<br />
+PlayerTextDrawShow(playerid, TextDraw_BAN_Player[playerid][4]);<br />
+PlayerTextDrawShow(playerid, TextDraw_BAN_Player[playerid][5]);<br />
+SetTimerEx("TimerBan", 1000, true, "i", playerid);<br />
+}<br />
+}<br />
+}<br />
+return 1;<br />
+}<br />
+<br />
+<br />
+public OnPlayerSpawn(playerid)<br />
+{<br />
+return 1;<br />
+}<br />
+<br />
+forward TimerBan(playerid);<br />
+public TimerBan(playerid)<br />
+{<br />
+    Kick(playerid);<br />
+return 1;<br />
+}<br />
+<br />
+stock GetName(playerid)<br />
+{<br />
+new Name[MAX_PLAYER_NAME];<br />
+GetPlayerName(playerid, Name, MAX_PLAYER_NAME);<br />
+return Name;<br />
+}<br />
+<br />
+stock IsPlayer(playerid)<br />
+{<br />
+new str[40],<br />
+Name[21];<br />
+<br />
+GetPlayerName(playerid, Name, 21);<br />
+<br />
+format(str, 40, BanPlayer, Name);<br />
+<br />
+if(DOF2_FileExists(str)) return 1;<br />
+return 0;<br />
+}<br />
+<br />
+stock ConvertTime(SEGUNDOS)<br />
+{<br />
+new MINUTOS_, HORAS_, DIAS_, String[200];<br />
+<br />
+if(SEGUNDOS &gt; 59)<br />
+{<br />
+MINUTOS_ = SEGUNDOS / 60;<br />
+SEGUNDOS = SEGUNDOS - MINUTOS_ * 60;<br />
+}<br />
+if(MINUTOS_ &gt; 59)<br />
+{<br />
+HORAS_ = MINUTOS_ / 60;<br />
+MINUTOS_ = MINUTOS_ - HORAS_ * 60;<br />
+}<br />
+if(HORAS_ &gt; 23)<br />
+{<br />
+DIAS_ = HORAS_ / 24;<br />
+HORAS_ = HORAS_ - DIAS_ * 24;<br />
+}<br />
+<br />
+format(String, sizeof(String), "~y~Dias~w~:_%2d", DIAS_);<br />
+if(DIAS_ &lt; 1) format(String, sizeof(String), "~y~Horas~w~:_%2d", HORAS_);<br />
+if(DIAS_ &lt; 1 &amp;&amp; HORAS_ &lt; 1) format(String, sizeof(String), "~y~Minutos~w~:_%2d", MINUTOS_);<br />
+if(DIAS_ &lt; 1 &amp;&amp; HORAS_ &lt; 1 &amp;&amp; MINUTOS_ &lt; 1) format(String, sizeof(String), "~y~Segundos~w~:_%2d", SEGUNDOS);<br />
+<br />
+return String;<br />
+}<br />
+<br />
+CargarTextDraw(playerid)<br />
+{<br />
+TextDraw_BAN_Player[playerid][0] = CreatePlayerTextDraw(playerid, 0.299992, -1.449999, "box");<br />
+PlayerTextDrawLetterSize(playerid, TextDraw_BAN_Player[playerid][0], 0.000000, 49.700000);<br />
+PlayerTextDrawTextSize(playerid, TextDraw_BAN_Player[playerid][0], 661.802734, 0.000000);<br />
+PlayerTextDrawAlignment(playerid, TextDraw_BAN_Player[playerid][0], 1);<br />
+PlayerTextDrawColor(playerid, TextDraw_BAN_Player[playerid][0], -1);<br />
+PlayerTextDrawUseBox(playerid, TextDraw_BAN_Player[playerid][0], 1);<br />
+PlayerTextDrawBoxColor(playerid, TextDraw_BAN_Player[playerid][0], 255);<br />
+PlayerTextDrawSetShadow(playerid, TextDraw_BAN_Player[playerid][0], 0);<br />
+PlayerTextDrawBackgroundColor(playerid, TextDraw_BAN_Player[playerid][0], 255);<br />
+PlayerTextDrawFont(playerid, TextDraw_BAN_Player[playerid][0], 1);<br />
+PlayerTextDrawSetProportional(playerid, TextDraw_BAN_Player[playerid][0], 0);<br />
+<br />
+TextDraw_BAN_Player[playerid][1] = CreatePlayerTextDraw(playerid, 236.200103, 194.375000, "alerta");<br />
+PlayerTextDrawLetterSize(playerid, TextDraw_BAN_Player[playerid][1], 1.635500, 3.341249);<br />
+PlayerTextDrawTextSize(playerid, TextDraw_BAN_Player[playerid][1], 59.000000, 0.000000);<br />
+PlayerTextDrawAlignment(playerid, TextDraw_BAN_Player[playerid][1], 1);<br />
+PlayerTextDrawColor(playerid, TextDraw_BAN_Player[playerid][1], -5963521);<br />
+PlayerTextDrawSetShadow(playerid, TextDraw_BAN_Player[playerid][1], 0);<br />
+PlayerTextDrawBackgroundColor(playerid, TextDraw_BAN_Player[playerid][1], -5963521);<br />
+PlayerTextDrawFont(playerid, TextDraw_BAN_Player[playerid][1], 3);<br />
+PlayerTextDrawSetProportional(playerid, TextDraw_BAN_Player[playerid][1], 1);<br />
+<br />
+TextDraw_BAN_Player[playerid][2] = CreatePlayerTextDraw(playerid, 327.100524, 240.775268, "el_equipo_de~y~_Radiation~w~_RP");<br />
+PlayerTextDrawLetterSize(playerid, TextDraw_BAN_Player[playerid][2], 0.209500, 0.401250);<br />
+PlayerTextDrawTextSize(playerid, TextDraw_BAN_Player[playerid][2], 0.000000, 561.000000);<br />
+PlayerTextDrawAlignment(playerid, TextDraw_BAN_Player[playerid][2], 2);<br />
+PlayerTextDrawColor(playerid, TextDraw_BAN_Player[playerid][2], -1);<br />
+PlayerTextDrawSetShadow(playerid, TextDraw_BAN_Player[playerid][2], 0);<br />
+PlayerTextDrawBackgroundColor(playerid, TextDraw_BAN_Player[playerid][2], 255);<br />
+PlayerTextDrawFont(playerid, TextDraw_BAN_Player[playerid][2], 2);<br />
+PlayerTextDrawSetProportional(playerid, TextDraw_BAN_Player[playerid][2], 1);<br />
+<br />
+TextDraw_BAN_Player[playerid][3] = CreatePlayerTextDraw(playerid, 157.499603, 234.727783, "LD_SPAC:white");<br />
+PlayerTextDrawTextSize(playerid, TextDraw_BAN_Player[playerid][3], 341.000000, 1.000000);<br />
+PlayerTextDrawAlignment(playerid, TextDraw_BAN_Player[playerid][3], 1);<br />
+PlayerTextDrawColor(playerid, TextDraw_BAN_Player[playerid][3], -1);<br />
+PlayerTextDrawSetShadow(playerid, TextDraw_BAN_Player[playerid][3], 0);<br />
+PlayerTextDrawBackgroundColor(playerid, TextDraw_BAN_Player[playerid][3], 255);<br />
+PlayerTextDrawFont(playerid, TextDraw_BAN_Player[playerid][3], 4);<br />
+PlayerTextDrawSetProportional(playerid, TextDraw_BAN_Player[playerid][3], 0);<br />
+<br />
+TextDraw_BAN_Player[playerid][4] = CreatePlayerTextDraw(playerid, 157.499603, 260.029327, "LD_SPAC:white");<br />
+PlayerTextDrawTextSize(playerid, TextDraw_BAN_Player[playerid][4], 341.000000, 1.000000);<br />
+PlayerTextDrawAlignment(playerid, TextDraw_BAN_Player[playerid][4], 1);<br />
+PlayerTextDrawColor(playerid, TextDraw_BAN_Player[playerid][4], -1);<br />
+PlayerTextDrawSetShadow(playerid, TextDraw_BAN_Player[playerid][4], 0);<br />
+PlayerTextDrawBackgroundColor(playerid, TextDraw_BAN_Player[playerid][4], 255);<br />
+PlayerTextDrawFont(playerid, TextDraw_BAN_Player[playerid][4], 4);<br />
+PlayerTextDrawSetProportional(playerid, TextDraw_BAN_Player[playerid][4], 0);<br />
+<br />
+TextDraw_BAN_Player[playerid][5] = CreatePlayerTextDraw(playerid, 327.100524, 249.975830, "te_abaneado~y~_razon~w~:_por pendejo_Dias:~y~_9999");<br />
+PlayerTextDrawLetterSize(playerid, TextDraw_BAN_Player[playerid][5], 0.209500, 0.401250);<br />
+PlayerTextDrawTextSize(playerid, TextDraw_BAN_Player[playerid][5], 0.000000, 561.000000);<br />
+PlayerTextDrawAlignment(playerid, TextDraw_BAN_Player[playerid][5], 2);<br />
+PlayerTextDrawColor(playerid, TextDraw_BAN_Player[playerid][5], -1);<br />
+PlayerTextDrawSetShadow(playerid, TextDraw_BAN_Player[playerid][5], 0);<br />
+PlayerTextDrawBackgroundColor(playerid, TextDraw_BAN_Player[playerid][5], 255);<br />
+PlayerTextDrawFont(playerid, TextDraw_BAN_Player[playerid][5], 2);<br />
+PlayerTextDrawSetProportional(playerid, TextDraw_BAN_Player[playerid][5], 1);<br />
+return 1;<br />
+}
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

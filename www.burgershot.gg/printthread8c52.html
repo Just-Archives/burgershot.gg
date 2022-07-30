@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Why the accents are not working? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread8c52.html?tid=2288">Why the accents are not working?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Why the accents are not working? (<em>/showthread.php?tid=2288</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Why the accents are not working?</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2022-04-23</strong>
+<br />
+<br />
+Why the accents are not working?<br />
+<br />
+I mean, if i do:<br />
+SendClientMessage(i, COLOR_LIGHTRED, "O servidor será <br />
+<br />
+Ingame it looks like: <br />
+<a href="https://imgbb.com/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.ibb.co/TmxHLCW/Screenshot-from-2022-04-23-10-49-10.png" loading="lazy"  alt="[Image: Screenshot-from-2022-04-23-10-49-10.png]" class="mycode_img" /></a><br />
+<br />
+And all other accents like é, ã, ç looks like this /\<br />
+<br />
+---<br />
+<br />
+<br />
+I'm compiling it on linux with this: https://github.com/pawn-lang/compiler/releases<br />
+And with this .vscode/tasks.json:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{<br />
+  // See https://go.microsoft.com/fwlink/?LinkId=733558<br />
+  // for the documentation about the tasks.json format<br />
+  "version": "2.0.0",<br />
+  "tasks": [<br />
+    {<br />
+      "label": "build",<br />
+      "type": "shell",<br />
+      "command": "/usr/bin/pawncc",<br />
+      "args": [<br />
+        "&#36;{file}",<br />
+        "&#92;"-;+&#92;"",<br />
+        "&#92;"-(+&#92;"",<br />
+        "-i&#92;"/home/hiwyn/Documents/sampserver/include/&#92;""<br />
+      ],<br />
+      "group": {<br />
+        "kind": "build",<br />
+        "isDefault": true<br />
+      },<br />
+      "isBackground": false,<br />
+      "presentation": {<br />
+        "reveal": "silent",<br />
+        "clear": false,<br />
+        "panel": "dedicated"<br />
+      },<br />
+      "problemMatcher": [<br />
+        {<br />
+          "base": "&#36;pawncc",<br />
+          "fileLocation": "relative"<br />
+        }<br />
+      ]<br />
+    }<br />
+  ]<br />
+}</code></div></div><br />
+What else should i do?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why the accents are not working?</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2022-04-25</strong>
+<br />
+<br />
+for those who have the same problem, i've fix:<br />
+<br />
+    vscode: Ctrl, -&gt; pesquisar por encoding -&gt; trocar para Western (Windows 1252)<br />
+    or down there in the lower right corner you have the option to change it too
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Gamemode Diverse Roleplay by Tony Patterson - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #555555;font-weight: bold;">[Gamemode]</span> <a href="showthread674e.html?tid=647">Diverse Roleplay by Tony Patterson</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Gamemodes (<i>https://www.burgershot.gg/forumdisplay.php?fid=33</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #555555;font-weight: bold;">[Gamemode]</span> Diverse Roleplay by Tony Patterson (<em>/showthread.php?tid=647</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Diverse Roleplay by Tony Patterson</strong> - <a href="member3d72.html?action=profile&amp;uid=1239">TonyP</a> -  <strong>2019-06-09</strong>
+<br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="font-size: x-large;" class="mycode_size"><span style="color: RoyalBlue;" class="mycode_color">💕 D</span>iverse <span style="color: Cyan;" class="mycode_color">R</span>oleplay <span style="color: Yellow;" class="mycode_color">by</span> <span style="color: DeepSkyBlue;" class="mycode_color">TonyP💕 </span></span><br />
+<br />
+<span style="font-size: x-large;" class="mycode_size">💕 <span style="color: Magenta;" class="mycode_color">Information</span>💕 </span><br />
+This gamemode is my hard work, and take note this is NGRP edit, non-mysql based script. All credits goes to NGRP owners and to me only! The reason I'm releasing this gamemode is because, I thought that I could run this gamemode but unfortunately I dont have enough time to run it aslo I have an important exam next year, due to that I cant concentrate on updating this gamemode. But i will try my best to fix bugs, so far i didnt find any of them. Remember this script is NOT for NEWBIES!!</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="font-size: x-small;" class="mycode_size">pawn Code:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>General Updates<br />
+[/font][/size][/color]<br />
+-New awesome login textdraw, not copied from anywhere.<br />
+<br />
+-Server [color=#222222]random[/color] messages are now on the bottom of the screen, I took this idea from PLA because it was my favourite server.<br />
+<br />
+-/stats /help /ah is now in dialog, more structured and looks neat.<br />
+<br />
+-Admins can now show their admin badge via /showabadge, a roleplay dialog will be shown<br />
+<br />
+-Admins can type /oldbiz and /oldhouses to view old and unused biz id and house id..It shows with the owners name.<br />
+<br />
+-Now [color=#2222bb]if[/color] you want to promote helpers, you can check their help counts which means...You can check how many help request have they accepted on their /stats..admins can type /check (their id)<br />
+<br />
+-New business pickupmodel icon<br />
+<br />
+-You can now put your favourite skins inside your house by tying /putskin(idk the commands check via /househelp<br />
+<br />
+-VIPS CAN own up to 3 houses.<br />
+<br />
+-VIPS can now own up to 5 cars.<br />
+<br />
+-You can now put /boombox musics with custom url, just press on the custom url dialog section and put your custom skin, ******* is not supported as usual.<br />
+[color=#000000][size=small][font=verdana, geneva, lucida,]- Plenty of admin commands.</code></div></div></span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b">Admin commands are messed up on this forum sorry for that because i copied the whole thread from my samp thread.</span></span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="font-size: x-small;" class="mycode_size">pawn Code:</span><br />
+</span></span></span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[color=#000000][size=small][font=verdana, geneva, lucida,]CMD:ah(playerid, params[])<br />
+{<br />
+    [color=#2222bb]new[/color] str[5200];<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 1)<br />
+    {<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"{B4B5B7}*** Trial Admin *** /showabadge /jail /sjail /kick /c /togadvisor /oocmute /ounmute /sfine /fine /spec /gotoid[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** Trial Admin *** /revive /goto /mark[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** REPORT SYSTEM *** /ar (accept report) /tr (trash report) /cr (close report)[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** REPORT SYSTEM *** /sta (send to advisor) /post (post forums)[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** REPORT SYSTEM *** /srm (send report msg to report)[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** REPORT SYSTEM *** /srtha (send report to higher admin)[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 2)<br />
+    {<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {00FF00}JUNIOR ADMIN{BFC0C2} *** /gotoid /gethere /ar /dr /reports /post /sta /dt /rfd /nao /hhc /paused[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {00FF00}JUNIOR ADMIN{BFC0C2} ***  /god /ban /kick /jail /bigears /freeze /unfreeze /slap /warn /cnn /gethere /gotoid /hospital /goto /requestevent[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {00FF00}JUNIOR ADMIN{BFC0C2} ***  /gotoplayerscar /jetpack /god /check /ip /hlmute /nrn /listguns /setvw /setint /vehname /watch[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {00FF00}JUNIOR ADMIN{BFC0C2} ***  /ar /dr /reports /post /sta /dt /rfd /nao /hhc /oocpower /amegaphone(/ameg)[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 3)<br />
+    {<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {00FF00}GENERAL ADMIN{CBCCCE} *** /aduty /noooc /nonewbie /prison /fine /pfine /takeadminweapons /sendtols /oprison /gotocar /entercar /getcar /sendtoid[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {00FF00}GENERAL ADMIN{CBCCCE} *** /mole /setskin /countdown /release /force(death/hospital) /rto(reset) /jailaccount /(o)clearflag /mark /reloadpvehicles[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {00FF00}GENERAL ADMIN{CBCCCE} *** /gotoco /n(un)mute /ad(un)mute /leaders /wepreset /ocheck /owarn /ofine /okills /respawncar(s) /revive /sfine /odebug[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {00FF00}GENERAL ADMIN{CBCCCE} *** (/forcetut - /skiptut) /fuelcar /cr /gr /ahyd /anos /aneon /rtoreset /rto[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 4)<br />
+    {<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {EE9A4D}SENIOR ADMIN{D8D8D8} *** /edit /noadvisor /setchamp /setarmorall /fixvehall /givenos /blowup /setname /startlotto[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {EE9A4D}SENIOR ADMIN{D8D8D8} *** /veh /fixveh /sethp /setarmor /givegun /givemoney /setmoney /setfightstyle[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {EE9A4D}SENIOR ADMIN{D8D8D8} *** /adivorce /destroycar /destroycars /eventhelp /contracts /rmute[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {EE9A4D}SENIOR ADMIN{D8D8D8} *** /unban /unbanip /deletehit /clearall /setinsurance /cmotd /givelicense /adestroyplant /ahelp[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {EE9A4D}SENIOR ADMIN{D8D8D8} *** /createpvehicle /destroypvehicle /creategvehicle /vipparty /vto /vtoreset /forceskin /setcapping[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {EE9A4D}SENIOR ADMIN{D8D8D8} *** /hnext /dmpnext /(goto/goin)dd /(goto/goin)house /(create/delete/goto)point /banaccount[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {EE9A4D}SENIOR ADMIN{D8D8D8} *** /hedit /dd(edit/next/name/pass) /dmpedit /dmpnear /gotomapicon /gangwarn /gangunban /maketiki  /deletetiki /givetikis[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {EE9A4D}SENIOR ADMIN{D8D8D8} *** /gedit /gnear /gstatus /gnext[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 1337)<br />
+    {<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {FF0000}HEAD ADMIN{E3E3E3} *** /weather /weatherall /tod /dedit /pedit /giftall /makehelper /respawnallcars /ipcheck[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {FF0000}HEAD ADMIN{E3E3E3} *** /permaban /setcolor /payday /clearallreports /eventreset /amotd /vipmotd /givetoken /gifts[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {FF0000}HEAD ADMIN{E3E3E3} *** /vmute /asellhouse /switchfac /switchfam /refund /setstat /editjob /gotojob /jobnext[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {FF0000}HEAD ADMIN{E3E3E3} *** /editlocker /lockernext /gotolocker[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {FF0000}HEAD ADMIN{E3E3E3} *** /bizedit /createbiz /deletebiz /bnext /asellbiz /resetplayerbiz[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 1338)<br />
+    {<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {298EFF}LEAD HEAD ADMIN{E3E3E3} ***  /specreset /pausespec /random /vrandom /giftreset /vipgifts /takeadvisor /makeadvisor /vsuspend /oldhouse /oldbiz[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {298EFF}LEAD HEAD ADMIN{E3E3E3} ***  /afacban /listfacpay /switchfac /facpay /fackick /ofackick /facunban /faccsfban /faccsfunban /sprison /sjail[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {298EFF}LEAD HEAD ADMIN{E3E3E3} ***  /gangstrike /fedithq /fcreate /fedit /fdelete /silentadmins /gangmods /factionmods /advisormods /djs /mods[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 99998)<br />
+    {<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {298EFF}Executive Admin{F0F0F0} *** /restartserver /osuspend /unsuspend /suspend /motd /amotd /vipmotd /setspawn[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {298EFF}Executive Admin{F0F0F0} *** /givetikisall /noadmin /makemoderator /removemoderator[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {298EFF}Executive Admin{F0F0F0} *** /makepr /makebanappealer /makegangmod /makefacmod /makedj /makesilentadmin[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 99999)<br />
+    {<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {FF0000}Executive Director{E3E3E3} ***  /savefiles /deletetikis /firework /usetolls /dontusetolls /allowrobbank[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {FF0000}Executive Director{E3E3E3} ***  /createdealership /destroydealership /createcdveh /destroycdveh /giveboombox[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        [color=#222222]strcat[/color](str, [color=#000066]"*** {FF0000}Executive Director{E3E3E3} ***  /makeap /makedev /makeadmin /setvip /changeuserpass[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pBanAppealer] == 1)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Ban Appealer: /unbanip /unban /ipcheck /oipcheck[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdminPer] == 1)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Admin Personnel: /makeadmin[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pDJ] == 1)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"DJ: /playall /stopall[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pSilentAdmin] == 1)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Silent Admin: /sw(hisper) /sprison /sjail /swarn /skick /sslap[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pFactionModerator] == 1)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Faction Moderator: /listfacpay /facpay /switchfac /faccsfunban /faccsfban /facban /facunban /fackick /ofackick /leaders /makeleader[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Faction Moderator: /editlocker /lockernext /gotolocker[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pGangModerator] == 1)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Gang Moderator: /switchfam /fedit /creategvehicle /destroygvehicle /gangwarn /gangunban /fcreate[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Gang Moderator: /fdelete /gangstrike /fedithq[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdvisorModerator] == 1)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Public Relations: /makeadvisor /takeadvisor /nonewbie /cto /ctoreset /advisors[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color](PlayerInfo[playerid][pDeveloper] &gt;= 1)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Developer: /dev /getcoords /getvehinfo[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color](PlayerInfo[playerid][pDeveloper] &gt;= 6)<br />
+    {<br />
+       SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Asst.Development Director: /makedeveloper /editpoint[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color](PlayerInfo[playerid][pDeveloper] &gt;= 7)<br />
+    {<br />
+        SendClientMessageEx(playerid, COLOR_GRAD5,[color=#000066]"Development Director: /makedeveloper /editpoint[color=#000099][b]&#92;n[/b][/color]"[/color]);<br />
+    }<br />
+    [color=#2222bb]if[/color] (PlayerInfo[playerid][pAdmin] &gt;= 1)<br />
+    {<br />
+        ShowPlayerDialog(playerid, DIALOG_SHOW_INFO, DIALOG_STYLE_MSGBOX, [color=#000066]"{33AA33}Administration Commands"[/color], str, [color=#000066]"Ok"[/color], [color=#000066]"Cancel"[/color]);<br />
+    }<br />
+    [color=#2222bb]return[/color] 1;<br />
+}[/font][/size][/color]</code></div></div><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Screenshots </span></span></span><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">As soon as possible.</span></span></span></span><br />
+<br />
+<span style="color: DarkOrange;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">💕 CREDITS💕 :</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">-</span></span></span><span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> Tony Patterson (me)</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> [The main editor and scripter of this gamemode]</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">- </span></span></span><span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Natalie Patterson &amp; Geroge Barletta</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> [For testing this gamemode]</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">- Respective </span></span></span><span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">NGRP Owners &amp; Developers</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> [For NGRP Script]</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">- </span></span></span><span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Eliteshost.com</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> for giving me free 100 slots server.</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">- Christmas and Anims filterscript by </span></span></span><span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Pedro<br />
+</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">if it's your FC let me know by pming me.</span></span></span><br />
+<span style="color: CYAN;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="font-size: x-large;" class="mycode_size">Installation Process :</span></span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">1. Open DRP.pwn file using pawno or what ever, compile it again because i dont have time to compile it.</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">2. Once u spawn use /rcon login (password) and type /tonyadminme [id] [99999] </span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">3. Go to airport and you will see some cars near the building like bob cat, type there /setspawn so the players will spawn there, the spawn place was at unity station but i hate that.</span></span></span><br />
+<br />
+<span style="font-size: x-large;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b">💕<span style="color: Orange;" class="mycode_color">Download links</span>💕 :</span></span></span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Mediafire</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">-</span></span></span><a href="http://www.mediafire.com/file/hhbvhc6oll9oc4h/Diverse+Roleplay+by+TonyP.zip" target="_blank" rel="noopener" class="mycode_url"><span style="color: #1a425f;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Click</span></span></span></a><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Note-:</span></span></span><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="font-style: italic;" class="mycode_i">If you need any help feel free to ask me here..</span></span></span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">ENJOY WITH THIS GAMEMODE GUYS!</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Diverse Roleplay by Tony Patterson</strong> - <a href="member30ff.html?action=profile&amp;uid=920">Diego</a> -  <strong>2019-07-27</strong>
+<br />
+<br />
+Thanks, won't use though.<br />
+<br />
+- Diego
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Diverse Roleplay by Tony Patterson</strong> - <a href="member86b9.html?action=profile&amp;uid=767">RogueDrifter</a> -  <strong>2019-07-29</strong>
+<br />
+<br />
+Github
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Diverse Roleplay by Tony Patterson</strong> - <a href="member4196.html?action=profile&amp;uid=448">offr0ad</a> -  <strong>2019-12-05</strong>
+<br />
+<br />
+cmon guys start using github and sampctl, it would make whole gamemode making process much faster and stop using those stupid mediafire upload things for code.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Diverse Roleplay by Tony Patterson</strong> - <a href="memberc644.html?action=profile&amp;uid=3079">ezzad</a> -  <strong>2020-12-15</strong>
+<br />
+<br />
+Link broken.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Diverse Roleplay by Tony Patterson</strong> - <a href="member8a68.html?action=profile&amp;uid=3462">Maximus</a> -  <strong>2021-02-18</strong>
+<br />
+<br />
+Any plans on fixing the broken link?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> ayuda con registro dini - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread3bfa.html?tid=1674">ayuda con registro dini</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  ayuda con registro dini (<em>/showthread.php?tid=1674</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>ayuda con registro dini</strong> - <a href="member8213.html?action=profile&amp;uid=3109">Nikolay_Staggs</a> -  <strong>2021-02-16</strong>
+<br />
+<br />
+tengo dos días tratando de resolver el problema  pero no puedo, por que no se guardan los datos de los usuarios :)<br />
+ este es el código" <br />
+<br />
+//_____Enum______//<br />
+enum DATA_PLAYER<br />
+{<br />
+    GAME_IDENTIFICADO,<br />
+    GAME_REGISTRADO,<br />
+GAME_EXP,<br />
+GAME_ADMIN_LEVEL,<br />
+GAME_SCORE,<br />
+GAME_MONEY<br />
+};<br />
+new PLAYER_INFO[MAX_PLAYERS][DATA_PLAYER];<br />
+//_________News__________//<br />
+new GAME_PASSWORD_INCORRECTA[MAX_PLAYERS];<br />
+<br />
+<br />
+public OnPlayerConnect(playerid)<br />
+{<br />
+    GAME_PASSWORD_INCORRECTA[playerid] = 0;<br />
+    <br />
+    new string[250];<br />
+<br />
+    if (fexist(ac_ARCHIBO_USER(playerid)))<br />
+    {<br />
+PLAYER_INFO[playerid][GAME_REGISTRADO] = 1;<br />
+    }<br />
+    <br />
+    if (PLAYER_INFO[playerid][GAME_REGISTRADO])<br />
+    {<br />
+format(string, sizeof(string), "{CCCCCC}- Bienvenido %s.\n- Escribe tu contraseña para identificarte", NAME_USER(playerid));<br />
+  ShowPlayerDialog(playerid, DIALOG_INGRESO, DIALOG_STYLE_PASSWORD, ""#BLANCO"Ingreso", string, "Ingresar", "Salir");<br />
+    }<br />
+    else<br />
+    {<br />
+  format(string, sizeof(string), "{CCCCCC}- Bienvenido %s.\n- Escribe una contraseña para Registrarte", NAME_USER(playerid));<br />
+  ShowPlayerDialog(playerid, DIALOGO_REGISTRO, DIALOG_STYLE_PASSWORD, ""#BLANCO"Registrar", string, "Ok", "Salir");<br />
+    }<br />
+    <br />
+    RESET_USER(playerid);<br />
+return 1;<br />
+}<br />
+<br />
+<br />
+public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])<br />
+{<br />
+    new string[250];<br />
+    if(dialogid == DIALOGO_REGISTRO)<br />
+    {<br />
+        dini_Create(ac_ARCHIBO_USER(playerid));<br />
+        dini_IntSet(ac_ARCHIBO_USER(playerid), "contraseña",        adler32(inputtext));<br />
+        dini_IntSet(ac_ARCHIBO_USER(playerid), "Exp",              PLAYER_INFO[playerid][GAME_EXP]);<br />
+        dini_IntSet(ac_ARCHIBO_USER(playerid), "Admin",            PLAYER_INFO[playerid][GAME_ADMIN_LEVEL]);<br />
+        dini_IntSet(ac_ARCHIBO_USER(playerid), "Score",            PLAYER_INFO[playerid][GAME_SCORE]);<br />
+        dini_IntSet(ac_ARCHIBO_USER(playerid), "Dinero",            PLAYER_INFO[playerid][GAME_MONEY]);<br />
+        <br />
+        PLAYER_INFO[playerid][GAME_IDENTIFICADO] = 1;<br />
+        PLAYER_INFO[playerid][GAME_REGISTRADO] = 1;<br />
+    }<br />
+    else if(dialogid == DIALOG_INGRESO)<br />
+    {<br />
+        if (dini_Int(ac_ARCHIBO_USER(playerid), "Contraseña") == adler32(inputtext))<br />
+        {<br />
+            PLAYER_INFO[playerid][GAME_IDENTIFICADO] = 1;<br />
+            PLAYER_INFO[playerid][GAME_REGISTRADO] = 1;<br />
+            <br />
+            PLAYER_INFO[playerid][GAME_EXP] = dini_Int                (ac_ARCHIBO_USER(playerid), "Exp");<br />
+            PLAYER_INFO[playerid][GAME_ADMIN_LEVEL] = dini_Int        (ac_ARCHIBO_USER(playerid), "Admin");<br />
+            SetPlayerScore(playerid, dini_Int                          (ac_ARCHIBO_USER(playerid), "Score"));<br />
+            GivePlayerMoney(playerid, dini_Int                        (ac_ARCHIBO_USER(playerid), "Dinero"));<br />
+        }<br />
+        else<br />
+        {<br />
+            GAME_PASSWORD_INCORRECTA[playerid]++;<br />
+            format(string, sizeof(string), "{CCCCCC}- Por favor %s.\n- Ingresa una contraseña correcta", NAME_USER(playerid));<br />
+            ShowPlayerDialog(playerid, DIALOG_INGRESO, DIALOG_STYLE_PASSWORD, "{6F0000}Error", string, "Ok", "Salir");<br />
+<br />
+            if(GAME_PASSWORD_INCORRECTA[playerid] == MAX_PASSWORD_INVALIDA)<br />
+            {<br />
+                format(string,sizeof(string),"{6F0000}[Cuentas]: %s fue expulsado (Max intentos de ingresar(Contraseña invalida))", NAME_USER(playerid));<br />
+                SendClientMessageToAll(-1, string);<br />
+                SendClientMessage(playerid, -1, "** Haz puesto varias contraseñas incorrectas has sido kickeado del servidor por seguridad.");<br />
+                Kick(playerid);<br />
+            }<br />
+        }<br />
+    }<br />
+    return 1;<br />
+}<br />
+<br />
+<br />
+stock NAME_USER(playerid)<br />
+{<br />
+	new User_Name[MAX_PLAYER_NAME];<br />
+	GetPlayerName(playerid, User_Name,  sizeof(User_Name));<br />
+	return User_Name;<br />
+}<br />
+<br />
+stock ac_ARCHIBO_USER(playerid)<br />
+{<br />
+	new User_Name[250];<br />
+	GetPlayerName(playerid, User_Name,  sizeof(User_Name));<br />
+	format(User_Name, sizeof(User_Name), "DM_FREEROAM/%s.ini", User_Name);<br />
+	return User_Name;<br />
+}<br />
+<br />
+stock SAVE_USER(playerid)<br />
+{<br />
+    if(PLAYER_INFO[playerid][GAME_IDENTIFICADO])<br />
+    {<br />
+        dini_IntSet(ac_ARCHIBO_USER(playerid), "Exp",          PLAYER_INFO[playerid][GAME_EXP]);<br />
+dini_IntSet(ac_ARCHIBO_USER(playerid), "Admin",        PLAYER_INFO[playerid][GAME_ADMIN_LEVEL]);<br />
+        dini_IntSet(ac_ARCHIBO_USER(playerid), "Score",        GetPlayerScore(playerid));<br />
+        dini_IntSet(ac_ARCHIBO_USER(playerid), "Dinero",        GetPlayerMoney(playerid));<br />
+    }<br />
+    return 1;<br />
+}<br />
+<br />
+stock adler32(buf[])<br />
+{<br />
+    new len = strlen(buf), key1 = 1, key2 = 0, n;<br />
+    for (n = 0; n &lt; len; n ++)<br />
+    {<br />
+        key1 = (key1 + buf[n])  % 65521;<br />
+        key2 = (key2 + key1)    % 65521;<br />
+    }<br />
+    return (key2 &lt;&lt; 16) + key1;<br />
+}<br />
+<br />
+<br />
+stock RESET_USER(playerid)<br />
+{<br />
+    PLAYER_INFO[playerid][GAME_IDENTIFICADO] = 0;<br />
+    PLAYER_INFO[playerid][GAME_REGISTRADO] = 0;<br />
+    PLAYER_INFO[playerid][GAME_EXP] = 0;<br />
+    PLAYER_INFO[playerid][GAME_ADMIN_LEVEL] = 0;<br />
+    PLAYER_INFO[playerid][GAME_SCORE] = 0;<br />
+    PLAYER_INFO[playerid][GAME_MONEY] = 0;<br />
+    return 1;<br />
+}
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ayuda con registro dini</strong> - <a href="membera1bc.html?action=profile&amp;uid=3473">Porkaslov</a> -  <strong>2021-02-21</strong>
+<br />
+<br />
+¿Que errores te indica, podrías compartir alguna imagen de los errores?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ayuda con registro dini</strong> - <a href="member8213.html?action=profile&amp;uid=3109">Nikolay_Staggs</a> -  <strong>2021-03-01</strong>
+<br />
+<br />
+No guarda los datos de los usuarios
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

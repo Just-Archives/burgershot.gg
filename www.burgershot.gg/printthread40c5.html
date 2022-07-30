@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Gamemode Project Open (Best cnr that has been opened sourced) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #555555;font-weight: bold;">[Gamemode]</span> <a href="showthread40c5.html?tid=532">Project Open (Best cnr that has been opened sourced)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Gamemodes (<i>https://www.burgershot.gg/forumdisplay.php?fid=33</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #555555;font-weight: bold;">[Gamemode]</span> Project Open (Best cnr that has been opened sourced) (<em>/showthread.php?tid=532</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Project Open (Best cnr that has been opened sourced)</strong> - <a href="memberad4a.html?action=profile&amp;uid=884">PatrickGTR</a> -  <strong>2019-05-08</strong>
+<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Introduction</span></span><br />
+A deathmatch, cops and robbers gamemode based in San Fierro.<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Thanks To</span></span><br />
+Southclaw - I took a lot of snippets from S&amp;S to make productivity faster.<br />
+Zeex - Crashdetect.<br />
+Y_Less - YSI, sscanf.<br />
+maddinat0r - MySQL, helped me with an issue in house system.<br />
+Slice - strlib, formatex.<br />
+<br />
+<span style="color: #24292e;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="font-family: -apple-system, BlinkMacSystemFont,;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b">Job Commands</span></span></span></span><ul class="mycode_list"><li>Hitman<br />
+<ul class="mycode_list"><li>/hitlist<br />
+</li>
+<li>/track<br />
+</li>
+<li>/placehit (civilians, not for hitman class)<br />
+</li>
+</ul>
+</li>
+<li>Rapist<ul class="mycode_list"><li>/rape<br />
+</li>
+</ul>
+</li>
+<li>Drug Dealer<ul class="mycode_list"><li>/plantweed<br />
+</li>
+<li>/harvestweed<br />
+</li>
+<li>/sellweed<br />
+</li>
+<li>/buyweed (civilians, not for drug dealer)<br />
+</li>
+</ul>
+</li>
+<li>Weapon Dealer<ul class="mycode_list"><li>/sellgun<br />
+</li>
+<li>/acceptgun (civilians, not for weapon dealer)<br />
+</li>
+<li>/sellarmour<br />
+</li>
+<li>/acceptarmour (civilians, not for weapon dealer)<br />
+</li>
+</ul>
+</li>
+<li>Terrorist<ul class="mycode_list"><li>/plantc4 <br />
+</li>
+<li>/detonate (<span style="font-weight: bold;" class="mycode_b">TODO</span>: Detonate with LMB instead of a command.)<br />
+</li>
+</ul>
+</li>
+<li>Mechanic<ul class="mycode_list"><li>/mechfix<br />
+</li>
+</ul>
+</li>
+</ul>
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Database Structure</span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: small;" class="mycode_size"><span style="color: #336633;" class="mycode_color">* implemented</span></span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #ff3333;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">* not implemented</span></span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">PARENT</span><ul class="mycode_list"><li>accounts <span style="color: #336633;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">*</span></span><br />
+</li>
+</ul>
+CHILDREN<ul class="mycode_list"><li>account_stats <span style="font-weight: bold;" class="mycode_b"><span style="color: #336633;" class="mycode_color">*</span></span><br />
+</li>
+<li>attachment <span style="color: #ff3333;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">*</span></span><br />
+</li>
+<li>vip_player <span style="font-weight: bold;" class="mycode_b"><span style="color: #336633;" class="mycode_color">*</span></span><br />
+</li>
+</ul>
+vehicle_players <span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">*</span></span></span><ul class="mycode_list"><li>vehicle_components <span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">*</span></span><br />
+</li>
+</ul>
+item_players <span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b"><span style="color: #336633;" class="mycode_color">*</span></span></span><ul class="mycode_list"><li>item_type <span style="font-weight: bold;" class="mycode_b"><span style="color: #336633;" class="mycode_color">*</span></span><br />
+</li>
+</ul>
+skills_players <span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b"><span style="color: #336633;" class="mycode_color">*</span></span></span><ul class="mycode_list"><li>skills_type <span style="font-weight: bold;" class="mycode_b"><span style="color: #336633;" class="mycode_color">*</span></span><br />
+</li>
+</ul>
+house_players <span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">*</span></span></span><ul class="mycode_list"><li>house_interiors <span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">*</span></span><br />
+</li>
+<li>house_furnitures <span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">*</span></span><br />
+</li>
+</ul>
+gangs <span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">*</span></span></span><ul class="mycode_list"><li>gang_players <span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">*</span></span><br />
+</li>
+<li>gang_zones <span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">*</span></span><br />
+</li>
+</ul>
+<br />
+<span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Get involved with the developement!</span></span><br />
+Source: <a href="https://github.com/PatrickGTR/Project-Open" target="_blank" rel="noopener" class="mycode_url">Link</a><br />
+<br />
+Feel free to suggest below!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Project Open (Best cnr that has been opened sourced)</strong> - <a href="member5f5f.html?action=profile&amp;uid=46">Toretto</a> -  <strong>2019-05-08</strong>
+<br />
+<br />
+I like how modest the title is
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Project Open (Best cnr that has been opened sourced)</strong> - <a href="memberf77c.html?action=profile&amp;uid=10">Kar</a> -  <strong>2019-05-14</strong>
+<br />
+<br />
+"Best cnr that has been opened sourced" bold claim, can't beat lorenc's sf-cnr
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Project Open (Best cnr that has been opened sourced)</strong> - <a href="member4025.html?action=profile&amp;uid=2673">MrAsR</a> -  <strong>2020-10-01</strong>
+<br />
+<br />
+Can you include the .inc (pawno/include) too?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Project Open (Best cnr that has been opened sourced)</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2020-10-01</strong>
+<br />
+<br />
+Use sampctl, it'll get them for you. Or read https://github.com/PatrickGTR/Project-Open/blob/master/pawn.json and get them yourself.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

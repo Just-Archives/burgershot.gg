@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> split pawn codes - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread336e.html?tid=2192">split pawn codes</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  split pawn codes (<em>/showthread.php?tid=2192</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>split pawn codes</strong> - <a href="member97d3.html?action=profile&amp;uid=3745">redex</a> -  <strong>2021-07-28</strong>
+<br />
+<br />
+hi.<br />
+i am working on a sa-mp gamemode project, its going to take about +50k code line, i was wondering is there any way to split the code, for exp put the JOBS related codes to another file and include it , so if i need to edit something about jobs i dont need to check hell a lot code lines to fix a problem!<br />
+<br />
+how can i do that? is it good?<br />
+can it cause bad effects like lags or some other bad effects to server?<br />
+if u know anything please let me know, thanks!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: split pawn codes</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-28</strong>
+<br />
+<br />
+Well off course! And you absolutely should do that! You're also already doing it in fact when including includes.. Thus use <span style="font-weight: bold;" class="mycode_b">#include</span> to include different files.<br />
+<span style="font-weight: bold;" class="mycode_b">#include &lt;someInclude&gt;</span> would attempt to include "PATH_TO_INCLUDES_DIRECTORY/someInclude.inc"<br />
+<span style="font-weight: bold;" class="mycode_b">#include "someInclude.inc"</span> or <span style="font-weight: bold;" class="mycode_b">#include "someInclude"</span> would attempt to include "PATH_RELATIVE_FILE/someInclude.inc" (you could use different extensions. Eg. gamemode sf-cnr uses .pwn for all includes -- don't, though. ".inc" is the correct file extension)<br />
+<br />
+For example:<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">./gamemodes/gamemode.pwn</span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+<br />
+#include "src/assembly.inc"<br />
+<br />
+public OnGameModeInit()<br />
+{<br />
+    print("Final OnGameModeInit() call!");<br />
+    return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">./gamemodes/src/assembly.inc</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include "src/init.inc"<br />
+#include "src/server/mysql.inc"</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">./gamemodes/src/init.inc</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;YSI_Coding&#92;y_hooks&gt;<br />
+<br />
+hook OnGameModeInit()<br />
+{<br />
+    print("First OnGameModeInit() call! Start loading gamemode");<br />
+    return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">./gamemodes/src/server/mysql.inc</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;YSI_Coding&#92;y_hooks&gt;<br />
+<br />
+hook OnGameModeInit()<br />
+{<br />
+    print("Second OnGameModeInit() call! Setting up MySQL connection");<br />
+    return 1;<br />
+}</code></div></div>Etc..<br />
+<br />
+There are probably 'rules' around as how to name files (eg. using 'header.inc' and 'impl.inc' files) but I'm too noob for that :-)<br />
+Here are a few gamemodes that do use multiple files in case you need examples. <br />
+https://github.com/PatrickGTR/gta-open<br />
+https://github.com/MaxAndolini/NG-RP<br />
+https://github.com/zeelorenc/sf-cnr<br />
+<br />
+Ultimately this will all be combined into one file (by the pre-processor) - including the plugins. It has no effect on the performance of the server.<br />
+If you're curious and want to see that for yourself, compile with option "-l" (either put <span style="font-weight: bold;" class="mycode_b">#pragma option -l</span> in your script (do use the latest compiler) or append it to pawncc args).<br />
+This will show the output of the stage after the pre-processor's output and before compiling it to assembler code/binary file (amx) in a <span style="font-weight: bold;" class="mycode_b">.asm</span> file. This for example (note that this doesn't make much sense):<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">./script.pwn</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include "myInclude.inc"<br />
+<br />
+#pragma option -l<br />
+<br />
+#define MY_CONSTANT 5<br />
+<br />
+main()<br />
+{<br />
+    print("MY_CONSTANT IS "#MY_CONSTANT);<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">./myInclude.inc</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native print(const string[]);</code></div></div>Would output something like this: (without "#file" and "#line" outputs: when using -l it adds that to the script to show what's where)<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native print(const string[]);<br />
+<br />
+main()<br />
+{<br />
+    print("MY_CONSTANT IS "#5);<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: split pawn codes</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-28</strong>
+<br />
+<br />
+https://github.com/Southclaws/sampctl/wiki/Modern-Pawn<br />
+https://github.com/TradeWars/gamemode/blob/master/docs/Style-Guide.md
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: split pawn codes</strong> - <a href="member97d3.html?action=profile&amp;uid=3745">redex</a> -  <strong>2021-07-29</strong>
+<br />
+<br />
+thank u guys it was really helpful +rep
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

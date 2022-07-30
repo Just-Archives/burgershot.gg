@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> ayuda CP - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread06d9.html?tid=1611">ayuda CP</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  ayuda CP (<em>/showthread.php?tid=1611</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>ayuda CP</strong> - <a href="member8213.html?action=profile&amp;uid=3109">Nikolay_Staggs</a> -  <strong>2021-01-28</strong>
+<br />
+<br />
+Tengo una duda cómo puedo enganchar un remolque y que se marqué un CreateDynamicCP tengo esta función<br />
+<br />
+public OnPlayerAttachTrailer(playerid, vehicleid, trailerid)<br />
+{<br />
+if(IsTrailerAttachedToVehicle(vehicleid) &amp;&amp; SPAWN_REMOLQUE_GASOLINA != 1)<br />
+{<br />
+Random_Gasolina(playerid);<br />
+}<br />
+    return 1;<br />
+}<br />
+<br />
+stock Random_Gasolina(playerid)<br />
+{<br />
+	new Gascolina = random(3);<br />
+	switch(Gascolina)<br />
+	{<br />
+		case 0:<br />
+		{<br />
+			if(IsValidDynamicCP(PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT]))<br />
+			{<br />
+				DestroyDynamicCP(PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT]);<br />
+				PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT] = INVALID_STREAMER_ID;<br />
+			}<br />
+			PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT] = CreateDynamicCP(363.3305, 869.4847, 20.3811, 5.0, 0, 0, playerid, 9999999999.0);<br />
+            SendClientMessage(playerid, -1, "Lleva el remolque hacia donde se marcó");<br />
+<br />
+			new info[1];<br />
+			info[0] = CHECKPOINT_TYPE_ENTER_GASOLINE;<br />
+			Streamer_SetArrayData(STREAMER_TYPE_CP, PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT], E_STREAMER_EXTRA_ID, info);<br />
+		}<br />
+		case 1:<br />
+		{<br />
+			if(IsValidDynamicCP(PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT]))<br />
+			{<br />
+				DestroyDynamicCP(PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT]);<br />
+				PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT] = INVALID_STREAMER_ID;<br />
+			}<br />
+			PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT] = CreateDynamicCP(-137.1521, -72.7862, 3.0911, 5.0, 0, 0, playerid, 9999999999.0);<br />
+			SendClientMessage(playerid, -1, "Lleva el remolque hacia donde se marcó");<br />
+<br />
+			new info[1];<br />
+			info[0] = CHECKPOINT_TYPE_ENTER_GASOLINE;<br />
+			Streamer_SetArrayData(STREAMER_TYPE_CP, PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT], E_STREAMER_EXTRA_ID, info);<br />
+		}<br />
+		case 2:<br />
+		{<br />
+			if(IsValidDynamicCP(PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT]))<br />
+			{<br />
+				DestroyDynamicCP(PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT]);<br />
+				PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT] = INVALID_STREAMER_ID;<br />
+			}<br />
+			PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT] = CreateDynamicCP(2822.7476, 955.9294, 10.7289, 5.0, 0, 0, playerid, 9999999999.0);<br />
+			SendClientMessage(playerid, -1, "Lleva el remolque hacia donde se marcó");<br />
+<br />
+			new info[1];<br />
+			info[0] = CHECKPOINT_TYPE_ENTER_GASOLINE;<br />
+			Streamer_SetArrayData(STREAMER_TYPE_CP, PLAYER_TEMP[playerid][pt_TRAILERO_CHECKPOINT], E_STREAMER_EXTRA_ID, info);<br />
+		}<br />
+	}<br />
+	return 1;<br />
+}
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ayuda CP</strong> - <a href="member0ffe.html?action=profile&amp;uid=2996">Leonardo</a> -  <strong>2021-01-29</strong>
+<br />
+<br />
+No comprendo que tipo de ayuda necesitas. Si ya tienes la función hecha, que es lo que necesitas?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ayuda CP</strong> - <a href="member8213.html?action=profile&amp;uid=3109">Nikolay_Staggs</a> -  <strong>2021-01-29</strong>
+<br />
+<br />
+la duda es que al enganchar el remolque no se marca el Checkpoint
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ayuda CP</strong> - <a href="member0ffe.html?action=profile&amp;uid=2996">Leonardo</a> -  <strong>2021-01-30</strong>
+<br />
+<br />
+No estoy familiarizado con ese streamer ya que siempre he usado uno propio que se adapte a mis necesidades y no llego a comprender 100% el funcionamiento de ese plugin, pero a mí me da que el problema esta en que el checkpoint sólo es visible si estas cerca.<br />
+<br />
+¿Te sale en el chat el mensaje de que el checkpoint se marcó? Si es así, puedes ir igualmente a ese lugar y comprobar si al acercarte, el checkpoint se muestra, si es así, la solución puede estar en crear un icono en el mapa del tipo 0, de color rojo, simulando un checkpoint, y quitarlo en cuanto el checkpoint sea visible.<br />
+<br />
+https://open.mp/docs/scripting/resources/mapicons<br />
+<br />
+Lo puedes comprobar con los callbacks OnPlayerEnterDynamicCP y OnPlayerLeaveDynamicCP<br />
+<br />
+https://github.com/samp-incognito/samp-streamer-plugin/wiki/Callbacks
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: ayuda CP</strong> - <a href="member8213.html?action=profile&amp;uid=3109">Nikolay_Staggs</a> -  <strong>2021-01-30</strong>
+<br />
+<br />
+Cuando engancho el remolque no me aparece el mensaje ni el checkpoint
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

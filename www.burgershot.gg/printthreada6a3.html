@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [Ayuda] error 022: must be lvalue (non-constant) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreada6a3.html?tid=1608">[Ayuda] error 022: must be lvalue (non-constant)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  [Ayuda] error 022: must be lvalue (non-constant) (<em>/showthread.php?tid=1608</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Ayuda] error 022: must be lvalue (non-constant)</strong> - <a href="memberb2ae.html?action=profile&amp;uid=3358">Kaiser</a> -  <strong>2021-01-28</strong>
+<br />
+<br />
+Buenas madrugadas jaja, bueno, acá tengo un error que no he podido solucionar, alguien podría decirme que podría ser y cómo lo soluciono.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>(54132) : error 022: must be lvalue (non-constant)</code></div></div><br />
+Este es el código completo.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>//**************************************************************************<br />
+CMD:regaloatodos(playerid)<br />
+{<br />
+if(Staff(playerid,Director)) return 1;<br />
+{<br />
+if (Regalo)<br />
+{<br />
+new string[128];<br />
+format(string, sizeof(string), "{474747}[ADMINISTRACIÓN]{FFFFFF} %s envió regalos a todo el servidor.", NombreJugador(playerid));<br />
+MensajeAll(CxVERDE, string);<br />
+Regalo = 0; // Linea del error<br />
+foreach(Player, i) { RegaloTodos(i); }<br />
+} else return Mensaje(playerid, 0, "212", "Este comando ya fue usado, puedes usarlo en el próximo pago diario.");<br />
+}<br />
+return 1;<br />
+}<br />
+/// Sistema de regalos actualizado<br />
+stock RegaloTodos(playerid) {<br />
+    new gift = Random(1, 3);<br />
+    switch(gift) {<br />
+        case 1: {<br />
+                DarDinero(playerid, 2500);<br />
+                Mensaje(playerid, 2, "0", "Felicidades - recibiste &#36;250 del regalo!");<br />
+            }<br />
+        case 2: {<br />
+                InfoUsuario[playerid][uExperiencia] += 2;<br />
+                Mensaje(playerid, 2, "0", "Felicidades - recibiste dos puntos de experiencia del regalo!");<br />
+            }<br />
+        case 3: {<br />
+                InfoUsuario[playerid][uExperiencia] += 1;<br />
+                Mensaje(playerid, 2, "0", "Felicidades - recibiste un punto de experiencia del regalo!");<br />
+            }<br />
+        default: return RegaloTodos(playerid);<br />
+    }<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] error 022: must be lvalue (non-constant)</strong> - <a href="member0ffe.html?action=profile&amp;uid=2996">Leonardo</a> -  <strong>2021-01-28</strong>
+<br />
+<br />
+Eso será porque la variable "Regalo" estará definida como constante, es decir:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>const Regalo = 0;</code></div></div><br />
+en lugar de:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Regalo = 0;</code></div></div><br />
+por lo que no vas a poder sobre-escribir el valor de esa variable.<br />
+<br />
+De pasada vi otro error, que no te va a tirar ningun error al compilar, y seguramente te puedas tirar horas buscando porque no funciona (a mi nunca me paso, le paso a un amigo de un amigo, jeje).<br />
+<br />
+Mira <br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(Staff(playerid,Director)) return 1;<br />
+{</code></div></div><br />
+Si lo que quieres es comprobar si el jugador es staff, quita ese "return 1;", de lo contrario, todo jugador que no sea staff va poder usar ese comando.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] error 022: must be lvalue (non-constant)</strong> - <a href="memberb2ae.html?action=profile&amp;uid=3358">Kaiser</a> -  <strong>2021-01-29</strong>
+<br />
+<br />
+Gracias hermano, jaja vale ya lo cambiare.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

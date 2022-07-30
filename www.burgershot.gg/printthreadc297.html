@@ -1,0 +1,972 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin sscanf - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthreadc297.html?tid=426">sscanf</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> sscanf (<em>/showthread.php?tid=426</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>sscanf</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-04-21</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf 2.8.2</span></span></span></span></span></div>
+<br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">NPC modes</span></span></span></span></span><br />
+<br />
+To use sscanf in an NPC mode, download this file:<br />
+<br />
+<a href="https://dl.dropbox.com/u/21683085/npcdll.rar" target="_blank" rel="noopener" class="mycode_url">http://dl.dropbox.com/u/21683085/npcdll.rar</a><br />
+<br />
+And extract it to your root server directory (so "amxsscanf.dll" is in the same directory as "samp-npc.exe"). Then use as normal. The only tiny difference is that "u", "r", and "q" don't know if a user is a bot or not, so just assume they are all players - use accordingly.<br />
+<br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Downloads</span></span></span></span></span><br />
+<br />
+GitHub repo (for sscanf 3):<br />
+<br />
+<a href="https://github.com/maddinat0r/sscanf/releases" target="_blank" rel="noopener" class="mycode_url">https://github.com/maddinat0r/sscanf/releases</a><br />
+<br />
+Source, Windows .dll, Linux .so and include:<br />
+<br />
+<a href="https://dl.dropboxusercontent.com/u/102595204/sscanf-2.8.2.zip" target="_blank" rel="noopener" class="mycode_url">https://dl.dropboxusercontent.com/u/102595204/sscanf-2.8.2.zip</a><br />
+<br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Use</span></span></span></span></span><br />
+<br />
+This behaves exactly as the old sscanf did, just MUCH faster and much more flexibly. To use it add:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include&nbsp;&lt;sscanf2&gt;&nbsp;<br /></span></code></div></div></div><br />
+To your modes and remove the old sscanf (the new include will detect the old version and throw an error if it is detected). On windows add:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">plugins&nbsp;sscanf&nbsp;<br /></span></code></div></div></div><br />
+To server.cfg. On Linux add:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">plugins&nbsp;sscanf</span><span style="color: #007700">.</span><span style="color: #0000BB">so&nbsp;<br /></span></code></div></div></div><br />
+The basic code looks like:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ui"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">giveplayerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">amount</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF0000AA</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Usage:&nbsp;/givecash&nbsp;&lt;playerid/name&gt;&nbsp;&lt;amount&gt;"</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+However it should be noted that sscanf can be used for any text processing you like. For example an ini processor could look like (don't worry about what the bits mean at this stage):<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">szFileLine</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"p&lt;=&gt;s[8]s[32]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">szIniName</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">szIniValue</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB"> &nbsp; printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Invalid&nbsp;INI&nbsp;format&nbsp;line"</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+There is also an alternate function name to avoid confusion with the C standard sscanf:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">unformat</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ui"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">giveplayerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">amount</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF0000AA</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Usage:&nbsp;/givecash&nbsp;&lt;playerid/name&gt;&nbsp;&lt;amount&gt;"</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Specifiers</span></span></span></span></span><br />
+<br />
+The available specifiers (the letters "u", "i" and "s" in the codes above) are below.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Basic specifiers</span></span></span></span><br />
+</li>
+</ul>
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Specifier(s)               Name                   Example values<br />
+   i, d         Integer                            1, 42, -10<br />
+   c            Character                          a, o, *<br />
+   l            Logical                            true, false<br />
+   b            Binary                             01001, 0b1100<br />
+   h, x         Hex                                1A, 0x23<br />
+   o            Octal                              045 12<br />
+   n            Number                             42, 0b010, 0xAC, 045<br />
+   f            Float                              0.7, -99.5<br />
+   g            IEEE Float                         0.7, -99.5, INFINITY, -INFINITY, NAN, NAN_E<br />
+   u            User name/id (bots and players)    Y_Less, 0<br />
+   q            Bot name/id                        ShopBot, 27<br />
+   r            Player name/id                     Y_Less, 42</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Strings</span></span></span></span><br />
+</li>
+</ul>
+<br />
+<br />
+The specifier "s" is used, as before, for strings - but they are now more advanced. As before they support collection, so doing:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&nbsp;27"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">val</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Will give:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>hello<br />
+27</code></div></div><br />
+Doing:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&nbsp;there&nbsp;27"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">val</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Will fail as "there" is not a number. However doing:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&nbsp;there"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"s"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Will give:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>hello there</code></div></div><br />
+Because there is nothing after "s" in the specifier, the string gets everything. To stop this simply add a space:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&nbsp;there"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"s&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Will give:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>hello</code></div></div><br />
+You can also escape parts of strings with "\\" - note that it is two backslashes as 1 is used by the compiler:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&#092;&#092;&nbsp;there&nbsp;27"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">val</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Will give:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>hello there<br />
+27</code></div></div><br />
+All these examples however will give warnings in the server as the new version has array sizes. The above code should be:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new<br /></span><span style="color: #0000BB"> &nbsp; str</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],<br /></span><span style="color: #0000BB"> &nbsp; val</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&#092;&#092;&nbsp;there&nbsp;27"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"s[32]i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">val</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+As you can see - the format specifier now contains the length of the target string, ensuring that you can never have your strings overflow and cause problems. This can be combined with the SA:MP compiler's stringizing:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#define&nbsp;STR_SIZE&nbsp;32<br /></span><span style="color: #007700">new<br /></span><span style="color: #0000BB"> &nbsp; str</span><span style="color: #007700">[</span><span style="color: #0000BB">STR_SIZE</span><span style="color: #007700">],<br /></span><span style="color: #0000BB"> &nbsp; val</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&#092;&#092;&nbsp;there&nbsp;27"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"s["&nbsp;</span><span style="color: #FF8000">#STR_SIZE&nbsp;"]i",&nbsp;str,&nbsp;val);&nbsp;<br /></span></code></div></div></div><br />
+So when you change your string size you don't need to change your specifiers.<br />
+<br />
+What happened to "z", the optional string? z has been removed (you can still use it but will get a server warning) to make way for the new optional parameter system described later on.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Arrays</span></span></span></span><br />
+</li>
+</ul>
+<br />
+One of the advanced new specifiers is "a", which creates an array, obviously. The syntax is similar to that of strings and, as you will see later, the delimiter code:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new<br /></span><span style="color: #0000BB"> &nbsp; arr</span><span style="color: #007700">[</span><span style="color: #0000BB">5</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;2&nbsp;3&nbsp;4&nbsp;5"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a&lt;i&gt;[5]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">arr</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+The "a" specifier is immediately followed by a single type enclosed in angle brackets - this type can be any of the basic types listed above. It is the followed, as with strings now, by an array size. The code above will put the numbers 1 to 5 into the 5 indexes of the "arr" array variable.<br />
+<br />
+Arrays can now also be combined with strings (see below), specifying the string size in the array type:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>a&lt;s[10]&gt;[12]</code></div></div><br />
+This will produce an array of 12 strings, each up to 10 characters long (9 + NULL). Optional string arrays still follow the optional array syntax:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>A&lt;s[10]&gt;(hello)[12]</code></div></div><br />
+However, unlike numbers you can't specify a progression and have it fill up. This code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>A&lt;i&gt;(0, 1)[4]</code></div></div><br />
+Will by default produce:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>0, 1, 2, 3</code></div></div><br />
+However, this code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>A&lt;s[10]&gt;(hi, there)[4]</code></div></div><br />
+Will by default produce:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>"hi, there", "hi, there", "hi, there", "hi, there"</code></div></div><br />
+As normal, you can add brackets in to the default string value with "\)":<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>A&lt;s[10]&gt;(hi (code&#92;))[4]</code></div></div><br />
+It should also be noted that there is NO length checking on default strings. If you do:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>A&lt;s[10]&gt;(This is longer than 10 characters)[4]</code></div></div><br />
+You will probably just corrupt the PAWN stack. The length checking is to ensure no users enter malicious data; however, in this case it is up to the scripter to ensure that the data is correct as they are the only one affecting it and shouldn't be trying to crash their own server. Interestingly, arrays of strings actually also work with jagged arrays and arrays that have been shuffled by Slice's quicksort function (this isn't a side-effect, I specifically wrote them to do so).<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Enums</span></span></span></span><br />
+</li>
+</ul>
+<br />
+This is possibly the most powerful addition to sscanf ever. This gives you the ability to define the structure of an enum within your specifier string and read any data straight into it. The format takes after that of arrays, but with more types - and you can include strings in enums (but not other enums or arrays):<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">enum<br /> &nbsp; E_DATA<br /></span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; E_DATA_C</span><span style="color: #007700">,<br /></span><span style="color: #0000BB"> &nbsp; Float</span><span style="color: #007700">:</span><span style="color: #0000BB">E_DATA_X</span><span style="color: #007700">,<br /></span><span style="color: #0000BB"> &nbsp; E_DATA_NAME</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],<br /></span><span style="color: #0000BB"> &nbsp; E_DATA_Z<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">main<br /></span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; new<br /> &nbsp; &nbsp; &nbsp; var</span><span style="color: #007700">[</span><span style="color: #0000BB">E_DATA</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp; sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;12.0&nbsp;Bob&nbsp;c"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"e&lt;ifs[32]c&gt;"</span><span style="color: #007700">,&nbsp;var);<br />}&nbsp;<br /></span></code></div></div></div><br />
+Now I'll be impressed if you can read that code straight off, so I'll explain it slowly:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">e&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">Start&nbsp;of&nbsp;the&nbsp;</span><span style="color: #DD0000">"enum"&nbsp;</span><span style="color: #0000BB">type<br /></span><span style="color: #007700">&lt;&nbsp;-&nbsp;</span><span style="color: #0000BB">Starts&nbsp;the&nbsp;specification&nbsp;of&nbsp;the&nbsp;structure&nbsp;of&nbsp;the&nbsp;enum<br />i&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">An&nbsp;integer</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">corresponds&nbsp;with&nbsp;E_DATA_C<br />f&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">A&nbsp;float</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">corresponds&nbsp;with&nbsp;E_DATA_X<br />s</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">]&nbsp;-&nbsp;</span><span style="color: #0000BB">A&nbsp;32&nbsp;cell&nbsp;string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">corresponds&nbsp;with&nbsp;E_DATA_NAME<br />c&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">A&nbsp;character</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">corresponds&nbsp;with&nbsp;E_DATA_Z<br /></span><span style="color: #007700">&gt;&nbsp;-&nbsp;</span><span style="color: #0000BB">End&nbsp;of&nbsp;the&nbsp;enum&nbsp;specification&nbsp;<br /></span></code></div></div></div><br />
+Note that an enum doesn't require a size like arrays and strings - it's size is determined by the number and size of the types. Most, but not all, specifiers can be used inside enums (notably arrays and other enums can't be).<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Quiet</span></span></span></span><br />
+</li>
+</ul>
+<br />
+The two new specifiers "{" and "}" are used for what are known as "quiet" strings. These are strings which are read and checked, but not saved. For example:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"42&nbsp;-100"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"{i}i"</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+Clearly there are two numbers and two "i", but only one return variable. This is because the first "i" is quiet so is not saved, but affects the return value. The code above makes "var" "-100". The code below will fail in an if check:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hi&nbsp;-100"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"{i}i"</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+Although the first integer is not saved it is still read - and "hi" is not an integer. Quiet zones can be as long as you like, even for the whole string if you only want to check values are right, not save them:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;2&nbsp;3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"i{ii}"</span><span style="color: #007700">,&nbsp;var);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;2&nbsp;3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"{iii}"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;2&nbsp;3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"i{a&lt;i&gt;[2]}"</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+You can also embed quiet sections inside enum specifications:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;12.0&nbsp;Bob&nbsp;42&nbsp;INFINITY&nbsp;c"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"e&lt;ifs[32]{ig}c&gt;"</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+Quiet sections cannot contain other quiet sections, however they can include enums which contain quiet sections.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Searches</span></span></span></span><br />
+</li>
+</ul>
+<br />
+Searches were in the last version of sscanf too, but I'm explaining them again anyway. Strings enclosed in single quotes (') are scanned for in the main string and the position moved on. Note that to search for a single quote you escape it as above using "\\":<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"10&nbsp;11&nbsp;woo&nbsp;12"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"i'woo'i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var1</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Gives:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>10<br />
+12</code></div></div><br />
+You could achieve the same effect with:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"10&nbsp;11&nbsp;woo&nbsp;12"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"i{is[1000]}i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var1</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+But that wouldn't check that the string was "woo". Also note the use of "1000" for the string size. Quiet strings must still have a length, but as they aren't saved anywhere you can make this number as large as you like to cover any eventuality. Enum specifications can include search strings.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Enums</span></span></span></span><br />
+</li>
+</ul>
+<br />
+This is a feature similar to quiet sections, which allows you to skip overwriting certain parts of an enum:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>e&lt;ii-i-ii&gt;</code></div></div><br />
+Here the "-" is a "minus", and tells sscanf that there is an enum element there, but not to do anything, so if you had:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">enum&nbsp;E<br /></span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; E_A</span><span style="color: #007700">,<br /></span><span style="color: #0000BB"> &nbsp; E_B</span><span style="color: #007700">,<br /></span><span style="color: #0000BB"> &nbsp; E_C</span><span style="color: #007700">,<br /></span><span style="color: #0000BB"> &nbsp; E_D</span><span style="color: #007700">,<br /></span><span style="color: #0000BB"> &nbsp; E_E<br /></span><span style="color: #007700">}&nbsp;<br /></span></code></div></div></div><br />
+And you only wanted to update the first two and the last fields and leave all others untouched you could use that specifier above. This way sscanf knows how to skip over the memory, and how much memory to skip. Note that this doesn't read anything, so you could also combine this with quiet sections:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>e&lt;ii-i-i{ii}i&gt;</code></div></div><br />
+That will read two values and save them, skip over two memory locations, read two values and NOT save them, then read and save a last value. In this way you can have written down all the values for every slot in the enum, but have only used 3 of them. Note that this is the same with "E" - if you do:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>E&lt;ii-i-ii&gt;</code></div></div><br />
+You should ONLY specify THREE defaults, not all five:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>E&lt;ii-i-ii&gt;(11, 22, 55)</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Delimiters</span></span></span></span><br />
+</li>
+</ul>
+<br />
+The previous version of sscanf had "p" to change the symbol used to separate tokens. This specifier still exists but it has been formalised to match the array and enum syntax. What was previously:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1,2,3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"p,iii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var2</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Is now:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1,2,3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"p&lt;,&gt;iii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var2</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+The old version will still work, but it will give a warning. Enum specifications can include delimiters, and is the only time "&lt;&gt;"s are contained in other "&lt;&gt;"s:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;12.0&nbsp;Bob,c"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"e&lt;ifp&lt;,&gt;s[32]c&gt;"</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+Note that the delimiter will remain in effect after the enum is complete. You can even use "&gt;" as a specifier by doing "p&lt;\&gt;&gt;" (or the older "p&gt;").<br />
+<br />
+When used with strings, the collection behaviour is overruled. Most specifiers are still space delimited, so for example this will work:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;2&nbsp;3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"p&lt;;&gt;iii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var2</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Despite the fact that there are no ";"s. However, strings will ONLY use the specified delimiters, so:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&nbsp;1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"p&lt;-&gt;s[32]i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+Will NOT work - the variable "str" will contain "hello 1". On the other hand, the example from earlier, slightly modified:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello&nbsp;there&gt;27"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"p&lt;&gt;&gt;s[32]i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+WILL work and will give an output of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>hello there<br />
+27</code></div></div><br />
+You can now have optional delimiters using "P" (upper case "p" to match other "optional" specifiers). These are optional in the sense that you specify multiple delimiters and any one of them can be used to end the next symbol:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"(4,&nbsp;5,&nbsp;6,&nbsp;7)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"P&lt;(),&gt;{s[2]}iiii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">c</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">d</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+This uses a "quiet section" to ignore anything before the first "(", and then uses multiple delimiters to end all the text. Example:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"42,&nbsp;43;&nbsp;<a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="85b1b1c5">[email&#160;protected]</a>"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"P&lt;,;@&gt;a&lt;i&gt;[3]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">arr</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Optional specifiers</span></span></span></span><br />
+</li>
+</ul>
+<br />
+EVERY format specifier (that is, everything except '', {} and p) now has an optional equivalent - this is just their letter capitalised, so for example the old "z" optional string specifier is now "S" (there is still "z" and, for completeness, "Z", but both give warnings). In addition to optional specifiers, there are also now default values:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"I(12)"</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+The "()"s (round brackets) contain the default value for the optional integer and, as the main string has no data, the value of "var" becomes "12". Default values come before array sizes and after specifications, so an optional array would look like:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1&nbsp;2"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"A&lt;i&gt;(3)[4]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">arr</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Note that the size of the array is "4" and the default value is "3". There are also two values which are defined, so the final value of "arr" is:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>1, 2, 3, 3</code></div></div><br />
+Array default values are clever, the final value of:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"A&lt;i&gt;(3,6)[4]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">arr</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Will be:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>3, 6, 9, 12</code></div></div><br />
+The difference between "3" and "6" is "3", so the values increase by that every index. Note that it is not very clever, so:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"A&lt;i&gt;(1,2,2)[4]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">arr</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Will produce:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>1, 2, 2, 2</code></div></div><br />
+The difference between "2" and "2" (the last 2 numbers in the default) is 0, so there will be no further increase. For "l" (logical) arrays, the value is always the same as the last value, as it is with "g" if the last value is one of the special values (INFINITY, NEG_INFINITY (same as -INFINITY), NAN or NAN_E). Note that:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a&lt;I&gt;(1,2,2)[4]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">arr</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Is invalid syntax, the "A" must be the capital part.<br />
+<br />
+Enums can also be optional:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"4"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"E&lt;ifs[32]c&gt;(1,&nbsp;12.0,&nbsp;Bob,&nbsp;c)"</span><span style="color: #007700">,&nbsp;var);&nbsp;<br /></span></code></div></div></div><br />
+In that code all values except "4" will be default. Also, again, you can escape commas with "\\" in default enum strings. Some final examples:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"I(2)I(3)I(4)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"O(045)H(0xF4)B(0b0100)U(Y_Less)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">octnum</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">hexnum</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">binnum</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">user</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"0xFF"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"N(0b101)"</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+That last example is of a specifier not too well described yet - the "number" specifier, which will work out the format of the number from the leading characters (0x, 0b, 0 or nothing). Also note that the second example has changed - see the next section.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Users</span></span></span></span><br />
+</li>
+</ul>
+<br />
+The "u", "q", and "r" specifiers search for a user by name or ID. The method of this search has changed in the latest versions of "sscanf".<br />
+<br />
+Additionally "U", "Q", and "R" used to take a name or ID as their default value - this has since been changed to JUST a number, and sscanf will not try and determine if this number is online:<br />
+<br />
+Previous:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"U(Y_Less)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">id</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #FF8000">//&nbsp;Y_Less&nbsp;or&nbsp;the&nbsp;entered&nbsp;player&nbsp;is&nbsp;not&nbsp;connected.<br /></span><span style="color: #007700">}&nbsp;<br /></span></code></div></div></div><br />
+New:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"U(-1)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">id</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">==&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #FF8000">//&nbsp;No&nbsp;player&nbsp;was&nbsp;entered.<br /></span><span style="color: #007700">}<br />else&nbsp;if&nbsp;(</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #FF8000">//&nbsp;Entered&nbsp;player&nbsp;is&nbsp;not&nbsp;connected.<br /></span><span style="color: #007700">}&nbsp;<br /></span></code></div></div></div><br />
+See the section on options for more details.<br />
+<br />
+Users can now optionally return an ARRAY of users instead of just one. This array is just a list of matched IDs, followed by "INVALID_PLAYER_ID". Given the following players:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>0) Y_Less<br />
+1) [CLAN]Y_Less<br />
+2) Jake<br />
+3) Alex<br />
+4) Hass</code></div></div><br />
+This code:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">ids</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">i</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Le"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"?&lt;MATCH_NAME_PARTIAL=1&gt;u[3]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ids</span><span style="color: #007700">))&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Error&nbsp;in&nbsp;input"</span><span style="color: #007700">);<br />for&nbsp;(</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">ids</span><span style="color: #007700">[</span><span style="color: #0000BB">i</span><span style="color: #007700">]&nbsp;!=&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">;&nbsp;++</span><span style="color: #0000BB">i</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">ids</span><span style="color: #007700">[</span><span style="color: #0000BB">i</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">cellmin</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Too&nbsp;many&nbsp;matches"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; break</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"id&nbsp;=&nbsp;%d"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ids</span><span style="color: #007700">[</span><span style="color: #0000BB">i</span><span style="color: #007700">]);<br />}<br />if&nbsp;(</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"No&nbsp;matching&nbsp;players&nbsp;found."</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Will output:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>id = 0<br />
+id = 1<br />
+Too many matches</code></div></div><br />
+Searching "Les" instead will give:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>id = 0<br />
+id = 1</code></div></div><br />
+And searching without "MATCH_NAME_PARTIAL" will give:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>No matching players found.</code></div></div><br />
+Basically, if an array of size "N" is passed, this code will return the first N-1 results. If there are less than "N" players whose name matches the given name then that many players will be returned and the next slot will be "INVALID_PLAYER_ID" to indicate the end of the list. On the other hand if there are MORE than "N - 1" players whose name matches the given pattern, then the last slot will be "cellmin" to indicate this fact.<br />
+<br />
+When combined with "U" and returning the default, the first slot is always exactly the default value (even if that's not a valid connected player) and the next slot is always "INVALID_PLAYER_ID".<br />
+<br />
+Note also that user arrays can't be combined with normal arrays or enums, but normal single-return user specifiers still can be.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Custom (kustom) specifiers</span></span></span></span><br />
+</li>
+</ul>
+<br />
+The latest version of sscanf adds a new "k" specifier to allow you to define your own specifers in PAWN:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SSCANF</span><span style="color: #007700">:</span><span style="color: #0000BB">playerstate</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'0'&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;&lt;=&nbsp;</span><span style="color: #DD0000">'9'</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; new<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strval</span><span style="color: #007700">(string);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">ret&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">9</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return&nbsp;ret</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PLAYER_STATE_NONE"</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PLAYER_STATE_ONFOOT"</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PLAYER_STATE_DRIVER"</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PLAYER_STATE_PASSENGER"</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PLAYER_STATE_WASTED"</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PLAYER_STATE_SPAWNED"</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PLAYER_STATE_SPECTATING"</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">9</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+The code above, when added to the top level of your mode, will add the "playerstate" specifier, allowing you to do:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"uk&lt;playerstate&gt;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">state</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+This system supports optional custom specifiers with no additional PAWN code:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"uK&lt;playerstate&gt;(PLAYER_STATE_NONE)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">state</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+The new version of "sscanf2.inc" includes functions for "k&lt;weapon&gt;" and "k&lt;vehicle&gt;" allowing you to enter either the ID or name and get the ID back, but both are VERY basic at the moment and I expect other people will improve on them.<br />
+<br />
+Note that custom specifiers are not supported in either arrays or enumerations.<br />
+<br />
+Note also that custom specifiers always take a string input and always return a number, but this can be a Float, bool, or any other single cell tag type.<br />
+<br />
+The optional kustom specifier "K" takes a default value that is NOT (as of sscanf 2.8) parsed by the given callback:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>K&lt;vehicle&gt;(999)</code></div></div><br />
+"999" is NOT a valid vehicle model, but if no other value is supplied then 999 will be returned, allowing you to differentiate between the user entering an invalid vehicle and not entering anything at all.<br />
+<br />
+Also as of sscanf 2.8, "k" can be used in both arrays and enums.<br />
+<br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Options</span></span></span></span></span><br />
+<br />
+The latest version of sscanf introduces several options that can be used to customise the way in which sscanf operates. There are two ways of setting these options - globally and locally:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SSCANF_Option</span><span style="color: #007700">(</span><span style="color: #0000BB">SSCANF_QUIET</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+This sets the "SSCANF_QUIET" option globally. Every time "sscanf" is called the option (see below) will be in effect. Note that the use of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SSCANF_QUIET</code></div></div><br />
+Instead of a string as:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SSCANF_QUIET</code></div></div><br />
+Is entirely valid here - all the options are defined in the sscanf2 include already.<br />
+<br />
+Alternatively you can use "?" to specify an option locally - i.e. only for the current sscanf call:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"?&lt;SSCANF_QUIET=1&gt;si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Obviously "s" without a length is deprecated, and the first and last "sscanf" calls will give a warning in the console, but the second one won't as for just that one call prints have been disabled. The following code disables prints globally then enables them locally:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SSCANF_Option</span><span style="color: #007700">(</span><span style="color: #0000BB">SSCANF_QUIET</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"?&lt;SSCANF_QUIET=0&gt;si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"si"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Note that disabling prints is a VERY bad idea when developing code as you open yourself up to unreported buffer overflows when no length is specified on strings less than 32 cells (the default length).<br />
+<br />
+To specify multiple options requires multiple calls:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SSCANF_Option</span><span style="color: #007700">(</span><span style="color: #0000BB">SSCANF_QUIET</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SSCANF_Option</span><span style="color: #007700">(</span><span style="color: #0000BB">MATCH_NAME_PARTIAL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"?&lt;SSCANF_QUIET=1&gt;?&lt;MATCH_NAME_PARTIAL=0&gt;s[10]i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+The options are:<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">OLD_DEFAULT_NAME:</span></span></span></span><br />
+</li>
+</ul>
+<br />
+   The behaviour of "U", "Q", and "R" have been changed to take any number as a default, instead of a connected player. Setting "OLD_DEFAULT_NAME" to "1" will revert to the old version.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">MATCH_NAME_PARTIAL:</span></span></span></span><br />
+</li>
+</ul>
+<br />
+   Currently sscanf will search for players by name, and will ALWAYS search for player whose name STARTS with the specified string. If you have, say "[CLAN]Y_Less" connected and someone types "Y_Less", sscanf will not find "[CLAN]Y_Less" because there name doesn't start with the specified name. This option, when set to 1, will search ANYWHERE in the player's name for the given string.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">CELLMIN_ON_MATCHES:</span></span></span></span><br />
+</li>
+</ul>
+<br />
+   Whatever the value of "MATCH_NAME_PARTIAL", the first found player will always be returned, so if you do a search for "_" on an RP server, you could get almost anyone. To detect this case, if more than one player will match the specified string then sscanf will return an ID of "cellmin" instead. This can be combined with "U" for a lot more power:<br />
+<br />
+   <div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB"> &nbsp; sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"?&lt;CELLMIN_ON_MATCHES=1&gt;U(-1)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">id</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">==&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; </span><span style="color: #FF8000">//&nbsp;No&nbsp;player&nbsp;was&nbsp;entered.<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">cellmin</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; </span><span style="color: #FF8000">//&nbsp;Multiple&nbsp;matches&nbsp;found<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; </span><span style="color: #FF8000">//&nbsp;Entered&nbsp;player&nbsp;is&nbsp;not&nbsp;connected.<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; else<br /> &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; </span><span style="color: #FF8000">//&nbsp;Found&nbsp;just&nbsp;one&nbsp;player.<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;<br /></span></code></div></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">SSCANF_QUIET:</span></span></span></span><br />
+</li>
+</ul>
+<br />
+   Don't print any errors to the console. REALLY not recommended unless you KNOW your code is stable and in production.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">OLD_DEFAULT_KUSTOM:</span></span></span></span><br />
+</li>
+</ul>
+<br />
+   As with "U", "K" used to require a valid identifier as the default and would parse it using the specified callback, so this would NOT work:<br />
+<br />
+   <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>   K&lt;vehicle&gt;(Veyron)<br />
+   </code></div></div><br />
+   Because that is not a valid vehicle name in GTA. The new version now JUST takes a number and returns that regardless:<br />
+<br />
+   [code<br />
+   K&lt;vehicle&gt;(9999)<br />
+   [/code]<br />
+<br />
+   This setting reverts to the old behaviour.<br />
+<br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">All specifiers</span></span></span></span></span><br />
+<br />
+For quick reference, here is a list of ALL the specifiers and their use:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>[b][u]Format[/u][/b] [b][u]Use[/u][/b]<br />
+L(true/false) Optional logical truthity<br />
+l Logical truthity<br />
+K&lt;callback&gt;(any format number)        Optional custom operator<br />
+k&lt;callback&gt; Custom operator<br />
+B(binary) Optional binary number<br />
+b Binary number<br />
+N(any format number) Optional number<br />
+n Number<br />
+C(character) Optional character<br />
+c Character<br />
+I(integer) Optional integer<br />
+i Integer<br />
+D(integer) Optional integer<br />
+d Integer<br />
+H(hex value) Optional hex number<br />
+h Hex number<br />
+O(octal value) Optional octal value<br />
+o Octal value<br />
+F(float) Optional floating point number<br />
+f Floating point number<br />
+G(float/INFINITY/-INFINITY/NAN/NAN_E) Optional float with IEEE definitions<br />
+g Float with IEEE definitions<br />
+{ Open quiet section<br />
+} Close quiet section<br />
+P&lt;delimiters&gt; Multiple delimiters change<br />
+p&lt;delimiter&gt; Delimiter change<br />
+Z(string)[length] Invalid optional string<br />
+z(string)[length] Deprecated optional string<br />
+S(string)[length] Optional string<br />
+s[length] String<br />
+U(any format number) Optional user (bot/player)<br />
+u User (bot/player)<br />
+Q(any format number) Optional bot (bot)<br />
+q Bot (bot)<br />
+R(any format number) Optional player (player)<br />
+r Player (player)<br />
+A&lt;type&gt;(default)[length] Optional array of given type<br />
+a&lt;type&gt;[length] Array of given type<br />
+E&lt;specification&gt;(default) Optional enumeration of given layout<br />
+e&lt;specification&gt; Enumeration of given layout<br />
+'string' Search string<br />
+% Deprecated optional specifier prefix<br />
+? Local options specifier</code></div></div><br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">"extract"</span></span></span></span></span><br />
+<br />
+I've written some (extendable) macros so you can do:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">c</span><span style="color: #007700">;&nbsp;else<br />{<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOUR_RED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"FAIL!"</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+This will compile as:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">c</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">unformat</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"is[32]f"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">c</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOUR_RED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"FAIL!"</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+Note that "unformat" is the same as "sscanf", also note that the "SendClientMessage" part is optional:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">c</span><span style="color: #007700">;&nbsp;<br /></span></code></div></div></div><br />
+Will simply compile as:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">c</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">unformat</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"is[32]f"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">c</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Basically it just simplifies sscanf a little bit (IMHO). I like new operators and syntax, hence this, examples:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">//&nbsp;An&nbsp;int&nbsp;and&nbsp;a&nbsp;float.<br /></span><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;An&nbsp;int&nbsp;and&nbsp;an&nbsp;OPTIONAL&nbsp;float.<br /></span><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">7.0</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;An&nbsp;int&nbsp;and&nbsp;a&nbsp;string.<br /></span><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">:</span><span style="color: #0000BB">s</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">];<br /></span><span style="color: #FF8000">//&nbsp;An&nbsp;int&nbsp;and&nbsp;a&nbsp;playerid.<br /></span><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">player</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">;&nbsp;<br /></span></code></div></div></div><br />
+As I say, the syntax is extendable, so to add hex numbers you would do:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#define&nbsp;hex_EXTRO:%0##%1,%2|||%3=%9|||%4,%5)&nbsp;EXTRY:%0##%1H"("#%9")"#,%2,%3|||%4|||%5)<br />#define&nbsp;hex_EXTRN:%0##%1,%2|||%3|||%4,%5)&nbsp;EXTRY:%0##%1h,%2,%3|||%4|||%5)<br />#define&nbsp;hex_EXTRW:%0##%1,%2|||%3[%7]|||%4,%5)&nbsp;EXTRY:%0##%1a&lt;h&gt;[%7],%2,%3|||%4|||%5)&nbsp;<br /></span></code></div></div></div><br />
+That will add the tag "hex" to the system. Yes, the lines look complicated (because they are), but the ONLY things you need to change are the name before the underscore and the letter near the middle ("H", "h" and "a&lt;h&gt;" in the examples above for "optional", "required" and "required array" (no optional arrays yet besides strings)).<br />
+<br />
+New examples (with "hex" added):<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">//&nbsp;A&nbsp;hex&nbsp;number&nbsp;and&nbsp;a&nbsp;player.<br /></span><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;hex</span><span style="color: #007700">:</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">player</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;32&nbsp;numbers&nbsp;then&nbsp;32&nbsp;players.<br /></span><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;a</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">player</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">];<br /></span><span style="color: #FF8000">//&nbsp;11&nbsp;floats,&nbsp;an&nbsp;optional&nbsp;string,&nbsp;then&nbsp;an&nbsp;optional&nbsp;hex&nbsp;number.<br /></span><span style="color: #0000BB">extract&nbsp;params&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;Float</span><span style="color: #007700">:</span><span style="color: #0000BB">f</span><span style="color: #007700">[</span><span style="color: #0000BB">11</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">:</span><span style="color: #0000BB">s</span><span style="color: #007700">[</span><span style="color: #0000BB">12</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">"optional"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">hex</span><span style="color: #007700">:</span><span style="color: #0000BB">end&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0xFF</span><span style="color: #007700">;&nbsp;<br /></span></code></div></div></div><br />
+The code is actually surprisingly simple (I developed another new technique to simplify my "tag" macros and it paid off big style here). By default "Float", "string", "player" and "_" (i.e. no tag) are supported, and their individual letter definitions take up the majority of the code as demonstrated with the "hex" addition above. Note that "string:" is now used extensively in my code to differentiate from tagless arrays in cases like this, it is removed automatically but "player:" and "hex:" are not so you may wish to add:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#define&nbsp;player:<br />#define&nbsp;hex:&nbsp;<br /></span></code></div></div></div><br />
+To avoid tag mismatch warnings (to remove them AFTER the compiler has used them to determine the correct specifier).<br />
+<br />
+The very first example had an "else", this will turn:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">unformat</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+In to:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">unformat</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">))&nbsp;<br /></span></code></div></div></div><br />
+You MUST put the "else" on the same line as "extract" for it to be detected, but then you can use normal single or multi-line statements. This is to cover common command use cases, you can even leave things on the same line:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">else&nbsp;return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF0000AA</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Usage:&nbsp;/cmd&nbsp;&lt;whatever&gt;"</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+There is now the ability to split by things other than space (i.e. adds "P&lt;?&gt;" to the syntax - updated from using "p" to "P"):<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">extract&nbsp;params</span><span style="color: #007700">&lt;|&gt;&nbsp;-&gt;&nbsp;</span><span style="color: #0000BB">new&nbsp;a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">c</span><span style="color: #007700">;&nbsp;<br /></span></code></div></div></div><br />
+Will simply compile as:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">:</span><span style="color: #0000BB">b</span><span style="color: #007700">[</span><span style="color: #0000BB">32</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">c</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">unformat</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"P&lt;|&gt;is[32]f"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">c</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Note that for technical reasons you can use "&lt;-&gt;" (because it looks like the arrow after the "extract" keyword). You also can't use "&lt;;&gt;", "&lt;,&gt;", or "&lt;)&gt;" because of a bug with "#", but you can use any other character (most notably "&lt;|&gt;", as is popular with SQL scripts). I'm thinking of adding enums and existing variables (currently you HAVE to declare new variables), but not right now.<br />
+<br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Errors/Warnings</span></span></span></span></span><br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">MSVRC100.dll not found</span></span></span></span><br />
+</li>
+</ul>
+<br />
+If you get this error, DO NOT just download the dll from a random website. This is part of the "Microsoft Visual Studio Redistributable Package". This is required for many programs, but they often come with it. Download it here:<br />
+<br />
+<a href="https://www.microsoft.com/download/en...s.aspx?id=5555" target="_blank" rel="noopener" class="mycode_url">http://www.microsoft.com/download/en...s.aspx?id=5555</a><br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: System not initialised</span></span></span></span><br />
+</li>
+</ul>
+<br />
+If you get this error, you need to make sure that you have recompiled ALL your scripts using the LATEST version of "sscanf2.inc". Older versions didn't really require this as they only had two natives - "sscanf" and "unformat", the new version has some other functions - you don't need to worry about them, but you must use "sscanf2.inc" so that they are correctly called. If you think you have done this and STILL get the error then try again - make sure you are using the correct version of PAWNO for example.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: String buffer overflow.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+This error comes up when people try and put too much data in to a string. For example:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">[</span><span style="color: #0000BB">10</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Hello&nbsp;there,&nbsp;how&nbsp;are&nbsp;you?"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"s[10]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+That code will try and put the string "Hello there, how are you?" in to the variable called "str". However, "str" is only 10 cells big and can thus only hold the string "Hello ther" (with a NULL terminator). In this case, the rest of the data is ignored - which could be good or bad:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">[</span><span style="color: #0000BB">10</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Hello&nbsp;there&nbsp;you|42"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"p&lt;|&gt;s[10]i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">num</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+In this case "num" is still correctly set to "42", but the warning is given for lost data ("e you").<br />
+<br />
+Currently there is nothing you can do about this from a programming side (you can't even detect it - that is a problem I intend to address), as long as you specify how much data a user should enter this will simply discard the excess, or make the destination variable large enough to handle all cases.<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Optional types invalid in array specifiers, consider using 'A'.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+A specifier such as:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>a&lt;I(5)&gt;[10]</code></div></div><br />
+Has been written - here indicating an array of optional integers all with the default value "5". Instead you should use:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>A&lt;i&gt;(5)[10]</code></div></div><br />
+This is an optional array of integers all with the default value "5", the advantage of this is that arrays can have multiple defaults:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>A&lt;i&gt;(5, 6)[10]</code></div></div><br />
+That will set the array to "5, 6, 7, 8, 9, 10, 11, 12, 13, 14" by default, incrementing by the found difference each time.<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Optional types invalid in enum specifiers, consider using 'E'.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+Similar to the previous warning, A specifier such as:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>e&lt;I(5)f&gt;</code></div></div><br />
+Is invalid, instead use:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>E&lt;if&gt;(42, 11.0)</code></div></div><br />
+This forces ALL the parts of an enum to be optional - anything less is not possible.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Multi-dimensional arrays are not supported.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+This is not allowed:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a&lt;a&lt;i&gt;[5]&gt;[10]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">arr</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+A work-around can be done using:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a&lt;i&gt;[50]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">arr</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);&nbsp;<br /></span></code></div></div></div><br />
+That will correctly set up the pointers for the system.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Search strings are not supported in arrays.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+This is not allowed (see the section on search strings):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>a&lt;'hello'i&gt;[10]</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Delimiters are not supported in arrays.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+This is not allowed:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>a&lt;p&lt;,&gt;i&gt;[10]</code></div></div><br />
+Instead use:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;,&gt;a&lt;i&gt;[10]</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Quiet sections are not supported in arrays.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+<br />
+This is not allowed:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>a&lt;{i}&gt;[10]</code></div></div><br />
+Instead use:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{a&lt;i&gt;[10]}</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Unknown format specifier '?'.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+The given specifier is not known (this post contains a full list of all the specifiers near the bottom).<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: 'Z' doesn't exist - that would be an optional, deprecated optional string!.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+You used "Z", don't; instead use "S".<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: 'z' is deprecated, consider using 'S' instead.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+<br />
+You used "z", don't; instead use "S".<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Empty default values.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+An optional specifier has been set as (for example):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>I()</code></div></div><br />
+Instead of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>I(42)</code></div></div><br />
+This does not apply to strings as they can be legitimately empty.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Unclosed default value.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+You have a default value on an optional specifier that looks like:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>I(42</code></div></div><br />
+Instead of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>I(42)</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: No default value found.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+You have no default value on an optional specifier:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>I</code></div></div><br />
+Instead of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>I(42)</code></div></div><ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Unclosed specifier parameter, assuming '&lt;', consider using something like p&lt;&lt;&gt;.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+A custom delimiter of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;</code></div></div><br />
+Was found with no matching "&gt;" after one character. In this case the system assumes you are using the old (deprecated) style of delimiters and sets it to just "&lt;". Instead use:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;,&gt;</code></div></div><br />
+Or, if you really do want a delimiter of "&lt;" then use:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;&lt;&gt;</code></div></div><br />
+Note that this does not need to be escaped; however, a delimiter of "&gt;" does:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;&#92;&gt;&gt;</code></div></div><br />
+The "\" may also need to be escaped when writing actual PAWN strings, leading to:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;&#92;&#92;&gt;&gt;</code></div></div><br />
+This also applies to array types ("a&lt;" vs "a&lt;i&gt;"), note that this will result in an invalid array type.<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Unenclosed specifier parameters are deprecated, consider using something like p&lt;&lt;&gt;.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+You are using the old style:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p,</code></div></div><br />
+Instead of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p&lt;,&gt;</code></div></div><br />
+This also applies to array types ("ai" vs "a&lt;i&gt;").<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: No specified parameter found.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+The format specifier just ends with:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>p</code></div></div><br />
+This also applies to array types ("a" vs "a&lt;i&gt;").<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Missing string length end.</span></span></span></span><br />
+</li>
+</ul>
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Missing length end.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+A string has been written as:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>s[10</code></div></div><br />
+Instead of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>s[10]</code></div></div><br />
+I.e. the length has not been closed.<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Arrays without a length are deprecated, please add a destination size.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+A string has been written as:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>s</code></div></div><br />
+Instead of:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>s[10]</code></div></div><br />
+I.e. the length has not been included.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Invalid data length.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+An invalid array or string size has been specified (0, negative, or not a number).<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Invalid character in data length.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+A string or array has been given a length that is not a number.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Strings without a length are deprecated, please add a destination size.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+In the old system, strings were not required to have lengths but this introduced security problems with overflows. Now you must add a length or get the default of "32".<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: String/array must include a length, please add a destination size.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+Arrays are newer than strings, so never had an implementation not requiring a length, so there is no compatability problems in REQUIRING a length to be given.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Can't have nestled quiet sections.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+You have tried writing something like this:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{i{x}}</code></div></div><br />
+This has a quiet section ("{}") inside another one, which makes no sense.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Not in a quiet section.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+"}" was found with no corresponding "{":<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>i}</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Can't remove quiet in enum.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+This is caused by specifiers such as:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{fe&lt;i}x&gt;</code></div></div><br />
+Where the quiet section is started before the enum, but finishes part way through it rather than after it. This can be emulated by:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{f}e&lt;{i}x&gt;</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Arrays are not supported in enums.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+<br />
+Basically, you can't do:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>e&lt;fa&lt;i&gt;[5]f&gt;</code></div></div><br />
+You can, however, still do:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>e&lt;fiiiiif&gt;</code></div></div><br />
+This is a little more awkward, but is actually more technically correct given how enums are compiled.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Unclosed string literal.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+A specifier starts a string with "'", but doesn't close it:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>i'hello</code></div></div><ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: sscanf specifiers do not require '%' before them.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+"format" uses code such as "%d", sscanf only needs "d", and confusingly the C equivalent function (also called "sscanf") DOES require "%". Sorry.<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Insufficient default values.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+Default values for arrays can be partially specified and the remainder will be inferred from the pattern of the last two:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>A&lt;i&gt;(0, 1)[10]</code></div></div><br />
+That specifier will default to the numbers "0" to "9". However, because enums have a mixture of types, all the default values for "E" must ALWAYS be specified:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>E&lt;iiff&gt;(0, 1, 0.0, 1.0)</code></div></div><br />
+This will not do:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>E&lt;iiff&gt;(0, 1)</code></div></div><ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Options are not supported in enums.</span></span></span></span><br />
+</li>
+</ul>
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Options are not supported in arrays.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+The "?" specifier for local options must appear outside any other specifier.<br />
+<br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: No option value.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+An option was specified with no value:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>?&lt;OLD_DEFAULT_NAME&gt;</code></div></div><br />
+   <ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: Unknown option name.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+The given option was not recognised. Check spelling and case:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>?&lt;NOT_A_VALID_NAME=1&gt;</code></div></div><ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf warning: Could not find function SSCANF:?.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+A "k" specifier has been used, but the corresponding function could not be found. If you think it is there check the spelling matches exactly - including the case.<br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: SSCANF_Init has incorrect parameters.</span></span></span></span><br />
+</li>
+</ul>
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: SSCANF_Join has incorrect parameters.</span></span></span></span><br />
+</li>
+</ul>
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: SSCANF_Leave has incorrect parameters.</span></span></span></span><br />
+</li>
+</ul>
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf error: SSCANF_SetPlayerName has incorrect parameters.</span></span></span></span><br />
+</li>
+</ul>
+<br />
+You edited something in the sscanf2 include - undo it or redownload it.<br />
+<br />
+<span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">Changelog</span></span></span></span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: red;" class="mycode_color"><span style="text-decoration: underline;" class="mycode_u"><span style="color: green;" class="mycode_color">sscanf 2.8.2 - 18/04/2015</span></span></span></span><br />
+- Fixed a bug where "u" wasn't working correctly after a server restart.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sscanf</strong> - <a href="member7050.html?action=profile&amp;uid=109">L0K3D</a> -  <strong>2019-04-22</strong>
+<br />
+<br />
+Nice update
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sscanf</strong> - <a href="member0434.html?action=profile&amp;uid=462">javelin</a> -  <strong>2019-04-22</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-22, 06:59 AM)</span>L0K3D Wrote:  <a href="showthread10b7.html?pid=4198#pid4198" class="quick_jump"></a></cite>Nice update</blockquote><br />
+Seriously?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sscanf</strong> - <a href="member5f5f.html?action=profile&amp;uid=46">Toretto</a> -  <strong>2019-04-25</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-22, 06:59 AM)</span>L0K3D Wrote:  <a href="showthread10b7.html?pid=4198#pid4198" class="quick_jump"></a></cite>Nice update</blockquote><br />
+It's just a repost.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sscanf</strong> - <a href="member7050.html?action=profile&amp;uid=109">L0K3D</a> -  <strong>2019-04-25</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-25, 07:53 AM)</span>Toretto Wrote:  <a href="showthread4968.html?pid=4478#pid4478" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-04-22, 06:59 AM)</span>L0K3D Wrote:  <a href="showthread10b7.html?pid=4198#pid4198" class="quick_jump"></a></cite>Nice update</blockquote><br />
+It's just a repost.</blockquote><br />
+I know, but it wasn't explained so well.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sscanf</strong> - <a href="member5457.html?action=profile&amp;uid=858">Cyrus</a> -  <strong>2019-04-27</strong>
+<br />
+<br />
+One of the best plugins, a must
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sscanf</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-05-01</strong>
+<br />
+<br />
+I think the download link must be changed because Maddinator has released another update 2.8.3 a while ago now!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sscanf</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-06-21</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-01, 03:26 PM)</span>Gravityfalls Wrote:  <a href="showthread110d.html?pid=4830#pid4830" class="quick_jump"></a></cite>I think the download link must be changed because Maddinator has released another update 2.8.3 a while ago now!</blockquote><br />
+That DropBox link is also dead.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: sscanf</strong> - <a href="memberc737.html?action=profile&amp;uid=2734">JR_Junior</a> -  <strong>2021-07-25</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">I have 2 questions:</span><br />
+<br />
+1 - How to create a command with only strings, example: /test <span style="font-weight: bold;" class="mycode_b">text1</span> <span style="font-weight: bold;" class="mycode_b">text2</span>?<br />
+<br />
+2 - How to prevent the strings from exceeding the size, for example, the <span style="font-weight: bold;" class="mycode_b">str1</span> array has the size of <span style="font-weight: bold;" class="mycode_b">5</span> chars and I type /test <span style="font-weight: bold;" class="mycode_b">testing</span>(8 chars)?<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br />new&nbsp;</span><span style="color: #0000BB">str1</span><span style="color: #007700">[</span><span style="color: #0000BB">5</span><span style="color: #007700">],</span><span style="color: #0000BB">str2</span><span style="color: #007700">[</span><span style="color: #0000BB">5</span><span style="color: #007700">];<br />if(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"s[5]s[5]"</span><span style="color: #007700">,</span><span style="color: #0000BB">str1</span><span style="color: #007700">,</span><span style="color: #0000BB">str2</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">"Error"</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->

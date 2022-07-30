@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [Duda] - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread83bd.html?tid=1641">[Duda]</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  [Duda] (<em>/showthread.php?tid=1641</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Duda]</strong> - <a href="memberb2ae.html?action=profile&amp;uid=3358">Kaiser</a> -  <strong>2021-02-06</strong>
+<br />
+<br />
+Buenas noches, tenía la duda de cómo le puedo agregar una función de animación a un comando, por ejemplo:<br />
+<br />
+Quiero que el comando /robarbanco ejecuté una animación cómo si se estuviera agachando.<br />
+<br />
+¿Qué tendría que hacer para meterle esa función?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Duda]</strong> - <a href="member8213.html?action=profile&amp;uid=3109">Nikolay_Staggs</a> -  <strong>2021-02-06</strong>
+<br />
+<br />
+usa esto compa<br />
+<br />
+new timeRobo[MAX_PLAYERS];<br />
+<br />
+CMD:robar(playerid)<br />
+{<br />
+    timeRobo[playerid] = SetTimerEx("Robo", 10000, false, "i", playerid);<br />
+	LoopingAnim(playerid, "BOMBER", "BOM_Plant", 4.0, 1, 1, 1, 1, 13000);<br />
+	GameTextForPlayer(playerid, "Robando", 10000, 5);<br />
+	return 1;<br />
+}<br />
+<br />
+forward Robo(playerid);<br />
+public Robo(playerid)<br />
+{<br />
+    ApplyAnimation(playerid, "CARRY", "crry_prtial", 1.0, 0, 0, 0, 0, 0);<br />
+    RoboRandom(playerid);<br />
+    return 1;<br />
+}<br />
+<br />
+LoopingAnim(playerid,animlib[],animname[], Float:Speed, looping, lockx, locky, lockz, lp)<br />
+{<br />
+	ApplyAnimation(playerid, animlib, animname, Speed, looping, lockx, locky, lockz, lp);<br />
+}<br />
+<br />
+stock RoboRandom(playerid)<br />
+{<br />
+	new robo = random(3);<br />
+	switch(robo)<br />
+	{<br />
+		case 0:<br />
+		{<br />
+			GivePlayerMoney(playerid, 2000);<br />
+			SendClientMessage(playerid, -1, "Has ganado {009B00}2000&#36;");<br />
+		}<br />
+		case 1:<br />
+		{<br />
+			GivePlayerMoney(playerid, 6000);<br />
+			SendClientMessage(playerid, -1, "Has ganado {009B00}6000&#36;");<br />
+		}<br />
+		case 2:<br />
+		{<br />
+			GivePlayerMoney(playerid, 9000);<br />
+			SendClientMessage(playerid, -1, "Has ganado {009B00}9000&#36;");<br />
+		}<br />
+	}<br />
+	return 1;<br />
+}
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Duda]</strong> - <a href="memberb2ae.html?action=profile&amp;uid=3358">Kaiser</a> -  <strong>2021-02-08</strong>
+<br />
+<br />
+Gracias socio, me vino de maravilla, y ya le añadí unas cuantas funciones extras;)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Duda]</strong> - <a href="member7a5e.html?action=profile&amp;uid=353">Botato</a> -  <strong>2021-03-07</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-06, 05:45 PM)</span>Nikolay_Staggs Wrote:  <a href="showthreadb0f5.html?pid=9731#pid9731" class="quick_jump"></a></cite>usa esto compa<br />
+<br />
+new timeRobo[MAX_PLAYERS];<br />
+<br />
+CMD:robar(playerid)<br />
+{<br />
+    timeRobo[playerid] = SetTimerEx("Robo", 10000, false, "i", playerid);<br />
+LoopingAnim(playerid, "BOMBER", "BOM_Plant", 4.0, 1, 1, 1, 1, 13000);<br />
+GameTextForPlayer(playerid, "Robando", 10000, 5);<br />
+return 1;<br />
+}<br />
+<br />
+forward Robo(playerid);<br />
+public Robo(playerid)<br />
+{<br />
+    ApplyAnimation(playerid, "CARRY", "crry_prtial", 1.0, 0, 0, 0, 0, 0);<br />
+    RoboRandom(playerid);<br />
+    return 1;<br />
+}<br />
+<br />
+LoopingAnim(playerid,animlib[],animname[], Float:Speed, looping, lockx, locky, lockz, lp)<br />
+{<br />
+ApplyAnimation(playerid, animlib, animname, Speed, looping, lockx, locky, lockz, lp);<br />
+}<br />
+<br />
+stock RoboRandom(playerid)<br />
+{<br />
+new robo = random(3);<br />
+switch(robo)<br />
+{<br />
+case 0:<br />
+{<br />
+GivePlayerMoney(playerid, 2000);<br />
+SendClientMessage(playerid, -1, "Has ganado {009B00}2000&#36;");<br />
+}<br />
+case 1:<br />
+{<br />
+GivePlayerMoney(playerid, 6000);<br />
+SendClientMessage(playerid, -1, "Has ganado {009B00}6000&#36;");<br />
+}<br />
+case 2:<br />
+{<br />
+GivePlayerMoney(playerid, 9000);<br />
+SendClientMessage(playerid, -1, "Has ganado {009B00}9000&#36;");<br />
+}<br />
+}<br />
+return 1;<br />
+}</blockquote><br />
+Sólo pidió un simple comando que ejecute la animación de agachado...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

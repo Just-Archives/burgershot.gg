@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Can't see objects from distance. - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread5c8a.html?tid=2217">Can't see objects from distance.</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Can't see objects from distance. (<em>/showthread.php?tid=2217</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Can't see objects from distance.</strong> - <a href="memberaeed.html?action=profile&amp;uid=3506">Cherry.</a> -  <strong>2021-09-22</strong>
+<br />
+<br />
+Hello.<br />
+<br />
+I have an issue with my server, Players can't see objects from distance, they must be SO close to them.<br />
+Tried the entire versions of streamer and still the same issue...<br />
+<br />
+What can be the issue except of streamer?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Can't see objects from distance.</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2021-09-22</strong>
+<br />
+<br />
+I am not sure about what's causing this but check out these config options:<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>    Streamer_SetMaxItems(STREAMER_TYPE_OBJECT, -1);<br />
+    Streamer_SetTickRate(50);<br />
+    Streamer_SetVisibleItems(STREAMER_TYPE_OBJECT, 900);<br />
+    Streamer_SetRadiusMultiplier(STREAMER_TYPE_OBJECT, 1.6);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Can't see objects from distance.</strong> - <a href="member5467.html?action=profile&amp;uid=2700">renato</a> -  <strong>2021-09-25</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CreateDynamicObject(modelid, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, worldid = -1, interiorid = -1, playerid = -1, Float:streamdistance = STREAMER_OBJECT_SD, Float:drawdistance = STREAMER_OBJECT_DD, areaid = -1, priority = 0)<br />
+<br />
+The streaming distance (streamdistance) refers to how close the player needs to be to the object before it is streamed in by the plugin.<br />
+The draw distance (drawdistance) is a parameter used by the game that determines how close the player needs to be to the object before it is rendered on the player's screen.</code></div></div><br />
+Check out the streamdistance for all of your objects created with streamer and make sure they are within an acceptable range.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Tool [Work In Progress] Scene Editor - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1d1e22;font-weight: bold;">[Tool]</span> <a href="showthread88b9.html?tid=665">[Work In Progress] Scene Editor</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1d1e22;font-weight: bold;">[Tool]</span> [Work In Progress] Scene Editor (<em>/showthread.php?tid=665</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Work In Progress] Scene Editor</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-06-21</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: xx-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-size: xx-large;" class="mycode_size"><span style="font-family: Book Antiqua;" class="mycode_font">Scene</span></span></span><span style="color: Gray;" class="mycode_color"><span style="font-family: Book Antiqua;" class="mycode_font"><span style="font-size: xx-large;" class="mycode_size">Editor</span></span></span></span></div>
+<div style="text-align: center;" class="mycode_align"><span style="font-size: x-small;" class="mycode_size">By</span></div>
+<div style="text-align: center;" class="mycode_align"><img src="https://i.ibb.co/6bG0yW0/Sasinosoft.png" loading="lazy"  alt="[Image: Sasinosoft.png]" class="mycode_img" /></div>
+<span style="color: #ffffff;" class="mycode_color"><span style="font-size: xx-small;" class="mycode_size">Sasinosoft Scene Editor For SA-MP Map Editor for SA-MP S</span></span><span style="color: #ffffff;" class="mycode_color"><span style="font-size: xx-small;" class="mycode_size">an Andreas Multiplayer edit map objects by Sasi</span></span><span style="color: #ffffff;" class="mycode_color"><span style="font-size: xx-small;" class="mycode_size">no97 Sasino</span></span><br />
+<span style="font-family: Book Antiqua;" class="mycode_font"><span style="color: #000000;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">I</span></span><span style="color: Gray;" class="mycode_color">ntroduction</span></span></span></span><br />
+This tool is an upcoming replacement for Map Construction by Jernej L. which aims to provide a new range of functionality, some of which weren't available in SA-MP at the time of the editor. It's completely open source (as required by this forum's rules) and anyone is welcomed to contribute. I especially need your help with regards to TXD textures, since I am having hard time to make them work correctly.<br />
+<br />
+<span style="font-family: Book Antiqua;" class="mycode_font"><span style="color: #000000;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">W</span></span><span style="color: Gray;" class="mycode_color">hat Has Already Been Done</span></span></span></span><br />
+<br />
+<span style="color: Red;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Important note: At this stage, the software app is <span style="font-weight: bold;" class="mycode_b">not </span>usable for the purpose (you cannot make SA-MP maps with it yet).</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">To date (21/06/2019), the following things have been done:</span></span></span><br />
+<ul class="mycode_list"><li><span style="font-size: small;" class="mycode_size">A main window with a 3D Viewport and a menu</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">The camera mouse/keyboard/touch gestures with Helix Toolkit</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">A settings window in which you can configure the path to GTA SA</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">An IMG Archive reader (translated from an existent C++ code)</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Parser for RenderWare .DFF models (certain models are not being loaded correctly)</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Parser for RenderWare .TXD texture dictionaries (some types of decompression are missing)</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Model classes for IDE files</span><br />
+</li>
+</ul>
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">I want to say thanks to JernejL, kcow, steve-m and the other authors of free/open source software found on the GTA Forums regarding the RW formats.</span></span></span><br />
+<br />
+<span style="font-family: Book Antiqua;" class="mycode_font"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-size: x-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">P</span></span><span style="color: Gray;" class="mycode_color">lanned Features</span></span></span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">1. Not Only Objects!</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">One of the main differences between this Scene Editor and JernejL's is that, while the latter only allowed to create objects and vehicles (and to remove buildings), this one will support much more:</span></span></span><br />
+<ul class="mycode_list"><li><span style="font-size: small;" class="mycode_size">Objects</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Building Removal</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Vehicles</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Pickups</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Actors / FCNPCs</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Checkpoints and Race Checkpoints (streamer)</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">3D Text Labels</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Custom Entities (e.g. gates, elevators, spawn points, teleports)</span><br />
+</li>
+</ul>
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">2. Import / Export</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">The app will export all the scene data to a .JSON file. This JSON file can be loaded again into the app to resume the previous work, but the point is that this JSON file can also be loaded by the open.mp/SA-MP scripts using a library that contains a function which parses that kind of file and creates the objects accordingly. The library will use dynamic objects/actors/pickups/text3ds if Incognito's streamer is included. The checkpoints/race checkpoints will be created only if the Streamer is included. The editor will allow you to apply IDs to any object/vehicle/... in order to retreive them later in the code; an example are gates, which often need to be opened and closed.</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">An example of how it could be used, in the case of a Pawn game mode:</span></span></span><br />
+<br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="color: #2222aa;" class="mycode_color">#include &lt;streamer&gt;</span></span></span></span><br />
+<span style="color: #2222aa;" class="mycode_color"><span style="font-size: small;" class="mycode_size">#include &lt;Scene&gt;</span></span><br />
+<span style="color: #2222aa;" class="mycode_color"><span style="font-size: small;" class="mycode_size">#include &lt;zcmd&gt;</span></span><br />
+<br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #2222bb;" class="mycode_color">new</span> Scene: islandScene;</span><br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #2222bb;" class="mycode_color">new</span> objGate1;</span><br />
+<br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #2222bb;" class="mycode_color">public</span> OnGameModeInit()</span><br />
+<span style="font-size: small;" class="mycode_size">{</span><br />
+<span style="font-size: small;" class="mycode_size">    <span style="color: #228822;" class="mycode_color">// Note: Scenes/Island.json is inside scriptfiles</span></span><br />
+<span style="font-size: small;" class="mycode_size">    islandScene = Scene.Load(<span style="color: #000066;" class="mycode_color">"Scenes/Island.json"</span>); <span style="color: #228822;" class="mycode_color">// this single line creates all the objects, pickups, vehicles, actors (etc...) found in this file, and stores references to those who have an ID</span></span><br />
+<span style="font-size: small;" class="mycode_size">    objGate1 = Scene.FindById(islandScene, <span style="color: #000066;" class="mycode_color">"Gate1"</span>);</span><br />
+<span style="font-size: small;" class="mycode_size">    <span style="color: #2222bb;" class="mycode_color">return</span> 1;</span><br />
+<span style="font-size: small;" class="mycode_size">}</span><br />
+<br />
+<span style="font-size: small;" class="mycode_size">CMD:opengate1(playerid, params[])</span><br />
+<span style="font-size: small;" class="mycode_size">{</span><br />
+<span style="font-size: small;" class="mycode_size">    MoveDynamicObject(objGate1, 1242.47, 4214.55, 16.5, 1.0);</span><br />
+<span style="font-size: small;" class="mycode_size">    <span style="color: #2222bb;" class="mycode_color">return</span> 1;</span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">}</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">A C# API is also planned for SampSharp and open.mp.</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">The app will also be able to import a normal .pwn file and interpret all the CreateObject(/CreateDynamicObject/CreateActor/CreateVehicle, etc...) found in it, and save them into the JSON format. This is for backwards compatibility with JernejL's map editor. There will also be an option to export a plain .pwn file, but in that case the advantages of code/resource separation will be lost.</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">3. Scene Editor</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">The main scene editor will be pretty much the same as JernejL's. It will feature an object browser window in which you will be able to search through all the objects using their name, id, and maybe category and description.</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">It will probably support multiple tabs each of which contains a viewport, enabling you to quickly switch between two or more views.</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">You will move around the scene in almost the same way as with JernejL's editor, but since the Helix 3D Viewport also handles touch gestures, it will be a lot easier to use this editor with a tablet (a Windows tablet, of course).</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">The right click (or long touch) on an object will open the context menu that offers the ability to delete the object, edit the materials or add attachments (in case of vehicles/FCNPCs). Of course keyboard shortcuts will be also provided.</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">4. Material Editor</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">You will be able to use the material editor to change the materials and material text of any object. This editor will also feature a texture browser in which you will be able to search through all textures. </span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">The material editor can be used both while editing a scene to make a specific object in the scene have a specific set of materials, or alone, allowing you to export only the fragment of JSON data needed for that particular material configuration.</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">5. Attached Offsets Editor</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">The editor will feature an editor for Player/Vehicle attachments of objects. If used together with the Scene Editor (for example by right-clicking a vehicle or an FCNPC), then the changes will reflect in the scene, but in a similar way to the Material Editor, the data can be exported separately.</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">6. DL Support</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">It will allow the scene designers of open.mp and SA-MP <span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size">DL </span></span>to use their custom models in the Scene Editor. They will simply have to add one or more model folders in the settings, and the app will load them.</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">7. Properties</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">You will be able to attach properties to scene objects. For example, you could add a </span></span></span><span style="font-style: italic;" class="mycode_i"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">weight</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> property to doors, so that you can access that value from code and make the door open after the player presses a certain button a number of times.</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">8. Add-ons / plugins</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">There will be support for add-ons that add custom entities. For example, one could create a house system filterscript, and then create an add-on for the Scene Editor, so that you can add houses in it.</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">9. Team</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">This will be an exciting feature: two or more people can work together on the same scene at the same time in order to enhance productivity. The file on which the team works will only be accessible to the host of the team session; the clients can only work on the scene without the possibility of saving the file on their machines (unless they hack the program of course).</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">10. Themes</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">The application will support default white and dark themes as well as custom themes.</span></span></span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">11. Additional Tools</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">A few tools that could be useful which don't directly relate to map editing:</span></span></span><br />
+<ul class="mycode_list"><li><span style="font-size: small;" class="mycode_size">Animation Browser</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Sound Browser</span><br />
+</li>
+</ul>
+<span style="font-family: Book Antiqua;" class="mycode_font"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-size: x-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">T</span></span><span style="color: Gray;" class="mycode_color">echnical Information</span></span></span></span></span><br />
+<ul class="mycode_list"><li><span style="font-size: small;" class="mycode_size">The programming language is <span style="font-weight: bold;" class="mycode_b"><span style="color: Green;" class="mycode_color">C#</span></span></span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">The app platform is <span style="font-weight: bold;" class="mycode_b"><span style="color: #3333ff;" class="mycode_color">Windows Presentation Foundation</span></span> a.k.a. WPF (requires .NET Framework <span style="font-size: small;" class="mycode_size">&gt;= </span>4.6.1)</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">3D rendering is done by WPF 3D (which in turn uses Direct3D)</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Uses the Helix Toolkit ( <a href="https://web.archive.org/web/20190414203627/http://www.helix-toolkit.org/" target="_blank" rel="noopener" class="mycode_url"><span style="color: #1a425f;" class="mycode_color">link</span></a> ) for some advanced 3D controls, like their enhanced 3D Viewport</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Uses a managed wrapper for Libsquish for texture decompression (DXT)</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">The Version Control System <span style="text-decoration: line-through;" class="mycode_s">is </span><span style="color: gray;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: line-through;" class="mycode_s">Mercurial</span> </span></span>is now <span style="font-weight: bold;" class="mycode_b">Git</span></span><br />
+</li>
+</ul>
+<span style="font-family: Book Antiqua;" class="mycode_font"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-size: x-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">C</span></span><span style="color: Gray;" class="mycode_color">ontribute To Development</span></span></span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Everyone is welcomed to contribute to the development of this awesome scene editor! Just send me an email (address at the bottom of my signature) and I will give you write permissions.</span></span></span><br />
+<br />
+<span style="font-family: Book Antiqua;" class="mycode_font"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-size: x-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">R</span></span><span style="color: Gray;" class="mycode_color">epository</span></span></span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Since Bitbucket removed Mercurial support, I finally decided to move to Git and GitHub.</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">I still sincerely hate Git, and I still believe Mercurial is 100 times better, but I like how the GitHub platform works, so I decided to switch.</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">This is the new repository:</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><a href="https://github.com/SaSiNO97/scene-editor" target="_blank" rel="noopener" class="mycode_url">https://github.com/SaSiNO97/scene-editor</a></span></span></span><br />
+<br />
+<span style="font-family: Book Antiqua;" class="mycode_font"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-size: x-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">B</span></span><span style="color: Gray;" class="mycode_color">uilding</span></span></span></span></span><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Visual Studio</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> and the </span></span></span><span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><span style="font-style: italic;" class="mycode_i">.NET desktop development</span> workload</span></span></span></span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"> are required to build the project. I am using Visual Studio 2019.</span></span></span><br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">During the first build, an internet connection is required to download the necessary NuGet packages.</span></span></span><br />
+<br />
+<span style="font-family: Book Antiqua;" class="mycode_font"><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-size: x-large;" class="mycode_size"><span style="color: Green;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">L</span></span><span style="color: Gray;" class="mycode_color">icense</span></span></span></span></span><br />
+<a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank" rel="noopener" class="mycode_url">Mozilla Public License</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Work In Progress] Scene Editor</strong> - <a href="member4581.html?action=profile&amp;uid=705">Metro</a> -  <strong>2020-09-07</strong>
+<br />
+<br />
+hyped
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Work In Progress] Scene Editor</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-09-09</strong>
+<br />
+<br />
+Awesome.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Work In Progress] Scene Editor</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2020-09-09</strong>
+<br />
+<br />
+Hey guys, the project hasn't been abandoned, I still think I will finish it sooner or later. Just a few days ago I've tried again to contact JernejL to ask him some questions, however he didn't answer.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Work In Progress] Scene Editor</strong> - <a href="member243e.html?action=profile&amp;uid=2687">Sasuke_uchiha</a> -  <strong>2020-10-03</strong>
+<br />
+<br />
+This looks cool.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Work In Progress] Scene Editor</strong> - <a href="memberc432.html?action=profile&amp;uid=224">Nicoo</a> -  <strong>2021-01-13</strong>
+<br />
+<br />
+Hey project is still alive?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

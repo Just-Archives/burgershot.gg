@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> How to call a function an address? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreade9c3.html?tid=2158">How to call a function an address?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  How to call a function an address? (<em>/showthread.php?tid=2158</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How to call a function an address?</strong> - <a href="member9c9c.html?action=profile&amp;uid=2504">oukibt</a> -  <strong>2021-07-06</strong>
+<br />
+<br />
+Hi I am trying to call a function at an address from a plugin but I am getting a crash.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>PLUGIN_EXPORT int PLUGIN_CALL AmxLoad(AMX* amx)<br />
+{<br />
+    VirtualUnlock((LPVOID)0x48B5B0, 0x20);<br />
+<br />
+    ((int(__fastcall*)(char*))0x48B5B0)("query");<br />
+    return 1;<br />
+}</code></div></div><br />
+<a href="https://cdn.discordapp.com/attachments/582915540285128725/862083931314585630/unknown.png" target="_blank" rel="noopener" class="mycode_url">https://cdn.discordapp.com/attachments/582915540285128725/862083931314585630/unknown.png</a><br />
+<br />
+I think, this is GetConsoleVariableInt function
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to call a function an address?</strong> - <a href="member1b2a.html?action=profile&amp;uid=540">SimoSbara</a> -  <strong>2021-07-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-06, 09:36 PM)</span>oukibt Wrote:  <a href="showthread20a2.html?pid=11613#pid11613" class="quick_jump"></a></cite>Hi I am trying to call a function at an address from a plugin but I am getting a crash.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>PLUGIN_EXPORT int PLUGIN_CALL AmxLoad(AMX* amx)<br />
+{<br />
+    VirtualUnlock((LPVOID)0x48B5B0, 0x20);<br />
+<br />
+    ((int(__fastcall*)(char*))0x48B5B0)("query");<br />
+    return 1;<br />
+}</code></div></div><br />
+<a href="https://cdn.discordapp.com/attachments/582915540285128725/862083931314585630/unknown.png" target="_blank" rel="noopener" class="mycode_url">https://cdn.discordapp.com/attachments/582915540285128725/862083931314585630/unknown.png</a><br />
+<br />
+I think, this is GetConsoleVariableInt function</blockquote><br />
+Hi, can you show the crash log, if there is one.<br />
+<br />
+Maybe you should try to cast the address with __stdcall. Another thing you can check is the return value of VirtualUnlock, if the return value is zero then you should look at GetLastError(). <br />
+<br />
+I suggest to read this documentation before doing this kind of stuff: https://docs.microsoft.com/en-us/cpp/cpp/stdcall?view=msvc-160.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

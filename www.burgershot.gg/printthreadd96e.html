@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin samp-crypto - bcrypt, scrypt &amp; argon2 hashing - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthreadd96e.html?tid=219">samp-crypto - bcrypt, scrypt &amp; argon2 hashing</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> samp-crypto - bcrypt, scrypt &amp; argon2 hashing (<em>/showthread.php?tid=219</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>samp-crypto - bcrypt, scrypt &amp; argon2 hashing</strong> - <a href="memberaba1.html?action=profile&amp;uid=457">Bork</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: xx-large;" class="mycode_size">samp crypto</span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #24292e;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: -apple-system, BlinkMacSystemFont,;" class="mycode_font">A SAMP cryptography plugin written in Rust. This plugin was written as a means to make it really simple for anyone to transition from Whirlpool, SHA256_PassHash or any other hashing method similar to these without major script changes, like the other bcrypt plugins do. This is my first plugin written in Rust, I tried cleaning up all my code and I will continue to do so however you may still see some older code. If you wish to clean it up please fork the repo, make changes and create a PR! I will happily review and accept it.</span></span></span></span><br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #24292e;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: -apple-system, BlinkMacSystemFont,;" class="mycode_font"><img src="https://img.shields.io/github/downloads/infin1tyy/samp-crypto/total.svg" loading="lazy"  alt="[Image: total.svg]" class="mycode_img" /> <img src="https://img.shields.io/github/issues/infin1tyy/samp-crypto.svg" loading="lazy"  alt="[Image: samp-crypto.svg]" class="mycode_img" /> <img src="https://img.shields.io/github/release/infin1tyy/samp-crypto.svg" loading="lazy"  alt="[Image: samp-crypto.svg]" class="mycode_img" /></span></span></span></span><br />
+<br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #24292e;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: -apple-system, BlinkMacSystemFont,;" class="mycode_font"><span style="text-decoration: underline;" class="mycode_u"><span style="font-weight: bold;" class="mycode_b">Encryption Methods</span></span></span></span></span></span><ul class="mycode_list"><li><span style="color: #24292e;" class="mycode_color"><span style="font-size: small;" class="mycode_size">Bcrypt</span></span><br />
+</li>
+<li><span style="color: #24292e;" class="mycode_color"><span style="font-size: small;" class="mycode_size">Scrypt</span></span><br />
+</li>
+<li><span style="color: #24292e;" class="mycode_color"><span style="font-size: small;" class="mycode_size">Argon2i (Argon2d and 2id will be brought out soon if demand is there)</span></span><br />
+</li>
+</ul>
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Installation</span></span><ul class="mycode_list"><li>Head to the release page and download the latest version of samp crypto (<a href="https://github.com/infin1tyy/samp-crypto/releases" target="_blank" rel="noopener" class="mycode_url"><span style="color: #0366d6;" class="mycode_color">https://github.com/infin1tyy/samp-crypto/releases</span></a>).<br />
+<br />
+</li>
+<li>Place the .inc into your pawno/include folder.<br />
+<br />
+</li>
+<li>Place the .dll or .so in your plugins folder (if one doesn't exist, create a new one).<br />
+<br />
+</li>
+<li>Add samp_crypto to your server.cfg (if on linux, add libsamp_crypto.so to your server.cfg instead.<br />
+<br />
+</li>
+<li>Enjoy!<br />
+</li>
+</ul>
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">How to Use</span></span><br />
+<a href="https://github.com/infin1tyy/samp-crypto/wiki" target="_blank" rel="noopener" class="mycode_url">Click me to go to the wiki!</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Downloads</span></span><br />
+<a href="https://github.com/infin1tyy/samp-crypto/releases" target="_blank" rel="noopener" class="mycode_url">Binaries</a><br />
+<a href="https://github.com/infin1tyy/samp-crypto" target="_blank" rel="noopener" class="mycode_url">Source Code</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Credits</span></span><br />
+The credits can be found <a href="https://github.com/infin1tyy/samp-crypto/blob/master/README.md" target="_blank" rel="noopener" class="mycode_url">here</a>, in the GitHub README.md<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="text-decoration: underline;" class="mycode_u">Notes</span></span><br />
+I was debating whether or not I should release this for a while. After what has been going on in SAMP, with essentially the community being divided between the players in the Discord and the SAMP forum, I wasn't sure who to support. A lot of the people from this community have been quite spiteful towards me, however, I'm putting that in the past and I suppose my support is with you lot.<br />
+samp crypto will be a burgershot.gg exclusive.<br />
+Special thanks to iAmir &amp; Dakyskye from the bottom of my heart.<br />
+For anyone who didn't believe in me, fuck you I suppose. :joy: Maybe this'll prove I'm worth something. And I'd like to apologize for never delivering on that Postgres plugin, but do know that I still have it in mind and I'll make it happen whenever I have the experience to do so.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-crypto - bcrypt, scrypt &amp; argon2 hashing</strong> - <a href="member0dbb.html?action=profile&amp;uid=40">Kiru</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+I would like to say.... Great plugin! I am planning to use this in my rp project. Great job &lt;3
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-crypto - bcrypt, scrypt &amp; argon2 hashing</strong> - <a href="member0434.html?action=profile&amp;uid=462">javelin</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+Been waiting for the release since day 1. Very useful, thank you.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-crypto - bcrypt, scrypt &amp; argon2 hashing</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Amazing one. Good job.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-crypto - bcrypt, scrypt &amp; argon2 hashing</strong> - <a href="member92f7.html?action=profile&amp;uid=20">dakyskye</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Great plugin, I'm gonna definetely use it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-crypto - bcrypt, scrypt &amp; argon2 hashing</strong> - <a href="memberaba1.html?action=profile&amp;uid=457">Bork</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Thank you all :)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-crypto - bcrypt, scrypt &amp; argon2 hashing</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+The old BCrypt plugin used a callback architecture.  You requested a hash, and once it was done the plugin informed you.  This was because cryptographic hashes are meant to be slow.  Their security lies in the fact that they take a long time to calculate, making brute-forcing them impossible within the age of the universe.  Performing the hash synchronously as in this version would stall the server for a non-trivial amount of time while running the calculation.  I like the presence of multiple different hashes, but this should really be threaded.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-crypto - bcrypt, scrypt &amp; argon2 hashing</strong> - <a href="memberaba1.html?action=profile&amp;uid=457">Bork</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 11:12 PM)</span>Y_Less Wrote:  <a href="showthreadf1eb.html?pid=2600#pid2600" class="quick_jump"></a></cite>The old BCrypt plugin used a callback architecture.  You requested a hash, and once it was done the plugin informed you.  This was because cryptographic hashes are meant to be slow.  Their security lies in the fact that they take a long time to calculate, making brute-forcing them impossible within the age of the universe.  Performing the hash synchronously as in this version would stall the server for a non-trivial amount of time while running the calculation.  I like the presence of multiple different hashes, but this should really be threaded.</blockquote><br />
+Threading has been suggested to me before, I just never got around to doing it. Argon2 already has threading (in the form of lanes? idk, you'll have to check out the rust-argon2 crate) so that's probably the best to use. I'll look into doing this, and if anyone decides they want to make a PR why not :)<br />
+Also I do know that it did use a callback architecture, and if anyone prefers that you've always got SyS' bcrypt plugin, and that's still being maintained as is this plugin. This is just meant to be a drop-in replacement for 'legacy' hashing methods (SHA256_PassHash, Whirlpool, MD5, etc).
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

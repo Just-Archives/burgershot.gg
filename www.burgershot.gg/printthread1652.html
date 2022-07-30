@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Web Map partitioner (by frxstrem) [open.mp release only!] - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Web]</span> <a href="showthread1652.html?tid=265">Map partitioner (by frxstrem) [open.mp release only!]</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Web]</span> Map partitioner (by frxstrem) [open.mp release only!] (<em>/showthread.php?tid=265</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Map partitioner (by frxstrem) [open.mp release only!]</strong> - <a href="member8587.html?action=profile&amp;uid=173">denNorske</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">What is a map object partitioner?</span><br />
+- Split your maps from one file into several separate (or similar!) <br />
+<br />
+<br />
+So with initial use at freeroam projects i've had the last years, I've had several occations where I felt I needed a tool that could mark all the objects in a certain area, and be able to split it up from the rest of the objects.<br />
+It started out with me taking over a community, and where i had the urge to separate the maps in my code by area. Some maps were to be removed and replaced with new maps, but all the objects were mixed into 1 single file without any form for sorting. My friend, frxstrem (a really cool guy) helped me solve this by making the following tool.<br />
+<br />
+For a preview, look at my attachment (a picture of it), or visit my instance of it hosted at <a href="https://extreme-stunting.net/map" target="_blank" rel="noopener" class="mycode_url">https://extreme-stunting.net/map</a><br />
+<br />
+Source code: <a href="https://github.com/dennorske/map-object-partitioner" target="_blank" rel="noopener" class="mycode_url">https://github.com/dennorske/map-object-partitioner</a> (yes it is a fork, but my friend told me I needed to maintain it, as he made it for my community back a few years).<br />
+<br />
+It currently supports AddStaticVehicle, AddStaticVehicleEx, CreateDynamicObject and CreateObject codes - and if you for example want to visualize single "RemoveBuildingForPlayer" or similar, you can use either of the functions mentioned before. (make a new file and rename the occurences).<br />
+<br />
+<img src="https://i.imgur.com/T5MoZA0.png" loading="lazy"  alt="[Image: T5MoZA0.png]" class="mycode_img" /><br />
+Here is an example where i was debugging my script. Something kept crashing my players over long time, and in order to locate the issue, I attempted to log every crash and visualize it with my tool. Essentially, you can visualize anything in 2D on the map, just rename and use functions that are supported.<br />
+<br />
+The code is written using Javascript, and is about 3 years old at the moment with no updates to it yet.<br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Use:<br />
+</span><br />
+<ol type="1" class="mycode_list"><li>You load your file with objects in a .inc or .pwn file (can be both CreateObject and CreateDynamicObject, can include vehicles too)<br />
+</li>
+<li>Scroll and pan around in the image field, and create polygons as described to mark areas. You can have unlimited of polygons. Each object will be represented with a dot on the map, and will be in scale with the San Andreas map coordinates. Make sure to zoom out if you have objects outside of the shore-lines.<br />
+</li>
+<li>When done, select <span style="text-decoration: underline;" class="mycode_u">update </span>and download txt-file with the separated polygons to you computer. Feel free to rename them. Each polygon will include the objects you had inside them.<br />
+</li>
+</ol>
+<br />
+For support, post a reply here or create an issue on the repo.<br />
+Feature requests may lead to me learning more Javascript, so why not!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Map partitioner (by frxstrem) [open.mp release only!]</strong> - <a href="memberdd33.html?action=profile&amp;uid=123">BrunoBM16</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Looks good.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Map partitioner (by frxstrem) [open.mp release only!]</strong> - <a href="member91d6.html?action=profile&amp;uid=492">Zomic</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Great
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Map partitioner (by frxstrem) [open.mp release only!]</strong> - <a href="member0952.html?action=profile&amp;uid=205">Atom</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+This is very useful for me, thanks for sharing it
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Map partitioner (by frxstrem) [open.mp release only!]</strong> - <a href="member38a3.html?action=profile&amp;uid=558">homelessdrop</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Great
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Map partitioner (by frxstrem) [open.mp release only!]</strong> - <a href="member0438.html?action=profile&amp;uid=841">unix</a> -  <strong>2019-07-14</strong>
+<br />
+<br />
+Could you rewrite an version to include the textures also (not show on map but to remain etc as they are)?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Map partitioner (by frxstrem) [open.mp release only!]</strong> - <a href="memberb76a.html?action=profile&amp;uid=1394">Variable</a> -  <strong>2019-07-27</strong>
+<br />
+<br />
+Nice one!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Map partitioner (by frxstrem) [open.mp release only!]</strong> - <a href="member8587.html?action=profile&amp;uid=173">denNorske</a> -  <strong>2020-04-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-07-14, 04:18 PM)</span>unix Wrote:  <a href="showthreadbfe1.html?pid=6372#pid6372" class="quick_jump"></a></cite>Could you rewrite an version to include the textures also (not show on map but to remain etc as they are)?</blockquote><br />
+Sorry, I'm not 100% sure what you mean :) PRobs possible, but requires much more than showing coords :D
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

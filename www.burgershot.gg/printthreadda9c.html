@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> clear/empty an array - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadda9c.html?tid=2200">clear/empty an array</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  clear/empty an array (<em>/showthread.php?tid=2200</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>clear/empty an array</strong> - <a href="member97d3.html?action=profile&amp;uid=3745">redex</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+hi!<br />
+i wanted to know is there anyway to clear an array with only a few lines? i have player info in this array:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>enum e_playerinfo<br />
+{<br />
+    someInt,<br />
+    Float:someFloat,<br />
+    someString[144],<br />
+}<br />
+new playerInfo[MAX_PLAYERS][e_playerinfo];</code></div></div><br />
+<br />
+and i wanted to know how can i clear it in on player disconnect after saving the values in sql, i used to do like this:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDisconnect(...)<br />
+{<br />
+<br />
+    playerInfo[playerid][...] = 0;<br />
+    playerInfo[playerid][...] = 0.0;<br />
+    playerInfo[playerid][...] = "";<br />
+    ...<br />
+<br />
+}</code></div></div>and i had to do this for every variable i add, is there anyway to make this more simple?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: clear/empty an array</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+I think that this should work:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>for(new i; e_playerinfo:i &lt; e_playerinfo; i++) { playerInfo[playerid][e_playerinfo:i] = -1; }</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: clear/empty an array</strong> - <a href="member97d3.html?action=profile&amp;uid=3745">redex</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-31, 03:53 PM)</span>Pinch Wrote:  <a href="showthreadb6d2.html?pid=11777#pid11777" class="quick_jump"></a></cite>I think that this should work:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>for(new i; e_playerinfo:i &lt; e_playerinfo; i++) { playerInfo[playerid][e_playerinfo:i] = -1; }</code></div></div></blockquote><br />
+so it will work for any data type?<br />
+i want it to make the strings "", and ints 0, i think this is not working for every datatype
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: clear/empty an array</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-31, 05:09 PM)</span>redex Wrote:  <a href="showthread2802.html?pid=11778#pid11778" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-07-31, 03:53 PM)</span>Pinch Wrote:  <a href="showthreadb6d2.html?pid=11777#pid11777" class="quick_jump"></a></cite>I think that this should work:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>for(new i; e_playerinfo:i &lt; e_playerinfo; i++) { playerInfo[playerid][e_playerinfo:i] = -1; }</code></div></div></blockquote><br />
+so it will work for any data type?<br />
+i want it to make the strings "", and ints 0, i think this is not working for every datatype</blockquote>me neither, but what you can do is manually reset strings, you shouldn't have that much of them anyways?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: clear/empty an array</strong> - <a href="member036a.html?action=profile&amp;uid=695">Banditul</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+This is also a very good way  to reset that enum https://github.com/pBlueG/SA-MP-MySQL/blob/master/example_scripts/login_system-cache.pwn#L106
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: clear/empty an array</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-08-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-31, 08:20 PM)</span>Banditul Wrote:  <a href="showthread4920.html?pid=11780#pid11780" class="quick_jump"></a></cite>This is also a very good way  to reset that enum https://github.com/pBlueG/SA-MP-MySQL/blob/master/example_scripts/login_system-cache.pwn#L106</blockquote>Thank you, smart idea
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: clear/empty an array</strong> - <a href="member97d3.html?action=profile&amp;uid=3745">redex</a> -  <strong>2021-08-02</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-31, 08:20 PM)</span>Banditul Wrote:  <a href="showthread4920.html?pid=11780#pid11780" class="quick_jump"></a></cite>This is also a very good way  to reset that enum https://github.com/pBlueG/SA-MP-MySQL/blob/master/example_scripts/login_system-cache.pwn#L106</blockquote><br />
+thanks it was really helpful !
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

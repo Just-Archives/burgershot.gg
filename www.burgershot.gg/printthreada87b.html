@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server error 090: public functions may not return arrays (symbol &quot;GetRegionName&quot;) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreada87b.html?tid=2259">error 090: public functions may not return arrays (symbol &quot;GetRegionName&quot;)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> error 090: public functions may not return arrays (symbol &quot;GetRegionName&quot;) (<em>/showthread.php?tid=2259</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>error 090: public functions may not return arrays (symbol &quot;GetRegionName&quot;)</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-12-14</strong>
+<br />
+<br />
+Why i'm getting this error:<br />
+<br />
+error 090: public functions may not return arrays (symbol "GetRegionName")<br />
+return string;<br />
+<br />
+on this:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward GetRegionName(Float: X, Float: Y, Float: Z);<br />
+public GetRegionName(Float: X, Float: Y, Float: Z) {<br />
+    new string[128];<br />
+    format(string, sizeof(string), "Idlewood");<br />
+    return string;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: error 090: public functions may not return arrays (symbol &quot;GetRegionName&quot;)</strong> - <a href="member73aa.html?action=profile&amp;uid=4049">hiwyn</a> -  <strong>2021-12-14</strong>
+<br />
+<br />
+i've change:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward GetRegionName(Float: X, Float: Y, Float: Z);<br />
+public GetRegionName(Float: X, Float: Y, Float: Z) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new string[128];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;format(string, sizeof(string), "Idlewood");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return string;<br />
+}</code></div></div><br />
+to<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock GetRegionName(Float: X, Float: Y, Float: Z) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new string[128];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;format(string, sizeof(string), "Idlewood");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return string;<br />
+}</code></div></div><br />
+works but idk why
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

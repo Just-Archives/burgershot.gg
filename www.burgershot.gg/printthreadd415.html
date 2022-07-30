@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Filterscript VIP System for gang wars/TDM - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> <a href="showthreadd415.html?tid=2123">VIP System for gang wars/TDM</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Filterscripts (<i>https://www.burgershot.gg/forumdisplay.php?fid=30</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> VIP System for gang wars/TDM (<em>/showthread.php?tid=2123</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>VIP System for gang wars/TDM</strong> - <a href="member6fbe.html?action=profile&amp;uid=3870">Abraar</a> -  <strong>2021-06-19</strong>
+<br />
+<br />
+Hello :D <br />
+<br />
+I own a server, but I wanted a VIP Sytem for my gang wars gamemode . Also, I am searching for developers for our server (<span style="font-weight: bold;" class="mycode_b">Developers will be set as admin lvl 6 in game</span>)<br />
+<br />
+<span style="font-style: italic;" class="mycode_i">HostName: LSGW  -  Los Santos Gang Wars</span><br />
+<span style="font-style: italic;" class="mycode_i">Address:  45.9.190.242:2455</span><br />
+<br />
+<br />
+Contact me: Wincenzo#1826
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: VIP System for gang wars/TDM</strong> - <a href="member8213.html?action=profile&amp;uid=3109">Nikolay_Staggs</a> -  <strong>2021-07-12</strong>
+<br />
+<br />
+Hello abraar I downloaded one but I don't remember the name of the owner but I only created some things like the vip menu and new commands The script is in Spanish was Portuguese<br />
+<br />
+Code:<br />
+/*<br />
+    Menu Vip<br />
+*/<br />
+<br />
+#include &lt;a_samp&gt;<br />
+#include &lt;dof2&gt;<br />
+#include &lt;zcmd&gt;<br />
+#include &lt;sscanf2&gt;<br />
+<br />
+#define Level_Vip 		 2<br />
+<br />
+new PlayerText:MENU_VIP[MAX_PLAYERS][14];<br />
+new Selecionar_Skin[MAX_PLAYERS];<br />
+<br />
+forward ExpiraVip(playerid);<br />
+<br />
+enum Data_Vip<br />
+{<br />
+	ac_VIP,<br />
+	ac_DIAS<br />
+};<br />
+new PLAYER_VIP[MAX_PLAYERS][Data_Vip];<br />
+<br />
+public OnFilterScriptInit()<br />
+{<br />
+    if (!fexist("GUARDAR_CUENTA"))<br />
+    {<br />
+	    print(" &gt; Error, falta la carpeta \"GUARDAR_CUENTA\" en ScriptFiles\n\n");<br />
+    }<br />
+	else if (fexist("GUARDAR_CUENTA"))<br />
+    {<br />
+	    print(" &gt; Los \"datos\" de los usuarios vip fueron cargados correctamente.\n\n");<br />
+    }<br />
+    <br />
+    SetTimer("ExpiraVip", 60000, true);<br />
+	return 1;<br />
+}<br />
+<br />
+public OnFilterScriptExit()<br />
+{<br />
+    DOF2_Exit();<br />
+	return 1;<br />
+}<br />
+<br />
+public OnPlayerConnect(playerid)<br />
+{<br />
+    CARGAR_CUENTA_VIP(playerid);<br />
+    CreateTextDrawPlayer(playerid);<br />
+    <br />
+    new C_VIP[250];<br />
+    format(C_VIP, sizeof(C_VIP), "GUARDAR_CUENTA/Usar_Vip/%s.ini", pt_NAME_PLAYER(playerid));<br />
+<br />
+   	if(Is_Player_Vip(playerid))<br />
+	{<br />
+		PLAYER_VIP[playerid][ac_DIAS] = DOF2_GetInt(C_VIP, "Dias");<br />
+<br />
+		if(gettime() &gt;= PLAYER_VIP[playerid][ac_DIAS])<br />
+		{<br />
+			SendClientMessage(playerid, -1, "{009B00}[Info] {FFFFFF}Tu vida ha expirado, ya no eres un jugador vip.");<br />
+			PLAYER_VIP[playerid][ac_VIP] = 0;<br />
+			DOF2_RemoveFile(C_VIP);<br />
+<br />
+		}<br />
+		else<br />
+		{<br />
+			PLAYER_VIP[playerid][ac_VIP] = DOF2_GetInt(C_VIP, "Vip");<br />
+<br />
+			if(PLAYER_VIP[playerid][ac_VIP])<br />
+			{<br />
+<br />
+				PLAYER_VIP[playerid][ac_DIAS] = DOF2_GetInt(C_VIP, "Dias");<br />
+				new str[128];<br />
+				format(str, sizeof str, "{009B00}[Info] {FFFFFF}Eres un jugador VIP, tiempo restante:{009B00} %s", ConvertTime(PLAYER_VIP[playerid][ac_DIAS] - gettime()));<br />
+				SendClientMessage(playerid, -1, str);<br />
+<br />
+			}<br />
+		}<br />
+	}<br />
+	return 1;<br />
+}<br />
+<br />
+public OnPlayerDisconnect(playerid, reason)<br />
+{<br />
+    GUARDAR_CUENTA_VIP(playerid);<br />
+<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][0]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][1]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][2]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][3]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][4]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][5]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][6]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][7]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][8]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][9]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][10]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][11]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][12]);<br />
+	PlayerTextDrawHide(playerid, MENU_VIP[playerid][13]);<br />
+	return 1;<br />
+}<br />
+<br />
+CMD:menu(playerid)<br />
+{<br />
+	if(Is_Player_Vip(playerid))<br />
+	{<br />
+    	PlayerTextDrawSetPreviewModel(playerid, MENU_VIP[playerid][2], Selecionar_Skin[playerid]);<br />
+    	SetPlayerSkin(playerid, Selecionar_Skin[playerid]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][0]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][1]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][2]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][3]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][4]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][5]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][6]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][7]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][8]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][9]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][10]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][11]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][12]);<br />
+    	PlayerTextDrawShow(playerid, MENU_VIP[playerid][13]);<br />
+    	SelectTextDraw(playerid, 0xFF6C00FF);<br />
+    }<br />
+    else SendClientMessage(playerid, -1, "No eres {009B00}VIP");<br />
+    return 1;<br />
+}<br />
+<br />
+CMD:vkick(playerid, params[])<br />
+{<br />
+	new pID, razon[128], string[50];<br />
+	if(Is_Player_Vip(playerid))<br />
+	{<br />
+    	if(sscanf(params, "ds[128]", pID, razon)) return SendClientMessage(playerid, -1, "USE: /vkick [id] [razon]");<br />
+    	if(IsPlayerConnected(pID))  return SendClientMessage(playerid, -1, "ID no valida");<br />
+    	SendClientMessageEx(playerid, -1, "{009B00}[Info] {FFFFFF}expulsaste a %s razon %s", pt_NAME_PLAYER(pID), razon);<br />
+	    format(string, sizeof(string), "{009B00}[Info] {FFFFFF}El {009B00}VIP %s {FFFFFF}ha expulsado a %s razon %s", pt_NAME_PLAYER(playerid), pt_NAME_PLAYER(pID), razon);<br />
+	    SendClientMessageToAll(-1, string);<br />
+    	Kick(pID);<br />
+    }<br />
+    else SendClientMessage(playerid, -1, "No eres {009B00}VIP");<br />
+	return 1;<br />
+}<br />
+<br />
+CMD:traertodos(playerid)<br />
+{<br />
+    new Float:pos[3];<br />
+	if(Is_Player_Vip(playerid))<br />
+	{<br />
+		GetPlayerPos(playerid, pos[0], pos[1], pos[2]);<br />
+		for(new id = 0; id &lt; MAX_PLAYERS; id++)<br />
+		{<br />
+			if(IsPlayerConnected(id))<br />
+			{<br />
+				SetPlayerPos(id, pos[0], pos[1], pos[2]);<br />
+				SetPlayerInterior(id, GetPlayerInterior(playerid));<br />
+				SetPlayerVirtualWorld(id, GetPlayerVirtualWorld(playerid));<br />
+				SendClientMessage(playerid,-1, "Has traido a todos a tu posición.");<br />
+			}<br />
+		}<br />
+	}<br />
+	else SendClientMessage(playerid, -1, "No eres {009B00}VIP");<br />
+	return 1;<br />
+}<br />
+<br />
+CMD:darvip(playerid, params[])<br />
+{<br />
+	new pID, C_VIP[100], DIAS_VIP;<br />
+	if(IsPlayerAdmin(playerid))<br />
+	{<br />
+		if(sscanf(params, "iii", pID, DIAS_VIP)) return SendClientMessage(playerid, -1, "USE: /darvip [id] [dias]");<br />
+		format(C_VIP, sizeof(C_VIP), "GUARDAR_CUENTA/Usar_Vip/%s.ini", pt_NAME_PLAYER(playerid));<br />
+		if(DOF2_FileExists(C_VIP)) return SendClientMessage(playerid, -1, "Este jugador ya es VIP.");<br />
+		<br />
+		DOF2_CreateFile(C_VIP);<br />
+		DOF2_SetInt(C_VIP, "Dias", gettime() + (60*60*24*DIAS_VIP));<br />
+		DOF2_SetInt(C_VIP, "Vip", Level_Vip);<br />
+		DOF2_SaveFile();<br />
+		PLAYER_VIP[pID][ac_VIP] = 1;<br />
+<br />
+        SendClientMessageEx(pID, -1, "Se te dio {009B00}%i {FFFFFF}%s Vip", DIAS_VIP, DIAS_VIP == 1 ? ("dia") : ("dias"));<br />
+	}<br />
+	return 1;<br />
+}<br />
+<br />
+CMD:removervip(playerid, params[])<br />
+{<br />
+	new pID, C_VIP[100];<br />
+<br />
+	if(IsPlayerAdmin(playerid))<br />
+	{<br />
+		if(sscanf(params, "i", pID)) return SendClientMessage(playerid, -1, "USE: /removervip [ID]");<br />
+		if(!IsPlayerConnected(pID))  return SendClientMessage(playerid, -1, "Este jugador no está conectado.");<br />
+		format(C_VIP, sizeof(C_VIP), "GUARDAR_CUENTA/Usar_Vip/%s.ini", pt_NAME_PLAYER(playerid));<br />
+		if(!DOF2_FileExists(C_VIP)) return SendClientMessage(playerid, -1, "Este jugador no es VIP.");<br />
+<br />
+		PLAYER_VIP[pID][ac_VIP] = 0;<br />
+		DOF2_RemoveFile(C_VIP);<br />
+		<br />
+		SendClientMessageEx(playerid, -1, "{009B00}[Info] {FFFFFF}Eliminaste la cuenta vip de %s", pt_NAME_PLAYER(pID));<br />
+		<br />
+		SendClientMessageEx(pID, -1, "{009B00}[Info] {FFFFFF}El Admin %s te elimino la cuenta vip", pt_NAME_PLAYER(playerid));<br />
+	}<br />
+	return 1;<br />
+}<br />
+<br />
+public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)<br />
+{<br />
+    if(playertextid == MENU_VIP[playerid][4])<br />
+    {<br />
+       PlayerPlaySound(playerid, 1131, 0.0, 0.0, 0.0);<br />
+	   if(Selecionar_Skin[playerid] == 310) Selecionar_Skin[playerid] = 0;<br />
+	   {<br />
+	       Selecionar_Skin[playerid] ++;<br />
+	       PlayerTextDrawSetPreviewModel(playerid, MENU_VIP[playerid][2], Selecionar_Skin[playerid]);<br />
+	       PlayerTextDrawShow(playerid, MENU_VIP[playerid][2]);<br />
+	       SetPlayerSkin(playerid, Selecionar_Skin[playerid]);<br />
+	   }<br />
+    }<br />
+    else if(playertextid == MENU_VIP[playerid][3])<br />
+    {<br />
+       PlayerPlaySound(playerid, 1131, 0.0, 0.0, 0.0);<br />
+	   if(Selecionar_Skin[playerid] == 1) Selecionar_Skin[playerid] = 311;<br />
+	   {<br />
+	       Selecionar_Skin[playerid] --;<br />
+	       PlayerTextDrawSetPreviewModel(playerid, MENU_VIP[playerid][2], Selecionar_Skin[playerid]);<br />
+	       PlayerTextDrawShow(playerid, MENU_VIP[playerid][2]);<br />
+	       SetPlayerSkin(playerid, Selecionar_Skin[playerid]);<br />
+	   }<br />
+    }<br />
+    else if(playertextid == MENU_VIP[playerid][5])<br />
+    {<br />
+        GivePlayerWeapon(playerid, 26, 5000);<br />
+        GivePlayerWeapon(playerid, 24, 5000);<br />
+        GivePlayerWeapon(playerid, 30, 5000);<br />
+        GivePlayerWeapon(playerid, 34, 5000);<br />
+        SendClientMessage(playerid, -1, "{009B00}[Info] {FFFFFF}se te dio armas..");<br />
+    }<br />
+    else if(playertextid == MENU_VIP[playerid][6])<br />
+    {<br />
+        CancelSelectTextDraw(playerid);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][0]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][1]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][2]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][3]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][4]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][5]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][6]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][7]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][8]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][9]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][10]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][11]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][12]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][13]);<br />
+	    SetPlayerSpecialAction(playerid, SPECIAL_ACTION_USEJETPACK);<br />
+	    SendClientMessage(playerid, -1, "{009B00}[Info] {FFFFFF}has creado un jetpack..");<br />
+    }<br />
+    else if(playertextid == MENU_VIP[playerid][7])<br />
+    {<br />
+        new Float:VIP_X_G, Float:VIP_Y_G, Float:VIP_Z_G, VIP_STR[60];<br />
+        GetPlayerPos(playerid, VIP_X_G, VIP_Y_G, VIP_Z_G);<br />
+<br />
+        format(VIP_STR, sizeof(VIP_STR), "GUARDAR_CUENTA/Pos/%s.ini", pt_NAME_PLAYER(playerid));<br />
+<br />
+        if(!DOF2_FileExists(VIP_STR))<br />
+        DOF2_CreateFile(VIP_STR);<br />
+        DOF2_SetFloat(VIP_STR, "X", VIP_X_G);<br />
+        DOF2_SetFloat(VIP_STR, "Y", VIP_Y_G);<br />
+        DOF2_SetFloat(VIP_STR, "Z", VIP_Z_G);<br />
+        DOF2_SaveFile();<br />
+        SendClientMessage(playerid, -1, "{009B00}[Info] {FFFFFF}la posición actual se ha guardado..");<br />
+    }<br />
+    else if(playertextid == MENU_VIP[playerid][8])<br />
+    {<br />
+        new VIP_STR[60];<br />
+        format(VIP_STR, sizeof(VIP_STR), "GUARDAR_CUENTA/Pos/%s.ini", pt_NAME_PLAYER(playerid));<br />
+        if(!DOF2_FileExists(VIP_STR))<br />
+        {<br />
+            SendClientMessage(playerid, -1, "{009B00}[Info] {FFFFFF}primero debes guardar una posición..");<br />
+        }<br />
+        else<br />
+        {<br />
+            new Float:VIP_X = DOF2_GetFloat(VIP_STR, "X");<br />
+            new Float:VIP_Y = DOF2_GetFloat(VIP_STR, "Y");<br />
+            new Float:VIP_Z = DOF2_GetFloat(VIP_STR, "Z");<br />
+<br />
+            SetPlayerPos(playerid, VIP_X, VIP_Y, VIP_Z);<br />
+            SendClientMessage(playerid, -1, "{009B00}[Info] {FFFFFF}has sido teletransportado..");<br />
+        }<br />
+    }<br />
+    else if(playertextid == MENU_VIP[playerid][9])<br />
+    {<br />
+        SetPlayerHealth(playerid, 100);<br />
+        SetPlayerArmour(playerid, 100);<br />
+        SendClientMessage(playerid, -1, "{009B00}[Info] {FFFFFF}se te dio vida y chaleco..");<br />
+    }<br />
+    else if(playertextid == MENU_VIP[playerid][13])<br />
+    {<br />
+        CancelSelectTextDraw(playerid);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][0]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][1]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][2]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][3]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][4]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][5]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][6]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][7]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][8]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][9]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][10]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][11]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][12]);<br />
+	    PlayerTextDrawHide(playerid, MENU_VIP[playerid][13]);<br />
+    }<br />
+    return 0;<br />
+}<br />
+<br />
+public ExpiraVip(playerid)<br />
+{<br />
+<br />
+	if(PLAYER_VIP[playerid][ac_VIP] == 1)<br />
+	{<br />
+        new file[50];<br />
+        format(file, sizeof(file), "GUARDAR_CUENTA/Usar_Vip/%s.ini", pt_NAME_PLAYER(playerid));<br />
+		PLAYER_VIP[playerid][ac_DIAS] = DOF2_GetInt(file, "Dias");<br />
+<br />
+		if(gettime() &gt;= PLAYER_VIP[playerid][ac_DIAS])<br />
+		{<br />
+			SendClientMessage(playerid, -1, "{009B00}[Info] {FFFFFF}Tu vida ha expirado, ya no eres un jugador {009B00}VIP.");<br />
+			DOF2_RemoveFile(file);<br />
+			PLAYER_VIP[playerid][ac_VIP] = 0;<br />
+		}<br />
+	}<br />
+	return 0;<br />
+}<br />
+<br />
+<br />
+CARGAR_CUENTA_VIP(playerid)<br />
+{<br />
+    new file[50];<br />
+    format(file, sizeof(file), "GUARDAR_CUENTA/Usar_Vip/%s.ini", pt_NAME_PLAYER(playerid));<br />
+    PLAYER_VIP[playerid][ac_VIP] = DOF2_GetInt(file, "Vip");<br />
+    PLAYER_VIP[playerid][ac_DIAS] = DOF2_GetInt(file, "Dias");<br />
+    return 1;<br />
+}<br />
+<br />
+GUARDAR_CUENTA_VIP(playerid)<br />
+{<br />
+    new file[50];<br />
+    format(file, sizeof(file), "GUARDAR_CUENTA/Usar_Vip/%s.ini", pt_NAME_PLAYER(playerid));<br />
+    if(DOF2_FileExists(file))<br />
+    {<br />
+		DOF2_SetInt(file, "Vip", PLAYER_VIP[playerid][ac_VIP]);<br />
+		DOF2_SetInt(file, "Dias", PLAYER_VIP[playerid][ac_DIAS]);<br />
+		DOF2_SaveFile();<br />
+    }<br />
+    return 1;<br />
+}<br />
+<br />
+stock pt_NAME_PLAYER(playerid)<br />
+{<br />
+        new Nombre[MAX_PLAYER_NAME];<br />
+        GetPlayerName(playerid, Nombre, sizeof(Nombre));<br />
+        return Nombre;<br />
+}<br />
+<br />
+stock ConvertTime(SEGUNDOS)<br />
+{<br />
+	new MINUTOS_, HORAS_, DIAS_, String[200];<br />
+<br />
+	if(SEGUNDOS &gt; 59)<br />
+	{<br />
+		MINUTOS_ = SEGUNDOS / 60;<br />
+		SEGUNDOS = SEGUNDOS - MINUTOS_ * 60;<br />
+	}<br />
+	if(MINUTOS_ &gt; 59)<br />
+	{<br />
+		HORAS_ = MINUTOS_ / 60;<br />
+		MINUTOS_ = MINUTOS_ - HORAS_ * 60;<br />
+	}<br />
+	if(HORAS_ &gt; 23)<br />
+	{<br />
+		DIAS_ = HORAS_ / 24;<br />
+		HORAS_ = HORAS_ - DIAS_ * 24;<br />
+	}<br />
+<br />
+	format(String, sizeof(String), "%02d Dias e %02d Horas e %02d Minutos e %02d Segundos", DIAS_, HORAS_, MINUTOS_, SEGUNDOS);<br />
+	if(DIAS_ &lt; 1) format(String, sizeof(String), "%02d Horas e %02d Minutos e %02d Segundos", HORAS_, MINUTOS_, SEGUNDOS);<br />
+	if(DIAS_ &lt; 1 &amp;&amp; HORAS_ &lt; 1) format(String, sizeof(String), "%02d Minutos e %02d Segundos", MINUTOS_, SEGUNDOS);<br />
+	if(DIAS_ &lt; 1 &amp;&amp; HORAS_ &lt; 1 &amp;&amp; MINUTOS_ &lt; 1) format(String, sizeof(String), "%02d Segundos", SEGUNDOS);<br />
+<br />
+	return String;<br />
+}<br />
+<br />
+stock Is_Player_Vip(playerid)<br />
+{<br />
+    new C_VIP[250];<br />
+    format(C_VIP, sizeof(C_VIP), "GUARDAR_CUENTA/Usar_Vip/%s.ini", pt_NAME_PLAYER(playerid));<br />
+	if(DOF2_FileExists(C_VIP)) return 1;<br />
+	return 0;<br />
+}<br />
+<br />
+CreateTextDrawPlayer(playerid)<br />
+{<br />
+	MENU_VIP[playerid][0] = CreatePlayerTextDraw(playerid, 325.000000, 153.000000, "_");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][0], 1);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][0], 0.600000, 16.500017);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][0], 303.000000, 359.500000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][0], 1);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][0], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][0], 2);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][0], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][0], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][0], 16777215);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][0], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][0], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][0], 0);<br />
+<br />
+	MENU_VIP[playerid][1] = CreatePlayerTextDraw(playerid, 325.000000, 155.000000, "_");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][1], 1);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][1], 0.600000, 16.000024);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][1], 303.000000, 353.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][1], 1);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][1], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][1], 2);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][1], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][1], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][1], 1296911871);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][1], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][1], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][1], 0);<br />
+<br />
+	MENU_VIP[playerid][2] = CreatePlayerTextDraw(playerid, 389.000000, 154.000000, "Preview_Model");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][2], 5);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][2], 0.600000, 2.000000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][2], 112.500000, 94.500000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][2], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][2], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][2], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][2], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][2], 1433087999);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][2], 255);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][2], 0);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][2], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][2], 0);<br />
+	PlayerTextDrawSetPreviewModel(playerid, MENU_VIP[playerid][2], 304);<br />
+	PlayerTextDrawSetPreviewRot(playerid, MENU_VIP[playerid][2], -17.000000, 0.000000, -25.000000, 0.940000);<br />
+	PlayerTextDrawSetPreviewVehCol(playerid, MENU_VIP[playerid][2], 1, 1);<br />
+<br />
+	MENU_VIP[playerid][3] = CreatePlayerTextDraw(playerid, 392.000000, 252.000000, "&lt;");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][3], 3);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][3], 0.529166, 1.600000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][3], 404.500000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][3], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][3], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][3], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][3], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][3], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][3], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][3], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][3], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][3], 1);<br />
+<br />
+	MENU_VIP[playerid][4] = CreatePlayerTextDraw(playerid, 487.000000, 252.000000, "&gt;");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][4], 3);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][4], 0.529166, 1.600000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][4], 498.000000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][4], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][4], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][4], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][4], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][4], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][4], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][4], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][4], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][4], 1);<br />
+<br />
+	MENU_VIP[playerid][5] = CreatePlayerTextDraw(playerid, 156.000000, 162.000000, "armas");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][5], 2);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][5], 0.400000, 1.000000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][5], 234.000000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][5], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][5], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][5], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][5], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][5], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][5], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][5], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][5], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][5], 1);<br />
+<br />
+	MENU_VIP[playerid][6] = CreatePlayerTextDraw(playerid, 156.000000, 184.000000, "jetpack");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][6], 2);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][6], 0.400000, 1.000000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][6], 234.000000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][6], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][6], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][6], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][6], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][6], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][6], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][6], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][6], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][6], 1);<br />
+<br />
+	MENU_VIP[playerid][7] = CreatePlayerTextDraw(playerid, 156.000000, 208.000000, "guardar_pos");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][7], 2);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][7], 0.400000, 1.000000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][7], 268.000000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][7], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][7], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][7], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][7], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][7], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][7], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][7], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][7], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][7], 1);<br />
+<br />
+	MENU_VIP[playerid][8] = CreatePlayerTextDraw(playerid, 156.000000, 232.000000, "ir_pos");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][8], 2);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][8], 0.400000, 1.000000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][8], 234.000000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][8], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][8], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][8], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][8], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][8], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][8], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][8], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][8], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][8], 1);<br />
+<br />
+	MENU_VIP[playerid][9] = CreatePlayerTextDraw(playerid, 156.000000, 255.000000, "vida_chaleco");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][9], 2);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][9], 0.400000, 1.000000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][9], 273.000000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][9], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][9], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][9], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][9], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][9], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][9], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][9], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][9], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][9], 1);<br />
+<br />
+	MENU_VIP[playerid][10] = CreatePlayerTextDraw(playerid, 156.000000, 278.000000, "comandos_vip");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][10], 2);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][10], 0.400000, 1.000000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][10], 275.500000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][10], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][10], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][10], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][10], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][10], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][10], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][10], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][10], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][10], 1);<br />
+<br />
+	MENU_VIP[playerid][11] = CreatePlayerTextDraw(playerid, 278.000000, 155.000000, "menu");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][11], 3);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][11], 0.416666, 1.200000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][11], 306.500000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][11], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][11], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][11], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][11], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][11], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][11], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][11], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][11], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][11], 0);<br />
+<br />
+	MENU_VIP[playerid][12] = CreatePlayerTextDraw(playerid, 319.000000, 155.000000, "vip");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][12], 3);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][12], 0.395833, 1.200000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][12], 306.500000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][12], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][12], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][12], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][12], -65281);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][12], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][12], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][12], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][12], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][12], 0);<br />
+<br />
+	MENU_VIP[playerid][13] = CreatePlayerTextDraw(playerid, 451.000000, 290.000000, "cerrar");<br />
+	PlayerTextDrawFont(playerid, MENU_VIP[playerid][13], 3);<br />
+	PlayerTextDrawLetterSize(playerid, MENU_VIP[playerid][13], 0.416666, 1.200000);<br />
+	PlayerTextDrawTextSize(playerid, MENU_VIP[playerid][13], 498.000000, 17.000000);<br />
+	PlayerTextDrawSetOutline(playerid, MENU_VIP[playerid][13], 0);<br />
+	PlayerTextDrawSetShadow(playerid, MENU_VIP[playerid][13], 0);<br />
+	PlayerTextDrawAlignment(playerid, MENU_VIP[playerid][13], 1);<br />
+	PlayerTextDrawColor(playerid, MENU_VIP[playerid][13], -1);<br />
+	PlayerTextDrawBackgroundColor(playerid, MENU_VIP[playerid][13], 255);<br />
+	PlayerTextDrawBoxColor(playerid, MENU_VIP[playerid][13], 0);<br />
+	PlayerTextDrawUseBox(playerid, MENU_VIP[playerid][13], 1);<br />
+	PlayerTextDrawSetProportional(playerid, MENU_VIP[playerid][13], 1);<br />
+	PlayerTextDrawSetSelectable(playerid, MENU_VIP[playerid][13], 1);<br />
+	return 1;<br />
+}<br />
+<br />
+SendClientMessageEx(playerid, color, form[], {Float, _}: ...)<br />
+{<br />
+    #pragma unused form<br />
+<br />
+    static<br />
+        tmp[145]<br />
+    ;<br />
+    new<br />
+        t1 = playerid,<br />
+        t2 = color<br />
+    ;<br />
+    const<br />
+        n4 = -4,<br />
+        n16 = -16,<br />
+        size = sizeof tmp<br />
+    ;<br />
+    #emit stack 28<br />
+    #emit push.c size<br />
+    #emit push.c tmp<br />
+    #emit stack n4<br />
+    #emit sysreq.c format<br />
+    #emit stack n16<br />
+<br />
+    return (t1 == -1 ? (SendClientMessageToAll(t2, tmp)) : (SendClientMessage(t1, t2, tmp)) );<br />
+}
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

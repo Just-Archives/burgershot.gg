@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Ternary Operator Basics - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadd1fb.html?tid=1566">Ternary Operator Basics</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Tutorials (<i>https://www.burgershot.gg/forumdisplay.php?fid=37</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Ternary Operator Basics (<em>/showthread.php?tid=1566</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Ternary Operator Basics</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-01-20</strong>
+<br />
+<br />
+<span style="color: #e8c500;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="color: #202124;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b"><span style="font-style: italic;" class="mycode_i">"Sorry for the bad English, I'm using the translator to do this tutorial."</span></span></span></span></span></span></span><br />
+<br />
+<span style="color: #e8c500;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">- What is a ternary operator?</span></span></span><br />
+<br />
+In various situations in programming we need to deal with various scenarios, through conditional structures, such as if, else and switch. However, in some situations we deal with wave situations there are only 2 possible returns.<br />
+<br />
+For example, let's imagine a hypothetical situation, in which if the player is an administrator he wins &#36; 1500, otherwise he will win &#36; 500.<br />
+We can do this logic using the if and else operator:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">PlayerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />{</span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br /> &nbsp; &nbsp;GivePlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1500</span><span style="color: #007700">);<br /><br />}&nbsp;<br />else<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;GivePlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">500</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+Now notice that we are making a relatively long structure for a simple action, with only two possibilities. Is there no other way to write this code in a simpler way? Yes, there is, and that is what the ternary operator is for:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">GivePlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;(</span><span style="color: #0000BB">PlayerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">1500&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">500</span><span style="color: #007700">));&nbsp;<br /></span></code></div></div></div><br />
+Now we did the same action with just one line of code, however let's understand a little bit about how to build a ternary operator.<br />
+<br />
+<span style="color: #e8c500;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">- How to build a ternary operator?</span></span></span><br />
+<br />
+Building a ternary operator is simple, its own structure is self-explanatory.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">(</span><span style="color: #0000BB">condition&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">value&nbsp;</span><span style="color: #007700">if&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">value&nbsp;</span><span style="color: #007700">if&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;<br /></span></code></div></div></div><br />
+To better understand, we can see that the '?' acts as an if and the ':' acts as the else.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #e8c500;" class="mycode_color"><span style="font-size: large;" class="mycode_size">- In what situations will I use the ternary operator?</span></span></span><br />
+<br />
+This is a relative question, it depends a lot on the type of logic that you will build for your system, but as stated in the first question we will use the ternary operator for situations in which there are only 2 possibilities of return. Remembering that the ternary operator is not limited to returning only number values, but can also return strings and other options.<br />
+<br />
+Example of a string with a ternary operator:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;(</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"True"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"false"</span><span style="color: #007700">));&nbsp;<br /></span></code></div></div></div><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #e8c500;" class="mycode_color"><span style="font-size: large;" class="mycode_size">- Problems with ternary operator</span></span></span><br />
+<br />
+The main problem with the ternary operator is its structure, which because it is very compact, its structure can be difficult to read by programmers who are not used to it.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #e8c500;" class="mycode_color"><span style="font-size: large;" class="mycode_size">- End</span></span></span><br />
+<br />
+This is my first personal authoring tutorial, i hope you like it and criticism will always be welcome!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Ternary Operator Basics</strong> - <a href="member8a3a.html?action=profile&amp;uid=345">Shadow</a> -  <strong>2021-04-28</strong>
+<br />
+<br />
+Good tutorial, you just forgot to mention that ternary operator supports multiple conditions.<br />
+For example:<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;1"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;2"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;3"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;4"</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+And btw, you don't need brackets, just own preference.<br />
+EDIT: You need brackets if you aren't using the community compiler, found out a few days ago..
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Ternary Operator Basics</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-04-30</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-28, 07:58 AM)</span>Shadow Wrote:  <a href="showthread5c83.html?pid=10888#pid10888" class="quick_jump"></a></cite>Good tutorial, you just forgot to mention that ternary operator supports multiple conditions.<br />
+For example:<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;1"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;2"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;3"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;4"</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+And btw, you don't need brackets, just own preference.</blockquote><br />
+Thank you for contributing to the tutorial. :D
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Ternary Operator Basics</strong> - <a href="member525f.html?action=profile&amp;uid=3054">kemper</a> -  <strong>2021-04-30</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-28, 07:58 AM)</span>Shadow Wrote:  <a href="showthread5c83.html?pid=10888#pid10888" class="quick_jump"></a></cite>Good tutorial, you just forgot to mention that ternary operator supports multiple conditions.<br />
+For example:<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;1"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;2"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">playerData</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pAdmin</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;3"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"Admin&nbsp;lvl&nbsp;4"</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+And btw, you don't need brackets, just own preference.</blockquote><br />
+In your example the readability of the code is suffering. Nesting of conditions is not a good idea.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Ternary Operator Basics</strong> - <a href="member8a3a.html?action=profile&amp;uid=345">Shadow</a> -  <strong>2021-05-03</strong>
+<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><blockquote class="mycode_quote"><cite><span> (2021-04-30, 06:11 PM)</span>kemper Wrote:  <a href="showthreadbe22.html?pid=10915#pid10915" class="quick_jump"></a></cite></span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><blockquote class="mycode_quote"><cite><span> (2021-04-28, 07:58 AM)</span>Shadow Wrote:  <a href="showthread5c83.html?pid=10888#pid10888" class="quick_jump"></a></cite></span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">Good tutorial, you just forgot to mention that ternary operator supports multiple conditions.</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">For example:</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">[/</span><span style="color: #0000BB">font</span><span style="color: #007700">][/</span><span style="color: #0000BB">size</span><span style="color: #007700">][/</span><span style="color: #0000BB">color</span><span style="color: #007700">]<br />[</span><span style="color: #0000BB">color</span><span style="color: #007700">=</span><span style="color: #FF8000">#333333][size=small][font=Tahoma,&nbsp;Verdana,&nbsp;Arial,&nbsp;sans-serif]SendClientMessage(playerid,&nbsp;-1,&nbsp;playerData[playerid][pAdmin]&nbsp;==&nbsp;1&nbsp;?&nbsp;"Admin&nbsp;lvl&nbsp;1"&nbsp;:&nbsp;playerData[playerid][pAdmin]&nbsp;==&nbsp;2&nbsp;?&nbsp;"Admin&nbsp;lvl&nbsp;2"&nbsp;:&nbsp;playerData[playerid][pAdmin]&nbsp;==&nbsp;3&nbsp;?&nbsp;"Admin&nbsp;lvl&nbsp;3"&nbsp;:&nbsp;"Admin&nbsp;lvl&nbsp;4");[/font][/size][/color]<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">color</span><span style="color: #007700">=</span><span style="color: #FF8000">#333333][size=small][font=Tahoma,&nbsp;Verdana,&nbsp;Arial,&nbsp;sans-serif]&nbsp;<br /></span></code></div></div></div></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">And btw, you don't need brackets, just own preference.</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"></blockquote></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">In your example the readability of the code is suffering. Nesting of conditions is not a good idea.</span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"></blockquote></span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">I know, and I completely agree with you. Although the readability in ternary operator is a mess, this is a tutorial about it, and this should be mentioned. </span></span></span><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">I remember when I was learning how ternary operator works in PAWN, I almost didn't find that example... I used to think that ternary operator accepts only one condition with two results...</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

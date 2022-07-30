@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin Modern GPS plugin - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthread6fcb.html?tid=66">Modern GPS plugin</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> Modern GPS plugin (<em>/showthread.php?tid=66</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Modern GPS plugin</strong> - <a href="member4c0d.html?action=profile&amp;uid=16">kristo</a> -  <strong>2019-04-13</strong>
+<br />
+<br />
+<span style="color: #FF4700;" class="mycode_color"><span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">SA-MP GPS Plugin</span></span></span><br />
+<br />
+<a href="https://github.com/kristoisberg/samp-gps-plugin" target="_blank" rel="noopener" class="mycode_url"><img src="https://shields.southcla.ws/badge/sampctl-samp--gps--plugin-2f2f2f.svg?style=for-the-badge" loading="lazy"  alt="[Image: sampctl-samp--gps--plugin-2f2f2f.svg?sty...-the-badge]" class="mycode_img" /></a><br />
+<br />
+This plugin offers a way of accessing and manipulating the data of San Andreas map nodes and finding paths between them. It is intended to be a modern and straightforward replacement for RouteConnector. The plugin uses a simple implementation of the A* algorithm for pathfinding. Finding a path from the top-leftmost node on the map to the bottom-rightmost node that consists of 684 nodes takes just a few milliseconds. It is worth noting that this is my first successful project in C++ and the last time I tried writing something in C++ was over half a year ago so there is a lot of room for improvement and I am planning to continue improving the code of this plugin as I progress.<br />
+<br />
+<span style="color: DeepSkyBlue;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Advantages over RouteConnector</span></span></span><br />
+<ul class="mycode_list"><li><span style="font-weight: bold;" class="mycode_b">Safer API</span> - Unlike RouteConnector, this plugins does not give you an array of nodes as the result of pathfinding. Instead of that, it gives you the ID of the found path that can be used later on. Each function (except <span style="font-family: courier new;" class="mycode_font">IsValidMapNode</span>, <span style="font-family: courier new;" class="mycode_font">IsValidPath</span> and <span style="font-family: courier new;" class="mycode_font">GetHighestMapNodeID</span>) returns an error code and the real result of them is passed by reference.<br />
+</li>
+<li><span style="font-weight: bold;" class="mycode_b">Compatibility</span> - RouteConnector has a compatibility issue with some part of YSI that makes it call a wrong public function instead of the actual <span style="font-family: courier new;" class="mycode_font">GPS_WhenRouteIsCalculated</span> callback. This plugin lets you call a custom callback and pass arguments to it. In addition to that, RouteConnector uses Intel Threading Building Blocks for threading that has caused numerous compatibility (and PEBCAK) issues on Linux servers. This plugin uses <span style="font-family: courier new;" class="mycode_font">std::thread</span> for threading and does not have any dependencies. This plugin is also compatible with PawnPlus and supports asynchronous pathfinding out of box.<br />
+</li>
+<li><span style="font-weight: bold;" class="mycode_b">Active development</span> - RouteConnector has not been updated for over three years. As I said previously, I am planning to continue active development of this plugin for a long period of time.<br />
+</li>
+<li><span style="font-weight: bold;" class="mycode_b">Performance</span> - I have not done any benchmarks, but even with older versions users claimed that this plugin is multiple times faster than RouteConnector. A fix in the algorithm in version 1.2.0 made it around 30 times faster than it previously was.<br />
+</li>
+</ul>
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Installation</span></span></span><br />
+<br />
+Simply install to your project:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>sampctl package install kristoisberg/samp-gps-plugin</code></div></div><br />
+Include in your code and begin using the library:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#include&nbsp;&lt;GPS&gt;&nbsp;<br /></span></code></div></div></div><br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">API</span></span></span><br />
+<br />
+<span style="color: DeepSkyBlue;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Functions</span></span></span><br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">CreateMapNode(Float:x, Float:y, Float:z, &amp;MapNode:nodeid)</span><br />
+<ul class="mycode_list"><li>Adds a node to the map and passes the ID of it to <span style="font-family: courier new;" class="mycode_font">nodeid</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">DestroyMapNode(MapNode:nodeid)</span><br />
+<ul class="mycode_list"><li>If the specified map node is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and tries to destroy it, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>. If the node is not a part of any path, it gets destroyed immediately, otherwise it will be destroyed once all paths containing it are destroyed, until that it will be excluded from pathfinding and several other features.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">bool:IsValidMapNode(MapNode:nodeid)</span><br />
+<ul class="mycode_list"><li>Returns if the map node with the specified ID is valid.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetMapNodePos(MapNode:nodeid, &amp;Float:x, &amp;Float:y, &amp;Float:z)</span><br />
+<ul class="mycode_list"><li>If the specified map node is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the position of it to <span style="font-family: courier new;" class="mycode_font">x</span>, <span style="font-family: courier new;" class="mycode_font">y</span> and <span style="font-family: courier new;" class="mycode_font">z</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">CreateConnection(MapNode:source, MapNode:target, &amp;Connection:connectionid)</span><br />
+<ul class="mycode_list"><li>If both specified map nodes are valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span>, creates a connection from <span style="font-family: courier new;" class="mycode_font">source</span> to <span style="font-family: courier new;" class="mycode_font">target</span> and passes the ID of it to <span style="font-family: courier new;" class="mycode_font">connectionid</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>. <span style="font-weight: bold;" class="mycode_b">Note:</span> Connections are not double-sided may need to be added in both directions separately.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">DestroyConnection(Connection:connectionid)</span><br />
+<ul class="mycode_list"><li>If the specified connection is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and destroys it, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_CONNECTION</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetConnectionSource(Connection:connectionid, &amp;MapNode:nodeid)</span><br />
+<ul class="mycode_list"><li>If the specified connection is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the ID of the source node of it to <span style="font-family: courier new;" class="mycode_font">nodeid</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_CONNECTION</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetConnectionTarget(Connection:connectionid, &amp;MapNode:nodeid)</span><br />
+<ul class="mycode_list"><li>If the specified connection is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the ID of the target node of it to <span style="font-family: courier new;" class="mycode_font">nodeid</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_CONNECTION</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetMapNodeConnectionCount(MapNode:nodeid, &amp;count)</span><br />
+<ul class="mycode_list"><li>If the specified map node is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the amount of its connections to <span style="font-family: courier new;" class="mycode_font">count</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>. If <span style="font-family: courier new;" class="mycode_font">count</span> is larger than 2, the node is an intersection.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetMapNodeConnection(MapNode:nodeid, index, &amp;Connection:connectionid)</span><br />
+<ul class="mycode_list"><li>If the specified map node is valid and it has a connection with the specified index, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the ID of the connection to <span style="font-family: courier new;" class="mycode_font">connectionid</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span> or <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_CONNECTION</span> depending on the error.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetConnectionBetweenMapNodes(MapNode:source, MapNode:target, &amp;Connection:connectionid)</span><br />
+<ul class="mycode_list"><li>If both specified map nodes are valid, tries to find a connection from <span style="font-family: courier new;" class="mycode_font">source</span> to <span style="font-family: courier new;" class="mycode_font">target</span>. If a connection is found, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the ID of the connection to <span style="font-family: courier new;" class="mycode_font">connectionid</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_CONNECTION</span>. If either of the specified map nodes is invalid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetDistanceBetweenMapNodes(MapNode:first, MapNode:second, &amp;Float:distance)</span><br />
+<ul class="mycode_list"><li>If both of the specified map nodes are valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the distance between them to <span style="font-family: courier new;" class="mycode_font">distance</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetAngleBetweenMapNodes(MapNode:first, MapNode:second, &amp;Float:angle)</span><br />
+<ul class="mycode_list"><li>If both of the specified map nodes are valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the angle between them to <span style="font-family: courier new;" class="mycode_font">angle</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetMapNodeDistanceFromPoint(MapNode:nodeid, Float:x, Float:y, Float:z, &amp;Float:distance)</span><br />
+<ul class="mycode_list"><li>If the specified map node is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the distance of the map node from the specified position to <span style="font-family: courier new;" class="mycode_font">distance</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetMapNodeAngleFromPoint(MapNode:nodeid, Float:x, Float:y, &amp;Float:angle)</span><br />
+<ul class="mycode_list"><li>If the specified map node is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the angle of the map node from the specified position to <span style="font-family: courier new;" class="mycode_font">angle</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetClosestMapNodeToPoint(Float:x, Float:y, Float:z, &amp;MapNode:nodeid, MapNode:ignorednode = INVALID_MAP_NODE_ID)</span><br />
+<ul class="mycode_list"><li>Passes the ID of the closest map node to the specified position to <span style="font-family: courier new;" class="mycode_font">nodeid</span>. If <span style="font-family: courier new;" class="mycode_font">ignorednode</span> is specified and it is the closest node to the position, it is ignored and the ID of the next closest node is passed to <span style="font-family: courier new;" class="mycode_font">nodeid</span> instead. Returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span> if no nodes exist, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetHighestMapNodeID()</span><br />
+<ul class="mycode_list"><li>Returns the ID of the map node with the highest ID. Could be used for iteration purposes.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetRandomMapNode(&amp;MapNode:nodeid)</span><br />
+<ul class="mycode_list"><li>Passes the ID of a random map node, found using Mersenne Twister, to <span style="font-family: courier new;" class="mycode_font">nodeid</span>. Returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span> if no map nodes exist, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">SaveMapNodesToFile(const filename[])</span><br />
+<ul class="mycode_list"><li>Saves all existing nodes and their connections to a file with the specified name.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">FindPath(MapNode:source, MapNode:target, &amp;Path:pathid)</span><br />
+<ul class="mycode_list"><li>If both of the specified map nodes are valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and tries to find a path from <span style="font-family: courier new;" class="mycode_font">source</span> to <span style="font-family: courier new;" class="mycode_font">target</span> and pass its ID to <span style="font-family: courier new;" class="mycode_font">pathid</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span>. If pathfinding fails, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_PATH</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">FindPathThreaded(MapNode:source, MapNode:target, const callback[], const format[] = "", {Float, _}:...)</span><br />
+<ul class="mycode_list"><li>If both of the specified map nodes are valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and tries to find a path from <span style="font-family: courier new;" class="mycode_font">source</span> to <span style="font-family: courier new;" class="mycode_font">target</span>. After pathfinding is finished, calls the specified callback and passes the path ID (could be <span style="font-family: courier new;" class="mycode_font">INVALID_PATH_ID</span> if pathfinding fails) and the specified arguments to it.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">Task:FindPathAsync(MapNode:source, MapNode:target)</span><br />
+<ul class="mycode_list"><li>Pauses the current function and continues it after it is finished. Throws an AMX error if pathfinding fails for any reason. Only available if PawnPlus is included before GPS. Usage explained below.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">bool:IsValidPath(Path:pathid)</span><br />
+<ul class="mycode_list"><li>Returns if the path with the specified ID is valid.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetPathSize(Path:pathid, &amp;size)</span><br />
+<ul class="mycode_list"><li>If the specified path is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the amount of nodes in it to <span style="font-family: courier new;" class="mycode_font">size</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_PATH</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetPathNode(Path:pathid, index, &amp;MapNode:nodeid)</span><br />
+<ul class="mycode_list"><li>If the specified path is valid and the index contains a node, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the ID of the node at that index to <span style="font-family: courier new;" class="mycode_font">nodeid</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_PATH</span> or <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span> depending on the error.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetPathNodeIndex(Path:pathid, MapNode:nodeid, &amp;index)</span><br />
+<ul class="mycode_list"><li>If the specified path is valid and the specified map node is a part of the path, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the index of the map node to <span style="font-family: courier new;" class="mycode_font">index</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_PATH</span> or <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span> depending on the error.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">GetPathLength(Path:pathid, &amp;Float:length)</span><br />
+<ul class="mycode_list"><li>If the specified path is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and passes the length of the path in metres to <span style="font-family: courier new;" class="mycode_font">length</span>, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_PATH</span>.<br />
+</li>
+</ul>
+<br />
+<span style="font-family: courier new;" class="mycode_font">DestroyPath(Path:pathid)</span><br />
+<ul class="mycode_list"><li>If the specified path is valid, returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> and destroys the path, otherwise returns <span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_PATH</span>.<br />
+</li>
+</ul>
+<br />
+<span style="color: DeepSkyBlue;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Error codes</span></span></span><br />
+<ul class="mycode_list"><li><span style="font-family: courier new;" class="mycode_font">GPS_ERROR_NONE</span> - The function was executed successfully.<br />
+</li>
+<li><span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_PARAMS</span> - An invalid amount of arguments was passed to the function. Should never happen without the PAWN compiler noticing it unless the versions of the plugin and include are different.<br />
+</li>
+<li><span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_PATH</span> - An invalid path ID as passed to the function or threaded pathfinding was not successful.<br />
+</li>
+<li><span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_NODE</span> - An invalid map node ID/index was passed to the function or <span style="font-family: courier new;" class="mycode_font">GetClosestMapNodeToPoint</span> or <span style="font-family: courier new;" class="mycode_font">GetRandomMapNode</span> failed because no map nodes exist.<br />
+</li>
+<li><span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INVALID_CONNECTION</span> - An invalid connection ID/index was passed to the function.<br />
+</li>
+<li><span style="font-family: courier new;" class="mycode_font">GPS_ERROR_INTERNAL</span> - An internal error happened - threaded pathfinding failed because dispatching a thread failed.<br />
+</li>
+</ul>
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Examples</span></span></span><br />
+<br />
+<span style="color: DeepSkyBlue;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Threaded pathfinding</span></span></span><br />
+<br />
+Finding a path from the position of the player to the LSPD building.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">pathtols</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MapNode</span><span style="color: #007700">:</span><span style="color: #0000BB">start</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; GetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">GetClosestMapNodeToPoint</span><span style="color: #007700">(</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">start</span><span style="color: #007700">)&nbsp;!=&nbsp;</span><span style="color: #0000BB">GPS_ERROR_NODE</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_RED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Finding&nbsp;a&nbsp;node&nbsp;near&nbsp;you&nbsp;failed,&nbsp;GPS.dat&nbsp;was&nbsp;not&nbsp;loaded."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;MapNode</span><span style="color: #007700">:</span><span style="color: #0000BB">target</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">GetClosestMapNodeToPoint</span><span style="color: #007700">(</span><span style="color: #0000BB">1258.7352</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">2036.7100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">59.4561</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">target</span><span style="color: #007700">))&nbsp;{&nbsp;</span><span style="color: #FF8000">//&nbsp;this&nbsp;is&nbsp;also&nbsp;valid&nbsp;since&nbsp;the&nbsp;value&nbsp;of&nbsp;GPS_ERROR_NODE&nbsp;is&nbsp;0.<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_RED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Finding&nbsp;a&nbsp;node&nbsp;near&nbsp;LSPD&nbsp;failed,&nbsp;GPS.dat&nbsp;was&nbsp;not&nbsp;loaded."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">FindPathThreaded</span><span style="color: #007700">(</span><span style="color: #0000BB">start</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">target</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"OnPathToLSFound"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">GetTickCount</span><span style="color: #007700">()))&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_RED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Pathfinding&nbsp;failed&nbsp;for&nbsp;some&nbsp;reason,&nbsp;you&nbsp;should&nbsp;store&nbsp;this&nbsp;error&nbsp;code&nbsp;and&nbsp;print&nbsp;it&nbsp;out&nbsp;since&nbsp;there&nbsp;are&nbsp;multiple&nbsp;ways&nbsp;it&nbsp;could&nbsp;fail."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_WHITE</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Finding&nbsp;the&nbsp;path..."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;1</span><span style="color: #007700">;<br />}<br /><br /><br /></span><span style="color: #0000BB">forward&nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPathToLSFound</span><span style="color: #007700">(</span><span style="color: #0000BB">Path</span><span style="color: #007700">:</span><span style="color: #0000BB">pathid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">start_time</span><span style="color: #007700">);<br />public&nbsp;</span><span style="color: #0000BB">OnPathToLSFound</span><span style="color: #007700">(</span><span style="color: #0000BB">Path</span><span style="color: #007700">:</span><span style="color: #0000BB">pathid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">start_time</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(!</span><span style="color: #0000BB">IsValidPath</span><span style="color: #007700">(</span><span style="color: #0000BB">pathid</span><span style="color: #007700">))&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_RED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Pathfinding&nbsp;failed!"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;string</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">size</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">length</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; GetPathSize</span><span style="color: #007700">(</span><span style="color: #0000BB">size</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; GetPathLength</span><span style="color: #007700">(</span><span style="color: #0000BB">length</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(string),&nbsp;</span><span style="color: #DD0000">"Found&nbsp;a&nbsp;path&nbsp;in&nbsp;%ims.&nbsp;Amount&nbsp;of&nbsp;nodes:&nbsp;%i,&nbsp;length:&nbsp;%fm."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">GetTickCount</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">start_time</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">size</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">length</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;MapNode</span><span style="color: #007700">:</span><span style="color: #0000BB">nodeid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">z</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; for&nbsp;</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">index</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">index&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">size</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">index</span><span style="color: #007700">++)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; GetPathNode</span><span style="color: #007700">(</span><span style="color: #0000BB">pathid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">index</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">nodeid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; GetMapNodePos</span><span style="color: #007700">(</span><span style="color: #0000BB">nodeid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; CreateDynamicPickup</span><span style="color: #007700">(</span><span style="color: #0000BB">1318</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; DestroyPath</span><span style="color: #007700">(</span><span style="color: #0000BB">pathid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<span style="color: DeepSkyBlue;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Asynchronous pathfinding</span></span></span><br />
+<br />
+What if you could continue the process within the command while still taking advantage of the benefits of threaded pathfinding? You can, using the magic of PawnPlus tasks.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">pathtols</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MapNode</span><span style="color: #007700">:</span><span style="color: #0000BB">start</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; GetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">GetClosestMapNodeToPoint</span><span style="color: #007700">(</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">start</span><span style="color: #007700">))&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_RED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Finding&nbsp;a&nbsp;node&nbsp;near&nbsp;you&nbsp;failed,&nbsp;GPS.dat&nbsp;was&nbsp;not&nbsp;loaded."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;MapNode</span><span style="color: #007700">:</span><span style="color: #0000BB">target</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">GetClosestMapNodeToPoint</span><span style="color: #007700">(</span><span style="color: #0000BB">1258.7352</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">2036.7100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">59.4561</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">target</span><span style="color: #007700">))&nbsp;{&nbsp;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; return&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_RED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Finding&nbsp;a&nbsp;node&nbsp;near&nbsp;LSPD&nbsp;failed,&nbsp;GPS.dat&nbsp;was&nbsp;not&nbsp;loaded."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_WHITE</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Finding&nbsp;the&nbsp;path..."</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;Path</span><span style="color: #007700">:</span><span style="color: #0000BB">pathid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">task_await</span><span style="color: #007700">(</span><span style="color: #0000BB">FindPathAsync</span><span style="color: #007700">(</span><span style="color: #0000BB">start</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">target</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;no&nbsp;error&nbsp;handling&nbsp;here,&nbsp;an&nbsp;AMX&nbsp;error&nbsp;will&nbsp;be&nbsp;thrown&nbsp;instead&nbsp;if&nbsp;the&nbsp;pathfinding&nbsp;fails<br /><br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;string</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">size</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">length</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; GetPathSize</span><span style="color: #007700">(</span><span style="color: #0000BB">size</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; GetPathLength</span><span style="color: #007700">(</span><span style="color: #0000BB">length</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; format</span><span style="color: #007700">(</span><span style="color: #0000BB">string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(string),&nbsp;</span><span style="color: #DD0000">"Found&nbsp;a&nbsp;path&nbsp;in&nbsp;%ims.&nbsp;Amount&nbsp;of&nbsp;nodes:&nbsp;%i,&nbsp;length:&nbsp;%fm."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">GetTickCount</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">start_time</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">size</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">length</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;MapNode</span><span style="color: #007700">:</span><span style="color: #0000BB">nodeid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">z</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">index</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB"> &nbsp; while&nbsp;</span><span style="color: #007700">(!</span><span style="color: #0000BB">GetPathNode</span><span style="color: #007700">(</span><span style="color: #0000BB">pathid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">index</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">nodeid</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//&nbsp;also&nbsp;note&nbsp;the&nbsp;alternative&nbsp;method&nbsp;of&nbsp;iterating&nbsp;through&nbsp;path&nbsp;nodes&nbsp;here<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; GetMapNodePos</span><span style="color: #007700">(</span><span style="color: #0000BB">nodeid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; CreateDynamicPickup</span><span style="color: #007700">(</span><span style="color: #0000BB">1318</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; index</span><span style="color: #007700">++;<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB"> &nbsp; DestroyPath</span><span style="color: #007700">(</span><span style="color: #0000BB">pathid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Testing</span></span></span><br />
+<br />
+To test, simply run the package:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>sampctl package run</code></div></div><br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Credits</span></span></span><br />
+<ul class="mycode_list"><li>kvann - Creator of the plugin.<br />
+</li>
+<li>Gamer_Z - Creator of the original RouteConnector plugin which helped me understand the structure of GPS.dat and influenced this plugin a lot, the author of the original <span style="font-family: courier new;" class="mycode_font">GPS.dat</span>.<br />
+</li>
+<li>NaS - Author of the fixed <span style="font-family: courier new;" class="mycode_font">GPS.dat</span> distributed with the plugin.<br />
+</li>
+<li>Southclaws, IllidanS4, Hual - Helped me with the plugin in major ways (there were other helpful people as well, I appreciate it all).<br />
+</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="member9259.html?action=profile&amp;uid=22">TommyB</a> -  <strong>2019-04-13</strong>
+<br />
+<br />
+Very good plugin!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="memberf16f.html?action=profile&amp;uid=108">solstice</a> -  <strong>2019-04-13</strong>
+<br />
+<br />
+nice one
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-04-25</strong>
+<br />
+<br />
+Could you add the possibility to use navigational mesh triangles?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-06-11</strong>
+<br />
+<br />
+Hello, I am using this plugin but I don't need any of the GTA:SA road nodes because my gamemode is about aviation.<br />
+Will it work if I remove the DAT file, and create custom nodes and connection? (I actually already wrote the code but I didn't test it yet)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="member958b.php?action=profile&amp;uid=168">Gaudeamus271</a> -  <strong>2019-06-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-06-11, 06:58 AM)</span>Sasino97 Wrote:  <a href="showthread0101.html?pid=5943#pid5943" class="quick_jump"></a></cite>Hello, I am using this plugin but I don't need any of the GTA:SA road nodes because my gamemode is about aviation.<br />
+Will it work if I remove the DAT file, and create custom nodes and connection? (I actually already wrote the code but I didn't test it yet)</blockquote>I think it should work well with another DAT file, but it seems quite difficult to build a DAT file by yourself since i didn't find a proper documentation about its structure. Although you can have a look to the file read method (<a href="https://github.com/kristoisberg/samp-gps-plugin/blob/master/src/file.cpp" target="_blank" rel="noopener" class="mycode_url">https://github.com/kristoisberg/samp-gps-plugin/blob/master/src/file.cpp</a>).
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-06-18</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-06-11, 09:56 PM)</span>Gaudeamus271 Wrote:  <a href="showthread9554.html?pid=5967#pid5967" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-06-11, 06:58 AM)</span>Sasino97 Wrote:  <a href="showthread0101.html?pid=5943#pid5943" class="quick_jump"></a></cite>Hello, I am using this plugin but I don't need any of the GTA:SA road nodes because my gamemode is about aviation.<br />
+Will it work if I remove the DAT file, and create custom nodes and connection? (I actually already wrote the code but I didn't test it yet)</blockquote>I think it should work well with another DAT file, but it seems quite difficult to build a DAT file by yourself since i didn't find a proper documentation about its structure. Although you can have a look to the file read method (<a href="https://github.com/kristoisberg/samp-gps-plugin/blob/master/src/file.cpp" target="_blank" rel="noopener" class="mycode_url">https://github.com/kristoisberg/samp-gps-plugin/blob/master/src/file.cpp</a>).</blockquote><br />
+Hi, thank you for your answer. I am using the plugin without any DAT file and it is working.<br />
+I am loading the needed data from JSON files, which is not used only for pure nodes but also for other metadata regarding the gamemode (airport taxiways etc.), and based on this data I am creating the nodes at runtime, so I found the solution.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="member958b.php?action=profile&amp;uid=168">Gaudeamus271</a> -  <strong>2019-06-19</strong>
+<br />
+<br />
+Nvm, it was late and i didn't noticed you are not using the DAT file.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="member4001.html?action=profile&amp;uid=195">hastlaking</a> -  <strong>2020-04-19</strong>
+<br />
+<br />
+anyone has a filterscript a base or beta one to test
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="member9128.html?action=profile&amp;uid=2495">Torque</a> -  <strong>2020-07-26</strong>
+<br />
+<br />
+So I installed the plugin, copied the function and command for testing, compiled just fine, and I can't even get to the login screen. What's this .DAT file everybody talking about? Can't seem to find it, do I need it for things to work correctly?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Modern GPS plugin</strong> - <a href="memberc737.html?action=profile&amp;uid=2734">JR_Junior</a> -  <strong>2022-02-16</strong>
+<br />
+<br />
+This plugin is fantastic, with it I was able to create an autopilot system, street racing by clicking on the map with automatic checkpoint generation and my own gps system was totally improved with this plugin. Perfect!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn cache_insert_id always return 0 - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread0b4a.html?tid=2282">cache_insert_id always return 0</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> cache_insert_id always return 0 (<em>/showthread.php?tid=2282</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>cache_insert_id always return 0</strong> - <a href="member44f1.html?action=profile&amp;uid=3616">Axitz</a> -  <strong>2022-03-30</strong>
+<br />
+<br />
+Hi, sorry how bad this was.<br />
+<br />
+I've created a team and the table is also is AI mode. There are multiples team in the query but whenever server restart or player quit, then create team, it always started at 0 again.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">forward&nbsp;TeamCreated</span><span style="color: #007700">(</span><span style="color: #0000BB">b</span><span style="color: #007700">);<br />public&nbsp;</span><span style="color: #0000BB">TeamCreated</span><span style="color: #007700">(</span><span style="color: #0000BB">b</span><span style="color: #007700">)<br />{<br /><br /></span><span style="color: #0000BB"> &nbsp; &nbsp;TeamInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">TeamID</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">cache_insert_id</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;teamidd</span><span style="color: #007700">++;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"New&nbsp;Group&nbsp;is&nbsp;created:&nbsp;[%d]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">teamidd&nbsp;</span><span style="color: #007700">);<br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">if(</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">usage</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"create"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if(!</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">usage1</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">SCP</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"create&nbsp;&lt;teamname&gt;"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">usage1</span><span style="color: #007700">)&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">usage1</span><span style="color: #007700">)&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">30</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">SendClientError</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Your&nbsp;team&nbsp;name&nbsp;is&nbsp;too&nbsp;short&nbsp;or&nbsp;too&nbsp;long!&nbsp;(Min&nbsp;5,&nbsp;Max&nbsp;30&nbsp;chars)"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">tmID&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">teamidd</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">tplayerteam</span><span style="color: #007700">]&nbsp;!=&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">SendClientError</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;are&nbsp;already&nbsp;in&nbsp;a&nbsp;team.&nbsp;/team&nbsp;leave"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;TeamInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">tmID</span><span style="color: #007700">][</span><span style="color: #0000BB">TeamID</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">tmID</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">tplayerteam</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">tmID</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">tranklvl</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;myStrcpy</span><span style="color: #007700">(</span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">TPTeamName</span><span style="color: #007700">],</span><span style="color: #0000BB">usage1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;myStrcpy</span><span style="color: #007700">(</span><span style="color: #0000BB">PlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">trankname</span><span style="color: #007700">],</span><span style="color: #DD0000">"Children"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;TeamInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">tmID</span><span style="color: #007700">][</span><span style="color: #0000BB">TActive</span><span style="color: #007700">]=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />new&nbsp;</span><span style="color: #0000BB">sQuery</span><span style="color: #007700">[</span><span style="color: #0000BB">528</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">mysql_format</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sQuery</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof&nbsp;sQuery</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;`TeamInfo`&nbsp;(`TeamID`,&nbsp;`TeamName`,&nbsp;`StartRank`)&nbsp;VALUES&nbsp;(%d,'%e',&nbsp;'Children')"</span><span style="color: #007700">,</span><span style="color: #0000BB">tmID</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">usage1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">mysql_tquery</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sQuery</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"TeamCreated"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"i"</span><span style="color: #007700">,</span><span style="color: #0000BB">tmID</span><span style="color: #007700">);<br />}<br />else<br />{<br /></span><span style="color: #0000BB">SCP</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&lt;create&gt;&nbsp;&lt;input&gt;"</span><span style="color: #007700">);<br />}<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: cache_insert_id always return 0</strong> - <a href="membercf5f.html?action=profile&amp;uid=4340">FARADAY</a> -  <strong>2022-03-31</strong>
+<br />
+<br />
+where are you upload GroupCreated? <br />
+<br />
+error mysql: `TeamName``StartRank`
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: cache_insert_id always return 0</strong> - <a href="member44f1.html?action=profile&amp;uid=3616">Axitz</a> -  <strong>2022-04-01</strong>
+<br />
+<br />
+Ops sorry, my bad it was TeamCreated not GroupCreated.<br />
+<br />
+Problem still occurs.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: cache_insert_id always return 0</strong> - <a href="membercf5f.html?action=profile&amp;uid=4340">FARADAY</a> -  <strong>2022-04-01</strong>
+<br />
+<br />
+Where are the groups loaded when the mod starts?<br />
+Is there  teamidd++?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: cache_insert_id always return 0</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2022-04-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2022-03-30, 07:41 AM)</span>Axitz Wrote:  <a href="showthread967e.html?pid=12031#pid12031" class="quick_jump"></a></cite>but whenever server restart or player quit, then create team, <span style="font-weight: bold;" class="mycode_b">it always started at 0 again.</span></blockquote><br />
+This is due to a "teamidd" variable reset on exit.<br />
+You should add  <span style="font-style: italic;" class="mycode_i">teamidd++ </span> where you load the teams.<br />
+<br />
+<span style="color: #444444;" class="mycode_color">-------------------------------------------------------</span><br />
+Recommended:<br />
+<br />
+If you want to get a free team ID, use this function:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>GetFreeTeamID() {<br />
+    for (new i; i &lt; MAX_TEAMS; i++) {<br />
+        if (TeamInfo[i][TActive] == false)<br />
+            return i;<br />
+    }<br />
+    return -1; //Return -1 when there is no free team ID<br />
+}</code></div></div><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new tmID = GetFreeTeamID();<br />
+<br />
+if (tmID == -1)<br />
+    return 1; //No free team ID<br />
+else<br />
+    TeamInfo[tmID][TActive] = true;</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: cache_insert_id always return 0</strong> - <a href="member44f1.html?action=profile&amp;uid=3616">Axitz</a> -  <strong>2022-04-07</strong>
+<br />
+<br />
+Sorry late, it doesn't seem to fix the issue as well.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

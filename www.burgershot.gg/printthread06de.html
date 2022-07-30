@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Library RGB - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #9D17FF;font-weight: bold;">[Library]</span> <a href="showthread06de.html?tid=1902">RGB</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Libraries (<i>https://www.burgershot.gg/forumdisplay.php?fid=31</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #9D17FF;font-weight: bold;">[Library]</span> RGB (<em>/showthread.php?tid=1902</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>RGB</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-18</strong>
+<br />
+<br />
+Include contain functions for color conversion<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>RGB.inc<br />
+Copyright © 2021 Abyss Morgan. All rights reserved.<br />
+<br />
+Website: https://adm.ct8.pl<br />
+<br />
+Plugins: None<br />
+Modules: None<br />
+<br />
+File Version: 2.5.0<br />
+<br />
+Functions:<br />
+RGB::RGBAToHex(color,&amp;red,&amp;green,&amp;blue,&amp;alpha);<br />
+RGB::RGBToHex(color,&amp;red,&amp;green,&amp;blue);<br />
+RGB::HexToRGBA(red,green,blue,alpha);<br />
+RGB::HexToARGB(red,green,blue,alpha);<br />
+RGB::HexToRGB(red,green,blue);<br />
+RGB::RGBAToRGB(color);<br />
+RGB::RGBToRGBA(color,alpha);<br />
+RGB::RGBToARGB(color,alpha);<br />
+RGB::ARGBToRGB(color);<br />
+RGB::RGBAToARGB(color);<br />
+RGB::ARGBToRGBA(color);<br />
+RGB::GetRFromRGBA(color);                      //RGBA:0xFAB0A0FF R:0xFA000000<br />
+RGB::GetGFromRGBA(color);                      //RGBA:0xFAB0A0FF G:0x00B00000<br />
+RGB::GetBFromRGBA(color);                      //RGBA:0xFAB0A0FF B:0x0000A000<br />
+RGB::GetAFromRGBA(color);                      //RGBA:0xFAB0A0FF A:0x000000FF<br />
+RGB::GetRHexFromRGBA(color);                    //RGBA:0xFAB0A0FF R:0xFA<br />
+RGB::GetGHexFromRGBA(color);                    //RGBA:0xFAB0A0FF G:0xB0<br />
+RGB::GetBHexFromRGBA(color);                    //RGBA:0xFAB0A0FF B:0xA0<br />
+RGB::GetAHexFromRGBA(color);                    //RGBA:0xFAB0A0FF A:0xFF<br />
+RGB::GetColorRGBA(color);                      //Return {RGB}<br />
+RGB::GetColorRGB(color);                        //Return {RGB}<br />
+RGB::GetColorARGB(color);                      //Return {RGB}<br />
+RGB::AdjustColorLuminance(color,Float:adjust);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Download:</span><br />
+<a href="https://adm.ct8.pl/cloud/Libs/RGB/RGB.inc" target="_blank" rel="noopener" class="mycode_url">RGB.inc</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Example 1:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new col = RGB::RGBAToARGB(0xFF6600FF); //return 0xFFFF6600;</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Example 2:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new red, green, blue, alpha;<br />
+RGB::RGBAToHex(0xFF6600AA,red,green,blue,alpha); //return red = 0xFF; green = 0x66; blue = 0x00; alpha = 0xAA;</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Example 3:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new r = RGB::GetRHexFromRGBA(0xFF6600AA); //return 0xFF;</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Example 4:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new r = RGB::GetRFromRGBA(0xFF6600AA); //return 0xFF000000;</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

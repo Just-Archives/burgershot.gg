@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Library Hata Anti-Cheat (H-AC) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #9D17FF;font-weight: bold;">[Library]</span> <a href="showthreadc285.html?tid=1985">Hata Anti-Cheat (H-AC)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Libraries (<i>https://www.burgershot.gg/forumdisplay.php?fid=31</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #9D17FF;font-weight: bold;">[Library]</span> Hata Anti-Cheat (H-AC) (<em>/showthread.php?tid=1985</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Hata Anti-Cheat (H-AC)</strong> - <a href="member26a7.html?action=profile&amp;uid=3675">Hata</a> -  <strong>2021-05-07</strong>
+<br />
+<br />
+List of Fixed Cheats;<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Silent Aimbot<br />
+Vehicle Repair Hack<br />
+Screen Flickering<br />
+Car Troller <br />
+Surfing Invisible<br />
+Airbreak<br />
+Seat ID Crasher<br />
+Speed Hack (On Foot/Driver)<br />
+Troll Animation<br />
+Animation Invisible<br />
+Fly Hack (On Foot)<br />
+Rage Shot<br />
+Trailer Crasher<br />
+Weapon Hack //To be developed.</code></div></div><br />
+<br />
+Include: <a href="https://cdn.discordapp.com/attachments/838189484235292673/840148432919199784/H-AC.inc" target="_blank" rel="noopener" class="mycode_url">H-AC.inc</a><br />
+<br />
+Cheat Detection Public (To be added to gamemode);<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerCheatDetected(playerid, code)<br />
+{<br />
+    new cheatname[30], string[128];<br />
+    switch (code)<br />
+    {<br />
+        case 0: cheatname = "Silent Aimbot";<br />
+        case 1: cheatname = "Vehicle Repair Hack";<br />
+        case 2: cheatname = "Screen Flickering";<br />
+        case 3: cheatname = "Car Troller";<br />
+        case 4: cheatname = "Surfing Invisible";<br />
+        case 5: cheatname = "Airbreak";<br />
+        case 6: cheatname = "Seat Crasher";<br />
+        case 7: cheatname = "Speed Hack";<br />
+        case 8: cheatname = "Troll Animation";<br />
+        case 9: cheatname = "Animation Invisible";<br />
+        case 10: cheatname = "Fly Hack";<br />
+        case 11: cheatname = "Rage Shot";<br />
+        case 12: cheatname = "Trailer Crasher";<br />
+        case 13: cheatname = "Weapon Hack";<br />
+    }<br />
+    format(string, sizeof(string), "~w~%s detected by Hata Anti-Cheat", cheatname);<br />
+    GameTextForAll(string, 1000, 3);<br />
+    Kick(playerid);<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

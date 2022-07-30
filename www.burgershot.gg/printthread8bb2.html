@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin Yet Another Lua Plugin - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthread8bb2.html?tid=404">Yet Another Lua Plugin</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> Yet Another Lua Plugin (<em>/showthread.php?tid=404</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Yet Another Lua Plugin</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2019-04-20</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: large;" class="mycode_size"><a href="https://github.com/IllidanS4/YALP" target="_blank" rel="noopener" class="mycode_url">YALP v1.0</a></span></div>
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: small;" class="mycode_size"><a href="https://github.com/IllidanS4/YALP/releases/" target="_blank" rel="noopener" class="mycode_url">Download</a></span></span></div>
+<div style="text-align: center;" class="mycode_align"><span style="font-size: small;" class="mycode_size"><a href="https://github.com/IllidanS4/YALP/wiki" target="_blank" rel="noopener" class="mycode_url">Tutorials</a></span></div>
+<br />
+<span style="font-weight: bold;" class="mycode_b">Introduction</span><br />
+This plugin allows you to use Lua, your favourite dynamic flexible scripting language, in SA-MP, for all purposes, be it sandboxing user scripts, debugging the server, or developing filterscripts and gamemodes. <span style="font-style: italic;" class="mycode_i">YALP</span> provides lightweight and flexible Lua environment that can use existing or future natives from SA-MP or plugins.<br />
+<br />
+The main feature of <span style="font-style: italic;" class="mycode_i">YALP</span> is a powerful interop API to interact with existing Pawn natives and callbacks. It is very easy to call existing functions, <span style="font-style: italic;" class="mycode_i">without needing to declare them anywhere</span>:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>interop.native.SetPlayerPos(0, 1235.31, -2331.84, 12.33)</code></div></div><span style="font-style: italic;" class="mycode_i">YALP</span> automatically converts all arguments to their proper Pawn cells, and allows you to specify what the function returns in the actuall call. All standard cell and single-dimensional array types are supported.<br />
+<br />
+Callbacks can be specified in a similar simple way:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>function interop.public.OnPlayerConnect(playerid)<br />
+  -- ...<br />
+end</code></div></div><br />
+Thanks to these mechanisms, you can use any framework you want, or build your own in Lua, without depending on new versions of this plugin.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Configuration</span><br />
+There is no special XML, JSON or other configuration of this plugin, because you can specify everything when you create a new Lua state (you can create any number you wish, and run any code inside). You can specify what packages should be loaded or available in the Lua instance, how much maximum memory it should take, or even limit for how long Lua functions can run.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Features</span><br />
+All standard Lua packages are available (although some of the more unsafe ones aren't allowed by default). The powerful interop package can interface with any Pawn native function or callback. There is also an advanced timer library with support for simple asynchronous functions (with Lua coroutines) and all sorts of timers. The remote package contains functions for remote communication between two separate Lua instance (via serialization or proxies).<br />
+<br />
+The standard Lua packages are also enhanced with a couple of useful functions. Please see the <span style="text-decoration: underline;" class="mycode_u"><a href="https://github.com/IllidanS4/YALP/wiki/Lua-API" target="_blank" rel="noopener" class="mycode_url">wiki</a></span> for a list of all new functions.<br />
+<br />
+The <span style="text-decoration: underline;" class="mycode_u"><a href="https://github.com/IllidanS4/YALP/wiki/Pawn-API" target="_blank" rel="noopener" class="mycode_url">Pawn API</a></span> is basically a port of the <span style="text-decoration: underline;" class="mycode_u"><a href="https://www.lua.org/manual/5.3/manual.html#4.8" target="_blank" rel="noopener" class="mycode_url">Lua C API</a></span>, allowing advanced manipulation of the Lua machine. It is recommended to use the Lua API, since it can do everything that Pawn can do, but if you need to interact with an existing complex Pawn library, it is possible as well.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Sample code</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+#include &lt;YALP&gt;<br />
+<br />
+public OnFilterScriptInit()<br />
+{<br />
+    new Lua:l = lua_newstate(); // creates a new Lua instance<br />
+    <br />
+    if(lua_loadfile(l, "script.lua")) // loads a Lua script and returns an error code<br />
+    {<br />
+        lua_stackdump(l); // prints the stack for more information about the error<br />
+        return;<br />
+    }<br />
+    lua_bind(l); // binds the Lua instance to the current Pawn filterscript/gamemode, so all interation with it is rerouted to Lua<br />
+    // if the binding succeeds, this code is not run (and the Lua instance is destroyed if the script is unloaded)<br />
+    lua_stackdump(l);<br />
+}</code></div></div><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>-- script.lua<br />
+local interop = require "interop"<br />
+interop.native.print("Hello from Lua!")</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

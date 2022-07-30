@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> How to create a SAMP client in node js? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadf732.html?tid=1618">How to create a SAMP client in node js?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Tech (<i>https://www.burgershot.gg/forumdisplay.php?fid=21</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  How to create a SAMP client in node js? (<em>/showthread.php?tid=1618</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How to create a SAMP client in node js?</strong> - <a href="member13c8.html?action=profile&amp;uid=3365">goldprince</a> -  <strong>2021-01-30</strong>
+<br />
+<br />
+Hello, I want to know, Is there any library or way to create a SAMP (San Andreas Multi Player) client in node js, I am working in node js and I want to create a SAMP client.<br />
+Thank You,
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to create a SAMP client in node js?</strong> - <a href="member525f.html?action=profile&amp;uid=3054">kemper</a> -  <strong>2021-01-30</strong>
+<br />
+<br />
+You can try with this <a href="https://github.com/mhsjlw/node-raknet" target="_blank" rel="noopener" class="mycode_url">package</a>.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to create a SAMP client in node js?</strong> - <a href="member13c8.html?action=profile&amp;uid=3365">goldprince</a> -  <strong>2021-02-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-30, 12:47 PM)</span>kemper Wrote:  <a href="showthread254b.html?pid=9629#pid9629" class="quick_jump"></a></cite>You can try with this <a href="https://github.com/mhsjlw/node-raknet" target="_blank" rel="noopener" class="mycode_url">package</a>.</blockquote><br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">Hello, Thank you for the package, I've tried it but I think I am doing something wrong, I can see "Connected" message on my console but no incoming request on my server, If you have any reference for this lib please share.</span></span></span><br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">Thank You,</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to create a SAMP client in node js?</strong> - <a href="memberfecf.html?action=profile&amp;uid=17">iAmir</a> -  <strong>2021-02-01</strong>
+<br />
+<br />
+You have to make your own RakNet lib bindings for JS <br />
+because the one linked above is for latest RakNet and samp is using a very old version of it, v2.x<br />
+You have to find that, for example 2.5, and create a JS wrapper around it, then use that to connect to samp server, you can always check RakSAMP and see how the logic is done after creating that said wrapper
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to create a SAMP client in node js?</strong> - <a href="member13c8.html?action=profile&amp;uid=3365">goldprince</a> -  <strong>2021-02-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-01, 06:11 AM)</span>iAmir Wrote:  <a href="showthread04e2.html?pid=9658#pid9658" class="quick_jump"></a></cite>You have to make your own RakNet lib bindings for JS <br />
+because the one linked above is for latest RakNet and samp is using a very old version of it, v2.x<br />
+You have to find that, for example 2.5, and create a JS wrapper around it, then use that to connect to samp server, you can always check RakSAMP and see how the logic is done after creating that said wrapper</blockquote><br />
+Hi iAmir, Thank you for your response, The problem is, I am not familiar with JS bindings, nor CPP, This is why, I am here.<br />
+<br />
+If you know any other way to archive this or you have a solution, Please share.<br />
+<br />
+Thank You,
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

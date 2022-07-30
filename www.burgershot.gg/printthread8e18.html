@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Filterscript Texture Studio – Map Editor With Texture Support and More! - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> <a href="showthread8e18.html?tid=174">Texture Studio – Map Editor With Texture Support and More!</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Filterscripts (<i>https://www.burgershot.gg/forumdisplay.php?fid=30</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> Texture Studio – Map Editor With Texture Support and More! (<em>/showthread.php?tid=174</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1p5pCpHLN9d_juteNLX887_lqEQhsJvlz" loading="lazy" alt="[Image: uc?export=view&amp;id=1p5pCpHLN9d_juteNLX887_lqEQhsJvlz]" class="mycode_img" /><br />
+<br />
+There is now, no excuse for sub-standard (non-textured) maps.<br />
+<br />
+Tutorial Videos here: http://forum.sa-mp.com/showthread.php?t=539028<br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: medium;" class="mycode_size">What is it:</span></span><br />
+Well it's just a in game map editor that will let you texture up to material index 15 (16 materials) as well as set color for that material index on objects.<br />
+<br />
+So far there is only some basic editing commands as it's mainly meant for texturing the idea is you create your maps in your favorite map editor they can then be imported into Texture Studio with the /importmap command only CreateObject() and CreateDynamicObject() object code lines are currently accepted. Just put your maps in text files located in the /tstudio/ImportMaps/ folder. <br />
+<br />
+Yes you will need the textureviewer that is included in the release the command is /mtextures in game /mtset uses those array ids<br />
+<br />
+You can set how many objects are editable the default is 10,000 which should be good for most people setting a different value requires a re-compile.<br />
+<br />
+You can set the material slots higher the default being 16 you can increase this but I'm pretty sure you won't be able to open a map that was saved in a 16 slot compile. This is because it saves the array into the database keep in mind as well that SAMP only supports re-texturing from index 0-15 but if this changes in the future Texture Studio is adaptable.<br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: medium;" class="mycode_size">Changes:</span></span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Version 1.9d<br />
+   - Fixes model name in /gtaobjects text<br />
+   - Change custom model support from -2000 (0.3.8) to -1000 (0.3.DL)<br />
+   - Add basic texture importing! Excluding text, just textures. Fully supports TS exports. Follows a strict "texture only last object created" method, as exported by TS.<br />
+<br />
+Version 1.9c<br />
+   - Update and restructure /thelp<br />
+   - Fix webcolors string length<br />
+   - Support viewing all texture results (instead of just 100 like before) in /tsearch<br />
+   - Add /gsel and /csel controls info to /thelp and the commands, with flymode info<br />
+   - Automatically raise the max streamed objects to 1500 when using 0.3.DL<br />
+   - Add /rremobject, the range and model alternative to /remobject<br />
+   - Fix attached vehicle objects exporting<br />
+   - Add /avclone for attached object cloning<br />
+<br />
+Version 1.9b<br />
+   - Map loading fixes.<br />
+   - Added Football Stadium map to it.<br />
+<br />
+Version 1.9<br />
+   - Object notes (can be seen with /note command and on text3d, also is exported on maps on a comment on the end of the objects' lines).<br />
+   - Per-object/group draw distance.<br />
+   - More advanced databases with much more information stored (saves map creator name, last edit time, spawn position for /gotomap, and interior/vw).<br />
+   - Repeat last command with WALK + CROUCH (more buffered commands stuff coming).<br />
+   - More advanced text3d options for notes and object model info (see /edittext3d).<br />
+   - /mprop for map properties (currently only vw and interior).<br />
+   - /gotomap and /setspawn for saved maps (/gotomap sends the player to the /setspawn location).<br />
+   - Vehicle siren support.<br />
+<br />
+Version 1.8f<br />
+   - Remove float precision on map export code.<br />
+   - Make /gclone faster.<br />
+   - Add model parameter to /avnewcar.<br />
+   - Group editing restrictions for RCON admins, restrict editing of groups to specific players.<br />
+   - Add command count message when player's connect.<br />
+   - Add 3 flymode commands (/fmspeed to set max speed, /fmaccel to set acceleration, /fmtoggle to toggle acceleration).<br />
+   - Other flymode enhancements<br />
+   - Remove GTA object compile setting, no longer needed since they are loaded from a database and work so much faster.<br />
+<br />
+Version 1.8e<br />
+   - Fixes /minfo<br />
+   - Adds /osearchex, a VERY useful command. Search for objects using logical expressions with size variables.<br />
+   - Add group texturing commands: /gmtset and /gmtcolor<br />
+   - Add range selection to /gadd and /grem. It's kinda like an extra "upper max" parameter. ("/gadd 1 5" would add objects 1, 2, 3, 4, and 5 to your selection)<br />
+   - Adds /clonebuilding, create a clone of a gta building in the exact place, WITHOUT removing the original building.<br />
+   - More transactions for more speed.<br />
+   - Add all objects to the ColAndreas world when mangle is included.<br />
+   - Export colors as hexidecimal instread of integers.<br />
+   - Add experimental ground-slope group editing (doesn't work atm).<br />
+   - Raise pivot object's stream distance to prevent editing bug.<br />
+   - Add /ginvert, mirror a group's objects over any axis (best with symmetrical objects because obviously objects are not inverted).<br />
+   - Super update to Objectmetry:<br />
+   - Add conical figure.<br />
+   - Add real spiral, and renamed old one to helix.<br />
+   - Add prism, line, and rectangle.<br />
+   - Add advanced dialogs.<br />
+<br />
+Version 1.8d<br />
+   - Add /minfo, retrieve model information on any given model.<br />
+<br />
+Version 1.8c<br />
+   - Add /gselmodel, select a group of objects by model.<br />
+   - Add spherical objectmetry to /obmedit.<br />
+   - Use databases for 'allobjects' and 'modelsizes'. Drastically reduces group operations and gta object speed.<br />
+   - Show object counts when loading a map.<br />
+   - Raise bind amount to 10.<br />
+   - Make /gaexport work (but it will not create a file for some unfortunate reason, temp-fix included).<br />
+   - Add local input support for localhost.<br />
+<br />
+Version 1.8b<br />
+   - Add undo compatibility to /ginfront.<br />
+<br />
+Version 1.8a<br />
+   - Add /ginfront to move a group to your front position.<br />
+<br />
+Version 1.8<br />
+   - Add Map Angle (aka. mangle) module support, requires ColAndreas.<br />
+   - Add RZ rotation support for Objectometry.<br />
+   - Add /tcar, a temporary vehicle command.<br />
+<br />
+Version 1.7e<br />
+   - Add /renamemap and /deletemap<br />
+   - Color coat /gtaobjects (red - removed, blue - swapped, pink - building is unmodified)<br />
+   - /gtaobjects now accepts a parameter for the text's draw distance (/gtaobjects &lt;draw distance&gt;)<br />
+       * By default the distance is still collision radius * 2<br />
+<br />
+Version 1.7d<br />
+   - Updated /thelp list and converted to dialog.<br />
+   - Added rotation mirroring to /avmirror (before it only mirrored position).<br />
+   - Non-numpad keyboard compatibility for texture viewer.<br />
+<br />
+Version 1.7c<br />
+   - sqlitei prepared statements fixed<br />
+   - new command /oswap swap an object with a different model<br />
+   - new command /mtreset resets all textures and colors<br />
+   - Fixed an issues with vehicles not resetting positions when attaching<br />
+<br />
+Version 1.7b<br />
+   - Ability to clone cars /avclonecar<br />
+<br />
+Version 1.7a<br />
+   - Some critical issues fixed<br />
+   - DBStatements were not being freed correctly<br />
+   - Prefab list was not resetting string when reloading list<br />
+   - Sometimes the object editor could get lost and required reloading the script simply reload the map<br />
+<br />
+Version 1.7<br />
+   - /undo command!<br />
+<br />
+Version 1.6d<br />
+   - Fixed an issue with exporting objects if an object had text the parameters were out of order<br />
+   - Any object should be able to be created now there even LOD<br />
+   - Re-organized the project slightly<br />
+<br />
+Version 1.6c<br />
+   - Updated material text to have 128 characters<br />
+   - Text now accepts &#92;n (new line)<br />
+   - Added two blank text files so those folders appear on github<br />
+<br />
+Version 1.6b<br />
+   - Added feature to export map including cars to filterscript<br />
+   - New command /avmirror mirror objects on a car<br />
+   - Completely rebuilt the all objects array some where missing it should be complete now<br />
+<br />
+Version 1.6a<br />
+   - Search for textures /tsearch<br />
+<br />
+Version 1.6<br />
+   - Editable vehicles<br />
+   - A few bug fixes with texturing and overlapping key presses with other systems<br />
+<br />
+Version 1.5e<br />
+   - Important fix with CloneObject()<br />
+<br />
+Version 1.5d<br />
+   - Added objectmetry rotation RX/RY orientation for objects<br />
+<br />
+Version 1.5c<br />
+   - Improved Objectmetry rotation translation and ability to set rotation degrees<br />
+<br />
+Version 1.5b<br />
+   - New feature Objectmetry and include by codectile located here http://forum.sa-mp.com/showthread.php?t=538447<br />
+<br />
+Version 1.5a<br />
+   - Ability to clone objects on the fly in edit object mode (Press walk key)<br />
+<br />
+Version 1.5<br />
+   - Improved /osearch module<br />
+<br />
+Version 1.4b<br />
+   - Added support for finding and removing GTA objects by request <br />
+     Please note that deleting objects is a one way process you will have to use a sqlite database editor and manually<br />
+     remove any entries that are incorrect and reload your map!<br />
+     Additionally if you restart your server the script will forgot which building have been removed so it is possible to<br />
+     delete a building more than once in that case please be careful<br />
+<br />
+Version 1.4<br />
+   - Added object property editor /oprop<br />
+   - Added list selection feature /lsel<br />
+   - You can now choose CreateDynamicObject() as a export type instead of CreateDynamicObjectEx()<br />
+   - Spelling error fixed in one of the GUI menus<br />
+<br />
+Version 1.3<br />
+   - Complete GUI implementation that calls all commands<br />
+   - Groups added you can edit group selections<br />
+   - Texture editor texture objects with a GUI<br />
+   - You can make your own texture themes<br />
+   - Prefabs can be saved/loaded<br />
+   - Texture themes can now be created "default_theme" is always loaded when a player connects<br />
+   - You can make your own command based binds and execute them<br />
+<br />
+Version 1.2 <br />
+   - Added support for importing RemoveBuildingForPlayer() this will be saved to DB<br />
+   - Can now copy/paste texture and text from one object to another<br />
+<br />
+Version 1.1<br />
+   - Fixes some issues that could cause the editor to stop working<br />
+   - Text editor (/text)<br />
+   - Whole map delta movement commands<br />
+   - Whole map rotation commands (rotates from map center)<br />
+   - Fly mode built into FS (/flymode)<br />
+   - You can use (/cgoto) when you have an object select and in fly mode to go to that object</code></div></div><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: medium;" class="mycode_size">Video Introduction:</span></span><br />
+<a href="https://www.youtube.com/watch?v=yk9oKoRJdds" target="_blank" rel="noopener" class="mycode_url">http://www.youtube.com/watch?v=yk9oKoRJdds</a><br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: medium;" class="mycode_size">Commands:</span></span><br />
+There are currently 114 commands. Refer to /thelp for a list of commands and documentation on each command. A list of major commands and short descriptions can be found in the github readme (or main page). <br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: medium;" class="mycode_size">Key Combos:</span></span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>/csel:<br />
+Holding 'H' while clicking an object will copy properites to buffer<br />
+Holding 'Walk Key' while clicking an object will paste properties from buffer<br />
+<br />
+/editgroup:<br />
+Hold 'Walk Key' to set the group rotation pivot you can only do this once per edit<br />
+<br />
+GUI:<br />
+When in fly mode to open the GUI press 'Jump Key' otherwise it can be opened by pressing 'N' Key<br />
+<br />
+Texture Viewer:<br />
+In Fly mode instead of pressing Y/H to scroll through textures hold enter/exit vehicle and press ANALOG Left ---- ANALOG Right<br />
+Pressing sprint will add textures to your theme in fly mode press sprint+aim to add textures to theme in walk mode<br />
+Walk key will apply the selected texture to your object</code></div></div><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: medium;" class="mycode_size">Credits:</span></span><br />
+Pottus - Creating the script itself.<br />
+Crayder - New developer.<br />
+Y_Less - sscanf - original object model sizes - YSI<br />
+Slice - strlib - sqlitei<br />
+JaTochNietDan Filemanager<br />
+SDraw - 3D Menu include<br />
+codectile - Objectmetry functions<br />
+<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Download:</span></span><br />
+All new versions will only be downloadable from github located here<br />
+https://github.com/Crayder/Texture-Studio/<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Wiki:</span></span><br />
+Command information, basic usage, and more can be found on the wiki:<br />
+https://github.com/Crayder/Texture-Studio/wiki
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member1c63.html?action=profile&amp;uid=178">James</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Is a very important release for me. I use this a long time. <br />
+<br />
+The only problem when two players ejecuted two commands the server is crashed.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 11:28 AM)</span>James Wrote:  <a href="showthreadd3ca.html?pid=2235#pid2235" class="quick_jump"></a></cite>Is a very important release for me. I use this a long time. <br />
+<br />
+The only problem when two players ejecuted two commands the server is crashed.</blockquote><br />
+Do you have the latest version? It should work fine since the latest version. The issue with the previous version was I released it compile in debug mode, which causes issue with multiple players. You can either download the latest version or simply recompile the script to fix that.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member1c63.html?action=profile&amp;uid=178">James</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Yes, but the server is crashed when two players ejecuted two commands. I don't know.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+https://github.com/Crayder/Texture-Studio/wiki<br />
+<br />
+The wiki has been updated!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member7a5e.html?action=profile&amp;uid=353">Botato</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+Excellent tool! The best tool to map, in my opinion.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="membera78b.html?action=profile&amp;uid=738">s1cky</a> -  <strong>2019-04-21</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-16, 10:14 PM)</span>Botato Wrote:  <a href="showthread2525.html?pid=3026#pid3026" class="quick_jump"></a></cite>Excellent tool! The best tool to map, in my opinion.</blockquote><br />
+<span style="font-style: italic;" class="mycode_i">Re-tweet.</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member29c0.html?action=profile&amp;uid=709">Apec</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+This script had a huge impact on the whole mapping community.<br />
+<br />
+Simple, but useful and convenient updates that can be made:<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">1. Make more short commands: </span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>/editobject /eo /eobject<br />
+/dobject /do /deleteobject<br />
+/cobject /co /createobject<br />
+/importmap /im<br />
+/exportmap /em<br />
+/editgroup /eg /egroup<br />
+/robject /resetobject<br />
+/flymode /fm<br />
+/mtsearch /mts<br />
+/tsearch /ts</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">2. Simple commands for test:</span> setint, setvw, settime, setweather, giveweapon, setskin, tpcoord<br />
+<span style="font-weight: bold;" class="mycode_b">3. Very important. Add possible change texture index for text editor. Add dialog for size and front</span><br />
+http://imgbox.com/oRshUap8<br />
+<span style="font-weight: bold;" class="mycode_b">4. Add command redo.</span><br />
+redo returns the undone action (/undo)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member9259.html?action=profile&amp;uid=22">TommyB</a> -  <strong>2019-04-29</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-23, 10:42 PM)</span>Apec Wrote:  <a href="showthreadd4e2.html?pid=4394#pid4394" class="quick_jump"></a></cite>This script had a huge impact on the whole mapping community.<br />
+<br />
+Simple, but useful and convenient updates that can be made:<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">1. Make more short commands: </span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>/editobject /eo /eobject<br />
+/dobject /do /deleteobject<br />
+/cobject /co /createobject<br />
+/importmap /im<br />
+/exportmap /em<br />
+/editgroup /eg /egroup<br />
+/robject /resetobject<br />
+/flymode /fm<br />
+/mtsearch /mts<br />
+/tsearch /ts</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">2. Simple commands for test:</span> setint, setvw, settime, setweather, giveweapon, setskin, tpcoord<br />
+<span style="font-weight: bold;" class="mycode_b">3. Very important. Add possible change texture index for text editor. Add dialog for size and front</span><br />
+http://imgbox.com/oRshUap8<br />
+<span style="font-weight: bold;" class="mycode_b">4. Add command redo.</span><br />
+redo returns the undone action (/undo)</blockquote><br />
+Hey there, I'm going to be helping out with updates for texture studio in the future. I'll hold off on making any promises, but I do have plans to make it so users can add and save their own shortcut commands as they please. I think that's a better solution since people may want to pick different shortcuts for different commands.<br />
+<br />
+Those testing commands you mentioned have already been made in my fork of tstudio, they simply need to be ported over to the new repo. I'll probably do this over the next few days.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member1d95.html?action=profile&amp;uid=699">Hyder</a> -  <strong>2019-05-01</strong>
+<br />
+<br />
+Good project i will use it in my server
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-05-02</strong>
+<br />
+<br />
+I just realized there's an issue that would absolutely crash players!<br />
+<br />
+I have a compiler option in tsmain.pwn that detects the DL includes and enables seeing up to 1500 objects. Unfortunately, this means if you use the precompiled .amx with a standard 0.3.7 server you will be showing the players more than the limit (1000), in turn causing players to crash.<br />
+<br />
+Hence, for now, if you are using 0.3.7 for some odd reason and you use more than 1000 objects... recompile with the 0.3.7 includes.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member34c9.html?action=profile&amp;uid=1224">Spredde</a> -  <strong>2019-08-10</strong>
+<br />
+<br />
+Hey, can smb tell me what the IP address of my server be? I've tried my own IP and port 7777, but it didn't work.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member3801.html?action=profile&amp;uid=333">ronfino</a> -  <strong>2019-09-02</strong>
+<br />
+<br />
+will this get an update one day?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member8548.html?action=profile&amp;uid=1903">Gleamm</a> -  <strong>2019-12-10</strong>
+<br />
+<br />
+Wow thats really cool
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member38a3.html?action=profile&amp;uid=558">homelessdrop</a> -  <strong>2020-03-20</strong>
+<br />
+<br />
+Hey guys, i have a ask about this editor, how can i change numpad key's to something else? because i don't have a numpad. Thanks.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member7b6b.html?action=profile&amp;uid=65">Riddick</a> -  <strong>2020-07-23</strong>
+<br />
+<br />
+<img src="https://i.imgur.com/BEblNr8.png" loading="lazy"  alt="[Image: BEblNr8.png]" class="mycode_img" /><br />
+<br />
+@Crayder, can you provide support for CA Dynamic Object creation as well? That format would be useful.<br />
+<br />
+edit://<br />
+<br />
+1 - Sometimes when I cancel object editing the object itself is being destroyed and other times it doesn't get destroyed. Why is that?<br />
+<br />
+2 - Can you make a /runbind command more user-friendly and let it be called by indexes/names of the binds? I rather type /runbind grass01 instead of /runbind 5 for example.<br />
+<br />
+P.S<br />
+I'm a newbie at TStudio, maybe that's solved already. I just point out my things.<br />
+<br />
+edit2://<br />
+Whenever I export my map, it doesn't get created in tstudio folder in scriptfiles folder. I searched entire directory - it isn't there.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member2ad3.html?action=profile&amp;uid=3041">RockstarMapping</a> -  <strong>2021-02-10</strong>
+<br />
+<br />
+I'm having a hard time mapping, when I map my draw distance is absolutely terrible. I lose objects in 100meters, you can't review the map normally you can't see the map as a whole. What is the solution ?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Texture Studio – Map Editor With Texture Support and More!</strong> - <a href="member857a.html?action=profile&amp;uid=3738">Hanako</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-10, 07:00 PM)</span>RockstarMapping Wrote:  <a href="showthread1b26.html?pid=9770#pid9770" class="quick_jump"></a></cite>I'm having a hard time mapping, when I map my draw distance is absolutely terrible. I lose objects in 100meters, you can't review the map normally you can't see the map as a whole. What is the solution ?</blockquote><br />
+you can use a draw distance extender if you want so you can see the objects in your gta sa farther than the limit
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

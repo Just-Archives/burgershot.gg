@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Library @mentiones - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #9D17FF;font-weight: bold;">[Library]</span> <a href="showthreadef92.html?tid=1903">@mentiones</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Libraries (<i>https://www.burgershot.gg/forumdisplay.php?fid=31</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #9D17FF;font-weight: bold;">[Library]</span> @mentiones (<em>/showthread.php?tid=1903</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>@mentiones</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-18</strong>
+<br />
+<br />
+Include contain function for chat @mentiones system<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>mentiones.inc<br />
+ Copyright © 2021 Abyss Morgan. All rights reserved.<br />
+ Contributors: None<br />
+<br />
+ Website: https://adm.ct8.pl<br />
+<br />
+ Plugins: SScanf<br />
+ Modules: RGB, DataConvert<br />
+<br />
+ File Version: 1.3.1<br />
+<br />
+ Functions:<br />
+ GetMentiones(playerid,text[],mention_color=0xCC0000FF,back_color=0xFFFFFFFF,max_len=sizeof(text));<br />
+ GetAllowedMentions();<br />
+ SetAllowedMentions(number);<br />
+<br />
+ Callbacks:<br />
+ OnPlayerMentioned(playerid,targetid);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Example:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerMentioned(playerid,targetid){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//create your own notice with TextDraw/sound<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}<br />
+<br />
+public OnPlayerText(playerid,text[]){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new chat_text[2048], p_name[MAX_PLAYER_NAME];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerName(playerid,p_name,MAX_PLAYER_NAME);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;format(chat_text,sizeof(chat_text),"%s: %s",p_name,text);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetMentiones(playerid,chat_text,0xCC0000FF,0x00AA00FF,2048); //back_color the same as first chat color<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SendClientMessageToAll(0x00AA00FF,chat_text);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br />
+}<br />
+//Hi @Johny and @Alena how are you ?<br />
+//Two existing players got notice and nick color has been changed to 0xCC0000FF</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Screenshot:</span><br />
+https://i.imgur.com/dhkbMWV.png<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Download:</span><br />
+<a href="https://adm.ct8.pl/cloud/Libs/mentiones/mentiones.inc" target="_blank" rel="noopener" class="mycode_url">mentiones.inc</a><br />
+<a href="https://adm.ct8.pl/cloud/Libs/RGB/RGB.inc" target="_blank" rel="noopener" class="mycode_url">RGB.inc</a><br />
+<a href="https://adm.ct8.pl/cloud/Libs/DataConvert/DataConvert.inc" target="_blank" rel="noopener" class="mycode_url">DataConvert.inc</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: @mentiones</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-05-23</strong>
+<br />
+<br />
+Nice bro.<br />
+<br />
+Can you create another function to convert @32 (player id)<br />
+to @AbyssMorgan (player name)?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: @mentiones</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-05-26</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Update v1.3.0:</span><br />
+<br />
+- Optimizations<br />
+- Added support for @id mentions<br />
+- Changed output for print full nick name<br />
+<br />
+Screenshot<br />
+https://i.imgur.com/dhkbMWV.png
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: @mentiones</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-07-15</strong>
+<br />
+<br />
+There is a problem.<br />
+That function doesn't support more than 3 mentions.<br />
+<br />
+Also It would be good if you add:<br />
+<span style="font-family: Courier New;" class="mycode_font">SetAllowedMentions(number);</span><br />
+<br />
+I don't want players can mentioning more than 4 players. I want limit them.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: @mentiones</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-08-06</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Update v1.3.1:</span><br />
+<br />
+- Added functions:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>GetAllowedMentions();<br />
+SetAllowedMentions(number);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

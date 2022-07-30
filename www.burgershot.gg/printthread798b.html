@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Array elements within a function aren't able to change? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread798b.html?tid=2073">Array elements within a function aren't able to change?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Array elements within a function aren't able to change? (<em>/showthread.php?tid=2073</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Array elements within a function aren't able to change?</strong> - <a href="member269f.html?action=profile&amp;uid=3825">klausfelix</a> -  <strong>2021-06-01</strong>
+<br />
+<br />
+[color=var(--highlight-color)]<span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">a = np.array([0,2,4,2,0,2,3,2,3,2,0])<br />
+plt.figure(figsize=(10,7))<br />
+plt.plot(a,label='a')<br />
+<br />
+def raycrit(a,thresh):<br />
+    min_ind = argrelextrema(a, np.less)<br />
+    max_ind = argrelextrema(a, np.greater)<br />
+    maxima = a[max_ind]<br />
+    minima = a[min_ind]<br />
+    if min_ind[0][0] &gt; max_ind[0][0]:<br />
+        for i in range(0,len(minima)):<br />
+            if maxima[i] &gt; thresh and maxima[i+1] &gt; thresh:<br />
+                if minima[i] &gt; maxima[i]/2 and minima[i] &gt; maxima[i+1]/2:<br />
+                    minima[i] = thresh <br />
+    a[min_ind] = minima<br />
+    return a<br />
+        <br />
+b = raycrit(a,2.5)</span></span>[/color]<br />
+<br />
+<span style="color: #0a00c0;" class="mycode_color"><span style="font-size: x-small;" class="mycode_size"><span style="color: #242729;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Liberation Sans', sans-serif;" class="mycode_font">[font=-apple-system, BlinkMacSystemFont, "Segoe UI", "Liberation Sans", sans-serif]In the above code excerpt, I am trying to find local minima surrounded by local maxima that are more than half the height of the highest local maximum that neighbours it. And while this put into text might be confusing, I think reading the code helps understand what I'm trying to reach for. The problem arises with the fact that <br />
+minima[i] = thresh<br />
+ stays unchanged even when the condition is triggered. Here the result should be [0,2,4,2,0,2,3,2.5,3,2,0] but remains [0,2,4,2,0,2,3,2,3,2,0] and I am quite confused as to why...</span>[/font]</span></span><br />
+<br />
+<br />
+<br />
+</span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

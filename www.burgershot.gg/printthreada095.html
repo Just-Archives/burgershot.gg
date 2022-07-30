@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Add days to current time - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreada095.html?tid=2264">Add days to current time</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Add days to current time (<em>/showthread.php?tid=2264</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Add days to current time</strong> - <a href="member9128.html?action=profile&amp;uid=2495">Torque</a> -  <strong>2021-12-28</strong>
+<br />
+<br />
+I'm saving the last login date/time using Now() in MySQL which sets a string such as <span style="font-weight: bold;" class="mycode_b"><span style="font-style: italic;" class="mycode_i">2021-12-28 12:41:53</span></span><br />
+<br />
+I want to check if 30 days have passed since the last login. How can I do this in the script? I imagine I would have to use a different method of saving the date in order to check this.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Add days to current time</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2022-01-02</strong>
+<br />
+<br />
+Use unix time.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">//&nbsp;On&nbsp;player&nbsp;logged-in<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof&nbsp;query</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"UPDATE&nbsp;`users`&nbsp;SET&nbsp;`last_login`&nbsp;=&nbsp;%i&nbsp;WHERE&nbsp;`id`&nbsp;=&nbsp;%i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gettime</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">id</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Check player&nbsp;last&nbsp;login<br /></span><span style="color: #0000BB">cache_get_value_name_int</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"last_login"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">value</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">gettime</span><span style="color: #007700">()-</span><span style="color: #0000BB">value&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">60</span><span style="color: #007700">*</span><span style="color: #0000BB">60</span><span style="color: #007700">*</span><span style="color: #0000BB">24</span><span style="color: #007700">*</span><span style="color: #0000BB">30</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #FF8000">//&nbsp;30&nbsp;days&nbsp;passed&nbsp;from&nbsp;last&nbsp;login<br /></span><span style="color: #007700">}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Add days to current time</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2022-03-25</strong>
+<br />
+<br />
+Don't use formatted dates ever.  Just save your data using unix timestamps.  They make everything with time way way easier.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

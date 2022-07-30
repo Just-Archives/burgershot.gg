@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [Guía] Como crear comandos con ZCMD y sscanf2 - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread58c9.html?tid=1038">[Guía] Como crear comandos con ZCMD y sscanf2</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  [Guía] Como crear comandos con ZCMD y sscanf2 (<em>/showthread.php?tid=1038</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Guía] Como crear comandos con ZCMD y sscanf2</strong> - <a href="member6810.html?action=profile&amp;uid=2052">SKainer</a> -  <strong>2020-04-15</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">[Presen</span></span><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">tación]</span></span></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: medium;" class="mycode_size">¡Hola a todos! Vengo aquí a presentar otra guía creada por mí para algunos novatos iniciando en el mundo del Pawn.</span></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">[¿Qué es ZCMD]</span></span></div>
+<br />
+<div style="text-align: center;" class="mycode_align">ZCMD es un procesador de comandos muy efectivo y rápido usado por muchísimos servidores para una mejor optimización.</div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: x-large;" class="mycode_size">[¿Qué es sscanf2]</span></span></div>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: small;" class="mycode_size">sscanf2 (Plugin) es un usualmente usado como procesador de parámetros que trabaja muy bien de la mano de ZCMD.</span></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">[¿Cómo usar ZCMD?]</span></span></div>
+<br />
+<div style="text-align: left;" class="mycode_align"><span style="font-size: small;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Z</span></span><span style="font-weight: bold;" class="mycode_b"><span style="font-size: small;" class="mycode_size">CMD </span></span><span style="font-size: small;" class="mycode_size">puede ser usado de las siguientes formas:</span></div>
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">zcmd</span><span style="color: #007700">(</span><span style="color: #0000BB">comando</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #FF8000">//&nbsp;Código<br /></span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">comando</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #FF8000">//&nbsp;Código<br /></span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">COMMAND</span><span style="color: #007700">:</span><span style="color: #0000BB">comando</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #FF8000">//&nbsp;Código<br /></span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">command</span><span style="color: #007700">:</span><span style="color: #0000BB">comando</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #FF8000">//&nbsp;Código<br /></span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<div style="text-align: left;" class="mycode_align">Todas se escriben diferente, pero tienen el mismo resultado.</div>
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">[Nota Importante] ZCMD no debe ir dentro de una función o callback.</span></span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">[Nota Importante] ZCMD siempre debe retornar verdadero (return 1) al final, como se muestra en los ejemplos o si no aparecerá el mensaje "Unknown Command" cuando se introduzca el comando.</span></span></span><br />
+<br />
+<div style="text-align: left;" class="mycode_align">Ejemplo de uso:</div>
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">mensaje</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Este&nbsp;es&nbsp;un&nbsp;mensaje"</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<div style="text-align: left;" class="mycode_align">Funciona como si fuera una función, al menos así lo veo yo.</div>
+<br />
+<div style="text-align: left;" class="mycode_align">Ahora, incluyamos a sscanf2 y por qué va de la mano con ZCMD.</div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: large;" class="mycode_size">[¿Cómo usar SSCANF2?]</span></span></div>
+<br />
+<div style="text-align: left;" class="mycode_align">La sintáxis de sscanf2 sería algo así:</div>
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>sscanf(const data[], const format[], ...)</code></div></div><br />
+<div style="text-align: left;" class="mycode_align">const data[] = Ahí iría la data constante, es decir, la información constante que se introdujo, en este caso (ZCMD), usamos "params"</div>
+<div style="text-align: left;" class="mycode_align">const format[] = Aquí van los especificadores (integers, floats, strings, etc) que se introducirán en los parámetros.</div>
+... = aquí se ponen las variables de los parámetros<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">dardinero</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;idjugador</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dinero</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; if</span><span style="color: #007700">(!</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ud"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">idjugador</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dinero</span><span style="color: #007700">))<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; GivePlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">idjugador</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dinero</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+<div style="text-align: left;" class="mycode_align">Ahora, ¡¿Qué acaba de pasar aquí?! Pasamos de ver sintáxis a un comando normal. Pues bueno, ahora explico qué pasa.</div>
+<div style="text-align: left;" class="mycode_align">Fijemonos en estas líneas:</div>
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">idjugador</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dinero</span><span style="color: #007700">;<br />if(!</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ud"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">idjugador</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dinero</span><span style="color: #007700">))&nbsp;<br /></span></code></div></div></div><br />
+Así se usa usualmente el sscanf. Efectivamente usamos una condicional para que suceda lo siguiente:<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-style: italic;" class="mycode_i">si los parámetros (params) son la id de un jugador y numeros integer, retornaremos verdadero.</span></span><br />
+¿Qué es "ud"?<br />
+Son especificadores de datos, "u" sería la id de un jugador (o nombre) y "d" sería un integer. <br />
+En "<span style="font-weight: bold;" class="mycode_b">(params, "ud", idjugador, dinero)</span>" podemos ver que también tenemos 2 variables (que creamos anteriormente) y ¿qué son? Pues son esos mismos datos especificados. Es decir, "u" es "idjugador"  y "d" es "dinero", osea, idjugador es la id de un jugador y dinero es un integer. Es un poco confuso pero es entendible, también podemos observar que puse "!sscanf", qué es este operador (!)? Lo usamos para que tome un valor contrario, ya veremos para qué.<br />
+Entonces tenemos la función <br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>GivePlayerMoney(playerid, money) // Función por defecto<br />
+<br />
+GivePlayerMoney(idjugador, dinero); // Reemplazamos nuestra ID (playerid) por la ID del jugador que elijamos en los parámetros, y (money) por "dinero", que sería la cantidad de dinero (Entero) que especificamos en los parámetros.</code></div></div><br />
+Imagina que tu jugador escribe:<br />
+/dardinero 6 1000 (6 sería la ID del jugador al que se le dará dinero) (1000 es la cantidad de dinero que se le dará a la id del jugador)<br />
+<br />
+Todo eso sucedería en un comando, sólo usa tu imaginación para crear todos los comandos y parámetros que desees.<br />
+<br />
+Imagina que un jugador escribe /dardinero 6 d (El jugador escribe un string y no un integer, eso no hará nada) <br />
+Ahora cómo le decimos al jugador que los parámetros que está poniendo son inválidos?<br />
+Pues atento a lo siguiente:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">dardinero</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB"> &nbsp; new&nbsp;idjugador</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dinero</span><span style="color: #007700">;<br /></span><span style="color: #0000BB"> &nbsp; if</span><span style="color: #007700">(!</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ud"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">idjugador</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dinero</span><span style="color: #007700">))<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; GivePlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">idjugador</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dinero</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; else&nbsp;SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Haz&nbsp;escrito&nbsp;mal&nbsp;el&nbsp;comando,&nbsp;usa&nbsp;/dardinero&nbsp;(id)&nbsp;(cantidad)"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+Con eso cuándo el jugador se equivoque de comandos retornará el mensaje que pusimos, para que se dé cuenta que está poniendo mal los parámetros indicados.<br />
+<br />
+<span style="color: #ff3333;" class="mycode_color"><span style="font-size: large;" class="mycode_size">[Nota]<span style="font-weight: bold;" class="mycode_b"> </span></span></span><span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"><span style="color: #ff3333;" class="mycode_color">También existe la función "unformat" que viene con el sscanf2 por defecto, que actúa igual que la función sscanf.</span></span></span><br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: x-large;" class="mycode_size">[Final]</span></span></div>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Bueno, eso ha sido todo lo que puedo aportar hasta ahora, si me equivoqué en algo o expliqué algo mal háganmelo saber. </span><br />
+<br />
+- <span style="font-weight: bold;" class="mycode_b"><span style="font-style: italic;" class="mycode_i"><span style="text-decoration: underline;" class="mycode_u">SKainer</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Guía] Como crear comandos con ZCMD y sscanf2</strong> - <a href="memberce56.html?action=profile&amp;uid=2545">DanielFz</a> -  <strong>2020-08-10</strong>
+<br />
+<br />
+Muchísimas gracias, venía días buscando una guía bien explicada de como usar estos, y que explicaran cada cosita, porque no me gusta utilizar algo en un script que no entiendo, porque si no lo entiendo no lo podré volver a usar, muchas gracias otra vez, creo que puedo dar +1, si no, pues no te doy ajaaj.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Guía] Como crear comandos con ZCMD y sscanf2</strong> - <a href="memberd287.html?action=profile&amp;uid=2500">R4lpH</a> -  <strong>2020-08-25</strong>
+<br />
+<br />
+Has un tuto de como usar strcmp :)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Guía] Como crear comandos con ZCMD y sscanf2</strong> - <a href="member6810.html?action=profile&amp;uid=2052">SKainer</a> -  <strong>2020-08-29</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-08-25, 01:22 PM)</span>R4lpH Wrote:  <a href="showthreada21c.html?pid=7827#pid7827" class="quick_jump"></a></cite>Has un tuto de como usar strcmp :)</blockquote><br />
+Tal vez haga un tutorial sobre las funciones de los strings
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Guía] Como crear comandos con ZCMD y sscanf2</strong> - <a href="member5eaa.html?action=profile&amp;uid=3812">ImFlanny</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+Buena guía solo que te falto explicar lo de los parámetros muchos definen los parámetros cuando no se utilizan.<br />
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite><span style="color: #0000bb;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">CMD</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">:</span></span></span><span style="color: #0000bb;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">mensaje</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">(</span></span></span><span style="color: #0000bb;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">playerid</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">, </span></span></span><span style="color: #0000bb;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">params</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">[])<br />
+{<br />
+</span></span></span><span style="color: #0000bb;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">SendClientMessage</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">(</span></span></span><span style="color: #0000bb;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">playerid</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">, -</span></span></span><span style="color: #0000bb;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">1</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">, </span></span></span><span style="color: #dd0000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">"Este es un mensaje"</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">);<br />
+return </span></span></span><span style="color: #0000bb;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">1</span></span></span><span style="color: #007700;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Monaco, Consolas, Courier, monospace;" class="mycode_font">;<br />
+} </span></span></span></blockquote>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

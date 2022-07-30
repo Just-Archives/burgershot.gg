@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Returning strings and arrays - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadb6b1.html?tid=397">Returning strings and arrays</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Tutorials (<i>https://www.burgershot.gg/forumdisplay.php?fid=37</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Returning strings and arrays (<em>/showthread.php?tid=397</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Returning strings and arrays</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2019-04-20</strong>
+<br />
+<br />
+While functions in Pawn typically return only simple cell-sized values, the language does allow for (even native) functions to return arrays and therefore also strings. However, the mechanism that allows it is a bit more complex and may not be suited for some use cases.<br />
+<br />
+First of all, let's look at the standard way of getting a string out of a function.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Via an output parameter</span><br />
+All native SA-MP functions produce a string via a standard non-const array parameter. Since arrays are passed by reference (meaning the function gets access to the actual <span style="font-style: italic;" class="mycode_i">variable</span> and not just the value inside), the native function can easily store any data inside:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new name[MAX_PLAYER_NAME + 1];<br />
+GetPlayerName(playerid, name, sizeof name);</code></div></div>Usually, another parameter is used alongside the array parameter to specify the length of the array. In Pawn, there is no simple way to obtain the length of an array directly at runtime, and so the compiler has to provide the length when needed (the <span style="font-family: Courier New;" class="mycode_font">sizeof</span> operator). For strings, an extra cell must be allocated in the array to store the null character, indicating the end of the string (hence the <span style="font-family: Courier New;" class="mycode_font">+ 1</span>).<br />
+<br />
+This way is especially useful for obtaining variable-length arrays (such as strings). The <span style="font-family: Courier New;" class="mycode_font">format</span> function, for example, can be only implemented for this way, because the theoretical length of the output string is unlimited.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Returning an array directly</span><br />
+If you want to produce a <span style="font-weight: bold;" class="mycode_b">fixed-size</span> array, you can return it from a function directly:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward [MAX_PLAYER_NAME + 1]PlayerName(playerid);<br />
+stock PlayerName(playerid)<br />
+{<br />
+    new name[MAX_PLAYER_NAME + 1];<br />
+    GetPlayerName(playerid, name, sizeof name);<br />
+    return name;<br />
+}</code></div></div>The forward declaration is optional, but it is useful since it makes you keep in mind that the length of the array is important.<br />
+<br />
+Now, if you know a bit of other languages like C etc., you may be aware that since <span style="font-family: Courier New;" class="mycode_font">name</span> is allocated on the stack, it doesn't exist anymore when the function returns. Pawn gets over this fact using a trick – when the function is called, an extra space for the array is allocated, and the address of this variable is provided to the function via a secret parameter.<br />
+<br />
+In reality, the function looks like this:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock PlayerName(playerid, output[MAX_PLAYER_NAME + 1])<br />
+{<br />
+    new name[MAX_PLAYER_NAME + 1];<br />
+    GetPlayerName(playerid, name, sizeof name);<br />
+    output = name;<br />
+}</code></div></div>As you can see, returning a string is just a convenient syntactic shortcut for an extra output parameter.<br />
+<br />
+However, this comes at a cost of slightly decreased performance and bugs in certain cases. Let's start with the issues:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock Select(index, arg[], arg2[])<br />
+{<br />
+    if(index == 0) return arg;<br />
+    return arg2;<br />
+}</code></div></div>This simple function seems to return one of the arguments, but since they have indeterminate sizes (represented as 0), the compiler thinks this function returns a zero-sized array and does not actually allocate any extra space for the string. You cannot return strings (or arrays) that have indeterminate length, and the compiler sometimes fails to inform you about this.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward [4]Func1();<br />
+stock Func1()<br />
+{<br />
+    new str[] = "abc";<br />
+    return str;<br />
+}<br />
+<br />
+forward [4]Func2();<br />
+stock Func2()<br />
+{<br />
+    return Func1();<br />
+}</code></div></div>This code is also horribly wrong, but in a subtle way. <span style="font-family: Courier New;" class="mycode_font">Func2</span> does allocate extra space for the array returned from <span style="font-family: Courier New;" class="mycode_font">Func1</span>, but before the array can be copied to the secret output array of the second function, it is deallocated again and isn't accessible anymore.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock Func(...)<br />
+{<br />
+    new str[] = "abc";<br />
+    return str;<br />
+}</code></div></div>The extra output argument is placed <span style="font-style: italic;" class="mycode_i">at the end</span> of all arguments, even after the variadic ones. However, the compiler fails to correctly obtain the return address in this case, and assumes its position is constant.<br />
+<br />
+In all these cases, returning a string is a really bad thing to do, since the code usually compiles fine, and the issue only becomes apparent at runtime.<br />
+<br />
+There is a slight performance cost associated with returning arrays as well: the <span style="font-family: Courier New;" class="mycode_font">output = name;</span> always happens if the function is implemented in Pawn, and so the array is copied at least once. Take a look at this code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new name[MAX_PLAYER_NAME + 1]; // = PlayerName(playerid); doesn't work, direct assignment isn't supported<br />
+name = PlayerName(playerid);</code></div></div>The compiler again allocates extra space for the string returned from <span style="font-family: Courier New;" class="mycode_font">PlayerName</span> (always on the heap), before it moves it to <span style="font-family: Courier New;" class="mycode_font">name</span>. Therefore, the array has to be unnecessarily copied twice before it is usable.<br />
+<br />
+As you can see, returning arrays has some significant drawbacks, but it is still useful in some cases, when you are cautious.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>format(string, sizeof string, "Your name is %s.", PlayerName(playerid));</code></div></div>This is the intended usage of returning arrays – as temporary arguments to other functions. In all other cases, using a normal output parameter is safer and faster. In this case, no extra copying happens at the caller's site.<br />
+<br />
+<span style="font-family: Courier New;" class="mycode_font">PlayerName</span> itself can be "fixed" to return the string directly without unnecessary copying, via in-line assembly:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward [MAX_PLAYER_NAME + 1]PlayerName(playerid);<br />
+stock PlayerName(playerid)<br />
+{<br />
+    #assert MAX_PLAYER_NAME + 1 == 25<br />
+    #emit PUSH.C 25 // size parameter of GetPlayerName<br />
+    #emit PUSH.S 16 // secret return parameter of PlayerName at address 16 (&amp;playerid + 4)<br />
+    #emit PUSH.S playerid // equal to 12<br />
+    #emit PUSH.C 12 // number of bytes passed to the function (4 * 3 arguments)<br />
+    #emit SYSREQ.C GetPlayerName // calling the function<br />
+    #emit STACK 16 // cleanup of the arguments from the stack<br />
+    #emit RETN<br />
+}</code></div></div>This way, <span style="font-family: Courier New;" class="mycode_font">PlayerName</span> does no extra copying, passing the secret return address directly to <span style="font-family: Courier New;" class="mycode_font">GetPlayerName</span>.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-style: italic;" class="mycode_i">PawnPlus</span> strings</span><br />
+Dynamic strings in <span style="font-style: italic;" class="mycode_i"><a href="showthread3c04.html?tid=96" target="_blank" rel="noopener" class="mycode_url">PawnPlus</a></span> offer the flexibility and convenience of normal values, since they are passed around as references.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock String:Func()<br />
+{<br />
+    return str_new("abc");<br />
+}</code></div></div>The string can be returned from functions, passed to other functions or even to native functions, inspected, or modified, and all of this without any additional copying.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Constant strings</span><br />
+All the previous methods are suitable for strings that are produced at runtime, but for constant strings, I'd advise against using any of them. Use macros instead.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new const _tips[][] = {<br />
+    "Tip one",<br />
+    "Tip two",<br />
+    "Tip three",<br />
+    "Tip four"<br />
+};<br />
+#define RandomTip() (_tips[random(sizeof _tips)])</code></div></div>Using this in functions like <span style="font-family: Courier New;" class="mycode_font">SendClientMessage</span> requires no string copying at all, since the address of the string is used directly. You can also afford to use variable-length strings in the array, resulting in a little more efficient storage.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Returning strings and arrays</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-04-21</strong>
+<br />
+<br />
+Well done 👍
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Returning strings and arrays</strong> - <a href="member190a.html?action=profile&amp;uid=779">Dayrion</a> -  <strong>2019-04-21</strong>
+<br />
+<br />
+Thanks for the clarification.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Returning strings and arrays</strong> - <a href="memberbf62.html?action=profile&amp;uid=1608">Tama</a> -  <strong>2019-12-17</strong>
+<br />
+<br />
+How did you find:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#emit&nbsp;PUSH.S&nbsp;16&nbsp;<br /></span></code></div></div></div><br />
+And if i'm returning anything else besides "PlayerName" without exta copying stuff, how i do it then?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

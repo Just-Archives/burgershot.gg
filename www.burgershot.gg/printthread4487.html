@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Today I learned - Share your newly found knowledge! - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread4487.html?tid=325">Today I learned - Share your newly found knowledge!</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Today I learned - Share your newly found knowledge! (<em>/showthread.php?tid=325</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Today I learned - Share your newly found knowledge!</strong> - <a href="member4c0d.html?action=profile&amp;uid=16">kristo</a> -  <strong>2019-04-17</strong>
+<br />
+<br />
+Credits for the concept of this thread go to Slice.<br />
+<br />
+<blockquote class="mycode_quote"><cite>Slice Wrote:</cite>Simple. If you learned something new <span style="text-decoration: underline;" class="mycode_u">related to SA-MP scripting</span>, share it here!<br />
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Please</span></span>:<ul class="mycode_list"><li>Explain what it is you learned, don't just say you learned something. <span style="font-weight: bold;" class="mycode_b"><span style="color: Red;" class="mycode_color">&lt;----</span></span><br />
+</li>
+<li>Try keeping it concise.<br />
+</li>
+<li>Don't post stupid pictures or otherwise annoying, non-related stuff.<br />
+</li>
+<li>Don't link to or quote posts then say you learned that.<br />
+</li>
+</ul>
+</blockquote><br />
+<br />
+Today I learned that natives can be forwarded and this can be used to deprecate natives and add replacements for them without getting a deprecation warning inside the replacement function:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">forward&nbsp;DeprecatedNative</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">stock&nbsp;NewFunction</span><span style="color: #007700">()<br />{<br /></span><span style="color: #0000BB"> &nbsp; return&nbsp;DeprecatedNative</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;no&nbsp;warning&nbsp;here<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #FF8000">#pragma&nbsp;deprecated&nbsp;Use&nbsp;`NewFunction`&nbsp;instead.<br /></span><span style="color: #0000BB">native&nbsp;DeprecatedNative</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">main</span><span style="color: #007700">()<br />{<br /></span><span style="color: #0000BB"> &nbsp; DeprecatedNative</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">// (warning)&nbsp;function&nbsp;is&nbsp;deprecated&nbsp;(symbol&nbsp;"DeprecatedNative")&nbsp;Use&nbsp;`NewFunction`&nbsp;instead.<br /></span><span style="color: #0000BB"> &nbsp; NewFunction</span><span style="color: #007700">();<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Today I learned - Share your newly found knowledge!</strong> - <a href="memberbf62.html?action=profile&amp;uid=1608">Tama</a> -  <strong>2020-08-06</strong>
+<br />
+<br />
+Today i learn something, using ! without manually set true\false.<br />
+<br />
+Usage:<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">main</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var1&nbsp;</span><span style="color: #007700">=&nbsp;!</span><span style="color: #0000BB">var1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div><br />
+Instead of:<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">main</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

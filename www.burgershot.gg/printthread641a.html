@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Turfs (formerly gangzones) module - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread641a.html?tid=826">Turfs (formerly gangzones) module</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Development Updates (<i>https://www.burgershot.gg/forumdisplay.php?fid=43</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Turfs (formerly gangzones) module (<em>/showthread.php?tid=826</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Turfs (formerly gangzones) module</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-10-19</strong>
+<br />
+<br />
+Hello!<br />
+<br />
+I have just finished our Turf implementation into the server and I thought of posting a overview of this module and to show we haven't quit or anything!<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">//&nbsp;Creates&nbsp;a&nbsp;Turf.&nbsp;A&nbsp;playerid&nbsp;can&nbsp;be&nbsp;passed&nbsp;in&nbsp;order&nbsp;to&nbsp;make&nbsp;it&nbsp;a&nbsp;player&nbsp;turf.<br /></span><span style="color: #0000BB">native&nbsp;Turf</span><span style="color: #007700">:</span><span style="color: #0000BB">Turf_Create</span><span style="color: #007700">(</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">minx</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">miny</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">maxx</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">maxy</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Player</span><span style="color: #007700">:</span><span style="color: #0000BB">owner&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Destroys&nbsp;a&nbsp;turf.<br /></span><span style="color: #0000BB">native&nbsp;Turf_Destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">Turf</span><span style="color: #007700">:</span><span style="color: #0000BB">turf</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Shows&nbsp;a&nbsp;Turf&nbsp;to&nbsp;a&nbsp;player&nbsp;or&nbsp;players.<br />//&nbsp;Will&nbsp;send&nbsp;to&nbsp;all&nbsp;players&nbsp;if&nbsp;playerid&nbsp;=&nbsp;INVALID_PLAYER_ID.<br /></span><span style="color: #0000BB">native&nbsp;Turf_Show</span><span style="color: #007700">(</span><span style="color: #0000BB">Turf</span><span style="color: #007700">:</span><span style="color: #0000BB">turf</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">colour</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Player</span><span style="color: #007700">:</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Hides&nbsp;a&nbsp;Turf&nbsp;from&nbsp;a&nbsp;player&nbsp;or&nbsp;players.<br />//&nbsp;Will&nbsp;send&nbsp;to&nbsp;all&nbsp;players&nbsp;if&nbsp;playerid&nbsp;=&nbsp;INVALID_PLAYER_ID.<br /></span><span style="color: #0000BB">native&nbsp;Turf_Hide</span><span style="color: #007700">(</span><span style="color: #0000BB">Turf</span><span style="color: #007700">:</span><span style="color: #0000BB">turf</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Player</span><span style="color: #007700">:</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Flashes&nbsp;a&nbsp;Turf&nbsp;for&nbsp;a&nbsp;player&nbsp;or&nbsp;players.<br />//&nbsp;Will&nbsp;send&nbsp;to&nbsp;all&nbsp;players&nbsp;if&nbsp; playerid&nbsp;=&nbsp;INVALID_PLAYER_ID.<br /></span><span style="color: #0000BB">native&nbsp;Turf_Flash</span><span style="color: #007700">(</span><span style="color: #0000BB">Turf</span><span style="color: #007700">:</span><span style="color: #0000BB">turf</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">colour</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Player</span><span style="color: #007700">:</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Stops&nbsp;a&nbsp;Turf&nbsp;from&nbsp;flashing&nbsp;for&nbsp;player(s).<br />//&nbsp;Will&nbsp;send&nbsp;to&nbsp;all&nbsp;players&nbsp;if&nbsp;playerid&nbsp;=&nbsp;INVALID_PLAYER_ID.<br /></span><span style="color: #0000BB">native&nbsp;Turf_StopFlashing</span><span style="color: #007700">(</span><span style="color: #0000BB">Turf</span><span style="color: #007700">:</span><span style="color: #0000BB">turf</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Player</span><span style="color: #007700">:</span><span style="color: #0000BB">playerid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">INVALID_PLAYER_ID</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+<span style="font-size: x-large;" class="mycode_size">This is obviously different from the traditional API, but not to worry, there will be wrappers in place for this kind of stuff to make sure a normal script can be recompiled with no issues and without edits.</span><br />
+Another important fact that you may want to know is that every turf is in the same pool and there's a maximum of 4,294,967,295 turfs to be created from the script.<br />
+However, the client can only handle 1024 turfs at one time.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="member9259.html?action=profile&amp;uid=22">TommyB</a> -  <strong>2019-10-19</strong>
+<br />
+<br />
+lovely !
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="member06af.html?action=profile&amp;uid=2">spacemud</a> -  <strong>2019-10-19</strong>
+<br />
+<br />
+NICE release REP++++!!!!!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="memberfecf.html?action=profile&amp;uid=17">iAmir</a> -  <strong>2019-10-19</strong>
+<br />
+<br />
+gangzones &gt; turfs<br />
+sorry bro -REP
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="member461a.html?action=profile&amp;uid=1">Southclaws</a> -  <strong>2019-10-19</strong>
+<br />
+<br />
+josh deleted my gangzone code so im not friends with him any more
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="memberd985.html?action=profile&amp;uid=9">BigETI</a> -  <strong>2019-10-19</strong>
+<br />
+<br />
+Uses inf pool<br />
+<br />
+++rep
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-10-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-10-19, 07:52 PM)</span>Southclaws Wrote:  <a href="showthreadaf7b-2.html?pid=6728#pid6728" class="quick_jump"></a></cite>josh deleted my gangzone code so im not friends with him any more</blockquote><br />
+You've had long enough to complete it!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="memberd54a.html?action=profile&amp;uid=85">nize</a> -  <strong>2019-10-20</strong>
+<br />
+<br />
+so sexi, this thread made me quit nofap
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="memberff92.html?action=profile&amp;uid=102">Caledonite</a> -  <strong>2019-10-20</strong>
+<br />
+<br />
+lovely, can't wait to see more!!!!!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="member19d7.html?action=profile&amp;uid=29">Nutter</a> -  <strong>2019-10-20</strong>
+<br />
+<br />
+approved, great to see progress
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="member79b3.html?action=profile&amp;uid=729">BloodMaster</a> -  <strong>2019-10-27</strong>
+<br />
+<br />
+It would be good to have something like OnPlayerEnter/LeaveTurf aswell
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="memberbf62.html?action=profile&amp;uid=1608">Tama</a> -  <strong>2019-10-29</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-10-27, 09:52 PM)</span>BloodMaster Wrote:  <a href="showthread4922.html?pid=6796#pid6796" class="quick_jump"></a></cite>It would be good to have something like OnPlayerEnter/LeaveTurf aswell</blockquote><br />
+<br />
+Yeah something like this<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">forward&nbsp;OnPlayerEnterTurf</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Turf</span><span style="color: #007700">:</span><span style="color: #0000BB">turf</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">forward&nbsp;OnPlayerLeaveTurf</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Turf</span><span style="color: #007700">:</span><span style="color: #0000BB">turf</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="member02f9.html?action=profile&amp;uid=77">Standal</a> -  <strong>2019-10-30</strong>
+<br />
+<br />
+wonderfully beautiful!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Turfs (formerly gangzones) module</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-11-03</strong>
+<br />
+<br />
+Good job
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

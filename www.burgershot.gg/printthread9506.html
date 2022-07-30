@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Error: No estás cerca de un basurero/container - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread9506.html?tid=1951">Error: No estás cerca de un basurero/container</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  Error: No estás cerca de un basurero/container (<em>/showthread.php?tid=1951</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Error: No estás cerca de un basurero/container</strong> - <a href="member0f88.html?action=profile&amp;uid=3381">Chessy</a> -  <strong>2021-04-27</strong>
+<br />
+<br />
+(nosé porqué se espacia así ed horrible automáticamente el post).<br />
+<br />
+Hola, resulta que estoy desarrollando un sistema de basureros, los cuales se puede ver el contenido con un comando llamado /verbasura.<br />
+<br />
+<br />
+<br />
+Hace un ratito estaba funcionando bien, no sé si es porque es las 3 de la mañana y tengo brain lagging o el error no es lógico.<br />
+<br />
+<br />
+<br />
+Cuestión, ocupo este comando /verbasura al lado del container y me dice, no estás cerca de un container<br />
+<br />
+<br />
+<br />
+Me pregunté si el rango de operación del comando era muy corto, le agrandé más, fui a la db, ocupé las coordenadas exactas que se guardaron al ser creado (porque son dinámicos) y ni así.<br />
+<br />
+<br />
+<br />
+Este es el comando:<br />
+<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:verbasura(playerid, params[])<br />
+<br />
+{<br />
+<br />
+new success;<br />
+<br />
+<br />
+for (new e = 1; e &lt; MAX_CONTAINERS; e++)<br />
+<br />
+<br />
+{<br />
+<br />
+if(IsPlayerInRangeOfPoint(playerid,5,containerInfo[e][cX], containerInfo[e][cY], containerInfo[e][cZ]))<br />
+<br />
+{<br />
+<br />
+<br />
+success++;<br />
+<br />
+if(GetPVarInt(playerid,"ESPOSADO"))<br />
+<br />
+{<br />
+<br />
+ErrorM(playerid, "Estás esposado, no puedes hacer esto en este momento.");<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+MostrarBasura(playerid, e);<br />
+<br />
+<br />
+return 1;<br />
+<br />
+<br />
+}<br />
+<br />
+<br />
+}<br />
+<br />
+if(!success) ErrorM(playerid, "No estás cerca de un basurero/container.");<br />
+<br />
+<br />
+SetPVarInt(playerid, "caflood", GetTickCount());<br />
+<br />
+<br />
+return 1;<br />
+<br />
+<br />
+}</code></div></div><br />
+Me dirás, ah, debe ser porque <br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>containerInfo[e][cX], containerInfo[e][cY], containerInfo[e][cZ]</code></div></div><br />
+Son valores vacíos, tienen un 0. Y no, porque se ocupan para crear el objeto y el label flotante arriba del contenedor... <br />
+<br />
+¿Puede ser porque la función mostrarbasura genere error (traté de descartarlo con la variable success)? (No hay errores en mysql.log [Está en modo ALL] / error.log / warnings.log / server_log.txt)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Error: No estás cerca de un basurero/container</strong> - <a href="member5eaa.html?action=profile&amp;uid=3812">ImFlanny</a> -  <strong>2021-05-29</strong>
+<br />
+<br />
+Tal vez tengas que checar <br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>IsPlayerInRangeOfPoint(playerid, containerInfo[e][cX], containerInfo[e][cY], containerInfo[e][cZ]);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Error: No estás cerca de un basurero/container</strong> - <a href="membera1e7.html?action=profile&amp;uid=1296">PT_Player</a> -  <strong>2022-03-05</strong>
+<br />
+<br />
+Hola<br />
+<br />
+<br />
+<br />
+prueba-lo<br />
+<br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">verbasura</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])<br />{<br /></span><span style="color: #0000BB">SetPVarInt</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"caflood"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">GetTickCount</span><span style="color: #007700">());<br /><br />if(</span><span style="color: #0000BB">GetPVarInt</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #DD0000">"ESPOSADO"</span><span style="color: #007700">))<br />return&nbsp;</span><span style="color: #0000BB">ErrorM</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Estás&nbsp;esposado,&nbsp;no&nbsp;puedes&nbsp;hacer&nbsp;esto&nbsp;en&nbsp;este&nbsp;momento."</span><span style="color: #007700">);<br /><br />new&nbsp;</span><span style="color: #0000BB">success</span><span style="color: #007700">;<br />for(new&nbsp;</span><span style="color: #0000BB">e&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">e&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">MAX_CONTAINERS</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">e</span><span style="color: #007700">++)<br />{<br />if(</span><span style="color: #0000BB">IsPlayerInRangeOfPoint</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">containerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">e</span><span style="color: #007700">][</span><span style="color: #0000BB">cX</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">containerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">e</span><span style="color: #007700">][</span><span style="color: #0000BB">cY</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">containerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">e</span><span style="color: #007700">][</span><span style="color: #0000BB">cZ</span><span style="color: #007700">]))<br />{<br /></span><span style="color: #0000BB">success</span><span style="color: #007700">++;<br /></span><span style="color: #0000BB">MostrarBasura</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">e</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br />}<br />if(!</span><span style="color: #0000BB">success</span><span style="color: #007700">)&nbsp;<br /></span><span style="color: #0000BB">ErrorM</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"No&nbsp;estás&nbsp;cerca&nbsp;de&nbsp;un&nbsp;basurero/container."</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

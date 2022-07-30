@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> A Proper Way to Store Passwords - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadd412.html?tid=493">A Proper Way to Store Passwords</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Tutorials (<i>https://www.burgershot.gg/forumdisplay.php?fid=37</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  A Proper Way to Store Passwords (<em>/showthread.php?tid=493</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>A Proper Way to Store Passwords</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-04-30</strong>
+<br />
+<br />
+Passwords<br />
+<hr class="mycode_hr" />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: xx-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font"><span style="color: #339933;" class="mycode_color">A Proper Way to Store Passwords</span></span></span></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="color: #336633;" class="mycode_color">By Sasinosoft</span></div>
+<br />
+<span style="font-size: x-small;" class="mycode_size">This is an edited version of my SA-MP forums article about storing passwords the most secure way.</span><br />
+<br />
+<span style="font-size: x-large;" class="mycode_size"><span style="color: #339933;" class="mycode_color"><span style="font-family: Impact;" class="mycode_font">Introduction</span></span></span><br />
+The first thing we must be aware of when programming anything that will ask the user to enter a password, is that the user is giving us their trust. It is our duty to keep their password as safe as possible, so that in case of attack to our servers, the attacker will not be able to read their password. <br />
+<br />
+You might think, in the case of San Andreas Multiplayer, that <span style="font-style: italic;" class="mycode_i">"it is just a game"</span>, so the security of the game accounts is not to be taken seriously. However, a poll showed that 59% of people use the same password everywhere or almost everywhere.<span style="font-size: xx-small;" class="mycode_size"> <a href="https://hotforsecurity.bitdefender.com/blog/59-of-people-use-the-same-password-everywhere-poll-finds-19851.html" target="_blank" rel="noopener" class="mycode_url">[source]</a> </span><br />
+<br />
+If the attacker gets access to your game data base, he will most likely obtain all your users' nicknames and passwords, and if they are not properly hashed, then congratulations: you have just made his work easier. After getting this information, the attacker will proceed to check for each user if he is registered on the main websites, such as Google, Microsoft, mail providers, using the passwords and user names he just stole, and this creates high security risks, including the possibility of stealing payment information.<br />
+<br />
+Here you are a few tips to make his work harder.<br />
+<br />
+<br />
+<span style="color: #339933;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font">Do not store passwords in plain text</span></span></span><br />
+It is believed that at least <span style="font-weight: bold;" class="mycode_b">30% of the websites store the passwords in plain text</span>. <a href="http://plaintextoffenders.com/about/" target="_blank" rel="noopener" class="mycode_url"><span style="font-size: xx-small;" class="mycode_size">[source]</span></a> This is really a shame, and it must come to an end. If any website emails your password back in plain text, then it is likely storing your password as such, and compromising your security in all the websites that you used the same password. <br />
+<br />
+You must never do so. In the case of a San Andreas Multiplayer server, as soon as you receive the user password in the inputtext parameter of OnDialogResponse, you must one-way hash it. Fortunately, the developers of SA-MP added the SHA256_PassHash function in version 0.3.7 R2-1, so there is no more excuse for those who don't like to use external plugins. <span style="font-size: xx-small;" class="mycode_size"><a href="http://forum.sa-mp.com/showthread.php?t=581336" target="_blank" rel="noopener" class="mycode_url">[great tutorial]</a></span><br />
+Said that, I also add that there are better algorithms than SHA-256, such as <span style="font-weight: bold;" class="mycode_b">bcrypt</span>. On the Burgershot forums you can find at least two plugins for bcrypt <span style="font-size: xx-small;" class="mycode_size"><a href="showthread74a7.html?tid=136" target="_blank" rel="noopener" class="mycode_url">[SyS's SampBcrypt]</a> <a href="showthreadd96e.html?tid=219" target="_blank" rel="noopener" class="mycode_url">[Bork's samp-crypto]</a>.</span><br />
+<br />
+<span style="font-size: x-large;" class="mycode_size"><span style="color: #339933;" class="mycode_color"><span style="font-family: Impact;" class="mycode_font">Do not simply hash the password and store it</span></span></span><br />
+Why? Just hashing the password and storing it, adds very little security; most users' passwords are simple words or numbers which can be found in dictionaries. If this is the case, the attacker will easily detect the password of the user, simply by searching the hash in rainbow tables; these are per-algorithm tables which already contain the hashes of the most common passwords and more, and they are publicly available on the internet. <a href="http://project-rainbowcrack.com/table.htm" target="_blank" rel="noopener" class="mycode_url"><span style="font-size: xx-small;" class="mycode_size">[example]</span></a><br />
+<br />
+To avoid this problem, and force the attacker to use brute-force attacks, thus wasting his time, money and energy, thus reducing his intentions to get the passwords, you must put salt on them.<br />
+<br />
+The salt is a value that is concatenated to the password before hashing it, and there are different ways to do this, and different opinions about how this should be done. <a href="http://forum.sa-mp.com/showthread.php?t=350664" target="_blank" rel="noopener" class="mycode_url"><span style="font-size: xx-small;" class="mycode_size">[tutorial for SA-MP - Whirlpool]</span></a> The salt is unique for each user, and it is not intended to be secret: its value is stored in plain text into the database at the moment of registration, and it is read by your program when the user attempts to log in.<br />
+<br />
+<br />
+<span style="font-size: x-large;" class="mycode_size"><span style="color: #339933;" class="mycode_color"><span style="font-family: Impact;" class="mycode_font">Do not use usernames as salt</span></span></span><br />
+If your SA-MP Server does this, and another website that your user is registered on with the same username and the same password does the same, both databases will contain the same password hash for the user. If the attacker, after getting a copy of your database and that of the other website, notices this coincidence, then he will most likely focus on this particular user. <br />
+<br />
+Also, if you implemented a system to let the user change his password, you would then going to hash it with the same salt as before: you usually want to avoid this.<br />
+The best practice is to generate a random string the first time the user registers, and to store it into the database in a separate column. When the user wants to change his password, your program will generate a new random string, and update the value in the database.<br />
+<br />
+<br />
+<span style="color: #339933;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font">Avoid writing your own hashing algorithm</span></span></span><br />
+<br />
+While it may seem a good idea to write your own algorithm so that there are no pre-made attacks against it, it's not. Real motivated hackers will simply analyze it and then they will crack it. Do not do this, unless you work for the NSA and your algorithm has been tested for years. Do not do this even if you have studied cryptography and security. This is because, even if you think that your algorithm is strong enough, it has not been tested enough against all the possible kinds of attack. Do not risk, and if you have written one, just keep it as your personal project.<br />
+<br />
+<span style="color: #339933;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font">Use bcrypt</span></span></span><br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i0.wp.com/wptavern.com/wp-content/uploads/2016/03/passwords.jpg?ssl=1http://http://" loading="lazy"  alt="[Image: http:]" class="mycode_img" /></div>
+<br />
+In this post I mentioned different hashing algorithms whose implementations are also available for SA-MP Servers. I must also say that the best option you have is to use bcrypt <a href="showthread74a7.html?tid=136" target="_blank" rel="noopener" class="mycode_url"><span style="font-size: xx-small;" class="mycode_size">[SyS's SampBcrypt]</span></a><span style="font-size: xx-small;" class="mycode_size"> </span><span style="font-size: xx-small;" class="mycode_size"><a href="showthreadd96e.html?tid=219" target="_blank" rel="noopener" class="mycode_url">[Bork's samp-crypto]</a>.</span><br />
+The primary advantage is that bcrypt, unlike the other algorithms mentioned here, aims at being slow to execute, especially on GPUs. When we are computing our hash during user registration or login, we don't care if it takes 1 second or more, because most likely the user will not notice it, instead we really care about the attacker being as slow as possible at brute/dictionary attacking our hashed password. SHA and Whirlpool are aimed at being as fast as possible to execute, and while this means that the user's password is checked in the blink of an eye, it also means that the attacker is able to crack the password in fewer time (with the appropriate equipment).<br />
+By using bcrypt, we make almost impossible for an attacker to crack the password, definitely not worth it for him.<br />
+Among the advantages, I have to mention that bcrypt will generate the salt for you and put it in the same string as the hash, so you will just need one data base column.<br />
+We hope that the open.mp team will implement native support for bcrypt in the API.<br />
+<br />
+<span style="color: #339933;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: Impact;" class="mycode_font">Bonus tips</span></span></span><ul class="mycode_list"><li>Also put pepper. Pepper is another value that is added to the algorithm before the final hash, but instead of being a different value for each user, it is a single constant string which is used for every hash, and it is secretly hardcoded in your code. Of course, after your first user is registered, you must never change it again.<br />
+</li>
+<li>Force the user to use a password of a certain minimum length, and made of multiple words.<br />
+</li>
+<li>In your register dialog, tell the user not to use the same password as other websites or SA-MP Servers, and not to tell his password to anyone.<br />
+</li>
+<li>Ask the user to input his password twice during registration and password changing procedure.<br />
+</li>
+<li>Kick the user and prevent him from logging in again for a certain time if he fails to log in for a certain number of times. This makes unpractical using direct brute force attacks to your server.<br />
+</li>
+<li>Implement a system to change the password, and encourage your users to change it when they feel it is compromised.<br />
+</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-04-30</strong>
+<br />
+<br />
+Absolutely brilliant tutorial.<br />
+<br />
+This is very well written and explained, you clearly done your homework :)<br />
+<br />
+I'm glad tutorials like this exist, I will be making this topic sticky, as it's a common issue most servers fail to implement.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="member262c.html?action=profile&amp;uid=359">hiddos</a> -  <strong>2019-04-30</strong>
+<br />
+<br />
+Is forcing the attacker to go for a brute-force option the only reason why salts are used?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="memberea60.html?action=profile&amp;uid=535"><span class="__cf_email__" data-cfemail="c9a4a0aaa1a8aca589abaca5aea0bca4">[email&#160;protected]</span></a> -  <strong>2019-04-30</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>If any website emails your password back in plain text, then he is surely storing your password as such</blockquote>
+<br />
+Not really. You can't know that. You could just hash a temporary plain password, save it in the database, and send the plain pass to the user
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-05-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-30, 07:05 PM)</span><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7a171319121b1f163a181f161d130f17">[email&#160;protected]</a> Wrote:  <a href="showthread06f9.html?pid=4783#pid4783" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>If any website emails your password back in plain text, then he is surely storing your password as such</blockquote>
+<br />
+Not really. You can't know that. You could just hash a temporary plain password, save it in the database, and send the plain pass to the user</blockquote><br />
+I think the key word there is "your".  It is perfectly fine to send a random temporary password, not the user's original password.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="member7f3f.html?action=profile&amp;uid=23">hual</a> -  <strong>2019-05-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-30, 05:42 PM)</span>anesthesia Wrote:  <a href="showthreadd978.html?pid=4779#pid4779" class="quick_jump"></a></cite>Is forcing the attacker to go for a brute-force option the only reason why salts are used?</blockquote><br />
+Salts prevent dictionary attacks and rainbow tables.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-05-02</strong>
+<br />
+<br />
+And it means you need to crack every password separately.  Without a salt two identical passwords would hash to the same thing.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-05-08</strong>
+<br />
+<br />
+Been peppering passwords since always xd good tutorial btw. 10/10.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="membere4c9.html?action=profile&amp;uid=43">SyS</a> -  <strong>2019-05-08</strong>
+<br />
+<br />
+Nice!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-05-17</strong>
+<br />
+<br />
+Hello, thank you for all your replies, I appreciate it. If you have any suggestion to<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-30, 07:05 PM)</span><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="117c78727970747d5173747d7678647c">[email&#160;protected]</a> Wrote:  <a href="showthread06f9.html?pid=4783#pid4783" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>If any website emails your password back in plain text, then he is surely storing your password as such</blockquote>
+<br />
+Not really. You can't know that. You could just hash a temporary plain password, save it in the database, and send the plain pass to the user</blockquote><br />
+You are right because it is possible that they are emailing it from memory and not from the DB, I will change 'surely' with 'likely' (also 'he' with 'it').
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2019-05-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-30, 07:05 PM)</span><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="83eeeae0ebe2e6efc3e1e6efe4eaf6ee">[email&#160;protected]</a> Wrote:  <a href="showthread06f9.html?pid=4783#pid4783" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>If any website emails your password back in plain text, then he is surely storing your password as such</blockquote>
+<br />
+Not really. You can't know that. You could just hash a temporary plain password, save it in the database, and send the plain pass to the user</blockquote><br />
+That's still a terrible red flag. Password hashing shouldn't be reversible. And there should be no plaintext passwords anywhere for absolutely no reason (other than in memory when a log-in or register is being executed, in which case it must be properly trashed inmediatly after the operaton is complete)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: A Proper Way to Store Passwords</strong> - <a href="member17ae.html?action=profile&amp;uid=3819">GCheredre</a> -  <strong>2021-06-01</strong>
+<br />
+<br />
+Great Tutorial champ, lots of people should take a read at it, it was pretty useful for me too. thanks for sharing this with us
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->

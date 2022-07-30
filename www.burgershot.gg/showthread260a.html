@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: showthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Problema de guardado con SQL.</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="syndication9896.php?type=atom1.0" />
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/EBFKVbK.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="jscripts/jquery6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/jquery.plugins.min6c6d.js?ver=1804"></script>
+<script type="text/javascript" src="jscripts/general6c6d.js?ver=1804"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/global.min.css">
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/avatarep.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/global.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/css3.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/star_ratings.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/showthread.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme9/footer.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/custom.min8355.css?t=1641376402" />
+<link type="text/css" rel="stylesheet" href="cache/themes/theme3/extra.min8355.css?t=1641376402" />
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+
+	var cookieDomain = ".burgershot.gg";
+	var cookiePath = "index.html";
+	var cookiePrefix = "";
+	var cookieSecureFlag = "0";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "6428f000919b5d9a18f82d476f6b077e";
+	var rootpath = "index.html";
+	var imagepath = "images/index.html";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "images/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<script>
+	$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+	$('.scrollToDown').click(function(){
+		$('html, body').animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- end: headerinclude -->
+<script type="text/javascript">
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script type="text/javascript" src="jscripts/report6c6d.js?ver=1804"></script>
+<script src="jscripts/jeditable/jeditable.min.js"></script>
+<script type="text/javascript" src="jscripts/thread6c6d.js?ver=1804"></script>
+</head>
+<body>
+	<!-- start: header -->
+<div class="haut" style="height:70px">
+	<a href="index.html" id="logo"><img style="position: absolute;left: -5px;top: 12px;" src="https://burgershot.gg/burgershot.svg" height="40px" />Burgershot</a>
+	<span class="useroptions">
+		<ul id="menu-deroulant">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="memberlist.html">Members</a></li>
+			<li><a href="showteam.html">Team</a></li>
+			<li><a href="misc0615.html?action=help">Help</a></li>
+			<li><a href="search.html">Search</a></li>
+			<!-- start: header_welcomeblock_guest -->
+<li><a href="member0ddc.html?action=register">Register</a></li>
+<li><a href="member456e.html?action=login">Login</a></li>
+<script>
+    var connected = 0;
+</script>
+<!-- end: header_welcomeblock_guest -->
+		</ul>
+	</span>
+</div>
+<div style="width: 100%; height: 70px;"></div>
+<!-- Start - Navigation menu -->
+<nav class="headerlist" style="display:none">
+<ul>
+  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li><li>
+	<a href="memberlist.html"><i class="fa fa-users"></i> Members</a></li><li>
+	<a href="misc0615.html?action=help"><i class="fa fa-support"></i> Help</a></li><li>
+	<a href="search.html"><i class="fa fa-search"></i> Search</a>
+</li></ul>
+</nav>
+<!-- End - Navigation menu -->
+<center>
+<!-- Start - Advice -->
+<div id="mobile_member">
+</div>
+<!-- End - Advice -->
+</center>
+<div id="container">
+	<a name="top" id="top"></a>
+	<div id="header">
+		<div id="content">
+			<div class="wrapper">
+				
+				
+				
+				
+				
+				
+				<!-- start: nav -->
+<div class="navigation" style="display:none;">
+          <a href="index-2.html">
+		<span id="home_bit">
+			<i class="fa fa-home"></i>
+		</span>
+	</a>
+	<span style="padding: 8px 12px;margin-left: 5px;"><!-- start: nav_bit -->
+<a href="index-2.html">Burgershot</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplay19fd.html?fid=23">Other languages</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplay96b3.html?fid=24">Spanish/Español</a><!-- start: nav_sep -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep -->
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<a href="forumdisplaya5cd.html?fid=51">Programación</a><!-- start: nav_dropdown -->
+
+<!-- end: nav_dropdown -->
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+<i class="fa fa-angle-double-right"></i>
+<!-- end: nav_sep_active --><!-- start: nav_bit_active -->
+<span class="active">Problema de guardado con SQL.</span>
+<!-- end: nav_bit_active --></span>
+</div>
+<script>
+var page = location.pathname;
+page = page.substring(1);
+if(page != 'index.php' && page != '') {
+     $('.navigation').css('display', '');
+}
+</script>
+<!-- end: nav -->
+				<br />
+<!-- end: header -->
+	
+	
+	<table border="0" cellspacing="0" style="border-bottom:none;" cellpadding="7" class="tborder tfixed clear">
+<div>
+			<div style="font-size: 20px; background: #F6F6F6; border:none; color:#2C3E50; " class="thead">
+				
+	<div class="float_right">
+		
+	</div>
+	<!-- start: showthread_ratethread -->
+<div class="star_rating_container">
+        <script type="text/javascript" src="jscripts/rating9348.js?ver=1400"></script>
+        <div id="success_rating_1325" style="float: left; padding-top: 2px; padding-right: 10px;">&nbsp;</div>
+        <div class="inline_rating">
+
+<ul class="star_rating star_rating_notrated" id="rating_thread_1325">
+<li style="width: 0%" class="current_rating" id="current_rating_1325">0 Vote(s) - 0 Average</li>
+<li><a class="five_stars" title="5 stars out of 5" href="ratethread8382.html?tid=1325&amp;rating=5&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="four_stars" title="4 stars out of 5" href="ratethread7018.html?tid=1325&amp;rating=4&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="three_stars" title="3 stars out of 5" href="ratethread86c7.html?tid=1325&amp;rating=3&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="two_stars" title="2 stars out of 5" href="ratethread0a7e.html?tid=1325&amp;rating=2&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+<li><a class="one_star" title="1 star out of 5" href="ratethread72be.html?tid=1325&amp;rating=1&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e"></a></li>
+            </ul>
+        </div>
+</div>
+<!-- end: showthread_ratethread -->
+				<div>
+					<strong><i class="fa fa-comments"></i> Problema de guardado con SQL.</strong>
+				</div>
+			</div>
+</div>
+
+<tr><td id="posts_container">
+	<div id="posts">
+		<!-- start: postbit -->
+
+<a name="pid8585" id="pid8585"></a>
+<div class="post classic " id="post_8585">
+<div class="post_flexible">
+<div class="post_author scaleimages">
+	<center><strong><span class="largetext"><a href="memberc729.html?action=profile&amp;uid=2937"><span style="color: #3c71af;">nittro</span></a></span></strong> <!-- start: postbit_offline -->
+<br><span style="color:red;" title="Online">Offline</span>
+<!-- end: postbit_offline --></center>
+	<!-- start: postbit_avatar -->
+<div class="author_avatar"><a href="memberc729.html?action=profile&amp;uid=2937"><img src="uploads/avatars/avatar_2937bfe1.html?dateline=1604588575" alt="" width="85" height="85" /></a></div>
+<!-- end: postbit_avatar --><br>
+	<div class="author_information">
+			
+			<span class="smalltext">
+				Burgershot Member<br />
+				
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+<span style="float:left">Posts:</span> <span style="float:right">4</span><br />
+<span style="float:left">	Threads:</span> <span style="float:right">2</span><br />
+	<span style="float:left">Joined:</span><span style="float:right"> Nov 2020</span>
+	<!-- start: postbit_reputation -->
+<br /><span style="float:left">Reputation:</span><span style="float:right"> <!-- start: postbit_reputation_formatted_link -->
+<a href="reputation2bba.html?uid=2937"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link --></span>
+<!-- end: postbit_reputation --><!-- start: postbit_profilefield -->
+<br /><span style="float:left">Location:</span><span style="float:right"> Caracas, Venezuela.</span>
+<!-- end: postbit_profilefield -->
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="showthread6e06.html?tid=1325&amp;pid=8585#pid8585" title="Problema de guardado con SQL.">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		<!-- start: postbit_icon -->
+
+<!-- end: postbit_icon -->
+		<span class="post_date"><i class="fa fa-clock-o"></i> 2020-11-07, 08:04 PM <span class="post_edit" id="edited_by_8585"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_8585">
+		Mi problema es que el sistema de registro va bien, pero al desconectarse y loguear otra vez, coloca todos los datos en 0. Estaba probando el sistema hasta que ocurrio.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">DB</span><span style="color: #007700">:</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">;<br />new&nbsp;</span><span style="color: #0000BB">guardadordeCuenta</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">enum&nbsp;d</span><span style="color: #007700">@</span><span style="color: #0000BB">usuario&nbsp;<br /></span><span style="color: #007700">{<br /></span><span style="color: #0000BB">ID</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Nivel</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">NivelStaff</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Vip</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">Ingreso</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Muteado</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Dinero</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Vida</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Chaleco</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Genero</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">PosX</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">PosZ</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">PosY</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">bool</span><span style="color: #007700">:</span><span style="color: #0000BB">NewSpawn<br /></span><span style="color: #007700">};<br />new&nbsp;</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYERS</span><span style="color: #007700">][</span><span style="color: #0000BB">d</span><span style="color: #007700">@</span><span style="color: #0000BB">usuario</span><span style="color: #007700">];<br /><br /><br /></span><span style="color: #0000BB">forward&nbsp;GuardarCuentas</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*<br />*=======================================*<br />*===============Dialogos================*<br />*=======================================*<br />*/<br />#define&nbsp;DIALOGO_REGISTRO&nbsp;(0)<br />#define&nbsp;DIALOGO_INGRESO&nbsp;(1)<br />#define&nbsp;DIALOGO_GENERO&nbsp;(2)<br /><br /></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnGameModeInit</span><span style="color: #007700">()<br />{<br /></span><span style="color: #FF8000">//Conectar&nbsp;al&nbsp;SQlite.<br /></span><span style="color: #0000BB">sqldb&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"sqldb.db"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//Crear&nbsp;la&nbsp;tabla&nbsp;Sqlite.<br /></span><span style="color: #0000BB">db_query</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;IF&nbsp;NOT&nbsp;EXISTS&nbsp;`usuarios`&nbsp;(ID&nbsp;INTEGER&nbsp;PRIMARY&nbsp;KEY&nbsp;AUTOINCREMENT,&nbsp;Nombre&nbsp;TEXT,&nbsp;Llave&nbsp;TEXT,&nbsp;Nivel&nbsp;NUMERIC,&nbsp;NivelStaff&nbsp;NUMERIC,&nbsp;Vip&nbsp;NUMERIC,&nbsp;Muteado&nbsp;NUMERIC,&nbsp;Vida&nbsp;NUMERIC,&nbsp;Chaleco&nbsp;NUMERIC,&nbsp;Dinero&nbsp;NUMERIC,&nbsp;Genero&nbsp;NUMERIC,&nbsp;PosX&nbsp;FLOAT,&nbsp;PosY&nbsp;FLOAT,&nbsp;PosZ&nbsp;FLOAT)"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Algunos&nbsp;Timers&nbsp;sobre&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;SQlite.<br /></span><span style="color: #0000BB">guardadordeCuenta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">SetTimer</span><span style="color: #007700">(</span><span style="color: #DD0000">"GuardarCuentas"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">120000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;Guardar&nbsp;cuentas&nbsp;cada&nbsp;dos&nbsp;minutos.<br /></span><span style="color: #007700">}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnGameModeExit</span><span style="color: #007700">()<br />{<br /></span><span style="color: #FF8000">//Cierro&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br /></span><span style="color: #0000BB">db_close</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerConnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB">ReiniciarD</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[(</span><span style="color: #0000BB">59</span><span style="color: #007700">+</span><span style="color: #0000BB">24</span><span style="color: #007700">)];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;=&nbsp;'%s'&nbsp;COLLATE&nbsp;NOCASE"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">DB_Escape</span><span style="color: #007700">(</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)));<br />new&nbsp;</span><span style="color: #0000BB">DBResult</span><span style="color: #007700">:</span><span style="color: #0000BB">R&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_query</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">db_num_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB">ShowPlayerDialog</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">DIALOGO_INGRESO</span><span style="color: #007700">,</span><span style="color: #0000BB">DIALOG_STYLE_PASSWORD</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">GRISCLARO</span><span style="color: #DD0000">"»&nbsp;"</span><span style="color: #0000BB">AZULMARINO</span><span style="color: #DD0000">"Bienvenido&nbsp;de&nbsp;nuevo&nbsp;al&nbsp;servidor"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">ROJO</span><span style="color: #DD0000">"Escribe&nbsp;tu&nbsp;contraseña&nbsp;para&nbsp;ingresar&nbsp;al&nbsp;servidor."</span><span style="color: #007700">,</span><span style="color: #DD0000">"Ingresar"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Salir"</span><span style="color: #007700">);<br />}<br />else<br />{<br /></span><span style="color: #0000BB">ShowPlayerDialog</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">DIALOGO_REGISTRO</span><span style="color: #007700">,</span><span style="color: #0000BB">DIALOG_STYLE_INPUT</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">GRISCLARO</span><span style="color: #DD0000">"»&nbsp;"</span><span style="color: #0000BB">AZULMARINO</span><span style="color: #DD0000">"Bienvenido&nbsp;al&nbsp;servidor"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">ROJO</span><span style="color: #DD0000">"Escribe&nbsp;tu&nbsp;contraseña&nbsp;para&nbsp;poder&nbsp;guardar&nbsp;tus&nbsp;datos."</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">TURQUESA</span><span style="color: #DD0000">"Registrar"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">ROJO</span><span style="color: #DD0000">"Salir"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">db_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerDisconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">reason</span><span style="color: #007700">)<br />{<br /></span><span style="color: #FF8000">//Guardar&nbsp;posición&nbsp;del&nbsp;jugador.<br /></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">z</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">GetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">,</span><span style="color: #0000BB">y</span><span style="color: #007700">,</span><span style="color: #0000BB">z</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosX</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosY</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">y</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosZ</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">z</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">GuardarCuenta</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ReiniciarD</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnDialogResponse</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">dialogid</span><span style="color: #007700">,</span><span style="color: #0000BB">response</span><span style="color: #007700">,</span><span style="color: #0000BB">listitem</span><span style="color: #007700">,</span><span style="color: #0000BB">inputtext</span><span style="color: #007700">[])<br />{<br /><br />if(</span><span style="color: #0000BB">dialogid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">DIALOGO_INGRESO</span><span style="color: #007700">)<br />{<br />if(!</span><span style="color: #0000BB">response</span><span style="color: #007700">)</span><span style="color: #0000BB">Kick</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">response</span><span style="color: #007700">){<br />new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[(</span><span style="color: #0000BB">76</span><span style="color: #007700">+</span><span style="color: #0000BB">24</span><span style="color: #007700">+</span><span style="color: #0000BB">32</span><span style="color: #007700">)];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;=&nbsp;'%s'&nbsp;AND&nbsp;Llave&nbsp;=&nbsp;'%s'&nbsp;COLLATE&nbsp;NOCASE"</span><span style="color: #007700">,</span><span style="color: #0000BB">DB_Escape</span><span style="color: #007700">(</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)),</span><span style="color: #0000BB">DB_Escape</span><span style="color: #007700">(</span><span style="color: #0000BB">inputtext</span><span style="color: #007700">));<br />new&nbsp;</span><span style="color: #0000BB">DBResult</span><span style="color: #007700">:</span><span style="color: #0000BB">R&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_query</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">,</span><span style="color: #0000BB">query</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">db_num_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">)){<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">ID</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"ID"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Nivel</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"Nivel"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">NivelStaff</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"NivelStaff"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Dinero</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"Dinero"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Vida</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"Vida"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Chaleco</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"Chaleco"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Vip</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"Vip"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Muteado</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"Muteado"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Genero</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_int</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,</span><span style="color: #DD0000">"Genero"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosX</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_float</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PosX"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosY</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_float</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PosY"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosZ</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">db_get_field_assoc_float</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PosZ"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp;format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),</span><span style="color: #DD0000">"~y~%s~n~~b~usted&nbsp;Ingreso&nbsp;con&nbsp;exito."</span><span style="color: #007700">,</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">GameTextForPlayer</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">4000</span><span style="color: #007700">,</span><span style="color: #0000BB">5</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Ingreso</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">NewSpawn</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}else&nbsp;return&nbsp;</span><span style="color: #0000BB">ShowPlayerDialog</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">DIALOGO_INGRESO</span><span style="color: #007700">,</span><span style="color: #0000BB">DIALOG_STYLE_PASSWORD</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">GRISCLARO</span><span style="color: #DD0000">"»&nbsp;"</span><span style="color: #0000BB">AZULMARINO</span><span style="color: #DD0000">"Bienvenido&nbsp;de&nbsp;nuevo&nbsp;al&nbsp;servidor"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">TURQUESA</span><span style="color: #DD0000">"Escribe&nbsp;tu&nbsp;contraseña&nbsp;para&nbsp;ingresar&nbsp;al&nbsp;servidor.&#092;n"</span><span style="color: #0000BB">ROJO</span><span style="color: #DD0000">"La&nbsp;contraseña&nbsp;que&nbsp;has&nbsp;ingresado&nbsp;es&nbsp;incorrecta."</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">TURQUESA</span><span style="color: #DD0000">"Ingresar"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">ROJO</span><span style="color: #DD0000">"Salir"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">db_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">);<br />}}<br /><br /><br />if(</span><span style="color: #0000BB">dialogid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">DIALOGO_REGISTRO</span><span style="color: #007700">)<br />{<br />if(!</span><span style="color: #0000BB">response</span><span style="color: #007700">)</span><span style="color: #0000BB">Kick</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">response</span><span style="color: #007700">)<br />{<br />if(</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">inputtext</span><span style="color: #007700">)&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">4&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">inputtext</span><span style="color: #007700">)&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">ShowPlayerDialog</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">DIALOGO_REGISTRO</span><span style="color: #007700">,</span><span style="color: #0000BB">DIALOG_STYLE_INPUT</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">GRISCLARO</span><span style="color: #DD0000">"»&nbsp;"</span><span style="color: #0000BB">AZULMARINO</span><span style="color: #DD0000">"Bienvenido&nbsp;al&nbsp;servidor"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">ROJO</span><span style="color: #DD0000">"Escribe&nbsp;tu&nbsp;contraseña&nbsp;para&nbsp;poder&nbsp;guardar&nbsp;tus&nbsp;datos."</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">TURQUESA</span><span style="color: #DD0000">"Registrar"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">ROJO</span><span style="color: #DD0000">"Salir"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ShowPlayerDialog</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">DIALOGO_GENERO</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">DIALOG_STYLE_MSGBOX</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #0000BB">GRISCLARO</span><span style="color: #DD0000">"»&nbsp;"</span><span style="color: #0000BB">AZULMARINO</span><span style="color: #DD0000">"¡Excelente!"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #0000BB">ROJO</span><span style="color: #DD0000">"Selecciona&nbsp;tu&nbsp;genero&nbsp;para&nbsp;poder&nbsp;continuar."</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Hombre"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Mujer"</span><span style="color: #007700">);<br />new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[(</span><span style="color: #0000BB">144</span><span style="color: #007700">+</span><span style="color: #0000BB">24</span><span style="color: #007700">+</span><span style="color: #0000BB">32</span><span style="color: #007700">)];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;usuarios&nbsp;(Nombre,Llave,Dinero,NivelStaff,Vip,Nivel,Muteado,PosX,PosY,PosZ)&nbsp;VALUES&nbsp;('%s','%s','0','0','0','0','0','0',&nbsp;'0',&nbsp;'0')"</span><span style="color: #007700">,</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">),</span><span style="color: #0000BB">inputtext</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">db_query</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">,</span><span style="color: #0000BB">query</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),</span><span style="color: #DD0000">"~y~%s~n~~b~usted&nbsp;fue&nbsp;registrado&nbsp;con&nbsp;exito."</span><span style="color: #007700">,</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">GameTextForPlayer</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">4000</span><span style="color: #007700">,</span><span style="color: #0000BB">5</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Ingreso</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">NewSpawn</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}<br />}<br /><br />if(</span><span style="color: #0000BB">dialogid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">DIALOGO_GENERO</span><span style="color: #007700">)<br />{<br />if(!</span><span style="color: #0000BB">response</span><span style="color: #007700">)</span><span style="color: #0000BB">Kick</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />if(!</span><span style="color: #0000BB">response</span><span style="color: #007700">)<br />{<br />new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[</span><span style="color: #0000BB">60</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;usuarios&nbsp;(Genero)&nbsp;VALUES&nbsp;('1')"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Genero</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br />else<br />{<br />new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[</span><span style="color: #0000BB">60</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;usuarios&nbsp;(Genero)&nbsp;VALUES&nbsp;('0')"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Genero</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />}<br />}<br /><br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Evitar&nbsp;bugs&nbsp;//<br /></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerRequestSpawn</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br />if(</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Ingreso</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB">GameTextForPlayer</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #DD0000">"~r~~n~~n~Primero&nbsp;debes&nbsp;ingresar/registrarte."</span><span style="color: #007700">,</span><span style="color: #0000BB">2000</span><span style="color: #007700">,</span><span style="color: #0000BB">5</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />}<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerUpdate</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br />if(</span><span style="color: #0000BB">GetPlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;!=&nbsp;</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Dinero</span><span style="color: #007700">])<br />{<br /></span><span style="color: #0000BB">ResetPlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">GivePlayerMoney</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Dinero</span><span style="color: #007700">]);<br />}<br /><br />if(</span><span style="color: #0000BB">GetPlayerScore</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;!=&nbsp;</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Nivel</span><span style="color: #007700">])<br />{<br /></span><span style="color: #0000BB">SetPlayerScore</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Nivel</span><span style="color: #007700">]);<br />}<br /><br />if(</span><span style="color: #0000BB">IsPlayerAdmin</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;!</span><span style="color: #0000BB">TienePermisos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">))<br />{<br />new&nbsp;</span><span style="color: #0000BB">msg</span><span style="color: #007700">[(</span><span style="color: #0000BB">57</span><span style="color: #007700">+</span><span style="color: #0000BB">24</span><span style="color: #007700">)];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">msg</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">msg</span><span style="color: #007700">),</span><span style="color: #DD0000">"%s&nbsp;fue&nbsp;expulsado&nbsp;por&nbsp;ingresar&nbsp;a&nbsp;la&nbsp;rcon&nbsp;sin&nbsp;autorización."</span><span style="color: #007700">,</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">SendClientMessageToAll</span><span style="color: #007700">(-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">msg</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Kick</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />}<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerSpawn</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br />if(</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">NewSpawn</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB">SetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosX</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosY</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosZ</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">SetPlayerInterior</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br />}<br />else&nbsp;<br />{<br />new&nbsp;</span><span style="color: #0000BB">posal&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">random</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">);<br />switch(</span><span style="color: #0000BB">posal</span><span style="color: #007700">)<br />{<br />case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">SetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1682.7462</span><span style="color: #007700">,-</span><span style="color: #0000BB">2292.2656</span><span style="color: #007700">,</span><span style="color: #0000BB">13.5168</span><span style="color: #007700">);<br />case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">SetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1663.3788</span><span style="color: #007700">,-</span><span style="color: #0000BB">2286.2458</span><span style="color: #007700">,</span><span style="color: #0000BB">5.2656</span><span style="color: #007700">);<br />case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">SetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1682.0084</span><span style="color: #007700">,-</span><span style="color: #0000BB">2286.5540</span><span style="color: #007700">,-</span><span style="color: #0000BB">1.2325</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">SetPlayerInterior</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br />}<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;GuardarCuentas&nbsp;//<br /><br /></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">GuardarCuentas</span><span style="color: #007700">()<br />{<br />for(new&nbsp;</span><span style="color: #0000BB">i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span><span style="color: #0000BB">i</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">MAX_PLAYERS</span><span style="color: #007700">;</span><span style="color: #0000BB">i</span><span style="color: #007700">++)<br />{<br />if(</span><span style="color: #0000BB">IsPlayerConnected</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB">GuardarCuenta</span><span style="color: #007700">(</span><span style="color: #0000BB">i</span><span style="color: #007700">);<br />}<br />}<br />return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Restablecer&nbsp;datos&nbsp;por&nbsp;defecto&nbsp;//<br /></span><span style="color: #0000BB">stock&nbsp;ReiniciarD</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Ingreso</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">ID</span><span style="color: #007700">]&nbsp;=&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Dinero</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Vida</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Chaleco</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">NivelStaff</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Vip</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Nivel</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Muteado</span><span style="color: #007700">]</span><span style="color: #0000BB"> &nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Genero</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosX</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosY</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosZ</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">;<br />}<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Verificar&nbsp;si&nbsp;la&nbsp;Cuenta&nbsp;existe&nbsp;//<br /></span><span style="color: #0000BB">stock&nbsp;CuentaExistente</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">[])<br />{<br />new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[(</span><span style="color: #0000BB">42</span><span style="color: #007700">+</span><span style="color: #0000BB">24</span><span style="color: #007700">)];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;=&nbsp;'%s'"</span><span style="color: #007700">,</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br />new&nbsp;</span><span style="color: #0000BB">DBResult</span><span style="color: #007700">:</span><span style="color: #0000BB">R&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">db_query</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">,</span><span style="color: #0000BB">query</span><span style="color: #007700">);<br />if(</span><span style="color: #0000BB">db_num_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">))<br />{<br />return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">db_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">R</span><span style="color: #007700">);<br />return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Escape&nbsp;//<br /></span><span style="color: #0000BB">stock&nbsp;DB_Escape</span><span style="color: #007700">(</span><span style="color: #0000BB">text</span><span style="color: #007700">[]){<br />new&nbsp;</span><span style="color: #0000BB">ret</span><span style="color: #007700">[</span><span style="color: #0000BB">80&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">],<br /></span><span style="color: #0000BB">ch</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">i</span><span style="color: #007700">,<br /></span><span style="color: #0000BB">j</span><span style="color: #007700">;<br />while&nbsp;((</span><span style="color: #0000BB">ch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">text</span><span style="color: #007700">[</span><span style="color: #0000BB">i</span><span style="color: #007700">++])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">j&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">sizeof&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">ret</span><span style="color: #007700">))<br />{<br />if&nbsp;(</span><span style="color: #0000BB">ch&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">'&#092;''</span><span style="color: #007700">)<br />{<br />if&nbsp;(</span><span style="color: #0000BB">j&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">sizeof&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">ret</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB">ret</span><span style="color: #007700">[</span><span style="color: #0000BB">j</span><span style="color: #007700">++]&nbsp;=&nbsp;</span><span style="color: #DD0000">'&#092;''</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">ret</span><span style="color: #007700">[</span><span style="color: #0000BB">j</span><span style="color: #007700">++]&nbsp;=&nbsp;</span><span style="color: #DD0000">'&#092;''</span><span style="color: #007700">;<br />}<br />}<br />else&nbsp;if&nbsp;(</span><span style="color: #0000BB">j&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">sizeof&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">ret</span><span style="color: #007700">))<br />{<br /></span><span style="color: #0000BB">ret</span><span style="color: #007700">[</span><span style="color: #0000BB">j</span><span style="color: #007700">++]&nbsp;=&nbsp;</span><span style="color: #0000BB">ch</span><span style="color: #007700">;<br />}<br />else<br />{<br /></span><span style="color: #0000BB">j</span><span style="color: #007700">++;<br />}<br />}<br /></span><span style="color: #0000BB">ret</span><span style="color: #007700">[</span><span style="color: #0000BB">sizeof&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">ret</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'&#092;0'</span><span style="color: #007700">;<br />return&nbsp;</span><span style="color: #0000BB">ret</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">stock&nbsp;Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br />new&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[</span><span style="color: #0000BB">24</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,</span><span style="color: #0000BB">name</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">name</span><span style="color: #007700">));<br />return&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">;<br />}<br /><br /><br /><br /></span><span style="color: #0000BB">stock&nbsp;GuardarCuenta</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br />if(</span><span style="color: #0000BB">CuentaExistente</span><span style="color: #007700">(</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)))<br />{<br />new&nbsp;</span><span style="color: #0000BB">query</span><span style="color: #007700">[</span><span style="color: #0000BB">400</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">,</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">query</span><span style="color: #007700">),</span><span style="color: #DD0000">"UPDATE&nbsp;usuarios&nbsp;SET&nbsp;Nivel&nbsp;=&nbsp;'%d',&nbsp;Dinero&nbsp;=&nbsp;'%d',&nbsp;NivelStaff&nbsp;=&nbsp;'%d',&nbsp;Vip&nbsp;=&nbsp;'%d',&nbsp;Muteado&nbsp;=&nbsp;'%d',&nbsp;PosX&nbsp;=&nbsp;'%f',&nbsp;PosY&nbsp;=&nbsp;'%f'&nbsp;PosZ&nbsp;=&nbsp;'%f'&nbsp;WHERE&nbsp;Nombre&nbsp;=&nbsp;'%s'"</span><span style="color: #007700">,</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Nivel</span><span style="color: #007700">],</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Dinero</span><span style="color: #007700">],</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">NivelStaff</span><span style="color: #007700">],</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Vip</span><span style="color: #007700">],</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">Muteado</span><span style="color: #007700">],</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosX</span><span style="color: #007700">],</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosY</span><span style="color: #007700">],</span><span style="color: #0000BB">Cuenta</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">PosZ</span><span style="color: #007700">],</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">db_query</span><span style="color: #007700">(</span><span style="color: #0000BB">sqldb</span><span style="color: #007700">,</span><span style="color: #0000BB">query</span><span style="color: #007700">);<br />}<br />}<br /><br />}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+Los logs:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">43</span><span style="color: #007700">:</span><span style="color: #0000BB">41</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">CREATE&nbsp;TABLE&nbsp;</span><span style="color: #007700">IF&nbsp;</span><span style="color: #0000BB">NOT&nbsp;EXISTS&nbsp;</span><span style="color: #007700">`</span><span style="color: #DD0000">usuarios</span><span style="color: #007700">`&nbsp;(</span><span style="color: #0000BB">ID&nbsp;INTEGER&nbsp;PRIMARY&nbsp;KEY&nbsp;AUTOINCREMENT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Nombre&nbsp;TEXT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Llave&nbsp;TEXT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Nivel&nbsp;NUMERIC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NivelStaff&nbsp;NUMERIC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Vip&nbsp;NUMERIC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Muteado&nbsp;NUMERIC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Vida&nbsp;NUMERIC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Chaleco&nbsp;NUMERIC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Dinero&nbsp;NUMERIC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Genero&nbsp;NUMERIC</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosX&nbsp;FLOAT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosY&nbsp;FLOAT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosZ&nbsp;FLOAT</span><span style="color: #007700">)<br />[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">43</span><span style="color: #007700">:</span><span style="color: #0000BB">41</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">Nova&nbsp;Roleplay</span><span style="color: #007700">.<br />[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">43</span><span style="color: #007700">:</span><span style="color: #0000BB">41</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">Number&nbsp;of&nbsp;vehicle&nbsp;models</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">0<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">44</span><span style="color: #007700">:</span><span style="color: #0000BB">34</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">connection</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">127.0.0.1</span><span style="color: #007700">:</span><span style="color: #0000BB">61684&nbsp;requests&nbsp;connection&nbsp;cookie</span><span style="color: #007700">.<br />[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">44</span><span style="color: #007700">:</span><span style="color: #0000BB">35</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">connection</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">incoming&nbsp;connection</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">127.0.0.1</span><span style="color: #007700">:</span><span style="color: #0000BB">61684&nbsp;id</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">0<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">44</span><span style="color: #007700">:</span><span style="color: #0000BB">35</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">join</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">Phillip_Blackstone&nbsp;has&nbsp;joined&nbsp;the&nbsp;server&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">:</span><span style="color: #0000BB">127.0.0.1</span><span style="color: #007700">)<br />[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">44</span><span style="color: #007700">:</span><span style="color: #0000BB">35</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">SELECT&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'&nbsp;</span><span style="color: #0000BB">COLLATE&nbsp;NOCASE<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">44</span><span style="color: #007700">:</span><span style="color: #0000BB">39</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">INSERT&nbsp;INTO&nbsp;usuarios&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">Nombre</span><span style="color: #007700">,</span><span style="color: #0000BB">Llave</span><span style="color: #007700">,</span><span style="color: #0000BB">Dinero</span><span style="color: #007700">,</span><span style="color: #0000BB">NivelStaff</span><span style="color: #007700">,</span><span style="color: #0000BB">Vip</span><span style="color: #007700">,</span><span style="color: #0000BB">Nivel</span><span style="color: #007700">,</span><span style="color: #0000BB">Muteado</span><span style="color: #007700">,</span><span style="color: #0000BB">PosX</span><span style="color: #007700">,</span><span style="color: #0000BB">PosY</span><span style="color: #007700">,</span><span style="color: #0000BB">PosZ</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">VALUES&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">'Phillip_Blackstone'</span><span style="color: #007700">,</span><span style="color: #DD0000">'20061219'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">)<br />[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">44</span><span style="color: #007700">:</span><span style="color: #0000BB">54</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">SELECT&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">44</span><span style="color: #007700">:</span><span style="color: #0000BB">54</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">UPDATE&nbsp;usuarios&nbsp;SET&nbsp;Nivel&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Dinero&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NivelStaff&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Vip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Muteado&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosX&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'1668.851074'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosY&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'-2242.367187'&nbsp;</span><span style="color: #0000BB">PosZ&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'7.907007'&nbsp;</span><span style="color: #0000BB">WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">44</span><span style="color: #007700">:</span><span style="color: #0000BB">54</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">part</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">Phillip_Blackstone&nbsp;has&nbsp;left&nbsp;the&nbsp;server&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">:</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br />[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">45</span><span style="color: #007700">:</span><span style="color: #0000BB">47</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">connection</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">127.0.0.1</span><span style="color: #007700">:</span><span style="color: #0000BB">63435&nbsp;requests&nbsp;connection&nbsp;cookie</span><span style="color: #007700">.<br />[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">45</span><span style="color: #007700">:</span><span style="color: #0000BB">48</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">connection</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">incoming&nbsp;connection</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">127.0.0.1</span><span style="color: #007700">:</span><span style="color: #0000BB">63435&nbsp;id</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">0<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">45</span><span style="color: #007700">:</span><span style="color: #0000BB">48</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">join</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">Phillip_Blackstone&nbsp;has&nbsp;joined&nbsp;the&nbsp;server&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">:</span><span style="color: #0000BB">127.0.0.1</span><span style="color: #007700">)<br />[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">45</span><span style="color: #007700">:</span><span style="color: #0000BB">48</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">SELECT&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'&nbsp;</span><span style="color: #0000BB">COLLATE&nbsp;NOCASE<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">45</span><span style="color: #007700">:</span><span style="color: #0000BB">51</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">SELECT&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">45</span><span style="color: #007700">:</span><span style="color: #0000BB">51</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">UPDATE&nbsp;usuarios&nbsp;SET&nbsp;Nivel&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Dinero&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NivelStaff&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Vip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Muteado&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosX&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0.000000'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosY&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0.000000'&nbsp;</span><span style="color: #0000BB">PosZ&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0.000000'&nbsp;</span><span style="color: #0000BB">WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">45</span><span style="color: #007700">:</span><span style="color: #0000BB">59</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">SELECT&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'&nbsp;</span><span style="color: #007700">AND&nbsp;</span><span style="color: #0000BB">Llave&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'20061219'&nbsp;</span><span style="color: #0000BB">COLLATE&nbsp;NOCASE<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">46</span><span style="color: #007700">:</span><span style="color: #0000BB">06</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">SELECT&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">FROM&nbsp;usuarios&nbsp;WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">46</span><span style="color: #007700">:</span><span style="color: #0000BB">06</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">db_log_queries</span><span style="color: #007700">]:&nbsp;</span><span style="color: #0000BB">UPDATE&nbsp;usuarios&nbsp;SET&nbsp;Nivel&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Dinero&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NivelStaff&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Vip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Muteado&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosX&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0.000000'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PosY&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'0.000000'&nbsp;</span><span style="color: #0000BB">PosZ&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'-87.565048'&nbsp;</span><span style="color: #0000BB">WHERE&nbsp;Nombre&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Phillip_Blackstone'<br /></span><span style="color: #007700">[</span><span style="color: #0000BB">15</span><span style="color: #007700">:</span><span style="color: #0000BB">46</span><span style="color: #007700">:</span><span style="color: #0000BB">06</span><span style="color: #007700">]&nbsp;[</span><span style="color: #0000BB">part</span><span style="color: #007700">]&nbsp;</span><span style="color: #0000BB">Phillip_Blackstone&nbsp;has&nbsp;left&nbsp;the&nbsp;server&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">:</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;<br /></span></code></div></div></div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_8585">
+		
+	</div>
+</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="search1dd2.html?action=finduser&amp;uid=2937" title="Find all posts by this user" class="postbit_find"><i class="fa fa-search"></i></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="newreply8848.html?tid=1325&amp;replyto=8585" title="Quote this message in a reply" class="postbit_quote"><i class="fa fa-comment"></i></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit -->
+	</div>
+</td></tr>
+		<tr>
+			<td class="tfoot">
+				<!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://www.burgershot.gg/search.php" method="post">
+			<input type="hidden" name="action" value="thread" />
+			<input type="hidden" name="tid" value="1325" />
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == 'Enter Keywords') { this.value = ''; }" onblur="if(this.value=='') { this.value='Enter Keywords'; }" class="textbox" size="25" />
+			<input type="submit" class="button" value="Search Thread" />
+		</form>
+	</div>
+<!-- end: showthread_search -->
+				<div style="padding:10px">
+					<strong>&laquo; <a href="showthread7a95.html?tid=1325&amp;action=nextoldest">Next Oldest</a> | <a href="showthread5ea4.html?tid=1325&amp;action=nextnewest">Next Newest</a> &raquo;</strong><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="float_left"><br>
+		
+	</div>
+	<br class="clear" />
+	
+	
+	
+	<br />
+	<div class="float_left">
+		<ul class="thread_tools">
+			<li class="printable"><a href="printthreadc064.html?tid=1325">View a Printable Version</a></li>
+			
+			<li class="subscription_add"><a href="usercpec1a.html?action=addsubscription&amp;tid=1325&amp;my_post_key=6428f000919b5d9a18f82d476f6b077e">Subscribe to this thread</a></li>
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://www.burgershot.gg/forumdisplay.php" method="get">
+<span class="smalltext"><strong>Forum Jump:</strong></span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="19" > General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20" >-- Chat</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21" >-- Tech</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22" >-- Life</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="48" >-- Art</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56" >-- Programming</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40" > open.mp</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="43" >-- Development Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="42" >-- Questions and Suggestions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="3" > SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6" >-- General Discussions</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9" >-- Videos and Screenshots</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12" >-- Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="10" >-- Pawn Scripting</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="37" >-- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13" >-- Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32" >---- Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31" >---- Libraries</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30" >---- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33" >---- Gamemodes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="67" >---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="69" >-- Advertisements </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23" > Other languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="24" >-- Spanish/Español</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="51" selected="selected">---- Programación</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="52" >---- Discusión GTA SA Multijugador</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="53" >---- Mods</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="54" >---- Offtopic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="55" >---- Juegos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="25" >-- Portuguese/Português</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="26" >-- Russian/Русский</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="28" >-- Italian/Italiano</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29" >-- Dutch/Nederlands</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34" >-- German/Deutsch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="35" >-- Romanian/Română</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="36" >-- Ex-Yu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="38" >-- Polish/Polski</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="44" >---- Ogólne</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="45" >---- Serwery</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="46" >---- Skryptowanie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="47" >---- Filmiki i zdjęcia</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="39" >-- Lithuanian/Lietuviškas</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="49" >-- French/Français</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="50" >-- Hungarian/Magyar</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="57" >-- Hindi/Urdu</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="68" >-- Turkish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="27" >-- Other</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay0eb7.html?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear" />
+	<!-- start: footer -->
+    </div>
+</div>
+<footer class="footer-distributed">
+	<div class="footer-left">
+		<p style="" class="footer-links">
+			© Burgershot - Powered by our <a href="index.html" style="font-weight: bold; font-family: Noto Sans;">Community</a> and <a style="font-weight: bold; font-family: Noto Sans;" href="https://www.mybb.com/"> MyBB</a>
+            <span style="display:block;color: #9f9f9f;font-family: Noto Sans;"><small style="font-size: 12px;">Original Theme by Emerald</small></span>                                     
+	    </p>
+	</div>
+    <div style="" class="footer-right">
+        <div class="footer-icons">
+		</div>
+                
+		<!-- start: footer_themeselect -->
+<div class="theme">
+<form method="POST" action="https://www.burgershot.gg/showthread.php" id="theme_select">
+	<input type="hidden" name="tid" value="1325" />
+<input type="hidden" name="pid" value="8585" />
+
+	<input type="hidden" name="my_post_key" value="6428f000919b5d9a18f82d476f6b077e" />
+	<!-- start: footer_themeselector -->
+<select name="theme" onchange="MyBB.changeTheme();">
+<optgroup label="Quick Theme Select">
+<!-- start: usercp_themeselector_option -->
+<option value="2">MyBB Default Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="3">Burgershot Theme</option>
+<!-- end: usercp_themeselector_option --><!-- start: usercp_themeselector_option -->
+<option value="9">--Light</option>
+<!-- end: usercp_themeselector_option -->
+</optgroup>
+</select>
+<!-- end: footer_themeselector -->
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go" />
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_themeselect -->
+	</div>
+</footer>
+<script>
+	if (connected == 0) { 
+        jQuery("#mobile_member").html("<a href='member456e.html?action=login'>Login</a> - <a href='member0ddc.html?action=register'>Register</a>"); 
+    }
+	if (connected == 1) { 
+        document.getElementById("mobile_member").innerHTML = '<a title="Inbox" href="private.html">Inbox</a> - <a title="User CP" href="usercp.html">User CP</a> - <a title="Log Out" href="member2385.html?action=logout&amp;logoutkey=">Logout</a>'; 
+    }
+</script>
+<!-- end: footer -->
+	<div id="thread_modes_popup" class="popup_menu" style="display: none;"><div class="popup_item_container"><a href="showthreadc093-2.html?mode=linear&amp;tid=1325&amp;pid=8585#pid8585" class="popup_item">Linear Mode</a></div><div class="popup_item_container"><a href="showthread170c.html?mode=threaded&amp;tid=1325&amp;pid=8585#pid8585" class="popup_item">Threaded Mode</a></div></div>
+	<script type="text/javascript">
+	// <!--
+		if(use_xmlhttprequest == "1")
+		{
+			$("#thread_modes").popupMenu();
+		}
+	// -->
+	</script>
+	<script type="text/javascript">
+		$(".author_avatar img").error(function () {
+			$(this).unbind("error").closest('.author_avatar').remove();
+		});
+	</script>
+</body>
+</html>
+<!-- end: showthread -->

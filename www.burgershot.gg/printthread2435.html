@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Filterscript Hunting System - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> <a href="showthread2435.html?tid=1916">Hunting System</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Filterscripts (<i>https://www.burgershot.gg/forumdisplay.php?fid=30</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> Hunting System (<em>/showthread.php?tid=1916</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Hunting System</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-18</strong>
+<br />
+<br />
+Hello, I would like to present you the Hunting System.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Video:</span><br />
+<a href="https://www.youtube.com/watch?v=gySSTtjFRB0" target="_blank" rel="noopener" class="mycode_url">https://www.youtube.com/watch?v=gySSTtjFRB0</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Functions:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Hunting::Create(type,Float:x,Float:y,Float:z,Float:health,respawntime,worldid=-1,interiorid=-1,playerid=-1,Float:streamdistance=200.0,moving_area = 0);<br />
+Hunting::Destroy(mobid);<br />
+Hunting::Respawn(mobid);<br />
+Hunting::ForceRespawn(mobid,Float:x,Float:y,Float:z);<br />
+Hunting::Kill(mobid,playerid=INVALID_PLAYER_ID);<br />
+Hunting::Stop(mobid,delay=-1);<br />
+Hunting::GoTo(mobid,Float:x,Float:y,bool:disable_moving=false);<br />
+Hunting::GetDrop(mobid);<br />
+Hunting::SetDrop(mobid,drop);<br />
+Hunting::GetPos(mobid,Float:x,Float:y,Float:z);<br />
+Hunting::SetPos(mobid,Float:x,Float:y,Float:z,bool:disable_moving=false);<br />
+Hunting::GetScaredRange(mobid);<br />
+Hunting::SetScaredRange(mobid,Float:range);<br />
+Hunting::GetHealth(mobid);<br />
+Hunting::SetHealth(mobid,Float:health);<br />
+Hunting::GetSpawnHealth(mobid);<br />
+Hunting::SetSpawnHealth(mobid,Float:health);<br />
+Hunting::GetRespawnTime(mobid);<br />
+Hunting::SetRespawnTime(mobid,respawntime);<br />
+Hunting::GetSpawn(mobid,&amp;Float:x,&amp;Float:y,&amp;Float:z);<br />
+Hunting::SetSpawn(mobid,Float:x,Float:y,Float:z);<br />
+Hunting::GetInterior(mobid);<br />
+Hunting::SetInterior(mobid,interiorid);<br />
+Hunting::GetVirtualWorld(mobid);<br />
+Hunting::SetVirtualWorld(mobid,worldid);<br />
+Hunting::GetSpeed(mobid);<br />
+Hunting::SetSpeed(mobid,Float:speed);<br />
+Hunting::GetPressTime(mobid);<br />
+Hunting::SetPressTime(mobid,miliseconds);<br />
+Hunting::GetFacingAngle(mobid);<br />
+Hunting::SetCalmTime(mobid,time=0);<br />
+Hunting::IsPlayerInRange(playerid,mobid,Float:range);<br />
+Hunting::IsToggledMoving(mobid);<br />
+Hunting::ToggleMoving(mobid,toggle);<br />
+Hunting::IsValid(mobid);<br />
+Hunting::IsSpawned(mobid);<br />
+Hunting::IsDead(mobid);<br />
+Hunting::IsScared(mobid);<br />
+Hunting::IsStopped(mobid);<br />
+Hunting::IsMoving(mobid);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Extended Functions:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Hunting::Count();<br />
+Hunting::GetKey();<br />
+Hunting::SetKey(key);<br />
+Hunting::GetFreeID();<br />
+Hunting::GetActiveMob(playerid,mob_state);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Callbacks:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerTakeHuntDrop(playerid,mobid,drop);<br />
+OnPlayerKillHuntAnimal(playerid,mobid);<br />
+OnPlayerApproachingAnimal(playerid,mobid,mob_state);<br />
+OnPlayerExitApproachingAnimal(playerid,mobid,mob_state);<br />
+OnAnimalTakeDamage(mobid,playerid,Float:amount,weaponid);<br />
+OnHuntAnimalRespawn(mobid);<br />
+OnAnimalScareStateChanged(mobid,playerid,isscared);<br />
+OnPlayerHuntDropStateChange(playerid,mobid,drop_state); //only called if press time &gt; 0</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Definitions:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>//Config<br />
+MAX_HUNTING_ANIMALS    //default is 100 allowed to redefine<br />
+HUNTING_UPDATE_INTERVAL //default is 500 allowed to redefine<br />
+<br />
+//Animal types<br />
+HUNTING_TYPE_COW<br />
+HUNTING_TYPE_DEER<br />
+<br />
+//Animal state<br />
+HUNTING_STATE_DESTROYED //animal not exist<br />
+HUNTING_STATE_SPAWNED  //animal is spawned<br />
+HUNTING_STATE_DEAD      //animal is dead<br />
+<br />
+//Drop State<br />
+HUNTING_DROP_STATE_FINISH<br />
+HUNTING_DROP_STATE_START<br />
+HUNTING_DROP_STATE_INTERRUPT<br />
+<br />
+//Other<br />
+INVALID_HUNTING_ID<br />
+HUNTING_NO_AUTO_RESPAWN //disable auto respawn (respawntime param)</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Example Pawn Code:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+#include &lt;streamer&gt;<br />
+#include &lt;ColAndreas&gt;<br />
+#include &lt;3DTryg&gt;<br />
+#include &lt;Hunting&gt;<br />
+<br />
+public OnFilterScriptInit(){<br />
+<br />
+new my_zone = CreateDynamicRectangle(-100.0,-100.0,100.0,100.0);<br />
+for(new i = 0; i &lt; 5; i++){<br />
+Hunting::Create(HUNTING_TYPE_COW,0.0,0.0,3.0,55.0,30,.moving_area=my_zone);<br />
+<br />
+Hunting::Create(HUNTING_TYPE_DEER,5.0,0.0,3.0,55.0,30,.moving_area=my_zone);<br />
+}<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerTakeHuntDrop(playerid,mobid,drop){<br />
+<br />
+if(drop){<br />
+SendClientMessage(playerid,-1,"You received &#36;2500");<br />
+GivePlayerMoney(playerid,2500);<br />
+}<br />
+return 0; //set drop flag 0<br />
+}<br />
+<br />
+public OnPlayerKillHuntAnimal(playerid,mobid){<br />
+<br />
+SendClientMessage(playerid,-1,"Animal has been killed !");<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerApproachingAnimal(playerid,mobid,mob_state){<br />
+<br />
+if(mob_state == HUNTING_STATE_DEAD){<br />
+SendClientMessage(playerid,-1,"Press Y to raise prize.");<br />
+}<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerExitApproachingAnimal(playerid,mobid,mob_state){<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+public OnAnimalTakeDamage(mobid,playerid,Float:amount,weaponid){<br />
+<br />
+if(weaponid != 34) return 0; //sniper only :D<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+public OnHuntAnimalRespawn(mobid){<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+public OnAnimalScareStateChanged(mobid,playerid,isscared){<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+//only called if press time &gt; 0<br />
+public OnPlayerHuntDropStateChange(playerid,mobid,drop_state){<br />
+switch(drop_state){<br />
+case HUNTING_DROP_STATE_FINISH: {<br />
+//your code<br />
+}<br />
+case HUNTING_DROP_STATE_START: {<br />
+//your code<br />
+}<br />
+case HUNTING_DROP_STATE_INTERRUPT: {<br />
+//your code<br />
+}<br />
+}<br />
+return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Download:</span><br />
+<a href="https://adm.ct8.pl/cloud/Libs/Hunting/Hunting.inc" target="_blank" rel="noopener" class="mycode_url">Hunting.inc</a><br />
+<a href="https://adm.ct8.pl/cloud/Libs/3DTryg/3DTryg.inc" target="_blank" rel="noopener" class="mycode_url">3DTryg.inc</a><br />
+<a href="showthread681c.html?tid=175" target="_blank" rel="noopener" class="mycode_url">ColAndreas Plugin</a><br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Notice:</span><br />
+Filterscript not exist because filterscripts have <span style="font-weight: bold;" class="mycode_b">limits.</span><br />
+This has been replaced by include, having <span style="font-weight: bold;" class="mycode_b">automatic installation</span>, efficient GameMode/FilterScript.</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Hunting System</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-09-17</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Update v1.4.4:</span><br />
+<br />
+- Changed movement sequence
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

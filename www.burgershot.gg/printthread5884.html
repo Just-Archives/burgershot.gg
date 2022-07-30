@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Filterscript Faction Missions - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> <a href="showthread5884.html?tid=1919">Faction Missions</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Filterscripts (<i>https://www.burgershot.gg/forumdisplay.php?fid=30</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> Faction Missions (<em>/showthread.php?tid=1919</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Faction Missions</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-18</strong>
+<br />
+<br />
+Hello, I would like to present you the Faction Mini Missions.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Video:</span><br />
+https://www.youtube.com/watch?v=uMpS2SaWmB0<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Example Code:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;Streamer&gt;<br />
+#include &lt;colandreas&gt;<br />
+#include &lt;route_rand&gt;<br />
+#include &lt;3DTryg&gt;<br />
+#include &lt;Missions&gt;<br />
+<br />
+public OnPlayerEnterPatrol(playerid,mobid){<br />
+if(GetPlayerTeam(playerid) == TEAM_POLICEMAN) return 1; //policeman clear unsafe zone <br />
+return 0; //player get robbed<br />
+}<br />
+<br />
+public OnPlayerDestroyPatrol(playerid,mobid){<br />
+//give mission prize<br />
+GivePlayerMoney(playerid,100);<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerRobbed(playerid,mobid,mission_state){<br />
+switch(mission_state){<br />
+case MISSIONS_STATE_FAIL_ROBBERY: {<br />
+SendClientMessage(playerid,0xFFFFFFFF,"The thief stumbled and you managed to escape :)");<br />
+}<br />
+case MISSIONS_STATE_ROBBED: {<br />
+SendClientMessage(playerid,0xFFFFFFFF,"You lose &#36;100 by robbers");<br />
+GivePlayerMoney(playerid,-100);<br />
+}<br />
+}<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerFoundCorpse(playerid,mobid){<br />
+if(GetPlayerTeam(playerid) == TEAM_MEDIC) return 1;<br />
+return 0; //player able hit corpse (if in vehicle)<br />
+}<br />
+<br />
+public OnPlayerHitCorpse(playerid,mobid){<br />
+SendClientMessage(playerid,0xFFFFFFFF,"You hit corpse by vehicle, you got mandate &#36;100");<br />
+GivePlayerMoney(playerid,-100);<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerHealCorpse(playerid,mobid){<br />
+if(GetPlayerTeam(playerid) == TEAM_MEDIC){<br />
+SendClientMessage(playerid,0xFFFFFFFF,"You healed the corpse");<br />
+return 1;<br />
+}<br />
+return 0;<br />
+}<br />
+<br />
+public OnPlayerFoundScrap(playerid,mobid){<br />
+if(GetPlayerTeam(playerid) == TEAM_METAL_SCRAPPER) return 1; //player able to pickup Scrap (Only for vehicle 578)<br />
+return 0;<br />
+}<br />
+<br />
+public OnPlayerTakeScrap(playerid,mobid,mission_state,count_items){<br />
+switch(mission_state){<br />
+case MISSIONS_SCRAP_FULL: {<br />
+SendClientMessage(playerid,0xFFFFFFFF,"Your vehicle cargo is full");<br />
+}<br />
+case MISSIONS_SCRAP_LOADED: {<br />
+SendClientMessage(playerid,0xFFFFFFFF,"You picked up scrap metal");<br />
+}<br />
+}<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerExceededSpeed(playerid,mobid,Float:speed,Float:max_speed){<br />
+new buffer[256];<br />
+format(buffer,sizeof(buffer),"You exceeded the maximum speed %.1f mph you were driving %.1f mph",max_speed,speed);<br />
+SendClientMessage(playerid,0xFFFFFFFF,buffer);<br />
+//mandate or something :D<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerPutOutFire(playerid,mobid){<br />
+SendClientMessage(playerid,0xFFFFFFFF,"You put out fire");<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerVehicleDamagedByRoad(playerid,mobid,old_health,new_health,veh_damage){<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerDestroyedTreeOnRoad(playerid,mobid){<br />
+SendClientMessage(playerid,0xFFFFFFFF,"You destroyed tree on road");<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerUnloadingScrap(playerid,count_items){<br />
+if(Item::InCircle(playerid,item_player,0.0,0.0,10.0)){<br />
+SendClientMessage(playerid,0xFFFFFFFF,"You unloading scrap");<br />
+return 1;<br />
+}<br />
+return 0;<br />
+}<br />
+<br />
+public OnPlayerTryDisarmBomb(playerid,mobid){<br />
+if(GetPlayerTeam(playerid) == TEAM_ARMY) return 1;<br />
+return 0;<br />
+}<br />
+<br />
+public OnPlayerDisarmBomb(playerid,mobid,mission_state){<br />
+switch(mission_state){<br />
+case MISSIONS_BOMB_DISARM_FAIL: {<br />
+SendClientMessage(playerid,0xFFFFFFFF,"Failed to disarm bomb !!!");<br />
+}<br />
+case MISSIONS_BOMB_DISARM_SUCCESS: {<br />
+SendClientMessage(playerid,0xFFFFFFFF,"Bomb disarmed");<br />
+}<br />
+case MISSIONS_BOMB_DISARM_TOO_LATE: {<br />
+SendClientMessage(playerid,0xFFFFFFFF,"Is too late to disarm bomb !!!");<br />
+}<br />
+}<br />
+return 1;<br />
+}<br />
+<br />
+public OnPlayerFixedRoad(playerid,mobid){<br />
+SendClientMessage(playerid,0xFFFFFFFF,"Road fixed");<br />
+return 1;<br />
+}<br />
+<br />
+public OnGameModeInit(){<br />
+<br />
+Missions::SetMissionsScrapKey(KEY_YES);<br />
+Missions::SetMissionsCorpseKey(KEY_YES);<br />
+Missions::SetMissionsBombKey(KEY_YES);<br />
+<br />
+Missions::Enable(MISSIONS_TYPE_BOMB);<br />
+Missions::Enable(MISSIONS_TYPE_WOOD);<br />
+Missions::Enable(MISSIONS_TYPE_SCRAP);<br />
+Missions::Enable(MISSIONS_TYPE_CORPSE);<br />
+Missions::Enable(MISSIONS_TYPE_DMGROUTE);<br />
+Missions::Enable(MISSIONS_TYPE_FIRE);<br />
+Missions::Enable(MISSIONS_TYPE_PATROL);<br />
+<br />
+Missions::SetSpawnRectangle(MISSIONS_TYPE_BOMB,-3000.0,-3000.0,3000.0,3000.0);<br />
+Missions::SetSpawnRectangle(MISSIONS_TYPE_CORPSE,-3000.0,-3000.0,3000.0,3000.0);<br />
+Missions::SetSpawnRectangle(MISSIONS_TYPE_FIRE,-3000.0,-3000.0,3000.0,3000.0);<br />
+Missions::SetSpawnRectangle(MISSIONS_TYPE_WOOD,-3000.0,-3000.0,3000.0,3000.0);<br />
+Missions::SetSpawnRectangle(MISSIONS_TYPE_SCRAP,-3000.0,-3000.0,3000.0,3000.0);<br />
+Missions::SetSpawnRectangle(MISSIONS_TYPE_DMGROUTE,-3000.0,-3000.0,3000.0,3000.0);<br />
+Missions::SetSpawnRectangle(MISSIONS_TYPE_PATROL,-3000.0,-3000.0,3000.0,3000.0);<br />
+<br />
+Missions::Generate(); //force mission generate after server restart<br />
+<br />
+return 1;<br />
+}<br />
+<br />
+CMD:speedcamera_del(playerid,params[]){<br />
+if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid,0xFFFFFFFF,"Leave vehicle");<br />
+new mobid;<br />
+if(sscanf(params,"d",mobid)) return SendClientMessage(playerid,0xFFFFFFFF,"Usage /speedcamera_del &lt;id&gt;");<br />
+if(mobid &lt; 0 || mobid &gt;= MISSIONS_MAX_RADAR) return SendClientMessage(playerid,0xFFFFFFFF,"Wrong speed camera ID (0 - 99)");<br />
+if(!Missions::RadarData[mobid][f_active]) return SendClientMessage(playerid,0xFFFFFFFF,"Speed camera is not active");<br />
+Missions::DestroyRadar(mobid);<br />
+SendClientMessage(playerid,0xFFFFFFFF,"Speed camera deleted");<br />
+return 1;<br />
+}<br />
+<br />
+CMD:speedcamera_add(playerid,params[]){<br />
+if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid,0xFFFFFFFF,"Leave vehicle");<br />
+new Float:speed;<br />
+if(sscanf(params,"f",speed)) return SendClientMessage(playerid,0xFFFFFFFF,"Używaj /speedcamera_add &lt;max_speed&gt;");<br />
+new Float:x,Float:y,Float:z,Float:z_angle;<br />
+GetPlayerPos(playerid,x,y,z);<br />
+GetPointInFrontOfPlayer(playerid,x,y,1.0);<br />
+GetPlayerFacingAngle(playerid,z_angle);<br />
+if(Missions::CreateRadar(x,y,z,z_angle,0,0,speed)){<br />
+SendClientMessage(playerid,0xFFFFFFFF,"Speed camera added");<br />
+ApplyAnimation(playerid,"BOMBER","BOM_Plant",4.1,0,0,0,0,0);<br />
+} else {<br />
+SendClientMessage(playerid,0xFFFFFFFF,"Unable to add speed camera (limit exceeded)");<br />
+}<br />
+return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Functions:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Missions::SetMissionsScrapKey(key);<br />
+Missions::SetMissionsCorpseKey(key);<br />
+Missions::SetMissionsBombKey(key);<br />
+Missions::CountVehicleScrap(vehicleid);<br />
+Missions::DropScrap(vehicleid);<br />
+Missions::HealCorpse(playerid);<br />
+Missions::CreateRadar(Float:x,Float:y,Float:z,Float:rz,worldid=0,interiorid=0,Float:speed=80.0);<br />
+Missions::DestroyRadar(mobid);<br />
+Missions::SetSpawnRectangle(mission_type,Float:minx,Float:miny,Float:maxx,Float:maxy,bool:spawn_validation=true);<br />
+Missions::SetSpawnPolygon(mission_type,Float:points[],maxpoints=sizeof(points),bool:spawn_validation=true);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Callbacks:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerEnterPatrol(playerid,mobid);<br />
+OnPlayerDestroyPatrol(playerid,mobid);<br />
+OnPlayerRobbed(playerid,mobid,mission_state);<br />
+OnPlayerFoundCorpse(playerid,mobid);<br />
+OnPlayerHitCorpse(playerid,mobid);<br />
+OnPlayerFoundScrap(playerid,mobid);<br />
+OnPlayerTakeScrap(playerid,mobid,mission_state,count_items);<br />
+OnPlayerExceededSpeed(playerid,mobid,Float:speed,Float:max_speed);<br />
+OnPlayerPutOutFire(playerid,mobid);<br />
+OnPlayerVehicleDamagedByRoad(playerid,mobid,old_health,new_health,veh_damage);<br />
+OnPlayerDestroyedTreeOnRoad(playerid,mobid);<br />
+OnPlayerUnloadingScrap(playerid,count_items);<br />
+OnPlayerHealCorpse(playerid,mobid);<br />
+OnPlayerTryDisarmBomb(playerid,mobid);<br />
+OnPlayerDisarmBomb(playerid,mobid,mission_state);<br />
+OnPlayerFixedRoad(playerid,mobid);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Download:</span><br />
+<a href="https://adm.ct8.pl/cloud/Libs/Missions/Missions.inc" target="_blank" rel="noopener" class="mycode_url">Missions.inc</a><br />
+<a href="https://adm.ct8.pl/cloud/Libs/route_rand/route_rand.inc" target="_blank" rel="noopener" class="mycode_url">route_rand.inc</a><br />
+<a href="https://adm.ct8.pl/cloud/Libs/route_rand/route_rand.bin" target="_blank" rel="noopener" class="mycode_url">route_rand.bin</a> (put in /scriptfiles)<br />
+<a href="https://adm.ct8.pl/cloud/Libs/3DTryg/3DTryg.inc" target="_blank" rel="noopener" class="mycode_url">3DTryg.inc</a><br />
+<a href="showthread681c.html?tid=175" target="_blank" rel="noopener" class="mycode_url">ColAndreas Plugin</a><br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Notice:</span><br />
+Filterscript not exist because filterscripts have <span style="font-weight: bold;" class="mycode_b">limits.</span><br />
+This has been replaced by include, having <span style="font-weight: bold;" class="mycode_b">automatic installation</span>, efficient GameMode/FilterScript.</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Faction Missions</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-09-17</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Update v1.2.0:</span><br />
+<br />
+- Changed fire death reason to WEAPON_CONFLAGRATION<br />
+<br />
+- Added ability to overwrite Scrap spawns<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Float:Missions_ScrapSpawns[][4] = {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{2080.634033,896.861389,7.863133,1.398017},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{2142.217529,1012.950622,10.820312,268.473632},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{2142.012451,854.660888,13.809225,177.629562}<br />
+};<br />
+#include &lt;Missions&gt;</code></div></div><br />
+- Improved include guards<br />
+<br />
+- Added Damaged gas pipe mini mission available only with ExtendedGrenade<br />
+<br />
+- Added callback:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerFixedGasPipe(playerid,mobid);</code></div></div><br />
+- Added definitions:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>MISSIONS_MAX_GASPIPE - default 30, can be redefined<br />
+MISSIONS_GASPIPE_DOT - default 5.0, can be redefined</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Video:</span><br />
+https://www.youtube.com/watch?v=_1mHqL4_KbQ
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

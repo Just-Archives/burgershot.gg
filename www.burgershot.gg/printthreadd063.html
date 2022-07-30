@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Filterscript VehPara (Vehicle parachute) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> <a href="showthreadd063.html?tid=1909">VehPara (Vehicle parachute)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Filterscripts (<i>https://www.burgershot.gg/forumdisplay.php?fid=30</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="font-weight: bold;color: #F755B7;">[Filterscript]</span> VehPara (Vehicle parachute) (<em>/showthread.php?tid=1909</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>VehPara (Vehicle parachute)</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-18</strong>
+<br />
+<br />
+Hello, I would like to present you the Vehicle Parachute Script<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Video:</span><br />
+<a href="https://www.youtube.com/watch?v=TrxYkMeBtsU" target="_blank" rel="noopener" class="mycode_url">https://www.youtube.com/watch?v=TrxYkMeBtsU</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Download:</span><br />
+<a href="https://adm.ct8.pl/cloud/Libs/VehPara/VehPara.inc" target="_blank" rel="noopener" class="mycode_url">VehPara.inc</a><br />
+<a href="https://adm.ct8.pl/cloud/Libs/3DTryg/3DTryg.inc" target="_blank" rel="noopener" class="mycode_url">3DTryg.inc</a><br />
+<a href="showthread681c.html?tid=175" target="_blank" rel="noopener" class="mycode_url">ColAndreas Plugin</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Installation:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;ColAndreas&gt;<br />
+#include &lt;3DTryg&gt;<br />
+#include &lt;VehPara&gt;</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Functions:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>bool:IsPlayerUsingVehPara(playerid);<br />
+bool:IsToggleVehicleParachute(vehicleid);<br />
+ToggleVehicleParachute(vehicleid,bool:toggle);<br />
+SetVehicleParachuteKey(key);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Callbacks:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnVehicleParachuteThrown(playerid,vehicleid);<br />
+OnVehicleParachuteOpened(playerid,vehicleid);<br />
+OnVehicleParachuteOpenFail(playerid,vehicleid);</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Activation:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>H - Open/thrown parachute</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Example Code:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:vehpara(playerid){<br />
+<br />
+new vid = GetPlayerVehicleID(playerid);<br />
+if(IsToggleVehicleParachute(vid)) return SendClientMessage(playerid,0xCC0000FF,"Your vehicle already has a parachute");<br />
+if(!IsVehicleFlag(GetVehicleFlags(vid),VF_STREET)) return SendClientMessage(playerid,0xCC0000FF,"For this vehicle can not be mounted parachute");<br />
+<br />
+ToggleVehicleParachute(vid,true);<br />
+return 1;<br />
+}<br />
+<br />
+//Callbacks:<br />
+public OnVehicleParachuteThrown(playerid,vehicleid){<br />
+GameTextForPlayer(playerid,"~g~Parachute has been thrown",2500,3);<br />
+return 1;<br />
+}<br />
+<br />
+public OnVehicleParachuteOpened(playerid,vehicleid){<br />
+GameTextForPlayer(playerid,"~g~Parachute has been opened",2500,3);<br />
+return 1;<br />
+}<br />
+<br />
+public OnVehicleParachuteOpenFail(playerid,vehicleid){<br />
+GameTextForPlayer(playerid,"~g~Cannot use parachute",2500,3);<br />
+return 1;<br />
+}</code></div></div><br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Notice:</span><br />
+Filterscript not exist because filterscripts have <span style="font-weight: bold;" class="mycode_b">limits.</span><br />
+This has been replaced by include, having <span style="font-weight: bold;" class="mycode_b">automatic installation</span>, efficient GameMode/FilterScript.</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: VehPara (Vehicle parachute)</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-04-22</strong>
+<br />
+<br />
+hi sir sorry. Are there any native functions from ColAndreas that will be used when this script is running? I mean I need to write another function called from source include ColAndreas. Because there are too many include here. Can you explain the simplicity sir?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: VehPara (Vehicle parachute)</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-22</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-22, 04:59 AM)</span>PutuSuhartawan Wrote:  <a href="showthread4f57.html?pid=10802#pid10802" class="quick_jump"></a></cite>hi sir sorry. Are there any native functions from ColAndreas that will be used when this script is running? I mean I need to write another function called from source include ColAndreas. Because there are too many include here. Can you explain the simplicity sir?</blockquote><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerUpdate -&gt; {<br />
+    IsCollisionFlag<br />
+    Item::GetCollisionFlags -&gt; {<br />
+        Item::GetPos<br />
+        GetPointCollisionFlags -&gt; {<br />
+            IsPointInUnderwater -&gt; IsPointInWater -&gt; CA_RayCastLine<br />
+            IsPointInWater -&gt; CA_RayCastLine<br />
+            IsPointInAir -&gt; InteriorFindZ -&gt; CA_FindZ_For2DCoord<br />
+            IsPointInUnderground -&gt; CA_FindZ_For2DCoord -&gt; IsPointInWater -&gt; CA_RayCastLine<br />
+        }<br />
+    }<br />
+}</code></div></div><br />
+ColAndreas usage<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CA_FindZ_For2DCoord<br />
+CA_RayCastLine</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: VehPara (Vehicle parachute)</strong> - <a href="memberd71e.html?action=profile&amp;uid=4043">Nebula</a> -  <strong>2021-09-28</strong>
+<br />
+<br />
+I've had fun messing around with alot of you releases, good job.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: VehPara (Vehicle parachute)</strong> - <a href="member7b97.html?action=profile&amp;uid=1602">loooove</a> -  <strong>2021-09-29</strong>
+<br />
+<br />
+Woow, this seems very cool. I look forward to try it! Perfect job.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

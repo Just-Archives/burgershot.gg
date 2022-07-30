@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [Ayuda] 4 errores - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread4d58.html?tid=1615">[Ayuda] 4 errores</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  [Ayuda] 4 errores (<em>/showthread.php?tid=1615</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Ayuda] 4 errores</strong> - <a href="memberb2ae.html?action=profile&amp;uid=3358">Kaiser</a> -  <strong>2021-01-29</strong>
+<br />
+<br />
+Buenas de nuevo jaja, acá tengo 4 erroes y ya intente varias cosas pero no encuentro la solución, me podrían decir que puedo hacer.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>gamemodes&#92;Gamemode.pwn(21163) : error 029: invalid expression, assumed zero<br />
+gamemodes&#92;Gamemode.pwn(21163) : error 029: invalid expression, assumed zero<br />
+gamemodes&#92;Gamemode.pwn(21163) : error 076: syntax error in the expression, or invalid function call<br />
+gamemodes&#92;Gamemode.pwn(21163) : fatal error 107: too many error messages on one line</code></div></div><br />
+Linea del error:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>format(string,sizeof(string),"Pizzas: ~r~%d~w~ /~g~ 5",dMaletero[GetPlayerVehicleID](playerid)); // Cambiar variables por el maletero</code></div></div><br />
+Linea completa.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>funcion MostrartTextoPizzero(playerid)<br />
+{<br />
+    new string[56];<br />
+    format(string,sizeof(string),"Pizzas: ~r~%d~w~ /~g~ 5",dMaletero[GetPlayerVehicleID](playerid)); // Cambiar variables por el maletero<br />
+    TextoPizza[0][playerid] = CreatePlayerTextDraw(playerid,510.000000, 170.000000, string);<br />
+    PlayerTextDrawBackgroundColor(playerid,TextoPizza[0][playerid], 255);<br />
+    PlayerTextDrawFont(playerid,TextoPizza[0][playerid], 1);<br />
+    PlayerTextDrawLetterSize(playerid,TextoPizza[0][playerid], 0.300000, 1.000000);<br />
+    PlayerTextDrawColor(playerid,TextoPizza[0][playerid], -1);<br />
+    PlayerTextDrawSetOutline(playerid,TextoPizza[0][playerid], 1);<br />
+    PlayerTextDrawSetProportional(playerid,TextoPizza[0][playerid], 1);<br />
+    PlayerTextDrawSetSelectable(playerid,TextoPizza[0][playerid], 0);*/</code></div></div><br />
+<br />
+El sistema consiste en un maletero para las motos del trabajo de pizzero, lo encontre desactivado esa funcion en la GM con la que estoy aprendiendo, ya intente cambiar la variable a maletero, pero me marca otro error, y aparte los demás que salen.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [Ayuda] 4 errores</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2021-01-30</strong>
+<br />
+<br />
+format(string,sizeof(string),"Pizzas: ~r~%d~w~ /~g~ 5",dMaletero[GetPlayerVehicleID](playerid));<br />
+<br />
+deberia ser:<br />
+<br />
+format(string,sizeof(string),"Pizzas: ~r~%d~w~ /~g~ 5",dMaletero[GetPlayerVehicleID(playerid)]);<br />
+<br />
+Tambien deberias tener un chequeo de que el vehiculo del jugador sea valido antes de hacer ese ingreso a array o podrias tener un crash
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

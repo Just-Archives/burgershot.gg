@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [AJUDA] Ajuda com código - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadf7e0.html?tid=2132">[AJUDA] Ajuda com código</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Portuguese/Português (<i>https://www.burgershot.gg/forumdisplay.php?fid=25</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  [AJUDA] Ajuda com código (<em>/showthread.php?tid=2132</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[AJUDA] Ajuda com código</strong> - <a href="member6fd1.html?action=profile&amp;uid=3880">Pedxz</a> -  <strong>2021-06-23</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align">Eu tenho esta linha de códigos:</div>
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:cv(playerid, params[])<br />
+{<br />
+if(aInfo[playerid][Admin] == 0) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Você não tem permissão!");<br />
+<br />
+new sVeiculo[50], vehicleid, modeloid, cor1, cor2;<br />
+<br />
+if(sscanf(params, "s[50]dd", sVeiculo, cor1, cor2)) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Uso correto: /CV [ Veículo ID / Nome ] [ Cor 1 ] [ Cor 2 ]");<br />
+<br />
+if(cor1 &lt; 0 || cor1 &gt; 255 || cor2 &lt; 0 || cor2 &gt; 255) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Use IDs de cores de 0 a 255!");<br />
+<br />
+if(IsNumeric(sVeiculo)) modeloid = strval(sVeiculo);<br />
+else modeloid = ReturnVehicleID(sVeiculo);<br />
+<br />
+if(modeloid &lt; 400 || modeloid &gt; 611 || modeloid == -1) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Modelo de veículo inválido!");<br />
+<br />
+new Float:pPos[4];<br />
+<br />
+GetPlayerPos(playerid, pPos[0], pPos[1], pPos[2]);<br />
+GetPlayerFacingAngle(playerid, pPos[3]);<br />
+<br />
+vehicleid = CreateVehicle(modeloid, pPos[0], pPos[1], pPos[2], pPos[3], cor1, cor2, -1);<br />
+<br />
+vCriado[vehicleid] = true;<br />
+<br />
+LinkVehicleToInterior(vehicleid, GetPlayerInterior(playerid));<br />
+SetVehicleVirtualWorld(vehicleid, GetPlayerVirtualWorld(playerid));<br />
+<br />
+PutPlayerInVehicle(playerid, vehicleid, 0);<br />
+PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);<br />
+<br />
+format(gStr, sizeof(gStr), "[BPL] Veículo %s criado com sucesso! ( Modelo ID: %d - Veículo ID: %d )", GetVehicleModelNameEx(modeloid), modeloid, vehicleid);<br />
+    SendClientMessage(playerid, COLOR_VERDECMD, gStr);<br />
+    return 1;<br />
+}<br />
+<br />
+CMD:criarveiculo(playerid, params[])<br />
+{<br />
+new sCMD[50];<br />
+format(sCMD, sizeof(sCMD), "/cv %s", params);<br />
+<br />
+ExecutarComando(playerid, sCMD);<br />
+return 1;<br />
+}<br />
+<br />
+// -------------------------------------------------------------------------------------------------------------- //<br />
+<br />
+CMD:dv(playerid)<br />
+{<br />
+if(aInfo[playerid][Admin] == 0) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Você não tem permissão!");<br />
+<br />
+if(!IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Você não está em um veículo!");<br />
+<br />
+new vehicleid = GetPlayerVehicleID(playerid);<br />
+<br />
+if(vCriado[vehicleid] == false) return SendClientMessage(playerid, COLOR_ERRO, "[ x ] Você só pode destruir veículos criados!");<br />
+<br />
+format(gStr, sizeof(gStr), "[BPL] Veículo %s excluído com sucesso! (ID %d)", GetVehicleModelName(vehicleid), vehicleid);<br />
+SendClientMessage(playerid, COLOR_VERDECMD, gStr);<br />
+<br />
+sDestroyVehicle(vehicleid);<br />
+PlayerPlaySound(playerid, 1057, 0.0, 0.0, 0.0);<br />
+<br />
+Streamer_Update(playerid);<br />
+return 1;<br />
+}</code></div></div><br />
+<br />
+<div style="text-align: center;" class="mycode_align">Porém, ao compilar esses erros surgem e eu não entendo o porque:<br />
+</div>
+<div style="text-align: left;" class="mycode_align"><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(303) : warning 216: nested comment[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(312) : error 017: undefined symbol "Admin"[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(320) : error 017: undefined symbol "IsNumeric"[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(321) : error 017: undefined symbol "ReturnVehicleID"[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(340) : error 017: undefined symbol "GetVehicleModelNameEx"[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(350) : error 017: undefined symbol "ExecutarComando"[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(358) : error 017: undefined symbol "Admin"[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(366) : error 017: undefined symbol "GetVehicleModelName"[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(369) : error 017: undefined symbol "sDestroyVehicle"[/align]<br />
+<br />
+[align=left]C:&#92;Users&#92;Matheus&#92;Desktop&#92;BPL GAMES 2.0 - Copia&#92;gamemodes&#92;bpl.pwn(376) : warning 203: symbol is never used: "PlayerInfo"[/align]<br />
+<br />
+[align=left]Pawn compiler 3.10.4 Copyright (c) 1997-2006, ITB CompuPhase[/align]<br />
+<br />
+<br />
+<br />
+[align=left]8 Errors.[/align]<br />
+<br />
+[align=left]</code></div></div></div>
+<br />
+<br />
+<br />
+Poderiam me ajudar? E me dizer qual foi o causador dos erros?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [AJUDA] Ajuda com código</strong> - <a href="member6fd1.html?action=profile&amp;uid=3880">Pedxz</a> -  <strong>2021-06-23</strong>
+<br />
+<br />
+Podem fechar, me desculpem o flood! Descobri os erros, faltavam stocks em minha GM!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [AJUDA] Ajuda com código</strong> - <a href="member37e3.html?action=profile&amp;uid=2209">k2bi_YT</a> -  <strong>2021-07-11</strong>
+<br />
+<br />
+Não recomendo que use stock, basicamente a "GM" ira ignorar os erros que contem no sistema criado. Procure deixar os sistema sempre 100%, realizando vários testes dentre outros...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

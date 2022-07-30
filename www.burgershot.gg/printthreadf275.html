@@ -1,0 +1,1148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Guía básica de SA-MP y Pawn - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreadf275.html?tid=739">Guía básica de SA-MP y Pawn</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Spanish/Español (<i>https://www.burgershot.gg/forumdisplay.php?fid=24</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Programación (<i>https://www.burgershot.gg/forumdisplay.php?fid=51</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread:  Guía básica de SA-MP y Pawn (<em>/showthread.php?tid=739</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Guía básica de SA-MP y Pawn</strong> - <a href="member5914.html?action=profile&amp;uid=1458">Ygzeb</a> -  <strong>2019-08-02</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="color: sienna;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-family: Arial Black;" class="mycode_font">GUÍA BÁSICA DE SA-MP Y PAWN</span></span></span></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><img src="https://i.imgur.com/YPOK9Or.png" loading="lazy" alt="[Image: YPOK9Or.png]" class="mycode_img" /></div>
+<br />
+<span style="color: DarkOrange;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">INTRO:</span></span></span><br />
+<br />
+Esta guía esta basada en diversas guías y en mi propia experiencia. Guía creada especialmente para nuevos scripters y usuarios a los que les gustaría aprender sobre el lenguaje Pawn en SA-MP; explicando solo lo básico y cómo empezar.<br />
+<br />
+* Nota: es importante que el usuario tenga el mayor conocimiento posible del idioma inglés, dado que el lenguaje de programación Pawn está basado en este idioma.<br />
+<br />
+Esta guía está basada en una publicación que hice para el foro SA-MP a inicios del año 2015, si usted lee esto en otro tiempo es probable que algunos elementos hayan cambiado y/o actualizado.<br />
+<br />
+Basado en:<br />
+<br />
+<a href="http://forum.sa-mp.com/showthread.php?t=317336" target="_blank" rel="noopener" class="mycode_url">Nicholas tutorial</a><br />
+<a href="http://forum.sa-mp.com/showthread.php?t=177490" target="_blank" rel="noopener" class="mycode_url">Kwarde tutorial</a><br />
+<a href="http://wiki.sa-mp.com/" target="_blank" rel="noopener" class="mycode_url">Wiki SA-MP</a><br />
+<br />
+Conocimiento propio.<br />
+<br />
+<br />
+<br />
+<span style="color: DarkOrange;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">ÍNDICE:</span></span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">INICIANDO</span><br />
+   <br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Explicando cada archivo y carpeta (solo los básicos)</span></span><br />
+<br />
+scriptfiles<br />
+plugins<br />
+pawno<br />
+npcmodes<br />
+include<br />
+gamemodes<br />
+filterscripts<br />
+announce.exe<br />
+samp-npc.exe<br />
+samp-server.exe<br />
+server.cfg<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">CONFIGURACIÓN</span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">PAWN SCRIPTING</span><br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Publics</span></span><br />
+<br />
+public OnGameModeInit()<br />
+public OnGameModeExit()<br />
+public OnPlayerRequestClass(playerid, classid)<br />
+public OnPlayerConnect(playerid)<br />
+public OnPlayerSpawn(playerid)<br />
+public OnPlayerDeath(playerid)<br />
+public OnPlayerDisconnect(playerid, reason)<br />
+public OnPlayerText(playerid)<br />
+public OnPlayerUpdate(playerid)<br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Funciones</span></span><br />
+<br />
+SetPlayerPos(playerid, X, Y, Z);<br />
+TextDrawCreate(X, Y, text[])<br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Dialogs (menús &amp; otros)</span></span><br />
+<br />
+ShowPlayerDialog(playerid, dialogid, style, caption[], info[], button1[], button2[]);<br />
+Dialog de cuadro (envía un mensaje al jugador)<br />
+Dialog de texto (permite a los jugadores colocar texto en el dialog)<br />
+Dialog de lista (menú, muestra a los jugadores una lista de opciones)<br />
+Dialog de contraseña (permite a los jugadores colocar texto en el dialog, sin revelar el texto)<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">CREANDO Y REMOVIENDO OBJETOS</span><br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Map editor (1 &amp; 2)</span></span><br />
+<br />
+Empezando<br />
+Creando objectos<br />
+Removiendo objectos<br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">MTA editor</span></span><br />
+<br />
+Empezando<br />
+Delux GTA Map Converter v2<br />
+<br />
+<span style="font-style: italic;" class="mycode_i"><span style="font-weight: bold;" class="mycode_b">Creando Objectos</span></span><br />
+<br />
+Instalar Streamer<br />
+<br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">EMPIECE A PRACTICAR</span><br />
+<br />
+<br />
+<br />
+<span style="color: DarkOrange;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">INICIANDO:</span></span></span><br />
+<br />
+Primero debe descargar el archivo <a href="http://www.sa-mp.com/download.php" target="_blank" rel="noopener" class="mycode_url">SA-MP Windows Server</a> desde SA-MP.com<br />
+<br />
+Después de descargarlo y descomprimirlo, veremos estos archivos...<br />
+<br />
+Archivos y carpetas básicos:<br />
+<br />
+scriptfiles, plugins, pawno, npcmodes, include, gamemodes, filterscripts, announce.exe, samp-npc.exe, samp-server.exe &amp; server.cfg<br />
+<br />
+Otros archivos:<br />
+<br />
+Textos que incluyen términos de servicio y una guía de configuración (samp-license.txt &amp; server-readme.txt respectivamente).<br />
+<br />
+<br />
+<span style="color: Green;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">Explicando cada archivo y carpeta (solo los básicos):</span></span></span><br />
+<br />
+scriptfiles: esta carpeta contiene información llamada dentro del script o logs producidos por el script. Normalmente es usada como base de datos.<br />
+<br />
+plugins: esta carpeta contiene códigos adicionales que dan más opciones en la programación, usualmente programados en otros lenguajes de programación. Esta guía no dará información detallada sobre plugins debido a que es más avanzado.<br />
+<br />
+pawno: contiene el programa básico para empezar a programar en SA-MP; también tiene la carpeta include que contiene los includes básicos de SA-MP para empezar nuestro script (funciones básicas de SA-MP). También podemos crear nuestros propios includes y añadirlos al script.<br />
+<br />
+npcmodes: contiene información sobre NPCs (script &amp; rec); esta guía no dará información detallada sobre NPCs debido a que es más avanzado.<br />
+<br />
+include: contiene códigos que pueden ser incluidos en el script.<br />
+<br />
+gamemodes: contiene los modos de juego básicos y si creamos uno debemos colocar aquí también.<br />
+<br />
+filterscripts: contiene códigos adicionales, separados del gamemode, no están incluidos dentro de él y pueden ser llamados al usar comandos rcon.<br />
+<br />
+announce.exe: este archivo nos permitirá mostrar nuestro servidor en la lista de Internet.<br />
+<br />
+samp-npc.exe: nos permitirá usar NPCs.<br />
+<br />
+samp-server.exe: con este archivo iniciamos el servidor.<br />
+<br />
+server.cfg: configuración del servidor.<br />
+<br />
+<br />
+<br />
+<br />
+<span style="color: DarkOrange;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">CONFIGURACIÓN:</span></span></span><br />
+<br />
+Primero debemos abrir el archivo "server.cfg" y editar la configuración del servidor.<br />
+<br />
+Al abrirlo encontraremos:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>echo Executing Server Config...<br />
+lanmode 0<br />
+rcon_password changeme<br />
+maxplayers 50<br />
+port 7777<br />
+hostname SA-MP 0.3 Server<br />
+gamemode0 grandlarc 1<br />
+filterscripts gl_actions gl_realtime gl_property gl_mapicon ls_mall ls_elevator attachments skinchanger vspawner<br />
+announce 0<br />
+query 1<br />
+chatlogging 0<br />
+weburl www.sa-mp.com<br />
+onfoot_rate 40<br />
+incar_rate 40<br />
+weapon_rate 40<br />
+stream_distance 300.0<br />
+stream_rate 1000<br />
+maxnpc 0<br />
+logtimeformat [%H:%M:%S]</code></div></div><br />
+Puede editar la configuración basado en esto:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>echo Executing Server Config...<br />
+lanmode 0 (lan mode activada "1" o desactivada "0")<br />
+rcon_password changeme (la contraseña que usará al colocar "/Rcon login"; debe editar esto) <br />
+maxplayers 50 (cantidad permitida de jugadores, slots)<br />
+port 7777 (el puerto que usará; por ejemplo: 127.0.0.1:7777)<br />
+hostname SA-MP 0.3 Server (el nombre de su servidor)<br />
+gamemode0 grandlarc 1 (el nombre del gamemode que usará, puede añadir un gamemode si usted crea o descarga uno)<br />
+filterscripts gl_actions gl_realtime gl_property gl_mapicon ls_mall ls_elevator attachments skinchanger vspawner (los "filterscripts" que usará)<br />
+announce 0 (servidor visible en la lista de Internet; "1" para activar y "0" para desactivar)<br />
+query 1 (información del servidor visible "1"; "0" no enviará información del servidor a los jugadores externos)<br />
+chatlogging 0 (guardar conversaciones en el archivo server_log.txt; para guardarlas use "1", para no guardarlas use "0")<br />
+weburl www.sa-mp.com (página web del servidor)<br />
+onfoot_rate 40 (no se explicará en esta guía, es avanzado)<br />
+incar_rate 40 (no se explicará en esta guía, es avanzado)<br />
+weapon_rate 40 (no se explicará en esta guía, es avanzado)<br />
+stream_distance 300.0 (no se explicará en esta guía, es avanzado)<br />
+stream_rate 1000 (no se explicará en esta guía, es avanzado)<br />
+maxnpc 0 (máximo número de NPCs que pueden entrar al servidor)<br />
+logtimeformat [%H:%M:%S]</code></div></div><br />
+También puede leer más sobre el archivo <a href="http://wiki.sa-mp.com/wiki/Server.cfg" target="_blank" rel="noopener" class="mycode_url">server.cfg y su configuración</a>.<br />
+<br />
+Ejemplo de configuración (la guía está basada en esta configuración):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>echo Executing Server Config...<br />
+lanmode 0<br />
+rcon_password Pawn<br />
+maxplayers 100<br />
+port 7777<br />
+hostname SA-MP Server [0.3z]<br />
+gamemode0 Basic 1<br />
+filterscripts gl_actions gl_realtime gl_property gl_mapicon ls_mall ls_elevator attachments skinchanger vspawner<br />
+announce 1<br />
+query 1<br />
+chatlogging 1<br />
+weburl www.sa-mp.com<br />
+onfoot_rate 40<br />
+incar_rate 40<br />
+weapon_rate 40<br />
+stream_distance 300.0<br />
+stream_rate 1000<br />
+maxnpc 0<br />
+logtimeformat [%H:%M:%S]</code></div></div><br />
+<span style="color: DarkOrange;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">PAWN SCRIPTING:</span></span></span><br />
+<br />
+Después de editar la configuración empezaremos a programar el modo de juego.<br />
+<br />
+En este caso usaremos un gamemode básico que pueden descargar <a href="https://www.mediafire.com/download/0ohucs88o1m8mib/Basic.pwn" target="_blank" rel="noopener" class="mycode_url">aquí</a>.<br />
+<br />
+Deben colocarlo dentro de la carpeta gamemodes.<br />
+<br />
+Después de hacer esto deben abrir la carpeta pawno, dentro de su servidor, y abrir el archivo "pawno.exe".<br />
+<br />
+Presione "File/Open" (o simplemente CTRL + O) y abra su gamemode, colocado dentro de la carpeta gamemodes.<br />
+<br />
+Dentro tenemos esto:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;</code></div></div><br />
+Este es el include básico de SA-MP, debe estar incluido en cada script que usted cree en el ámbito de SA-MP.<br />
+<br />
+Este es el mensaje que será mostrado en consola al abrir el archivo samp-server.exe:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>main()<br />
+{<br />
+print("Script desarrollado por Ygzeb.");<br />
+}</code></div></div><br />
+El texto azul es el mensaje que será mostrado.<br />
+<br />
+Puede editar el texto que será mostrado en consola al encender su servidor, simplemente cambiando el texto azul; por ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>main()<br />
+{<br />
+print("¡Mi primer script!");<br />
+}</code></div></div><br />
+* Nota: Todos los códigos deben tener llaves abiertas y cerradas al empezar y terminar la función.<br />
+<br />
+Ejemplo:<br />
+<br />
+Llaves abiertas = <span style="color: Red;" class="mycode_color">Rojo</span><br />
+Llaves cerradas = <span style="color: Green;" class="mycode_color">Verde</span><br />
+<br />
+<br />
+main()<br />
+<span style="color: Red;" class="mycode_color">{</span><br />
+print("¡Mi primer script!");<br />
+<span style="color: Green;" class="mycode_color">}</span><br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">* Nota: ¡Es muy importante que después de realizar un cambio en el script presione F5! Esto actualizará el archivo AMX y los cambios realizados quedarán guardados ("si no hay error alguno", aunque en casos especiales hay errores de programación que no figurarán y afectarán al servidor internamente). Si todo anda bien verá algo parecido a esto:</span><br />
+<br />
+<img src="https://i.imgur.com/Gobeslv.jpg" loading="lazy" alt="[Image: Gobeslv.jpg]" class="mycode_img" /><br />
+<br />
+De lo contrario significa que el script tiene errores, hizo algo mal y debe corregirlo.<br />
+<br />
+<br />
+<span style="color: Green;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">Publics:</span></span></span><br />
+<br />
+Los publics son funciones básicas que son llamadas mientras su servidor está encendido, en momentos precisos.<br />
+SA-MP cuenta con publics básicos que son llamados en la mayoría de servidores. Normalmente el nombre de un public describe cuándo se ejecuta el public.<br />
+<br />
+Algunos publics son llamados en momentos especiales, por ejemplo al spawnear; puede añadir una función a ese momento en específico.<br />
+<br />
+Por ejemplo, si queremos cambiar la vida de los jugadores a 50 al spawnear, usaríamos algo como:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerSpawn(playerid)<br />
+{<br />
+   SetPlayerHealth(playerid, 50);<br />
+   return 1;<br />
+}</code></div></div><br />
+* Nota: no podemos usar publics idénticos en un mismo script; por ejemplo dos publics OnPlayerSpawn. Si queremos añadir una función adicional debemos agregarla en el mismo public o en un filterscript. Basándonos en el ejemplo anterior, añadiremos un mensaje al spawnear:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerSpawn(playerid)<br />
+{<br />
+   SetPlayerHealth(playerid, 50);<br />
+   SendClientMessage(playerid, -1, "¡Spawneaste!"); // Función añadida.<br />
+   return 1;<br />
+}</code></div></div><br />
+Algunos publics que son usados comúnmente:<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">public OnGameModeInit()</span> - Llamado al iniciar el gamemode.<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnGameModeInit</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1;<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+    UsePlayerPedAnims(); // Permite a los jugadores correr como CJ.<br />
+    SetGameModeText("Blank"); // Nombre del modo, será mostrado en la lista de servidores.<br />
+    AddPlayerClass(115, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);<br />
+    AddPlayerClass(122, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);<br />
+    AddPlayerClass(166, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);<br />
+    AddPlayerClass(270, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);<br />
+    return 1;<br />
+}</code></div></div><br />
+AddPlayerClass es una función que permite añadir personajes en la selección de personaje; por ejemplo si queremos añadir el personaje de Sweet, debemos añadir esto en nuestro gamemode:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>AddPlayerClass(270, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);</code></div></div><br />
+El número "270" el ID del personaje de Sweet.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">public OnGameModeExit()</span> - Llamado al finalizar el gamemode; no es obligatorio en el script (opcional en la mayoría de casos).<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnGameModeExit" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnGameModeExit</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeExit()<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1;<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeExit()<br />
+{<br />
+    print("Mode ended."); // Mensaje a la consola.<br />
+    return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">public OnPlayerRequestClass(playerid, classid)</span> - Llamado en la selección de personaje.<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnPlayerRequestClass" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnPlayerRequestClass</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerRequestClass(playerid, classid)<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1;<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerRequestClass(playerid, classid)<br />
+{<br />
+    SetPlayerPos(playerid, 2294.2810, 558.2053, 7.7813); // Posición del personaje.<br />
+    SetPlayerCameraPos(playerid, 2294.3071, 560.6948, 8.7324); // Posición de la cámara.<br />
+    SetPlayerCameraLookAt(playerid, 2294.2810, 558.2053, 7.7813); // Lugar a donde la cámara señala.<br />
+    SetPlayerFacingAngle(playerid, 0);<br />
+    return 1;<br />
+}</code></div></div><br />
+SetPlayerFacingAngle cambia el ángulo hacia donde el personaje observa; su estructura es:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>playerid = ID del jugador<br />
+0 = ángulo (en este caso norte).<br />
+<br />
+    norte (0)<br />
+           |<br />
+(90) oeste-   -este (270)<br />
+           |<br />
+        sur (180)</code></div></div><br />
+Mayor información sobre <a href="http://wiki.sa-mp.com/wiki/SetPlayerFacingAngle" target="_blank" rel="noopener" class="mycode_url">SetPlayerFacingAngle</a>.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">public OnPlayerConnect(playerid)</span> - Llamado cuando un jugador se conecta.<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnPlayerConnect</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerConnect(playerid)<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1;<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerConnect(playerid)<br />
+{<br />
+    PlayAudioStreamForPlayer(playerid, "http://s1.radio.ge/Music/AcDc/1980_Back_In_Black/06_Back_In_Black.mp3");   // Iniciará la canción Back in Black, AC/DC<br />
+    return 1;<br />
+}</code></div></div><br />
+PlayAudioStreamForPlayer es una función que reproduce un sonido externo al jugador. Su estructura es:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>playerid = ID del jugador<br />
+"http://s1.radio.ge/Music/AcDc/1980_Back_In_Black/06_Back_In_Black.mp3" = link del audio</code></div></div><br />
+* Nota: el audio debe estar en un formato en específico para funcionar, por ejemplo este <a href="ttp://s1.radio.ge/Music/AcDc/1980_Back_In_Black/06_Back_In_Black.mp3" target="_blank" rel="noopener" class="mycode_url">link</a>.<br />
+<br />
+Puede encontrar música en muchas páginas. Por ejemplo en <a href="http://mp3skull.com/" target="_blank" rel="noopener" class="mycode_url">esta</a> web.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">public OnPlayerSpawn(playerid)</span> - Llamado después de seleccionar personaje, al spawnear. Estas funciones afectarán al jugador al spawnear.<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnPlayerSpawn" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnPlayerSpawn</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerSpawn(playerid)<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1;<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerSpawn(playerid)<br />
+{<br />
+   SendClientMessage(playerid, -1, "¡Spawn!"); // Envía un mensaje al jugador.<br />
+   return 1;<br />
+}</code></div></div><br />
+SendClientMessage es una función que envía un mensaje al jugador; su estructura es:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>playerid = ID del jugador<br />
+-1 = Color, -1 es blanco<br />
+"¡Spawn!" = mensaje</code></div></div><br />
+Mayor información sobre <a href="http://wiki.sa-mp.com/wiki/SendClientMessage" target="_blank" rel="noopener" class="mycode_url">SendClientMessage</a>.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">public OnPlayerDeath(playerid)</span> - Llamado al morir. Esta función afectará al jugador al morir.<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnPlayerDeath" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnPlayerDeath</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDeath(playerid)<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1;<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDeath(playerid)<br />
+{<br />
+   GameTextForPlayer(playerid, "Asesinado", 5000, 2); // Envía un mensaje en pantalla al jugador.<br />
+   return 1;<br />
+}</code></div></div><br />
+GameTextForPlayer envía un mensaje en pantalla al jugador; su estructura es:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>playerid = ID del jugador<br />
+"Asesinado" = mensaje<br />
+5000 = tiempo en mili-segundos; en este caso 5 segundos.<br />
+2 = tipo de mensaje</code></div></div><br />
+Mayor información sobre <a href="http://wiki.sa-mp.com/wiki/GameTextForPlayer" target="_blank" rel="noopener" class="mycode_url">GameTextForPlayer</a>.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">public OnPlayerDisconnect(playerid, reason)</span> - Llamado al desconectarse el jugador.<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnPlayerDisconnect" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnPlayerDisconnect</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDisconnect(playerid, reason)<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1;<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDisconnect(playerid, reason)<br />
+{<br />
+    // Enviando un mensaje a todos que el jugador se desconectó.<br />
+    new String[64], // Variable asignada al mensaje. 64 es el número de caracteres que usará el mensaje (tal vez más que el mensaje).<br />
+    Nombre[MAX_PLAYER_NAME];  // Variable asignada al nombre del jugador; normalmente definida como MAX_PLAYER_NAME.<br />
+    GetPlayerName(playerid, Nombre, MAX_PLAYER_NAME); // Obteniendo el nombre del jugador (Nombre) y el número de caracteres que usa, normalmente definido como MAX_PLAYER_NAME (definido por SA-MP por defecto).<br />
+    format(String, sizeof String, "%s salió.", Nombre); // Aplicando un formato al mensaje.<br />
+    SendClientMessageToAll(-1, String); // Enviando un mensaje a todos los jugadores; String es el formato que tendrá el mensaje.<br />
+    return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">public OnPlayerText(playerid)</span> - Llamado cuando el jugador envía un mensaje (chat).<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnPlayerText" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnPlayerText</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerText(playerid, text[])<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1;<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerText(playerid, text[])<br />
+{<br />
+    new Nombre[MAX_PLAYER_NAME], String[175];<br />
+    GetPlayerName(playerid, Nombre, sizeof(Nombre));<br />
+    format(String, sizeof(String), "%s [%d]: {FFFFFF}%s", Nombre, playerid, text); // Aplicando formato.<br />
+    SendClientMessageToAll(GetPlayerColor(playerid), String); // Enviando el mensaje con GetPlayerColor, que es el color actual del jugador.<br />
+    return 0; // Ignorando el texto por defecto, terminando la función.<br />
+}</code></div></div><br />
+Esta función es el formato aplicado a SendClientMessageToAll. Cuando sea enviado seguirá el formato:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>format(String, sizeof(String), "%s [%d]: {FFFFFF}%s", Name, playerid, text); </code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>%s y %d son valores asignados dependiendo del jugador.<br />
+%s es un valor textual (en este caso el nombre del jugador y el texto).<br />
+%d es un valor numérico (ID del jugador).</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>format(String, sizeof(String), "%s [%d]: {FFFFFF}%s", Name, playerid, text); </code></div></div><br />
+Nombre, ID &amp; texto son los valores asignados a %s, %d y %s.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">public OnPlayerUpdate(playerid)</span> - Llamado cada vez que el usuario envía su estado al servidor.<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/OnPlayerUpdate" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/OnPlayerUpdate</a><br />
+<br />
+Estructura básica:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerUpdate(playerid)<br />
+{<br />
+    // Aquí va el código.<br />
+    return 1; // Si retorna 0, el cliente no será actualizado para los demás jugadores (como si estuviese pausado).<br />
+}</code></div></div><br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerUpdate(playerid)<br />
+{<br />
+    if(GetPlayerWeapon(playerid) == 38) return Kick(playerid); // Expulsará al jugador si usa una minigun.<br />
+    return 1;<br />
+}</code></div></div><br />
+"if" para detectar si una situación en especial está ocurriendo; en caso de ser así el servidor ejecutará una función determinada.<br />
+<br />
+Traduciendo esto a nuestro idioma, sería algo como:<br />
+<br />
+¡Si está usando minigun, expúlsalo!<br />
+<br />
+* Nota: usar "if" en OnPlayerUpdate puede causar lag, esto es solo un ejemplo.<br />
+<br />
+Usar la función return con "Kick(playerid);" significa que la función termina ahí. Si tiene otro código bajo esta función, no será ejecutado si esta función es llamada.<br />
+<br />
+Por ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerUpdate(playerid)<br />
+{<br />
+    if(GetPlayerWeapon(playerid) == 38) return Kick(playerid);<br />
+    SendClientMessage(playerid, -1, "¡Actualizado!"); // Esta función no será ejecutada si el jugador está usando minigun.<br />
+    return 1;<br />
+}</code></div></div><br />
+<br />
+<span style="color: Green;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">Funciones:</span></span></span><br />
+<br />
+Básicamente, la mayoría de funciones (funciones nativas/básicas de SA-MP) describen lo que hacen en su nombre; puede encontrar muchas de ellas <a href="http://wiki.sa-mp.com/wiki/Category:Scripting_Functions" target="_blank" rel="noopener" class="mycode_url">aquí</a>.<br />
+<br />
+Algunas funciones básicas que son usadas mayormente:<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">SetPlayerPos(playerid, X, Y, Z);</span> - Cambia la posición del jugador (X, Y &amp; Z son los puntos donde moverá al jugador).<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/SetPlayerPos</a><br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SetPlayerPos(playerid, 0.0, 0.0, 3.0); // Cambia la posición del jugador al campo.</code></div></div><br />
+Puede guardar su posición actual usando /Save dentro del juego (comando por defecto de SA-MP). Después de esto debe ir a "\GTA San Andreas User Files\SAMP" y abrir el archivo "savedpositions.txt". Dentro encontrará algo parecido a:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>AddPlayerClass(270, 700, 700, 5, 0, 0, 0, 0, 0, 0, 0);</code></div></div><br />
+Luego simplemente copie los valores en rojo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>AddPlayerClass(270, 700, 700, 5, 0, 0, 0, 0, 0, 0, 0);</code></div></div><br />
+* Nota: obviamente los valores no son rojos, solo es un ejemplo.<br />
+<br />
+Luego pegue los valores dentro de la función SetPlayerPos; así:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SetPlayerPos(playerid, 700, 700, 5);</code></div></div><br />
+También puede usar este <a href="http://forum.sa-mp.com/showthread.php?t=544637" target="_blank" rel="noopener" class="mycode_url">sistema</a> que lo programará por usted.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">TextDrawCreate(X, Y, text[])</span> - Crea un textdraw (X &amp; Y son las coordenadas de la pantalla y "text" es el texto que mostrará).<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/TextDrawCreate" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/TextDrawCreate</a><br />
+<br />
+Ejemplo de textdraw:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Text:Textdraw0;<br />
+<br />
+public OnGameModeInit()<br />
+{<br />
+    Textdraw0 = TextDrawCreate(240.0, 580.0, "SA-MP 0.3z"); // Esto crea un textdraw sin modificar.<br />
+    return 1;<br />
+}</code></div></div><br />
+Una forma sencilla de usar esta función es con un <a href="http://forum.sa-mp.com/showthread.php?t=118518" target="_blank" rel="noopener" class="mycode_url">Editor de Textdraw</a>.<br />
+<br />
+Para mostrar un textdraw al jugador debe usar la función TextDrawShowForPlayer.<br />
+<br />
+Ejemplo de uso (basado en el ejemplo anterior):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerConnect(playerid)<br />
+{<br />
+    TextDrawShowForPlayer(playerid, Textdraw0);<br />
+}</code></div></div><br />
+Para esconder el textdraw del jugador debe usar la función TextDrawHideForPlayer.<br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerDisconnect(playerid, reason)<br />
+{<br />
+    TextDrawHideForPlayer(playerid, Textdraw0);<br />
+    return 1;<br />
+}</code></div></div><br />
+Y para destruir el textdraw debe usar TextDrawDestroy.<br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+    TextDrawDestroy(Textdraw0);<br />
+    return 1;<br />
+}</code></div></div><br />
+<br />
+<span style="color: Green;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">Dialogs (menús &amp; otros):</span></span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">ShowPlayerDialog(playerid, dialogid, style, caption[], info[], button1[], button2[]);</span> - Muestra al jugador un dialog.<br />
+<br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/ShowPlayerDialog" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/ShowPlayerDialog</a><br />
+<br />
+* Nota: Todo dialog necesita un ID único (dialogid); a no ser que no use dicho ID en el public OnDialogResponse (los dialogs de filterscripts e includes debe usar también un ID único).<br />
+<br />
+Hay cuatro tipos de dialogs:<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Dialog de cuadro (envía un mensaje al jugador):</span><br />
+<br />
+<img src="http://wiki.sa-mp.com/wroot/images2/a/a1/Dialog_style_msgbox.png" loading="lazy"  alt="[Image: Dialog_style_msgbox.png]" class="mycode_img" /><br />
+<br />
+Ejemplo (con el botón de cancelar):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(!strcmp(cmdtext, "/Ayuda", true))<br />
+{<br />
+    new Menu[187]; // Número de caracteres que usará dentro del dialog (todos los caracteres).<br />
+    Menu[0]='&#92;0'; // Variable del dialog, definida antes.<br />
+    strcat(Menu, "Este es el texto que será mostrado dentro del dialog. Puede añadir otra&#92;n", 73); // 73 es el número de caracteres en esta línea.<br />
+    strcat(Menu, "línea usando el símbolo de la línea anterior (n). No necesita&#92;n", 137); // 137 es el número de caracteres en otras líneas sumado a esta línea.<br />
+    strcat(Menu, "colocar el símbolo en la última línea del dialog.", 187); // Estos son todos los caracteres usados en el dialog.<br />
+    ShowPlayerDialog(playerid, 1, DIALOG_STYLE_MSGBOX, "Ayuda de dialog", Menu, "Aceptar", "Cancelar");<br />
+    return 1;<br />
+}</code></div></div><br />
+Cada línea tiene caracteres; la primera línea tiene 73 caracteres así que ponemos 73 al final.<br />
+<br />
+En la segunda y todas las líneas posteriores debemos contar los caracteres de dicha línea sumado con los caracteres de las otras líneas. En el caso de la segunda línea es 137 por lo que pondremos eso al final.<br />
+<br />
+Ejemplo (sin el botón de cancelar):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(!strcmp(cmdtext, "/Ayuda", true))<br />
+{<br />
+    new Menu[187]; // Número de caracteres que usará dentro del dialog (todos los caracteres).<br />
+    Menu[0]='&#92;0'; // Variable del dialog, definida antes.<br />
+    strcat(Menu, "Este es el texto que será mostrado dentro del dialog. Puede añadir otra&#92;n", 73); // strcat junta el string de Menu, sumado con el string del texto.<br />
+    strcat(Menu, "línea usando el símbolo de la línea anterior (n). No necesita&#92;n", 137); // Todas las líneas usan strcat.<br />
+    strcat(Menu, "colocar el símbolo en la última línea del dialog.", 187);<br />
+    ShowPlayerDialog(playerid, 1, DIALOG_STYLE_MSGBOX, "Ayuda de dialog", Menu, "Aceptar", ""); // En lugar de cancelar, dejamos el segundo botón solo con "".<br />
+    return 1;<br />
+}</code></div></div><br />
+La función strcat junta el string de Menu, sumado con el string del texto.<br />
+<br />
+* Nota: Puede usar páginas para <a href="http://www.contadorcaracteres.com/" target="_blank" rel="noopener" class="mycode_url">contar caracteres</a>.<br />
+<br />
+Cuando cuenta los caracteres solo debe tomar en cuenta los que están entre ""; por ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(!strcmp(cmdtext, "/Ayuda", true))<br />
+{<br />
+    new Menu[187];<br />
+    Menu[0]='&#92;0';<br />
+    strcat(Menu, "Este es el texto que será mostrado dentro del dialog. Puede añadir otra&#92;n", 73);<br />
+    strcat(Menu, "línea usando el símbolo de la línea anterior (n). No necesita&#92;n", 137);<br />
+    strcat(Menu, "colocar el símbolo en la última línea del dialog.", 187);<br />
+    ShowPlayerDialog(playerid, 1, DIALOG_STYLE_MSGBOX, "Ayuda de dialog", Menu, "Aceptar", "");<br />
+    return 1;<br />
+}</code></div></div><br />
+La \n también cuenta.<br />
+<br />
+También podemos añadir una función al presionar "Aceptar" o "Cancelar" dentro del public OnDialogResponse.<br />
+<br />
+Por ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(!strcmp(cmdtext, "/Ayuda", true))<br />
+{<br />
+    new Menu[187];<br />
+    Menu[0]='&#92;0';<br />
+    strcat(Menu, "Este es el texto que será mostrado dentro del dialog. Puede añadir otra&#92;n", 73);<br />
+    strcat(Menu, "línea usando el símbolo de la línea anterior (n). No necesita&#92;n", 137);<br />
+    strcat(Menu, "colocar el símbolo en la última línea del dialog.", 187);<br />
+    ShowPlayerDialog(playerid, 1, DIALOG_STYLE_MSGBOX, "Ayuda de dialog", Menu, "Aceptar", "");<br />
+    return 1;<br />
+}</code></div></div><br />
+Añadimos un mensaje (la función) dentro del public OnDialogResponse:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])<br />
+{<br />
+    if(dialogid == 1) // El número 1 es el número de nuestro dialog anterior.<br />
+    {<br />
+        if(response) // Si presionaron 'Aceptar'. <br />
+        {<br />
+            SendClientMessage(playerid, -1, "¡Gracias por leer!");<br />
+        }<br />
+    return 1; // Cerrando dialog response del dialog # 1!<br />
+    }<br />
+return 1; // Cerrando public.<br />
+}</code></div></div><br />
+* Nota: Al usar OnDialogResponse cada dialog debe tener un número. En este caso usamos el número 1:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>ShowPlayerDialog(playerid, 1, DIALOG_STYLE_MSGBOX, "Ayuda de dialog", Menu, "Aceptar", "");<br />
+    return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Dialog de texto (permite a los jugadores colocar texto en el dialog)</span><br />
+<br />
+<img src="http://wiki.sa-mp.com/wroot/images2/d/d5/Dialog_style_input.png" loading="lazy"  alt="[Image: Dialog_style_input.png]" class="mycode_img" /><br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "Texto", "¡Escriba un texto a todos los jugadores", "Aceptar", "Cancelar");</code></div></div><br />
+Después de crear nuestro código debemos crear una función al código; para ello usaremos public OnDialogResponse:<br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])<br />
+{<br />
+    if(dialogid == 2)<br />
+    {<br />
+        if(!response) // Si presionaron 'Cancelar'. <br />
+        {<br />
+            SendClientMessage(playerid, -1, "¡Mensaje cancelado!");<br />
+        }<br />
+        else // Si presionaron 'Aceptar'.<br />
+        {<br />
+            new String[200], Nombre[MAX_PLAYER_NAME]; // Definiendo variables.<br />
+            GetPlayerName(playerid, Nombre, MAX_PLAYER_NAME); // Obteniendo el nombre del jugador (asignando un valor a la variable).<br />
+            format(String, sizeof(String), "[&lt;!&gt;] Anuncio de %s: %s", Nombre, inputtext); // Usando un formato para el mensaje.<br />
+            SendClientMessageToAll(-1, String);<br />
+        }<br />
+    return 1; // Cerrando respuesta del dialog # 2!<br />
+    }<br />
+return 1; // Cerrando public.<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Dialog de lista (menú, muestra a los jugadores una lista de opciones):</span><br />
+<br />
+<img src="http://wiki.sa-mp.com/wroot/images2/b/b1/Dialog_style_list.png" loading="lazy"  alt="[Image: Dialog_style_list.png]" class="mycode_img" /><br />
+<br />
+Ejemplo (creando un menú de armas):<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(!strcmp(cmdtext, "/Weapon", true))<br />
+{<br />
+    ShowPlayerDialog(playerid, 3, DIALOG_STYLE_LIST, "Armas", "Desert Eagle&#92;n AK-47&#92;n Combat Shotgun", "Seleccionar", "Cerrar");<br />
+    return 1;<br />
+}</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>"Armas" = Título de la lista<br />
+"Desert Eagle&#92;n AK-47&#92;n Combat Shotgun" = Lista.<br />
+"Seleccionar" = Seleccionar un ítem (arma).<br />
+"Cerrar" = Cerrar lista.</code></div></div><br />
+El símbolo \n es usado para separar los elementos de la lista (en filas).<br />
+<br />
+Para dar el arma usamos public OnDialogResponse:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])<br />
+{<br />
+    if(dialogid == 3)<br />
+    {<br />
+        if(response) // Si presionaron 'Seleccionar' o dieron doble clic a un arma.<br />
+        {<br />
+            switch(listitem) // Creamos swith a todos los elementos de la lista; cada caso representa un elemento.<br />
+            {<br />
+                case 0:<br />
+                {<br />
+                    GivePlayerWeapon(playerid, 24, 14); // Dar un arma Desert Eagle con 14 balas.<br />
+                }<br />
+                case 1:<br />
+                {<br />
+                    GivePlayerWeapon(playerid, 30, 120); // Dar un arma AK-47 con 120 balas.<br />
+                }<br />
+                case 2:<br />
+                {<br />
+                    GivePlayerWeapon(playerid, 27, 28); // Dar un arma Combat Shotgun con 28 balas.<br />
+                }<br />
+            }<br />
+        }<br />
+        return 1; // Cerrando dialog response del dialog # 3!<br />
+    }<br />
+    return 1; // Cerrando public.<br />
+}</code></div></div><br />
+Estructura de la función GivePlayerWeapon:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>GivePlayerWeapon(playerid, weaponid, ammo);</code></div></div><br />
+Información adicional sobre la función: <a href="http://wiki.sa-mp.com/wiki/GivePlayerWeapon" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/GivePlayerWeapon</a><br />
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Dialog de contraseña (permite a los jugadores colocar texto en el dialog, sin revelar el texto):</span><br />
+<br />
+<img src="http://wiki.sa-mp.com/wroot/images2/f/f8/Dialog_style_password.png" loading="lazy"  alt="[Image: Dialog_style_password.png]" class="mycode_img" /><br />
+<br />
+Tiene la misma estructura que "Dialog de contraseña"; mayormente usado en sistemas de registro (lo cual es ligeramente avanzado para ser explicado en esta guía).<br />
+<br />
+Si quiere ver cómo crear sistemas de registro puede visitar:<br />
+<br />
+<a href="http://forum.sa-mp.com/showthread.php?t=155321" target="_blank" rel="noopener" class="mycode_url">TheChaoz, cómo crear un sistema de registro.</a><br />
+<a href="http://forum.sa-mp.com/showthread.php?t=273088" target="_blank" rel="noopener" class="mycode_url">Kush account system guide (Y_INI).</a><br />
+<a href="http://forum.sa-mp.com/showthread.php?t=278188" target="_blank" rel="noopener" class="mycode_url">Lorenc_ account system guide (SQLite using rBits).</a><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<span style="color: DarkOrange;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">CREANDO Y REMOVIENDO OBJETOS:</span></span></span><br />
+<br />
+Hay muchos programas para modificar el mapa del servidor; los más conocidos son:<br />
+<br />
+<a href="http://forum.sa-mp.com/showthread.php?t=282801" target="_blank" rel="noopener" class="mycode_url">Map editor 1 (inglés)</a><br />
+<a href="http://forum.sa-mp.com/showthread.php?t=139409" target="_blank" rel="noopener" class="mycode_url">Map editor 2 (inglés)</a><br />
+<a href="https://www.mtasa.com/" target="_blank" rel="noopener" class="mycode_url">MTA editor</a><br />
+<br />
+Lista de objetos: <a href="http://wiki.sa-mp.com/wiki/Model_ID" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/Model_ID</a><br />
+<br />
+<br />
+<span style="color: Green;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">Map editor (1 &amp; 2):</span></span></span><br />
+<br />
+Ambos tienen una estructura parecida; esta es una explicación para ambos casos.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Empezando:</span><br />
+<br />
+- Después de descargarlo, debe abrir el archivo "editor.exe" y presionar el botón "LOAD".<br />
+<br />
+- Cargará el mapa del juego (GTA-SA); puede mover la cámara moviendo el mouse mientras presiona clic derecho. Puede mover por el mapa con el scroll o usando las teclas "W, A, S y D" mientras presiona clic derecho.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Creando objetos:</span><br />
+<br />
+- Muévase al lugar donde quiere añadir el mapa, presione el botón "Objects" dentro del menú (el menú al lado derecho de la ventana).<br />
+<br />
+- Presione "+Add" y busque el objeto que quiere añadir (ID o nombre); luego haga doble clic en él y presione el botón "Add".<br />
+<br />
+- Después de hacerlo presione en el objeto mostrado en el lado derecho de la venta, luego presione "insert".<br />
+<br />
+- Puede mover el objeto usando el panel "Movement".<br />
+<br />
+- Después de mapear puede obtener el código y añadirlo a su GM presionando "Show Code". Copa el código y lo pega en OnGameModeInit.<br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+    CreateObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0); // El objeto cargará a su distancia por defecto (GTA-SA).<br />
+    return 1;<br />
+}</code></div></div><br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/CreateObject" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/CreateObject</a><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Removiendo objetos:</span><br />
+<br />
+- Muévase alrededor del mapa y busque el objeto que desea borrar.<br />
+<br />
+- Haga clic en él y presione la tecla "Supr".<br />
+<br />
+- Después de borrarlo presione "Show Code". Debe pegar el código en public OnPlayerConnect.<br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnPlayerConnect(playerid)<br />
+{<br />
+    RemoveBuildingForPlayer(playerid, 3782, 1803.0859, -1294.2031, 34.3438, 0.25);<br />
+    return 1;<br />
+}</code></div></div><br />
+Información adicional: <a href="http://wiki.sa-mp.com/wiki/RemoveBuildingForPlayer" target="_blank" rel="noopener" class="mycode_url">https://sampwiki.blast.hk/wiki/RemoveBuildingForPlayer</a><br />
+<br />
+<br />
+<span style="color: Green;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">MTA editor:</span></span></span><br />
+<br />
+Este programa es más sencillo de usar (para los nuevos) que el otro editor.<br />
+<br />
+Puede descargarlo <a href="https://www.mtasa.com/" target="_blank" rel="noopener" class="mycode_url">aquí</a>.<br />
+<br />
+* Nota: El programa puede crear objetos pero no eliminarlos.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Empezando:</span><br />
+<br />
+- Después de descargarlo, abra el archivo MTA.exe<br />
+<br />
+- Haga clic en el editor de mapas.<br />
+<br />
+- Muévase por el mapa, use la cámara y las teclas "W, A, S y D".<br />
+<br />
+- Para crear objetos presione "F" y haga clic en el cubo (parte inferior):<br />
+<br />
+<img src="https://i.imgur.com/uwz65v3.jpg" loading="lazy" alt="[Image: uwz65v3.jpg]" class="mycode_img" /><br />
+<br />
+- Busque el objeto y colóquelo en el mapa.<br />
+<br />
+* Nota: Puede mover arriba y abajo haciendo clic en el objecto y usando las teclas "Avpag" y "Repag" (o también conocidas como "Page Down (pg dn)" y "Page Up (pg up)"). Para rotarlo use "Shift + Scroll". Para cambiar el ángulo use "CTRL + Avpag/Repag" o "CTRL + Flechas".<br />
+<br />
+- Para guardar el mapa use el botón de guardado:<br />
+<br />
+<img src="https://i.imgur.com/bROE6FQ.jpg" loading="lazy" alt="[Image: bROE6FQ.jpg]" class="mycode_img" /><br />
+<br />
+- Para obtener el código use un convertidor de mapas MTA:<br />
+<br />
+<a href="http://gtamap.delux-host.com/converter/" target="_blank" rel="noopener" class="mycode_url">Delux GTA Map Converter v2</a> (2015)<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Delux GTA Map Converter v2:</span><br />
+<br />
+- En vez de <span style="font-weight: bold;" class="mycode_b">IPL file format</span> escoja <span style="font-weight: bold;" class="mycode_b">PAWN Code for SA-MP</span>. Busque el mapa dentro de la carpeta MTA; usualmente se encuentra dentro de \mods\deathmatch\resources.<br />
+<br />
+- Copie el código.<br />
+<br />
+<br />
+<span style="color: Green;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">Creando Objetos:</span></span></span><br />
+<br />
+Después de obtener el código de objeto, debe añadirlo dentro de public OnGameModeInit o OnFilterScriptInit.<br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+    CreateObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0); // El objeto cargará a su distancia original.<br />
+    CreateObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0, 250.0); //El objeto será visible a 250 unidades.<br />
+    return 1;<br />
+}</code></div></div><br />
+Sin embargo, SA-MP tiene un límite de 1000 objetos. Si quiere optimizar el script o hacerlo más rápido, debe usar el plugin <a href="http://forum.sa-mp.com/showthread.php?t=102865" target="_blank" rel="noopener" class="mycode_url">Streamer</a>.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Instalación de Streamer:</span><br />
+<br />
+- Puede descargarlo desde el tema del plugin.<br />
+<br />
+- Después de descargarlo, pegue el archivo "streamer.so" o "streamer.dll" dentro de la carpeta plugins (o simplemente pegue la carpeta plugins contenida en la descarga dentro de la carpeta del servidor).<br />
+<br />
+- Copie el include "streamer.inc" dentro de la carpeta includes, dentro de la carpeta pawno.<br />
+<br />
+- Edite el archivo "server.cfg" dentro de la carpeta de su servidor y agregue esta línea si está usando Windows:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>plugins streamer.dll</code></div></div><br />
+Si usa Linux agregue:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>plugins streamer.so</code></div></div><br />
+- Copie este código dentro debajo de todos los includes (ejemplo de include: #include &lt;a_samp&gt;) de cada script que use el plugin streamer:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;streamer&gt;<br />
+<br />
+#define STREAMER_TYPE_OBJECT (0)<br />
+#define STREAMER_TYPE_PICKUP (1)<br />
+#define STREAMER_TYPE_CP (2)<br />
+#define STREAMER_TYPE_RACE_CP (3)<br />
+#define STREAMER_TYPE_MAP_ICON (4)<br />
+#define STREAMER_TYPE_3D_TEXT_LABEL (5)<br />
+#define STREAMER_TYPE_AREA (6)<br />
+<br />
+#define STREAMER_AREA_TYPE_CIRCLE (0)<br />
+#define STREAMER_AREA_TYPE_CYLINDER (1)<br />
+#define STREAMER_AREA_TYPE_SPHERE (2)<br />
+#define STREAMER_AREA_TYPE_RECTANGLE (3)<br />
+#define STREAMER_AREA_TYPE_CUBOID (4)<br />
+#define STREAMER_AREA_TYPE_POLYGON (5)<br />
+<br />
+#define STREAMER_OBJECT_TYPE_GLOBAL (0)<br />
+#define STREAMER_OBJECT_TYPE_PLAYER (1)<br />
+#define STREAMER_OBJECT_TYPE_DYNAMIC (2)<br />
+<br />
+enum<br />
+{<br />
+    E_STREAMER_ATTACHED_OBJECT,<br />
+    E_STREAMER_ATTACHED_PLAYER,<br />
+    E_STREAMER_ATTACHED_VEHICLE,<br />
+    E_STREAMER_ATTACH_OFFSET_X,<br />
+    E_STREAMER_ATTACH_OFFSET_Y,<br />
+    E_STREAMER_ATTACH_OFFSET_Z,<br />
+    E_STREAMER_ATTACH_R_X,<br />
+    E_STREAMER_ATTACH_R_Y,<br />
+    E_STREAMER_ATTACH_R_Z,<br />
+    E_STREAMER_ATTACH_X,<br />
+    E_STREAMER_ATTACH_Y,<br />
+    E_STREAMER_ATTACH_Z,<br />
+    E_STREAMER_COLOR,<br />
+    E_STREAMER_DRAW_DISTANCE,<br />
+    E_STREAMER_EXTRA_ID,<br />
+    E_STREAMER_INTERIOR_ID,<br />
+    E_STREAMER_MAX_X,<br />
+    E_STREAMER_MAX_Y,<br />
+    E_STREAMER_MAX_Z,<br />
+    E_STREAMER_MIN_X,<br />
+    E_STREAMER_MIN_Y,<br />
+    E_STREAMER_MIN_Z,<br />
+    E_STREAMER_MODEL_ID,<br />
+    E_STREAMER_MOVE_R_X,<br />
+    E_STREAMER_MOVE_R_Y,<br />
+    E_STREAMER_MOVE_R_Z,<br />
+    E_STREAMER_MOVE_SPEED,<br />
+    E_STREAMER_MOVE_X,<br />
+    E_STREAMER_MOVE_Y,<br />
+    E_STREAMER_MOVE_Z,<br />
+    E_STREAMER_NEXT_X,<br />
+    E_STREAMER_NEXT_Y,<br />
+    E_STREAMER_NEXT_Z,<br />
+    E_STREAMER_PLAYER_ID,<br />
+    E_STREAMER_R_X,<br />
+    E_STREAMER_R_Y,<br />
+    E_STREAMER_R_Z,<br />
+    E_STREAMER_SIZE,<br />
+    E_STREAMER_STREAM_DISTANCE,<br />
+    E_STREAMER_STYLE,<br />
+    E_STREAMER_TEST_LOS,<br />
+    E_STREAMER_TYPE,<br />
+    E_STREAMER_WORLD_ID,<br />
+    E_STREAMER_X,<br />
+    E_STREAMER_Y,<br />
+    E_STREAMER_Z<br />
+}</code></div></div><br />
+* Nota: Este código está basado en la actualización del plugin Streamer, 2015 (v2.7.4).<br />
+<br />
+- Después de hacerlo edite el código del objeto que desea añadir. En vez de usar "CreateObject" use "CreateDynamicObject".<br />
+<br />
+Ejemplo:<br />
+<br />
+En vez de usar un código normal...<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+    CreateObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0);<br />
+    return 1;<br />
+}</code></div></div><br />
+Use:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+    CreateDynamicObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0);<br />
+    return 1;<br />
+}</code></div></div><br />
+* Nota: Puede editar más rápido el código "CreateObject" usando un bloc de notas (.txt). Pegue el código dentro; y presione "CTRL + R", busque "CreateObject" y lo reemplaza por "CreateDynamicObject" (use esto si el mapa es muy grande).<br />
+<br />
+- Después de hacer esto abra el archivo PWN donde quiere añadir los objetos (usualmente dentro del gamemode) y pegue su código.<br />
+<br />
+Ejemplo:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OnGameModeInit()<br />
+{<br />
+    CreateDynamicObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0);<br />
+    return 1;<br />
+}</code></div></div><br />
+Información adicional sobre <a href="http://forum.sa-mp.com/showthread.php?t=102865" target="_blank" rel="noopener" class="mycode_url">Streamer</a>.<br />
+<br />
+<br />
+<br />
+<br />
+<span style="color: DarkOrange;" class="mycode_color"><span style="font-family: Arial Black;" class="mycode_font"><span style="font-size: medium;" class="mycode_size">EMPIECE A PRACTICAR:</span></span></span><br />
+<br />
+Ahora que sabe esto, usted puede practicar editando otros script o puede intentar crear su propio script.<br />
+<br />
+¡Una buena forma de empezar es editando otros gamemodes!<br />
+<br />
+Si hay algún error en esta guía o algo debería ser añadido, simplemente comente.<br />
+<br />
+* Nota: esta es una pequeña guía comparada con toda la información básica de SA-MP que un nuevo scripter debe conocer; este tema será actualizado de acuerdo a las sugerencias de los usuarios y sus comentarios.<br />
+<br />
+<br />
+<br />
+<br />
+Créditos de esta guía: Ygzeb (David Talledo)<br />
+<br />
+Agradecimientos especiales a:<br />
+<br />
+Kwarde que ayudó a actualizar algunos enlaces que estaban rotos (2021) :)<br />
+<br />
+Complemento (2021) .- Es posible que algunos enlaces o imágenes simplemente no funcionen ahora o en el futuro; igualmente, es posible que sean reparados en el futuro o no. Sin embargo, espero que esta guía aún sea de ayuda.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Guía básica de SA-MP y Pawn</strong> - <a href="member7a5e.html?action=profile&amp;uid=353">Botato</a> -  <strong>2019-08-08</strong>
+<br />
+<br />
+Buenaaaaaaaaa, será útil
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Guía básica de SA-MP y Pawn</strong> - <a href="member34dd.html?action=profile&amp;uid=3061">Tyshad</a> -  <strong>2020-12-07</strong>
+<br />
+<br />
+Gracias por traducirlo, me sirvió para ir empezando a aprender, lo único malo es que la mayoría de los links que hay en el post, son de la wiki samp, que lamentablemente ya no existe más :c
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Guía básica de SA-MP y Pawn</strong> - <a href="memberb520.html?action=profile&amp;uid=3311">Drazox</a> -  <strong>2021-01-18</strong>
+<br />
+<br />
+¡Buen aporte :)!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Guía básica de SA-MP y Pawn</strong> - <a href="member778d.html?action=profile&amp;uid=2977">Rocko Schultz</a> -  <strong>2021-03-18</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-12-07, 01:17 PM)</span>Tyshad Wrote:  <a href="showthread36ac.html?pid=8942#pid8942" class="quick_jump"></a></cite>Gracias por traducirlo, me sirvió para ir empezando a aprender, lo único malo es que la mayoría de los links que hay en el post, son de la wiki samp, que lamentablemente ya no existe más :c</blockquote><br />
+Lo bueno es que la wiki de Open.mp contiene todo o casi todo lo que tenia la antigua Wiki Samp, desde ahi pueden revisarlo todo<br />
+<br />
+https://open.mp/docs
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Guía básica de SA-MP y Pawn</strong> - <a href="memberee91.html?action=profile&amp;uid=3564">Gotsh</a> -  <strong>2021-03-22</strong>
+<br />
+<br />
+Buena guia hermano!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>Respuesta - Guía básica de SA-MP y Pawn</strong> - <a href="member5914.html?action=profile&amp;uid=1458">Ygzeb</a> -  <strong>2021-11-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-08-08, 04:32 AM)</span>Botato Wrote:  <a href="showthreadb136.html?pid=6526#pid6526" class="quick_jump"></a></cite>Buenaaaaaaaaa, será útil</blockquote><br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-18, 06:30 AM)</span>Drazox Wrote:  <a href="showthreadb8aa.html?pid=9417#pid9417" class="quick_jump"></a></cite>¡Buen aporte :)!</blockquote><br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-22, 12:37 AM)</span>Gotsh Wrote:  <a href="showthreadc00b.html?pid=10377#pid10377" class="quick_jump"></a></cite>Buena guia hermano!</blockquote><br />
+Muchas gracias a todos por su apoyo, me alegra que les haya sido de ayuda ^^<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-12-07, 01:17 PM)</span>Tyshad Wrote:  <a href="showthread36ac.html?pid=8942#pid8942" class="quick_jump"></a></cite>Gracias por traducirlo, me sirvió para ir empezando a aprender, lo único malo es que la mayoría de los links que hay en el post, son de la wiki samp, que lamentablemente ya no existe más :c</blockquote><br />
+Muchas gracias amigo, me alegra que te haya servido; sobre los links desactualizados, los acabo de modificar a una nueva wiki que hicieron (https://sampwiki.blast.hk/wiki/)<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-18, 10:17 PM)</span>Rocko Schultz Wrote:  <a href="showthread3f4d.html?pid=10329#pid10329" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2020-12-07, 01:17 PM)</span>Tyshad Wrote:  <a href="showthread36ac.html?pid=8942#pid8942" class="quick_jump"></a></cite>Gracias por traducirlo, me sirvió para ir empezando a aprender, lo único malo es que la mayoría de los links que hay en el post, son de la wiki samp, que lamentablemente ya no existe más :c</blockquote><br />
+Lo bueno es que la wiki de Open.mp contiene todo o casi todo lo que tenia la antigua Wiki Samp, desde ahi pueden revisarlo todo<br />
+<br />
+https://open.mp/docs</blockquote><br />
+Gracias por el aporte amigo :)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

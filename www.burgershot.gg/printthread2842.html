@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin [Include] pawn-array-view: non-owning spans for multi-dimensional pawn arrays - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthread2842.html?tid=316">[Include] pawn-array-view: non-owning spans for multi-dimensional pawn arrays</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> [Include] pawn-array-view: non-owning spans for multi-dimensional pawn arrays (<em>/showthread.php?tid=316</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Include] pawn-array-view: non-owning spans for multi-dimensional pawn arrays</strong> - <a href="memberbea3.html?action=profile&amp;uid=36">Yashas</a> -  <strong>2019-04-17</strong>
+<br />
+<br />
+<span style="font-size: xx-large;" class="mycode_size">pawn-array-view</span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">pawn-array-view</span> is an efficient C++ library that abstracts the <a href="https://github.com/YashasSamaga/AMX-Assembly-Docs/blob/master/DOCUMENT.md#multi-dimensional-arrays" target="_blank" rel="noopener" class="mycode_url">complex memory layout of multi-dimensional pawn arrays</a> and provides an intuitive C/++ array-like interface for dealing with them. The name suggests that the library only allows read-only access to the arrays but that's not true; you can access and modify the arrays. Any decent C++ compiler will be able to optimize off all access and modifications to the arrays into simple pointer arithmetic. <br />
+<br />
+<span style="font-size: large;" class="mycode_size">Defects (Help Wanted)</span> <br />
+LICM optimizations aren't pushing loop invariant subexpressions out of the loop because of aliased pointers. I haven't figured out how to correctly place restrict qualifiers which aren't ignored.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>int main() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;pawn::array_view&lt;int, 3&gt; array((cell*)0x10000);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 0; i &lt; 100; i++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int j = 0; j &lt; 100; j++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int k = 0; k &lt; 128; k++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[i][j][k] = 10;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br />
+}</code></div></div><br />
+The compiler does not move the array[i][j] calculations outside the loop. There is a valid reason to not move them since modifying an element could modify something which would require recalculating the indexes. This is useful only when indirection tables are being modified. The common case is data being modified but not the indirection table. In this situation, moving the calculations out of the loop improves performance.<br />
+<br />
+There are more consequences. The compiler can also vectorize the loop if it manages to pull the subexpression out of the loop. The failure to move the subexpression outside the loop prevents a ton of optimizations.<br />
+<br />
+Note that the optimizations happen when the array is only being read. The problem is for modifications only.<br />
+<br />
+<span style="font-size: large;" class="mycode_size">Plans</span><br />
+If the size of the arrays are known at compile-time, a better interface can be provided. I have plans on providing full-fledged container like support for arrays where the dimensions are available at compile time.<br />
+<br />
+There is a project going on in the develop branch which has working but inefficient code for dealing with known dimensions at run-time.<br />
+<br />
+I plan on renaming array_view to span. This include was initially providing a view but then the ability to mutate was added but the name wasn't changed. It's a very misleading name now.<br />
+<br />
+<span style="font-size: large;" class="mycode_size">Links</span><ul class="mycode_list"><li><a href="https://github.com/YashasSamaga/pawn-array-view/blob/master/lib/pawn/array_view.hpp" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">array_view.hpp</span></a><br />
+</li>
+<li><a href="https://github.com/YashasSamaga/pawn-array-view/blob/master/README.md" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">documentation</span></a><br />
+</li>
+<li><a href="https://github.com/YashasSamaga/pawn-array-view/blob/master/plugin/natives/tests.cpp" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">examples</span></a><br />
+</li>
+<li><a href="https://github.com/YashasSamaga/pawn-array-view" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">project repository</span></a><br />
+</li>
+<li><a href="https://github.com/YashasSamaga/pawn-array-view/tree/develop" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">develop branch (interesting stuff happens here)</span></a><br />
+</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

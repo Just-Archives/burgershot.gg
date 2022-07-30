@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> [AJUDA]Travar o comando para destruir o veiculo - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreade54c.html?tid=1426">[AJUDA]Travar o comando para destruir o veiculo</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: Other languages (<i>https://www.burgershot.gg/forumdisplay.php?fid=23</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Portuguese/Português (<i>https://www.burgershot.gg/forumdisplay.php?fid=25</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  [AJUDA]Travar o comando para destruir o veiculo (<em>/showthread.php?tid=1426</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[AJUDA]Travar o comando para destruir o veiculo</strong> - <a href="member8a3c.html?action=profile&amp;uid=3134">willian franco</a> -  <strong>2020-12-16</strong>
+<br />
+<br />
+Boa noite!! criei um comando para criar o veiculo e outro para destrui-lo porem gostaria de travar para destrui-lo quando o player estiver no veiculo, o comando consegue destruir mesmo não estado no veiculo.  <br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>    CMD:dcivil(playerid, x_nr[])<br />
+{<br />
+if(!strlen(x_nr))<br />
+{<br />
+    SendClientMessage(playerid, COLOR_GRAD1, "USE: /dcivil [numero do veiculo]");<br />
+}<br />
+      return 1;<br />
+}<br />
+else if(strcmp(x_nr,"1",true)==0)<br />
+{<br />
+                    DestroyVehicle(Civilcarro[0]);<br />
+                    carrocivil[0] = 0;<br />
+                    SendClientMessage(playerid, COR_AMARELO, "Veiculo Civil Destruido..");<br />
+          }<br />
+          }<br />
+    return 1;<br />
+    }<br />
+else if(strcmp(x_nr,"2",true)==0)<br />
+            {<br />
+    if(carrocivil[1] == 1)<br />
+                {<br />
+                    DestroyVehicle(Civilcarro[1]);<br />
+                    carrocivil[1] = 0;<br />
+                    SendClientMessage(playerid, COR_AMARELO, "Veiculo Civil Destruido..");<br />
+          }<br />
+          }<br />
+        return 1;<br />
+    }<br />
+    else if(strcmp(x_nr,"3",true)==0)<br />
+            {<br />
+      if(carrocivil[2] == 1)<br />
+                {<br />
+                    DestroyVehicle(Civilcarro[2]);<br />
+                    carrocivil[2] = 0;<br />
+                    SendClientMessage(playerid, COR_AMARELO, "Veiculo Civil Destruido..");<br />
+                }<br />
+              return 1;<br />
+        }<br />
+    else if(strcmp(x_nr,"4",true)==0)<br />
+            {<br />
+              if(carrocivil[3] == 1)<br />
+                {<br />
+                    DestroyVehicle(Civilcarro[3]);<br />
+                    carrocivil[3] = 0;<br />
+                    SendClientMessage(playerid, COR_AMARELO, "Veiculo Civil Destruido..");<br />
+                }<br />
+        return 1;<br />
+        }</code></div></div><br />
+os comando em diante são todos iguais por isso não coloquei ele completo.<br />
+<br />
+objetivo -  estou testando esse sistema para tentar diminuir a quantidade de veículos no servidor que esta estão sendo usado.<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-size: xx-large;" class="mycode_size"><span style="color: #e82a1f;" class="mycode_color">Quero apenas pode usar o comando no veiculo desejado estando no motorista.</span></span><br />
+<div style="text-align: left;" class="mycode_align"><span style="color: #000000;" class="mycode_color">voltei a pouco tempo a editar servidor <br />
+obrigadooo a comunidade!!! </span></div>
+</div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [AJUDA]Travar o comando para destruir o veiculo</strong> - <a href="memberc364.html?action=profile&amp;uid=2172">xbruno1000x</a> -  <strong>2020-12-17</strong>
+<br />
+<br />
+Exemplo:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>                if (IsPlayerInVehicle(playerid, Civilcarro[3]))<br />
+                {<br />
+                    DestroyVehicle(Civilcarro[3]);<br />
+                    carrocivil[3] = 0;<br />
+                    SendClientMessage(playerid, COR_AMARELO, "Veiculo Civil Destruido..");<br />
+                }</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

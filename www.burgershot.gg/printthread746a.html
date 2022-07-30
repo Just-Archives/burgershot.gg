@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Library DataConvert - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #9D17FF;font-weight: bold;">[Library]</span> <a href="showthread746a.html?tid=1901">DataConvert</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Libraries (<i>https://www.burgershot.gg/forumdisplay.php?fid=31</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #9D17FF;font-weight: bold;">[Library]</span> DataConvert (<em>/showthread.php?tid=1901</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>DataConvert</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-18</strong>
+<br />
+<br />
+Hello, I would like to present a simple include to convert numbers between systems, decimal, hexadecimal, binary, octal.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>DataConvert.inc<br />
+ Copyright © 2021 Abyss Morgan. All rights reserved.<br />
+ Contributors: Crayder, Shiny<br />
+<br />
+ Website: https://adm.ct8.pl<br />
+<br />
+ Plugins: SScanf<br />
+ Modules: None<br />
+<br />
+ File Version: 2.2.0<br />
+ SScanf Version: 2.8.2<br />
+<br />
+ Definitions:<br />
+ FIRST_FILE_ADDRESS<br />
+ INVALID_FILE_ID<br />
+ INVALID_FILE_HANDLE<br />
+ INT_NUMBER_LEN<br />
+ HEX_NUMBER_LEN<br />
+ BIN_NUMBER_LEN<br />
+ OCT_NUMBER_LEN<br />
+<br />
+ Functions:<br />
+ strcopy(const input[],output[]);&nbsp;&nbsp;//string copy for warning 224: indeterminate array size<br />
+ fstrcopy(const input[],output[],maxdest = sizeof(output));&nbsp;&nbsp; //fast string copy<br />
+ ABCToCBA(const input[],output[]);<br />
+ AnyToInt(string[],type,&amp;bool:flag);<br />
+ IntToAny(value,output[],type);<br />
+ rot13(string[]);<br />
+ code128(const input[],output[]);<br />
+ swap_int({Float,_}:int1,{Float,_}:int2);<br />
+ swap_string(string1[], string2[], dest1 = sizeof(string1), dest2 = sizeof(string2));<br />
+ ContainInSeries(value,...);<br />
+ ContainInSeriesFloat(Float:value,Float:...);<br />
+ StringEqual(string1[],string2[],ignorecase);<br />
+ StringNotEqual(string1[],string2[],ignorecase);<br />
+ base64_decode(const input[],output[]); //d:base64<br />
+ base64_encode(const input[],output[]); //e:base64<br />
+ StripNewLine(string[]);<br />
+ strreplace(string[],const search[],const replacement[],bool:ignorecase = false,pos = 0,limit = -1,maxlength = sizeof(string));<br />
+ strlower(string[]);<br />
+ strupper(string[]);<br />
+ DataConvert::InvertString(const input[], output[], maxdest = sizeof(output));<br />
+ DataConvert::StringToHexString(const input[], output[], maxdest = sizeof(output));<br />
+ DataConvert::HexStringToString(const input[], output[], maxdest = sizeof(output));<br />
+<br />
+ File functions:<br />
+ GetFileHandleID(File:handle);<br />
+ GetFileID(File:handle);<br />
+ fcopy(const input[],output[]);<br />
+ frename(oldname[],newname[]);<br />
+ DataConvert::FileCreate(const name[]);<br />
+ DataConvert::MergeFile(const first_file[],const second_file[],bool:erase_second=false);<br />
+ DataConvert::MergeFileGroup(const group_name[],const output[],upperbound_index,bool:erase_input=false);<br />
+ DataConvert::SplitFile(const input[],const output[],max_size,&amp;upperbound_index=0);<br />
+<br />
+ Validators:<br />
+ IsDecimalNumber(const string[]);<br />
+ IsHexNumber(const string[]);<br />
+ IsBinaryNumber(const string[]);<br />
+ IsOctalNumber(const string[]);<br />
+ IsFloatNumber(const string[]);<br />
+<br />
+ Convert to Bool:<br />
+ StringToBool(const string[]);<br />
+ IntToBool(value);<br />
+<br />
+ Convert to Int:<br />
+ StringToInt(const string[]);<br />
+ BoolToInt(bool:boolean);<br />
+ HexToInt(const string[]);<br />
+ BinToInt(const string[]);<br />
+ OctToInt(const string[]);<br />
+<br />
+ Convert to Hex:<br />
+ IntToHex(value);<br />
+ IntToHexEx(value);<br />
+ BinToHex(const string[]);<br />
+ BinToHexEx(const string[]);<br />
+ OctToHex(const string[]);<br />
+<br />
+ Convert to Bin:<br />
+ IntToBin(value);<br />
+ HexToBin(const string[]);<br />
+ OctToBin(const string[]);<br />
+<br />
+ Convert to Oct:<br />
+ IntToOct(value);<br />
+ HexToOct(const string[]);<br />
+ BinToOct(const string[]);<br />
+<br />
+ Binary Data Convert:<br />
+ FloatToInt(Float:value); //Convert Float binary data to Integer binary data !<br />
+ IntToFloat(value); //Convert Integer binary data to Float binary data !</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Examples:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new File:edi = fopen("test.txt",io_readwrite);<br />
+new id = GetFileID(edi); //returns the number of open file: 1, 2, 3, 4, ...<br />
+<br />
+new a = BinToInt("1010"); //return 10<br />
+<br />
+new hex[10];<br />
+hex = IntToHex(15); //return 00000F<br />
+hex = IntToHexEx(15); //return F<br />
+<br />
+new g = 15, Float:h = 15.0;<br />
+if(IsIdentical(g,h)){ //This operator can only be used on variables<br />
+&nbsp;&nbsp;&nbsp;&nbsp;printf("YES");<br />
+} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;printf("NO"); //&lt;-- print this<br />
+}<br />
+<br />
+new buf[128];<br />
+ABCToCBA("Hello",buf);<br />
+printf(buf); //print: olleH<br />
+<br />
+new v1 = 15, v2 = 19;<br />
+swap_int(v1,v2); //swapvars by Crayder<br />
+//after operation: v1 = 19, v2 = 15<br />
+<br />
+new test = FloatToInt(25666.000000); //return 1187546112<br />
+<br />
+new Float:test2 = IntToFloat(1084227584); //return 5.0<br />
+<br />
+//http://www.rot13.com<br />
+new rot[64];<br />
+rot = rot13("San Andreas Multiplayer"); //return "Fna Naqernf Zhygvcynlre"<br />
+<br />
+//ContainInSeries(Float)<br />
+<br />
+new myvalue = 431;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+//if(myvalue == 425 || myvalue == 430 || myvalue == 432 || myvalue == 447 || myvalue == 464 || myvalue == 476 || myvalue == 520)<br />
+if(ContainInSeries(myvalue,425,430,432,447,464,476,520)){ //millitary vehicles<br />
+&nbsp;&nbsp;&nbsp;&nbsp;printf("#1 YES");<br />
+} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;printf("#1 NO"); //&lt;-- print this<br />
+}<br />
+<br />
+//if(myvalue != 425 &amp;&amp; myvalue != 430 &amp;&amp; myvalue != 432 &amp;&amp; myvalue != 447 &amp;&amp; myvalue != 464 &amp;&amp; myvalue != 476 &amp;&amp; myvalue != 520)<br />
+if(!ContainInSeries(myvalue,425,430,432,447,464,476,520)){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;printf("#2 YES"); //&lt;-- print this<br />
+} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;printf("#2 NO");<br />
+}<br />
+<br />
+new Float:myfloatvalue = 15.0;<br />
+if(ContainInSeriesFloat(myfloatvalue,12.0,1.0)){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;printf("#3 YES");<br />
+} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;printf("#3 NO"); //&lt;-- print this<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Download:</span><br />
+<a href="https://adm.ct8.pl/cloud/Libs/DataConvert/DataConvert.inc" target="_blank" rel="noopener" class="mycode_url">DataConvert.inc</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: DataConvert</strong> - <a href="memberf066.html?action=profile&amp;uid=3654">AbyssMorgan</a> -  <strong>2021-04-28</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Update v2.2.0:</span><br />
+<br />
+- Added functions:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>DataConvert::InvertString(const input[], output[], maxdest = sizeof(output));<br />
+DataConvert::StringToHexString(const input[], output[], maxdest = sizeof(output));<br />
+DataConvert::HexStringToString(const input[], output[], maxdest = sizeof(output));</code></div></div><br />
+- Added file functions:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>DataConvert::FileCreate(const name[]);<br />
+DataConvert::MergeFile(const first_file[],const second_file[],bool:erase_second=false);<br />
+DataConvert::MergeFileGroup(const group_name[],const output[],upperbound_index,bool:erase_input=false);<br />
+DataConvert::SplitFile(const input[],const output[],max_size,&amp;upperbound_index=0);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: DataConvert</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-04-30</strong>
+<br />
+<br />
+a great contribution, thanks for sharing.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

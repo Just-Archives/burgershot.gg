@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Tool Visual Studio Code - Updated Pawn Tools for vscode - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1d1e22;font-weight: bold;">[Tool]</span> <a href="showthread7dc0.html?tid=598">Visual Studio Code - Updated Pawn Tools for vscode</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1d1e22;font-weight: bold;">[Tool]</span> Visual Studio Code - Updated Pawn Tools for vscode (<em>/showthread.php?tid=598</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Visual Studio Code - Updated Pawn Tools for vscode</strong> - <a href="member138d.html?action=profile&amp;uid=7">Graber</a> -  <strong>2019-05-25</strong>
+<br />
+<br />
+<span style="color: #FF4700;" class="mycode_color"><span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">vscode-pawn</span></span></span><br />
+<br />
+Pawn tools for vscode.<br />
+<br />
+Currently this is a port of the Sublime Text package which includes proper Pawn syntax highlighting, autocompletions for the standard library and some popular libraries.<br />
+<br />
+If you like development tools that speed up your workflow and increase productivity, check out <span style="font-weight: bold;" class="mycode_b"><a href="https://github.com/Southclaws/sampctl" target="_blank" rel="noopener" class="mycode_url">sampctl</a></span>!<br />
+<br />
+This post was originally from Southclaws, I managed to rescue it from the deleted SA-MP forums thread thanks to the post still being in Google's cache.<br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Installation</span></span></span><br />
+<br />
+Just search for “Pawn Tools” in the vscode extensions and install it.<br />
+<br />
+Alternatively, you can check out the source code or view the marketplace page:<br />
+<ul class="mycode_list"><li><a href="https://github.com/Southclaws/vscode-pawn" target="_blank" rel="noopener" class="mycode_url">GitHub Page</a><br />
+</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn" target="_blank" rel="noopener" class="mycode_url">Marketplace Page</a><br />
+</li>
+</ul>
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Installation</span></span></span><br />
+<br />
+To actually compile after you’ve set up the tasks.json below, press CTRL+Shift+B (Windows) or CMD+Shift+B (Mac), or alternatively open up the command palette with CTRL+Shift+P (Windows) or CMD+Shift+P (Mac) and type Run Task, hit enter and select build-normal.<br />
+<br />
+If you use <a href="https://github.com/Southclaws/sampctl" target="_blank" rel="noopener" class="mycode_url">sampctl</a> it’s the same process except you’ll have four options in the Run Task list:<ul class="mycode_list"><li><span style="font-family: courier new;" class="mycode_font">build only</span> - build the package<br />
+</li>
+<li><span style="font-family: courier new;" class="mycode_font">build watcher</span> - build the package on every file change<br />
+</li>
+<li><span style="font-family: courier new;" class="mycode_font">run tests</span> - run the package<br />
+</li>
+<li><span style="font-family: courier new;" class="mycode_font">run tests watcher</span> - run the package on every file change<br />
+</li>
+</ul>
+<br />
+It is recommended that you set a PawnPlus version explicitely on your pawn.json (preferibly the latest) to avoid always downloading the latest one.<br />
+<br />
+If you don’t use sampctl, just download the <span style="font-family: courier new;" class="mycode_font">pp-mysql.inc</span> include and drop it to your <span style="font-family: courier new;" class="mycode_font">includes/</span> folder, and then download the PawnPlus plugin and include <a href="https://github.com/IllidanS4/PawnPlus/releases" target="_blank" rel="noopener" class="mycode_url">from here</a>.<br />
+<br />
+<span style="color: DeepSkyBlue;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">With <span style="font-family: courier new;" class="mycode_font">sampctl package init</span></span></span></span><br />
+<br />
+If you’re using sampctl, the <span style="font-family: courier new;" class="mycode_font">sampctl package init</span> command will automatically generate a vscode <span style="font-family: courier new;" class="mycode_font">tasks.json</span> if you selected <span style="font-family: courier new;" class="mycode_font">vscode</span> in the editor part of the setup menu.[/font]<br />
+<br />
+If you’ve already got a package but you didn’t do this, you can simply download the <span style="font-family: courier new;" class="mycode_font">tasks.json</span> from the <a href="https://github.com/Southclaws/pawn-package-template/blob/master/.vscode/tasks.json" target="_blank" rel="noopener" class="mycode_url">Pawn Package template repo</a>.<br />
+<br />
+Once you’ve done that, there’s no more setup needed!<br />
+<br />
+<span style="color: DeepSkyBlue;" class="mycode_color"><span style="font-size: large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Creating <span style="font-family: courier new;" class="mycode_font">tasks.json</span></span></span></span><br />
+<br />
+Code uses a method called “Tasks” to run compilers and build tools. All you need to do is create a folder named <span style="font-family: courier new;" class="mycode_font">.vscode</span> in your project’s directory and in there, create a file named <span style="font-family: courier new;" class="mycode_font">tasks.json</span><br />
+<br />
+[img=https://i.imgur.com/ywElfTy.gif][/img]<br />
+<br />
+Then paste this into that file:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">{<br />&nbsp;</span><span style="color: #DD0000">"version"</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"2.0.0"</span><span style="color: #007700">,<br />&nbsp;</span><span style="color: #DD0000">"tasks"</span><span style="color: #007700">:&nbsp;[<br />&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"label"</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"build-normal"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"type"</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"shell"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"command"</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #007700">&#36;{</span><span style="color: #0000BB">workspaceRoot</span><span style="color: #007700">}</span><span style="color: #DD0000">/pawno/pawncc.exe"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"args"</span><span style="color: #007700">:&nbsp;[</span><span style="color: #DD0000">"</span><span style="color: #007700">&#36;{</span><span style="color: #0000BB">file</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"-Dgamemodes"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"-;+"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"-(+"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"-d3"</span><span style="color: #007700">],<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"group"</span><span style="color: #007700">:&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"kind"</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"build"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"isDefault"</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">true<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"isBackground"</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"presentation"</span><span style="color: #007700">:&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"reveal"</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"silent"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"panel"</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"dedicated"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"problemMatcher"</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">&#36;pawncc</span><span style="color: #DD0000">"<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;]<br />}&nbsp;<br /></span></code></div></div></div><br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: SlateGray;" class="mycode_color">Explanation</span></span><br />
+<br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">"command": "&#36;{workspaceRoot}/pawno/pawncc.exe",</span> is the important bit here, this is the path to your Pawn compiler and I’ve assumed most of you have a left-over <span style="font-family: courier new;" class="mycode_font">pawno</span> folder from that long dead text editor! This folder not only contains Pawno but also the Pawn code compiler (<span style="font-family: courier new;" class="mycode_font">pawncc.exe</span>). You can safely delete <span style="font-family: courier new;" class="mycode_font">pawno.exe</span> forever.<br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">"args": [...],</span> is also important, this is where you define the arguments passed to the compiler. Pawno also did this but you might not have known. The defaults have always been <span style="font-family: courier new;" class="mycode_font">-;+</span> to force semicolon usage and <span style="font-family: courier new;" class="mycode_font">-(+</span> to force brackets in statements.<br />
+<br />
+If you store your Pawn compiler elsewhere, just replace the entire <span style="font-family: courier new;" class="mycode_font">command</span> setting with the full path to your compiler.<br />
+<br />
+Also, if you want to disable debug symbols (you won’t be able to use crashdetect) just remove <span style="font-family: courier new;" class="mycode_font">-d3</span> from <span style="font-family: courier new;" class="mycode_font">"args"</span>.<br />
+<br />
+<span style="font-family: courier new;" class="mycode_font">problemMatcher</span> is the part that allows recognising the Pawn compiler output and presenting it in the <span style="font-family: courier new;" class="mycode_font">problems</span> panel of the editor. This doesn’t work well with external includes because the paths change from relative to absolute. <a href="https://github.com/Southclaws/sampctl" target="_blank" rel="noopener" class="mycode_url">sampctl</a> fortunately fixes this (and a lot of other annoying things).<br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Features</span></span></span><br />
+<br />
+Currently just syntax highlighting and completions from the Sublime project.<br />
+<br />
+Once the Pawn-Parser project reaches a workable state, this extension will feature more language features such as intellisense support, go-to-definition, view-all-references, etc…<br />
+<br />
+Here’s what the problems panel looks like when the tasks.json is set up properly:
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Visual Studio Code - Updated Pawn Tools for vscode</strong> - <a href="member282c.html?action=profile&amp;uid=30">Crayder</a> -  <strong>2019-05-26</strong>
+<br />
+<br />
+You should add sampctl commands
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

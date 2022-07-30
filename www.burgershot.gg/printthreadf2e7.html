@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Timer - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf2e7.html?tid=2198">Timer</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Timer (<em>/showthread.php?tid=2198</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Timer</strong> - <a href="membere399.html?action=profile&amp;uid=4013">njoBe_</a> -  <strong>2021-07-30</strong>
+<br />
+<br />
+Im trying to make /mute command, but i dont know how to set timer which is equal to time which i set in command and when this timer ends it sets to player stats Muted = 0<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:mute(playerid, params[])<br />
+{<br />
+if (!IsPlayerAdmin(playerid) || PlayerInfo [playerid] [pAdmin] &lt; 1) return SendClientMessage(playerid, COLOR_SERVER, "[BC:RP] {FFFFFF}Niste admin.");<br />
+if (IsPlayerAdmin(playerid) || PlayerInfo [playerid] [pAdmin] &gt; 0)<br />
+{<br />
+new id, reason[128], str[128], string[256], pName[MAX_PLAYER_NAME], pMutedName[MAX_PLAYER_NAME], time;<br />
+if(sscanf(params, "uis", id, time, reason)) return SendClientMessage(playerid, COLOR_SERVER, "[Usage]: {FFFFFF}/mute [ID/Ime] [Vrijeme] [Razlog]") ;<br />
+else if (time &lt; 0 || time &gt; 1000) return SendClientMessage(playerid, COLOR_SERVER, "[Usage]: Vrijeme ne moze biti manje od 0 (skidanje mute-a) i vece od 1000. ");<br />
+else if (time == 0) return SendClientMessage(playerid, -1, "Admin vam je skinuo mute.");<br />
+GetPlayerName(playerid, pName, sizeof(pName));<br />
+GetPlayerName(id, pMutedName, sizeof(pMutedName));<br />
+format(str, sizeof(str), "{FF0000}Utisani ste od strane admina {FFFFFF}%s {FF0000} na {FFFFFF}%d {FF0000}minuta. Razlog: {FFFFFF}%s.", pName, time, reason);<br />
+SendClientMessage(id, -1, str);<br />
+format(string, sizeof(string), "{FF0000}[Mute]: Admin {FFFFFF}%s {FF0000}je utisao igraca {FFFFFF}%s {FF0000}na {FFFFFF}%d {FF0000}minuta. Razlog: {FFFFFF}%s", pName, pMutedName, time, reason);<br />
+foreach(Player, i)<br />
+if(PlayerInfo [i] [pStaff] == 1)<br />
+{<br />
+SendClientMessage(i, -1, string);<br />
+}<br />
+PlayerInfo [id] [pMuted] = time;<br />
+PlayerInfo [id] [pMutedReason] = reason;<br />
+SetTimerEx("mutetime", time*1000, false, "d", id);<br />
+<br />
+<br />
+}<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Timer</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-07-30</strong>
+<br />
+<br />
+Set a timer with 1 second interval on <span style="font-style: italic;" class="mycode_i">OnGameModeInit()</span> then decrease player mute time.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OneSecondPlayerTimer() {<br />
+    foreach(new i: Player) {<br />
+        PlayerMuteCheck(i);<br />
+    }<br />
+}<br />
+<br />
+PlayerMuteCheck(playerid) {<br />
+    if(PlayerInfo [playerid] [pMuted] == 1) {<br />
+        PlayerInfo [playerid] [pMuted]--;<br />
+        SendClientMessage(playerid, -1, "Mute time expired.");<br />
+    }<br />
+<br />
+    if(PlayerInfo [playerid] [pMuted] &gt; 1) PlayerInfo [playerid] [pMuted]--;<br />
+}</code></div></div><br />
+Also if you want check player is muted you just need check the <span style="font-style: italic;" class="mycode_i">PlayerInfo[playerid][pMuted]</span> is not 0.<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>IsPlayerMuted(playerid) {<br />
+    if(PlayerInfo[playerid][pMuted] == 0) return 0;<br />
+<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Timer</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-30, 10:19 PM)</span>Radical Wrote:  <a href="showthread7cc2.html?pid=11770#pid11770" class="quick_jump"></a></cite>Set a timer with 1 second interval on <span style="font-style: italic;" class="mycode_i">OnGameModeInit()</span> then decrease player mute time.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OneSecondPlayerTimer() {<br />
+    foreach(new i: Player) {<br />
+        PlayerMuteCheck(i);<br />
+    }<br />
+}<br />
+<br />
+PlayerMuteCheck(playerid) {<br />
+    if(PlayerInfo [playerid] [pMuted] == 1) {<br />
+        PlayerInfo [playerid] [pMuted]--;<br />
+        SendClientMessage(playerid, -1, "Mute time expired.");<br />
+    }<br />
+<br />
+    if(PlayerInfo [playerid] [pMuted] &gt; 1) PlayerInfo [playerid] [pMuted]--;<br />
+}</code></div></div><br />
+Also if you want check player is muted you just need check the <span style="font-style: italic;" class="mycode_i">PlayerInfo[playerid][pMuted]</span> is not 0.<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>IsPlayerMuted(playerid) {<br />
+    if(PlayerInfo[playerid][pMuted] == 0) return 0;<br />
+<br />
+    return 1;<br />
+}</code></div></div></blockquote>One simple question: <span style="font-weight: bold;" class="mycode_b">why.</span><br />
+<br />
+Here's the solution:<br />
+https://ideone.com/N0ciwe
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Timer</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-31, 12:48 AM)</span>Pinch Wrote:  <a href="showthread3fd7.html?pid=11772#pid11772" class="quick_jump"></a></cite>One simple question: <span style="font-weight: bold;" class="mycode_b">why.</span><br />
+<br />
+Here's the solution:<br />
+https://ideone.com/N0ciwe</blockquote><br />
+I just gived him a solution.<br />
+But I forgot to using gettime().<br />
+IS OK NOW?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Timer</strong> - <a href="membere399.html?action=profile&amp;uid=4013">njoBe_</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-31, 12:48 AM)</span>Pinch Wrote:  <a href="showthread3fd7.html?pid=11772#pid11772" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-07-30, 10:19 PM)</span>Radical Wrote:  <a href="showthread7cc2.html?pid=11770#pid11770" class="quick_jump"></a></cite>Set a timer with 1 second interval on <span style="font-style: italic;" class="mycode_i">OnGameModeInit()</span> then decrease player mute time.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OneSecondPlayerTimer() {<br />
+    foreach(new i: Player) {<br />
+        PlayerMuteCheck(i);<br />
+    }<br />
+}<br />
+<br />
+PlayerMuteCheck(playerid) {<br />
+    if(PlayerInfo [playerid] [pMuted] == 1) {<br />
+        PlayerInfo [playerid] [pMuted]--;<br />
+        SendClientMessage(playerid, -1, "Mute time expired.");<br />
+    }<br />
+<br />
+    if(PlayerInfo [playerid] [pMuted] &gt; 1) PlayerInfo [playerid] [pMuted]--;<br />
+}</code></div></div><br />
+Also if you want check player is muted you just need check the <span style="font-style: italic;" class="mycode_i">PlayerInfo[playerid][pMuted]</span> is not 0.<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>IsPlayerMuted(playerid) {<br />
+    if(PlayerInfo[playerid][pMuted] == 0) return 0;<br />
+<br />
+    return 1;<br />
+}</code></div></div></blockquote>One simple question: <span style="font-weight: bold;" class="mycode_b">why.</span><br />
+<br />
+Here's the solution:<br />
+https://ideone.com/N0ciwe</blockquote><br />
+thank you bro, but player is always muted until someone unmute him.. im asking how to set timer which is equal to time in command and when this timer ends pMute sets to 0 and he can speak, use commands..
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Timer</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-31</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-31, 09:56 AM)</span>njoBe_ Wrote:  <a href="showthreadd9f8.html?pid=11774#pid11774" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-07-31, 12:48 AM)</span>Pinch Wrote:  <a href="showthread3fd7.html?pid=11772#pid11772" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-07-30, 10:19 PM)</span>Radical Wrote:  <a href="showthread7cc2.html?pid=11770#pid11770" class="quick_jump"></a></cite>Set a timer with 1 second interval on <span style="font-style: italic;" class="mycode_i">OnGameModeInit()</span> then decrease player mute time.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OneSecondPlayerTimer() {<br />
+    foreach(new i: Player) {<br />
+        PlayerMuteCheck(i);<br />
+    }<br />
+}<br />
+<br />
+PlayerMuteCheck(playerid) {<br />
+    if(PlayerInfo [playerid] [pMuted] == 1) {<br />
+        PlayerInfo [playerid] [pMuted]--;<br />
+        SendClientMessage(playerid, -1, "Mute time expired.");<br />
+    }<br />
+<br />
+    if(PlayerInfo [playerid] [pMuted] &gt; 1) PlayerInfo [playerid] [pMuted]--;<br />
+}</code></div></div><br />
+Also if you want check player is muted you just need check the <span style="font-style: italic;" class="mycode_i">PlayerInfo[playerid][pMuted]</span> is not 0.<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>IsPlayerMuted(playerid) {<br />
+    if(PlayerInfo[playerid][pMuted] == 0) return 0;<br />
+<br />
+    return 1;<br />
+}</code></div></div></blockquote>One simple question: <span style="font-weight: bold;" class="mycode_b">why.</span><br />
+<br />
+Here's the solution:<br />
+https://ideone.com/N0ciwe</blockquote><br />
+thank you bro, but player is always muted until someone unmute him.. im asking how to set timer which is equal to time in command and when this timer ends pMute sets to 0 and he can speak, use commands..</blockquote>Bukvalno sam ti dao komandu invalidu
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Timer</strong> - <a href="memberd778.html?action=profile&amp;uid=3078">Slade</a> -  <strong>2022-01-21</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-07-31, 12:48 AM)</span>Pinch Wrote:  <a href="showthread3fd7.html?pid=11772#pid11772" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-07-30, 10:19 PM)</span>Radical Wrote:  <a href="showthread7cc2.html?pid=11770#pid11770" class="quick_jump"></a></cite>Set a timer with 1 second interval on <span style="font-style: italic;" class="mycode_i">OnGameModeInit()</span> then decrease player mute time.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>public OneSecondPlayerTimer() {<br />
+    foreach(new i: Player) {<br />
+        PlayerMuteCheck(i);<br />
+    }<br />
+}<br />
+<br />
+PlayerMuteCheck(playerid) {<br />
+    if(PlayerInfo [playerid] [pMuted] == 1) {<br />
+        PlayerInfo [playerid] [pMuted]--;<br />
+        SendClientMessage(playerid, -1, "Mute time expired.");<br />
+    }<br />
+<br />
+    if(PlayerInfo [playerid] [pMuted] &gt; 1) PlayerInfo [playerid] [pMuted]--;<br />
+}</code></div></div><br />
+Also if you want check player is muted you just need check the <span style="font-style: italic;" class="mycode_i">PlayerInfo[playerid][pMuted]</span> is not 0.<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>IsPlayerMuted(playerid) {<br />
+    if(PlayerInfo[playerid][pMuted] == 0) return 0;<br />
+<br />
+    return 1;<br />
+}</code></div></div></blockquote>One simple question: <span style="font-weight: bold;" class="mycode_b">why.</span><br />
+<br />
+Here's the solution:<br />
+https://ideone.com/N0ciwe</blockquote><br />
+Using gettime() Mute may expire while user is simply offline. Maybe to get full potential of punishment he wants for user to be online to serve his punishment.<br />
+Still it is definetly possible and better way to do with gettime(), you just need 1 more variable to save distance on disconnect.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Library samp-server-info-obtainer - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #9D17FF;font-weight: bold;">[Library]</span> <a href="showthread93d2.html?tid=1740">samp-server-info-obtainer</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Libraries (<i>https://www.burgershot.gg/forumdisplay.php?fid=31</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #9D17FF;font-weight: bold;">[Library]</span> samp-server-info-obtainer (<em>/showthread.php?tid=1740</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>samp-server-info-obtainer</strong> - <a href="memberd3b3.html?action=profile&amp;uid=357">KyroKun</a> -  <strong>2021-03-07</strong>
+<br />
+<br />
+<a href="https://github.com/kyro95/samp-server-info-obtainer" target="_blank" rel="noopener" class="mycode_url">https://github.com/kyro95/samp-server-info-obtainer</a><br />
+🗺️ <span style="font-weight: bold;" class="mycode_b">samp-server-obtainer</span> — A simple library made in typescript for obtaining your samp server info<br />
+<br />
+Example:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>import sampServer from "./path";<br />
+<br />
+async function doTest() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;const test = await sampServer.retriveInfo({<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip: "",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port: 7777<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}, "i");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(test);<br />
+}<br />
+<br />
+doTest();<br />
+<br />
+// Prints out an object which contains the samp server info submitted.</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-server-info-obtainer</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-14</strong>
+<br />
+<br />
+That's a nice idea.  However, why are you passing an async callback, which isn't used in an async context, and passed to `then`?  Why not just return the Promise directly and make `connect` `async`?<br />
+<br />
+Edit: In fact the whole code is a strange mix of async, promises, and callbacks.  Just stick with one model.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-server-info-obtainer</strong> - <a href="memberd3b3.html?action=profile&amp;uid=357">KyroKun</a> -  <strong>2021-03-27</strong>
+<br />
+<br />
+I made this library in just one day, thanks for the suggestions they will be fixed on the next update.<br />
+<br />
+EDIT: sampServer.getInfo has to be await because sometimes <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>this.socket.on('message')</code></div></div><span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">response gets called before the query reaches the samp server, since sockets events aren't async i had to make a promise,<br />
+regarding sampServer.connect you're totally right </span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: samp-server-info-obtainer</strong> - <a href="memberd3b3.html?action=profile&amp;uid=357">KyroKun</a> -  <strong>2021-05-05</strong>
+<br />
+<br />
+https://github.com/kyro95/samp-server-info-obtainer/blob/1.1.0/src/samp-server-info-obtainer.ts<br />
+<br />
+connection -&gt; instance update has been released
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

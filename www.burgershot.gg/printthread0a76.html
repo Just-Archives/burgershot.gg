@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Loop skipping (Creating only odd numbers) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthread0a76.html?tid=2226">Loop skipping (Creating only odd numbers)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Loop skipping (Creating only odd numbers) (<em>/showthread.php?tid=2226</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Loop skipping (Creating only odd numbers)</strong> - <a href="memberaeed.html?action=profile&amp;uid=3506">Cherry.</a> -  <strong>2021-10-06</strong>
+<br />
+<br />
+Hey.<br />
+<br />
+I have a command of creating houses.<br />
+The loop is creating houses just like 1,3,5,7,9,11..etc.<br />
+<br />
+I tried to investigate the problem in the loop and I can't see anything wrong.<br />
+Somebody knows? Here's the code..<br />
+<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>COMMAND:housecreate(playerid, params[])<br />
+{<br />
+new houseid, price, Float:X, Float:Y, Float:Z, UID, text[128];<br />
+if(sscanf(params,"ii",houseid, price)) return usage(playerid, "USAGE: /HouseCreate [Class] [Value]");<br />
+if(houseid &lt; 1 || houseid &gt; 4) return error(playerid, "Invalid house ID.");<br />
+new found = 0;<br />
+for(new i = 1; i &lt; MAX_HOUSES; i++)<br />
+{<br />
+if(HouseInfo[i][hID] == 0 &amp;&amp; found == 0)<br />
+{<br />
+    found++;<br />
+    UID = i;<br />
+format(text, sizeof(text), "House id is %d", UID);<br />
+SendClientMessage(playerid, -1, text);<br />
+}<br />
+}<br />
+new count = 0;<br />
+for(new i = 0; i &lt; sizeof(HouseCoordinates); i++)<br />
+{<br />
+    if(count == 0)<br />
+    {<br />
+        if(HouseCoordinates[i][Class] == houseid)<br />
+        {<br />
+        count++;<br />
+HouseInfo[UID][hXi] = HouseCoordinates[i][mbX];<br />
+HouseInfo[UID][hYi] = HouseCoordinates[i][mbY];<br />
+HouseInfo[UID][hZi] = HouseCoordinates[i][mbZ];<br />
+HouseInfo[UID][hIntIn] = HouseCoordinates[i][HouseInt];<br />
+}<br />
+}<br />
+}<br />
+HouseInfo[UID][hID] = UID;<br />
+HouseInfo[UID][hValue] = price;<br />
+HouseInfo[UID][hClass] = houseid;<br />
+HouseInfo[UID][hIntOut] = GetPlayerInterior(playerid);<br />
+HouseInfo[UID][hVwOut] = GetPlayerVirtualWorld(playerid);<br />
+HouseInfo[UID][hVwIn] = MAX_INTS + UID;<br />
+GetPlayerPos(playerid, X, Y, Z);<br />
+HouseInfo[UID][hXo] = X;<br />
+HouseInfo[UID][hYo] = Y;<br />
+HouseInfo[UID][hZo] = Z;<br />
+new query[516], owner[25];<br />
+format(owner, sizeof(owner), "None");<br />
+mysql_format(handlesql, query, sizeof(query),"INSERT INTO `houses`(`ID`, `Xo`, `Yo`, `Zo`, `Xi`, `Yi`, `Zi`, `IntOut`, `IntIn`, `VwOut`, `Owner`, `Value`) VALUES (%d, %f, %f, %f, %f, %f, %f, %d, %d, %d, '%e', %d)",<br />
+UID, X, Y, Z, HouseInfo[UID][hXi], HouseInfo[UID][hYi], HouseInfo[UID][hZi], HouseInfo[UID][hIntOut], HouseInfo[UID][hIntIn], HouseInfo[UID][hVwOut],<br />
+owner, price);<br />
+mysql_pquery(handlesql, query);<br />
+HouseInfo[UID][hIcon] = CreateDynamicCP(HouseInfo[UID][hXo], HouseInfo[UID][hYo], HouseInfo[UID][hZo], 1.5, HouseInfo[UID][hVwOut], -1, -1, 20.0);<br />
+HouseInfo[UID][hIconi] = CreateDynamicCP(HouseInfo[UID][hXi], HouseInfo[UID][hYi], HouseInfo[UID][hZi], 1.5, HouseInfo[UID][hVwIn], -1, -1, 20.0);<br />
+UpdateHouseText(UID);<br />
+Iter_Add(HouseIterator, UID);<br />
+return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Loop skipping (Creating only odd numbers)</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-10-11</strong>
+<br />
+<br />
+Nothing wrong with loop but you can use <span style="font-style: italic;" class="mycode_i">Iter_Free()</span>. That's better.<br />
+<br />
+Replace this<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new found = 0;<br />
+for(new i = 1; i &lt; MAX_HOUSES; i++)<br />
+{<br />
+if(HouseInfo[i][hID] == 0 &amp;&amp; found == 0)<br />
+{<br />
+    found++;<br />
+    UID = i;<br />
+format(text, sizeof(text), "House id is %d", UID);<br />
+SendClientMessage(playerid, -1, text);<br />
+}<br />
+}</code></div></div><br />
+With <br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>UID = Iter_Free(HouseIterator);<br />
+    if(UID == -1) return error(playerid, "Cannot create more houses. ");<br />
+<br />
+    format(text, sizeof(text), "House id is %d", UID);<br />
+    SendClientMessage(playerid, -1, text);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Loop skipping (Creating only odd numbers)</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-10-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-10-11, 03:09 PM)</span>Radical Wrote:  <a href="showthread4fca.html?pid=11873#pid11873" class="quick_jump"></a></cite>Nothing wrong with loop but you can use <span style="font-style: italic;" class="mycode_i">Iter_Free()</span>. That's better.<br />
+<br />
+Replace this<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new found = 0;<br />
+for(new i = 1; i &lt; MAX_HOUSES; i++)<br />
+{<br />
+if(HouseInfo[i][hID] == 0 &amp;&amp; found == 0)<br />
+{<br />
+    found++;<br />
+    UID = i;<br />
+format(text, sizeof(text), "House id is %d", UID);<br />
+SendClientMessage(playerid, -1, text);<br />
+}<br />
+}</code></div></div><br />
+With <br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>UID = Iter_Free(HouseIterator);<br />
+    if(UID == -1) return error(playerid, "Cannot create more houses. ");<br />
+<br />
+    format(text, sizeof(text), "House id is %d", UID);<br />
+    SendClientMessage(playerid, -1, text);</code></div></div></blockquote>lmao.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Loop skipping (Creating only odd numbers)</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-10-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-10-11, 03:41 PM)</span>Pinch Wrote:  <a href="showthreadea2e.html?pid=11875#pid11875" class="quick_jump"></a></cite>lmao.</blockquote><br />
+what's funny
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin pawn env - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthread1186.html?tid=552">pawn env</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> pawn env (<em>/showthread.php?tid=552</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>pawn env</strong> - <a href="member92f7.html?action=profile&amp;uid=20">dakyskye</a> -  <strong>2019-05-12</strong>
+<br />
+<br />
+<span style="color: #FF4700;" class="mycode_color"><span style="font-size: xx-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">pawn-env</span></span></span><br />
+<br />
+<a href="https://github.com/dakyskye/pawn-env" target="_blank" rel="noopener" class="mycode_url"><img src="https://shields.southcla.ws/badge/sampctl-pawn--env-2f2f2f.svg?style=for-the-badge" loading="lazy"  alt="[Image: sampctl-pawn--env-2f2f2f.svg?style=for-the-badge]" class="mycode_img" /></a><br />
+<br />
+Access environment variables in PAWN<br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Installation</span></span></span><br />
+<br />
+Install to your project:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>sampctl package install dakyskye/pawn-env</code></div></div><br />
+include in your code:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;env&gt;</code></div></div><br />
+and start using it.<br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Usage</span></span></span><br />
+<br />
+At development time, you can use <span style="font-family: courier new;" class="mycode_font">.env</span> file, but in production it’s not recommended.<br />
+<br />
+<span style="color: SlateGray;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">Example <span style="font-family: courier new;" class="mycode_font">.env</span> file content:</span></span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>MYSQL_USER=user<br />
+MYSQL_PASSWORD=password<br />
+MYSQL_HOST=localhost<br />
+MYSQL_DATABASE=database</code></div></div><br />
+<span style="color: SlateGray;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">Using it in the recommended way:</span></span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>MYSQL_USER=user MYSQL_PASSWORD=password MYSQL_HOST=localhost MYSQL_DATABASE=database sampctl package run</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>&#36;env:MYSQL_USER="user"; &#36;env:MYSQL_PASSWORD="password"; &#36;env:MYSQL_HOST="localhost"; &#36;env:MYSQL_DATABASE="database"; sampctl package run</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>docker run -d &#92;<br />
+    -e MYSQL_USER=user &#92;<br />
+    -e MYSQL_PASSWORD=password &#92;<br />
+    -e MYSQL_HOST=localhost &#92;<br />
+    -e MYSQL_DATABASE=database &#92;<br />
+    --name my-container my/image</code></div></div><br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">API</span></span></span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native bool:Env_Has(const env[]);<br />
+native bool:Env_Get(const env[], dest[], size=sizeof(dest));</code></div></div><ul class="mycode_list"><li><span style="font-family: courier new;" class="mycode_font">bool:Env_Has(const env[]);</span><br />
+</li>
+</ul>
+It checks if an environment variable with passed name as <span style="font-family: courier new;" class="mycode_font">env</span> exists or not and returns the result as <span style="font-family: courier new;" class="mycode_font">true</span> or <span style="font-family: courier new;" class="mycode_font">false</span>, hence the <span style="font-family: courier new;" class="mycode_font">bool</span> tag.<br />
+<ul class="mycode_list"><li><span style="font-family: courier new;" class="mycode_font">bool:Env_Get(const env[], dest[], size=sizeof(dest));</span><br />
+</li>
+</ul>
+It reads the value of the environment variable of passed name as <span style="font-family: courier new;" class="mycode_font">env</span>, then packs it into <span style="font-family: courier new;" class="mycode_font">dest</span>.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Example usage</span> can be found in <a href="https://github.com/dakyskye/pawn-env/tree/master/tests/tests.pwn" target="_blank" rel="noopener" class="mycode_url">tests/tests.pwn</a><br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Building</span></span></span><br />
+<br />
+First of all, install GNU Make if you haven’t already.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>make build</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>docker build -t pawn-env .<br />
+docker run -v DISKLETTER:&#92;path&#92;to&#92;pawn-env&#92;plugins:/pawn-env/plugins --name pawn-env pawn-env</code></div></div><br />
+An example path from my case: <span style="font-family: courier new;" class="mycode_font">X:\My-Workflow\pawn-env\plugins</span><br />
+<br />
+<span style="color: RoyalBlue;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">Credits</span></span></span><br />
+<ul class="mycode_list"><li><a href="https://github.com/Southclaws" target="_blank" rel="noopener" class="mycode_url">Southclaws</a> - for inspiration (see his <a href="https://github.com/Southclaws/pawn-env" target="_blank" rel="noopener" class="mycode_url">pawn-env</a>)<br />
+</li>
+<li><a href="https://github.com/Sreyas-Sreelal" target="_blank" rel="noopener" class="mycode_url">SyS</a> - for <a href="https://github.com/Sreyas-Sreelal/rs-plugin-boilerplate" target="_blank" rel="noopener" class="mycode_url">boilerplate</a><br />
+</li>
+<li><a href="https://github.com/ZOTTCE" target="_blank" rel="noopener" class="mycode_url">ZOTTCE</a> - for <a href="https://github.com/ZOTTCE/samp-rs" target="_blank" rel="noopener" class="mycode_url">samp-rs</a><br />
+</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: pawn env</strong> - <a href="member0434.html?action=profile&amp;uid=462">javelin</a> -  <strong>2019-12-13</strong>
+<br />
+<br />
+useful as always, thank you daky
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: pawn env</strong> - <a href="member92f7.html?action=profile&amp;uid=20">dakyskye</a> -  <strong>2019-12-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-12-13, 05:43 PM)</span>javelin Wrote:  <a href="showthread2c70.html?pid=7090#pid7090" class="quick_jump"></a></cite>useful as always, thank you daky</blockquote><br />
+Glad to hear
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> How to use SAMPCTL vscode/sublime. - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread3c46.html?tid=1256">How to use SAMPCTL vscode/sublime.</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Tutorials (<i>https://www.burgershot.gg/forumdisplay.php?fid=37</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  How to use SAMPCTL vscode/sublime. (<em>/showthread.php?tid=1256</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How to use SAMPCTL vscode/sublime.</strong> - <a href="memberbf1c.html?action=profile&amp;uid=2339">XoMoX</a> -  <strong>2020-10-19</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="color: #1e92f7;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">INTRODUCTION TO SAMPCTL</span></span></span></div>
+<div style="text-align: left;" class="mycode_align"><span style="font-size: medium;" class="mycode_size"><span style="color: #000000;" class="mycode_color">Sampctl is like a node npm just like in node.js but its in pawn there are many compatible libraries aka includes, there are many reasons to use sampctl. <br />
+1st is the compiler for vscode and sublime it can support both editors. <br />
+2nd you can install libraries/includes in just a line.<br />
+3rd you can say goodbye to server.cfg, in sampctl you will use pawn.json instead of server.cfg</span></span></div>
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: x-large;" class="mycode_size"><span style="color: #1e92f7;" class="mycode_color">INSTALLING SAMPCTL</span></span></span></div>
+<br />
+<span style="font-size: medium;" class="mycode_size">There are 2 ways to install this (Actually there are 3 or smth).<br />
+First way is using SCOOP, (INSTALL SCOOP <a href="https://scoop.sh/" target="_blank" rel="noopener" class="mycode_url">HERE</a> or just run <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>iex (new-object net.webclient).downloadstring('https://get.scoop.sh')</code></div></div>) after that you can now you can execute this<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>scoop bucket add southclaws https://github.com/Southclaws/scoops.git; scoop install sampct</code></div></div></span><br />
+<span style="font-size: medium;" class="mycode_size">from another line. You can now run `sampctl` in PowerShell, CMD, git bash but you will need to restart any other open terminals if you install scoop for the first time so it is loaded in the the PATH environmet variable properly</span><br />
+<br />
+<span style="color: #24292e;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">The second way is installing it manually here are the steps.</span></span><br />
+<span style="color: #24292e;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">1. Create a directory on your `c:\` drive root named `sampctl`</span></span><br />
+<span style="color: #24292e;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">2. Download a Window release of sampctl and place the .exe file into the `sampctl` directory you created</span></span><br />
+<span style="color: #24292e;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">3. </span></span><a href="https://github.com/Southclaws/sampctl/wiki/Windows-PATH" target="_blank" rel="noopener" class="mycode_url"><span style="color: #24292e;" class="mycode_color"><span style="font-size: large;" class="mycode_size">Add `c:\sampctl\` to your system PATH.<br />
+</span></span></a><span style="color: #24292e;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">4. Open a new shell (PowerShell, CMD, or bash</span></span><span style="color: #24292e;" class="mycode_color"><span style="font-size: medium;" class="mycode_size">) and type `sampctl` - if you did the above correctly, you'll see sampctl help.</span></span><br />
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="color: #1e92f7;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">USING SAMPCTL</span><br />
+</span></span><br />
+<div style="text-align: left;" class="mycode_align"><span style="color: #24292e;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b"> </span>1. How to install sampctl to your gamemode. <br />
+Open up PowerShell or CMD in your server files directory (Where samp-server.exe and server.cfg located) use `sampctl p init` and you'll see this.<br />
+<img src="https://i.imgur.com/imLKAR2.png?1" loading="lazy"  alt="[Image: imLKAR2.png?1]" class="mycode_img" /></span></span></div>
+</div>
+<span style="font-size: medium;" class="mycode_size">i never used .yaml im only using .json so select what you want here and you need to give information for your <span style="font-weight: bold;" class="mycode_b">gamemode/library</span> like if you want it to release to Github.</span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size">Now it will gonna ask you if you want to publish a <span style="font-weight: bold;" class="mycode_b">gamemode/library</span> like this.</span><br />
+<span style="font-size: medium;" class="mycode_size"><img src="https://i.imgur.com/nNHalYm.png?1" loading="lazy"  alt="[Image: nNHalYm.png?1]" class="mycode_img" /></span><br />
+<span style="font-size: medium;" class="mycode_size">Library means if you want to create a reusable includes this is where the fun begins, if you create a Library using sampctl we can download that using one command line which we will cover later.</span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size">Now you can select your Text editor you'll see an option like this.</span><br />
+<span style="font-size: medium;" class="mycode_size"><img src="https://i.imgur.com/b26GovK.png?1" loading="lazy"  alt="[Image: b26GovK.png?1]" class="mycode_img" /></span><br />
+<span style="font-size: medium;" class="mycode_size">You can go select any <span style="font-weight: bold;" class="mycode_b">Text editors</span> you want (vscode or Sublime) for me I'm gonna select <span style="font-weight: bold;" class="mycode_b">VScode </span>for this.</span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size">Then lastly you're gonna select your <span style="font-weight: bold;" class="mycode_b">main .pwn</span> file<br />
+<img src="https://i.imgur.com/VA4bFrH.png?1" loading="lazy"  alt="[Image: VA4bFrH.png?1]" class="mycode_img" /></span><br />
+<span style="font-size: medium;" class="mycode_size"><span style="font-weight: bold;" class="mycode_b">IT MUST BE YOUR MAIN .PWN FILE</span> but don't worry you will be able to change this in your pawn.json HAHA now you're done. If you're using vscode you can simply do <span style="font-weight: bold;" class="mycode_b">ctrl + shift + b</span> to compile your script I think the same goes to Sublime</span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size">2. How to install dependencies.</span><br />
+<span style="font-size: medium;" class="mycode_size">Well you can only install dependencies compatible or made with sampctl you've seen an option there earlier in the tutorial with the selection "gamemode / library" if you create a library you can just simply install it in your gamemode with just 1 line<br />
+`<span style="font-weight: bold;" class="mycode_b">sampctl p install</span>` so for instance `<span style="font-weight: bold;" class="mycode_b">sampctl p install CnRXomoX/X_Enex</span>` now some of you are asking "How did he get the link"(Assuming you're asking) well its pretty easy you can take a look at this picture</span><br />
+<span style="font-size: medium;" class="mycode_size"><img src="https://i.imgur.com/i06WID9.png?1" loading="lazy"  alt="[Image: i06WID9.png?1]" class="mycode_img" /></span><br />
+<span style="font-size: medium;" class="mycode_size">Do you see the difference? you can enter it without the github.com because sampctl automatically adds it without hesitation downloading it 1 by 1 and this is the fun thing about sampctl it automatically downloads the .dll file or .so files automatically!</span><br />
+<span style="font-size: medium;" class="mycode_size">So no need to search "How to fix .dll error samp script".</span><br />
+<br />
+<span style="font-size: medium;" class="mycode_size">You can see your downloaded libraries/includes in your <span style="font-weight: bold;" class="mycode_b">dependency folder</span></span><br />
+<span style="font-size: medium;" class="mycode_size">If you just cloned your gamemode onto another <span style="font-weight: bold;" class="mycode_b">PC/LAPTOP</span> you can run `<span style="font-weight: bold;" class="mycode_b">sampctl p ensure</span>` to download the libraries/includes that is in your dependencies folder and .dll files in your plugins!</span><br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="font-weight: bold;" class="mycode_b"><span style="color: #1e92f7;" class="mycode_color"><span style="font-size: xx-large;" class="mycode_size">Sources.</span></span></span><br />
+<div style="text-align: left;" class="mycode_align"><span style="color: #000000;" class="mycode_color"><span style="font-size: large;" class="mycode_size">sampctl GitHub repo: <a href="https://github.com/Southclaws/sampctl" target="_blank" rel="noopener" class="mycode_url">https://github.com/Southclaws/sampctl<br />
+</a>sampctl .exe file: <a href="https://github.com/sampctl/installer/releases" target="_blank" rel="noopener" class="mycode_url">https://github.com/sampctl/installer/releases<br />
+</a>You can go visit the GitHub repo for additional information</span></span></div>
+</div>
+<br />
+<span style="font-size: medium;" class="mycode_size"><span style="color: #ffffff;" class="mycode_color"><span style="font-size: medium;" class="mycode_size"><span style="font-family: 'Proxima Nova Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;" class="mycode_font">[img]https://i.imgur.com/nNHalYm.png?1[/img</span></span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to use SAMPCTL vscode/sublime.</strong> - <a href="member3e48.html?action=profile&amp;uid=2723">orp.net</a> -  <strong>2020-11-06</strong>
+<br />
+<br />
+sampctl is really perfect.<br />
+Nice tutorial.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to use SAMPCTL vscode/sublime.</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-04-03</strong>
+<br />
+<br />
+Sorry I don't know how to compile it with the help of SAMPCTL in sublime. can you show me how? how do I set it?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to use SAMPCTL vscode/sublime.</strong> - <a href="member6ca5.html?action=profile&amp;uid=3449">ImOver</a> -  <strong>2021-04-03</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-03, 02:55 PM)</span>PutuSuhartawan Wrote:  <a href="showthreadc7a2.html?pid=10525#pid10525" class="quick_jump"></a></cite>Sorry I don't know how to compile it with the help of SAMPCTL in sublime. can you show me how? how do I set it?</blockquote><br />
+Hey. You can simply open your terminal (Whatever you use, PowerShell, CMD, Git etc...). Then run <span style="font-weight: bold;" class="mycode_b">sampctl p build</span> and to ensure that all the dependencies are installed, run <span style="font-weight: bold;" class="mycode_b">sampctl p ensure, </span>also make sure you run <span style="font-weight: bold;" class="mycode_b">sampctl p build </span>inside your server directory.<br />
+<br />
+And Good Tutorial.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to use SAMPCTL vscode/sublime.</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-04-06</strong>
+<br />
+<br />
+sorry, how do I set the location of the folders and files that will be compiled with sampctl? Previously I had a problem because when I built the gamemode that was compiled the name was not the same. instead it becomes emty.pwn and .amx is also empty. thank you?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to use SAMPCTL vscode/sublime.</strong> - <a href="memberefcd.html?action=profile&amp;uid=3105">Stones</a> -  <strong>2021-04-07</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-06, 10:27 AM)</span>PutuSuhartawan Wrote:  <a href="showthread3754.html?pid=10570#pid10570" class="quick_jump"></a></cite>sorry, how do I set the location of the folders and files that will be compiled with sampctl? Previously I had a problem because when I built the gamemode that was compiled the name was not the same. instead it becomes emty.pwn and .amx is also empty. thank you?</blockquote><br />
+Just create a new folder wherever you want it to be, open the folder with VSC then use sampctl p init to turn it into a gamemode directory.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to use SAMPCTL vscode/sublime.</strong> - <a href="member712c.html?action=profile&amp;uid=3624">Nightmare</a> -  <strong>2021-04-13</strong>
+<br />
+<br />
+i known some cmds like sampctl package install / sampctl p run / sampctl package init, can someone release all cmds?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to use SAMPCTL vscode/sublime.</strong> - <a href="member6ca5.html?action=profile&amp;uid=3449">ImOver</a> -  <strong>2021-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-04-13, 09:26 PM)</span>Nightmare Wrote:  <a href="showthread832a-2.html?pid=10660#pid10660" class="quick_jump"></a></cite>i known some cmds like sampctl package install / sampctl p run / sampctl package init, can someone release all cmds?</blockquote><br />
+Hey. Check out this page. <a href="https://github.com/Southclaws/sampctl/wiki" target="_blank" rel="noopener" class="mycode_url">https://github.com/Southclaws/sampctl/wiki</a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

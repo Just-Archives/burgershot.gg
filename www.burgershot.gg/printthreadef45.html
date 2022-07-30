@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Plugin Aimbot detector using Artifical Intelligence - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> <a href="showthreadef45.html?tid=152">Aimbot detector using Artifical Intelligence</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Releases (<i>https://www.burgershot.gg/forumdisplay.php?fid=13</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++---- Forum: Plugins (<i>https://www.burgershot.gg/forumdisplay.php?fid=32</i>)<br />
+<!-- end: printthread_nav -->
++---- Thread: <span style="color: #1FDE4B;font-weight: bold;">[Plugin]</span> Aimbot detector using Artifical Intelligence (<em>/showthread.php?tid=152</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Aimbot detector using Artifical Intelligence</strong> - <a href="memberbea3.html?action=profile&amp;uid=36">Yashas</a> -  <strong>2019-04-14</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: xx-large;" class="mycode_size"><span style="color: DarkRed;" class="mycode_color">Anti</span><span style="color: Black;" class="mycode_color">Aimbot</span></span></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: DarkRed;" class="mycode_color">Version:</span> E1 (experimental version)</span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">DISCLAIMER:</span> <br />
+- the plugin is still experimental and has undergone rigorous testing on artificial servers but hasn't been tested on a real server with a large player base<br />
+- works for M4/AK47/MP5 only<br />
+<br />
+AntiAimbot is an aimbot detector which uses a combination of empirical methods and artificial intelligence to accurately identify players using any form of aim assist. Empirical methods such as high ratio on moving players are used to efficiently suspect players of using aimbot. The samples of players suspected of using aim assist tools are forwarded to a combination of AI machinery consisting of mainly a neural network and a support vector machine for further detailed analysis. The AI machinery investigates the samples and decides if the feat achieved is humanly possible or not by "probably" (they are all black boxes) analyzing how quickly the aim moves, how synchronized the aim was with the motion of the victim, how fast the player reacts to changes and many such features.<br />
+<br />
+<div style="text-align: center;" class="mycode_align">The latest version is significantly more accurate than the version used in the vdeio.</div>
+<br />
+<div style="text-align: center;" class="mycode_align">[Video: <a href="https://www.youtube.com/watch?v=BUl2NU3YRxw" target="_blank" rel="noopener" class="mycode_url">https://www.youtube.com/watch?v=BUl2NU3YRxw</a>]</div>
+<br />
+<span style="color: DarkGreen;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">Overview:</span></span><br />
+<br />
+The entire process can be divided into two sections based on the type of used: empirical methods and artificial intelligence methods. The empirical methods are used to quickly suspect the <span style="font-style: italic;" class="mycode_i">possibility</span> of an aim assist software being used while the artificial intelligence based methods are used to analyze the suspected samples more rigorously.<br />
+<br />
+The AI-based detectors are trained to identify possible use of aim assist accurately when possible, i.e. they give negatives when they aren't sure. Given enough time, they will mostly detect the use of aim assist.<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>The submitted vectors go through a lot of stages.<br />
+<br />
+stages of data flow:<br />
+<br />
+    data collection: a script collects shot vectors<br />
+    pre-filter: carries out checks to eliminate unreliable shot vectors<br />
+    transform: transforms shot vectors to a form suitable for feature extraction<br />
+    pooling: pool together a variable number of transformed vectors to form a complete sample<br />
+    extract features: extract features from the vector pool<br />
+    post-filter: carry out basic empirical checks on the sample to check reliability and possible use of aim-assist; if suspicious, forward it to the AI machinery<br />
+    detectors: run through different detectors and average the result<br />
+<br />
+<br />
+Some of the pre-filter conditions are:<br />
+- must use a M4/AK47/MP5 (other weapons are disabled because of their unreliability)<br />
+- the victim must be moving<br />
+- and many more<br />
+<br />
+If a shot fails any of these conditions, the entire running pool is rejected and starts afresh.<br />
+<br />
+After pooling many shots together, it goes through another filter. The filter decides if there is enough information that can be extracted from the pool; if not, it continues to collect more shot. Once there is enough useful information, it checks for reliability and estimates the use of aimbot, for example, by checking the pool's ratio (required to be high for last X number of shots where X is between 7 and 20).<br />
+<br />
+It's only after this step the sample is said to be fully complete. This is when `submit_vector` returns 1. This sample is put in a queue for processing. The detectors are running in different threads. They pick a sample from the input queue, investigate it, dump it to the output queue. In the server's next tick cycle, results are pulled out of the output queue and the callback is triggered for each sample.<br />
+<br />
+Hence, the callback is triggered only when there was enough suspicion and after it was processed by the AI machinery.<br />
+<br />
+TL;DR:<br />
+- callback is triggered only when there is some suspicion, i.e. when the empirical methods suggest the use of aimbot<br />
+* however, the AI machinery can reverse the decision and say this may not have been an aimbot<br />
+- it's difficult to get the callback triggered without using an aimbot because most samples are rejected empirical methods<br />
+- callback is triggered every minute or so when an aimbot is used<br />
+* the callback being triggered does not imply that aimbot was used; you need to check the probabilities </blockquote>
+<br />
+<span style="color: DarkGreen;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">Usage:</span></span><br />
+<br />
+<span style="font-size: large;" class="mycode_size">building plugin from source (Linux):</span><br />
+<ol type="1" class="mycode_list"><li>install gcc-8, g++8, gcc-8-multilib, g++-8-multilib, cmake<br />
+</li>
+<li>clone the <a href="https://github.com/YashasSamaga/sampml" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">sampml</span></a> repository<br />
+</li>
+<li>change directory to `examples/anti-aimbot/plugin`<br />
+</li>
+<li>create and enter `build` directory<br />
+</li>
+<li>generate build files using `cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8`<br />
+</li>
+<li>build plugin using `cmake --build . -- -j &lt;number of threads&gt;`<br />
+</li>
+</ol>
+<span style="font-size: large;" class="mycode_size">building plugin from source (Windows):</span><br />
+<ol type="1" class="mycode_list"><li>clone the <a href="https://github.com/YashasSamaga/sampml" target="_blank" rel="noopener" class="mycode_url"><span style="font-weight: bold;" class="mycode_b">sampml</span></a> repository<br />
+</li>
+<li>open `examples/anti-aimbot/plugin` directory in Visual Studio 2017<br />
+</li>
+<li>click on CMake-&gt;Build<br />
+</li>
+</ol>
+<span style="font-size: large;" class="mycode_size">installing:</span><br />
+<ol type="1" class="mycode_list"><li>move the plugin binary to the `plugins` directory<br />
+</li>
+<li>create a new directory `anti-aimbot` in the `plugins` directory<br />
+</li>
+<li>create a new directory `models` in `plugins/anti-aimbot` directory<br />
+</li>
+<li>copy three model files from `examples/anti-aimbot/training/models` to the models folder<br />
+</li>
+<li>[optional] create config.cfg in the `anti-aimbot` directory<br />
+</li>
+</ol>
+<span style="font-size: large;" class="mycode_size">configuring the plugin:</span><br />
+<span style="font-weight: bold;" class="mycode_b">thread_pool_size:</span> number of threads that can be used for detectors (default: 4)<br />
+<span style="font-weight: bold;" class="mycode_b">rf_model_file:</span> random forest model file (default: plugins/anti-aimbot/models/rf_classifier.dat)<br />
+<span style="font-weight: bold;" class="mycode_b">svm_model_file</span>: svm model file (default: plugins/anti-aimbot/models/svm_classifier.dat)<br />
+<span style="font-weight: bold;" class="mycode_b">dnn_model_file</span>: dnn model file (default: plugins/anti-aimbot/models/dnn_classifier.dat)<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Example `config.cfg`:</span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>thread_pool_size 2<br />
+dnn_model_file plugins/anti-aimbot/models/dnn2_classifier.dat</code></div></div><br />
+<span style="font-size: large;" class="mycode_size">submitting a shot vector:</span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock CollectDataOPWS(data[E_SHOT_VECTOR], playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)<br />
+native submit_vector(playerid, data[E_SHOT_VECTOR]);</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;aimbot_dc.inc&gt;<br />
+public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)<br />
+{<br />
+        new data[E_SHOT_VECTOR];<br />
+        CollectDataOPWS(data, playerid, weaponid, hittype, hitid, fX, fY, fZ);<br />
+    submit_vector(playerid, data);<br />
+     return 1;<br />
+}</code></div></div><br />
+<span style="font-size: large;" class="mycode_size">obtaining results:</span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward OnPlayerSuspectedForAimbot(playerid, Float:probabilities[3], time[3]);</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;aimbot_dc.inc&gt;<br />
+public OnPlayerSuspectedForAimbot(playerid, Float:probabilities[3], time[3])<br />
+{<br />
+    /* results are sent after a few seconds; hence, check if the player is still connected */<br />
+    if(!IsPlayerConnected(playerid))<br />
+        return 1;<br />
+<br />
+    static enum {<br />
+        COLOR_RED = 0xFF0000FF,<br />
+        COLOR_GREEN = 0x00FF00FF,<br />
+    };<br />
+<br />
+    new str[144], name[MAX_PLAYER_NAME];<br />
+    GetPlayerName(playerid, name, sizeof(name));<br />
+<br />
+    /*<br />
+    ** there are three independent detectors<br />
+    ** - random forest<br />
+    ** - support vector machine<br />
+    ** - deep neural network<br />
+    **<br />
+    ** `probabilities` contains the outputs of the detectors in the aforementioned order<br />
+    ** `time` contains the CPU microseconds used by each of the detectors in the aforementioned order<br />
+    **<br />
+    ** the average of the probabilities can be used to get an overall estimate<br />
+    ** choose a cutoff above which the result is considered to be an aimbot sample<br />
+    ** the code below sends a message for all samples<br />
+    */    <br />
+<br />
+    const Float:cutoff = 0.6;<br />
+    new Float:avg = (probabilities[0] + probabilities[1] + probabilities[2])/3;<br />
+<br />
+    format(str, sizeof(str), "%s(%d) &gt;&gt; RF: %.2f (%dus) SVM: %.2f (%dus), DNN: %.2f (%dus)",<br />
+                             name, playerid,<br />
+                             probabilities[0], time[0],<br />
+                             probabilities[1], time[1],<br />
+                              probabilities[2], time[2]);<br />
+                              <br />
+    new color = ((avg &gt; cutoff) ? COLOR_RED : COLOR_GREEN);<br />
+    SendClientMessageToAll(color, str);<br />
+    <br />
+    format(str, sizeof(str), "Average: %.2f (%s)", avg, ((avg &gt; cutoff) ? ("MOSTLY USING AIMBOT") : ("MAY NOT BE USING AIMBOT")));<br />
+    SendClientMessageToAll(color, str);<br />
+}</code></div></div><br />
+<span style="color: DarkGreen;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">Links:</span></span><br />
+<span style="font-weight: bold;" class="mycode_b"><a href="https://github.com/YashasSamaga/sampml" target="_blank" rel="noopener" class="mycode_url">GitHub Repository</a></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><a href="https://discord.gg/A3e8D6J" target="_blank" rel="noopener" class="mycode_url">Contributing &amp; Support Requests</a></span><br />
+discord server for:<br />
+- research &amp; development<br />
+- support requests<br />
+- contributing<br />
+<br />
+Looking for people to test the plugin on real servers and provide feedback. Only three skin aimbots were used for training and hence the detectors might fail for specific cases which I expect to be reported. You can get the training summary on Travis or AppVeyor.<br />
+<br />
+<span style="color: DarkGreen;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">Credits:</span></span><br />
+<span style="font-size: small;" class="mycode_size">Over dozen people were involved in testing an collecting data. I'd like to mention the top contributors:</span><br />
+<ol type="1" class="mycode_list"><li><span style="font-size: small;" class="mycode_size">Helium</span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size"><span style="font-size: small;" class="mycode_size">Variable/H2O</span></span><br />
+</li>
+<li><span style="font-size: small;" class="mycode_size">Luzziz</span><br />
+</li>
+</ol>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Aimbot detector using Artifical Intelligence</strong> - <a href="memberbdfa.html?action=profile&amp;uid=90">JonasP</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+How's the performance hit on the server?<br />
+Any plans to expand into other weapons?<br />
+<br />
+It would be interesting to try this out and give the data to admins so they could monitor various situations but most firefights here happen with shotguns, deagles, snipers, combat shotguns, fire extinguishers. C-bug is also used pretty much always. So I'm wondering if there is a possibility that this plugin will receive updates and include these weapons + take cbug and cslide into account.<br />
+<br />
+Also, generally interested as I'm completely inexperienced in AI:<br />
+Does it build some sort of model around a specific playerid or for all players and then looks at the odd results?<br />
+If a player disconnects and reconnects to a new playerid, does the AI need to spend time relearning about that player? Because if it builds data for specific playerids maybe it would be possible to collect that data and save it so that when the player joins the next day it just loads that data and continues learning about him instead of having to learn everything from zero again?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Aimbot detector using Artifical Intelligence</strong> - <a href="memberbea3.html?action=profile&amp;uid=36">Yashas</a> -  <strong>2019-04-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 05:52 PM)</span>JonasP Wrote:  <a href="showthread8549.html?pid=2460#pid2460" class="quick_jump"></a></cite>How's the performance hit on the server?</blockquote><br />
+The networks and the models are quite small and take few tens of microseconds per detection on my computer. I had anticipated complications (which didn't happen) and prematurely adding threading support. Most of the computation work happens in different threads which you can configure. Hence, the SAMP server is never blocked by the plugin.<br />
+<br />
+In a nutshell, the performance hit is near zero. You can do 25,000 detections every second.<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 05:52 PM)</span>JonasP Wrote:  <a href="showthread8549.html?pid=2460#pid2460" class="quick_jump"></a></cite>Any plans to expand into other weapons?</blockquote><br />
+Yes, but I don't want to add a zillion weapons and let all fail. The weapons with high fire rate make it relatively easier to detect aimbots. Hence, I started off with those.<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 05:52 PM)</span>JonasP Wrote:  <a href="showthread8549.html?pid=2460#pid2460" class="quick_jump"></a></cite>It would be interesting to try this out and give the data to admins so they could monitor various situations but most firefights here happen with shotguns, deagles, snipers, combat shotguns, fire extinguishers. C-bug is also used pretty much always. So I'm wondering if there is a possibility that this plugin will receive updates and include these weapons + take cbug and cslide into account.</blockquote><br />
+After hundreds of man-hours of research, I am reasonably certain that it's difficult to detect aimbots when used with slow firing weapons such as desert. I need to experiment much more before making a detector for deagle or shotgun.<br />
+<br />
+I have made some progress with sniper but haven't published it yet.<br />
+<br />
+The focus currently is on to get the detectors to work really well on M4/AK/MP5. <br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 05:52 PM)</span>JonasP Wrote:  <a href="showthread8549.html?pid=2460#pid2460" class="quick_jump"></a></cite>Does it build some sort of model around a specific playerid or for all players and then looks at the odd results?<br />
+If a player disconnects and reconnects to a new playerid, does the AI need to spend time relearning about that player? Because if it builds data for specific playerids maybe it would be possible to collect that data and save it so that when the player joins the next day it just loads that data and continues learning about him instead of having to learn everything from zero again?</blockquote><br />
+There is a common model for all the weapons and for all the player. The models were trained using dataset from around ten people with varying skills. Three skin aimbots were used for training. Hence, I speculate that there will be situations where super skilled players or weirdos make the detectors throw out false positives. It's speculation. It never happened when it was tested by several people but this should be taken with a grain of salt because the same people who were testing were also the ones who gave the training data.<br />
+<br />
+I have been waiting for people to use and report issues which no one has done yet. I can't do much without getting feedback. I don't own a server and cannot test it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
