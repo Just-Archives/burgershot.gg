@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Having some errors anyone can help fix it? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreade300.html?tid=1769">Having some errors anyone can help fix it?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Having some errors anyone can help fix it? (<em>/showthread.php?tid=1769</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Having some errors anyone can help fix it?</strong> - <a href="member1c5b.html?action=profile&amp;uid=3544">Nelixus</a> -  <strong>2021-03-15</strong>
+<br />
+<br />
+Hey im getting these errors:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>C:&#92;Users&#92;MSI&#92;Desktop&#92;new LERG&#92;gamemodes&#92;LERG.LT.pwn(545) : error 009: invalid array size (negative, zero or out of bounds)<br />
+C:&#92;Users&#92;MSI&#92;Desktop&#92;new LERG&#92;gamemodes&#92;LERG.LT.pwn(545) : error 001: expected token: ")", but found ";"<br />
+C:&#92;Users&#92;MSI&#92;Desktop&#92;new LERG&#92;gamemodes&#92;LERG.LT.pwn(545) : error 036: empty statement<br />
+C:&#92;Users&#92;MSI&#92;Desktop&#92;new LERG&#92;gamemodes&#92;LERG.LT.pwn(545) : fatal error 107: too many error messages on one line<br />
+<br />
+Compilation aborted.Pawn compiler 3.2.3664 Copyright (c) 1997-2006, ITB CompuPhase<br />
+<br />
+<br />
+4 Errors.</code></div></div><br />
+at line:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>inline registracija(pid, did, resp, litem, input[])</code></div></div>any ideas why im getting?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Having some errors anyone can help fix it?</strong> - <a href="membereeb0.html?action=profile&amp;uid=3587">pero</a> -  <strong>2021-03-28</strong>
+<br />
+<br />
+picture ?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Having some errors anyone can help fix it?</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-28</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-28, 07:51 AM)</span>pero Wrote:  <a href="showthreadbb44-3.html?pid=10460#pid10460" class="quick_jump"></a></cite>picture ?</blockquote><span style="font-weight: bold;" class="mycode_b">W H Y are you asking for a picture damn...</span><br />
+<br />
+You probably fixed it by now, but here:<br />
+Replace<br />
+<span style="font-weight: bold;" class="mycode_b">inline registracija(pid, did, resp, litem, input[])</span><br />
+<br />
+with a <br />
+<span style="font-weight: bold;" class="mycode_b">inline registracija(pid, did, resp, litem, string:input[])</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

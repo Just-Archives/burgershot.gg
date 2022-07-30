@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> server launcher help - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread962d.html?tid=705">server launcher help</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  server launcher help (<em>/showthread.php?tid=705</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>server launcher help</strong> - <a href="membered1a.html?action=profile&amp;uid=1356">unbelievable_10</a> -  <strong>2019-07-09</strong>
+<br />
+<br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Roboto;" class="mycode_font">i want to put in this code server password so when player connects through button that launcher (.exe) writes password for him</span></span><br />
+<br />
+<span style="font-size: small;" class="mycode_size"><span style="font-family: Roboto;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b">Code:</span><br />
+<span style="font-size: small;" class="mycode_size">      private void button1_Click(object sender, EventArgs e)<br />
+       {<br />
+           System.Diagnostics.Process.Start("samp://75.127.13.245:7780");<br />
+       }</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="member4c4c.html?action=profile&amp;uid=736">J_esus</a> -  <strong>2019-07-12</strong>
+<br />
+<br />
+¿Qué?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="member5f5f.html?action=profile&amp;uid=46">Toretto</a> -  <strong>2019-07-13</strong>
+<br />
+<br />
+One <a href="showthreadaf62.html?tid=704" target="_blank" rel="noopener" class="mycode_url">topic</a> is enough.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="member92f7.html?action=profile&amp;uid=20">dakyskye</a> -  <strong>2019-07-13</strong>
+<br />
+<br />
+This is <span style="font-style: italic;" class="mycode_i">not</span> what launcher is meant to do. Launcher should inject samp.dll into gta_sa.exe process, not call <span style="text-decoration: underline;" class="mycode_u">samp</span> link.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-07-13</strong>
+<br />
+<br />
+You could always launch samp.exe and pass the following parameters:<br />
+-h &lt;IP&gt; -p &lt;PORT&gt; -n &lt;NAME&gt; -z &lt;PASSWORD&gt;<br />
+<br />
+example:<br />
+samp.exe -h 127.0.0.1 -p 7777 -n Josh -z MyL33tP4ssw0rd
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="memberd985.html?action=profile&amp;uid=9">BigETI</a> -  <strong>2019-07-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-07-13, 08:53 PM)</span>Josh Wrote:  <a href="showthreada0ca.html?pid=6340#pid6340" class="quick_jump"></a></cite>You could always launch samp.exe and pass the following parameters:<br />
+-h &lt;IP&gt; -p &lt;PORT&gt; -n &lt;NAME&gt; -z &lt;PASSWORD&gt;<br />
+<br />
+example:<br />
+samp.exe -h 127.0.0.1 -p 7777 -n Josh -z MyL33tP4ssw0rd</blockquote><br />
+That is incorrect. If command line arguments are given, "samp.exe" treats the first command line argument (separated by white space) as an IPv4 address with port separated by ":", if specified. If it fails to parse the command line argument string, it will still launch San Andreas Multiplayer and attempts to connect to ":7777", which is an invalid server IP address.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>samp.exe -c -h 1.2.3.4 -p 1234 -n WTF</code></div></div>results in<br />
+<img src="https://cdn.discordapp.com/attachments/189037792028786689/599739481389531156/unknown.png" loading="lazy"  alt="[Image: unknown.png]" class="mycode_img" /><br />
+<br />
+where<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>sampcmd.exe -c -h 1.2.3.4 -p 1234 -n WTF</code></div></div>results in<br />
+<img src="https://cdn.discordapp.com/attachments/189037792028786689/599741184864157706/unknown.png" loading="lazy"  alt="[Image: unknown.png]" class="mycode_img" /><br />
+<br />
+Note that "-c" (empty RCON password) is required to make it work, because why wouldn't it just be optional instead? <br />
+"sampcmd" just copies the command line arguments to the GTA San Andreas process, so "samp.dll" can parse them.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: server launcher help</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-07-17</strong>
+<br />
+<br />
+<img src="https://i.imgur.com/tAY3wmW.png" loading="lazy"  alt="[Image: tAY3wmW.png]" class="mycode_img" /><br />
+<br />
+That works fine then.<br />
+samp.exe 127.0.0.1:777 -n Legend -z MyL33tP4ssw0rd -c
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

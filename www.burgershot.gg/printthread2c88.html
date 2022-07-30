@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Having problems with SHA1 storing and loading password - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread2c88.html?tid=1055">Having problems with SHA1 storing and loading password</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Having problems with SHA1 storing and loading password (<em>/showthread.php?tid=1055</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Having problems with SHA1 storing and loading password</strong> - <a href="memberbb80.html?action=profile&amp;uid=2231">Th3CrazzyRabbit</a> -  <strong>2020-04-18</strong>
+<br />
+<br />
+Well to be honest its first time a costumer asked me for a SHa1 store and load from database as its not that safe anymore , myself i use bcrypt all the time.<br />
+<br />
+However im trying to come together with this  login / signup system and at signup everything works perfectly , sha1 encrypts it and stores it to the database<br />
+<br />
+Now the issue its the loading from database , even tho i write the same password it still doesnt work<br />
+<br />
+this is the code from loading the Sha1<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">&#36;hashpass&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sha1</span><span style="color: #007700">(</span><span style="color: #0000BB">&#36;userpass</span><span style="color: #007700">);<br />&nbsp;</span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">password_verify</span><span style="color: #007700">(</span><span style="color: #0000BB">&#36;hashpass</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">&#36;row</span><span style="color: #007700">[</span><span style="color: #DD0000">'password'</span><span style="color: #007700">]))<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; session_start</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#36;_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'userid'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">&#36;row</span><span style="color: #007700">[</span><span style="color: #DD0000">'Master_ID'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location:../index.php?login:sucess"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location:../login.php?error:wrongpassword"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; exit</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #007700">}&nbsp;<br /></span></code></div></div></div><br />
+<br />
+<br />
+Storing<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">&#36;hashedpass&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sha1</span><span style="color: #007700">(</span><span style="color: #0000BB">&#36;password</span><span style="color: #007700">);<br />&nbsp;</span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mysqli_stmt_bind_param</span><span style="color: #007700">(</span><span style="color: #0000BB">&#36;stmt</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"sss"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">&#36;username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">&#36;email</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">&#36;hashedpass</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mysqli_stmt_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">&#36;stmt</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location:../index.php?Signup:Sucessful"</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+<br />
+Help me pelase , i really need this.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Having problems with SHA1 storing and loading password</strong> - <a href="memberd985.html?action=profile&amp;uid=9">BigETI</a> -  <strong>2020-04-18</strong>
+<br />
+<br />
+You have three options:<br />
+1. Tell your customer to migrate to a safer users system<br />
+2. Tell your customer to fuck off<br />
+3. (not recommended at all) Actually read the documentation of `password_verify` to find out that it can't be used in that context. Do a string comparison of the stored hash and hashed input. This method is very unsafe and you are literally playing with user passwords. THIS IS NOT RECOMMENDED AT ALL!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Having problems with SHA1 storing and loading password</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2020-04-18</strong>
+<br />
+<br />
+Presumably your client hired you as an expert.  In which case, tell them the problems and use a good system.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Having problems with SHA1 storing and loading password</strong> - <a href="memberbb80.html?action=profile&amp;uid=2231">Th3CrazzyRabbit</a> -  <strong>2020-04-18</strong>
+<br />
+<br />
+To be honest i have told him 3 times not only once but he wants to stick with sha1 and there's nothing i can do , if thats what he wants i have to do it<br />
+<br />
+i told him that even if his database gets leaked , theres websites online that can reverse the hash code so no idea , just help me out if you can
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Having problems with SHA1 storing and loading password</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2020-04-19</strong>
+<br />
+<br />
+I'm not going to help you do a potentially dangerous thing.  The problem isn't your job, or your client's lack of understanding.  The problem is their customers using that system with no idea of how unsafe it is.  They are the people I'm concerned about.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Having problems with SHA1 storing and loading password</strong> - <a href="memberbb80.html?action=profile&amp;uid=2231">Th3CrazzyRabbit</a> -  <strong>2020-04-19</strong>
+<br />
+<br />
+Its okay , i've already canceled the work with him unless he updates the system to bcrypt , thank you.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> How to fix dark skin issue on SAMP class selection in pawn? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthread1d3a.html?tid=1671">How to fix dark skin issue on SAMP class selection in pawn?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  How to fix dark skin issue on SAMP class selection in pawn? (<em>/showthread.php?tid=1671</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How to fix dark skin issue on SAMP class selection in pawn?</strong> - <a href="member13c8.html?action=profile&amp;uid=3365">goldprince</a> -  <strong>2021-02-14</strong>
+<br />
+<br />
+Hello Everyone,<br />
+                           I'm working on a SAMP server using pawn language, but I've started facing an issue since I started work on SAMP player skin selection class. The issue is when a player request's a class all skins becomes darker.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+<br />
+main() {<br />
+<br />
+}<br />
+<br />
+public OnGameModeInit() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetWeather(10);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetWorldTime(12);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;AddPlayerClass(1, -1479.434082, 920.448730, 71.350372, 288.652161, 0, 0, 0, 0, 0, 0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;AddPlayerClass(2, -1479.434082, 920.448730, 71.350372, 288.652161, 0, 0, 0, 0, 0, 0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;AddPlayerClass(3, -1479.434082, 920.448730, 71.350372, 288.652161, 0, 0, 0, 0, 0, 0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}<br />
+<br />
+public OnPlayerRequestClass(playerid, classid) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerPos(playerid, -1479.434082, 920.448730, 71.350372);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerFacingAngle(playerid, 288.652161);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerCameraPos(playerid, -1474.420288, 922.672607, 72.009903);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SetPlayerCameraLookAt(playerid, -1475.333984, 922.266418, 71.999748);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+}</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">Screenshot Of The Issue:</span></span></span><br />
+<img src="https://i.stack.imgur.com/ApgJX.jpg" loading="lazy"  alt="[Image: ApgJX.jpg]" class="mycode_img" /><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="color: #000000;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">Screenshot Of The Expected Results:</span></span></span><br />
+<img src="https://i.stack.imgur.com/23ttM.jpg" loading="lazy"  alt="[Image: 23ttM.jpg]" class="mycode_img" /><br />
+<br />
+As you can see in the first screenshot the player skin is darker then normal.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">What I have tried:</span> <br />
+I have tried rearranging the code, like calling <span style="font-weight: bold;" class="mycode_b">SetPlayerCameraPos()</span> before <span style="font-weight: bold;" class="mycode_b">SetPlayerPos()</span>.<br />
+I have also tried using a timer to add a delay before setting player pos and camera pos.<br />
+I have also tried using <span style="font-weight: bold;" class="mycode_b">TogglePlayerSpectating()</span> method to make sure every things gets loaded with player's camera.<br />
+But still same result.<br />
+<br />
+If you know any solution for this problem please share.<br />
+<br />
+Thank You,
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to fix dark skin issue on SAMP class selection in pawn?</strong> - <a href="member02c6.html?action=profile&amp;uid=3448">destiezk</a> -  <strong>2021-02-15</strong>
+<br />
+<br />
+did you try to set it to another location? I'm not sure at all, but maybe SA-MP weather or time may cause this
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to fix dark skin issue on SAMP class selection in pawn?</strong> - <a href="member13c8.html?action=profile&amp;uid=3365">goldprince</a> -  <strong>2021-02-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-15, 10:30 AM)</span>destiezk Wrote:  <a href="showthread988a.html?pid=9849#pid9849" class="quick_jump"></a></cite>did you try to set it to another location? I'm not sure at all, but maybe SA-MP weather or time may cause this</blockquote><br />
+Yes I tried, I copied camera pos, player pos, camera point pos, player facing angle, weather and time from a popular server, and tried on my server but still all skins were showing black.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: large;" class="mycode_size">Screenshot from the server where I copied the coordinates from:</span></span><br />
+<span style="font-size: small;" class="mycode_size"><img src="https://cdn.discordapp.com/attachments/809915980352192593/810839627610587157/sa-mp-042.png" loading="lazy"  alt="[Image: sa-mp-042.png]" class="mycode_img" /></span><br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: large;" class="mycode_size">Screenshot of my server where I tried coordinates:</span></span><br />
+<span style="font-size: small;" class="mycode_size"><img src="https://cdn.discordapp.com/attachments/809915980352192593/810839684623368232/sa-mp-043.png" loading="lazy"  alt="[Image: sa-mp-043.png]" class="mycode_img" /></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to fix dark skin issue on SAMP class selection in pawn?</strong> - <a href="member6ca5.html?action=profile&amp;uid=3449">ImOver</a> -  <strong>2021-02-15</strong>
+<br />
+<br />
+Should work fine as I tried it too, Try changing the weather/time and see if the problem still occurs or no?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to fix dark skin issue on SAMP class selection in pawn?</strong> - <a href="member13c8.html?action=profile&amp;uid=3365">goldprince</a> -  <strong>2021-02-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-15, 06:38 PM)</span>ImOver Wrote:  <a href="showthread63aa.html?pid=9852#pid9852" class="quick_jump"></a></cite>Should work fine as I tried it too, Try changing the weather/time and see if the problem still occurs or no?</blockquote><br />
+BC you said, I gave it another try and still same results, I tried setting it using code and also used time and weather commands to change it manually in class selection. Do you think is there any problem in my code or I am missing something? or I did something wrong in "server.cfg"??<br />
+<br />
+As you said you tried it and it was working fine on your side, can you please share the working code you used on your side?<br />
+<br />
+Thank You,
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How to fix dark skin issue on SAMP class selection in pawn?</strong> - <a href="member02c6.html?action=profile&amp;uid=3448">destiezk</a> -  <strong>2021-02-21</strong>
+<br />
+<br />
+could you please try this one?<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SetPlayerPos(playerid, -1211.7233, -98.9115, 40.3509);<br />
+SetPlayerFacingAngle(playerid, 312.6212);<br />
+SetPlayerCameraPos(playerid, -1207.8231, -95.5987, 41.6189);<br />
+SetPlayerCameraLookAt(playerid, -1211.7233, -98.9115, 40.3509);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

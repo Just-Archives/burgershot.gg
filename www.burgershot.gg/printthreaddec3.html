@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title> Help with sampctl and Docker - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"> <a href="showthreaddec3.html?tid=1759">Help with sampctl and Docker</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: General (<i>https://www.burgershot.gg/forumdisplay.php?fid=19</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Programming (<i>https://www.burgershot.gg/forumdisplay.php?fid=56</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread:  Help with sampctl and Docker (<em>/showthread.php?tid=1759</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help with sampctl and Docker</strong> - <a href="member0f92.html?action=profile&amp;uid=2551">robertocaribbean</a> -  <strong>2021-03-12</strong>
+<br />
+<br />
+Hi there,<br />
+<br />
+sampctl works perfectly in my local machine, but when I try to use the power of Docker, I'm facing with an error.<br />
+<br />
+Steps I followed:<br />
+<ul class="mycode_list"><li>Enable virtualization on BIOS and Hyper-v on Windows 10.<br />
+</li>
+<li>Install Docker Desktop<br />
+</li>
+<li>Add my administrator account to docker-users group.<br />
+</li>
+<li>Pull sampctl from docker hub.<br />
+</li>
+</ul>
+<br />
+Now, the problem is when I try to initialize a package like so:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>docker run southclaws/sampctl package init</code></div></div><br />
+I get this error (I think is better if I share an image):<br />
+<img src="https://i.imgur.com/mCNzFhH.png" loading="lazy"  alt="[Image: mCNzFhH.png]" class="mycode_img" /><br />
+<br />
+Already tried:<ul class="mycode_list"><li>Clean / Purge data from Docker Desktop.<br />
+</li>
+<li>Reinstall Docker Desktop.<br />
+</li>
+<li>Use another sampctl version, but throws that I need the last recent version. <br />
+</li>
+</ul>
+<br />
+EDIT: Well, I'm trying with a ubuntu image, downloaded sampctl and all works fine. But when I try "sampctl package build" throws an error<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>failed to compile package entry: exit status 255</code></div></div>This happens with others compiler version as well.<br />
+<br />
+SOLUTION: If you've been troubled with the same error, run:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>apt-get install gcc gcc-multilib make cmake</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with sampctl and Docker</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2021-03-13</strong>
+<br />
+<br />
+Since you are on Windows, why don't you install the Windows version of sampctl using scoop (https://scoop.sh/) ?<br />
+https://github.com/Southclaws/sampctl/wiki/Windows#installing-with-scoop<br />
+<br />
+If you where to install WSL2 (so running Linux inside Windows) you can then install the correct version. I've never tested using the docker image to initiate a package before, but it should work as expected since it's nothing too complicated.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with sampctl and Docker</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2021-03-13</strong>
+<br />
+<br />
+Also all the issue you have come across have already been addressed in the sampctl wiki, you should of read it before installing. You can also search up on issues open/closed on the sampctl repo and you would of found a solution to any issue not addressed in the wiki.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with sampctl and Docker</strong> - <a href="member0f92.html?action=profile&amp;uid=2551">robertocaribbean</a> -  <strong>2021-03-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-13, 11:12 PM)</span>JustMichael Wrote:  <a href="showthread2d0d.html?pid=10239#pid10239" class="quick_jump"></a></cite>Also all the issue you have come across have already been addressed in the sampctl wiki, you should of read it before installing. You can also search up on issues open/closed on the sampctl repo and you would of found a solution to any issue not addressed in the wiki.</blockquote><br />
+Thank you for your answer! I will do a better search next time.<br />
+<br />
+I'm trying to deploy a samp server on a vps and was not sure how to do it correctly.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
