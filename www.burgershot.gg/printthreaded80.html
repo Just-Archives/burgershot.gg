@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Hello everyone! - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthreaded80.html?tid=383">Hello everyone!</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Hello everyone! (<em>/showthread.php?tid=383</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Hello everyone!</strong> - <a href="memberdf3e.html?action=profile&amp;uid=666">bratva</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+After trying hard to create a simple zombie system i got faced a bug.<br />
+I'm creating actors to use them as zombies but after the actor is created you cannot change its facing angle anymore, if you will see at pictures the <span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: monospace;" class="mycode_font">SetPlayerFacingAngle </span></span></span>is in the right position but it does not work. (Dynamic actor system still same)<br />
+I hope this will be fixed on open.MP.<br />
+<br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: monospace;" class="mycode_font"><a href="https://postimages.org/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.postimg.cc/Y9W6sQTm/gta-sa-2019-04-19-12-32-24-21.png" loading="lazy"  alt="[Image: gta-sa-2019-04-19-12-32-24-21.png]" class="mycode_img" /></a><br />
+</span></span></span><br />
+<br />
+<br />
+<a href="https://postimages.org/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.postimg.cc/Vv9jYmff/gta-sa-2019-04-19-12-32-30-05.png" loading="lazy"  alt="[Image: gta-sa-2019-04-19-12-32-30-05.png]" class="mycode_img" /></a><br />
+<br />
+<br />
+<br />
+<a href="https://postimages.org/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.postimg.cc/59855qwh/gta-sa-2019-04-19-12-32-34-91.png" loading="lazy"  alt="[Image: gta-sa-2019-04-19-12-32-34-91.png]" class="mycode_img" /></a><br />
+<br />
+<br />
+<br />
+<a href="https://postimages.org/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.postimg.cc/x11KSwWQ/gta-sa-2019-04-19-12-33-07-38.png" loading="lazy"  alt="[Image: gta-sa-2019-04-19-12-33-07-38.png]" class="mycode_img" /></a><br />
+<br />
+<br />
+<br />
+<a href="https://postimages.org/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.postimg.cc/HsHw6czV/gta-sa-2019-04-19-12-33-10-58.png" loading="lazy"  alt="[Image: gta-sa-2019-04-19-12-33-10-58.png]" class="mycode_img" /></a><br />
+<br />
+<br />
+<br />
+<a href="https://postimages.org/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.postimg.cc/7YVgdHtX/gta-sa-2019-04-19-12-33-13-98.png" loading="lazy"  alt="[Image: gta-sa-2019-04-19-12-33-13-98.png]" class="mycode_img" /></a><br />
+<br />
+<br />
+<br />
+<a href="https://postimages.org/" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.postimg.cc/8zXLkyS6/gta-sa-2019-04-19-12-33-31-80.png" loading="lazy"  alt="[Image: gta-sa-2019-04-19-12-33-31-80.png]" class="mycode_img" /></a>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Hello everyone!</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+I actually fixed this, but its more of a workaround, we force the actor to be "re-streamed" for everyone, changing their facing angle. This seems to be a bug affecting the client for 0.3.7, not sure about 0.3.DL.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Hello everyone!</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+Hi bratva,<br />
+Did you already try to look into using FCNPC instead? (https://github.com/ziggi/FCNPC)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Hello everyone!</strong> - <a href="memberdf3e.html?action=profile&amp;uid=666">bratva</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+I'm thinking to create about 100 actors or more, so NPCs are not a good idea, so should this be fixed to open.MP?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

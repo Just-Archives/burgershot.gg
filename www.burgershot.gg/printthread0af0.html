@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion More functions for 3D Texts Labels - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthread0af0.html?tid=1093">More functions for 3D Texts Labels</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> More functions for 3D Texts Labels (<em>/showthread.php?tid=1093</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>More functions for 3D Texts Labels</strong> - <a href="member9c11.html?action=profile&amp;uid=309">ForT</a> -  <strong>2020-05-22</strong>
+<br />
+<br />
+I thought of some functions for the 3d texts that could be very useful and that would also make the servers more attractive if used in the right way.<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #FF8000">#define&nbsp;TEXT3D_ALIGNMENT_CENTER &nbsp; &nbsp; 0&nbsp;//&nbsp;Default<br />#define&nbsp;TEXT3D_ALIGNMENT_LEFT &nbsp; &nbsp; &nbsp; 1<br />#define&nbsp;TEXT3D_ALIGNMENT_RIGHT &nbsp; &nbsp; &nbsp;2<br /><br /></span><span style="color: #0000BB">native&nbsp;Text3D_SetShadowColor</span><span style="color: #007700">(</span><span style="color: #0000BB">Text3D</span><span style="color: #007700">:</span><span style="color: #0000BB">id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">shadowcolor</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">native&nbsp;Text3D_UseBox</span><span style="color: #007700">(</span><span style="color: #0000BB">Text3D</span><span style="color: #007700">:</span><span style="color: #0000BB">id</span><span style="color: #007700">,&nbsp;use);<br /></span><span style="color: #0000BB">native&nbsp;Text3D_BoxColor</span><span style="color: #007700">(</span><span style="color: #0000BB">Text3D</span><span style="color: #007700">:</span><span style="color: #0000BB">id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">boxcolor</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">native&nbsp;Text3D_SetAlignment</span><span style="color: #007700">(</span><span style="color: #0000BB">Text3D</span><span style="color: #007700">:</span><span style="color: #0000BB">id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">alignment</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">native&nbsp;Text3D_AttachToObject</span><span style="color: #007700">(</span><span style="color: #0000BB">Text3D</span><span style="color: #007700">:</span><span style="color: #0000BB">id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">objectid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">OffsetX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">OffsetY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">OffsetZ</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">native&nbsp;Text3D_SetDrawDistance</span><span style="color: #007700">(</span><span style="color: #0000BB">Text3D</span><span style="color: #007700">:</span><span style="color: #0000BB">id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">drawdistance</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;Increase&nbsp;the&nbsp;draw&nbsp;distance&nbsp;limit&nbsp;to&nbsp;3000.0&nbsp;(or&nbsp;more?&nbsp;:D)<br /><br />//&nbsp;Similar&nbsp;to&nbsp;object&nbsp;material<br /></span><span style="color: #0000BB">native&nbsp;Text3D_ChangeFont</span><span style="color: #007700">(</span><span style="color: #0000BB">Text3D</span><span style="color: #007700">:</span><span style="color: #0000BB">id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">fontface</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">"Arial"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">fontsize&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">24</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">bold&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Client-side Scripts - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthreadb4be.html?tid=386">Client-side Scripts</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Client-side Scripts (<em>/showthread.php?tid=386</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Client-side Scripts</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+<div style="text-align: center;" class="mycode_align"><span style="color: #ff3333;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size">Client-side Scripts</span></span></div>
+<img src="https://i.imgur.com/zXSrDGv.png" loading="lazy" alt="[Image: zXSrDGv.png]" class="mycode_img" /><br />
+<br />
+A feature that I discussed on Discord.<br />
+I think it would be an extremely useful feature, once the open.mp team starts working on the client.<br />
+This would have a lot of advantages, including optimization by removing the useless amount of traffic sent between the server and the client, and a better responsiveness.<br />
+<br />
+See the speedometer example in the image above. In a normal SA:MP server, the server is continuously asking the client for his velocity, the client answers, then the server tells the client to redraw the text draw, and so on. This forces the developer to be careful of how often to update the text draw, based on how many players does the server usually have, in order not to slow everything down.<br />
+<br />
+Instead, if the server uploads a (compiled) script to the client upon the first connection, in a similar way to how 0.3DL models are uploaded, and then is able to tell the client when to start and stop its execution, then the speedometer example above can be made in a much more effective ways: the client itself, which knows its own vehicle speed, draws its own text draw as defined by the script, as many times per seconds as the developer wants. This creates a better responsiveness at zero bandwidth cost.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Client-side Scripts</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+Not pawn though!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Client-side Scripts</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-19, 05:25 PM)</span>Josh Wrote:  <a href="showthread67d2.html?pid=3777#pid3777" class="quick_jump"></a></cite>Not pawn though!</blockquote><br />
+Why not?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Client-side Scripts</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+As I said in discord, amx_assembly is the reason for no pawn scripts client side.<br />
+<br />
+Even if everyone wasn't to abuse it, there would still be a possibility.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Client-side Scripts</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+Yes I remember, still I don't get how could it be abused.<br />
+Are you actually telling me that if I use amx_assembly, I could potentially access functions that are not defined as natives by the client which hosts the AMX machine?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Client-side Scripts</strong> - <a href="memberfb65.html?action=profile&amp;uid=3">Josh</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+https://github.com/Zeex/amx_assembly/blob/master/test/windows/ShellExecute-test.pwn
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Client-side Scripts</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-04-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-19, 06:00 PM)</span>Josh Wrote:  <a href="showthreadbe8a.html?pid=3781#pid3781" class="quick_jump"></a></cite>https://github.com/Zeex/amx_assembly/blob/master/test/windows/ShellExecute-test.pwn</blockquote><br />
+Ok now I know something I didn't, thanks. I can't believe they were able to do that only by using PAWN; at first I though it was a plugin.<br />
+<br />
+However, the AMX machine is open source, so it could be modified not to allow #emit and similar (or maybe there's already an option for that)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Faster spectator mode &amp; OnPlayerRequestClass - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthreadaa9f.html?tid=1375">Faster spectator mode &amp; OnPlayerRequestClass</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Faster spectator mode &amp; OnPlayerRequestClass (<em>/showthread.php?tid=1375</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Faster spectator mode &amp; OnPlayerRequestClass</strong> - <a href="member5183.html?action=profile&amp;uid=346">Godfather</a> -  <strong>2020-11-24</strong>
+<br />
+<br />
+Is there any option to make spectator mode "faster" when toggling. I can see skin mesh for a second every time and I would like to make it cleaner and smoother.<br />
+<br />
+I'm trying to do some cinematic scene when player connects but OnPlayerRequestClass is called even though I put it there in spectator mode.<br />
+<br />
+My suggestion would be to able in script to disable this callback at all if we don't want to use it, also F4 button ingame is abusable by players on RP servers.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Faster spectator mode &amp; OnPlayerRequestClass</strong> - <a href="memberc737.html?action=profile&amp;uid=2734">JR_Junior</a> -  <strong>2021-02-06</strong>
+<br />
+<br />
+Maybe you are doing something wrong, because currently I use InterpolateCameraPos and InterpolateCameraLookAt to create camera movement while the player is not logged in.<br />
+Every 50 seconds, if the player is still on the login screen, the camera continues to move in predefined random locations.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">Here is an example of the system I use and works without problems:</span><br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerConnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;TogglePlayerSpectating</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;SetPlayerInterior</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;SetPlayerVirtualWorld</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;InterpolateCameraPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1315.031982</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1732.848999</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">22.630048</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1813.086425</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1733.901367</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">19.433467</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">40000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CAMERA_MOVE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;InterpolateCameraLookAt</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1319.984375</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1732.782470</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">21.944711</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1815.772827</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1729.687377</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">19.593595</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CAMERA_MOVE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnDialogResponse</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">dialogid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">response</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">listitem</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">inputtext</span><span style="color: #007700">[])<br />{</span><span style="color: #0000BB">  <br /> &nbsp; &nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">dialogid&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">)<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">response</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">new_TogglePlayerSpectating</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span><span style="color: #FF8000">//Spawn&nbsp;player&nbsp;after&nbsp;login&nbsp;and&nbsp;call&nbsp;OnPlayerRequestClass<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">}<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br />public&nbsp;</span><span style="color: #0000BB">OnPlayerRequestClass</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">classid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;SetTimerEx</span><span style="color: #007700">(</span><span style="color: #DD0000">"SkipRequestClass"</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #DD0000">"d"</span><span style="color: #007700">,</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);</span><span style="color: #FF8000">//Disable&nbsp;buttons<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">forward&nbsp;SkipRequestClass</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br />public&nbsp;</span><span style="color: #0000BB">SkipRequestClass</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;SpawnPlayer</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"> &nbsp; &nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

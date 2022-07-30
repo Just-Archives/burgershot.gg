@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Control over damage &amp; death - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthreadde75.html?tid=1069">Control over damage &amp; death</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Control over damage &amp; death (<em>/showthread.php?tid=1069</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Control over damage &amp; death</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2020-04-26</strong>
+<br />
+<br />
+OnPlayerTakeDamage is currently called after a player has already taken the damage. This makes it impossible to make a custom damage system.<br />
+<br />
+1. OnPlayerGiveDamage does the same thing. This callback seems redundant anyway since we got lag compensation with 0.3z, no idea why that's still around.<br />
+2. OnPlayerWeaponShot prevents bullet data from being sent entirely. People don't even see when they are hit.<br />
+3. SetPlayerTeam does not prevent self-inflicted damage.<br />
+<br />
+I'd like to suggest calling OnPlayerTakeDamage BEFORE a player takes damage. This way all damage could be prevented - but not all death events which brings me to my next point: death events hardcoded into the game, like a car explosion while being in the driver's seat or a parachute splat. Having greater control over these as well would give us total control over any and all damage and death events.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Control over damage &amp; death</strong> - <a href="member0f98.html?action=profile&amp;uid=197">Ezio_Auditore</a> -  <strong>2020-04-26</strong>
+<br />
+<br />
+Well, to be honest this is already possible with a workaround, weapon-config.inc by Slice it's maybe the most famous example. I would focus more on the OnPlayerWeaponShot callback which it's kinda buggy since it doesnt even got triggered in some situations
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Control over damage &amp; death</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2020-04-26</strong>
+<br />
+<br />
+The thing about weapon-config is that it relies on SKY which is a memory-hacking plugin. I think adding this natively is the better way to go.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Control over damage &amp; death</strong> - <a href="member165f.html?action=profile&amp;uid=99">DTV</a> -  <strong>2020-04-26</strong>
+<br />
+<br />
+Maybe doing something similar to how zcmd has OnCommandProcessed (called when command is executed) and OnCommandRecieved (called when attempt to use command is detected) where we have callbacks for when damage info has been received (before dmg is applied) and processed (after dmg is applied) by the server.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Control over damage &amp; death</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2020-04-26</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-04-26, 08:44 PM)</span>DTV Wrote:  <a href="showthreadb6d0.html?pid=7498#pid7498" class="quick_jump"></a></cite>Maybe doing something similar to how zcmd has OnCommandProcessed (called when command is executed) and OnCommandRecieved (called when attempt to use command is detected) where we have callbacks for when damage info has been received (before dmg is applied) and processed (after dmg is applied) by the server.</blockquote><br />
+I'd personally go with OnPlayerTakeDamage (present tense) and OnPlayerDamageTaken (past tense). I think this wording would be much clearer than OnPlayerDamageReceived and OnPlayerDamageProcessed.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

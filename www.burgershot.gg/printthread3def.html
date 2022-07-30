@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Question Vehicle rotation | help with this? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #6fd497;">[Question]</span> <a href="showthread3def.html?tid=1596">Vehicle rotation | help with this?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #6fd497;">[Question]</span> Vehicle rotation | help with this? (<em>/showthread.php?tid=1596</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Vehicle rotation | help with this?</strong> - <a href="member0ffe.html?action=profile&amp;uid=2996">Leonardo</a> -  <strong>2021-01-26</strong>
+<br />
+<br />
+<img src="https://cdn.discordapp.com/attachments/683477745367646224/803610230243459142/vrot.jpg" loading="lazy"  alt="[Image: vrot.jpg]" class="mycode_img" /><br />
+<br />
+I was wondering if you need help with this, because it might help.<br />
+<br />
+What I have done has been a function to obtain the euler rotation from a matrix.<br />
+<br />
+In the unoccupied sync, the SA-MP client sends the right and front vectors to the server, so it is necessary to build the up vector to obtain the euler rotation, so I also made a function for that.<br />
+<br />
+To test it, I converted the C ++ code to Pawn, this would be the result:<br />
+<br />
+[Video: <a href="https://youtu.be/_sBAISz_JMo" target="_blank" rel="noopener" class="mycode_url">https://youtu.be/_sBAISz_JMo</a>]<br />
+<br />
+00:00 incar testing<br />
+00:20 unoccupied testing<br />
+<br />
+[Video: <a href="https://youtu.be/3mZZsGd-g0M" target="_blank" rel="noopener" class="mycode_url">https://youtu.be/3mZZsGd-g0M</a>]<br />
+<br />
+00:00 airplane testing<br />
+<br />
+Part of the Pawn code would look like this:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>forward test_timer();<br />
+public test_timer()<br />
+{<br />
+    if(test_vehicleid != INVALID_VEHICLE_ID)<br />
+    {<br />
+        new mat[MATRIX];<br />
+        new pos[VECTOR];<br />
+        new rot[VECTOR];<br />
+        <br />
+        mat = GetVehicleMatrix(test_vehicleid);<br />
+        rot = Matrix_GetRotation(mat, Vector(-9999.0, -9999.0, -9999.0));<br />
+        pos = Matrix_Multiply3x3(mat, Vector(0.0, 12.0, 2.0));<br />
+        <br />
+        pos[X] += mat[POS][X];<br />
+        pos[Y] += mat[POS][Y];<br />
+        pos[Z] += mat[POS][Z];<br />
+        <br />
+        SetObjectPos(test_objectid, pos[X], pos[Y], pos[Z]);<br />
+        SetObjectRot(test_objectid, rot[X], rot[Y], rot[Z]);<br />
+    }<br />
+}</code></div></div><br />
+I would not know who to talk to to discuss this issue, so I created this post. If you are interested in this, you can send me a private and I will send you the source code in C ++, including the Pawn code.<br />
+<br />
+Note: Sorry for my English, I speak Spanish and I have translated this with google translate.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Vehicle rotation | help with this?</strong> - <a href="member9b55.html?action=profile&amp;uid=11">Freaksken</a> -  <strong>2021-01-26</strong>
+<br />
+<br />
+You might want to have a look at this: https://github.com/IllidanS4/i_quat
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Vehicle rotation | help with this?</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2021-01-26</strong>
+<br />
+<br />
+No need for that, we are already provisioned just fine. It does seem to be describing everything <a href="https://github.com/IllidanS4/i_quat/blob/master/i_quat.inc" target="_blank" rel="noopener" class="mycode_url">i_quat</a> does and can offer.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Vehicle rotation | help with this?</strong> - <a href="member9b55.html?action=profile&amp;uid=11">Freaksken</a> -  <strong>2021-01-27</strong>
+<br />
+<br />
+We appreciate the effort to try to help and contribute though.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Vehicle rotation | help with this?</strong> - <a href="member0ffe.html?action=profile&amp;uid=2996">Leonardo</a> -  <strong>2021-01-27</strong>
+<br />
+<br />
+They are absolutely right. The truth is that he had been out of SA-MP for like 5 years and had no idea of the existence of that include.<br />
+<br />
+I have checked the results of both methods, comparing them with AttachObjectToVehicle, and they both seem to have the same result.<br />
+<br />
+https://youtu.be/vSZyMilgcuU<br />
+<br />
+But I have to say one thing in favor of i_quat, is that it is more efficient, and requires less calculations. Even building the up vector is 1000 times faster. What I had done was to obtain 2 times the rotation, one with up.z = 1.0 and another with up.z = -1.0, then compare which of the two results is equal to the right and front vectors. The difference is brutal.<br />
+<br />
+Anyway, I'm going to post the include, in case it can help someone to have these matrix functions in Pawn.<br />
+<br />
+Once again, Sorry for my English.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Vehicle rotation | help with this?</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2021-01-27</strong>
+<br />
+<br />
+It is quite impressive if you managed to find a solution to this problem on your own anyway; too bad you didn't release it 5 years ago ;-) Good job anyway!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

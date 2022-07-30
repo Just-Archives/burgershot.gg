@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Get away from those single file gamemodes - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthread0135.html?tid=621">Get away from those single file gamemodes</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Get away from those single file gamemodes (<em>/showthread.php?tid=621</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Get away from those single file gamemodes</strong> - <a href="memberf620.html?action=profile&amp;uid=685">Double-O-Seven</a> -  <strong>2019-05-31</strong>
+<br />
+<br />
+I just check out Github and saw that even the 3 example gamemodes are single files. I think you should lead as an example and implement examples in a modularized manner, no matter how small the gamemode. I think if SAMPs example had been more modularized from the beginning we wouldn’t have as many 60k line single file abominations as we have today.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="member165f.html?action=profile&amp;uid=99">DTV</a> -  <strong>2019-05-31</strong>
+<br />
+<br />
+I think they're doing it that way to be similar with SA-MP and how they provide their example gamemodes so its familiar to new and old players alike.  It all boils down to personal preference though, some people won't follow suit regardless of what you suggest.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2019-06-01</strong>
+<br />
+<br />
+Even if you compel people to write modular scripts, everyone has an individual take on "modular" - at least when it comes to Pawn, imho. And, as far as I can see, this is due to a couple of reasons:<br />
+<br />
+<ol type="1" class="mycode_list"><li>People get confused because there is no uniform approach to modular programming in Pawn and they're afraid to make things wrong.<br />
+</li>
+<li>People think that due to the increased length of the script when modularizing the gamemode, this somehow negatively affects performance, readability and their ability to find things in their gamemode.<br />
+</li>
+<li>People get confused as to how to break things down and which order to include them in. They think that if two or more systems interact or rely on each other, they may as well merge them into one file.<br />
+</li>
+</ol>
+Bottom line is, these people need to be taught, and that's a community effort. There's a need for a first and foremost SIMPLE approach to modular programming in Pawn. Here's how I do it:<br />
+<ul class="mycode_list"><li>Hooks of natives are included on the very top of the main script.<br />
+</li>
+<li>Systems are broken down into two files:<br />
+1. Data + Getters/Setters to access the data (if necessary)<br />
+2. Implementation (functions and callbacks)<br />
+</li>
+<li>In case some data is needed in a file that was included after the file that accesses it (and this forcing a reparse), I just forward the particular function in the file that tries to access it.<br />
+</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-06-01</strong>
+<br />
+<br />
+I think somewhere down the line, we might make a proper tutorial with proper script examples that not only explain how modularised programming works, but how to use it properly with good and bad examples.<br />
+<br />
+It would probably be included in a full strip down of how Pawn works ins and outs and even explain's style guides and the differences between Pawn and other languages. <br />
+<br />
+This would probably be a public repo based guide where anyone can contribute to.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2019-06-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-06-01, 05:24 PM)</span>Manyula Wrote:  <a href="showthread8406.html?pid=5760#pid5760" class="quick_jump"></a></cite>Even if you compel people to write modular scripts, everyone has an individual take on "modular" - at least when it comes to Pawn, imho. And, as far as I can see, this is due to a couple of reasons:<br />
+<br />
+<ol type="1" class="mycode_list"><li>People get confused because there is no uniform approach to modular programming in Pawn and they're afraid to make things wrong.<br />
+</li>
+<li>People think that due to the increased length of the script when modularizing the gamemode, this somehow negatively affects performance, readability and their ability to find things in their gamemode.<br />
+</li>
+<li>People get confused as to how to break things down and which order to include them in. They think that if two or more systems interact or rely on each other, they may as well merge them into one file.<br />
+</li>
+</ol>
+Bottom line is, these people need to be taught, and that's a community effort. There's a need for a first and foremost SIMPLE approach to modular programming in Pawn. Here's how I do it:<br />
+<ul class="mycode_list"><li>Hooks of natives are included on the very top of the main script.<br />
+</li>
+<li>Systems are broken down into two files:<br />
+1. Data + Getters/Setters to access the data (if necessary)<br />
+2. Implementation (functions and callbacks)<br />
+</li>
+<li>In case some data is needed in a file that was included after the file that accesses it (and this forcing a reparse), I just forward the particular function in the file that tries to access it.<br />
+</li>
+</ul>
+</blockquote><br />
+I'm always afraid that I won't call function correctly or just forget to call it cuz I have bad habbit of fast writing and I'm kinda dyslexic so I have problem there, that is the only reason why I prefer single file more, but I'm doing my best to get used to modularized way
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-06-05</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-06-05, 09:29 PM)</span>Pinch Wrote:  <a href="showthread3afc.html?pid=5812#pid5812" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-06-01, 05:24 PM)</span>Manyula Wrote:  <a href="showthread8406.html?pid=5760#pid5760" class="quick_jump"></a></cite>Even if you compel people to write modular scripts, everyone has an individual take on "modular" - at least when it comes to Pawn, imho. And, as far as I can see, this is due to a couple of reasons:<br />
+<br />
+<ol type="1" class="mycode_list"><li>People get confused because there is no uniform approach to modular programming in Pawn and they're afraid to make things wrong.<br />
+</li>
+<li>People think that due to the increased length of the script when modularizing the gamemode, this somehow negatively affects performance, readability and their ability to find things in their gamemode.<br />
+</li>
+<li>People get confused as to how to break things down and which order to include them in. They think that if two or more systems interact or rely on each other, they may as well merge them into one file.<br />
+</li>
+</ol>
+Bottom line is, these people need to be taught, and that's a community effort. There's a need for a first and foremost SIMPLE approach to modular programming in Pawn. Here's how I do it:<br />
+<ul class="mycode_list"><li>Hooks of natives are included on the very top of the main script.<br />
+</li>
+<li>Systems are broken down into two files:<br />
+1. Data + Getters/Setters to access the data (if necessary)<br />
+2. Implementation (functions and callbacks)<br />
+</li>
+<li>In case some data is needed in a file that was included after the file that accesses it (and this forcing a reparse), I just forward the particular function in the file that tries to access it.<br />
+</li>
+</ul>
+</blockquote><br />
+I'm always afraid that I won't call function correctly or just forget to call it cuz I have bad habbit of fast writing and I'm kinda dyslexic so I have problem there, that is the only reason why I prefer single file more, but I'm doing my best to get used to modularized way</blockquote><br />
+Don't worry too much about that, it's all about learning from the right place. If you join our discord you will find many people there that will help guide you in writing much better code. We can help you in becoming a better programmer in general, it's what we do ;)<br />
+<br />
+Also don't let your disability stop you, I suffer from Autism, Dyspraxia and HDHD, and I too once thought it was impossible to improve, but with the help of people from the discord, I have improved a lot and that has helped with me diving into other programming languages.<br />
+<br />
+Keep pushing yourself to do better :)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="member1ee3.html?action=profile&amp;uid=3243">Livio Miranda</a> -  <strong>2021-01-04</strong>
+<br />
+<br />
+Do you guys have an example of a nice modular GM? Or at least some hints on how to do it, I'm a newbie here.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2021-01-04</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-04, 05:32 PM)</span>Livio Miranda Wrote:  <a href="showthread304e.html?pid=9246#pid9246" class="quick_jump"></a></cite>Do you guys have an example of a nice modular GM? Or at least some hints on how to do it, I'm a newbie here.</blockquote><br />
+Here's a guide on how I do it: https://github.com/TheManyula/Modular-Pawn<br />
+Hope this helps!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="member9128.html?action=profile&amp;uid=2495">Torque</a> -  <strong>2021-01-14</strong>
+<br />
+<br />
+It all compiles to one amx file. Makes no different whether it's singular or modular. That's down to the preference of the scripter.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2021-01-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-14, 04:16 PM)</span>Torque Wrote:  <a href="showthreaddd95.html?pid=9373#pid9373" class="quick_jump"></a></cite>It all compiles to one amx file. Makes no different whether it's singular or modular. That's down to the preference of the scripter.</blockquote><br />
+The amx has nothing to do with the gamemode layout whatsoever. Single files are okay for small or high-performance applications but not for SA:MP gamemodes. Going modular is also beneficial if you plan to have more than one person working on the gamemode.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="member9128.html?action=profile&amp;uid=2495">Torque</a> -  <strong>2021-01-22</strong>
+<br />
+<br />
+Why? When you compile the gamemode into a .amx file, how does singular or modular effect it?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Get away from those single file gamemodes</strong> - <a href="member036a.html?action=profile&amp;uid=695">Banditul</a> -  <strong>2021-01-23</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-22, 02:36 AM)</span>Torque Wrote:  <a href="showthread2f57-2.html?pid=9498#pid9498" class="quick_jump"></a></cite>Why? When you compile the gamemode into a .amx file, how does singular or modular effect it?</blockquote><br />
+It will not effect it. But code is written by people for people to understand and easy modify (most cases) so would you rather have a piece of code that is easy to understand and modify later on? Or spaghetti shit that if you take a break from it will take more time to understand it again?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

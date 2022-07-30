@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Open.MP API - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthread0c96.html?tid=223">Open.MP API</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Open.MP API (<em>/showthread.php?tid=223</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Open.MP API</strong> - <a href="member0952.html?action=profile&amp;uid=205">Atom</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+1: The option to allow or not, enter the server if the user has .asi or other files in their games folder.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerHasAsiFiles(playerid)</code></div></div><br />
+<br />
+2: All keys<br />
+<br />
+3: Sounds from the server, as it is with the custom models in the 0.3.dl but with sounds.<br />
+<br />
+4: Obtain the resources of the pc in which the player enters, to create personalized options depending on your hardware, to optimize<br />
+<br />
+5: Voice Chat.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerSpeak(playerid)<br />
+<br />
+OnPlayerConectToVoiceChat(playerid, voicechatid)<br />
+<br />
+OnPlayerDisconectToVoiceChat(playerid, voicechatid)<br />
+<br />
+ConectPlayerToVoiceChat(playerid, voicechatid)<br />
+<br />
+DisconectPlayerToVoiceChat(playerid, voicechatid)</code></div></div><br />
+6: Connectivity between servers, that the same server can connect to another.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>ConectPlayerToServer(playerid, "111.11.11.11:7777");<br />
+<br />
+EnableConnectionFromAnotherServer()</code></div></div><br />
+<br />
+7:A suitable browser that can be used in the game. It would be great to desing interfaces from html and css.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>StartWebBrowser(playerid, url)<br />
+<br />
+SetWebBrowserUrl(playerid, url)<br />
+<br />
+OnPlayerEnterToWebBrowser(playerid)<br />
+<br />
+OnPlayerExitToWebBrowser(playerid)<br />
+<br />
+OnPlayerConectToUrl(playerid, url)<br />
+<br />
+OnPlayerDisconectToUrl(playerid, url)<br />
+<br />
+EnableJavascript(playerid)<br />
+<br />
+DisableJavascript(playerid)</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member3a45.html?action=profile&amp;uid=117">BZ_</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 12:36 AM)</span>Atom Wrote:  <a href="showthread11ad.html?pid=1954#pid1954" class="quick_jump"></a></cite>5: Voice Chat.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerSpeak(playerid)<br />
+<br />
+OnPlayerConectToVoiceChat(playerid, voicechatid)<br />
+<br />
+OnPlayerDisconectToVoiceChat(playerid, voicechatid)<br />
+<br />
+ConectPlayerToVoiceChat(playerid, voicechatid)<br />
+<br />
+DisconectPlayerToVoiceChat(playerid, voicechatid)</code></div></div></blockquote><br />
+i know we're still not very close to the release phase, but this feature is sometimes game changing and much needed. It'd be great if it were added as an optional feature.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member0952.html?action=profile&amp;uid=205">Atom</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 01:03 AM)</span>BZ_ Wrote:  <a href="showthreadf3aa-2.html?pid=1959#pid1959" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-04-15, 12:36 AM)</span>Atom Wrote:  <a href="showthread11ad.html?pid=1954#pid1954" class="quick_jump"></a></cite>5: Voice Chat.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerSpeak(playerid)<br />
+<br />
+OnPlayerConectToVoiceChat(playerid, voicechatid)<br />
+<br />
+OnPlayerDisconectToVoiceChat(playerid, voicechatid)<br />
+<br />
+ConectPlayerToVoiceChat(playerid, voicechatid)<br />
+<br />
+DisconectPlayerToVoiceChat(playerid, voicechatid)</code></div></div></blockquote><br />
+i know we're still not very close to the release phase, but this feature is sometimes game changing and much needed. It'd be great if it were added as an optional feature.</blockquote><br />
+<br />
+Also the option to put an icon on the head when talking, that the icon can be customized by the server
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member0dbb.html?action=profile&amp;uid=40">Kiru</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 12:36 AM)</span>Atom Wrote:  <a href="showthread11ad.html?pid=1954#pid1954" class="quick_jump"></a></cite>5: Voice Chat.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerSpeak(playerid)<br />
+<br />
+OnPlayerConectToVoiceChat(playerid, voicechatid)<br />
+<br />
+OnPlayerDisconectToVoiceChat(playerid, voicechatid)<br />
+<br />
+ConectPlayerToVoiceChat(playerid, voicechatid)<br />
+<br />
+DisconectPlayerToVoiceChat(playerid, voicechatid)</code></div></div></blockquote><br />
+I would rather use an external program such as Teamspeak or Discord.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member7a5e.html?action=profile&amp;uid=353">Botato</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+The number 6 can be done with sockets.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member0952.html?action=profile&amp;uid=205">Atom</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 04:26 AM)</span>Botato Wrote:  <a href="showthreadd65d.html?pid=2086#pid2086" class="quick_jump"></a></cite>The number 6 can be done with sockets.</blockquote><br />
+Are you serious?<br />
+<br />
+Because I was referring to connect to a different server, such as exiting the current one and entering another one without closing the game.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member6efa.html?action=profile&amp;uid=361">Melvin</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+I don't think voicechat is a smart idea.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="memberaba1.html?action=profile&amp;uid=457">Bork</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+or how about we not use pawn or at least add support for other languages<br />
+:cry:
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+- OnPlayerTakeDamage should be called BEFORE a player takes damage<br />
+  -&gt; Alternative: make returning 0 negate all damage (also self-inflicted!)<br />
+- Macros for map icons in the chat and 3D text labels<br />
+- AttachMapiconToPlayer, AttachMapiconToVehicle, AttachMapiconToObject<br />
+- Split ShowNameTags into two separate functions:<br />
+  - ShowNameTags to toggle the visibility of the players' names<br />
+  - ShowPlayerBars to toggle the visibility of the players' health/armor bars<br />
+- Show/HideVehicleMarkers<br />
+- SetPlayerHealthLevel to match the extended HP bar from the singleplayer<br />
+- EnableTeargasCoughing<br />
+- EnableVehicleDirt<br />
+- Get/SetPlayerCameraMode + TogglePlayerCameraMode<br />
+- Get/SetPlayerLungCapacity<br />
+- Get/SetPlayerStamina<br />
+- Up to four dialog buttons<br />
+- Lag compensation for vehicles<br />
+- Colored checkpoints<br />
+- Ability to change font size of 3D text labels<br />
+- Ability to toggle collisions between players<br />
+- Basic NPC functionality: Walking from node to node, shooting, killable<br />
+- Building on the DL feature:<br />
+  -&gt; Custom map icons<br />
+  -&gt; Custom player blips/markers<br />
+  -&gt; Custom player animations<br />
+  -&gt; Custom vehicle models<br />
+- ScreenToWorld function which returns a boolean based on whether a certain x,y,z position is in the field of view of a specific player<br />
+- Make all keys available for use<br />
+- OnPlayerPause and OnPlayerUnpaused<br />
+  - Don't desync the player when he enters the game's menu. Make a transparent overlay so the player can still see what's going on ingame.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="membera9f3.html?action=profile&amp;uid=518">shourya</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 02:46 PM)</span>Manyula Wrote:  <a href="showthreadb738-2.html?pid=2362#pid2362" class="quick_jump"></a></cite>- OnPlayerTakeDamage should be called BEFORE a player takes damage<br />
+ -&gt; Alternative: make returning 0 negate all damage (also self-inflicted!)<br />
+- Macros for map icons in the chat and 3D text labels<br />
+- AttachMapiconToPlayer, AttachMapiconToVehicle, AttachMapiconToObject<br />
+- Split ShowNameTags into two separate functions:<br />
+ - ShowNameTags to toggle the visibility of the players' names<br />
+ - ShowPlayerBars to toggle the visibility of the players' health/armor bars<br />
+- Show/HideVehicleMarkers<br />
+- SetPlayerHealthLevel to match the extended HP bar from the singleplayer<br />
+- EnableTeargasCoughing<br />
+- EnableVehicleDirt<br />
+- Get/SetPlayerCameraMode + TogglePlayerCameraMode<br />
+- Get/SetPlayerLungCapacity<br />
+- Get/SetPlayerStamina<br />
+- Up to four dialog buttons<br />
+- Lag compensation for vehicles<br />
+- Colored checkpoints<br />
+- Ability to change font size of 3D text labels<br />
+- Ability to toggle collisions between players<br />
+- Basic NPC functionality: Walking from node to node, shooting, killable<br />
+- Building on the DL feature:<br />
+ -&gt; Custom map icons<br />
+ -&gt; Custom player blips/markers<br />
+ -&gt; Custom player animations<br />
+ -&gt; Custom vehicle models<br />
+- ScreenToWorld function which returns a boolean based on whether a certain x,y,z position is in the field of view of a specific player<br />
+- Make all keys available for use<br />
+- OnPlayerPause and OnPlayerUnpaused<br />
+ - Don't desync the player when he enters the game's menu. Make a transparent overlay so the player can still see what's going on ingame.</blockquote>nice O_o what about huds?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member0952.html?action=profile&amp;uid=205">Atom</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 02:46 PM)</span>Manyula Wrote:  <a href="showthreadb738-2.html?pid=2362#pid2362" class="quick_jump"></a></cite>- OnPlayerTakeDamage should be called BEFORE a player takes damage<br />
+ -&gt; Alternative: make returning 0 negate all damage (also self-inflicted!)<br />
+- Macros for map icons in the chat and 3D text labels<br />
+- AttachMapiconToPlayer, AttachMapiconToVehicle, AttachMapiconToObject<br />
+- Split ShowNameTags into two separate functions:<br />
+ - ShowNameTags to toggle the visibility of the players' names<br />
+ - ShowPlayerBars to toggle the visibility of the players' health/armor bars<br />
+- Show/HideVehicleMarkers<br />
+- SetPlayerHealthLevel to match the extended HP bar from the singleplayer<br />
+- EnableTeargasCoughing<br />
+- EnableVehicleDirt<br />
+- Get/SetPlayerCameraMode + TogglePlayerCameraMode<br />
+- Get/SetPlayerLungCapacity<br />
+- Get/SetPlayerStamina<br />
+- Up to four dialog buttons<br />
+- Lag compensation for vehicles<br />
+- Colored checkpoints<br />
+- Ability to change font size of 3D text labels<br />
+- Ability to toggle collisions between players<br />
+- Basic NPC functionality: Walking from node to node, shooting, killable<br />
+- Building on the DL feature:<br />
+ -&gt; Custom map icons<br />
+ -&gt; Custom player blips/markers<br />
+ -&gt; Custom player animations<br />
+ -&gt; Custom vehicle models<br />
+- ScreenToWorld function which returns a boolean based on whether a certain x,y,z position is in the field of view of a specific player<br />
+- Make all keys available for use<br />
+- OnPlayerPause and OnPlayerUnpaused<br />
+ - Don't desync the player when he enters the game's menu. Make a transparent overlay so the player can still see what's going on ingame.</blockquote><br />
+<br />
+That's my wet dream!!!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member0e0d.html?action=profile&amp;uid=538">Salesman</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+I think it would be good to add a function for range messages aswell, as all the other things you wrote.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member6362.html?action=profile&amp;uid=63">RenanMsV</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+Client side scripts for things that should run faster and dont need a response from the server.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="member7a5e.html?action=profile&amp;uid=353">Botato</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 04:36 AM)</span>Atom Wrote:  <a href="showthread052b.html?pid=2087#pid2087" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-04-15, 04:26 AM)</span>Botato Wrote:  <a href="showthreadd65d.html?pid=2086#pid2086" class="quick_jump"></a></cite>The number 6 can be done with sockets.</blockquote><br />
+Are you serious?<br />
+<br />
+Because I was referring to connect to a different server, such as exiting the current one and entering another one without closing the game.</blockquote>Seriously, it's possible with sockets.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Suggestion for the future Open.MP API</strong> - <a href="memberac3f.html?action=profile&amp;uid=326">Savage</a> -  <strong>2019-04-16</strong>
+<br />
+<br />
+I support idea 5, that the character has a microphone icon or something similar in his head, and thus add it as a personal minichat, in which when moving away it disconnects automatically.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-04-18</strong>
+<br />
+<br />
+<br />
+<ol type="1" class="mycode_list"><li>Completely new dialog system: Timer-based dialogs (where the button can only be pressed after the time is passed and the time on the response button updates) in seconds,<br />
+Dialogs with the ability to have up to 4 responses,<br />
+Dialogs with font settings such as font size, font face, boldness, italic, underlining and strike-through,<br />
+Maybe a DIALOG_STYLE_FORM so we can have multiple inputtexts? (IDK really lmao)<br />
+</li>
+<li>Custom vehicle handling?<br />
+</li>
+<li>The whole class selection bullshit cleared up.<br />
+</li>
+<li>New dialog system because the current one looks crap as fuck. Maybe give the ability to choose between two designs or go for a newer one completely.<br />
+</li>
+<li>Native pause system.<br />
+</li>
+<li>Ability to reload plugins in runtime.<br />
+</li>
+<li>Detection for more keys (if not all, for security reasons) and a better system for it, the current method is ridiculous.<br />
+</li>
+<li>Ability to reconnect to the same server - not switch, but reconnect to the same server.<br />
+</li>
+<li>Toggle for ambience as added in the previous SA-MP update.<br />
+</li>
+<li>Server hostname color embedding (in-game only)<br />
+</li>
+<li>Maximum characters for playername upto 32.<br />
+</li>
+<li>More textdraw fonts?<br />
+</li>
+<li>Voice chat programmed with keeping the voice channels planned, so we can easily integrate team vc etc.<br />
+</li>
+<li>Better server configuration file plz the .cfg sucks.<br />
+</li>
+<li>Screen based text labels - Like the one that shows up when you play audio stream with the same functions as mentioned in the dialogs one.<br />
+</li>
+<li>Checkpoint color customization with color codes?<br />
+</li>
+<li>Server sided timecyc?<br />
+</li>
+<li>Toggle for interior exits, garage doors, pay and sprays etc.<br />
+</li>
+<li>Updated textdraw API + textdraw movement.<br />
+</li>
+<li>Accurate timers?<br />
+</li>
+<li>Ability to switch weapons while in vehicle.<br />
+</li>
+<li>Cutscene skins added<br />
+</li>
+<li>Friendly fire for vehicles with a callback<br />
+</li>
+<li>Screenshot and chat typing detection.<br />
+</li>
+<li>Enable the disabled graphic stuff in SA-MP (vegetation, shadows etc)<br />
+</li>
+<li>Better audio streaming (+ playing mp3 which are linked in a specific folder + Incognito's audio plugin features)<br />
+</li>
+<li>Proper damage detection (vehicle ram/ heli blade/ car ram etc)<br />
+</li>
+<li>Removing the SetSpawnInfoEx or w.e. it is because the team parameter is broken<br />
+</li>
+<li>Unoccupied vehicles having the ability to take the damage.<br />
+</li>
+<li>Removing or changing the default ban system.<br />
+</li>
+<li>More options for OnPlayerClickPlayer, right now it only works when the name is clicked on the scoreboard.<br />
+</li>
+<li>Player oxygen related native<br />
+</li>
+<li>add cat pics<br />
+</li>
+<li>Resizing objects<br />
+</li>
+<li>Fixing the bypass to dialog inputs using copy-paste.<br />
+</li>
+<li>Vehicle crash patches<br />
+</li>
+<li>Discord rich presence please<br />
+</li>
+<li>Update the SQLite integration<br />
+</li>
+<li>SA-MP+ features (hi hual)<br />
+</li>
+<li>SoRt AnD fIlTeR fOr GaMeModEs, so we can filter out/ in TDM, DM, RP etc. in the launcher.<br />
+</li>
+<li>OnPlayerHoverTextdraw<br />
+</li>
+<li>Hiding vehicle icons in the map<br />
+</li>
+<li>Square and circle map icons (for players too)<br />
+</li>
+</ol>
+I think that's enough for now :P
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="membere5bb.html?action=profile&amp;uid=78">GiamPy</a> -  <strong>2019-04-20</strong>
+<br />
+<br />
+Coming from a roleplay world, the only reason for which I haven't played on FiveM yet is because of the voice chat being literally almost everywhere. I wouldn't want the voice chat to be natively implemented in OpenMP either.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-04-22</strong>
+<br />
+<br />
+Adding Actor Plus features natively would be sick (https://github.com/Dayrion/actor_plus - Thanks Dayrion ;p)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member190a.html?action=profile&amp;uid=779">Dayrion</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-22, 04:41 PM)</span>Gravityfalls Wrote:  <a href="showthreada112.html?pid=4262#pid4262" class="quick_jump"></a></cite>Adding Actor Plus features natively would be sick (https://github.com/Dayrion/actor_plus - Thanks Dayrion ;p)</blockquote><br />
+What an honor to be mentioned.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member0434.html?action=profile&amp;uid=462">javelin</a> -  <strong>2019-04-23</strong>
+<br />
+<br />
+I honestly disagree with the VOIP functions.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member9783.html?action=profile&amp;uid=824">Zorono</a> -  <strong>2019-04-24</strong>
+<br />
+<br />
+Intersting.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member5183.html?action=profile&amp;uid=346">Godfather</a> -  <strong>2019-04-25</strong>
+<br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Adding custom 3D icons (images) - textdraws in 3D space.</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">Something like this:</span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font"><img src="https://i.imgur.com/MLnbYyX.png" loading="lazy"  alt="[Image: MLnbYyX.png]" class="mycode_img" /></span></span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: verdana, geneva, lucida,;" class="mycode_font">And make it attachable to player/object/vehicle, something like paused icon.</span></span></span><br />
+<br />
+<img src="https://i.imgur.com/upN0ovf.png" loading="lazy"  alt="[Image: upN0ovf.png]" class="mycode_img" /><br />
+<br />
+Also adding custom map icons would be great.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member79b3.html?action=profile&amp;uid=729">BloodMaster</a> -  <strong>2019-04-25</strong>
+<br />
+<br />
+I do agree that maybe we need more keys, but, I suggest adding <br />
+"Custom Key 1"<br />
+"Custom Key 2"<br />
+"Custom Key 3"<br />
+To the client, where the player himself can dictate which key is which.<br />
+If you hardcoded the keys, players wouldn't be able to change them.<br />
+<br />
+If you just want it for a "custom input text", maybe just make the textdraw type "inputtext" ??<br />
+I mean, for what do you actually need ALL keys.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member3927.html?action=profile&amp;uid=163">iReal Worlds</a> -  <strong>2019-04-25</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 01:39 AM)</span>Kiru Wrote:  <a href="showthreadaf30.html?pid=2000#pid2000" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-04-15, 12:36 AM)</span>Atom Wrote:  <a href="showthread11ad.html?pid=1954#pid1954" class="quick_jump"></a></cite>5: Voice Chat.<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>OnPlayerSpeak(playerid)<br />
+<br />
+OnPlayerConectToVoiceChat(playerid, voicechatid)<br />
+<br />
+OnPlayerDisconectToVoiceChat(playerid, voicechatid)<br />
+<br />
+ConectPlayerToVoiceChat(playerid, voicechatid)<br />
+<br />
+DisconectPlayerToVoiceChat(playerid, voicechatid)</code></div></div></blockquote><br />
+I would rather use an external program such as Teamspeak or Discord.</blockquote>Yes, for talking to your friends, it is indeed more useful to use discord than connect to an open mp server. But, for roleplay servers especially, a local voice chat (range based) or a radio chat for cops for example cannot be replicated using discord.<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 04:26 AM)</span>Botato Wrote:  <a href="showthreadd65d.html?pid=2086#pid2086" class="quick_jump"></a></cite>The number 6 can be done with sockets.</blockquote>Native &gt; crude workaround<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 08:29 AM)</span>Melvin Wrote:  <a href="showthreadf782.html?pid=2158#pid2158" class="quick_jump"></a></cite>I don't think voicechat is a smart idea.</blockquote>Why<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-23, 11:47 PM)</span>.5150 Wrote:  <a href="showthread001a-2.html?pid=4400#pid4400" class="quick_jump"></a></cite>I honestly disagree with the VOIP functions.</blockquote>Why<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-25, 03:09 PM)</span>BloodMaster Wrote:  <a href="showthread2819-2.html?pid=4496#pid4496" class="quick_jump"></a></cite>I do agree that maybe we need more keys, but, I suggest adding <br />
+"Custom Key 1"<br />
+"Custom Key 2"<br />
+"Custom Key 3"<br />
+To the client, where the player himself can dictate which key is which.<br />
+If you hardcoded the keys, players wouldn't be able to change them.<br />
+<br />
+If you just want it for a "custom input text", maybe just make the textdraw type "inputtext" ??<br />
+I mean, for what do you actually need ALL keys.</blockquote>The idea is to detect all keys so we can have custom hotkeys. Your idea would unneccessarily limit server developers.<br />
+<br />
+<br />
+On the VOIP topic, I completely agree that it is a good idea, albeit it should be toggleable by players and server developers should be able to limit it by range. But, it is vital that this should be implemented in a way that doesn't impact performance that much.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member79b3.html?action=profile&amp;uid=729">BloodMaster</a> -  <strong>2019-04-26</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-25, 10:57 PM)</span>iReal Worlds Wrote:  <a href="showthread0565.html?pid=4531#pid4531" class="quick_jump"></a></cite>The idea is to detect all keys so we can have custom hotkeys. Your idea would unneccessarily limit server developers</blockquote><br />
+You don't need them. You already have more than enough.<br />
+Think about games.<br />
+Which games use letters K,H,U,L for anything?<br />
+And even the ones that use those buttons, they're <span style="font-weight: bold;" class="mycode_b">changeable by the players.</span><br />
+<br />
+If you're struggling with the lack of keys, tell me what you need them for and I'll offer you a solution.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member3927.html?action=profile&amp;uid=163">iReal Worlds</a> -  <strong>2019-04-27</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-26, 09:27 AM)</span>BloodMaster Wrote:  <a href="showthread63ac.html?pid=4554#pid4554" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2019-04-25, 10:57 PM)</span>iReal Worlds Wrote:  <a href="showthread0565.html?pid=4531#pid4531" class="quick_jump"></a></cite>The idea is to detect all keys so we can have custom hotkeys. Your idea would unneccessarily limit server developers</blockquote><br />
+You don't need them. You already have more than enough.<br />
+Think about games.<br />
+Which games use letters K,H,U,L for anything?<br />
+And even the ones that use those buttons, they're <span style="font-weight: bold;" class="mycode_b">changeable by the players.</span><br />
+<br />
+If you're struggling with the lack of keys, tell me what you need them for and I'll offer you a solution.</blockquote><br />
+I gather from your replies that you are generally against trusting developers with full control over everything =))<br />
+<br />
+They are changeable by the player in any game because they have the privilege of not worrying about generalisations. They know they need a key for the team chat, a key for using an ability and so on. But the open.mp developers don't know what every server needs keys for. Some servers would not need any, while some would need numbers 1-3 for example, and others would need the key K and so on. Also, some servers would need 0 keys, while some would need 8, others 5 etc. If anyone should come up with a smart solution to still allow players to change the keys, while not limiting developers to 3 custom keys (maybe the possibility for the server to specify in a manifest what keys they need i.e how they should appear named in the user settings, and then the ability to use this keys as they've defined it?) I will be the first to give it a rep+ and suggest it whenever the topic should arise again, as I think this would be the ideal solution. But, if this is not possible, limiting the developers, in my opinion, is always a bad choice if it's not for the player's security.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Open.MP API</strong> - <a href="member1768.html?action=profile&amp;uid=315">Gravityfalls</a> -  <strong>2019-05-02</strong>
+<br />
+<br />
+BloodMaster, we're living in 2019 and we want to make features which are easy to use - we don't want command for every thing - using keys is one good solution, take a look at other games they can equally do the same, you can choose whatever key you like to use, the same can be done here, but with a little trick.<br />
+<br />
+I think all keys should be made accessible.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

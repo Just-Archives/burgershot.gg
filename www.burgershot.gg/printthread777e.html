@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn angle according to camera position - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread777e.html?tid=1187">angle according to camera position</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> angle according to camera position (<em>/showthread.php?tid=1187</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>angle according to camera position</strong> - <a href="member443d.html?action=profile&amp;uid=2297">Fixedfeed</a> -  <strong>2020-09-27</strong>
+<br />
+<br />
+<span style="color: #222222;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: arial, sans-serif;" class="mycode_font">As the title says, how can I make the angle of the player set according to the direction of the player's camera?</span></span></span><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Float:Pos_[3];<br />
+GetPlayerCameraFrontVector(playerid, Pos_[0], Pos_[1], Pos_[2]);<br />
+SetPlayerFacingAngle ( playerid , Pos_[2] ) ;</code></div></div><br />
+<br />
+<span style="color: #222222;" class="mycode_color"><span style="font-size: x-large;" class="mycode_size"><span style="font-family: arial, sans-serif;" class="mycode_font">try this in OnPlayerUpdate, but it doesn't work</span></span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: angle according to camera position</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2020-09-28</strong>
+<br />
+<br />
+A vector isn't an angle.  Look up vectors and the maths to convert them to angles.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: angle according to camera position</strong> - <a href="member443d.html?action=profile&amp;uid=2297">Fixedfeed</a> -  <strong>2020-10-02</strong>
+<br />
+<br />
+Edit: I made it
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

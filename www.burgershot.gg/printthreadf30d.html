@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn [Solved] Why Game mode amx size has increased? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf30d.html?tid=2009">[Solved] Why Game mode amx size has increased?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> [Solved] Why Game mode amx size has increased? (<em>/showthread.php?tid=2009</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Solved] Why Game mode amx size has increased?</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+I made some changes to the Game Mode today, after a few hours I saw that the size of Game Mode amx increased from 4 MB to 19 MB.<br />
+Compilation time also increased from 10 seconds to +60 seconds.<br />
+I don't remember what I did that caused it <br />
+even I optimizing well.<br />
+<br />
+Compiler:<br />
+Zeex - https://github.com/pawn-lang/compiler/releases<br />
+<br />
+Game Mode Includes:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;a_samp&gt;<br />
+#include &lt;a_mysql&gt;<br />
+#include  &lt;jit&gt;<br />
+<br />
+#include "../include/nex-ac.inc"<br />
+#include &lt;weapon-config&gt;<br />
+<br />
+#define YSI_NO_VERSION_CHECK<br />
+#undef MAX_PLAYERS<br />
+#define MAX_PLAYERS 200<br />
+<br />
+#include &lt;streamer&gt;<br />
+#include &lt;colandreas&gt;<br />
+#include &lt;3DTryg&gt;<br />
+#include &lt;sscanf2&gt;<br />
+#include &lt;YSF&gt;<br />
+#include &lt;PreviewModelDialog&gt;<br />
+#include &lt;progress2&gt;<br />
+#include &lt;mSelection&gt;<br />
+#include &lt;foreach&gt;<br />
+#include &lt;formatex&gt;</code></div></div><br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>Header size:          32596 bytes<br />
+Code size:          6266484 bytes<br />
+Data size:        38666848 bytes<br />
+Stack/heap size:      16384 bytes; estimated max. usage=3072 cells (12288 bytes)<br />
+Total requirements:44982312 bytes<br />
+[Finished in 67.0s]</code></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">Solved:</span><br />
+<br />
+weapon-config include had caused this.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>I saw that the size of Game Mode amx increase</blockquote>
+<br />
+Because:<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>I made some changes</blockquote>
+<br />
+Did you think changes would magically not change the AMX?  If you add things, things get bigger.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-12, 04:47 PM)</span>Y_Less Wrote:  <a href="showthreadbbf4.html?pid=11087#pid11087" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>I saw that the size of Game Mode amx increase</blockquote>
+<br />
+Because:<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>I made some changes</blockquote>
+<br />
+Did you think changes would magically not change the AMX?  If you add things, things get bigger.</blockquote><br />
+When viewed from its function. You can see that the size of the power usage in Pawno compared to VSCode is very far too. VSCode which has many features makes it feel very slow on a laptop with makeshift features like I use. So I think the compiled results in the new version of Pawn are not supported by the virus to load RAM while running the server. But my question is when creating a gamemode that people make. Why is there a play.exe program in the pawno folder? Is Play.exe a malware?<br />
+<br />
+<img src="https://i.imgur.com/fmM6DSN.png" loading="lazy"  alt="[Image: fmM6DSN.png]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+I went back to the old versions of Game Mode pwn and I compiled those but it also AMX size more than 19 MB.<br />
+I'm sure those versions didn't have this problem.<br />
+I tried other compilers but it didn't change.<br />
+<br />
+Now I don't think the problem is with the game mode.<br />
+<br />
+I tried very hard to understand where the problem came from.<br />
+Never mind...<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-12, 04:47 PM)</span>Y_Less Wrote:  <a href="showthreadbbf4.html?pid=11087#pid11087" class="quick_jump"></a></cite>Did you think changes would magically not change the AMX?  If you add things, things get bigger.</blockquote><br />
+I know.<br />
+But so far I have not done anything to make AMX more than 10 MB.<br />
+I have 3 other Game modes with more than 60,000 lines, but their size has never been more than 10 MB<br />
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-12, 05:35 PM)</span>PutuSuhartawan Wrote:  <a href="showthread1e73.html?pid=11088#pid11088" class="quick_jump"></a></cite>When viewed from its function. You can see that the size of the power usage in Pawno compared to VSCode is very far too. VSCode which has many features makes it feel very slow on a laptop with makeshift features like I use. So I think the compiled results in the new version of Pawn are not supported by the virus to load RAM while running the server. But my question is when creating a gamemode that people make. Why is there a play.exe program in the pawno folder? Is Play.exe a malware?</blockquote><br />
+That is the some russian guy compiler.<br />
+No source code.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+Number of lines are irrelevant - I can write a 1 line mode that's several gigabytes.  Code takes space, and different code takes different space.  What exactly do you think the problem is?  How much RAM do you have?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-12, 07:34 PM)</span>Radical Wrote:  <a href="showthread58c5.html?pid=11090#pid11090" class="quick_jump"></a></cite>That is the some russian guy compiler.<br />
+No source code.</blockquote><br />
+Sorry sir I have a question. Can you guarantee that play.exe is not a virus? because previously I had experience with GTA files which generally also speak like that but it turns out that in the end my laptop got a virus and the laptop's performance became slow, ahaha it's tragic even though at that time I trusted the program because I had often used the service but in the end I had been hit by a troublesome virus. I also now have no virus defense because the defender works harder than the virus.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite> Can you guarantee that play.exe is not a virus</blockquote>
+<br />
+No, that's why no-one uses it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-13, 01:20 PM)</span>Y_Less Wrote:  <a href="showthread2a8f.html?pid=11102#pid11102" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite>Quote:</cite>Can you guarantee that play.exe is not a virus</blockquote>
+<br />
+No, that's why no-one uses it.</blockquote><br />
+Thanks a lot sir.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-05-13</strong>
+<br />
+<br />
+I found the problem. This is weapon-config issue.<br />
+<br />
+I changed<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;weapon-config&gt;<br />
+<br />
+#define YSI_NO_VERSION_CHECK<br />
+#undef MAX_PLAYERS<br />
+#define MAX_PLAYERS 200</code></div></div><br />
+to<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#define YSI_NO_VERSION_CHECK<br />
+#undef MAX_PLAYERS<br />
+#define MAX_PLAYERS 200<br />
+<br />
+#include &lt;weapon-config&gt;</code></div></div><br />
+and it was <span style="font-weight: bold;" class="mycode_b">solved</span>.<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">weapon-config include </span></span></span>has a lot of arrays and variables with 1000 size.<br />
+<span style="font-style: italic;" class="mycode_i">MAX_PLAYERS </span>was 1000 as by default. That's what caused it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-13</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-13, 10:07 PM)</span>Radical Wrote:  <a href="showthread6089.html?pid=11106#pid11106" class="quick_jump"></a></cite>I found the problem. This is weapon-config issue.<br />
+<br />
+I changed<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;weapon-config&gt;<br />
+<br />
+#define YSI_NO_VERSION_CHECK<br />
+#undef MAX_PLAYERS<br />
+#define MAX_PLAYERS 200</code></div></div><br />
+to<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#define YSI_NO_VERSION_CHECK<br />
+#undef MAX_PLAYERS<br />
+#define MAX_PLAYERS 200<br />
+<br />
+#include &lt;weapon-config&gt;</code></div></div><br />
+and it was <span style="font-weight: bold;" class="mycode_b">solved</span>.<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">weapon-config include </span></span></span>has a lot of arrays and variables with 1000 size.<br />
+<span style="font-style: italic;" class="mycode_i">MAX_PLAYERS </span>was 1000 as by default. That's what caused it.</blockquote>Michael coding © 2021
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-13, 10:07 PM)</span>Radical Wrote:  <a href="showthread6089.html?pid=11106#pid11106" class="quick_jump"></a></cite>I found the problem. This is weapon-config issue.<br />
+<br />
+I changed<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#include &lt;weapon-config&gt;<br />
+<br />
+#define YSI_NO_VERSION_CHECK<br />
+#undef MAX_PLAYERS<br />
+#define MAX_PLAYERS 200</code></div></div><br />
+to<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#define YSI_NO_VERSION_CHECK<br />
+#undef MAX_PLAYERS<br />
+#define MAX_PLAYERS 200<br />
+<br />
+#include &lt;weapon-config&gt;</code></div></div><br />
+and it was <span style="font-weight: bold;" class="mycode_b">solved</span>.<br />
+<br />
+<span style="color: #333333;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font">weapon-config include </span></span></span>has a lot of arrays and variables with 1000 size.<br />
+<span style="font-style: italic;" class="mycode_i">MAX_PLAYERS </span>was 1000 as by default. That's what caused it.</blockquote><br />
+Cool you find it. Now the script can be rethought that the path starts at the left then right and goes down. How do you rebel so that the script runs from the opposite direction, namely from the right and then the arrangement of the road to the top?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-14, 10:17 AM)</span>PutuSuhartawan Wrote:  <a href="showthread5258.html?pid=11109#pid11109" class="quick_jump"></a></cite>Cool you find it. Now the script can be rethought that the path starts at the left then right and goes down. How do you rebel so that the script runs from the opposite direction, namely from the right and then the arrangement of the road to the top?</blockquote><br />
+I don't understand what you mean.<br />
+It run/compile from top to bottom.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Why Game mode amx size has increased?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-14</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-05-14, 09:17 PM)</span>Radical Wrote:  <a href="showthread24f5.html?pid=11122#pid11122" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-05-14, 10:17 AM)</span>PutuSuhartawan Wrote:  <a href="showthread5258.html?pid=11109#pid11109" class="quick_jump"></a></cite>Cool you find it. Now the script can be rethought that the path starts at the left then right and goes down. How do you rebel so that the script runs from the opposite direction, namely from the right and then the arrangement of the road to the top?</blockquote><br />
+I don't understand what you mean.<br />
+It run/compile from top to bottom.</blockquote><br />
+I just explained that everyone has their own path and side. There are people who are extreme left-aligned. There are also right-aligned people.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

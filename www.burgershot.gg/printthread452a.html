@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion AFK System in O:MP - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthread452a.html?tid=242">AFK System in O:MP</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> AFK System in O:MP (<em>/showthread.php?tid=242</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>AFK System in O:MP</strong> - <a href="member2eeb.html?action=profile&amp;uid=490">Mark2</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<span style="font-size: small;" class="mycode_size"><span style="color: #000000;" class="mycode_color">Will you add the AFK sys in O:MP as it is added in SA-MP or delete as it make MTA?? I think you should remove this due bugs and lags. I hate the moments when players go AFK for avoiding different situations as crashing with another cars and etc.</span></span><br />
+<br />
+<span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size">As an alternative, I can offer to remake AFK system by reducing its intervention in player synchronization with the server to zero, but at the same time having the opportunity to find out when player is AFK by the function or a callback (OnPlayerAFK) to further implement its own AFK system programmatically</span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="memberf623.html?action=profile&amp;uid=62">Natsu</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+"find out when player is AFK by the function or a callback" - the fastest method.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(NetStats_MessagesRecvPerSecond(playerid) == 1)<br />
+{<br />
+//Player is AFK.<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="member2eeb.html?action=profile&amp;uid=490">Mark2</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 11:39 AM)</span>Natsu Wrote:  <a href="showthreadb710.html?pid=2240#pid2240" class="quick_jump"></a></cite>"find out when player is AFK by the function or a callback" - the fastest method.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if(NetStats_MessagesRecvPerSecond(playerid) == 1)<br />
+{<br />
+//Player is AFK.<br />
+}</code></div></div></blockquote>I am not want only find out, i am want know what about cancelling server desync in O:MP when player in AFK, as it done in MTA, but with callback that show that player now is AFK, for opportunity to write your self AFK system for players. I mean when player pressing ESC, he don't must "get stucked" on server, but it should be tracked<br />
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-kXWq9BAEEcbuJGqrhQ_HxwDOhVpsskUV1Ysha2D2SmXLgxj3KA" loading="lazy"  alt="[Image: images?q=tbn:ANd9GcS-kXWq9BAEEcbuJGqrhQ_...SmXLgxj3KA]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Mark2 actually has a point there. One of the few things I liked about MTA over SA:MP was that going into the game's menu doesn't pause the game and desyncs the player. I always imagined having a transparent overlay so players could manage their game settings while simultaneously being able to see what happens ingame. If scripters choose to toggle the damage while a player is in the menu, a callback "OnPlayerPaused" could be provided.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="member5183.html?action=profile&amp;uid=346">Godfather</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 02:34 PM)</span>Manyula Wrote:  <a href="showthreada8ab.html?pid=2349#pid2349" class="quick_jump"></a></cite>Mark2 actually has a point there. One of the few things I liked about MTA over SA:MP was that going into the game's menu doesn't pause the game and desyncs the player. I always imagined having a transparent overlay so players could manage their game settings while simultaneously being able to see what happens ingame. If scripters choose to toggle the damage while a player is in the menu, a callback "OnPlayerPaused" could be provided.</blockquote><br />
+Something like this would be nice!<br />
+<br />
+<img src="https://i.ytimg.com/vi/2tVISqFl5HI/hqdefault.jpg" loading="lazy"  alt="[Image: hqdefault.jpg]" class="mycode_img" /><br />
+<br />
+Also those buttons 'start new game', 'stats', 'brief' could be removed from menu.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="member6362.html?action=profile&amp;uid=63">RenanMsV</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+You can do that already with the SAMP Plus addon (https://forum.sa-mp.com/showthread.php?t=520666) and the SAMP Addon https://gtaforums.com/topic/760017-samp-addon/ , the menu is transparent and you dont pause. So I guess it can be done easily :D , the problem is when the player alt-tab from the game.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="memberc8dd.html?action=profile&amp;uid=221">Manyula</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-04-15, 02:43 PM)</span>Godfather Wrote:  <a href="showthread8b20.html?pid=2356#pid2356" class="quick_jump"></a></cite><img src="https://i.ytimg.com/vi/2tVISqFl5HI/hqdefault.jpg" loading="lazy"  alt="[Image: hqdefault.jpg]" class="mycode_img" /><br />
+<br />
+Also those buttons 'start new game', 'stats', 'brief' could be removed from menu.</blockquote><br />
+This looks fucking dope. And yes, there's no need to have the options of starting a new game or loading savegames.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="membera622.html?action=profile&amp;uid=110">TwisT3R</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+SAMP addon has some good functions like that one above.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="member750c.html?action=profile&amp;uid=261">Zenitram</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+I like it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: AFK System in O:MP</strong> - <a href="member6861.html?action=profile&amp;uid=94">AkiraR</a> -  <strong>2019-04-15</strong>
+<br />
+<br />
+Implementing a reliable AFK Sync system to others would be one of the achievements to make O:MP standout, not including MTA. Taking the problems we already know and focusing on fixing them. Then implementing newer suggestions while also patching prior bugs/those to circumvent as things move along. We stay dedicated and soon anything can happen. If O:MP succeeds, I' got plans for it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

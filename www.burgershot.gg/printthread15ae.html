@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Error with TextDrawSetString ?? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread15ae.html?tid=1272">Error with TextDrawSetString ??</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Error with TextDrawSetString ?? (<em>/showthread.php?tid=1272</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Error with TextDrawSetString ??</strong> - <a href="memberdd54.html?action=profile&amp;uid=2822">DaZzY</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+Hello i want to create a TD of FUEL And i get error when i use TextDrawSetString <br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>C:\Users\user\Desktop\Samp\samp server\gamemodes\SFUD.pwn(5445) : error 029: invalid expression, assumed zero<br />
+C:\Users\user\Desktop\Samp\samp server\gamemodes\SFUD.pwn(5445) : warning 215: expression has no effect<br />
+C:\Users\user\Desktop\Samp\samp server\gamemodes\SFUD.pwn(5445) : error 001: expected token: ";", but found "]"<br />
+C:\Users\user\Desktop\Samp\samp server\gamemodes\SFUD.pwn(5445) : error 029: invalid expression, assumed zero<br />
+C:\Users\user\Desktop\Samp\samp server\gamemodes\SFUD.pwn(5445) : fatal error 107: too many error messages on one line</blockquote>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">This is on Gamemodeini :</span><br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>g_Player[playerid][td_fuel] = CreatePlayerTextDraw(playerid,45.000000,324.000000,"Fuel: 100"); <br />
+    PlayerTextDrawBackgroundColor(playerid,g_Player[playerid][td_fuel],0x00000033); <br />
+    PlayerTextDrawFont(playerid,g_Player[playerid][td_fuel],3); /<br />
+    PlayerTextDrawLetterSize(playerid,g_Player[playerid][td_fuel],0.699999,1.700000); <br />
+    PlayerTextDrawColor(playerid,g_Player[playerid][td_fuel],0x000000ff); <br />
+    TextDrawSetShadow(playerid,g_Player[playerid][td_fuel],3);</blockquote>
+<br />
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>public timer_fuel_lower()<br />
+{<br />
+    for(new i=0;i&lt;MAX_PLAYERS;i++) { //<br />
+        if (isrefuelling[i]) continue; //<br />
+        new vid = GetPlayerVehicleID(i); //<br />
+        if (GetPlayerVehicleSeat(i) == 0) { //<br />
+            fuel[vid] = fuel[vid] -1; //<br />
+            if (fuel[vid]&lt;1) //<br />
+            {<br />
+                fuel[vid] = 0; //<br />
+                RemovePlayerFromVehicle(i); //<br />
+                GameTextForPlayer(i,"~r~You are out of ~w~fuel~r~!",5000,4); //<br />
+            }<br />
+        }<br />
+        <br />
+        new tdstring[32];<br />
+       format(tdstring,sizeof tdstring,"Fuel:%i",fuel[vid]);<br />
+        TextDrawSetString([td_fuel][i], tdstring); &lt; <span style="font-weight: bold;" class="mycode_b">Line 5445</span><br />
+<br />
+    }<br />
+<br />
+}</blockquote>
+<br />
+<br />
+Whats wrong please ??
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Error with TextDrawSetString ??</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+F<br />
+TextDrawSetString(<span style="color: #c10300;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">[td_fuel][i],</span></span> tdstring);<br />
+<br />
+<br />
+btw,<br />
+start using this: sizeof( tdstring ) -1<br />
+So:<br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">tdstring</span><span style="color: #007700">[&nbsp;</span><span style="color: #0000BB">32&nbsp;</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">tdstring</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">tdstring&nbsp;</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Fuel:%i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">fuel</span><span style="color: #007700">[&nbsp;</span><span style="color: #0000BB">vid&nbsp;</span><span style="color: #007700">]&nbsp;);<br /></span><span style="color: #0000BB">TextDrawSetString</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">g_Player</span><span style="color: #007700">[&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">][&nbsp;</span><span style="color: #0000BB">td_fuel&nbsp;</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">tdstring&nbsp;</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Also, you should check if g_Player[ i ][ td_fuel ] - Textdraw is created and used.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Error with TextDrawSetString ??</strong> - <a href="memberdd54.html?action=profile&amp;uid=2822">DaZzY</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-24, 05:35 PM)</span>Expert* Wrote:  <a href="showthread4deb.html?pid=8388#pid8388" class="quick_jump"></a></cite>F<br />
+TextDrawSetString(<span style="color: #c10300;" class="mycode_color"><span style="font-weight: bold;" class="mycode_b">[td_fuel][i],</span></span> tdstring);<br />
+<br />
+<br />
+btw,<br />
+start using this: sizeof( tdstring ) -1<br />
+So:<br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">tdstring</span><span style="color: #007700">[&nbsp;</span><span style="color: #0000BB">32&nbsp;</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">format</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">tdstring</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">tdstring&nbsp;</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Fuel:%i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">fuel</span><span style="color: #007700">[&nbsp;</span><span style="color: #0000BB">vid&nbsp;</span><span style="color: #007700">]&nbsp;);<br /></span><span style="color: #0000BB">TextDrawSetString</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">g_Player</span><span style="color: #007700">[&nbsp;</span><span style="color: #0000BB">i&nbsp;</span><span style="color: #007700">][&nbsp;</span><span style="color: #0000BB">td_fuel&nbsp;</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">tdstring&nbsp;</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+Also, you should check if g_Player[ i ][ td_fuel ] - Textdraw is created and used.</blockquote><br />
+<br />
+Thank You that helping me so much :)
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion EditClientMessage - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthread8c61.html?tid=606">EditClientMessage</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> EditClientMessage (<em>/showthread.php?tid=606</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>EditClientMessage</strong> - <a href="member93a1.html?action=profile&amp;uid=329">Dev86</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>EditClientMessage(messageid, color, string[]);</code></div></div><br />
+would be a nice edition so we won't need to spam countdowns/percentages in chat.<br />
+<hr class="mycode_hr" />
+but should be similar to CreateObject texturing, like:<br />
+<br />
+[/code]<br />
+new lol = SendClientMessage(playerid, -1, "hi");<br />
+<br />
+EditClientMessage(lol, 0xFF0000FF, "hello");
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: EditClientMessage</strong> - <a href="memberfaa7.html?action=profile&amp;uid=829">XeroX</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+Should use a textdraw or GameTextFor* functions instead of spamming the chat.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: EditClientMessage</strong> - <a href="member63da.html?action=profile&amp;uid=372">Jarnokai</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-27, 07:07 PM)</span>XeroX Wrote:  <a href="showthreadaf24.html?pid=5644#pid5644" class="quick_jump"></a></cite>Should use a textdraw or GameTextFor* functions instead of spamming the chat.</blockquote><br />
+Point is to not have to spam the chat.<br />
+<br />
+I agree with the suggestion, let's keep in mind the mentioned example is just one of many uses (as the example, as mentioned, is just as fine with other functions)<br />
+<br />
+Think editable messages, either by admins or by yourself: Being able to fix typos without spamming the chat, admins "deleting" offensive messages sent by other players, repeatedly changing the text or color of a message to make it blink or otherwise attract attention (For important warnings or updates etc.)<br />
+<br />
+TL;DR: I support this suggestion
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: EditClientMessage</strong> - <a href="memberf3df.html?action=profile&amp;uid=5">JustMichael</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+This doesn't make much sense to do really.<br />
+<br />
+The chat isn't designed nor should it be designed to alter it, it's not like Discord where you can edit a message on the fly. The chat is designed to serve the purpose of sending messages to the client,<br />
+it wouldn't make sense to implement this sort of idea. This would also cause confusion about logs, as some servers I know rely on logs for evidence, and if it was possible to change this on the fly it would ruin it's credibility (just an example of it's use).<br />
+<br />
+This isn't a feature I would see people dying to have, and I wouldn't use it myself. You have textdraws which was previously mentioned which can do exactly this.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: EditClientMessage</strong> - <a href="member036a.html?action=profile&amp;uid=695">Banditul</a> -  <strong>2019-05-27</strong>
+<br />
+<br />
+Im pretty sure OP didnt meant the chat itself to be editable, only the SendClientMessage s from server so if he send a message on OnPlayerConnect with the message "You connected to the server", at OnPlayerSpawn he would edit that message with something like "You spawned" or something instead of sending 2 different messages<br />
+<br />
+Imo it has few use cases but overall is kinda useless
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: EditClientMessage</strong> - <a href="member165f.html?action=profile&amp;uid=99">DTV</a> -  <strong>2019-05-31</strong>
+<br />
+<br />
+I think it'd be good to anti spam purposes (if I'm understanding this correctly, the function would be able to edit a client message BEFORE its sent out) where someone spams a server IP into the chat for advertisements or something to simply block certain words or phrases from being seen in the message.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: EditClientMessage</strong> - <a href="member1c4f.html?action=profile&amp;uid=3735">manul694</a> -  <strong>2021-05-11</strong>
+<br />
+<br />
+good idea
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: EditClientMessage</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-11</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-05-27, 09:28 PM)</span>Banditul Wrote:  <a href="showthreada204-2.html?pid=5653#pid5653" class="quick_jump"></a></cite>Im pretty sure OP didnt meant the chat itself to be editable, only the SendClientMessage s from server so if he send a message on OnPlayerConnect with the message "You connected to the server", at OnPlayerSpawn he would edit that message with something like "You spawned" or something instead of sending 2 different messages<br />
+<br />
+Imo it has few use cases but overall is kinda useless</blockquote>Most of the servers already use SendClientMessage to send formatted player messages TwT
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

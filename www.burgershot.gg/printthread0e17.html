@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Permissions - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthread0e17.html?tid=648">Permissions</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Permissions (<em>/showthread.php?tid=648</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Permissions</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2019-06-09</strong>
+<br />
+<br />
+Hmmm, I'm wondering is it possible to create (built-in ) permissions system to open.mp ( yeah, just like in MINECRAFT )<br />
+<br />
+Like<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native AddPermissionGroup("permgroup");<br />
+native AddPermissionTree("permgroup", "perm");<br />
+native AddPermissionToGroup(groupid, "permission");<br />
+native AddGroup(groupName);<br />
+native AddPlayerToGroup(playerid, groupName);</code></div></div><br />
+<br />
+<br />
+And sth like that, ask why?<br />
+<br />
+We can use FS's without actually modifying code like to adapt CMD_PERM_ADMIN or pAdmin and shit like that, instead we can just:<br />
+<br />
+/creategroup Admin<br />
+/setgperm Admin permission.cmd.* ( * - all perms from .cmd group, first native )<br />
+/setgtoplayer [ Player ] [ Group ]<br />
+<br />
+permission.groupname.perm<br />
+permission.fsname.perm<br />
+<br />
+and stuff like that, I hope you understand me :D
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Permissions</strong> - <a href="memberceb9.html?action=profile&amp;uid=677">qwerty</a> -  <strong>2019-06-09</strong>
+<br />
+<br />
+please<br />
+no
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Permissions</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2019-06-09</strong>
+<br />
+<br />
+Just use y_groups, it does exactly this already.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Permissions</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2019-06-12</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-06-09, 04:45 PM)</span>Y_Less Wrote:  <a href="showthread9682.html?pid=5923#pid5923" class="quick_jump"></a></cite>Just use y_groups, it does exactly this already.</blockquote><br />
+I saw that today.. 🤭
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Permissions</strong> - <a href="memberb7d9.html?action=profile&amp;uid=49">Romzes</a> -  <strong>2019-06-17</strong>
+<br />
+<br />
+You can do it yourself.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Permissions</strong> - <a href="member81f8.html?action=profile&amp;uid=340">Sasino97</a> -  <strong>2019-06-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2019-06-17, 11:52 AM)</span>Romzes Wrote:  <a href="showthread5de7.html?pid=6043#pid6043" class="quick_jump"></a></cite>You can do it yourself.</blockquote><br />
+⏫<br />
+<br />
+Plus, it's something that would add extra functions outside of the scope of what the API should do. For example, SA-MP did the same with SetPlayerTeam and the other team natives, things which are not supposed to be offered by the API.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Permissions</strong> - <a href="member1c4f.html?action=profile&amp;uid=3735">manul694</a> -  <strong>2021-05-11</strong>
+<br />
+<br />
+like bukkit permissions?<br />
+idk, yeah, god idea, but u can just cancelling command:<br />
+if (player[level] &lt; 35) return;<br />
+doNothing();
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Permissions</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-11</strong>
+<br />
+<br />
+This was a while ago...sorry...was I stupid :3
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

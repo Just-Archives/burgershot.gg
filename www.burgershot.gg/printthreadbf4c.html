@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Per-world entity pools and processing - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthreadbf4c.html?tid=1071">Per-world entity pools and processing</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Per-world entity pools and processing (<em>/showthread.php?tid=1071</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Per-world entity pools and processing</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2020-04-29</strong>
+<br />
+<br />
+I have suggested this before on Discord, but I feel this should be properly laid out and discussed here as well. This suggestion is motivated by the needs of my server, but I hope this will be useful to a wider range of servers as well.<br />
+<br />
+There is a limit of 1000 objects and 2000 vehicles. This limit is client-side and cannot be circumvented. A streamer can be used to give the illusion of having infinite entity slots to use, while still only showing a limited amount of them to players; however, this feels like an overkill to me when you actually don't need to be able to display seamlessly thousands of objects to players.<br />
+<br />
+I suggest a lightweight alternative to classic streaming using virtual worlds. This has the following specifics:<br />
+<ul class="mycode_list"><li>There is a fixed limit of entities existing <span style="font-style: italic;" class="mycode_i">per-world</span>. Creating an entity or moving entity there if it exceeds the limit fails. Creating a global entity (global object) also fails if there is no slot that is unoccupied in all used worlds.<br />
+</li>
+<li>An entity has a per-world ID, which is consistent throughout its lifetime and equal to its client-side ID when shown to any player. This is necessary since things like SelectObject and /dl expose the ID.<br />
+</li>
+<li>Assigning a per-world ID to an entity should prioritize IDs that are used for other per-world entities in other worlds (configurable). This maximizes the number of slots that are still usable for global entities.<br />
+</li>
+<li>The per-world ID of an entity either has to be the primary means of manipulating it server-side (similarly to per-player objects), or there should be a two-way conversion function.<br />
+</li>
+<li>When a player changes the virtual world, all the entities there are displayed to them (unless there are type-specific rules, like distance for vehicles), and the old ones are hidden.<br />
+</li>
+<li>Having a better track of visibility relations between players and entities decreases the amount of processing needed. Looping specifically over per-world entities (with per-world IDs) further improves the performance.<br />
+</li>
+<li>Parallel processing can be used for individual worlds to increase tick rate. If the scripting language allows it, even callbacks can be invoked on different threads.<br />
+</li>
+<li>This can be used for objects, vehicles, pickups, 3D labels, actors, and also NPCs.<br />
+</li>
+</ul>
+
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Per-world entity pools and processing</strong> - <a href="member9c2a.html?action=profile&amp;uid=883">EvilShadeZ</a> -  <strong>2020-04-29</strong>
+<br />
+<br />
+This sounds interesting, but I'm not a fan of this entirely replacing regular kind of streaming. It would work for servers that are based on regular SA terrain, but when mapping custom terrain, those maps can easily be over 10000 objects each causing objects not to be created anymore.<br />
+Some interiors showcased on this forums are at least 500+ objects each therefore I don't think you can rely on the default limit alone. If this was implemented (and forced) would outright ruin so many unique servers that require that kind of streaming.<br />
+<br />
+As an alternative to regular streaming it does seem interesting enough and I wouldn't mind it, but 1000 objects per world is nowhere near enough.<br />
+<br />
+As for exposing the ID's to the client, I don't think most (players) actually care about that. I've got people struggling reading Command syntax messages, let alone their ID's.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Per-world entity pools and processing</strong> - <a href="memberd985.html?action=profile&amp;uid=9">BigETI</a> -  <strong>2020-04-29</strong>
+<br />
+<br />
+I kinda disagree with arbitrary limits on entities. open.mp manages to split the concepts of how a client deals with entities and what the server actually contains. Right now the client that can be used to connect to open.mp servers (SA:MP client) has arbitrary entity limits and there is of right now no way around that except we would have to write an actual open.mp client (will be surely developed when the server part has been released). It is understandable that you do not want to render/stream a fuck ton of entities to a player at the same time, though there should be no argument to not have theoretically infinite data container elements, and only elements streamed that have the highest priorities. If you have a random set of entities in a container, there no one stopping you from using parallel operations to stream them. Parallel libraries are designed to deal with iterating through large random sets efficiently.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Per-world entity pools and processing</strong> - <a href="member9b55.html?action=profile&amp;uid=11">Freaksken</a> -  <strong>2020-04-29</strong>
+<br />
+<br />
+What about servers using virtual worlds for minigames aside from the main gamemode, in which each minigame is linked to a specific virtual world? A minigame can have more than 1000 objects, thus more than 1000 objects linked to that virtual world. Dividing this minigame into multiple virtual worlds would just complicate things unnecessarily ...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Per-world entity pools and processing</strong> - <a href="member3462.html?action=profile&amp;uid=82">IllidanS4</a> -  <strong>2020-04-29</strong>
+<br />
+<br />
+To provide more background: my server allows players to reside in custom virtual worlds where they can build their own maps. Manipulating IDs is quite common and simple, but for the reasons I've already mentioned, the IDs must be consistent. If a player sees an object with a specific ID, they must be able to use that ID for manipulating the object, and they also must be able to tell that ID to others who can see that object. You'd be surprised how many people can quickly grasp this concept. Without this feature, open.mp would be simply unusable for me.<br />
+<br />
+Now this is tied to the limit of 1000 objects, which also provides a convenient way to stop the server from being overloaded by user-made objects. I also use the streamer in cases where larger maps are created, but working with the standard static objects is more convenient. I have modified YSF to allow selectively showing "global" objects to players, so I can simulate objects being visible to specific virtual worlds. I don't know if there is a better solution to the same requirements, but this is what I have settled on.<br />
+<br />
+Now this system is fine, but there is this thing affecting all entities that their global pool is limited, while only a section of them is displayed to a particular group of players in a single virtual world. I could spend some time reimplementing the system based fully on player objects, but I thought this could be nifty to have as an option.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Per-world entity pools and processing</strong> - <a href="memberd985.html?action=profile&amp;uid=9">BigETI</a> -  <strong>2020-04-30</strong>
+<br />
+<br />
+You can still implement your own containers where code already exists for them and manage how entities are streamed to players where code exists for them as well. open.mp will allow to do that once it has been released, because then it will be open source. There is no need to implement arbitrary limits into the core, because that would literally limit the capabilities what your server could do.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

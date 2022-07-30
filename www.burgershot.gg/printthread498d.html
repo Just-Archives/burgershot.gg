@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Question [HELP ME] Creating function in Pawno - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #6fd497;">[Question]</span> <a href="showthread498d.html?tid=1593">[HELP ME] Creating function in Pawno</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #6fd497;">[Question]</span> [HELP ME] Creating function in Pawno (<em>/showthread.php?tid=1593</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[HELP ME] Creating function in Pawno</strong> - <a href="member0e34.html?action=profile&amp;uid=3350">PedroWarlock</a> -  <strong>2021-01-25</strong>
+<br />
+<br />
+(google translate)<br />
+I'm trying to pass the sqlite functions to a subfunction, in order to handle all query commands for sql/mysql, but I am not able to create a simple function, I always have this type of error below, can someone help me with what I am missing?<br />
+<br />
+thanks for listening!<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock Mysql_Db_free_result(DB:dbd, string[]) {<br />
+<br />
+ new Result = db_query(dbd, string);<br />
+ return Result;<br />
+}<br />
+<br />
+new string2[150];<br />
+format(string2, sizeof(string2), "SELECT * FROM `account` WHERE `Name`='%s' AND `key`='%s'",DB_Escape(pName),DB_Escape(password));<br />
+Result = Mysql_Db_free_result(Conection,string2);</code></div></div><br />
+<br />
+BPR.pwn(49596) : warning 213: tag mismatch<br />
+BPR.pwn(49619) : warning 213: tag mismatch<br />
+Pawn compiler 3.2.3664 Copyright &copy; 1997-2016, ITB CompuPhase
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [HELP ME] Creating function in Pawno</strong> - <a href="member957e.html?action=profile&amp;uid=336">elite</a> -  <strong>2021-01-28</strong>
+<br />
+<br />
+Well one of two things is happening here:<br />
+1) Your function is declared inside of another function.<br />
+2) The code following the function is not part of any function and therefore will never be called; with the exception of creating your character array as a global variable.<br />
+<br />
+Both of these could definitely cause some problems however I don't know which line specifically is throwing that error.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [HELP ME] Creating function in Pawno</strong> - <a href="member2b47.html?action=profile&amp;uid=2854">Bakr</a> -  <strong>2021-01-28</strong>
+<br />
+<br />
+db_query() returns a tag of DBResult.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

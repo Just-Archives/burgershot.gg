@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn [Solved] Selecting and Editing object problem - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadc03d-2.html?tid=1531">[Solved] Selecting and Editing object problem</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> [Solved] Selecting and Editing object problem (<em>/showthread.php?tid=1531</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Solved] Selecting and Editing object problem</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-01-16</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">SOLUTION</span>: <br />
+Use streamer v2.9.4.<br />
+<br />
+<span style="color: #e82a1f;" class="mycode_color">1: OnPlayerEditObject/OnPlayerEditDynamicObject response is EDIT_RESPONSE_UPDATE</span><br />
+<br />
+Recently, a bug was found on the server that when we edit objects, the objects return to where they were created after a few seconds. <br />
+I do not know why in OnPlayerEditObject/OnPlayerEditDynamicObject the 'response' is EDIT_RESPONSE_<span style="color: #c10300;" class="mycode_color">UPDATE</span>.<br />
+The response should be EDIT_RESPONSE_<span style="color: #fffa1e;" class="mycode_color">FINAL</span> to solve.<br />
+<br />
+<br />
+<span style="color: #e82a1f;" class="mycode_color">2: SelectObject function is not working for dynamic objects.</span><br />
+When I select the object, the OnPlayerSelectDynamicObject is not called.<br />
+Why?<br />
+<br />
+<br />
+What is your solutions? Thank u.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Selecting and Editing object problem</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-01-16</strong>
+<br />
+<br />
+1. <blockquote class="mycode_quote"><cite>Quote:</cite>OnPlayerEditDynamicObject is called:<br />
+<br />
+If you cancel the object editing. (response = EDIT_RESPONSE_CANCEL = 0)<br />
+If you finish (save) the object editing. (response = EDIT_RESPONSE_FINAL = 1)<br />
+If you update (move/rotate) the object (response = EDIT_RESPONSE_UPDATE = 2)</blockquote>
+2. <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native EditDynamicObject(playerid, STREAMER_TAG_OBJECT:objectid);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Selecting and Editing object problem</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-01-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-16, 02:32 PM)</span>Pinch Wrote:  <a href="showthreadc17c.html?pid=9389#pid9389" class="quick_jump"></a></cite>1. <blockquote class="mycode_quote"><cite>Quote:</cite>OnPlayerEditDynamicObject is called:<br />
+<br />
+If you cancel the object editing. (response = EDIT_RESPONSE_CANCEL = 0)<br />
+If you finish (save) the object editing. (response = EDIT_RESPONSE_FINAL = 1)<br />
+If you update (move/rotate) the object (response = EDIT_RESPONSE_UPDATE = 2)</blockquote>
+2. <div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>native EditDynamicObject(playerid, STREAMER_TAG_OBJECT:objectid);</code></div></div></blockquote><br />
+<span style="color: #E82A1F;" class="mycode_color">1.</span><br />
+I (finish) save the object but response is <span style="font-weight: bold;" class="mycode_b">EDIT_RESPONSE_UPDATE </span>instead of <span style="font-weight: bold;" class="mycode_b">EDIT_RESPONSE_FINAL<br />
+</span><br />
+<span style="color: #E82A1F;" class="mycode_color">2.<br />
+</span>I said when I select the object, the OnPlayerSelectDynamicObject is not called.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Selecting and Editing object problem</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-01-16</strong>
+<br />
+<br />
+SelectObject function is not working for dynamic objects.<br />
+<br />
+That's what you wrote so I assumed that you're using the wrong native
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Selecting and Editing object problem</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-01-17</strong>
+<br />
+<br />
+See, I save the dynamic object but after a few seconds it goes back to where it was created:<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<a href="https://ibb.co/nmvsYrD" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.ibb.co/nmvsYrD/sa-mp-188.png" loading="lazy"  alt="[Image: sa-mp-188.png]" class="mycode_img" /></a><br />
+<br />
+<br />
+<br />
+<a href="https://ibb.co/sC4s9Bs" target="_blank" rel="noopener" class="mycode_url"><img src="https://i.ibb.co/sC4s9Bs/sa-mp-189.png" loading="lazy"  alt="[Image: sa-mp-189.png]" class="mycode_img" /></a><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+This is a problem.<br />
+Please tell me the solution
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Selecting and Editing object problem</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2021-01-18</strong>
+<br />
+<br />
+In _FINAL<br />
+<br />
+Set<br />
+	    SetDynamicObjectPos( objectid, x, y, z );<br />
+	    SetDynamicObjectRot( objectid, rx, ry, rz );
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Selecting and Editing object problem</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-04-15</strong>
+<br />
+<br />
+Thanks @Expert*
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Selecting and Editing object problem</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-04-16</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-18, 07:14 PM)</span>Expert* Wrote:  <a href="showthread02b6.html?pid=9422#pid9422" class="quick_jump"></a></cite>In _FINAL<br />
+<br />
+Set<br />
+    SetDynamicObjectPos( objectid, x, y, z );<br />
+    SetDynamicObjectRot( objectid, rx, ry, rz );</blockquote><br />
+I solved this problem without doing this.<br />
+<br />
+I just put this code<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>if (response == EDIT_RESPONSE_UPDATE)<br />
+    return 1;</code></div></div>in <span style="font-style: italic;" class="mycode_i">OnPlayerEditDynamicObject</span> callback and the problem was solved.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

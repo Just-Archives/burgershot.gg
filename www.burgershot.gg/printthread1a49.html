@@ -1,0 +1,1103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Suggestion Custom GTA SA filesand other stuff - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> <a href="showthread1a49.html?tid=558">Custom GTA SA filesand other stuff</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: open.mp (<i>https://www.burgershot.gg/forumdisplay.php?fid=40</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Questions and Suggestions (<i>https://www.burgershot.gg/forumdisplay.php?fid=42</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="font-weight: bold;color: #a5a5ff;">[Suggestion]</span> Custom GTA SA filesand other stuff (<em>/showthread.php?tid=558</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Custom GTA SA filesand other stuff</strong> - <a href="memberfa79.html?action=profile&amp;uid=1062">jking</a> -  <strong>2019-05-14</strong>
+<br />
+<br />
+- Native object replacement, like MTA "engineReplaceModel" function.  (In 0.3.DL version you need to remove object and create a new one in the same place).<br />
+<br />
+- Add server-side control for this files:<br />
+<br />
+object.dat<br />
+ped.dat<br />
+weapon.dat<br />
+handling.cfg<br />
+timecyc.dat<br />
+<br />
+- And control for this skills:<br />
+<br />
+Stamina<br />
+Driving<br />
+Lung capacity<br />
+<br />
+<br />
+<br />
+This is my edited main.scm, could be help:<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>/*  <br />
+   Sanny Builder v3.2.2<br />
+  <br />
+   main.scm stripped <br />
+   Disabled garages and audio zones.<br />
+    Only parachute script.      <br />
+*/<br />
+<br />
+DEFINE OBJECTS                  2  <br />
+DEFINE OBJECT PARACHUTE                                                                                <br />
+DEFINE OBJECT PARA_COLLISION<br />
+                                                                <br />
+DEFINE MISSIONS 0<br />
+        <br />
+DEFINE EXTERNAL_SCRIPTS -1  <br />
+                                                          <br />
+DEFINE UNKNOWN_EMPTY_SEGMENT 0<br />
+DEFINE UNKNOWN_THREADS_MEMORY 512<br />
+<br />
+var<br />
+&#36;PLAYER_CHAR: Player<br />
+end<br />
+//---------------------------------[    MAIN START   ]----------------------------------<br />
+03A4: name_thread 'MAIN'<br />
+02A3: switch_widescreen 0<br />
+0A48: allow_pause_in_widescreen 0<br />
+09B9: show_entered_car_name 0  <br />
+01F0: set_max_wanted_level_to 0<br />
+0111: set_deatharrest_state 0<br />
+//--------------------------------------------------------------------------------------<br />
+062A: change_float_stat     21  to 0.0                                                  // Fat Level<br />
+062A: change_float_stat     22  to 999.0                                                // Stamina<br />
+062A: change_float_stat     23  to 0.0                                                  // Muscle Level<br />
+062A: change_float_stat     69  to 999.0                                                // Colt 45 Skill<br />
+062A: change_float_stat     70  to 999.0                                                // Silenced Pistol Skill<br />
+062A: change_float_stat     71  to 999.0                                                // Desert Eagle Skill<br />
+062A: change_float_stat     72  to 999.0                                                // Shotgun Skill<br />
+062A: change_float_stat     73  to 900.0                                                // Sawn-Off Shotgun Skill<br />
+062A: change_float_stat     74  to 999.0                                                // Combat Shotgun Skill<br />
+062A: change_float_stat     75  to 999.0                                                // TEC-9 Skill<br />
+062A: change_float_stat     76  to 999.0                                                // SMG Skill<br />
+062A: change_float_stat     77  to 999.0                                                // AK-47 Skill<br />
+062A: change_float_stat     78  to 999.0                                                // M4 Skill<br />
+062A: change_float_stat     79  to 999.0                                                // Rifle Skill<br />
+062A: change_float_stat     81  to 10.0                                                 // Gambling Skill<br />
+062A: change_float_stat     225 to 999.0                                                // Lung Capacity<br />
+0629: change_integer_stat   68  to 0                                                    // Respect<br />
+062A: change_integer_stat   160 to 100                                                  // Drive Skill                <br />
+0629: change_integer_stat   181 to 4                                                    // Cities Unlocked<br />
+062A: change_integer_stat   223 to 100                                                  // Flying skill<br />
+062A: change_integer_stat   229 to 100                                                  // Bike skill<br />
+062A: change_integer_stat   230 to 100                                                  // Cycling skill<br />
+//--------------------------------------------------------------------------------------<br />
+04E4: request_collision -3076.0 1152.0<br />
+03CB: set_rendering_origin_at -3076.0 1152.0 20.0<br />
+0703: set_tags_painted_percentage_at -3000.0 -3000.0 3000.0 3000.0 value 255<br />
+//--------------------------------------------------------------------------------------<br />
+&#36;PLAYER_CHAR = Player.Create(0, -2376.5671, -585.5031, 132.1117)<br />
+0960: enable_player &#36;PLAYER_CHAR stats_box 0                                            //Disable Stats Box  For Player<br />
+&#36;PLAYER_ACTOR = Actor.EmulateFromPlayer(&#36;PLAYER_CHAR)<br />
+Actor.Angle(&#36;PLAYER_ACTOR) = 270.0<br />
+0373: set_camera_directly_behind_player<br />
+0001: wait 0 ms<br />
+//--------------------------------------------------------------------------------------<br />
+0A24: set_disable_military_zones 1                                                      // Disable wanted level when player enters a military zone<br />
+0180: set_on_mission_flag_to &#36;ONMISSION                                                 // Note: your missions have to use the variable defined here<br />
+03E6: remove_text_box                                                                   // Remove help messages in the up-left corner<br />
+07FB: set_interior 'CARLS'      access 1                                                // The Johnson House<br />
+07FB: set_interior 'AMMUN1'     access 1                                                // Ammu-Nation<br />
+07FB: set_interior 'AMMUN2'     access 1                                                // Ammu-Nation<br />
+07FB: set_interior 'AMMUN3'     access 1                                                // Ammu-Nation<br />
+07FB: set_interior 'AMMUN4'     access 1                                                // Ammu-Nation<br />
+07FB: set_interior 'AMMUN5'     access 1                                                // Ammu-Nation<br />
+07FB: set_interior 'BARBERS'    access 1                                                // Barber<br />
+07FB: set_interior 'BARBER2'    access 1                                                // Barber<br />
+07FB: set_interior 'BARBER3'    access 1                                                // Barber<br />
+07FB: set_interior 'FDPIZA'     access 1                                                // Pizza Stack<br />
+07FB: set_interior 'FDCHICK'    access 1                                                // Cluckin' Bell<br />
+07FB: set_interior 'FDBURG'     access 1                                                // Burger Shot<br />
+07FB: set_interior 'TATTOO'     access 1                                                // Tattoo Parlor<br />
+07FB: set_interior 'CSCHP'      access 1                                                // Binco<br />
+07FB: set_interior 'CSSPRT'     access 1                                                // Pro-Laps<br />
+07FB: set_interior 'LACS1'      access 1                                                // Sub Urban<br />
+07FB: set_interior 'CLOTHGP'    access 1                                                // Zip<br />
+07FB: set_interior 'CSDESGN'    access 1                                                // Victim<br />
+07FB: set_interior 'CSEXL'      access 1                                                // Didier Sachs<br />
+07FB: set_interior 'GYM1'       access 1                                                // Ganton Gym<br />
+07FB: set_interior 'GYM2'       access 1                                                // Cobra Marital Arts<br />
+07FB: set_interior 'GYM3'       access 1                                                // Below the Belt Gym<br />
+07FB: set_interior 'PDOMES'     access 1                                                // The Pleasure Domes<br />
+07FB: set_interior 'PDOMES2'    access 1                                                // The Pleasure Domes<br />
+07FB: set_interior 'MADDOGS'    access 1                                                // Madd Dogg's Crib<br />
+07FB: set_interior 'MDDOGS'     access 1                                                // Madd Dogg's Crib<br />
+07FB: set_interior 'GANG'       access 1                                                // Vagos Gang House<br />
+07FB: set_interior 'RCPLAY'     access 1                                                // Zero's RC Shop<br />
+07FB: set_interior 'PAPER'      access 1                                                // Planning Department<br />
+07FB: set_interior 'ABATOIR'    access 1                                                // Sindacco Abattoir<br />
+07FB: set_interior 'LACRAK'     access 1                                                // Crack Den<br />
+//--------------------------------------------------------------------------------------<br />
+create_thread @PLCHUTE<br />
+//--------------------------------------------------------------------------------------<br />
+fade 0 0<br />
+wait 0<br />
+09BA: show_entered_zone_name 0                                                          // Disable zone names<br />
+03B7: switch_world_processing 0<br />
+0169: set_fade_color_RGB 0 0 0<br />
+03B7: switch_world_processing 1                                                                                        <br />
+01F0: set_max_wanted_level_to 0<br />
+01B6: set_weather 14                                                                    //Sunny Countryside<br />
+Player.SetClothes(&#36;PLAYER_CHAR, "VEST", "VEST", Torso)<br />
+Player.SetClothes(&#36;PLAYER_CHAR, "JEANSDENIM", "JEANS", Legs)<br />
+Player.SetClothes(&#36;PLAYER_CHAR, "SNEAKERBINCBLK", "SNEAKER", Shoes)<br />
+Player.SetClothes(&#36;PLAYER_CHAR, "PLAYER_FACE", "HEAD", Head)<br />
+055E: set_player &#36;PLAYER_CHAR max_health += 100<br />
+Player.Build(&#36;PLAYER_CHAR)<br />
+0793: save_player_clothes<br />
+Player.CanMove(&#36;PLAYER_CHAR) = True<br />
+01E8: create_forbidden_for_cars_cube_cornerA -100000.0 -100000.0 -100000.0 cornerB 100000.0 100000.0 100000.0<br />
+022B: create_forbidden_for_peds_cube_cornerA -100000.0 -100000.0 -100000.0 cornerB 100000.0 100000.0 100000.0<br />
+01EB: set_traffic_density_multiplier_to 0.0<br />
+03DE: set_pedestrians_density_multiplier_to 0.0<br />
+015A: restore_camera<br />
+015F: set_camera_position -2834.0493 1304.3285 9.6122 0.0 0.0 0.0<br />
+0160: set_camera_look_at -2834.0493 1304.3285 9.6122 2<br />
+0001: wait 500<br />
+016A: fade 1 1000<br />
+02B9: deactivate_garage 'AMUMIS'<br />
+02B9: deactivate_garage 'BEACSV'<br />
+02B9: deactivate_garage 'BLOB1'<br />
+02B9: deactivate_garage 'BLOB2'<br />
+02B9: deactivate_garage 'BLOB6'<br />
+02B9: deactivate_garage 'BLOB69'<br />
+02B9: deactivate_garage 'BLOB7'<br />
+02B9: deactivate_garage 'BODLAWN'<br />
+02B9: deactivate_garage 'BRGSFSE'<br />
+02B9: deactivate_garage 'BURBDO2'<br />
+02B9: deactivate_garage 'BURBDOO'<br />
+02B9: deactivate_garage 'BURG_LK'<br />
+02B9: deactivate_garage 'CARLAS1'<br />
+02B9: deactivate_garage 'CESAFE1'<br />
+02B9: deactivate_garage 'CESPRAY'<br />
+02B9: deactivate_garage 'CJSAFE'<br />
+02B9: deactivate_garage 'CN2GAR1'<br />
+02B9: deactivate_garage 'CN2GAR2'<br />
+02B9: deactivate_garage 'CN2SPRY'<br />
+02B9: deactivate_garage 'CNSPRAY'<br />
+02B9: deactivate_garage 'DHANGAR'<br />
+02B9: deactivate_garage 'DUF_LAS'<br />
+02B9: deactivate_garage 'FDORSFE'<br />
+02B9: deactivate_garage 'GHOSTDR'<br />
+02B9: deactivate_garage 'HBGDSFS'<br />
+02B9: deactivate_garage 'IMP_LA'<br />
+02B9: deactivate_garage 'IMP_SF'<br />
+02B9: deactivate_garage 'IMP_LV'<br />
+02B9: deactivate_garage 'LASBOMB'<br />
+02B9: deactivate_garage 'LCKSFSE'<br />
+02B9: deactivate_garage 'MDS1SFS'<br />
+02B9: deactivate_garage 'MDSSFSE'<br />
+02B9: deactivate_garage 'MICHDR'<br />
+02B9: deactivate_garage 'MODGLAS'<br />
+02B9: deactivate_garage 'MUL_LAN'<br />
+02B9: deactivate_garage 'MODLAST'<br />
+02B9: deactivate_garage 'SAV1SFE'<br />
+02B9: deactivate_garage 'SAV1SFW'<br />
+02B9: deactivate_garage 'SPRLAE'<br />
+02B9: deactivate_garage 'SPRLAE'<br />
+02B9: deactivate_garage 'SPLAW2'<br />
+02B9: deactivate_garage 'SPRSFSE'<br />
+02B9: deactivate_garage 'SPRSFW'<br />
+02B9: deactivate_garage 'SVGSFS1'<br />
+02B9: deactivate_garage 'TBON'<br />
+02B9: deactivate_garage 'TIMY1'<br />
+02B9: deactivate_garage 'VECMOD'<br />
+02B9: deactivate_garage 'VESVGRG'<br />
+02B9: deactivate_garage 'VGELOCK'<br />
+02B9: deactivate_garage 'VGSHNGR'<br />
+02FA: change_garage_type 'AMUMIS' to 1<br />
+02FA: change_garage_type 'BEACSV' to 1<br />
+02FA: change_garage_type 'BLOB1' to 1<br />
+02FA: change_garage_type 'BLOB2' to 1<br />
+02FA: change_garage_type 'BLOB6' to 1<br />
+02FA: change_garage_type 'BLOB69' to 1<br />
+02FA: change_garage_type 'BLOB7' to 1<br />
+02FA: change_garage_type 'BODLAWN' to 1<br />
+02FA: change_garage_type 'BRGSFSE' to 1<br />
+02FA: change_garage_type 'BURBDO2' to 1<br />
+02FA: change_garage_type 'BURBDOO' to 1<br />
+02FA: change_garage_type 'BURG_LK' to 1<br />
+02FA: change_garage_type 'CARLAS1' to 1<br />
+02FA: change_garage_type 'CESAFE1' to 1<br />
+02FA: change_garage_type 'CESPRAY' to 1<br />
+02FA: change_garage_type 'CJSAFE' to 1<br />
+02FA: change_garage_type 'CN2GAR1' to 1<br />
+02FA: change_garage_type 'CN2GAR2' to 1<br />
+02FA: change_garage_type 'CN2SPRY' to 1<br />
+02FA: change_garage_type 'CNSPRAY' to 1<br />
+02FA: change_garage_type 'DHANGAR' to 1<br />
+02FA: change_garage_type 'DUF_LAS' to 1<br />
+02FA: change_garage_type 'FDORSFE' to 1<br />
+02FA: change_garage_type 'GHOSTDR' to 1<br />
+02FA: change_garage_type 'HBGDSFS' to 1<br />
+02FA: change_garage_type 'IMP_LA' to 1<br />
+02FA: change_garage_type 'IMP_SF' to 1<br />
+02FA: change_garage_type 'IMP_LV' to 1<br />
+02FA: change_garage_type 'LASBOMB' to 1<br />
+02FA: change_garage_type 'LCKSFSE' to 1<br />
+02FA: change_garage_type 'MDS1SFS' to 1<br />
+02FA: change_garage_type 'MDSSFSE' to 1<br />
+02FA: change_garage_type 'MICHDR' to 1<br />
+02FA: change_garage_type 'MODGLAS' to 1<br />
+02FA: change_garage_type 'MUL_LAN' to 1<br />
+02FA: change_garage_type 'MODLAST' to 1<br />
+02FA: change_garage_type 'SAV1SFE' to 1<br />
+02FA: change_garage_type 'SAV1SFW' to 1<br />
+02FA: change_garage_type 'SPRLAE' to 1<br />
+02FA: change_garage_type 'SPRLAE' to 1<br />
+02FA: change_garage_type 'SPLAW2' to 1<br />
+02FA: change_garage_type 'SPRSFSE' to 1<br />
+02FA: change_garage_type 'SPRSFW' to 1<br />
+02FA: change_garage_type 'SVGSFS1' to 1<br />
+02FA: change_garage_type 'TBON' to 1<br />
+02FA: change_garage_type 'TIMY1' to 1<br />
+02FA: change_garage_type 'VECMOD' to 1<br />
+02FA: change_garage_type 'VESVGRG' to 1<br />
+02FA: change_garage_type 'VGELOCK' to 1<br />
+02FA: change_garage_type 'VGSHNGR' to 1<br />
+0A14: disable_respray_garages 1<br />
+0917: switch_audio_zone 'BAR1' to 0<br />
+0917: switch_audio_zone 'BAR2' to 0<br />
+0917: switch_audio_zone 'LASTRIP' to 0<br />
+0917: switch_audio_zone 'STRIP2' to 0<br />
+0917: switch_audio_zone 'PDOMES' to 0<br />
+0917: switch_audio_zone 'AMMUN1' to 0<br />
+0917: switch_audio_zone 'AMMUN2' to 0<br />
+0917: switch_audio_zone 'AMMUN3' to 0<br />
+0917: switch_audio_zone 'AMMUN4' to 0<br />
+0917: switch_audio_zone 'AMMUN5' to 0<br />
+00C0: set_time_of_day 1 0<br />
+01B6: force_weather_now 5<br />
+<br />
+:MAIN_3<br />
+0001: wait 1000 ms<br />
+0002: jump @MAIN_3<br />
+//---------------------------------[     MAIN END    ]----------------------------------<br />
+<br />
+//---------------------------------[  PLCHUTE START  ]----------------------------------<br />
+:PLCHUTE<br />
+03A4: name_thread 'PLCHUTE'<br />
+0004: &#36;FREEFALL_STAGE = 0<br />
+0004: &#36;PARACHUTE_CREATION_STAGE = 0<br />
+0004: &#36;1498 = 0<br />
+0005: &#36;1500 =  5.0<br />
+0005: &#36;1501 = -5.0<br />
+0005: &#36;1503 = -1.5<br />
+0005: &#36;1504 = -30.0<br />
+0005: &#36;1505 =  32.0<br />
+0005: &#36;1506 =  0.0<br />
+0004: &#36;1512 =  0<br />
+0004: &#36;1513 =  0<br />
+<br />
+:PLCHUTE_1  <br />
+0001: wait  0 ms<br />
+0819: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="99aed9">[email&#160;protected]</a> = actor &#36;PLAYER_ACTOR distance_from_ground<br />
+00A0: store_actor &#36;PLAYER_ACTOR position_to &#36;69 &#36;70 &#36;71<br />
+00D6: if  and<br />
+0020: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="596e19">[email&#160;protected]</a> &gt; 50.0<br />
+80DF:   NOT  actor &#36;PLAYER_ACTOR driving<br />
+8118:   not  actor &#36;PLAYER_ACTOR dead<br />
+83EE:   NOT  player &#36;PLAYER_CHAR controllable<br />
+004D: jump_if_false @PLCHUTE_1<br />
+<br />
+:PLCHUTE_2  <br />
+0001: wait 0 ms<br />
+00D6: if<br />
+8118:   not actor &#36;PLAYER_ACTOR dead<br />
+004D: jump_if_false @PLCHUTE_71<br />
+00D6: if<br />
+8800:   not in_two_players_mode<br />
+004D: jump_if_false @PLCHUTE_71<br />
+00D6: if<br />
+8038:   not  &#36;FREEFALL_STAGE == 0<br />
+004D: jump_if_false @PLCHUTE_3<br />
+0992: set_player &#36;PLAYER_CHAR weapons_scrollable 0<br />
+<br />
+:PLCHUTE_3<br />
+00D6: if<br />
+0018:   &#36;PARACHUTE_CREATION_STAGE &gt; 0<br />
+004D: jump_if_false @PLCHUTE_4<br />
+00D6: if<br />
+8491:   not actor &#36;PLAYER_ACTOR has_weapon 46<br />
+004D: jump_if_false @PLCHUTE_4<br />
+0002: jump @PLCHUTE_73<br />
+<br />
+:PLCHUTE_4<br />
+00D6: if<br />
+0038:   &#36;PARACHUTE_CREATION_STAGE == 0<br />
+004D: jump_if_false @PLCHUTE_5<br />
+00D6: if<br />
+0491:   actor &#36;PLAYER_ACTOR has_weapon 46<br />
+004D: jump_if_false @PLCHUTE_5<br />
+0247: load_model #PARACHUTE<br />
+0004: &#36;PARACHUTE_CREATION_STAGE = 1<br />
+0004: &#36;1498 = 0<br />
+<br />
+:PLCHUTE_5<br />
+00D6: if<br />
+0038:   &#36;PARACHUTE_CREATION_STAGE == 1<br />
+004D: jump_if_false @PLCHUTE_6<br />
+00D6: if<br />
+0248:   model #PARACHUTE available<br />
+004D: jump_if_false @PLCHUTE_6<br />
+0107: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="91a0a6d1">[email&#160;protected]</a> = create_object #PARACHUTE at &#36;TEMPVAR_X_COORD &#36;TEMPVAR_Y_COORD &#36;TEMPVAR_Z_COORD<br />
+069B: attach_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fccdcbbc">[email&#160;protected]</a> to_actor &#36;PLAYER_ACTOR with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0<br />
+0750: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1a2b2d5a">[email&#160;protected]</a> visibility 0<br />
+0004: &#36;PARACHUTE_CREATION_STAGE = 2<br />
+<br />
+:PLCHUTE_6<br />
+00D6: if and<br />
+0038:   &#36;PARACHUTE_CREATION_STAGE == 2<br />
+0038:   &#36;FREEFALL_STAGE == 1<br />
+004D: jump_if_false @PLCHUTE_7<br />
+0004: &#36;PARACHUTE_CREATION_STAGE = 3<br />
+<br />
+:PLCHUTE_7<br />
+00D6: if and<br />
+0038:   &#36;FREEFALL_STAGE == 0<br />
+0018:   &#36;PARACHUTE_CREATION_STAGE &gt; 0<br />
+004D: jump_if_false @PLCHUTE_8<br />
+00D6: if<br />
+0818:   actor &#36;PLAYER_ACTOR in_air<br />
+004D: jump_if_false @PLCHUTE_8<br />
+083D: get_actor &#36;PLAYER_ACTOR velocity_in_direction_XYZ &#36;1507 &#36;1508 &#36;1509<br />
+00D6: if<br />
+0022:   -10.0 &gt; &#36;1509<br />
+004D: jump_if_false @PLCHUTE_8<br />
+0819: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ad9aed">[email&#160;protected]</a> = actor &#36;PLAYER_ACTOR distance_from_ground<br />
+00D6: if<br />
+0021:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7b4c3b">[email&#160;protected]</a> &gt; 20.0<br />
+004D: jump_if_false @PLCHUTE_8<br />
+097A: play_audio_at -1000.0 -1000.0 -1000.0 event 1037<br />
+0004: &#36;FREEFALL_STAGE = 1<br />
+01B9: set_actor &#36;PLAYER_ACTOR armed_weapon_to 46<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="073747">[email&#160;protected]</a> = 0<br />
+0005: &#36;8268 = 0.0<br />
+<br />
+:PLCHUTE_8<br />
+00D6: if<br />
+0038:   &#36;FREEFALL_STAGE == 1<br />
+004D: jump_if_false @PLCHUTE_35<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4a7a0a">[email&#160;protected]</a> == 0<br />
+004D: jump_if_false @PLCHUTE_9<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a595e5">[email&#160;protected]</a> = 2<br />
+<br />
+:PLCHUTE_9<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="92a2d2">[email&#160;protected]</a> == 2<br />
+004D: jump_if_false @PLCHUTE_10<br />
+062E: get_actor &#36;PLAYER_ACTOR task 2066 status_store_to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="80b2b7c0">[email&#160;protected]</a>  <br />
+00D6: if<br />
+04A4:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8ab8bdca">[email&#160;protected]</a> == 7  <br />
+004D: jump_if_false @PLCHUTE_10<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE" IFP "PED" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 0 time -1  <br />
+04ED: load_animation "PARACHUTE"<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ba8b8ffa">[email&#160;protected]</a> = 1<br />
+0172: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6a5b2a">[email&#160;protected]</a> = actor &#36;PLAYER_ACTOR Z_angle<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="023242">[email&#160;protected]</a> = 3<br />
+<br />
+:PLCHUTE_10<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="390979">[email&#160;protected]</a> == 3<br />
+004D: jump_if_false @PLCHUTE_35<br />
+062E: get_actor &#36;PLAYER_ACTOR task 2066 status_store_to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="34060374">[email&#160;protected]</a>  <br />
+00D6: if<br />
+04A4:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a99b9ee9">[email&#160;protected]</a> == 7  <br />
+004D: jump_if_false @PLCHUTE_11<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE" IFP "PED" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 0 time -1<br />
+<br />
+:PLCHUTE_11<br />
+0819: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="467106">[email&#160;protected]</a> = actor &#36;PLAYER_ACTOR distance_from_ground<br />
+00D6: if and<br />
+0023:   100.0 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="dbec9b">[email&#160;protected]</a><br />
+0021:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="586f18">[email&#160;protected]</a> &gt; 60.0<br />
+004D: jump_if_false @PLCHUTE_12<br />
+00D6: if<br />
+04EE:   animation "PARACHUTE" loaded<br />
+004D: jump_if_false @PLCHUTE_12<br />
+00D6: if<br />
+0038:   &#36;ONMISSION == 0<br />
+004D: jump_if_false @PLCHUTE_12<br />
+<br />
+/* =============[TEXT: "Open your parachute!"]===============<br />
+00BC: show_text_highpriority GXT 'PARA_01' time 1000 flag 1  <br />
+*/<br />
+<br />
+:PLCHUTE_12<br />
+0494: get_joystick 0 direction_offset_to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6f5e5f2f">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c6f7f786">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="53626113">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bd8c8ffd">[email&#160;protected]</a><br />
+00D6: if<br />
+0038:   &#36;1511 == 1<br />
+004D: jump_if_false @PLCHUTE_13<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7f4e4f3f">[email&#160;protected]</a> = 0<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a69797e6">[email&#160;protected]</a> = 0<br />
+<br />
+:PLCHUTE_13<br />
+0093: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="54666514">[email&#160;protected]</a> = integer <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9aabaada">[email&#160;protected]</a> to_float<br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b38182f3">[email&#160;protected]</a> /= 4.267<br />
+0063: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="eddfdcad">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f3c1b3">[email&#160;protected]</a>  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="45777405">[email&#160;protected]</a> /= 20.0<br />
+005B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e9dba9">[email&#160;protected]</a> += <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0e3c3f4e">[email&#160;protected]</a>  <br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f2c0c3b2">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="655725">[email&#160;protected]</a>  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="15272455">[email&#160;protected]</a> /= 5.0<br />
+0063: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3c0d7c">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0a383b4a">[email&#160;protected]</a>  <br />
+00D6: if<br />
+0021:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a899e8">[email&#160;protected]</a> &gt; 180.0<br />
+004D: jump_if_false @PLCHUTE_14<br />
+000F: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bd8cfd">[email&#160;protected]</a> -= 360.0<br />
+<br />
+:PLCHUTE_14<br />
+00D6: if<br />
+0023:   -180.0 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="94a5d4">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_15<br />
+000B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="625322">[email&#160;protected]</a> += 360.0<br />
+<br />
+:PLCHUTE_15<br />
+0093: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="27151567">[email&#160;protected]</a> = integer <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="96a7a7d6">[email&#160;protected]</a> to_float<br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9ba9a9db">[email&#160;protected]</a> /= 4.267<br />
+0063: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5b69691b">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="407300">[email&#160;protected]</a>  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e1d3d3a1">[email&#160;protected]</a> /= 20.0<br />
+005B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="360576">[email&#160;protected]</a> += <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="98aaaad8">[email&#160;protected]</a>  <br />
+083D: get_actor &#36;PLAYER_ACTOR velocity_in_direction_XYZ <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="506810">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fdc4bd">[email&#160;protected]</a> &#36;1509<br />
+00D6: if<br />
+0024:   &#36;1504 &gt; &#36;1509  <br />
+004D: jump_if_false @PLCHUTE_16<br />
+0086: &#36;1509 = &#36;1504  <br />
+<br />
+:PLCHUTE_16<br />
+00D6: if<br />
+0024:   &#36;8268 &gt; &#36;1509  <br />
+004D: jump_if_false @PLCHUTE_17<br />
+0086: &#36;8268 = &#36;1509<br />
+<br />
+:PLCHUTE_17<br />
+00D6: if<br />
+0024:   &#36;1504 &gt; &#36;8268  <br />
+004D: jump_if_false @PLCHUTE_18<br />
+0086: &#36;8268 = &#36;1504  <br />
+<br />
+:PLCHUTE_18<br />
+00D6: if and<br />
+0024:   &#36;1509 &gt; &#36;8268  <br />
+8038:   not  &#36;1902 == 1<br />
+004D: jump_if_false @PLCHUTE_22<br />
+00D6: if<br />
+84AD:   not actor &#36;PLAYER_ACTOR in_water<br />
+004D: jump_if_false @PLCHUTE_21<br />
+00D6: if<br />
+0022:   -20.0 &gt; &#36;8268<br />
+004D: jump_if_false @PLCHUTE_19<br />
+0004: &#36;FREEFALL_STAGE = 2<br />
+0002: jump @PLCHUTE_20<br />
+<br />
+:PLCHUTE_19<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE" IFP "PED" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 0 time 100  <br />
+0004: &#36;FREEFALL_STAGE = 7<br />
+<br />
+:PLCHUTE_20<br />
+0002: jump @PLCHUTE_22<br />
+<br />
+:PLCHUTE_21<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE" IFP "PED" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 0 time 100  <br />
+0004: &#36;FREEFALL_STAGE = 7<br />
+<br />
+:PLCHUTE_22<br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ebdfab">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0d3e4d">[email&#160;protected]</a>  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7c483c">[email&#160;protected]</a> /= 30.0<br />
+006F: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="91a5d1">[email&#160;protected]</a> *= &#36;1505  <br />
+02F6: &#36;1507 = sine <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="625322">[email&#160;protected]</a>  <br />
+02F7: &#36;1508 = cosine <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="162756">[email&#160;protected]</a>  <br />
+006D: &#36;1507 *= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="457105">[email&#160;protected]</a>  <br />
+006D: &#36;1508 *= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4f7b0f">[email&#160;protected]</a>  <br />
+0011: &#36;1508 *= -1.0<br />
+0059: &#36;1508 += &#36;1506  <br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0a383b4a">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8ab2ca">[email&#160;protected]</a>  <br />
+0065: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="390b0879">[email&#160;protected]</a> -= &#36;1507  <br />
+0013: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="182a2958">[email&#160;protected]</a> *= 0.01<br />
+0088: &#36;1507 = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7c443c">[email&#160;protected]</a>  <br />
+0067: &#36;1507 -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9eacafde">[email&#160;protected]</a><br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2d1f1c6d">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b980f9">[email&#160;protected]</a>  <br />
+0065: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a89a99e8">[email&#160;protected]</a> -= &#36;1508  <br />
+0013: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d5e7e495">[email&#160;protected]</a> *= 0.01<br />
+0088: &#36;1508 = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="764f36">[email&#160;protected]</a>  <br />
+0067: &#36;1508 -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3d0f0c7d">[email&#160;protected]</a>  <br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="37060577">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9dacaddd">[email&#160;protected]</a>  <br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d3e2e093">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d2e3e392">[email&#160;protected]</a>  <br />
+0095: make <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f8c9cab8">[email&#160;protected]</a> absolute_integer<br />
+0095: make <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="13222053">[email&#160;protected]</a> absolute_integer<br />
+00D6: if or<br />
+0019:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b48586f4">[email&#160;protected]</a> &gt; 40<br />
+0019:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2e1f1d6e">[email&#160;protected]</a> &gt; 40<br />
+004D: jump_if_false @PLCHUTE_32<br />
+00D6: if<br />
+001D:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ab9a99eb">[email&#160;protected]</a> &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="04353744">[email&#160;protected]</a>  <br />
+004D: jump_if_false @PLCHUTE_27<br />
+00D6: if<br />
+0029:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2b1a1b6b">[email&#160;protected]</a> &gt;= 0<br />
+004D: jump_if_false @PLCHUTE_24<br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="96a7a3d6">[email&#160;protected]</a> == 2<br />
+004D: jump_if_false @PLCHUTE_24<br />
+00D6: if<br />
+04EE:   animation "PARACHUTE" loaded<br />
+004D: jump_if_false @PLCHUTE_23<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE_R" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2  <br />
+<br />
+:PLCHUTE_23<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="12232752">[email&#160;protected]</a> = 2<br />
+<br />
+:PLCHUTE_24<br />
+00D6: if<br />
+001B:   0 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a79697e7">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_26<br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="28191d68">[email&#160;protected]</a> == 3<br />
+004D: jump_if_false @PLCHUTE_26<br />
+00D6: if<br />
+04EE:   animation "PARACHUTE" loaded<br />
+004D: jump_if_false @PLCHUTE_25<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE_L" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2  <br />
+<br />
+:PLCHUTE_25<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="74454134">[email&#160;protected]</a> = 3<br />
+<br />
+:PLCHUTE_26<br />
+0002: jump @PLCHUTE_31<br />
+<br />
+:PLCHUTE_27<br />
+00D6: if<br />
+0029:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="be8f8ffe">[email&#160;protected]</a> &gt;= 0<br />
+004D: jump_if_false @PLCHUTE_29<br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6d5c582d">[email&#160;protected]</a> == 4<br />
+004D: jump_if_false @PLCHUTE_29<br />
+00D6: if<br />
+04EE:   animation "PARACHUTE" loaded<br />
+004D: jump_if_false @PLCHUTE_28<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2  <br />
+<br />
+:PLCHUTE_28<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c3f2f683">[email&#160;protected]</a> = 4<br />
+<br />
+:PLCHUTE_29<br />
+00D6: if<br />
+001B:   0 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c8f9f988">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_31<br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f7c6c2b7">[email&#160;protected]</a> == 5<br />
+004D: jump_if_false @PLCHUTE_31<br />
+00D6: if<br />
+04EE:   animation "PARACHUTE" loaded<br />
+004D: jump_if_false @PLCHUTE_30<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE_ACCEL" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2<br />
+<br />
+:PLCHUTE_30<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fccdc9bc">[email&#160;protected]</a> = 5<br />
+<br />
+:PLCHUTE_31<br />
+0002: jump @PLCHUTE_34<br />
+<br />
+:PLCHUTE_32<br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e0d1d5a0">[email&#160;protected]</a> == 1<br />
+004D: jump_if_false @PLCHUTE_34<br />
+00D6: if<br />
+04EE:   animation "PARACHUTE" loaded<br />
+004D: jump_if_false @PLCHUTE_34<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2  <br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="73424633">[email&#160;protected]</a> = 1<br />
+<br />
+//:PLCHUTE_33<br />
+<br />
+:PLCHUTE_34<br />
+00D6: if or<br />
+00E1:   player 0 pressed_key 17<br />
+0038:   &#36;1512 == 1<br />
+004D: jump_if_false @PLCHUTE_35<br />
+00D6: if<br />
+8038:   not  &#36;1902 == 1<br />
+004D: jump_if_false @PLCHUTE_35<br />
+00D6: if<br />
+04EE:   animation "PARACHUTE" loaded<br />
+004D: jump_if_false @PLCHUTE_35<br />
+00D6: if and<br />
+0038:   &#36;PARACHUTE_CREATION_STAGE == 3<br />
+0038:   &#36;1511 == 0<br />
+004D: jump_if_false @PLCHUTE_35<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "PARA_OPEN" IFP "PARACHUTE" framedelta 8.0 loopA 0 lockX 0 lockY 0 lockF 1 time -2  <br />
+097A: play_audio_at -1000.0 -1000.0 -1000.0 event 1038<br />
+008A: &#36;8270 = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9aa9a8da">[email&#160;protected]</a><br />
+0008: &#36;8270 += 1100<br />
+0004: &#36;FREEFALL_STAGE = 3<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0d3d4d">[email&#160;protected]</a> = 0<br />
+<br />
+:PLCHUTE_35<br />
+00D6: if<br />
+0038:   &#36;FREEFALL_STAGE == 2<br />
+004D: jump_if_false @PLCHUTE_38<br />
+00D6: if<br />
+04EE:   animation "PARACHUTE" loaded<br />
+004D: jump_if_false @PLCHUTE_36<br />
+0173: set_actor &#36;PLAYER_ACTOR Z_angle_to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2c1d6c">[email&#160;protected]</a><br />
+0829: actor &#36;PLAYER_ACTOR perform_animation "FALL_SKYDIVE_DIE" IFP_file "PARACHUTE" 1000.0 time 0 and_dies<br />
+09F1: play_audio_at_actor &#36;PLAYER_ACTOR event 1189<br />
+0002: jump @PLCHUTE_37<br />
+<br />
+:PLCHUTE_36<br />
+05BE: AS_actor &#36;PLAYER_ACTOR die<br />
+<br />
+:PLCHUTE_37<br />
+0002: jump @PLCHUTE_73<br />
+<br />
+:PLCHUTE_38<br />
+00D6: if<br />
+0038:   &#36;FREEFALL_STAGE == 3<br />
+004D: jump_if_false @PLCHUTE_61<br />
+00D6: if<br />
+0018:   &#36;8270 &gt; 0<br />
+004D: jump_if_false @PLCHUTE_39<br />
+00D6: if<br />
+001F:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="43707103">[email&#160;protected]</a> &gt; &#36;8270  <br />
+004D: jump_if_false @PLCHUTE_39<br />
+097A: play_audio_at -1000.0 -1000.0 -1000.0 event 1039<br />
+0004: &#36;8270 = 0<br />
+<br />
+:PLCHUTE_39<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e3d3a3">[email&#160;protected]</a> == 0<br />
+004D: jump_if_false @PLCHUTE_40<br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a29097e2">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="80b3c0">[email&#160;protected]</a><br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1a282f5a">[email&#160;protected]</a> /= 500.0<br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3f0d097f">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="536113">[email&#160;protected]</a><br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="eddfdbad">[email&#160;protected]</a> /= 500.0<br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="37060f77">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="67545527">[email&#160;protected]</a>  <br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a19098e1">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="66555426">[email&#160;protected]</a>  <br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="122752">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a591e5">[email&#160;protected]</a>  <br />
+0013: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="91a4d1">[email&#160;protected]</a> *= -1.0<br />
+0089: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a99fe9">[email&#160;protected]</a> = &#36;1509<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b787f7">[email&#160;protected]</a> = 1<br />
+<br />
+:PLCHUTE_40<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="390979">[email&#160;protected]</a> == 1<br />
+004D: jump_if_false @PLCHUTE_42<br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d1e0e191">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2b18196b">[email&#160;protected]</a>  <br />
+0062: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f7c6c7b7">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3e0f077e">[email&#160;protected]</a>  <br />
+00D6: if<br />
+001B:   500 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="efdedfaf">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_41<br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bf8e8fff">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="35060775">[email&#160;protected]</a>  <br />
+0062: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ebdadbab">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9faea7df">[email&#160;protected]</a>  <br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a89990e8">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="86b5b4c6">[email&#160;protected]</a>  <br />
+0093: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ac9e9dec">[email&#160;protected]</a> = integer <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d5e4e595">[email&#160;protected]</a> to_float<br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c9fbfb89">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8fbdbacf">[email&#160;protected]</a>  <br />
+006B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="77454537">[email&#160;protected]</a> *= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="497b7809">[email&#160;protected]</a>  <br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="aa9899ea">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b78581f7">[email&#160;protected]</a>  <br />
+006B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9caeafdc">[email&#160;protected]</a> *= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="97a5a6d7">[email&#160;protected]</a>  <br />
+0063: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="eeddae">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="03313143">[email&#160;protected]</a><br />
+0063: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="380a78">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="54666714">[email&#160;protected]</a><br />
+0002: jump @PLCHUTE_42<br />
+<br />
+:PLCHUTE_41<br />
+0007: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="162456">[email&#160;protected]</a> = 0.0<br />
+0007: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ddee9d">[email&#160;protected]</a> = 0.0<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e6d6a6">[email&#160;protected]</a> = 2<br />
+<br />
+:PLCHUTE_42<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bf8fff">[email&#160;protected]</a> == 2<br />
+004D: jump_if_false @PLCHUTE_43<br />
+00D6: if<br />
+03CA:   object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="95a4a2d5">[email&#160;protected]</a> exists<br />
+004D: jump_if_false @PLCHUTE_43<br />
+0750: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1f2e285f">[email&#160;protected]</a> visibility 1<br />
+08D2: object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="90a1a7d0">[email&#160;protected]</a> scale_model 0.0<br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c0f1f980">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="16252456">[email&#160;protected]</a>  <br />
+0001: wait 0 ms<br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cefff98e">[email&#160;protected]</a> animation "PARA_OPEN_O" IFP_file "PARACHUTE" 1000.0 lockF 0 loop 1 // IF AND SET<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="af9fef">[email&#160;protected]</a> = 3<br />
+<br />
+:PLCHUTE_43<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d5e595">[email&#160;protected]</a> == 3<br />
+004D: jump_if_false @PLCHUTE_45<br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="03323343">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9ba8a9db">[email&#160;protected]</a>  <br />
+0062: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="74454434">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ab9a92eb">[email&#160;protected]</a>  <br />
+00D6: if<br />
+001B:   500 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="21101161">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_44<br />
+0093: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="20121160">[email&#160;protected]</a> = integer <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="80b1b0c0">[email&#160;protected]</a> to_float<br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ead8dbaa">[email&#160;protected]</a> /= 500.0<br />
+08D2: object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b08187f0">[email&#160;protected]</a> scale_model <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f8cac9b8">[email&#160;protected]</a><br />
+0002: jump @PLCHUTE_45<br />
+<br />
+:PLCHUTE_44<br />
+08D2: object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="33020473">[email&#160;protected]</a> scale_model 1.0<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5a6a1a">[email&#160;protected]</a> = 4<br />
+<br />
+:PLCHUTE_45<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="af9fef">[email&#160;protected]</a> == 5<br />
+004D: jump_if_false @PLCHUTE_46<br />
+0107: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cffdff8f">[email&#160;protected]</a> = create_object #PARA_COLLISION at 0.0 0.0 0.0<br />
+0750: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f1c3c1b1">[email&#160;protected]</a> visibility 0<br />
+0392: make_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9dafaddd">[email&#160;protected]</a> moveable 1<br />
+04D9: object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d3e1e393">[email&#160;protected]</a> set_scripted_collision_check 1<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="291969">[email&#160;protected]</a> = 6<br />
+<br />
+:PLCHUTE_46<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f2c2b2">[email&#160;protected]</a> == 6<br />
+004D: jump_if_false @PLCHUTE_58<br />
+0494: get_joystick 0 direction_offset_to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e9d8d9a9">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="06373746">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d8e9ea98">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a8999ae8">[email&#160;protected]</a><br />
+00D6: if<br />
+0038:   &#36;1511 == 1<br />
+004D: jump_if_false @PLCHUTE_47<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9baaabdb">[email&#160;protected]</a> = 0<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f7c6c6b7">[email&#160;protected]</a> = 0<br />
+<br />
+:PLCHUTE_47<br />
+0093: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="380a0978">[email&#160;protected]</a> = integer <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5c6d6c1c">[email&#160;protected]</a> to_float<br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0d3f3c4d">[email&#160;protected]</a> /= 4.267<br />
+0063: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="06343746">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0b394b">[email&#160;protected]</a>  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e2d0d3a2">[email&#160;protected]</a> /= 20.0<br />
+005B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="093b49">[email&#160;protected]</a> += <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a69497e6">[email&#160;protected]</a>  <br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="56646716">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b486f4">[email&#160;protected]</a>  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c7f5f687">[email&#160;protected]</a> /= 15.0<br />
+0063: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="764736">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="35070475">[email&#160;protected]</a>  <br />
+00D6: if<br />
+0021:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b180f1">[email&#160;protected]</a> &gt; 180.0<br />
+004D: jump_if_false @PLCHUTE_48<br />
+000F: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="261766">[email&#160;protected]</a> -= 360.0<br />
+<br />
+:PLCHUTE_48<br />
+00D6: if<br />
+0023:   -180.0 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2d1c6d">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_49<br />
+000B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e4d5a4">[email&#160;protected]</a> += 360.0<br />
+<br />
+:PLCHUTE_49<br />
+02F6: &#36;1507 = sine <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="80b1c0">[email&#160;protected]</a><br />
+02F7: &#36;1508 = cosine <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="dced9c">[email&#160;protected]</a><br />
+0069: &#36;1507 *= &#36;1500<br />
+0069: &#36;1508 *= &#36;1500<br />
+0011: &#36;1507 *= -1.0<br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b48586f4">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="71404131">[email&#160;protected]</a><br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="79484a39">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="87b6b6c7">[email&#160;protected]</a><br />
+0095: make <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9aaba8da">[email&#160;protected]</a> absolute_integer<br />
+0095: make <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6b5a582b">[email&#160;protected]</a> absolute_integer<br />
+00D6: if or<br />
+0019:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="70414230">[email&#160;protected]</a> &gt; 40<br />
+0019:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a19092e1">[email&#160;protected]</a> &gt; 40<br />
+004D: jump_if_false @PLCHUTE_55<br />
+00D6: if<br />
+001D:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="43727103">[email&#160;protected]</a> &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="18292b58">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_52<br />
+0089: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3c0e0d7c">[email&#160;protected]</a> = &#36;1501  <br />
+0065: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3a080b7a">[email&#160;protected]</a> -= &#36;1509<br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="50626110">[email&#160;protected]</a> /= 20.0<br />
+005F: &#36;1509 += <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="98aaa9d8">[email&#160;protected]</a>  <br />
+00D6: if<br />
+0029:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="47767707">[email&#160;protected]</a> &gt;= 0<br />
+004D: jump_if_false @PLCHUTE_50<br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="56676316">[email&#160;protected]</a> == 2<br />
+004D: jump_if_false @PLCHUTE_50<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "PARA_STEERR" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2<br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a49593e4">[email&#160;protected]</a> animation "PARA_STEERR_O" IFP_file "PARACHUTE" 1.0 lockF 1 loop 1  <br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="29181c69">[email&#160;protected]</a> = 2<br />
+<br />
+:PLCHUTE_50<br />
+00D6: if<br />
+001B:   0 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5f6e6f1f">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_51<br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4a7b7f0a">[email&#160;protected]</a> == 3<br />
+004D: jump_if_false @PLCHUTE_51<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "PARA_STEERL" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2  <br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7f4e483f">[email&#160;protected]</a> animation "PARA_STEERL_O" IFP_file "PARACHUTE" 1.0 lockF 1 loop 1  <br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="13222653">[email&#160;protected]</a> = 3<br />
+<br />
+:PLCHUTE_51<br />
+0002: jump @PLCHUTE_54<br />
+<br />
+:PLCHUTE_52<br />
+00D6: if<br />
+0029:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="12232352">[email&#160;protected]</a> &gt;= 0<br />
+004D: jump_if_false @PLCHUTE_53<br />
+0089: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f6c4c7b6">[email&#160;protected]</a> = &#36;1503  <br />
+0065: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="487a7908">[email&#160;protected]</a> -= &#36;1509  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c3f1f283">[email&#160;protected]</a> /= 20.0<br />
+005F: &#36;1509 += <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1c2e2d5c">[email&#160;protected]</a>  <br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="75444035">[email&#160;protected]</a> == 4<br />
+004D: jump_if_false @PLCHUTE_53<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "PARA_DECEL" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2  <br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a8999fe8">[email&#160;protected]</a> animation "PARA_DECEL_O" IFP_file "PARACHUTE" 1.0 lockF 1 loop 1  <br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9daca8dd">[email&#160;protected]</a> = 4<br />
+<br />
+:PLCHUTE_53<br />
+00D6: if<br />
+001B:   0 &gt; <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="51606011">[email&#160;protected]</a><br />
+004D: jump_if_false @PLCHUTE_54<br />
+0089: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5c6e6d1c">[email&#160;protected]</a> = &#36;1501  <br />
+0065: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0e3c3f4e">[email&#160;protected]</a> -= &#36;1509  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cbf9fa8b">[email&#160;protected]</a> /= 20.0<br />
+005F: &#36;1509 += <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e3d1d2a3">[email&#160;protected]</a>  <br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a9989ce9">[email&#160;protected]</a> == 5<br />
+004D: jump_if_false @PLCHUTE_54<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "PARA_FLOAT" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2  <br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="36070176">[email&#160;protected]</a> animation "PARA_FLOAT_O" IFP_file "PARACHUTE" 1.0 lockF 1 loop 1  <br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="53626613">[email&#160;protected]</a> = 5<br />
+<br />
+:PLCHUTE_54<br />
+0002: jump @PLCHUTE_56<br />
+<br />
+:PLCHUTE_55<br />
+0089: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4a787b0a">[email&#160;protected]</a> = &#36;1501<br />
+0065: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7a484b3a">[email&#160;protected]</a> -= &#36;1509  <br />
+0017: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6b595a2b">[email&#160;protected]</a> /= 20.0<br />
+005F: &#36;1509 += <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="86b4b7c6">[email&#160;protected]</a>  <br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b48581f4">[email&#160;protected]</a> == 5<br />
+004D: jump_if_false @PLCHUTE_56<br />
+00D6: if<br />
+8039:   not  <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bb8a8efb">[email&#160;protected]</a> == 1<br />
+004D: jump_if_false @PLCHUTE_56<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "PARA_FLOAT" IFP "PARACHUTE" framedelta 1.0 loopA 1 lockX 0 lockY 0 lockF 1 time -2  <br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1f2e285f">[email&#160;protected]</a> animation "PARA_FLOAT_O" IFP_file "PARACHUTE" 1.0 lockF 1 loop 1  <br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fccdc9bc">[email&#160;protected]</a> = 1<br />
+<br />
+:PLCHUTE_56<br />
+01BB: store_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="11202651">[email&#160;protected]</a> position_to &#36;TEMPVAR_FLOAT_1 &#36;TEMPVAR_FLOAT_2 &#36;TEMPVAR_FLOAT_3<br />
+0815: put_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c3f1f383">[email&#160;protected]</a> at &#36;TEMPVAR_FLOAT_1 &#36;TEMPVAR_FLOAT_2 &#36;TEMPVAR_FLOAT_3 and_keep_rotation<br />
+00D6: if<br />
+04DA:   has_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="25171565">[email&#160;protected]</a> collided<br />
+004D: jump_if_false @PLCHUTE_57<br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="70414730">[email&#160;protected]</a> animation "PARA_RIP_LOOP_O" IFP_file "PARACHUTE" 8.0 lockF 1 loop 1<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0d3d4d">[email&#160;protected]</a> = 7<br />
+<br />
+:PLCHUTE_57<br />
+00D6: if<br />
+00E1:   player 0 pressed_key 15<br />
+004D: jump_if_false @PLCHUTE_58<br />
+0792: disembark_instantly_actor &#36;PLAYER_ACTOR<br />
+0004: &#36;FREEFALL_STAGE = 6<br />
+0004: &#36;1498 = 3<br />
+<br />
+:PLCHUTE_58<br />
+00D6: if<br />
+03CA:   object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a59492e5">[email&#160;protected]</a> exists<br />
+004D: jump_if_false @PLCHUTE_59<br />
+00D6: if<br />
+0837:   object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="83b2b4c3">[email&#160;protected]</a> animation == "PARA_OPEN_O"<br />
+004D: jump_if_false @PLCHUTE_59<br />
+0839: get_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1f2e285f">[email&#160;protected]</a> animation "PARA_OPEN_O" progress_to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9ba9aadb">[email&#160;protected]</a><br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ccfefe8c">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e3d5a3">[email&#160;protected]</a>  <br />
+0065: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b78585f7">[email&#160;protected]</a> -= &#36;1501  <br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="41737201">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8bb9b9cb">[email&#160;protected]</a>  <br />
+006B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="54666714">[email&#160;protected]</a> *= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="93a1a2d3">[email&#160;protected]</a><br />
+0088: &#36;1509 = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e7d1a7">[email&#160;protected]</a>  <br />
+0067: &#36;1509 -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="63515023">[email&#160;protected]</a>  <br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5e6c6c1e">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="caff8a">[email&#160;protected]</a><br />
+0065: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0c3e3e4c">[email&#160;protected]</a> -= &#36;1500<br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="94a6a7d4">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1d2f2f5d">[email&#160;protected]</a>  <br />
+006B: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="56646516">[email&#160;protected]</a> *= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0e3c3f4e">[email&#160;protected]</a><br />
+0087: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="88bcc8">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="dce99c">[email&#160;protected]</a>  <br />
+0063: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c3f783">[email&#160;protected]</a> -= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="43717003">[email&#160;protected]</a>  <br />
+02F6: &#36;1507 = sine <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fbcabb">[email&#160;protected]</a>  <br />
+02F7: &#36;1508 = cosine <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bf8eff">[email&#160;protected]</a>  <br />
+006D: &#36;1507 *= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="546014">[email&#160;protected]</a>  <br />
+006D: &#36;1508 *= <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="be8afe">[email&#160;protected]</a>  <br />
+0011: &#36;1507 *= -1.0<br />
+00D6: if and<br />
+0043:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e4d6d5a4">[email&#160;protected]</a> == 1.0<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c4f484">[email&#160;protected]</a> == 4<br />
+004D: jump_if_false @PLCHUTE_59<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ccfc8c">[email&#160;protected]</a> = 5<br />
+<br />
+:PLCHUTE_59<br />
+00D6: if<br />
+8118:   not actor &#36;PLAYER_ACTOR dead<br />
+004D: jump_if_false @PLCHUTE_61<br />
+00D6: if<br />
+04AD:   actor &#36;PLAYER_ACTOR in_water<br />
+004D: jump_if_false @PLCHUTE_60<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "PARA_LAND_WATER" IFP "PARACHUTE" framedelta 8.0 loopA 1 lockX 1 lockY 0 lockF 0 time 1000<br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="89b8bec9">[email&#160;protected]</a> animation "PARA_LAND_WATER_O" IFP_file "PARACHUTE" 1000.0 lockF 0 loop 1  <br />
+0004: &#36;FREEFALL_STAGE = 5<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="477707">[email&#160;protected]</a> = 0<br />
+<br />
+:PLCHUTE_60<br />
+083D: get_actor &#36;PLAYER_ACTOR velocity_in_direction_XYZ <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ebd9daab">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="24161564">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="13212053">[email&#160;protected]</a><br />
+00D6: if<br />
+0021:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cefcfd8e">[email&#160;protected]</a> &gt; -0.1<br />
+004D: jump_if_false @PLCHUTE_61<br />
+0004: &#36;FREEFALL_STAGE = 4<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="dcec9c">[email&#160;protected]</a> = 0<br />
+<br />
+:PLCHUTE_61<br />
+00D6: if<br />
+0038:   &#36;FREEFALL_STAGE == 4<br />
+004D: jump_if_false @PLCHUTE_67<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="556515">[email&#160;protected]</a> == 0<br />
+004D: jump_if_false @PLCHUTE_66<br />
+0004: &#36;1498 = 1<br />
+00A0: store_actor &#36;PLAYER_ACTOR position_to &#36;TEMPVAR_X_COORD &#36;TEMPVAR_Y_COORD &#36;TEMPVAR_Z_COORD<br />
+000D: &#36;TEMPVAR_Z_COORD -= 1.0<br />
+00A1: put_actor &#36;PLAYER_ACTOR at &#36;TEMPVAR_X_COORD &#36;TEMPVAR_Y_COORD &#36;TEMPVAR_Z_COORD<br />
+083E: set_actor &#36;PLAYER_ACTOR rotation 0.0 0.0 <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="596819">[email&#160;protected]</a> while_in_air<br />
+00D6: if<br />
+0022:   -10.0 &gt; &#36;1509<br />
+004D: jump_if_false @PLCHUTE_62<br />
+0004: &#36;FREEFALL_STAGE = 2<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="300070">[email&#160;protected]</a> = 0<br />
+0002: jump @PLCHUTE_65<br />
+<br />
+:PLCHUTE_62<br />
+00D6: if<br />
+0022:   -4.0 &gt; &#36;1509<br />
+004D: jump_if_false @PLCHUTE_63<br />
+0615: define_AS_pack_begin <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e8d9dca8">[email&#160;protected]</a><br />
+0812: AS_actor -1 perform_animation "FALL_FRONT" IFP "PED" framedelta 20.0 loopA 0 lockX 0 lockY 0 lockF 1 time 700  <br />
+0812: AS_actor -1 perform_animation "GETUP_FRONT" IFP "PED" framedelta 8.0 loopA 0 lockX 1 lockY 0 lockF 0 time -2<br />
+0616: define_AS_pack_end <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="40717400">[email&#160;protected]</a><br />
+0618: assign_actor &#36;PLAYER_ACTOR to_AS_pack <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="93a2a7d3">[email&#160;protected]</a><br />
+061B: remove_references_to_AS_pack <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="46777206">[email&#160;protected]</a><br />
+0002: jump @PLCHUTE_64<br />
+<br />
+:PLCHUTE_63<br />
+0812: AS_actor &#36;PLAYER_ACTOR perform_animation "RUN_PLAYER" IFP "PED" framedelta 8.0 loopA 1 lockX 1 lockY 0 lockF 0 time 1000<br />
+<br />
+:PLCHUTE_64<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0a3a4a">[email&#160;protected]</a> = 1<br />
+<br />
+:PLCHUTE_65<br />
+075A: set_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9faea8df">[email&#160;protected]</a> animation "PARA_LAND_O" IFP_file "PARACHUTE" 1000.0 lockF 0 loop 1<br />
+0682: detach_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="daebed9a">[email&#160;protected]</a> 0.0 0.0 0.0 collision_detection 0<br />
+0085: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="27161f67">[email&#160;protected]</a> = <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f5c6c7b5">[email&#160;protected]</a><br />
+000A: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e9d8d1a9">[email&#160;protected]</a> += 1000<br />
+<br />
+:PLCHUTE_66<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="af9fef">[email&#160;protected]</a> == 1<br />
+004D: jump_if_false @PLCHUTE_67<br />
+00D6: if<br />
+0837:   object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d2e3e592">[email&#160;protected]</a> animation == "PARA_LAND_O"<br />
+004D: jump_if_false @PLCHUTE_67<br />
+0839: get_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ac9d9bec">[email&#160;protected]</a> animation "PARA_LAND_O" progress_to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f2c0c3b2">[email&#160;protected]</a><br />
+00D6: if<br />
+0043:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cdfffc8d">[email&#160;protected]</a> == 1.0<br />
+004D: jump_if_false @PLCHUTE_67<br />
+0004: &#36;1498 = 2<br />
+0002: jump @PLCHUTE_73<br />
+<br />
+:PLCHUTE_67<br />
+00D6: if<br />
+0038:   &#36;FREEFALL_STAGE == 5<br />
+004D: jump_if_false @PLCHUTE_68<br />
+0004: &#36;1498 = 1<br />
+00D6: if<br />
+0039:   <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6b5b2b">[email&#160;protected]</a> == 0<br />
+004D: jump_if_false @PLCHUTE_68<br />
+0004: &#36;1498 = 2<br />
+0002: jump @PLCHUTE_73<br />
+<br />
+:PLCHUTE_68<br />
+00D6: if and<br />
+0018:   &#36;FREEFALL_STAGE &gt; 0<br />
+001A:   4 &gt; &#36;FREEFALL_STAGE<br />
+004D: jump_if_false @PLCHUTE_69<br />
+00D6: if<br />
+8118:   not actor &#36;PLAYER_ACTOR dead<br />
+004D: jump_if_false @PLCHUTE_69<br />
+083C: set_actor &#36;PLAYER_ACTOR velocity_in_direction_XYZ &#36;1507 &#36;1508 &#36;1509<br />
+0173: set_actor &#36;PLAYER_ACTOR Z_angle_to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="467706">[email&#160;protected]</a><br />
+083E: set_actor &#36;PLAYER_ACTOR rotation <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8cbfcc">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4f7d0f">[email&#160;protected]</a> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0a3b4a">[email&#160;protected]</a> while_in_air<br />
+<br />
+:PLCHUTE_69<br />
+00D6: if<br />
+0038:   &#36;FREEFALL_STAGE == 6<br />
+004D: jump_if_false @PLCHUTE_70<br />
+0002: jump @PLCHUTE_73<br />
+<br />
+:PLCHUTE_70<br />
+00D6: if<br />
+0038:   &#36;FREEFALL_STAGE == 7<br />
+004D: jump_if_false @PLCHUTE_71<br />
+0002: jump @PLCHUTE_72<br />
+<br />
+:PLCHUTE_71<br />
+0002: jump @PLCHUTE_2<br />
+<br />
+:PLCHUTE_72<br />
+0004: &#36;FREEFALL_STAGE = 0<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="586818">[email&#160;protected]</a> = 0<br />
+0249: release_model #PARACHUTE<br />
+04EF: release_animation "PARACHUTE"<br />
+083E: set_actor &#36;PLAYER_ACTOR rotation 0.0 0.0 <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d9e899">[email&#160;protected]</a> while_in_air<br />
+0992: set_player &#36;PLAYER_CHAR weapons_scrollable 1<br />
+0002: jump @PLCHUTE_71<br />
+<br />
+:PLCHUTE_73<br />
+0682: detach_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="52636512">[email&#160;protected]</a> 0.0 0.0 0.0 collision_detection 0<br />
+09A2: destroy_object_with_fade <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="43727403">[email&#160;protected]</a><br />
+0108: destroy_object <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fdcfcdbd">[email&#160;protected]</a><br />
+0555: remove_weapon 46 from_actor &#36;PLAYER_ACTOR<br />
+0004: &#36;FREEFALL_STAGE = 0<br />
+0004: &#36;PARACHUTE_CREATION_STAGE = 0<br />
+0006: <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="655525">[email&#160;protected]</a> = 0<br />
+0249: release_model #PARACHUTE<br />
+04EF: release_animation "PARACHUTE"<br />
+0249: release_model 371<br />
+083E: set_actor &#36;PLAYER_ACTOR rotation 0.0 0.0 <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="122352">[email&#160;protected]</a> while_in_air<br />
+0992: set_player &#36;PLAYER_CHAR weapons_scrollable 1<br />
+0002: jump @PLCHUTE_71<br />
+//---------------------------------[   PLCHUTE END   ]----------------------------------</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Custom GTA SA filesand other stuff</strong> - <a href="memberfa79.html?action=profile&amp;uid=1062">jking</a> -  <strong>2019-11-08</strong>
+<br />
+<br />
+I forget:<br />
+<br />
+- Native sorting/searching algorithms.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->
