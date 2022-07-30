@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Optimizations and MySQL - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf40f.html?tid=1720">Optimizations and MySQL</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Optimizations and MySQL (<em>/showthread.php?tid=1720</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Optimizations and MySQL</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-27</strong>
+<br />
+<br />
+Hi, I recently had 2 questions that I wanted to discuss here on the forum.<br />
+<br />
+First Doubt: The efficiency of a script<br />
+when we develop systems, we realize that there are several different ways to write the system and get the expected result, however there are more efficient ways that cause less impact to the server.<br />
+I would like to know, what would be the best way to qualify the efficiency of a script. Would the script execution time be a valid parameter for this type of test?<br />
+<br />
+<br />
+Second Doubt: When to use or not to use the data directly from the bank<br />
+<br />
+In this second question I would like to know the best way to work with MySQL. For example, in a system that makes queries, additions and updates the best and most efficient way would be to load this sql data into variables, manipulate those variables and then update the data sql, or do all the manipulations directly in the database?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Optimizations and MySQL</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-02-28</strong>
+<br />
+<br />
+Can anyone help with these doubts?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Optimizations and MySQL</strong> - <a href="member02c6.html?action=profile&amp;uid=3448">destiezk</a> -  <strong>2021-02-28</strong>
+<br />
+<br />
+I recommend you to use SQLite instead of MySQL. Overall, it’s much easier to use, and faster than mysql. You don’t need anything basically for it, just a server and an include.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Optimizations and MySQL</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-01</strong>
+<br />
+<br />
+The first topic is not an easy one to talk about. There are lots of factors that need to be taken in. Not everyone understands efficiency the same way. For someone efficiency can be writing code in a clear way and having no trouble of editing it. For some it's about the functionality that the code has to offer. And of course, for some, it's all about the speed just like you mentioned. If you checked some releases that have to deal with quite a bit of data you will see speed comparisons with their release and others. Even when lots of very experienced people say that speed is not everything you still see those same people comparing speeds.<br />
+destiezk posted a link of backup sa-mp forum where I think you should be able to find some information on what you want to find answers for: https://sampforumarchive.com/forum.sa-mp.com/index.html<br />
+But I think we can all agree that optimizing your code is one of those things that makes the code efficient. So go on and search that forum for optimization posts and threads.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Optimizations and MySQL</strong> - <a href="member68c0.html?action=profile&amp;uid=425">Marllun</a> -  <strong>2021-03-01</strong>
+<br />
+<br />
+1 - <br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>CMD:speedtest(playerid) {<br />
+    new var, string[20];<br />
+<br />
+    var = GetTickCount();<br />
+<br />
+    for(new i; i &lt; 100000; i++) {//it has to be several times because these functions run very fast, to be more precise I increase the number of times<br />
+        SendClientMessage(playerid, -1, "Bem vindo ao Brasil.");<br />
+    }<br />
+<br />
+    printf("Time taken to run SendClientMessage %d milliseconds", GetTickCount() - var);<br />
+<br />
+    var = GetTickCount();<br />
+<br />
+    for(new i; i &lt; 100000; i++) {<br />
+        format(string, sizeof(string), "Bem vindo ao Brasil");<br />
+        SendClientMessage(playerid, -1, string);<br />
+    }<br />
+    printf("Time taken to run SendClientMessage with format %d milliseconds", GetTickCount() - var);<br />
+    return 1;<br />
+}</code></div></div><br />
+<br />
+Time taken to run SendClientMessage 81 milliseconds<br />
+Time taken to run SendClientMessage with format 117 milliseconds<br />
+<br />
+OBS:I recommend running the script that you would like to test on a server with nothing, and one test at a time, anything in the background can disrupt the result.<br />
+<br />
+<br />
+2 - I recommend you use your gamemode variables to save, save the information only when the player leaves your server. And again, use mysql_tquery<br />
+<br />
+2¹ Another tip, do not spend your time saving string on your server, but avoid use giant strings without any need.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Optimizations and MySQL</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-03-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-28, 11:31 PM)</span>destiezk Wrote:  <a href="showthreadfb73.html?pid=10055#pid10055" class="quick_jump"></a></cite>I recommend you to use SQLite instead of MySQL. Overall, it’s much easier to use, and faster than mysql. You don’t need anything basically for it, just a server and an include.</blockquote>So you're saying that SQLite, who themselves are claiming that they're slower than MySQL and that they're not trying to compete with RDBMS but other file-based solutions like INI arefaster than Mysql?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Optimizations and MySQL</strong> - <a href="member02c6.html?action=profile&amp;uid=3448">destiezk</a> -  <strong>2021-03-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-01, 02:41 PM)</span>Pinch Wrote:  <a href="showthread8932.html?pid=10065#pid10065" class="quick_jump"></a></cite><blockquote class="mycode_quote"><cite><span> (2021-02-28, 11:31 PM)</span>destiezk Wrote:  <a href="showthreadfb73.html?pid=10055#pid10055" class="quick_jump"></a></cite>I recommend you to use SQLite instead of MySQL. Overall, it’s much easier to use, and faster than mysql. You don’t need anything basically for it, just a server and an include.</blockquote>So you're saying that SQLite, who themselves are claiming that they're slower than MySQL and that they're not trying to compete with RDBMS but other file-based solutions like INI arefaster than Mysql?</blockquote><br />
+I'm sorry my bad, my informations were wrong about SQLite then.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Optimizations and MySQL</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-03-02</strong>
+<br />
+<br />
+Thanks for the personal help with my personal questions, I am taking each opinion into consideration!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Optimizations and MySQL</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-07</strong>
+<br />
+<br />
+Optimisation is hard, but profiling is even harder.  You can run micro-benchmarks like Marllun posted, but they are basically useless most of the time.  The real trick is finding which parts of your code are actually slow, and for that you need the profiler plugin.  Once you've narrowed down where the majority of the time is spent (don't try guess what is slow, because fast code called a lot is more important to optimise than slow code called infrequently) you can work on improving it.  For that, the most important thing is algorithms - improve HOW the result is achieved, don't just try shave a few microseconds off the code.  For example a poorly coded slow version of quicksort is still better than the most optimised version of bubblesort, because while the code itself may be worse, the algorithm is just so much better.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

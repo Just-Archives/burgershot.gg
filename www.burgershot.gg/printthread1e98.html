@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn How do I get a percentage? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread1e98.html?tid=1377">How do I get a percentage?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> How do I get a percentage? (<em>/showthread.php?tid=1377</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>How do I get a percentage?</strong> - <a href="membera9be.html?action=profile&amp;uid=2967">Ryder Sixz</a> -  <strong>2020-11-25</strong>
+<br />
+<br />
+Hello, I would like to know how to get the percentage of a figure, so far I have tried this:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new percentage1 = 10;<br />
+new percentage2 = 8000;<br />
+<br />
+CMD:cent(playerid, params[])<br />
+{<br />
+    new string[256];<br />
+    format(string, sizeof(string), "The result was %d", percentage1%percentage2);<br />
+    SendClientMessage(playerid,-1,string);<br />
+    return 1;<br />
+}</code></div></div><br />
+but it does not work (it gives me the figure of 10). Does anyone know how to do it correctly? thanks!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How do I get a percentage?</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-11-25</strong>
+<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">(percentage2 * percentage1) / 100</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How do I get a percentage?</strong> - <a href="membera9be.html?action=profile&amp;uid=2967">Ryder Sixz</a> -  <strong>2020-11-25</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-11-25, 07:40 PM)</span>Pinch Wrote:  <a href="showthread39cf.html?pid=8797#pid8797" class="quick_jump"></a></cite><span style="font-weight: bold;" class="mycode_b">(percentage2 * percentage1) / 100</span></blockquote><br />
+Excellent thanks!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: How do I get a percentage?</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2020-11-25</strong>
+<br />
+<br />
+100/full*amount
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

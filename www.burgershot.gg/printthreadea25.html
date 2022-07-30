@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Help with Custom Weapon Names - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadea25.html?tid=1269">Help with Custom Weapon Names</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Help with Custom Weapon Names (<em>/showthread.php?tid=1269</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help with Custom Weapon Names</strong> - <a href="membere51c.html?action=profile&amp;uid=2867">RoBy41</a> -  <strong>2020-10-23</strong>
+<br />
+<br />
+Lately I noticed that Roleplay servers scripts allow weapons with the same ID (for example, a Deagle) to be stored in a player's inventory under different names. For example, if a player (from Grove Street Families) has a Deagle on him, if he does /inventory (hypothetically), instead of Deagle, the weapon's name is ''Glock''. Also, let's say there is another player (from Ballas) that has a Deagle on him. But in this case, the weapon's name (Deagle) can be another weapon name other than Glock (that the first player has), for example, when the second player does /inventory, the name of the Deagle is ''Beretta''.<br />
+<br />
+How can you do that?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Custom Weapon Names</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+Are you using Teams? You can set them under SetPlayerSpawnInfo or SetPlayerTeam. I guess you have, so you would be able to use https://www.open.mp/docs/scripting/functions/GetPlayerTeam<br />
+<br />
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new string[128];<br />
+switch(GetPlayerTeam(playerid)) {<br />
+case 0: string = "deagle";<br />
+case 1: string = "pistol";<br />
+case 2: string = "glock";<br />
+default: string = "colt";<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Custom Weapon Names</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+There are multiple ways to do it. Personally, I would use an array holding all the desired weapon names, something like this:<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>enum<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;TEAM_CIVILIAN = 1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;TEAM_LEO, //Law Enforcment Officer (Police, army, FBI etc..)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;TEAM_GANG, //Grove street, Ballas etc<br />
+&nbsp;&nbsp;&nbsp;&nbsp;TEAM_MISC<br />
+};<br />
+<br />
+//Respecting weapon IDs, you should have an entry for every possible weapon for the script to prevent array out of bound errors.<br />
+new const weaponName[][][] =<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//{WEAPON_ID,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WEAPONNAME_TEAM1, WEAPONNAME_TEAM2, WEAPONNAME_TEAM3, WEAPONNAME_TEAM4},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fists", "Fists", "Fists", "Fists"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_BRASSKNUCKLE,&nbsp;&nbsp;&nbsp;&nbsp;"Brass knuckles", "Brass knuckles", "Brass knuckles", "Brass knuckles"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_GOLFCLUB,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Golf club", "Golf club", "Golf club", "Golf club"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_NITESTICK,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Nightstick", "Nightstick", "Nightstick", "Nightstick"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_KNIFE,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Kitchen knife", "Combat knife", "Stiletto", "Knife"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_BAT,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Baseball bat", "Bat", "Bat", "Bat"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_SHOVEL,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Shovel", "Shovel", "Digging tool", "Bat"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_POOLSTICK,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Pool cue", "Pool cue", "Pool cue", "Pool cue"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_KATANA,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Ninja weapon", "Katana", "Sword", "Katana"},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{WEAPON_CHAINSAW,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Chainsaw", "Chainsaw", "Chainsaw", "Chainsaw"}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//etc<br />
+};</code></div></div><br />
+To print the name of a weapon:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>weaponName[weaponid][teamid]</code></div></div>For example, to print "Combat knife":<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>weaponName[WEAPON_KNIFE][TEAM_LEO]</code></div></div><br />
+I find that more convenient than using switches. But go with whatever you like best, especially since some weapons may not even need custom/different names. When using this script like this you need to define names for all possible weapons and all possible teams, otherwise you will have either compile errors or runtime errors because arrays might go out of bounds.<br />
+If you would remove WEAPON_BAT in this example, using WEAPON_CHAINSAW would cause out of bounds error and WEAPON_SHOVEL to WEAPON_KATANA would print the wrong name.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Custom Weapon Names</strong> - <a href="membere51c.html?action=profile&amp;uid=2867">RoBy41</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+Thank you both for answering. I was very confused about this matter. But I don't want the weapon name to be dependent on the player's team (I provided the GSF/Ballas info hypothetically, I meant to describe 2 different players so you would understand I want different names for the same weapon). I'll try to link the const weaponname to a command like /makeweapon, a command that only the faction that has the ability to make weapons will be able to use and see if I can get a result since I'm a newbie at scripting.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Custom Weapon Names</strong> - <a href="memberaad5.html?action=profile&amp;uid=620">Expert*</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+- Grove gang member gives his weapon (X) to ballas gang member.<br />
+<br />
+Did that weapon name change to what ballas gang member should have ?<br />
+If yes - look at examples above.<br />
+If no - It's inventory system that is handeling weapon names ( + DMG, weight, and so on ) and its not actually based on teams. It's too complicated to be explained in a single post if you want to do it in proper way.<br />
+<br />
+If you can't give items and/or weapons to another player - if i had to guess, it's inventory based. Otherwise it's really cheap way to make your gun sys unique...
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with Custom Weapon Names</strong> - <a href="membere51c.html?action=profile&amp;uid=2867">RoBy41</a> -  <strong>2020-10-24</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2020-10-24, 10:55 AM)</span>Expert* Wrote:  <a href="showthread9110.html?pid=8376#pid8376" class="quick_jump"></a></cite>- Grove gang member gives his weapon (X) to ballas gang member.<br />
+<br />
+Did that weapon name change to what ballas gang member should have ?<br />
+If yes - look at examples above.<br />
+If no - It's inventory system that is handeling weapon names ( + DMG, weight, and so on ) and its not actually based on teams. It's too complicated to be explained in a single post if you want to do it in proper way.<br />
+<br />
+If you can't give items and/or weapons to another player - if i had to guess, it's inventory based. Otherwise it's really cheap way to make your gun sys unique...</blockquote><br />
+Yes, you are right. An inventory system. I just thought and I'll try to learn to script an inventory with custom weapon names instead, because I'm aware it's kind of complicated to get help from the others here.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

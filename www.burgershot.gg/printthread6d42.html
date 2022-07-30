@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Best practice with timers - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread6d42.html?tid=1569">Best practice with timers</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Best practice with timers (<em>/showthread.php?tid=1569</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Best practice with timers</strong> - <a href="member6420.html?action=profile&amp;uid=2931">RhaegarX</a> -  <strong>2021-01-21</strong>
+<br />
+<br />
+Hello guys!  I would like to ask a question about the use of timers.  Suppose I have several systems that do checks from time to time, the best way would be to create a single timer that does all the checks or create multiple timers to check each thing?  Which way would be the most optimized and least burdensome on the server?<br />
+<br />
+Code 1:<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SetTimer</span><span style="color: #007700">(</span><span style="color: #DD0000">"ExecuteAll"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br />public&nbsp;</span><span style="color: #0000BB">ExecuteAll</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Verification&nbsp;1<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Verification&nbsp;2<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Verification&nbsp;3<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">...<br />}&nbsp;<br /></span></code></div></div></div><br />
+Code 2:<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">SetTimer</span><span style="color: #007700">(</span><span style="color: #DD0000">"Execute1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SetTimer</span><span style="color: #007700">(</span><span style="color: #DD0000">"Execute2"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">SetTimer</span><span style="color: #007700">(</span><span style="color: #DD0000">"Execute3"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br />public&nbsp;</span><span style="color: #0000BB">Execute1</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Verification&nbsp;1<br /></span><span style="color: #007700">}<br />public&nbsp;</span><span style="color: #0000BB">Execute2</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Verification&nbsp;2<br /></span><span style="color: #007700">}<br />public&nbsp;</span><span style="color: #0000BB">Execute3</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Verification&nbsp;3<br /></span><span style="color: #007700">}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best practice with timers</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-01-21</strong>
+<br />
+<br />
+Just don't have more than 50.000 running timers at the same time and everything will be fine, it's case to case dependant so I can't really tell what's better
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best practice with timers</strong> - <a href="member9b55.html?action=profile&amp;uid=11">Freaksken</a> -  <strong>2021-01-21</strong>
+<br />
+<br />
+Y_Less made a post on this exact issue on the old forums (can't find it anymore in any archive). Consensus was that you should use more timers instead of a single timer that does everything.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best practice with timers</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2021-01-22</strong>
+<br />
+<br />
+depends on what the code does, If it's very complex code then it should be on it's own timer. If it's dumb stuff like checking the state of variables and -- or ++'ng stuff every 1 second or whatever, then you can bundle all of that in a single func. Microoptimizations like having every single little thing on it's own timer only go so far before they have no effect and only make your code harder to look at
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn [SOLVED] How to detect how many players there are in same place around coordinat - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadfaba.html?tid=2008">[SOLVED] How to detect how many players there are in same place around coordinat</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> [SOLVED] How to detect how many players there are in same place around coordinat (<em>/showthread.php?tid=2008</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[SOLVED] How to detect how many players there are in same place around coordinat</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+Solution from <span style="color: #333333;" class="mycode_color"><span style="font-family: Tahoma, Verdana, Arial, sans-serif;" class="mycode_font"><span style="font-weight: bold;" class="mycode_b"><span style="font-size: large;" class="mycode_size">Pinch:</span></span></span></span><br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock returnPlayersInRange(playerid, range = 40.0)<br />
+{<br />
+    new<br />
+        Floatt:x,<br />
+        Float:y,<br />
+        sloat:z,<br />
+        streamed;<br />
+       <br />
+    GetPlayerPos(playerid, x, y, z);<br />
+   <br />
+    foreach(new i : Player) {<br />
+        if(!IsPlayerInRangeOfPoint(i, range, x, y, z)) {<br />
+            continue; // Continue the loop (next slot)<br />
+        }<br />
+       <br />
+        streamed += 1; // Increments the variable by 1<br />
+    }<br />
+   <br />
+    return streamed; // Return the variable's value. <br />
+...or you can just not use this cmd as players can hit F5 or whatever it was and see number of streamed players<br />
+}</code></div></div><br />
+<br />
+<span style="font-size: x-large;" class="mycode_size">The problem:</span><br />
+Sir, how do you detect how many players are there? For example, we want to check how many people are in SMB but without checking directly to the location but using cmd, for example cmd / check, there will be a message from the system showing how many people there are. SMB<br />
+<br />
+I think it is necessary first, isplayerinrangeofpoint. Then, the for for the playerid check function has the same enum about them at the same time. enum example. pInfo [playerid] [InZoneName]<br />
+<br />
+is this code can make more extend ?<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Float:x, Float:y, Float:z;<br />
+      GetPlayerPos(playerid, x, y, z);<br />
+      <br />
+      foreach(new ii : Player)<br />
+      {<br />
+        if(IsPlayerInRangeOfPoint(ii, 40.0, x, y, z))<br />
+        {<br />
+          <br />
+          {<br />
+                     <br />
+for(new x;x&lt;MAX_PLAYERS;x++)<br />
+    {<br />
+       <br />
+<br />
+          }<br />
+        <br />
+        }<br />
+      }</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to detect how many players there are in the same place around the coordinat</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>stock returnPlayersInRange(playerid, range = 40.0)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floatt:x,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Float:y,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sloat:z,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;streamed;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GetPlayerPos(playerid, x, y, z);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;foreach(new i : Player) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!IsPlayerInRangeOfPoint(i, range, x, y, z)) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue; // Continue the loop (next slot)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;streamed += 1; // Increments the variable by 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return streamed; // Return the variable's value<br />
+}</code></div></div><br />
+...or you can just not use this cmd as players can hit F5 or whatever it was and see number of streamed players
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to detect how many players there are in the same place around the coordinat</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-05-12</strong>
+<br />
+<br />
+Thanks, best solution from Pinch
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: [SOLVED] How to detect how many players there are in same place around coordinat</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-05-13</strong>
+<br />
+<br />
+Just a minor thing.  It should be "ReturnPlayersInRange", not "returnPlayersInRange".  Or better yet "CountPlayersInRange", since you don't actually get their IDs.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

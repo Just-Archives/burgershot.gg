@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Help with safe box system - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread0c9c.html?tid=2115">Help with safe box system</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Help with safe box system (<em>/showthread.php?tid=2115</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help with safe box system</strong> - <a href="memberc737.html?action=profile&amp;uid=2734">JR_Junior</a> -  <strong>2021-06-16</strong>
+<br />
+<br />
+I'm trying to create a closed and open door safe box system.<br />
+<br />
+I would like to be able to create a safe box anywhere and automatically have the door positioned correctly.<br />
+<br />
+Does anyone know the correct calculation for this?<br />
+<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">safe&nbsp;</span><span style="color: #007700">=</span><span style="color: #0000BB"> CreateDynamicObject</span><span style="color: #007700">(</span><span style="color: #0000BB">19618</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">414.47070</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2537.35913</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">9.45900</span><span style="color: #007700">,</span><span style="color: #0000BB"> &nbsp;0.00000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.00000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">90.00000</span><span style="color: #007700">);<br />new&nbsp;</span><span style="color: #0000BB">door&nbsp;</span><span style="color: #007700">=</span><span style="color: #0000BB"> CreateDynamicObject</span><span style="color: #007700">(</span><span style="color: #0000BB">19619</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">414.70401</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2536.93848</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">9.45800</span><span style="color: #007700">,</span><span style="color: #0000BB"> &nbsp;0.00000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.00000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">90.00000</span><span style="color: #007700">);&nbsp;<br /></span></code></div></div></div><br />
+<span style="font-weight: bold;" class="mycode_b">The function I intend to use:</span><br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">stock&nbsp;CreateSafeBox</span><span style="color: #007700">(</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">px</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">py</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">pz</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">rz</span><span style="color: #007700">)<br />{<br /></span><span style="color: #0000BB">CreateDynamicObject</span><span style="color: #007700">(</span><span style="color: #0000BB">px</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">py</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">pz &nbsp;0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">rz</span><span style="color: #007700">);</span><span style="color: #FF8000">//Safe<br /></span><span style="color: #0000BB">CreateDynamicObject</span><span style="color: #007700">(</span><span style="color: #0000BB">px</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">py</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">pz &nbsp;0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">rz</span><span style="color: #007700">);</span><span style="color: #FF8000">//Door<br /></span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;<br /></span></code></div></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with safe box system</strong> - <a href="memberf668.html?action=profile&amp;uid=1576">Awide</a> -  <strong>2021-06-17</strong>
+<br />
+<br />
+I think it wouldn't work once you start rotating them.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with safe box system</strong> - <a href="memberc737.html?action=profile&amp;uid=2734">JR_Junior</a> -  <strong>2021-06-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-17, 07:52 PM)</span>Awide Wrote:  <a href="showthread5834-2.html?pid=11464#pid11464" class="quick_jump"></a></cite>I think it wouldn't work once you start rotating them.</blockquote>it's not about rotation, it's about position.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with safe box system</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-06-17</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>I would like to be able to create a safe box anywhere and automatically have the door positioned correctly.<br />
+<br />
+Does anyone know the correct calculation for this?</blockquote>
+I think the easiest way to do that is to create the safe at position 0,0,0 and then use the position of the door (once placed correctly) as your offset.<br />
+And check those offsets off course when the safe is rotated differently. Apart from that I wouldn't know a `correct calculation` for that.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with safe box system</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-18</strong>
+<br />
+<br />
+You can't calculate the position of the door correctly. <br />
+But instead you can use the object model 2332. <br />
+You can also change the object model to 1829 when the player opens safe box.<br />
+<br />
+2332 - <img src="https://files.prineside.com/gtasa_samp_model_id/blue/2332_b.jpg" loading="lazy"  alt="[Image: 2332_b.jpg]" class="mycode_img" /><br />
+<br />
+1829 - <img src="https://files.prineside.com/gtasa_samp_model_id/blue/1829_b.jpg" loading="lazy"  alt="[Image: 1829_b.jpg]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with safe box system</strong> - <a href="memberc737.html?action=profile&amp;uid=2734">JR_Junior</a> -  <strong>2021-06-18</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-18, 01:11 AM)</span>Radical Wrote:  <a href="showthread6774.html?pid=11470#pid11470" class="quick_jump"></a></cite>You can't calculate the position of the door correctly. <br />
+But instead you can use the object model 2332. <br />
+You can also change the object model to 1829 when the player opens safe box.<br />
+<br />
+2332 - <img src="https://files.prineside.com/gtasa_samp_model_id/blue/2332_b.jpg" loading="lazy"  alt="[Image: 2332_b.jpg]" class="mycode_img" /><br />
+<br />
+1829 - <img src="https://files.prineside.com/gtasa_samp_model_id/blue/1829_b.jpg" loading="lazy"  alt="[Image: 1829_b.jpg]" class="mycode_img" /></blockquote><br />
+I can't read what you wrote after <span style="font-weight: bold;" class="mycode_b">You can't</span>. You are saying this is impossible and not true!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with safe box system</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-06-19</strong>
+<br />
+<br />
+MoveDynamicObject ?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with safe box system</strong> - <a href="memberc737.html?action=profile&amp;uid=2734">JR_Junior</a> -  <strong>2021-06-19</strong>
+<br />
+<br />
+I finally found the solution!
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help with safe box system</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-06-20</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-19, 11:52 PM)</span>JR_Junior Wrote:  <a href="showthread30cd.html?pid=11485#pid11485" class="quick_jump"></a></cite>I finally found the solution!</blockquote>You should share the solution so that if anyone faces the same thing one day they won't have to re-ask.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

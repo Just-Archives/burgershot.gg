@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Problem with OnPlayerClickTextdraw - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadcb68.html?tid=1450">Problem with OnPlayerClickTextdraw</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Problem with OnPlayerClickTextdraw (<em>/showthread.php?tid=1450</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Problem with OnPlayerClickTextdraw</strong> - <a href="member8b36.html?action=profile&amp;uid=1201">shane adevaratu</a> -  <strong>2020-12-22</strong>
+<br />
+<br />
+The OnPlayerClickTextdraw function is no longer called.<br />
+I use y_hooks in different includes to call this function. The rest of the functions that use y_hooks work, less this.<br />
+<br />
+Has anyone been through this and solved it, or do you have any idea what it might be?<br />
+A few days ago it worked perfectly. I tried to disable each include that uses this function, or call them in the general public on gamemode, but the problem is still.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerClickTextdraw</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-22</strong>
+<br />
+<br />
+What do you return when you hook them?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerClickTextdraw</strong> - <a href="member8b36.html?action=profile&amp;uid=1201">shane adevaratu</a> -  <strong>2020-12-22</strong>
+<br />
+<br />
+Return false.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>hook OnPlayerClickTextDraw( playerid, Text:clickedid ) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//code<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return false; }</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerClickTextdraw</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-22</strong>
+<br />
+<br />
+Don't return false, <br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>#define Y_HOOKS_CONTINUE_RETURN_1&nbsp;&nbsp;&nbsp;&nbsp;(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Continue the hook chain, return 1<br />
+#define Y_HOOKS_CONTINUE_RETURN_0&nbsp;&nbsp;&nbsp;&nbsp;(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Continue the hook chain, return 0<br />
+#define Y_HOOKS_BREAK_RETURN_0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(~0)&nbsp;&nbsp;&nbsp;&nbsp;// Break the hook chain, return 0<br />
+#define Y_HOOKS_BREAK_RETURN_1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(~1)&nbsp;&nbsp;&nbsp;&nbsp;// Break the hook chain, return 1</code></div></div><br />
+EDIT: Those are already defined, just return them.<br />
+<br />
+ex.: return Y_HOOKS_CONTINUE_RETURN_0;
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerClickTextdraw</strong> - <a href="member8b36.html?action=profile&amp;uid=1201">shane adevaratu</a> -  <strong>2020-12-22</strong>
+<br />
+<br />
+I've used the same method so far and everything worked. In addition, I have disabled all the includes in which I use y_hook.<br />
+The problem must be elsewhere.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerClickTextdraw</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-22</strong>
+<br />
+<br />
+Oh, I've misunderstood that, oop...<br />
+<br />
+I ain't sure, added any new filterscript/inc?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerClickTextdraw</strong> - <a href="member8b36.html?action=profile&amp;uid=1201">shane adevaratu</a> -  <strong>2020-12-22</strong>
+<br />
+<br />
+You are a genius. I used a filterscript a few days ago and I forgot to remove it. This causes the problem.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problem with OnPlayerClickTextdraw</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-23</strong>
+<br />
+<br />
+Well not really a genius...but good luck with the further work! 😂
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

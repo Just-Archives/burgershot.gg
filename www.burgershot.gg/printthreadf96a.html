@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn HELP! How to Get Status If The Vehicle go Flipped while destroyed? - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf96a.html?tid=2159">HELP! How to Get Status If The Vehicle go Flipped while destroyed?</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> HELP! How to Get Status If The Vehicle go Flipped while destroyed? (<em>/showthread.php?tid=2159</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>HELP! How to Get Status If The Vehicle go Flipped while destroyed?</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-07-08</strong>
+<br />
+<br />
+I saw a gamemode that supports anti-vehicle explode during a flip which is usually a scene of gasoline spilling and a fire burning. But here the purpose that will be discussed is the opposite. How can the vehicle flip itself back to its normal condition if the vehicle has really flipped and is about to explode?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Get Status If The Vehicle go Flipped while destroyed?</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-08</strong>
+<br />
+<br />
+https://sampwiki.blast.hk/wiki/GetVehicleRotation<br />
+https://sampwiki.blast.hk/wiki/GetVehicleHealth
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Get Status If The Vehicle go Flipped while destroyed?</strong> - <a href="memberc364.html?action=profile&amp;uid=2172">xbruno1000x</a> -  <strong>2021-07-09</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Float:pP[3];<br />
+<br />
+SetCameraBehindPlayer(playerid);<br />
+GetPlayerPos(playerid, pP[0], pP[1], pP[2]);<br />
+<br />
+SetVehiclePos(GetPlayerVehicleID(playerid), pP[0], pP[1], pP[2]);<br />
+SetVehicleZAngle(GetPlayerVehicleID(playerid), 0);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Get Status If The Vehicle go Flipped while destroyed?</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-07-10</strong>
+<br />
+<br />
+SetVehicleZAngle(GetPlayerVehicleID(playerid), 0);<br />
+<br />
+Just this one line was enough.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: HELP! How to Get Status If The Vehicle go Flipped while destroyed?</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-07-11</strong>
+<br />
+<br />
+Not if nobody is in the vehicle;<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>How can the vehicle flip itself</blockquote>
+Might be a language barrier but I assumed (thanks to that line) the vehicle would be unmanned, in which case you would need the functions I sent.<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>(...) the vehicle has really flipped and is about to explode </blockquote>
+GetVehicleRotation() to detect if it is flipped, GetVehicleHealth() to detect if it is on fire and thus about to explode. They start burning when the health is below 250, as stated on the wiki page. If it is, you indeed use SetVehicleZAngle() to flip it back. <br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>SetVehicleZAngle(GetPlayerVehicleID(playerid), 0);</blockquote>
+You might want to set it to the angle it's already facing. Otherwise it will always face North when flipping it. May be a tad inconvenient.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

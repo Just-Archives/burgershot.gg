@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn [FIXED] how create new native functions can be suggested by the autotext system - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadc53b.html?tid=1824">[FIXED] how create new native functions can be suggested by the autotext system</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> [FIXED] how create new native functions can be suggested by the autotext system (<em>/showthread.php?tid=1824</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[FIXED] how create new native functions can be suggested by the autotext system</strong> - <a href="member773a.html?action=profile&amp;uid=2989">PutuSuhartawan</a> -  <strong>2021-03-30</strong>
+<br />
+<br />
+How do I create new native functions that can be suggested to the autotext system later? so far I can only walk with #define only.<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b"><span style="font-size: large;" class="mycode_size">FIXED<br />
+<br />
+[ First Install the All Autocomplete - Packages - Package Control ]</span></span><br />
+<br />
+<img src="https://scontent.fupg6-1.fna.fbcdn.net/v/t1.6435-9/167018997_5565589703481329_5851269852517854908_n.jpg?_nc_cat=109&amp;ccb=1-3&amp;_nc_sid=b9115d&amp;_nc_ohc=bjfk_nJa1IEAX8gjg0u&amp;_nc_oc=AQnGFEn34dPnl_tHGpqwPvuIOBoZtZcqdeB2--pEcxLbJkFpax3iaVk1EHETVVql6Sk&amp;_nc_ht=scontent.fupg6-1.fna&amp;oh=904cf27dccc5ec7070bca67e1145290a&amp;oe=6088143A" loading="lazy"  alt="[Image: 167018997_5565589703481329_5851269852517...e=6088143A]" class="mycode_img" /><br />
+<img src="https://scontent.fupg6-1.fna.fbcdn.net/v/t1.6435-9/166749805_5565592510147715_7986765319724321912_n.jpg?_nc_cat=110&amp;ccb=1-3&amp;_nc_sid=b9115d&amp;_nc_ohc=oFyJbCmrGegAX_sxFDh&amp;_nc_ht=scontent.fupg6-1.fna&amp;oh=9fcba3ddec2c88b6e8c5bf21162a3679&amp;oe=60882027" loading="lazy"  alt="[Image: 166749805_5565592510147715_7986765319724...e=60882027]" class="mycode_img" />
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help! how create new native functions can be suggested by the autotext system</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-03-30</strong>
+<br />
+<br />
+Native functions are functions inside the host application. Has nothing to do with creating a function list. Just so happens that pawno does this, but it's not what they are intended for (just making sure you know what native functions are). To truly create one you'd need to create a plugin.<br />
+https://raw.githubusercontent.com/compuphase/pawn/66e67291326b193045e52e4d6bcb51663260d6c3/doc/pawn-lang.pdf<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>The only means that a pawn program has to manipulate objects in the host application is by calling subroutines, so called “native functions”, that the host application provides.</blockquote>
+<br />
+Anyway, now the correct way to create custom function (snippet) list: You'll need a .code-snippets file in your .vscode directory for that. Syntax is as follows:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"FunctionName": { //Displayed on the right of the popup <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"prefix": "FunctionName", //Displayed on the left of the popup<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "Little description about the function", //Not displayed, as far as I know<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"body": "FunctionName()&#36;0" //Text to insert to your file when the function is selected. See code below for an example of two of your functions<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</code></div></div>For example: ./.vscode/my-functions.code-snippets<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"SEM": { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"prefix": "SEM",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "Send an error message to a player",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"body": "SEM(&#36;{1:playerid}, &#36;{2:yourstring[]})&#36;0"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"AddOwnableCarData": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"prefix": "AddOwnableCarData",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "Add ownable car data",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"body": "AddOwnableCarData(&#36;{1:vehicleid}, &#36;{2:OC_SQL_ID}, &#36;{3:plus}, &#36;{4:new_value})&#36;0"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</code></div></div><br />
+More (and better) information about snippets here: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Server Problems with y_hooks - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #1097FF;font-weight: bold;">[Server]</span> <a href="showthreadc87d-2.html?tid=1625">Problems with y_hooks</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Support (<i>https://www.burgershot.gg/forumdisplay.php?fid=12</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #1097FF;font-weight: bold;">[Server]</span> Problems with y_hooks (<em>/showthread.php?tid=1625</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Problems with y_hooks</strong> - <a href="member21cf.html?action=profile&amp;uid=786">Frajola</a> -  <strong>2021-01-31</strong>
+<br />
+<br />
+y_hooks featuring warnings<br />
+<br />
+<div class="codeblock phpcodeblock"><div class="title">PHP Code:</div><div class="body"><div dir="ltr"><code><span style="color: #0000BB">warning&nbsp;200</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">symbol&nbsp;</span><span style="color: #DD0000">"@yH_OnVehicleDamageStatusUpdate"&nbsp;</span><span style="color: #0000BB">is&nbsp;truncated&nbsp;to&nbsp;31&nbsp;characters<br />warning&nbsp;200</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">symbol&nbsp;</span><span style="color: #DD0000">"@yH_OnVehicleDamageStatusUpdate"&nbsp;</span><span style="color: #0000BB">is&nbsp;truncated&nbsp;to&nbsp;31&nbsp;characters<br />warning&nbsp;200</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">symbol&nbsp;</span><span style="color: #DD0000">"@<a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5029180f1f3e003c31293522133f3d3d313e34003522363f223d3534106060">[email&#160;protected]</a>"&nbsp;</span><span style="color: #0000BB">is&nbsp;truncated&nbsp;to&nbsp;31&nbsp;characters<br />warning&nbsp;200</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">symbol&nbsp;</span><span style="color: #DD0000">"@<a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b3cafbecfcdde3dfd2cad6c1f0dcdeded2ddd7e3d6c1d5dcc1ded6d7f38383">[email&#160;protected]</a>"&nbsp;</span><span style="color: #0000BB">is&nbsp;truncated&nbsp;to&nbsp;31&nbsp;characters<br />warning&nbsp;200</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">symbol&nbsp;</span><span style="color: #DD0000">"@yH_OnPlayerEnterRaceCheckpoint"&nbsp;</span><span style="color: #0000BB">is&nbsp;truncated&nbsp;to&nbsp;31&nbsp;characters<br />warning&nbsp;200</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">symbol&nbsp;</span><span style="color: #DD0000">"@yH_OnPlayerEnterRaceCheckpoint"&nbsp;</span><span style="color: #0000BB">is&nbsp;truncated&nbsp;to&nbsp;31&nbsp;characters<br />warning&nbsp;200</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">symbol&nbsp;</span><span style="color: #DD0000">"@yH_OnPlayerClickPlayerTextDraw"&nbsp;</span><span style="color: #0000BB">is&nbsp;truncated&nbsp;to&nbsp;31&nbsp;characters<br />warning&nbsp;200</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">symbol&nbsp;</span><span style="color: #DD0000">"@yH_OnPlayerClickPlayerTextDraw"&nbsp;</span><span style="color: #0000BB">is&nbsp;truncated&nbsp;to&nbsp;31&nbsp;characters&nbsp;<br /></span></code></div></div></div><br />
+<br />
+How to handle very large public names ?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problems with y_hooks</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-01-31</strong>
+<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>// Taken from YSI (sh00k)<br />
+DEFINE_HOOK_REPLACEMENT__(Checkpoint, CP );<br />
+DEFINE_HOOK_REPLACEMENT__(Container , Cnt);<br />
+DEFINE_HOOK_REPLACEMENT__(Inventory , Inv);<br />
+DEFINE_HOOK_REPLACEMENT__(Dynamic&nbsp;&nbsp; , Dyn);<br />
+DEFINE_HOOK_REPLACEMENT__(TextDraw&nbsp;&nbsp;, TD );<br />
+DEFINE_HOOK_REPLACEMENT__(Update&nbsp;&nbsp;&nbsp;&nbsp;, Upd);<br />
+DEFINE_HOOK_REPLACEMENT__(Object&nbsp;&nbsp;&nbsp;&nbsp;, Obj);<br />
+DEFINE_HOOK_REPLACEMENT__(Command&nbsp;&nbsp; , Cmd);</code></div></div>Most of the times just opening library's testing sample will tell you literally all that library offers
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problems with y_hooks</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2021-02-01</strong>
+<br />
+<br />
+You can use DEFINE_HOOK_REPLACEMENT__ to create shorter keywords and get under the 31 character limit, as stated above.<br />
+<br />
+For example, setting the line DEFINE_HOOK_REPLACEMENT__(Checkpoint, CP ); somewhere by the top of your script will allow you to define the hook for OnPlayerEnterRaceCheckpoint as OnPlayerEnterRaceCP
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Problems with y_hooks</strong> - <a href="member21cf.html?action=profile&amp;uid=786">Frajola</a> -  <strong>2021-02-01</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-31, 10:31 PM)</span>Pinch Wrote:  <a href="showthreadb6d7.html?pid=9651#pid9651" class="quick_jump"></a></cite><div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>// Taken from YSI (sh00k)<br />
+DEFINE_HOOK_REPLACEMENT__(Checkpoint, CP );<br />
+DEFINE_HOOK_REPLACEMENT__(Container , Cnt);<br />
+DEFINE_HOOK_REPLACEMENT__(Inventory , Inv);<br />
+DEFINE_HOOK_REPLACEMENT__(Dynamic  , Dyn);<br />
+DEFINE_HOOK_REPLACEMENT__(TextDraw  , TD );<br />
+DEFINE_HOOK_REPLACEMENT__(Update    , Upd);<br />
+DEFINE_HOOK_REPLACEMENT__(Object    , Obj);<br />
+DEFINE_HOOK_REPLACEMENT__(Command  , Cmd);</code></div></div>Most of the times just opening library's testing sample will tell you literally all that library offers</blockquote><br />
+<blockquote class="mycode_quote"><cite><span> (2021-02-01, 12:08 AM)</span>Markski Wrote:  <a href="showthreadec17.html?pid=9653#pid9653" class="quick_jump"></a></cite>You can use DEFINE_HOOK_REPLACEMENT__ to create shorter keywords and get under the 31 character limit, as stated above.<br />
+<br />
+For example, setting the line DEFINE_HOOK_REPLACEMENT__(Checkpoint, CP ); somewhere by the top of your script will allow you to define the hook for OnPlayerEnterRaceCheckpoint as OnPlayerEnterRaceCP</blockquote><br />
+<span style="font-weight: bold;" class="mycode_b">Thanks, it worked.</span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+<!-- end: printthread -->

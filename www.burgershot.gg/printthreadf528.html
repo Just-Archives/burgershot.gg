@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn MySQL Question - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthreadf528.html?tid=1742">MySQL Question</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> MySQL Question (<em>/showthread.php?tid=1742</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>MySQL Question</strong> - <a href="member6ba7.html?action=profile&amp;uid=3522">kalEd</a> -  <strong>2021-03-08</strong>
+<br />
+<br />
+What is the most efficient and optimized method to save data in the database?<br />
+<br />
+For example this?:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new gQuery[ 256 ]; //at the beginning of the gamemode<br />
+//in a function=&gt;<br />
+gQuery[ 0 ] = EOS;<br />
+mysql_format( handle, gQuery, sizeof gQuery, "INSERT INTO `logs` (`Player`, `IP`) VALUES ('%e', '%s')", getName( playerid ), getPlayerIp( playerid ) );<br />
+mysql_tquery( handle, gQuery, "", "" );</code></div></div><br />
+or this?:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Query[ 90 ];<br />
+mysql_format( handle, Query, sizeof Query, "INSERT INTO `logs` (`Player`, `IP`) VALUES ('%e', '%s')", getName( playerid ), getPlayerIp( playerid ) );<br />
+mysql_tquery( handle, Query, "", "" );</code></div></div><br />
+What exactly does gQuery[0] = EOS; mean? What's the difference?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MySQL Question</strong> - <a href="memberbd8e.html?action=profile&amp;uid=3486">Virsenas</a> -  <strong>2021-03-08</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-03-08, 02:34 PM)</span>kalEd Wrote:  <a href="showthreade3c8-2.html?pid=10140#pid10140" class="quick_jump"></a></cite>What is the most efficient and optimized method to save data in the database?<br />
+<br />
+For example this?:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new gQuery[ 256 ]; //at the beginning of the gamemode<br />
+//in a function=&gt;<br />
+gQuery[ 0 ] = EOS;<br />
+mysql_format( handle, gQuery, sizeof gQuery, "INSERT INTO `logs` (`Player`, `IP`) VALUES ('%e', '%s')", getName( playerid ), getPlayerIp( playerid ) );<br />
+mysql_tquery( handle, gQuery, "", "" );</code></div></div><br />
+or this?:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new Query[ 90 ];<br />
+mysql_format( handle, Query, sizeof Query, "INSERT INTO `logs` (`Player`, `IP`) VALUES ('%e', '%s')", getName( playerid ), getPlayerIp( playerid ) );<br />
+mysql_tquery( handle, Query, "", "" );</code></div></div><br />
+What exactly does gQuery[0] = EOS; mean? What's the difference?</blockquote><br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>EOS: predefined constant standing for End Of String; it has the value ’n0’</blockquote>
+<br />
+Basically, it makes the array (string variable) empty, hold no real value. You do not even need to use it in that mysql code because the gQuery string is already empty. So second code is the way things should be.<br />
+<br />
+Use this if you encounter something you don't know.<br />
+https://github.com/compuphase/pawn/blob/master/doc/Pawn_Language_Guide.pdf
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MySQL Question</strong> - <a href="member90f4.html?action=profile&amp;uid=2625">Kwarde</a> -  <strong>2021-03-08</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>Basically, it makes the array (string variable) empty, hold no real value</blockquote>
+Less basically, it sets the first cell to "EOS" (End Of String, null terminator, \0). <br />
+PAWN uses the null terminator to determine the end of a string. For example, strlen() counts the amount of characters (or cells) untill the null terminator is found.<br />
+Example:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>new myArray[] = "Hello World";<br />
+//myArray now is:<br />
+//{'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '&#92;0'}<br />
+printf("%s -- length: %i", myArray, strlen(myArray)); //Would print: Hello -- length: 11<br />
+<br />
+myArray[4] = EOS;<br />
+//myArray now is:<br />
+//{'H', 'e', 'l', 'l', '&#92;0', ' ', 'W', 'o', 'r', 'l', 'd', '&#92;0'}<br />
+printf("%s -- length: %i", myArray, strlen(myArray)); //Would print: Hell -- length: 4<br />
+<br />
+myArray[0] = EOS;<br />
+//myArray now is:<br />
+//{'&#92;0', 'e', 'l', 'l', ''0', ' ', 'W', 'o', 'r', 'l', 'd', '&#92;0'}<br />
+printf("%s -- length: %i", myArray, strlen(myArray)); //Would print:&nbsp;&nbsp;-- length: 0</code></div></div>So setting the first cell to EOS does not erase all the cells. It merely tells the string ends there. That plus:<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>You do not even need to use it in that mysql code because the gQuery string is already empty</blockquote>
+So it's really just useless. When you're formatting a string it doesn't matter where the null terminator is or if a string is empty or not. The null terminator (EOS) gets set at the end of the string after formatting anyway.<br />
+Few other sidenotes:<br />
+- It's not needed to escape a username. Usernames can't contain characters that might cause SQL queries to fail (/SQL injection).<br />
+- To answer the question "What is the most efficient and optimized method to save data in the database?":<br />
+1- You might want to save IPs as an integer (unsigned integer) using INET_ATON (Address To Number) and INET_NTOA (Number To Address). <br />
+2- Don't save the player's name but their account ID (assuming you have a users table where users have an ID. If you don't have that you probably have a poor optimised database).<br />
+Example:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>/*<br />
+Example users table:<br />
+----<br />
+CREATE TABLE users(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;id INT UNSIGNED NOT NULL AUTO_INCREMENT,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name VARCHAR(24) NOT NULL UNIQUE,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY(id)<br />
+) ENGINE = InnoDB;<br />
+---- <br />
+Example logs table:<br />
+----<br />
+CREATE TABLE logs( -- <br />
+&nbsp;&nbsp;&nbsp;&nbsp;id INT UNSIGNED NOT NULL AUTO_INCREMENT,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;player INT UNSIGNED NOT NULL, -- You probably already have a users table. Link to the account ID and not the name<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ip INT UNSIGNED NOT NULL,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-- Foreign key linking 'player' to the users table (account id):<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CONSTRAINT fk_logs_to_users FOREIGN KEY(player) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY(id)<br />
+) ENGINE = InnoDB;<br />
+*/<br />
+//** Saving the log (connection log?) to the database **//<br />
+format(gQuery, sizeof(gQuery), "INSERT INTO logs (player, ip) VALUES ('%s', INET_ATON('%s'));", getAccountId(playerid), getPlayerIp(playerid));<br />
+mysql_tquery(handle, gQuery);<br />
+<br />
+//** Loading the log **//<br />
+format(gQuery, sizeof(gQuery), "SELECT u.name AS username, INET_NTOA(l.ip) AS userip FROM logs l LEFT JOIN users u ON l.player = u.id WHERE u.name = '%s';", getName(playerid)); //(...)WHERE u.id = %i;", getAccountId(playerid); -- Would be better since the id is the primary key<br />
+inline on_load_log()<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new rows;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;cache_get_row_count(rows);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (rows)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new name[MAX_PLAYER_NAME], ip[16];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (new i; i &lt; rows; i++)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name(i, "username", name);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name(i, "userip", ip);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Do stuff with 'username' and 'userip'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//No logs available for this user<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+MySQL_TQueryInline(handle, gQuery, using inline on_load_log); //Just an example of using y_inline with MySQL. Otherwise you would be using something like this:<br />
+/*<br />
+mysql_tquery(handle, gQuery, "on_load_log", "i", playerid);<br />
+forward on_load_log(playerid);<br />
+public on_load_log(playerid)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//The code above that is in the inline function on_load_log<br />
+}<br />
+*/</code></div></div>- The parameters of mysql_tquery():<br />
+<blockquote class="mycode_quote"><cite>Quote:</cite>(MySQL:handle, const query[], const callback[] = "", const format[] = "", {Float,_}:...)</blockquote>
+'callback' is by default : "" and format is also by default: "". There is no need to include it if you're leaving it empty. Thus this would suffice:<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>mysql_tquery(handle, gQuery);</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MySQL Question</strong> - <a href="membere2a3.html?action=profile&amp;uid=6">Y_Less</a> -  <strong>2021-03-08</strong>
+<br />
+<br />
+Those are the same thing.  The location of the string makes no difference to the efficiency of the query.  If you want to start learning about SQL optimisations I suggest you start with https://use-the-index-luke.com/
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: MySQL Question</strong> - <a href="member6ba7.html?action=profile&amp;uid=3522">kalEd</a> -  <strong>2021-03-09</strong>
+<br />
+<br />
+Thanks to everyone for the help.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

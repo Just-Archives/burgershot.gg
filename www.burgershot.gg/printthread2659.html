@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn [Solved] Send a message on multiple lines [text length more than 144] - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread2659.html?tid=2104">[Solved] Send a message on multiple lines [text length more than 144]</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> [Solved] Send a message on multiple lines [text length more than 144] (<em>/showthread.php?tid=2104</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>[Solved] Send a message on multiple lines [text length more than 144]</strong> - <a href="member2dfc.html?action=profile&amp;uid=3098">Radical</a> -  <strong>2021-06-08</strong>
+<br />
+<br />
+I'm looking for that function, if the text length is more than 144 letters, Send it in two messages.<br />
+Thanks<br />
+<br />
+<span style="font-weight: bold;" class="mycode_b">SOLUTION:</span><br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-06-09, 08:48 AM)</span>Pinch Wrote:  <a href="showthread0bef-2.html?pid=11430#pid11430" class="quick_jump"></a></cite>https://www.burgershot.gg/showthread.php?tid=748</blockquote><br />
+<br />
+I maked this function but it does not work as I wanted. <br />
+This separates the word between strings 144<br />
+<br />
+burgershot &gt;&gt;<br />
+<br />
+burg ..<br />
+.. ershot<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>SendClientMessageToAllEx(color, const text[]) {<br />
+<br />
+    new <br />
+        message[144];<br />
+    <br />
+    strcat(message, text);<br />
+<br />
+    new <br />
+        lentgh = strlen(message);<br />
+<br />
+    if (lentgh &gt;= 143) {<br />
+<br />
+        new <br />
+            message_2[144];<br />
+<br />
+        format(message_2, sizeof message_2, ".. %s", message[139]);<br />
+<br />
+        strdel(message, 139, lentgh);<br />
+        strcat(message, " ..");<br />
+<br />
+        SendClientMessageToAll(color, message);<br />
+<br />
+        SendClientMessageToAll(color, message_2);<br />
+<br />
+    } else<br />
+        SendClientMessageToAll(color, message);<br />
+<br />
+    return 1;<br />
+}</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Send a message on multiple lines [text length more than 144]</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-06-09</strong>
+<br />
+<br />
+https://www.burgershot.gg/showthread.php?tid=748
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

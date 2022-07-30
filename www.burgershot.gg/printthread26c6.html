@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Best way to load data from database (MySQL r41) - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread26c6.html?tid=1428">Best way to load data from database (MySQL r41)</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Best way to load data from database (MySQL r41) (<em>/showthread.php?tid=1428</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Best way to load data from database (MySQL r41)</strong> - <a href="member8b36.html?action=profile&amp;uid=1201">shane adevaratu</a> -  <strong>2020-12-18</strong>
+<br />
+<br />
+What is the most efficient way to load data from the database.<br />
+For example, how could I make the function below more efficient.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>function loadDealerShip( ) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;new DS_Models = cache_num_rows( ), x, result;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if( DS_Models == 0 ) return print( "Loaded models: no rows detected" );<br />
+&nbsp;&nbsp;&nbsp;&nbsp;for( new i, j = DS_Models; i != j; ++i ) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name_int( i, "ID", result ), x = result, dsVariable[ x ][ dsID ] = x;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name_int( i, "Model", dsVariable[ x ][ dsModel ] );<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name_int( i, "Stock", dsVariable[ x ][ dsStock ] );<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name_int( i, "Speed", dsVariable[ x ][ dsSpeed ] );<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name_int( i, "Price", dsVariable[ x ][ dsPrice ] );<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name_int( i, "Type", dsVariable[ x ][ dsType ] );<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache_get_value_name( i, "Car", dsVariable[ x ][ dsName ] );<br />
+&nbsp;&nbsp;&nbsp;&nbsp;} printf( "Loaded models: %d", DS_Models );<br />
+return true; }</code></div></div><br />
+<br />
+The 'ID' starts at 1 and reaches over 100.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best way to load data from database (MySQL r41)</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-18</strong>
+<br />
+<br />
+Why do you have <span style="font-weight: bold;" class="mycode_b">x and result</span>?
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best way to load data from database (MySQL r41)</strong> - <a href="member8b36.html?action=profile&amp;uid=1201">shane adevaratu</a> -  <strong>2020-12-18</strong>
+<br />
+<br />
+Good question.. Is there something else I can do to improve it?<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>function loadDealerShip( ) {<br />
+    new DS_Models = cache_num_rows( );<br />
+    if( DS_Models == 0 ) return print( "Loaded models: no rows detected" );<br />
+    for( new i, j = DS_Models; i != j; ++i ) {<br />
+        cache_get_value_name_int( i, "ID", dsVariable[ i ][ dsID ] );<br />
+        cache_get_value_name_int( i, "Model", dsVariable[ i ][ dsModel ] );<br />
+        cache_get_value_name_int( i, "Stock", dsVariable[ i ][ dsStock ] );<br />
+        cache_get_value_name_int( i, "Speed", dsVariable[ i ][ dsSpeed ] );<br />
+        cache_get_value_name_int( i, "Price", dsVariable[ i ][ dsPrice ] );<br />
+        cache_get_value_name_int( i, "Type", dsVariable[ i ][ dsType ] );<br />
+        cache_get_value_name( i, "Car", dsVariable[ i ][ dsName ] );<br />
+    } printf( "Loaded models: %d", DS_Models );<br />
+return true; }</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best way to load data from database (MySQL r41)</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-18</strong>
+<br />
+<br />
+Probably not, either way you shouldn't worry to much about 1-time reads, worry about the peak usage queries instead (like writing and reading user data).
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best way to load data from database (MySQL r41)</strong> - <a href="memberc385.html?action=profile&amp;uid=41">Markski</a> -  <strong>2020-12-19</strong>
+<br />
+<br />
+For most intents and purposes that is probably fine. High frequency database operations is what you should worry about as stated by Pinch, and in those cases the best way to optimize is by decreasing frequency (caching).
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best way to load data from database (MySQL r41)</strong> - <a href="member8b36.html?action=profile&amp;uid=1201">shane adevaratu</a> -  <strong>2020-12-20</strong>
+<br />
+<br />
+It is more efficient to use this method for most rescues<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>//global<br />
+new gQuery[ 256 ];<br />
+<br />
+//local<br />
+gQuery[ 0 ] = EOS;<br />
+mysql_format( SQL, gQuery, sizeof gQuery, "UPDATE `players` SET `Hours`='%0.3f' WHERE `ID`='%d';", playerVariable[ playerid ][ pHours ], playerVariable[ playerid ][ pSQL ] );<br />
+mysql_tquery( SQL, gQuery, "", "" );</code></div></div><br />
+compared to this?<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>//local<br />
+new Query[ 70 ];<br />
+mysql_format( SQL, Query, sizeof Query, "UPDATE `players` SET `Hours`='%0.3f' WHERE `ID`='%d';", playerVariable[ playerid ][ pHours ], playerVariable[ playerid ][ pSQL ] );<br />
+mysql_tquery( SQL, Query, "", "" );</code></div></div>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Best way to load data from database (MySQL r41)</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2020-12-20</strong>
+<br />
+<br />
+Local, always
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->

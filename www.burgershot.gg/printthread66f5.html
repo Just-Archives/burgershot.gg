@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- start: printthread -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Pawn Help: warning 213 tag mismatch - Printable Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 13px; }
+.largetext { font-family: Verdana, Arial, sans-serif; font-size: medium; font-weight: bold; }
+img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<table width="98%" align="center">
+<tr>
+<td valign="top"><a href="index-2.html"><img src="images/emerald/logo.html" alt="Burgershot" title="Burgershot" border="0" /></a></td>
+</tr>
+<tr>
+<td>
+<span class="largetext"><span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> <a href="showthread66f5.html?tid=1553">Help: warning 213 tag mismatch</a> - Printable Version</span><br />
+<br />
++- Burgershot (<em>https://www.burgershot.gg</em>)<br />
+<!-- start: printthread_nav -->
++-- Forum: SA-MP (<i>https://www.burgershot.gg/forumdisplay.php?fid=3</i>)<br />
+<!-- end: printthread_nav --><!-- start: printthread_nav -->
++--- Forum: Pawn Scripting (<i>https://www.burgershot.gg/forumdisplay.php?fid=10</i>)<br />
+<!-- end: printthread_nav -->
++--- Thread: <span style="color: #ff7c7c;font-weight: bold;">[Pawn]</span> Help: warning 213 tag mismatch (<em>/showthread.php?tid=1553</em>)<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><br /><hr size="1" /><!-- start: printthread_post -->
+<strong>Help: warning 213 tag mismatch</strong> - <a href="member7951.html?action=profile&amp;uid=3256">Behemoth</a> -  <strong>2021-01-19</strong>
+<br />
+<br />
+<span style="color: #000000;" class="mycode_color">Heyo,</span><br />
+<br />
+<span style="color: #000000;" class="mycode_color">recently got back into scripting, and trying to create a function. </span><br />
+<br />
+<span style="color: #000000;" class="mycode_color">"function:SetPlayerCamera(playerid)"</span><br />
+<br />
+<span style="color: #000000;" class="mycode_color">When I compile, I get warning </span><span style="color: #000000;" class="mycode_color">"</span><span style="color: #000000;" class="mycode_color"><span style="font-size: small;" class="mycode_size"><span style="font-family: Whitney, 'Helvetica Neue', Helvetica, Arial, sans-serif;" class="mycode_font">warning 213: tag mismatch: expected tag "Function", but found none ("_")</span></span></span><span style="color: #000000;" class="mycode_color">"</span><br />
+<br />
+<span style="color: #000000;" class="mycode_color">It seems to be with the tag "function", but when I remove it, it works fine. This only seems to be an issue in the new compiler, but I'm struggling to understand why. Could someone please explain what this warning actually means and what best practice would be?</span><br />
+<br />
+<span style="color: #dcddde;" class="mycode_color"><span style="color: #000000;" class="mycode_color">cheers,</span></span>
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help: warning 213 tag mismatch</strong> - <a href="member8633.html?action=profile&amp;uid=42">Pinch</a> -  <strong>2021-01-19</strong>
+<br />
+<br />
+That's NOT how you are supposed to create a function.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>tag:function()<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return tag; // i.e. false if bool:function<br />
+}</code></div></div>You don't need a tag if you won't use it.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --><!-- start: printthread_post -->
+<strong>RE: Help: warning 213 tag mismatch</strong> - <a href="member7951.html?action=profile&amp;uid=3256">Behemoth</a> -  <strong>2021-01-19</strong>
+<br />
+<br />
+<blockquote class="mycode_quote"><cite><span> (2021-01-19, 06:37 PM)</span>Pinch Wrote:  <a href="showthread6be0.html?pid=9442#pid9442" class="quick_jump"></a></cite>That's NOT how you are supposed to create a function.<br />
+<br />
+<div class="codeblock"><div class="title">Code:</div><div class="body" dir="ltr"><code>tag:function()<br />
+{<br />
+    return tag; // i.e. false if bool:function<br />
+}</code></div></div>You don't need a tag if you won't use it.</blockquote><br />
+Thanks, I last programmed PAWN like 3/4 years ago. I was following a tutorial which added tags, hence the confusion.
+<br />
+<br />
+<hr size="1" />
+<!-- end: printthread_post --></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end: printthread -->
